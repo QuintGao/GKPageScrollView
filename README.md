@@ -11,6 +11,6 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 ## 效果图
 
 | 说明 | 效果图 |
-| **微博个人主页** | ![wb]() |
-| **网易云歌手也** | ![wy]() |
-| **抖音个人主页** | ![dy]() |
+| **微博个人主页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollView/gif/wb.gif) |
+| **网易云歌手也** | ![wy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollView/gif/wy.gif) |
+| **抖音个人主页** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollView/gif/dy.gif) |
