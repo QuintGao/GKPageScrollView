@@ -82,6 +82,7 @@
 /* Begin PBXFileReference section */
 		3290603D7DCF781C7B339C25 /* Pods_GKPageScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKPageScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6FFE256E4A4AF73CF6CBBA /* Pods-GKPageScrollView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GKPageScrollView/Pods-GKPageScrollView.debug.xcconfig"; sourceTree = "<group>"; };
+		6012562D2186947800547CE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		790A26D221834A7500BD7D8C /* GKPageScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKPageScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		790A26D521834A7500BD7D8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		790A26D621834A7500BD7D8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -265,6 +266,7 @@
 				790A26E321834A7700BD7D8C /* Info.plist */,
 				790A26E421834A7700BD7D8C /* main.m */,
 				790A27142184826800BD7D8C /* PrefixHeader.pch */,
+				6012562D2186947800547CE5 /* README.md */,
 			);
 			path = GKPageScrollView;
 			sourceTree = "<group>";
@@ -305,7 +307,6 @@
 				790A27102184810000BD7D8C /* 微博 */,
 				790A278E218551FF00BD7D8C /* 网易云音乐 */,
 				790A279B21858D4900BD7D8C /* 抖音 */,
-				7994B17B2196BFE900B9B251 /* 简书 */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -504,13 +505,6 @@
 				790A27A321858D7E00BD7D8C /* GKDYHeaderView.m */,
 			);
 			path = "抖音";
-			sourceTree = "<group>";
-		};
-		7994B17B2196BFE900B9B251 /* 简书 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "简书";
 			sourceTree = "<group>";
 		};
 		E90404BC35E632A12B14FE50 /* Pods */ = {
@@ -908,7 +902,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKPageScrollView/PrefixHeader.pch;
 				INFOPLIST_FILE = GKPageScrollView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -916,9 +910,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.GKPageScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -929,7 +923,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKPageScrollView/PrefixHeader.pch;
 				INFOPLIST_FILE = GKPageScrollView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -937,9 +931,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.GKPageScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
