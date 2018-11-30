@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define kWYHeaderHeight (kScreenW * 260.0f / 375.0f)
+#define kWYHeaderHeight (kScreenW * 500.0f / 750.0f - kNavBarHeight)
 
 @interface GKWYHeaderView : UIView
 
-- (void)scrollViewDidScroll:(CGFloat)offsetY;
+@property (nonatomic, strong) UILabel               *nameLabel;
 
 @end
 

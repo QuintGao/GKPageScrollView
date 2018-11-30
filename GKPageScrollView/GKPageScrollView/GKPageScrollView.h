@@ -79,6 +79,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) GKPageTableView   *mainTableView;
 
+// 吸顶临界点高度（默认值：状态栏+导航栏）
+@property (nonatomic, assign) CGFloat           ceilPointHeight;
+
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate;
 
 

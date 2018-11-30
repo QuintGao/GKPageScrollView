@@ -10,6 +10,9 @@
 #import "GKWYListViewController.h"
 #import "GKWYHeaderView.h"
 #import "JXCategoryView.h"
+#import "FXBlurView.h"
+
+#define kCriticalPoint -ADAPTATIONRATIO * 50.0f
 
 @interface GKWYViewController ()<GKPageScrollViewDelegate, JXCategoryViewDelegate, UIScrollViewDelegate>
 
@@ -24,6 +27,9 @@
 @property (nonatomic, strong) NSArray               *titles;
 @property (nonatomic, strong) NSArray               *childVCs;
 
+@property (nonatomic, strong) UIImageView           *headerBgImgView;
+@property (nonatomic, strong) UIVisualEffectView    *effectView;
+
 @end
 
 @implementation GKWYViewController
@@ -33,10 +39,34 @@
     
     self.gk_navBackgroundColor = [UIColor clearColor];
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    self.gk_navTitleColor = [UIColor whiteColor];
     
+    [self.view addSubview:self.headerBgImgView];
+    [self.view addSubview:self.effectView];
     [self.view addSubview:self.pageScrollView];
+    
     [self.pageScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(GK_STATUSBAR_NAVBAR_HEIGHT, 0, 0, 0));
+    }];
+    
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(@0);
+        make.width.mas_equalTo(kScreenW);
+        make.height.mas_equalTo(kWYHeaderHeight);
+    }];
+    
+    [self.headerBgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(kCriticalPoint);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.headerView.mas_top).offset(kWYHeaderHeight - kCriticalPoint);
+        make.height.mas_greaterThanOrEqualTo(GK_STATUSBAR_NAVBAR_HEIGHT);
+    }];
+    
+    [self.effectView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(kCriticalPoint);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.headerView.mas_top).offset(kWYHeaderHeight - kCriticalPoint);
+        make.height.mas_greaterThanOrEqualTo(GK_STATUSBAR_NAVBAR_HEIGHT);
     }];
     
     [self.pageScrollView reloadData];
@@ -56,7 +86,87 @@
 }
 
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView {
-    [self.headerView scrollViewDidScroll:scrollView.contentOffset.y];
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    if (offsetY >= kWYHeaderHeight) {
+        [self.headerBgImgView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view);
+            make.left.right.equalTo(self.view);
+            make.height.mas_equalTo(GK_STATUSBAR_NAVBAR_HEIGHT);
+        }];
+        
+        [self.effectView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view);
+            make.left.right.equalTo(self.view);
+            make.height.mas_equalTo(GK_STATUSBAR_NAVBAR_HEIGHT);
+        }];
+        self.effectView.alpha = 1.0f;
+    }else {
+        // 0到临界点 高度不变
+        if (offsetY <= 0 && offsetY >= kCriticalPoint) {
+            CGFloat criticalOffsetY = offsetY - kCriticalPoint;
+            
+            [self.headerBgImgView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view).offset(-criticalOffsetY);
+                make.left.right.equalTo(self.view);
+                make.bottom.equalTo(self.headerView.mas_top).offset(kWYHeaderHeight + criticalOffsetY);
+            }];
+            
+            [self.effectView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view).offset(-criticalOffsetY);
+                make.left.right.equalTo(self.view);
+                make.bottom.equalTo(self.headerView.mas_top).offset(kWYHeaderHeight + criticalOffsetY);
+            }];
+        }else { // 小于-20 下拉放大
+            [self.headerBgImgView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view);
+                make.left.right.equalTo(self.view);
+                make.bottom.equalTo(self.headerView.mas_top).offset(kWYHeaderHeight);
+            }];
+            
+            [self.effectView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view);
+                make.left.right.equalTo(self.view);
+                make.bottom.equalTo(self.headerView.mas_top).offset(kWYHeaderHeight);
+            }];
+        }
+        
+        // 虚化
+        NSLog(@"%f", offsetY);
+        
+//        0 - kWYHeaderHeight 透明度0-1
+        CGFloat alpha = 0.0f;
+        if (offsetY <= 0) {
+            alpha = 0.0f;
+        }else if (offsetY < kWYHeaderHeight) {
+            alpha = offsetY / kWYHeaderHeight;
+        }else {
+            alpha = 1.0f;
+        }
+        self.effectView.alpha = alpha;
+    }
+    
+    BOOL show = [self isAlbumNameLabelShowingOn];
+    
+    if (show) {
+        self.gk_navTitle = @"";
+    }else {
+        self.gk_navTitle = self.headerView.nameLabel.text;
+    }
+}
+
+- (BOOL)isAlbumNameLabelShowingOn {
+    UIView *view = self.headerView.nameLabel;
+    
+    // 获取titlelabel在视图上的位置
+    CGRect showFrame = [self.view convertRect:view.frame fromView:view.superview];
+    
+    showFrame.origin.y -= kNavBarHeight;
+    
+    // 判断是否有重叠部分
+    BOOL intersects = CGRectIntersectsRect(self.view.bounds, showFrame);
+    
+    return !view.isHidden && view.alpha > 0.01 && intersects;
 }
 
 #pragma mark - JXCategoryViewDelegate
@@ -81,6 +191,8 @@
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
+        _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
+        _pageScrollView.ceilPointHeight = 0;
     }
     return _pageScrollView;
 }
@@ -90,6 +202,26 @@
         _headerView = [[GKWYHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kWYHeaderHeight)];
     }
     return _headerView;
+}
+
+- (UIImageView *)headerBgImgView {
+    if (!_headerBgImgView) {
+        _headerBgImgView = [UIImageView new];
+        _headerBgImgView.contentMode = UIViewContentModeScaleAspectFill;
+        _headerBgImgView.clipsToBounds = YES;
+        _headerBgImgView.image = [UIImage imageNamed:@"wy_bg"];
+    }
+    return _headerBgImgView;
+}
+
+- (UIVisualEffectView *)effectView {
+    if (!_effectView) {
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        
+        _effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        _effectView.alpha = 0;
+    }
+    return _effectView;
 }
 
 - (UIView *)pageView {

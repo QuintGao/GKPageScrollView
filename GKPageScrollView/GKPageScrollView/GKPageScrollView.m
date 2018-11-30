@@ -46,6 +46,7 @@ NO)
 - (instancetype)initWithDelegate:(id<GKPageScrollViewDelegate>)delegate {
     if (self = [super init]) {
         self.delegate = delegate;
+        self.ceilPointHeight = GKPAGE_NAVBAR_HEIGHT;
         
         [self initSubviews];
     }
@@ -131,7 +132,7 @@ NO)
     // 获取mainScrollview偏移量
     CGFloat offsetY = scrollView.contentOffset.y;
     // 临界点
-    CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - GKPAGE_NAVBAR_HEIGHT;
+    CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
     
     // 根据偏移量判断是否上滑到临界点
     if (offsetY >= criticalPoint) {
@@ -169,13 +170,13 @@ NO)
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIView *pageView = [self.delegate pageViewInPageScrollView:self];
-    pageView.frame = CGRectMake(0, 0, GKPAGE_SCREEN_WIDTH, GKPAGE_SCREEN_HEIGHT - GKPAGE_NAVBAR_HEIGHT);
+    pageView.frame = CGRectMake(0, 0, GKPAGE_SCREEN_WIDTH, GKPAGE_SCREEN_HEIGHT - self.ceilPointHeight);
     [cell.contentView addSubview:pageView];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return GKPAGE_SCREEN_HEIGHT - GKPAGE_NAVBAR_HEIGHT;
+    return GKPAGE_SCREEN_HEIGHT - self.ceilPointHeight;
 }
 
 #pragma mark - UIScrollViewDelegate

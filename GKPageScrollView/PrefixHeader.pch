@@ -26,7 +26,10 @@ CGSizeEqualToSize(CGSizeMake(896, 414),[UIScreen mainScreen].bounds.size))\
 :\
 NO)
 
-#define kNavBarHeight   (IS_iPhoneX ? 88.0f : 64.0f)
+#define kNavBarHeight       (IS_iPhoneX ? 88.0f : 64.0f)
+
+//  适配比例
+#define ADAPTATIONRATIO     kScreenW / 750.0f
 
 // 颜色
 #define GKColorRGBA(r, g, b, a) [UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a]
@@ -36,5 +39,7 @@ NO)
 #define GKColorHEX(hexValue, a) GKColorRGBA(((float)((hexValue & 0xFF0000) >> 16)), ((float)((hexValue & 0xFF00) >> 8)), ((float)(hexValue & 0xFF)), a)
 
 #define GKColorRandom           GKColorRGB(arc4random() % 255, arc4random() % 255, arc4random() % 255)
+
+#define HEXCOLOR(hexValue,a) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0  blue:((float)(hexValue & 0xFF))/255.0 alpha:a]
 
 #endif /* PrefixHeader_pch */
