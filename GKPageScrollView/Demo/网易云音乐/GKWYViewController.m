@@ -10,7 +10,6 @@
 #import "GKWYListViewController.h"
 #import "GKWYHeaderView.h"
 #import "JXCategoryView.h"
-#import "FXBlurView.h"
 
 #define kCriticalPoint -ADAPTATIONRATIO * 50.0f
 
