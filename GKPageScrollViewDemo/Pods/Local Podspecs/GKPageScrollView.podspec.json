@@ -1,0 +1,24 @@
+{
+  "name": "GKPageScrollView",
+  "version": "0.1.0",
+  "summary": "A short description of GKPageScrollView.",
+  "homepage": "https://github.com/QuintGao/GKPageScrollView",
+  "license": "MIT",
+  "authors": {
+    "高坤": "1094887059@qq.com"
+  },
+  "social_media_url": "https://github.com/QuintGao",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/QuintGao/GKPageScrollView.git",
+    "tag": "0.1.0"
+  },
+  "source_files": "GKPageScrollView/**/*",
+  "public_header_files": "GKPageScrollView/**/*.h",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ]
+}
