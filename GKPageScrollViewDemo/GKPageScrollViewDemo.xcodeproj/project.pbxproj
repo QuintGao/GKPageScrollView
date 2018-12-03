@@ -79,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		383AF7CC171E7E56AA8C951E /* Pods-GKPageScrollViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		605182E121B4B9B400CCCC9E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		6F4B5827AAF3F42C5A2E47A4 /* Pods-GKPageScrollViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		73B7D43D367279863317FB60 /* Pods_GKPageScrollViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKPageScrollViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E2EDBB21B40F1E00DEF5B1 /* GKPageScrollViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKPageScrollViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,7 +188,6 @@
 		79E2EF9F21B4228D00DEF5B1 /* GKDYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYViewController.h; sourceTree = "<group>"; };
 		79E2EFA021B4228D00DEF5B1 /* GKDYListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYListViewController.m; sourceTree = "<group>"; };
 		79E2EFA121B4228D00DEF5B1 /* GKDYHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYHeaderView.m; sourceTree = "<group>"; };
-		79E2EFAE21B423B500DEF5B1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,7 +253,7 @@
 				79E2EDCD21B40F1F00DEF5B1 /* main.m */,
 				79E2EE8921B410CE00DEF5B1 /* PrefixHeader.pch */,
 				79E2EF5B21B418A800DEF5B1 /* GKPageScrollView.podspec */,
-				79E2EFAE21B423B500DEF5B1 /* README.md */,
+				605182E121B4B9B400CCCC9E /* README.md */,
 			);
 			path = GKPageScrollViewDemo;
 			sourceTree = "<group>";
