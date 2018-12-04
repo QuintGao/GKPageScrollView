@@ -81,6 +81,10 @@ NO)
 }
 
 #pragma mark - Public Methods
+- (void)refreshHeaderView {
+    self.mainTableView.tableHeaderView = [self.delegate headerViewInPageScrollView:self];
+}
+
 - (void)reloadData {
     self.isLoaded = YES;
     

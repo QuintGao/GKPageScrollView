@@ -80,6 +80,10 @@
 /* Begin PBXFileReference section */
 		383AF7CC171E7E56AA8C951E /* Pods-GKPageScrollViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		605182E121B4B9B400CCCC9E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		605182F521B66FB700CCCC9E /* GKPageTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPageTableView.h; sourceTree = "<group>"; };
+		605182F621B66FB700CCCC9E /* GKPageScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPageScrollView.h; sourceTree = "<group>"; };
+		605182F721B66FB700CCCC9E /* GKPageScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPageScrollView.m; sourceTree = "<group>"; };
+		605182F821B66FB700CCCC9E /* GKPageTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPageTableView.m; sourceTree = "<group>"; };
 		6F4B5827AAF3F42C5A2E47A4 /* Pods-GKPageScrollViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		73B7D43D367279863317FB60 /* Pods_GKPageScrollViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKPageScrollViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E2EDBB21B40F1E00DEF5B1 /* GKPageScrollViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKPageScrollViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +220,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		605182F421B66FB700CCCC9E /* GKPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				605182F621B66FB700CCCC9E /* GKPageScrollView.h */,
+				605182F721B66FB700CCCC9E /* GKPageScrollView.m */,
+				605182F521B66FB700CCCC9E /* GKPageTableView.h */,
+				605182F821B66FB700CCCC9E /* GKPageTableView.m */,
+			);
+			name = GKPageScrollView;
+			path = ../../GKPageScrollView;
+			sourceTree = "<group>";
+		};
 		79E2EDB221B40F1E00DEF5B1 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +257,7 @@
 		79E2EDBD21B40F1E00DEF5B1 /* GKPageScrollViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				605182F421B66FB700CCCC9E /* GKPageScrollView */,
 				79E2EE8A21B410E900DEF5B1 /* JXCategoryView */,
 				79E2EF8521B4228D00DEF5B1 /* Demo */,
 				79E2EDBE21B40F1E00DEF5B1 /* AppDelegate.h */,
@@ -434,12 +451,12 @@
 		79E2EF8621B4228D00DEF5B1 /* 网易云音乐 */ = {
 			isa = PBXGroup;
 			children = (
-				79E2EF8721B4228D00DEF5B1 /* GKWYHeaderView.h */,
-				79E2EF8821B4228D00DEF5B1 /* GKWYListViewController.m */,
 				79E2EF8921B4228D00DEF5B1 /* GKWYViewController.h */,
-				79E2EF8A21B4228D00DEF5B1 /* GKWYHeaderView.m */,
-				79E2EF8B21B4228D00DEF5B1 /* GKWYListViewController.h */,
 				79E2EF8C21B4228D00DEF5B1 /* GKWYViewController.m */,
+				79E2EF8B21B4228D00DEF5B1 /* GKWYListViewController.h */,
+				79E2EF8821B4228D00DEF5B1 /* GKWYListViewController.m */,
+				79E2EF8721B4228D00DEF5B1 /* GKWYHeaderView.h */,
+				79E2EF8A21B4228D00DEF5B1 /* GKWYHeaderView.m */,
 			);
 			path = "网易云音乐";
 			sourceTree = "<group>";
@@ -448,13 +465,13 @@
 			isa = PBXGroup;
 			children = (
 				79E2EF8E21B4228D00DEF5B1 /* GKWBViewController.h */,
-				79E2EF8F21B4228D00DEF5B1 /* GKWBListViewController.m */,
-				79E2EF9021B4228D00DEF5B1 /* GKWBHeaderView.m */,
-				79E2EF9121B4228D00DEF5B1 /* GKWBPageViewController.m */,
-				79E2EF9221B4228D00DEF5B1 /* GKWBListViewController.h */,
 				79E2EF9321B4228D00DEF5B1 /* GKWBViewController.m */,
+				79E2EF9221B4228D00DEF5B1 /* GKWBListViewController.h */,
+				79E2EF8F21B4228D00DEF5B1 /* GKWBListViewController.m */,
 				79E2EF9421B4228D00DEF5B1 /* GKWBPageViewController.h */,
+				79E2EF9121B4228D00DEF5B1 /* GKWBPageViewController.m */,
 				79E2EF9521B4228D00DEF5B1 /* GKWBHeaderView.h */,
+				79E2EF9021B4228D00DEF5B1 /* GKWBHeaderView.m */,
 			);
 			path = "微博";
 			sourceTree = "<group>";

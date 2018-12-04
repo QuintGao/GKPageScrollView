@@ -82,6 +82,10 @@
 
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate;
 
+/**
+ 刷新headerView，headerView高度改变时调用
+ */
+- (void)refreshHeaderView;
 
 /**
  刷新数据，刷新后pageView才能显示出来
