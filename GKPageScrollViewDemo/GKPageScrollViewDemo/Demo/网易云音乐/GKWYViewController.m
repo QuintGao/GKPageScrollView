@@ -84,7 +84,7 @@
     return self.childVCs;
 }
 
-- (void)mainTableViewDidScroll:(UIScrollView *)scrollView {
+- (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {
     CGFloat offsetY = scrollView.contentOffset.y;
     
     if (offsetY >= kWYHeaderHeight) {
@@ -130,10 +130,8 @@
             }];
         }
         
-        // 虚化
-        NSLog(@"%f", offsetY);
-        
-//        0 - kWYHeaderHeight 透明度0-1
+        // 背景虚化
+        // offsetY：0 - kWYHeaderHeight 透明度alpha：0-1
         CGFloat alpha = 0.0f;
         if (offsetY <= 0) {
             alpha = 0.0f;

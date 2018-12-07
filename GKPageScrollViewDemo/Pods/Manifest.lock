@@ -1,12 +1,10 @@
 PODS:
   - GKNavigationBarViewController (2.1.6)
-  - GKPageScrollView (0.1.0)
   - Masonry (1.1.0)
   - WMPageController (2.5.2)
 
 DEPENDENCIES:
   - GKNavigationBarViewController
-  - GKPageScrollView (from `../`)
   - Masonry
   - WMPageController
 
@@ -16,16 +14,11 @@ SPEC REPOS:
     - Masonry
     - WMPageController
 
-EXTERNAL SOURCES:
-  GKPageScrollView:
-    :path: "../"
-
 SPEC CHECKSUMS:
   GKNavigationBarViewController: c4f1121d2bc69acc082c280740cd70d658fde53d
-  GKPageScrollView: d630328f1557eb3fd7ab791daf06ad8c94ed89a1
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: 3791ead5fc57e58b9149c3c2f4489981e2969abc
+PODFILE CHECKSUM: 8f7a299a8ba4873f7d5cf34afced1e98a72f150e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2

@@ -1,6 +1,0 @@
-framework module GKPageScrollView {
-  umbrella header "GKPageScrollView-umbrella.h"
-
-  export *
-  module * { export * }
-}

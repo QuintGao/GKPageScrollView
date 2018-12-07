@@ -142,7 +142,7 @@
 
 - (void)gk_setRightBarButtonItems:(NSArray<UIBarButtonItem *> *)rightBarButtonItems {
     if (GKDeviceVersion >= 11.0) {
-        [self gk_setLeftBarButtonItems:rightBarButtonItems];
+        [self gk_setRightBarButtonItems:rightBarButtonItems];
     }else {
         if (rightBarButtonItems.count) {
             UIBarButtonItem *firstItem = rightBarButtonItems.firstObject;
@@ -154,7 +154,7 @@
                 [self gk_setRightBarButtonItems:items];
             }
         }else {
-            [self gk_setLeftBarButtonItems:rightBarButtonItems];
+            [self gk_setRightBarButtonItems:rightBarButtonItems];
         }
     }
 }

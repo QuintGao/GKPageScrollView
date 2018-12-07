@@ -63,7 +63,7 @@
     return self.childVCs;
 }
 
-- (void)mainTableViewDidScroll:(UIScrollView *)scrollView {
+- (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {
     // 导航栏显隐
     CGFloat offsetY = scrollView.contentOffset.y;
     // 0-200 0

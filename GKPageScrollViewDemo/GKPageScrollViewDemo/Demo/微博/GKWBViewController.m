@@ -87,7 +87,7 @@
     return self.childVCs;
 }
 
-- (void)mainTableViewDidScroll:(UIScrollView *)scrollView {
+- (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {
     CGFloat offsetY = scrollView.contentOffset.y;
     
     // 偏移量 < 60 0
