@@ -7,6 +7,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 - 支持如UITableView的sectionView的悬停效果
 - 支持多种分页控件，如[JXCategory](https://github.com/pujiaxin33/JXCategoryView),[WMPageController](https://github.com/wangmchn/WMPageController)等
 - 可实现导航栏颜色渐变、头图下拉放大等效果
+- 支持主页、列表页下拉刷新，上拉加载
 
 ## 效果图
 
@@ -15,6 +16,12 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 | **微博个人主页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/wb.gif) |
 | **网易云歌手页** | ![wy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/wy.gif) |
 | **抖音个人主页** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/dy.gif) |
+| **主页下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/mainRefresh.gif) |
+| **列表下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/listRefresh.gif) |
 
 ## 说明
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
+
+## 版本更新
+2018.12.11
+    1.0.3 - 增加下拉刷新、上拉加载功能
