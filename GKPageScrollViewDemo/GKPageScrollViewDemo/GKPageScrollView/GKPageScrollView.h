@@ -103,6 +103,9 @@
 // 吸顶临界点高度（默认值：状态栏+导航栏）
 @property (nonatomic, assign) CGFloat           ceilPointHeight;
 
+// 是否允许子列表下拉刷新
+@property (nonatomic, assign) BOOL              isAllowListRefresh;
+
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate;
 
 /**

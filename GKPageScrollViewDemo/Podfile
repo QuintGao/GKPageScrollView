@@ -8,5 +8,6 @@ target 'GKPageScrollViewDemo' do
   pod 'GKNavigationBarViewController'
   pod 'Masonry'
   pod 'WMPageController'
+  pod 'MJRefresh'
 
 end

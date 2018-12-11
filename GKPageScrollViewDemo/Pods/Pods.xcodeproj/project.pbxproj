@@ -7,104 +7,154 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03E6C18745D7D3CFAD4F513DE97B954B /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B8137F4859AB162CFEB21171A72C58D /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		097E1E5C0EC7662773E7FB8673550467 /* Pods-GKPageScrollViewDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 375654EC4A49700910468C6EA72753D8 /* Pods-GKPageScrollViewDemo-dummy.m */; };
-		0B5AF9AAE81EDE793C5B4DCE2739A31E /* UIViewController+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C85861AA06CCDD366D1E89CB6C9172 /* UIViewController+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0CB26840B2CD2CDB40F8A29A935233E3 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E19F3801D088532702FEAF29BFB1C798 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1046B7E99E763A9478CEDEB621A21C5F /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B138D14FAC5C2184267CC64232BC25D /* View+MASAdditions.m */; };
-		1C2C4F8EC63A52133C0E70314822F1EF /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4A796C177A03749889BBB3F83389F /* WMPageController.m */; };
-		1FCEE35C1EACFB482F03D5EF1E526523 /* UINavigationController+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 892490C7B4A92E2E5A7EB4862408D445 /* UINavigationController+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23109763173601A22C3B2467304ED2FA /* GKDelegateHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D3DA9BAD90F418B438DD62358EC1C97 /* GKDelegateHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24AA095821D4A1EE5818A0374DFCD08B /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ED73C775A4547AFB71800560CA63A94 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DD99903C9EEFB2F534262E66A1758D6 /* UINavigationItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 532DC3D0A9FBFE832DEDD9E849406B45 /* UINavigationItem+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		365C096A613F404568BA9F80A5DE30F1 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 136B110425503869463C05D0D144DDA8 /* UIViewController+WMPageController.m */; };
-		3B134BA71C572292701B2F2C64FC9686 /* WMProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = B68E647B9404AD58CB301B4D34EB21EB /* WMProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3DD238419863254148EBB4C08257EE20 /* GKDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B16866DDD772E16916A28DFB1D1E1 /* GKDelegateHandler.m */; };
-		405653B29E027E6A91B90B73BDA5F5BB /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B8769ECAAB60B0BD52537873A12C1 /* WMProgressView.m */; };
-		418024818E4492C5F458CB599D86C0A9 /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C43BF39138ED8F7852A2D7B92A7AC4 /* WMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		41EBA1AFBA807731CF765D311FF34CD2 /* GKNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB9B62B4330BBC685E35552BBC233C1 /* GKNavigationBarViewController.m */; };
+		02B6166834FDE582A7475C4D021C532A /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FF882E4D58507157A089C1DAB99C60F /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03E6C18745D7D3CFAD4F513DE97B954B /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCFCB68BB5521D101DF18D896C1937A /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04E5A6920974A68B2D15090CBE56D58B /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = B465867219678E4E395B6013637F4289 /* NSBundle+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056236357DE24E569F12C22683DF5F44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E0793204BC4297E5D7611C4B708CCB /* Foundation.framework */; };
+		0711A1D75306869BEFA3AF2199E98601 /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED93AAB7F9885A2A63C36BEDF962923 /* WMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0B5AF9AAE81EDE793C5B4DCE2739A31E /* UIViewController+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = EAC55B73EE7D46CB119D466E65C7D4C6 /* UIViewController+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CB26840B2CD2CDB40F8A29A935233E3 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8960D5AEE9CE87DC41216DDF6E797C /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1046B7E99E763A9478CEDEB621A21C5F /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B57CFE00C5CB09C73352E2473E55413A /* View+MASAdditions.m */; };
+		10884584B45C6564993981E004AE6B5B /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 98114CF2B395420FCB059615A6B15CB9 /* MJRefresh.bundle */; };
+		1364E587347DB7B32700946C39D69836 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = B57BCADDA617A8EF112D69556E367F29 /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16145634E76498599E08EE59BF2BA9D9 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CE3F08F8D9B4FB6AD1D01F6A56DE8BB /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19A2D61A783C422B8828408F98E56290 /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = F5454C04CA43BC98E97410F0980B7189 /* MJRefreshAutoFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FCEE35C1EACFB482F03D5EF1E526523 /* UINavigationController+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 179CF63177C39A4049211FAAE217DCAD /* UINavigationController+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		205C539389D123F0D635AEEE94E23A57 /* MJRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D079A2DE303E71FA5735FD69FFE633E0 /* MJRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23109763173601A22C3B2467304ED2FA /* GKDelegateHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 65DD0E184C1272F8A1066938A8418E00 /* GKDelegateHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24AA095821D4A1EE5818A0374DFCD08B /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 754B611942B1184C9A5E5C3C6964A31E /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24D677EDB9ED42B0ECCBC1DC21A4C97F /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC58D647534140F9E128D53FB62F304A /* UIViewController+WMPageController.m */; };
+		260F9D3312D9CF0E3D4B8C2D8F7FECC7 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF627E3AB7A7D19C2954C4F531B583D /* WMScrollView.m */; };
+		29242A37A7066BBDB72257519869850E /* UIViewController+WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 177670D6044454B6F73A5CDFE5118033 /* UIViewController+WMPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AE9F2C800AA6D4A6EDD9DB4B93DCDCF /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE54F2BB4D1CB8AC487116BBB96BA30 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DD99903C9EEFB2F534262E66A1758D6 /* UINavigationItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0954A8A7444DEB95151D2BA3010FF3 /* UINavigationItem+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E9BEC50BC177DAB18B7F6BC6FB5532F /* WMPageController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 185514851C11D8F4485A7E9E635E5100 /* WMPageController-dummy.m */; };
+		2EFA8D0D3C31B3A77612C955773F7D36 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D283CC2669D99E9E895D704EF0E0C98 /* MJRefreshBackNormalFooter.m */; };
+		31D52A4583BB36984AEC4C6D71265746 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9F67CB77B4EFCA00A77597F841EEDE /* MJRefreshStateHeader.m */; };
+		35CCA902DF0D8C0AB9C3A7C8AF4FD40D /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0608A779B4796863FB0AE6AB8109B458 /* UIScrollView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		366A0A2B7CC87D039FD802C7FF82BEE7 /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 338971AD2D46BFBF17A517205ADDACB0 /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		370474488F17310C2E917826EE8B93FB /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = FACCBA1C3C564D2D90722AA41D4AC161 /* MJRefreshHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37C8BB1F8EBA9658D0F1524854E8A820 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B4FC6FA9E034CE2973F72BCCC094BF /* WMProgressView.m */; };
+		3DD238419863254148EBB4C08257EE20 /* GKDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 360853E6300B04D243EB8617CD9F62A4 /* GKDelegateHandler.m */; };
+		41EBA1AFBA807731CF765D311FF34CD2 /* GKNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66879F7B8A3610E950E4B0CE8C2922EA /* GKNavigationBarViewController.m */; };
 		452DC2749263E9FA3AE49F86A63E6DB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B47C49427D8450C412A7F38AC4D176 /* UIKit.framework */; };
-		4703C7E2919EB2139CBC02B615ADB958 /* UIScrollView+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 51176F9E67C6B029AE9BE25EDA2C45D3 /* UIScrollView+GKCategory.m */; };
-		47FE242BB4EF9689EF9FD460460EB5B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A7FBB6374494A6CFBE524A2C4950F /* CoreGraphics.framework */; };
-		49CD91D6F77E8E088F0A5C59EE86B53C /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDE35843E4F3D5093233AD3586CF2AA /* ViewController+MASAdditions.m */; };
-		4A3DD37ABD9A5758C3BE31E8B1CF7B29 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C44BCDEC4789F8679922C6CA6C00F23 /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4703C7E2919EB2139CBC02B615ADB958 /* UIScrollView+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 52507AD3115EE633B39C12700D2B4244 /* UIScrollView+GKCategory.m */; };
+		482B75E0CB8031D3F673F70242FA41FB /* MJRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6269036FFCE7C248B0B4FA1C4FEBB02 /* MJRefresh-dummy.m */; };
+		49CD91D6F77E8E088F0A5C59EE86B53C /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F679F750BA6B0E873A3EEEAF29C2B /* ViewController+MASAdditions.m */; };
+		4A3DD37ABD9A5758C3BE31E8B1CF7B29 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = EB8D833499D7C5C88B44574D24D9BFE5 /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B68EAAD60BD0B67B42711BF6DACDC9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E0793204BC4297E5D7611C4B708CCB /* Foundation.framework */; };
-		50E5180F7B7ECFE5E49A42E8C69934B9 /* GKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CCCB30C722FCBCFA5D87C59938F9A4B /* GKCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		50FADD0D1A73B1AD065B54A6355CAA06 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 497FE032265414C5F9E4D8BB51D3B2FD /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		535B54E00F07AFF95370936C22633217 /* GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 949E168CD19F523BCD12A651A36E5988 /* GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56A62B1FA5AAC015FF94D431E9DD2D6E /* GKNavigationBarViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 01340040C7DCB79F594F6E06E843CE6A /* GKNavigationBarViewController-dummy.m */; };
-		56BC3D44FE3E01258BAB8F8B0C2F7EA2 /* WMMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = BD199BB296659C0B513B4B2B9127D4AA /* WMMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		59F1F34EC8668D299B1A1BEA3AD51A98 /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC5CB9F96D2C9DAA23FA4D8EF200475 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D89F3E6664954CC279E3D17101F6F52 /* GKPopTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F1F70F525C6114BF31699EE676AFE4A /* GKPopTransitionAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61D6D891F5267AB65CD97EC2C0D4BA9C /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 97012C6780EF89B092A4387AA34BEBF6 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65AD43F8BB7734430A4B11B134CFA4E0 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5A38D70DE860D273BB625DE7E79AA /* MASLayoutConstraint.m */; };
-		69E753A064765388C9FA44918F81E5A5 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2891EA72CB6F9621805D927BAB4E130A /* MASViewConstraint.m */; };
-		6BC4DCD480A10D5113BBE269FBE8BFBD /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E1B444E9AAA10434FAB312AFAA26A9 /* WMMenuItem.m */; };
-		73FA32A3D3F86B7A5727BCB6F28E9D89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E0793204BC4297E5D7611C4B708CCB /* Foundation.framework */; };
-		79A86E841F696E2E25F118B6A79B5119 /* Pods-GKPageScrollViewDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C611E1930F0E68AA595932CCAD134CC /* Pods-GKPageScrollViewDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7AD2B42FFAAD3DF943B196DFFEFBB53D /* WMPageController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B792C21F1B09FFEB4ED22D59433A315 /* WMPageController-dummy.m */; };
-		85EBEDCCE43BD47615D3DAF31B09D655 /* GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C5BA55D48E6A6E7B7D7A2C3BFBA75E /* GKNavigationBar.m */; };
-		8622C7A7B28E6D0F63081AEFF7CE6801 /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 318DF61217C1C412640291EF1F8313EB /* WMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		892469602EA886064AC260E8CC7E6657 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC55BD1F0320C19E0FFFB476B060E7E /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8DCB0CECC25C0DC0275A6E7E28730541 /* WMPageController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F56CEA1BAE8D49B5BB8DF7C75C083839 /* WMPageController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95F2C597EAECA09A63D4D6AA72D456E1 /* GKNavigationBarConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE66FF4ED5A6978C21069FD5391E3DB /* GKNavigationBarConfigure.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		98655E9ABEE655AC980F3AB422088C38 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCB24A8393B36DA27BB80D5FC6CFD6 /* MASConstraint.m */; };
-		9B2A538A79F7423618D8C5C75B32D876 /* UIViewController+GKRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8A2080E9E8BFDA26AD4323DD4E5EB69 /* UIViewController+GKRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DF1CD6D437EF1F3334EF52497102528 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F070575C739FDC723BC4D9212123EF09 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0FDD2A6832EE4854731CDB45C4B5B9F /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3456E0B16BC8B43645CF974420BB25F7 /* MASConstraintMaker.m */; };
-		A7618D8B5A8BAEEC7E570D816FED9EB3 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B23ABC7E0EFBBD0E1C65285FA9EC1A /* WMMenuView.m */; };
-		A9C9774D6BCA3A159F4DA9D9D0CD4196 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D114B7270598D39513083FB976AF3E /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		AB38EF883D7EC99553296626D7AEC7AA /* GKNavigationBarViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 321D89330E2640CE0D3779056027D084 /* GKNavigationBarViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ACA653D005AE02CB65C033090CCE0E0B /* GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FBB008B41AFF34E50ED0FF711AC001C /* GKNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E75F1293990391FB686C2BBD734E715 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D3F76B86E03473D4BD7A7178CB96BF /* MJRefreshFooter.m */; };
+		5079158F4FC39A937CAD94D6E1D1AE00 /* Pods-GKPageScrollViewDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C611E1930F0E68AA595932CCAD134CC /* Pods-GKPageScrollViewDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50E5180F7B7ECFE5E49A42E8C69934B9 /* GKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F7FD864276E45BDB9DA29D65E05F7FA /* GKCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50FADD0D1A73B1AD065B54A6355CAA06 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = E0B312DAF52D47F40CE1552B4F4D920A /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		535B54E00F07AFF95370936C22633217 /* GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD4C572084E03D7E5DE4D808DE11823 /* GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54A56E164AB1CA90A6CF0D1D817754EE /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B8192020213BD64333EBA9FED5528A79 /* WMMenuItem.m */; };
+		56A62B1FA5AAC015FF94D431E9DD2D6E /* GKNavigationBarViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6674932BB705E4BB568FF5414D53D2 /* GKNavigationBarViewController-dummy.m */; };
+		57F9EB19DF46EC2590C8B10DB89D146E /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 0980FAD3AA683017818D32E10D8884D5 /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59F1F34EC8668D299B1A1BEA3AD51A98 /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 0428EF1B8E968BD299C67A024F88A234 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D89F3E6664954CC279E3D17101F6F52 /* GKPopTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B134E91C2F2842DD2444882BB483E8D /* GKPopTransitionAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FF8EC37FC444D9085BDF33259BD7AC5 /* Pods-GKPageScrollViewDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 375654EC4A49700910468C6EA72753D8 /* Pods-GKPageScrollViewDemo-dummy.m */; };
+		60ED14BBC51189EA4BD35DF655BDF8EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A7FBB6374494A6CFBE524A2C4950F /* CoreGraphics.framework */; };
+		61D6D891F5267AB65CD97EC2C0D4BA9C /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 459E35632E6634B375D0C6C3BAC34E5B /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62E84F67014328D5ED1B0F65775CDDFA /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0841C2E50BAFD63BAFB2AF73B25B690D /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65AD43F8BB7734430A4B11B134CFA4E0 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CFBDF545A090162866390A04CA13FE /* MASLayoutConstraint.m */; };
+		668ACF490FD9733FA0C2B1F71D6EB61C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E0793204BC4297E5D7611C4B708CCB /* Foundation.framework */; };
+		69E753A064765388C9FA44918F81E5A5 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 56858649ACEDA085B0CF0F30EDE29FA5 /* MASViewConstraint.m */; };
+		6C7D22626A2F5AD4BB1ACC02D8F10731 /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 938F1DD683B6F96DD80C8A9B3BE2E185 /* MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D2FD545E0B463F0210B5242E1477721 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF497ACA1EF06B75473AE16AA72ABC /* MJRefreshAutoStateFooter.m */; };
+		6E560D2FE4A36AB742453E3CF5F4CE68 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE3B50AA2F5C081F06FBF57775D1CC1 /* MJRefreshAutoNormalFooter.m */; };
+		7203872DAF858D609912A7D0F768FEAF /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CFDD57716CCE85E9EF6192BE1EB986 /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72BA18069C0DFC671464EB497250D358 /* MJRefreshBackFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B3731E81AC354F31DDF0431C738A801 /* MJRefreshBackFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79E7436378404C9DD06E9F65180D62A4 /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 939ADDD60C3A982A8E54BA6CD8703582 /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F9B9007891D36363BE6BE0CB08C1006 /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = F1A171B1C2DC09215C34E83341696DB4 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FC1CEA91F90834F660AA84E603B37AD /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A6B34FDEF6D01E3E7027343952E4539 /* MJRefreshGifHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81727E0FB34C0FE08D39BDE52687701F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 23963CB7D89626C3D652AB88A304BEE1 /* UIScrollView+MJExtension.m */; };
+		8234F492BBE286EA25736C05B5728C82 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 774605ACBBC2A7B0D81253A233A9D568 /* UIView+MJExtension.m */; };
+		85EBEDCCE43BD47615D3DAF31B09D655 /* GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3621C9FBF2C4FDCF93FC77211249BF /* GKNavigationBar.m */; };
+		860432B34D2D2D6D9847B7A640A9BD69 /* WMPageController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71D0DEE60282480ECD449C6F947D8A81 /* WMPageController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		892469602EA886064AC260E8CC7E6657 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AE6AFC9EABD7E8174E23EF91E28667DB /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D50C03D06DF55C9FDE7CC49D58BEF93 /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7596E608892AEC13CCC40A86ECBB09A3 /* WMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94237113054B0D5CE28D86E2C827BD72 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BD908CC2E552AE6DBA75AFC62B8320A8 /* MJRefreshGifHeader.m */; };
+		94F6CE09F609B0D6AE9406E6FE89C6EC /* WMProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C12A2B4E5A6E5224E9667AB47BA941B /* WMProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95F2C597EAECA09A63D4D6AA72D456E1 /* GKNavigationBarConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = B7E25520633691451A615A3F7CB661B7 /* GKNavigationBarConfigure.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98655E9ABEE655AC980F3AB422088C38 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F666A2C97902BF0A8E659A6DAB97EB77 /* MASConstraint.m */; };
+		9A9931F189A4EF1FABC8C731BC11AEFE /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BE4CCBC6FAA1594AF83DC05CA52A5 /* NSBundle+MJRefresh.m */; };
+		9B2A538A79F7423618D8C5C75B32D876 /* UIViewController+GKRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D938D7FE7007F00DD396DFFAA815649 /* UIViewController+GKRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DF1CD6D437EF1F3334EF52497102528 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 019254221F5AB11A17E0F5CD24C0FB5E /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0FDD2A6832EE4854731CDB45C4B5B9F /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0CB2FF189B09F19ED8C69B49C8F0F8 /* MASConstraintMaker.m */; };
+		A7ED1FA2F59F020062DE3B579AF84F55 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AD77580682F5ADC34C80551AD7615798 /* MJRefreshComponent.m */; };
+		A9C9774D6BCA3A159F4DA9D9D0CD4196 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D52FD97A987A1C47B33D745189DD3EF /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		AB38EF883D7EC99553296626D7AEC7AA /* GKNavigationBarViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D65DA6A7428C041325DF42E4BD1D5E17 /* GKNavigationBarViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACA653D005AE02CB65C033090CCE0E0B /* GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D73749C2B8DE20902201B2EDDA13F8A2 /* GKNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0E0863B30CBF4D629B094198D7CE455 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E0793204BC4297E5D7611C4B708CCB /* Foundation.framework */; };
-		BAF51D035443B58367A51F814606E26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B47C49427D8450C412A7F38AC4D176 /* UIKit.framework */; };
-		BDAF7DA3CFF7F14768A875455CD3A4FB /* GKNavigationBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BB447DDE7BA132C243BB077657BB060 /* GKNavigationBarViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0E60F0CEF08F6B87CA7E77161017610 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6116B8EE10A8994FCB23AF93A26D3B10 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C13FE96E29E0687DBFD73A15F504E097 /* UIViewController+WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = B33E8FBB339701B11703DD364CAB18CA /* UIViewController+WMPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C1D7903849CA81D660D50D0809B59EBF /* WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 53C3ED9E445EE43BA54E53A9CFA684C7 /* WMPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C24A50ABC3730860B5C818FCB9694C79 /* UINavigationController+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B593F3E3CB57390B5DEB79E86AE9CA /* UINavigationController+GKCategory.m */; };
-		C2B0DA35772F9F6531314F99C5E2BBDD /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = AED17C4D273CB34E325B76092627463A /* MASCompositeConstraint.m */; };
-		C67395B2593F5C97FACF59BA8E1EFF23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E0793204BC4297E5D7611C4B708CCB /* Foundation.framework */; };
-		C7F8E19DF007724D472F873813DC9EF8 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E26BCF4F7F229B412CF6EBA7C7545CA /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C9AB5CD27F67670A5A4D22C76F175E50 /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 67DD96700EFA8F332E04E886D53EBA57 /* GKNavigationBarConfigure.m */; };
-		CAD12EC4165B2CC0B80A5E7168037F4B /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = B57D90DE99B9BE3DE9465ACBACFB9D77 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D0DBD49CF3B8A6B85A639704E3B5115C /* GKPushTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = CD45804EC53DD96B7EB42C72FCCA8D69 /* GKPushTransitionAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D875D58D04351295E1827DB66D6780A0 /* GKPopTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 924E3E5E452642169C0D00BD4479638E /* GKPopTransitionAnimation.m */; };
-		D9561A7C99AD978BA82BEC10C9DFCE04 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C0535A983186B8C7DF8304ED29CBE30 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DCBA94B9BD9E5DD47BAF0C901C85ABC4 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 883C614EE2E2B8B0DF2B510DC85B3A7D /* Masonry-dummy.m */; };
-		DD8396CCFA6E0D7160C2D29EAA0ABBFD /* UIViewController+GKRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 683860252EA3CF158F1653AEA9D55507 /* UIViewController+GKRotation.m */; };
-		E19F2796E1031FD04FDA13ED0DE847FE /* GKPushTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C08AE67CCAB83DA8409F645F86826BE4 /* GKPushTransitionAnimation.m */; };
-		E58DBE93A03FB2505913F5EA6FB84F16 /* UIScrollView+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E8DD9396028E29FEAB8DA3FED4E703E /* UIScrollView+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EA2E87A88076059D332C68E18DC14937 /* UINavigationItem+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB0C0A9845C8966A4F35DE31BBB3153 /* UINavigationItem+GKCategory.m */; };
-		EB7EB5D105816193E5B2E141D80EE308 /* GKNavigationBarViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 819F3F778CE47A6C1956E7ED7C59CD12 /* GKNavigationBarViewController.bundle */; };
-		EC276D99797A5947F84D1AB0BDD5B215 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B7484BC80E4C84AAA8002459822035 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC597AA998A43611CE020078988D4BCB /* UIBarButtonItem+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADAD92D7817C922A6B5D5E7EAF051AE /* UIBarButtonItem+GKCategory.m */; };
-		ED089CDDEBE471AB676F4BA5D6E3966D /* UIBarButtonItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F1DC3A81CE26D52BF741B88A8892081 /* UIBarButtonItem+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFA44A4C481237683E2330585647DAF3 /* UIViewController+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 65978ED6E00599C7B60EBDC3AA4CB734 /* UIViewController+GKCategory.m */; };
+		B11C6B548F3259BD2BF35C9E569BE94F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B47C49427D8450C412A7F38AC4D176 /* UIKit.framework */; };
+		B356C813D009D8F48B49B93F970B1F1B /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E86F42C626BA81AA3C82BB881FEEBB /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B50A173CC006987E8682D89650F14F63 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5E912B632AF6A67FCBE6FB5CFB835 /* MJRefreshAutoGifFooter.m */; };
+		B7170162BEBD63676519BFABE4D76287 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 762B5BF221481A776A48EDBA9E70C118 /* MJRefreshHeader.m */; };
+		B967DE3AFEE4C96AAB002B8095B6C7C2 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C357C286D23D08D28A7613D0F8B1283 /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD549FDDF8E18393542908E05DF10310 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E0793204BC4297E5D7611C4B708CCB /* Foundation.framework */; };
+		BDAF7DA3CFF7F14768A875455CD3A4FB /* GKNavigationBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B431A1E66F86C8A7A4F776C3ABF4177 /* GKNavigationBarViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0E60F0CEF08F6B87CA7E77161017610 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6395ED6CE176EF8CAD22F1B62D701A53 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1117CCC45FA6780A4E9CC0879D5C3EA /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A16C02856067B9AC5EFA2F6224CA1AD /* MJRefreshBackStateFooter.m */; };
+		C24A50ABC3730860B5C818FCB9694C79 /* UINavigationController+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A2D104EFD68C76F8C6158E9F8D793 /* UINavigationController+GKCategory.m */; };
+		C2B0DA35772F9F6531314F99C5E2BBDD /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 742CA7A753BF995DF403B8510617A8DA /* MASCompositeConstraint.m */; };
+		C75FB64A22D867377A7EAFE012CBC107 /* WMMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 409031075F3ADC7EF1B2DA25387A0779 /* WMMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7F8E19DF007724D472F873813DC9EF8 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = EAFD5168E770661A6CEEF4169FE42E0F /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9AB5CD27F67670A5A4D22C76F175E50 /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6D36C5ED44ACFFC5C51A650B24D89 /* GKNavigationBarConfigure.m */; };
+		CAD12EC4165B2CC0B80A5E7168037F4B /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = D89E2A05F388E452E56D5FB2A89E37E4 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE1352C3DE85EA603F8C42AFCFC89206 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB78C8105FB59E8A43B93490C458655 /* WMPageController.m */; };
+		CF76306C6168AD7A6C076288CA899B02 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14C9A66ED8ED0C0A59EDA2166AED71 /* UIScrollView+MJRefresh.m */; };
+		D0DBD49CF3B8A6B85A639704E3B5115C /* GKPushTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = EBD0420278097626F5B42240ECF0DA4A /* GKPushTransitionAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D875D58D04351295E1827DB66D6780A0 /* GKPopTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B574D86E338BA3B56093BEF79D56B723 /* GKPopTransitionAnimation.m */; };
+		D9561A7C99AD978BA82BEC10C9DFCE04 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 18AC80769F2F556803A0BC87C571EFD0 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB70C0344D46C9DBD3DBD9CA84C639D3 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DA74991EFAC9E08D2ECEE5A228CEE8 /* MJRefreshAutoFooter.m */; };
+		DCBA94B9BD9E5DD47BAF0C901C85ABC4 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EE97293407B0FEFB788FA1ECBF9220 /* Masonry-dummy.m */; };
+		DD8396CCFA6E0D7160C2D29EAA0ABBFD /* UIViewController+GKRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 066F3FDB1C9FB3E13041E2D5763BDD36 /* UIViewController+GKRotation.m */; };
+		DDF1CF7C609D8221ACA3FD05229236F8 /* WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2844668C6D47FD8E095B78E2252A7BA9 /* WMPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DEF65EB64591CE2D6F99463627951710 /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 252E64DC7B2A071FF21A88EB86E40E03 /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E19F2796E1031FD04FDA13ED0DE847FE /* GKPushTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E15A3152B5BC1E5D6CF5E23C8E0D7B /* GKPushTransitionAnimation.m */; };
+		E58DBE93A03FB2505913F5EA6FB84F16 /* UIScrollView+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 415DD347C2AC3E0F21CD51786A1C1D5D /* UIScrollView+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA2E87A88076059D332C68E18DC14937 /* UINavigationItem+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AD0A938927DCF83ADEB28A735FAE5C /* UINavigationItem+GKCategory.m */; };
+		EB7EB5D105816193E5B2E141D80EE308 /* GKNavigationBarViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCEE4E132FF00FFFCBFEE8D21386922B /* GKNavigationBarViewController.bundle */; };
+		EC276D99797A5947F84D1AB0BDD5B215 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 398B49D7FBD3A02D5F0B75D23D30CB25 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC440904188BC2DBDAFEA16AC866316C /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C31418341D34A71D8BF4B2EFDA038865 /* WMMenuView.m */; };
+		EC597AA998A43611CE020078988D4BCB /* UIBarButtonItem+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D592B53795CDDCB11C386C6B50F3E15A /* UIBarButtonItem+GKCategory.m */; };
+		ED089CDDEBE471AB676F4BA5D6E3966D /* UIBarButtonItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D6912EB055D0BF84A499F99AF795BAD /* UIBarButtonItem+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEDC5683FF36946364A3C8344630705B /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8953EB4BFE4F6CB7231586DDC7A4CCC1 /* MJRefreshBackFooter.m */; };
+		EF873453BEEE867C2F8C43660CEB4A78 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6302885C0061796634231F70FEF10D11 /* MJRefreshNormalHeader.m */; };
+		EFA44A4C481237683E2330585647DAF3 /* UIViewController+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFB5239B05B576ACF7FC130ACA01578 /* UIViewController+GKCategory.m */; };
+		F024CC151BA9C2DCEEEDB1857C832CB8 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 96406E1077A4CC24AB0A7C5AD69F676F /* MJRefreshConst.m */; };
 		F083D8E141B142AE88918880B09C6921 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B47C49427D8450C412A7F38AC4D176 /* UIKit.framework */; };
-		F1F7EA0A021AF4A11E1C1D221186B378 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F743E4AF35CB68B1095E7B08C1B4B55 /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F53E3A2A1B6B94BF66E65E3A048C6769 /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BC9743CE8B28AD9ABA22ACA1AB9208F /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F70096947E7F91201BC9FACCF008FE9C /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 637FF9C6A3F61BADEEC2454BAAC39B26 /* NSArray+MASAdditions.m */; };
-		FC6A1A8B813CD8511268FAF690FFB9A2 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA3CC70E3008EDFA343E77F3D61A39C /* WMScrollView.m */; };
-		FCE43D464D18874613D40BCAF034A404 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 669AAA4504EA67FC3E52787016B1CBE5 /* MASViewAttribute.m */; };
+		F1F7EA0A021AF4A11E1C1D221186B378 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A867D6568830D2CB489A9851EB99FE0 /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F41FA61294C6ABEEAEDC06A420AD696E /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F84637A35A20844B11B3AFB7DE7C2DDE /* MJRefreshBackGifFooter.m */; };
+		F53E3A2A1B6B94BF66E65E3A048C6769 /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E45550948CEF0513142DF3A64E65BB6D /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F70096947E7F91201BC9FACCF008FE9C /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A54C59CBD04AB3E947BE746F45F51DE /* NSArray+MASAdditions.m */; };
+		FCE43D464D18874613D40BCAF034A404 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D3A1F10DEACE11F24A0FD4B3E31585 /* MASViewAttribute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2A77B24896A08402CA34B5682C9BDB80 /* PBXContainerItemProxy */ = {
+		4D5F6D8BD8FD0CDCF4796A58F30B6989 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 546B747B9DB0515E059EEBA0B9E98B42;
+			remoteInfo = MJRefresh;
+		};
+		55CFAA536BFA7A74E00189EB0AA1D16F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E05A2E91CDD43423FA4DE56A7BA40A9;
+			remoteInfo = WMPageController;
+		};
+		93E12C4DC5ADA27C3E817BA12BBED11B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C1526AB455834F202F54C3E610451799;
 			remoteInfo = GKNavigationBarViewController;
 		};
-		C2971940179E6A55F24BBC24E1517C77 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14FC201DE17C0185AF150E9FC423EB67;
-			remoteInfo = WMPageController;
-		};
-		F02E538E8A9828149E8DAA415DBAFE22 /* PBXContainerItemProxy */ = {
+		C2E0BC8C1BBC3154B367CC9F4CF2F6DA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -114,116 +164,155 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		009B30356EB5E1BE2EA46ECAAB6BA2C6 /* WMPageController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-prefix.pch"; sourceTree = "<group>"; };
-		01340040C7DCB79F594F6E06E843CE6A /* GKNavigationBarViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKNavigationBarViewController-dummy.m"; sourceTree = "<group>"; };
-		06B23ABC7E0EFBBD0E1C65285FA9EC1A /* WMMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuView.m; path = WMPageController/WMMenuView/WMMenuView.m; sourceTree = "<group>"; };
-		0B5EF3929E951C4D0E0663DBA76D3F12 /* GKNavigationBarViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GKNavigationBarViewController.modulemap; sourceTree = "<group>"; };
+		019254221F5AB11A17E0F5CD24C0FB5E /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		0428EF1B8E968BD299C67A024F88A234 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		0608A779B4796863FB0AE6AB8109B458 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		066F3FDB1C9FB3E13041E2D5763BDD36 /* UIViewController+GKRotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GKRotation.m"; path = "GKNavigationBarViewController/Category/UIViewController+GKRotation.m"; sourceTree = "<group>"; };
+		080113C18C59D8C19C095FF7C1033B00 /* GKNavigationBarViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GKNavigationBarViewController.framework; path = GKNavigationBarViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0841C2E50BAFD63BAFB2AF73B25B690D /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
+		0980FAD3AA683017818D32E10D8884D5 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
+		0A16C02856067B9AC5EFA2F6224CA1AD /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
 		0E329BE5A1592A4F2DDA76FDB3BDAB4A /* Pods-GKPageScrollViewDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GKPageScrollViewDemo-Info.plist"; sourceTree = "<group>"; };
-		0E4B8769ECAAB60B0BD52537873A12C1 /* WMProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMProgressView.m; path = WMPageController/WMMenuView/WMProgressView.m; sourceTree = "<group>"; };
-		0E8DD9396028E29FEAB8DA3FED4E703E /* UIScrollView+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+GKCategory.h"; path = "GKNavigationBarViewController/Category/UIScrollView+GKCategory.h"; sourceTree = "<group>"; };
-		116BF3764DD07BA2BAF4D8827549268E /* Masonry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Masonry-Info.plist"; sourceTree = "<group>"; };
+		0F7F679F750BA6B0E873A3EEEAF29C2B /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		12ACBF352A6FDD02DCEAB6755077E3DB /* Pods-GKPageScrollViewDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GKPageScrollViewDemo.modulemap"; sourceTree = "<group>"; };
-		136B110425503869463C05D0D144DDA8 /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+WMPageController.m"; path = "WMPageController/UIViewController+WMPageController.m"; sourceTree = "<group>"; };
-		1A59B7131A483C81A014085A14A4F257 /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Masonry.modulemap; sourceTree = "<group>"; };
-		1C44BCDEC4789F8679922C6CA6C00F23 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
-		1ED73C775A4547AFB71800560CA63A94 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
-		1FE66FF4ED5A6978C21069FD5391E3DB /* GKNavigationBarConfigure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarConfigure.h; path = GKNavigationBarViewController/GKNavigationBarConfigure.h; sourceTree = "<group>"; };
-		25808447F8D67553FE8E24B347394C3F /* GKNavigationBarViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GKNavigationBarViewController.framework; path = GKNavigationBarViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		276E9F72996C3644271D905FD6009221 /* GKNavigationBarViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GKNavigationBarViewController-Info.plist"; sourceTree = "<group>"; };
-		2891EA72CB6F9621805D927BAB4E130A /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		2B8137F4859AB162CFEB21171A72C58D /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		2F1F70F525C6114BF31699EE676AFE4A /* GKPopTransitionAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPopTransitionAnimation.h; path = GKNavigationBarViewController/TransitionAnimation/GKPopTransitionAnimation.h; sourceTree = "<group>"; };
-		2FDE35843E4F3D5093233AD3586CF2AA /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		318DF61217C1C412640291EF1F8313EB /* WMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMScrollView.h; path = WMPageController/WMMenuView/WMScrollView.h; sourceTree = "<group>"; };
-		321D89330E2640CE0D3779056027D084 /* GKNavigationBarViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKNavigationBarViewController-umbrella.h"; sourceTree = "<group>"; };
+		177670D6044454B6F73A5CDFE5118033 /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+WMPageController.h"; path = "WMPageController/UIViewController+WMPageController.h"; sourceTree = "<group>"; };
+		179CF63177C39A4049211FAAE217DCAD /* UINavigationController+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+GKCategory.h"; path = "GKNavigationBarViewController/Category/UINavigationController+GKCategory.h"; sourceTree = "<group>"; };
+		185514851C11D8F4485A7E9E635E5100 /* WMPageController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WMPageController-dummy.m"; sourceTree = "<group>"; };
+		18AC80769F2F556803A0BC87C571EFD0 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
+		1A867D6568830D2CB489A9851EB99FE0 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		1B3BE4CCBC6FAA1594AF83DC05CA52A5 /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
+		1C357C286D23D08D28A7613D0F8B1283 /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
+		1CE3F08F8D9B4FB6AD1D01F6A56DE8BB /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
+		1F6674932BB705E4BB568FF5414D53D2 /* GKNavigationBarViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKNavigationBarViewController-dummy.m"; sourceTree = "<group>"; };
+		20D3A1F10DEACE11F24A0FD4B3E31585 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
+		23963CB7D89626C3D652AB88A304BEE1 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		252E64DC7B2A071FF21A88EB86E40E03 /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
+		27E15A3152B5BC1E5D6CF5E23C8E0D7B /* GKPushTransitionAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPushTransitionAnimation.m; path = GKNavigationBarViewController/TransitionAnimation/GKPushTransitionAnimation.m; sourceTree = "<group>"; };
+		2844668C6D47FD8E095B78E2252A7BA9 /* WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMPageController.h; path = WMPageController/WMPageController.h; sourceTree = "<group>"; };
+		2B134E91C2F2842DD2444882BB483E8D /* GKPopTransitionAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPopTransitionAnimation.h; path = GKNavigationBarViewController/TransitionAnimation/GKPopTransitionAnimation.h; sourceTree = "<group>"; };
+		2CAECB1B51A1B764FE06359F74AF8B8A /* Masonry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Masonry-Info.plist"; sourceTree = "<group>"; };
+		2ED93AAB7F9885A2A63C36BEDF962923 /* WMMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuItem.h; path = WMPageController/WMMenuView/WMMenuItem.h; sourceTree = "<group>"; };
+		2F7FD864276E45BDB9DA29D65E05F7FA /* GKCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKCommon.h; path = GKNavigationBarViewController/GKCommon.h; sourceTree = "<group>"; };
+		331E30F0EC70503E144F4FAEF98C7E2D /* GKNavigationBarViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKNavigationBarViewController-prefix.pch"; sourceTree = "<group>"; };
 		332A7FBB6374494A6CFBE524A2C4950F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		3456E0B16BC8B43645CF974420BB25F7 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
+		338971AD2D46BFBF17A517205ADDACB0 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
 		356BF96636EDF31B1676FE9736954733 /* Pods-GKPageScrollViewDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GKPageScrollViewDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		360853E6300B04D243EB8617CD9F62A4 /* GKDelegateHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKDelegateHandler.m; path = GKNavigationBarViewController/TransitionAnimation/GKDelegateHandler.m; sourceTree = "<group>"; };
 		375654EC4A49700910468C6EA72753D8 /* Pods-GKPageScrollViewDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GKPageScrollViewDemo-dummy.m"; sourceTree = "<group>"; };
-		37D114B7270598D39513083FB976AF3E /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		40B5E325C2C278E554CDD7263F75439A /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
-		43A7741706B071D4484A3CC11ACD255C /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
-		497FE032265414C5F9E4D8BB51D3B2FD /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
-		4BC55BD1F0320C19E0FFFB476B060E7E /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		4F1DC3A81CE26D52BF741B88A8892081 /* UIBarButtonItem+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+GKCategory.h"; path = "GKNavigationBarViewController/Category/UIBarButtonItem+GKCategory.h"; sourceTree = "<group>"; };
-		51176F9E67C6B029AE9BE25EDA2C45D3 /* UIScrollView+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+GKCategory.m"; path = "GKNavigationBarViewController/Category/UIScrollView+GKCategory.m"; sourceTree = "<group>"; };
-		532DC3D0A9FBFE832DEDD9E849406B45 /* UINavigationItem+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationItem+GKCategory.h"; path = "GKNavigationBarViewController/Category/UINavigationItem+GKCategory.h"; sourceTree = "<group>"; };
-		53B836159F2F90B7B12C68D21C7859B4 /* WMPageController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WMPageController.xcconfig; sourceTree = "<group>"; };
-		53C3ED9E445EE43BA54E53A9CFA684C7 /* WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMPageController.h; path = WMPageController/WMPageController.h; sourceTree = "<group>"; };
-		5B792C21F1B09FFEB4ED22D59433A315 /* WMPageController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WMPageController-dummy.m"; sourceTree = "<group>"; };
+		37E0E321F63C94CE8A758A19BE5B9E5D /* MJRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.xcconfig; sourceTree = "<group>"; };
+		398B49D7FBD3A02D5F0B75D23D30CB25 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
+		3BE9BA6059BC470D1A769AFF318517D7 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		409031075F3ADC7EF1B2DA25387A0779 /* WMMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuView.h; path = WMPageController/WMMenuView/WMMenuView.h; sourceTree = "<group>"; };
+		415DD347C2AC3E0F21CD51786A1C1D5D /* UIScrollView+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+GKCategory.h"; path = "GKNavigationBarViewController/Category/UIScrollView+GKCategory.h"; sourceTree = "<group>"; };
+		459E35632E6634B375D0C6C3BAC34E5B /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
+		4C12A2B4E5A6E5224E9667AB47BA941B /* WMProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMProgressView.h; path = WMPageController/WMMenuView/WMProgressView.h; sourceTree = "<group>"; };
+		4D6912EB055D0BF84A499F99AF795BAD /* UIBarButtonItem+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+GKCategory.h"; path = "GKNavigationBarViewController/Category/UIBarButtonItem+GKCategory.h"; sourceTree = "<group>"; };
+		4DD4C572084E03D7E5DE4D808DE11823 /* GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKCategory.h; path = GKNavigationBarViewController/Category/GKCategory.h; sourceTree = "<group>"; };
+		52507AD3115EE633B39C12700D2B4244 /* UIScrollView+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+GKCategory.m"; path = "GKNavigationBarViewController/Category/UIScrollView+GKCategory.m"; sourceTree = "<group>"; };
+		56858649ACEDA085B0CF0F30EDE29FA5 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
+		5A54C59CBD04AB3E947BE746F45F51DE /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		5DF5ED9C0BA2EEE24914FEC5A2C1A18F /* Pods-GKPageScrollViewDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GKPageScrollViewDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5FBB008B41AFF34E50ED0FF711AC001C /* GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBar.h; path = GKNavigationBarViewController/GKNavigationBar.h; sourceTree = "<group>"; };
-		6116B8EE10A8994FCB23AF93A26D3B10 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		637FF9C6A3F61BADEEC2454BAAC39B26 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		65978ED6E00599C7B60EBDC3AA4CB734 /* UIViewController+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GKCategory.m"; path = "GKNavigationBarViewController/Category/UIViewController+GKCategory.m"; sourceTree = "<group>"; };
-		669AAA4504EA67FC3E52787016B1CBE5 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
-		66B593F3E3CB57390B5DEB79E86AE9CA /* UINavigationController+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+GKCategory.m"; path = "GKNavigationBarViewController/Category/UINavigationController+GKCategory.m"; sourceTree = "<group>"; };
-		67A1683BA7B83099DA1995C2A948522C /* Pods_GKPageScrollViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GKPageScrollViewDemo.framework; path = "Pods-GKPageScrollViewDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		67DD96700EFA8F332E04E886D53EBA57 /* GKNavigationBarConfigure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarConfigure.m; path = GKNavigationBarViewController/GKNavigationBarConfigure.m; sourceTree = "<group>"; };
-		683860252EA3CF158F1653AEA9D55507 /* UIViewController+GKRotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GKRotation.m"; path = "GKNavigationBarViewController/Category/UIViewController+GKRotation.m"; sourceTree = "<group>"; };
-		6E26BCF4F7F229B412CF6EBA7C7545CA /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		6302885C0061796634231F70FEF10D11 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
+		6395ED6CE176EF8CAD22F1B62D701A53 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		65DD0E184C1272F8A1066938A8418E00 /* GKDelegateHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKDelegateHandler.h; path = GKNavigationBarViewController/TransitionAnimation/GKDelegateHandler.h; sourceTree = "<group>"; };
+		66879F7B8A3610E950E4B0CE8C2922EA /* GKNavigationBarViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarViewController.m; path = GKNavigationBarViewController/GKNavigationBarViewController.m; sourceTree = "<group>"; };
+		6A2A2D104EFD68C76F8C6158E9F8D793 /* UINavigationController+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+GKCategory.m"; path = "GKNavigationBarViewController/Category/UINavigationController+GKCategory.m"; sourceTree = "<group>"; };
+		6A6B34FDEF6D01E3E7027343952E4539 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
+		6B0CB2FF189B09F19ED8C69B49C8F0F8 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
+		6B3731E81AC354F31DDF0431C738A801 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		70B47C49427D8450C412A7F38AC4D176 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		78ED1F27B64A8F0A1BBFD229DA6F6BA5 /* WMPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WMPageController.framework; path = WMPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B138D14FAC5C2184267CC64232BC25D /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
-		7BB447DDE7BA132C243BB077657BB060 /* GKNavigationBarViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarViewController.h; path = GKNavigationBarViewController/GKNavigationBarViewController.h; sourceTree = "<group>"; };
-		7C0535A983186B8C7DF8304ED29CBE30 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
+		71D0DEE60282480ECD449C6F947D8A81 /* WMPageController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-umbrella.h"; sourceTree = "<group>"; };
+		742CA7A753BF995DF403B8510617A8DA /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
+		754B611942B1184C9A5E5C3C6964A31E /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
+		7596E608892AEC13CCC40A86ECBB09A3 /* WMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMScrollView.h; path = WMPageController/WMMenuView/WMScrollView.h; sourceTree = "<group>"; };
+		762B5BF221481A776A48EDBA9E70C118 /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
+		774605ACBBC2A7B0D81253A233A9D568 /* UIView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
+		7BF627E3AB7A7D19C2954C4F531B583D /* WMScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMScrollView.m; path = WMPageController/WMMenuView/WMScrollView.m; sourceTree = "<group>"; };
 		7C611E1930F0E68AA595932CCAD134CC /* Pods-GKPageScrollViewDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GKPageScrollViewDemo-umbrella.h"; sourceTree = "<group>"; };
-		7FC4A796C177A03749889BBB3F83389F /* WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMPageController.m; path = WMPageController/WMPageController.m; sourceTree = "<group>"; };
-		80E5A38D70DE860D273BB625DE7E79AA /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
-		819F3F778CE47A6C1956E7ED7C59CD12 /* GKNavigationBarViewController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GKNavigationBarViewController.bundle; path = GKNavigationBarViewController/GKNavigationBarViewController.bundle; sourceTree = "<group>"; };
-		81C43BF39138ED8F7852A2D7B92A7AC4 /* WMMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuItem.h; path = WMPageController/WMMenuView/WMMenuItem.h; sourceTree = "<group>"; };
-		837053FEAB4B72EF4AD9958481EA8BF4 /* WMPageController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WMPageController.modulemap; sourceTree = "<group>"; };
-		84F2D0A0F6DCAAA75878167593509F4C /* GKNavigationBarViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKNavigationBarViewController.xcconfig; sourceTree = "<group>"; };
+		7D283CC2669D99E9E895D704EF0E0C98 /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
+		7ED7AC7EDAB7458B635143DF326881FC /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
+		8071CBA068F8F7879967727A644D5C04 /* Pods_GKPageScrollViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GKPageScrollViewDemo.framework; path = "Pods-GKPageScrollViewDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D744F2290548C754280C0E789672B5 /* GKNavigationBarViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GKNavigationBarViewController-Info.plist"; sourceTree = "<group>"; };
 		851C0CC67FC405F0289CEE48E5B2AE87 /* Pods-GKPageScrollViewDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GKPageScrollViewDemo-frameworks.sh"; sourceTree = "<group>"; };
-		883C614EE2E2B8B0DF2B510DC85B3A7D /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
-		892490C7B4A92E2E5A7EB4862408D445 /* UINavigationController+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+GKCategory.h"; path = "GKNavigationBarViewController/Category/UINavigationController+GKCategory.h"; sourceTree = "<group>"; };
-		8BC9743CE8B28AD9ABA22ACA1AB9208F /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
-		8CCCB30C722FCBCFA5D87C59938F9A4B /* GKCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKCommon.h; path = GKNavigationBarViewController/GKCommon.h; sourceTree = "<group>"; };
-		924E3E5E452642169C0D00BD4479638E /* GKPopTransitionAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPopTransitionAnimation.m; path = GKNavigationBarViewController/TransitionAnimation/GKPopTransitionAnimation.m; sourceTree = "<group>"; };
-		949E168CD19F523BCD12A651A36E5988 /* GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKCategory.h; path = GKNavigationBarViewController/Category/GKCategory.h; sourceTree = "<group>"; };
-		9577DDDACE809F6A51CDB155906F83BE /* WMPageController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WMPageController-Info.plist"; sourceTree = "<group>"; };
-		97012C6780EF89B092A4387AA34BEBF6 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
-		9ADAD92D7817C922A6B5D5E7EAF051AE /* UIBarButtonItem+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+GKCategory.m"; path = "GKNavigationBarViewController/Category/UIBarButtonItem+GKCategory.m"; sourceTree = "<group>"; };
-		9D3DA9BAD90F418B438DD62358EC1C97 /* GKDelegateHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKDelegateHandler.h; path = GKNavigationBarViewController/TransitionAnimation/GKDelegateHandler.h; sourceTree = "<group>"; };
-		9F743E4AF35CB68B1095E7B08C1B4B55 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
-		AED17C4D273CB34E325B76092627463A /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
-		AF3B16866DDD772E16916A28DFB1D1E1 /* GKDelegateHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKDelegateHandler.m; path = GKNavigationBarViewController/TransitionAnimation/GKDelegateHandler.m; sourceTree = "<group>"; };
-		AF992190681653BBC4C22C4C61E66B05 /* GKNavigationBarViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKNavigationBarViewController-prefix.pch"; sourceTree = "<group>"; };
-		B33E8FBB339701B11703DD364CAB18CA /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+WMPageController.h"; path = "WMPageController/UIViewController+WMPageController.h"; sourceTree = "<group>"; };
+		8953EB4BFE4F6CB7231586DDC7A4CCC1 /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
+		8CF6D36C5ED44ACFFC5C51A650B24D89 /* GKNavigationBarConfigure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarConfigure.m; path = GKNavigationBarViewController/GKNavigationBarConfigure.m; sourceTree = "<group>"; };
+		8D938D7FE7007F00DD396DFFAA815649 /* UIViewController+GKRotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+GKRotation.h"; path = "GKNavigationBarViewController/Category/UIViewController+GKRotation.h"; sourceTree = "<group>"; };
+		90B4FC6FA9E034CE2973F72BCCC094BF /* WMProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMProgressView.m; path = WMPageController/WMMenuView/WMProgressView.m; sourceTree = "<group>"; };
+		92572FBDD4A457C058EAAF93A2F79D2C /* GKNavigationBarViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKNavigationBarViewController.xcconfig; sourceTree = "<group>"; };
+		92DA74991EFAC9E08D2ECEE5A228CEE8 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
+		938F1DD683B6F96DD80C8A9B3BE2E185 /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
+		939ADDD60C3A982A8E54BA6CD8703582 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
+		93CFDD57716CCE85E9EF6192BE1EB986 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		95D3F76B86E03473D4BD7A7178CB96BF /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
+		96406E1077A4CC24AB0A7C5AD69F676F /* MJRefreshConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConst.m; path = MJRefresh/MJRefreshConst.m; sourceTree = "<group>"; };
+		98114CF2B395420FCB059615A6B15CB9 /* MJRefresh.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
+		9B431A1E66F86C8A7A4F776C3ABF4177 /* GKNavigationBarViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarViewController.h; path = GKNavigationBarViewController/GKNavigationBarViewController.h; sourceTree = "<group>"; };
+		9D52FD97A987A1C47B33D745189DD3EF /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		9EE54F2BB4D1CB8AC487116BBB96BA30 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
+		9FF882E4D58507157A089C1DAB99C60F /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
+		A3EE97293407B0FEFB788FA1ECBF9220 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
+		A5C77172D96CB18016FBC4B682D4C2B6 /* WMPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WMPageController.framework; path = WMPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A619DB408D8AD5D579D8F4D963C8179F /* GKNavigationBarViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GKNavigationBarViewController.modulemap; sourceTree = "<group>"; };
+		AC3EF9BC6E05B2BA93CECC9E5E135F1D /* WMPageController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-prefix.pch"; sourceTree = "<group>"; };
+		AD77580682F5ADC34C80551AD7615798 /* MJRefreshComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshComponent.m; path = MJRefresh/Base/MJRefreshComponent.m; sourceTree = "<group>"; };
+		AD9FD775CC745D5CE8E6A67678B22636 /* WMPageController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WMPageController-Info.plist"; sourceTree = "<group>"; };
+		AE6AFC9EABD7E8174E23EF91E28667DB /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
 		B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B4C5BA55D48E6A6E7B7D7A2C3BFBA75E /* GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBar.m; path = GKNavigationBarViewController/GKNavigationBar.m; sourceTree = "<group>"; };
-		B57D90DE99B9BE3DE9465ACBACFB9D77 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
-		B68E647B9404AD58CB301B4D34EB21EB /* WMProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMProgressView.h; path = WMPageController/WMMenuView/WMProgressView.h; sourceTree = "<group>"; };
-		B8C85861AA06CCDD366D1E89CB6C9172 /* UIViewController+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+GKCategory.h"; path = "GKNavigationBarViewController/Category/UIViewController+GKCategory.h"; sourceTree = "<group>"; };
+		B465867219678E4E395B6013637F4289 /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
+		B574D86E338BA3B56093BEF79D56B723 /* GKPopTransitionAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPopTransitionAnimation.m; path = GKNavigationBarViewController/TransitionAnimation/GKPopTransitionAnimation.m; sourceTree = "<group>"; };
+		B57BCADDA617A8EF112D69556E367F29 /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
+		B57CFE00C5CB09C73352E2473E55413A /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		B7E25520633691451A615A3F7CB661B7 /* GKNavigationBarConfigure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarConfigure.h; path = GKNavigationBarViewController/GKNavigationBarConfigure.h; sourceTree = "<group>"; };
+		B8192020213BD64333EBA9FED5528A79 /* WMMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuItem.m; path = WMPageController/WMMenuView/WMMenuItem.m; sourceTree = "<group>"; };
 		B8E0793204BC4297E5D7611C4B708CCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		BD199BB296659C0B513B4B2B9127D4AA /* WMMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuView.h; path = WMPageController/WMMenuView/WMMenuView.h; sourceTree = "<group>"; };
-		BEB0C0A9845C8966A4F35DE31BBB3153 /* UINavigationItem+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationItem+GKCategory.m"; path = "GKNavigationBarViewController/Category/UINavigationItem+GKCategory.m"; sourceTree = "<group>"; };
-		BFC5CB9F96D2C9DAA23FA4D8EF200475 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
-		C08AE67CCAB83DA8409F645F86826BE4 /* GKPushTransitionAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPushTransitionAnimation.m; path = GKNavigationBarViewController/TransitionAnimation/GKPushTransitionAnimation.m; sourceTree = "<group>"; };
-		C0B7484BC80E4C84AAA8002459822035 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
-		C17F39D7D2BF41B6DF2469F51A23F011 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3BCB24A8393B36DA27BB80D5FC6CFD6 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
-		CCA3CC70E3008EDFA343E77F3D61A39C /* WMScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMScrollView.m; path = WMPageController/WMMenuView/WMScrollView.m; sourceTree = "<group>"; };
-		CD45804EC53DD96B7EB42C72FCCA8D69 /* GKPushTransitionAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPushTransitionAnimation.h; path = GKNavigationBarViewController/TransitionAnimation/GKPushTransitionAnimation.h; sourceTree = "<group>"; };
-		D8A2080E9E8BFDA26AD4323DD4E5EB69 /* UIViewController+GKRotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+GKRotation.h"; path = "GKNavigationBarViewController/Category/UIViewController+GKRotation.h"; sourceTree = "<group>"; };
-		DFB9B62B4330BBC685E35552BBC233C1 /* GKNavigationBarViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarViewController.m; path = GKNavigationBarViewController/GKNavigationBarViewController.m; sourceTree = "<group>"; };
+		BAE3B50AA2F5C081F06FBF57775D1CC1 /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoNormalFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
+		BBCFCB68BB5521D101DF18D896C1937A /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
+		BC3621C9FBF2C4FDCF93FC77211249BF /* GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBar.m; path = GKNavigationBarViewController/GKNavigationBar.m; sourceTree = "<group>"; };
+		BCEE4E132FF00FFFCBFEE8D21386922B /* GKNavigationBarViewController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GKNavigationBarViewController.bundle; path = GKNavigationBarViewController/GKNavigationBarViewController.bundle; sourceTree = "<group>"; };
+		BD908CC2E552AE6DBA75AFC62B8320A8 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
+		BFFB5239B05B576ACF7FC130ACA01578 /* UIViewController+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GKCategory.m"; path = "GKNavigationBarViewController/Category/UIViewController+GKCategory.m"; sourceTree = "<group>"; };
+		C0CFBDF545A090162866390A04CA13FE /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		C31418341D34A71D8BF4B2EFDA038865 /* WMMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuView.m; path = WMPageController/WMMenuView/WMMenuView.m; sourceTree = "<group>"; };
+		C4E5E912B632AF6A67FCBE6FB5CFB835 /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoGifFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
+		C763B33E30EC18CAD3A55986B51ACBE1 /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Masonry.modulemap; sourceTree = "<group>"; };
+		C8BF497ACA1EF06B75473AE16AA72ABC /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
+		C9E86F42C626BA81AA3C82BB881FEEBB /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
+		D079A2DE303E71FA5735FD69FFE633E0 /* MJRefresh-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-umbrella.h"; sourceTree = "<group>"; };
+		D1AD0A938927DCF83ADEB28A735FAE5C /* UINavigationItem+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationItem+GKCategory.m"; path = "GKNavigationBarViewController/Category/UINavigationItem+GKCategory.m"; sourceTree = "<group>"; };
+		D592B53795CDDCB11C386C6B50F3E15A /* UIBarButtonItem+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+GKCategory.m"; path = "GKNavigationBarViewController/Category/UIBarButtonItem+GKCategory.m"; sourceTree = "<group>"; };
+		D65DA6A7428C041325DF42E4BD1D5E17 /* GKNavigationBarViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKNavigationBarViewController-umbrella.h"; sourceTree = "<group>"; };
+		D71604937DCC5F512A732A0F133BE581 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D73749C2B8DE20902201B2EDDA13F8A2 /* GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBar.h; path = GKNavigationBarViewController/GKNavigationBar.h; sourceTree = "<group>"; };
+		D89E2A05F388E452E56D5FB2A89E37E4 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
+		DA0954A8A7444DEB95151D2BA3010FF3 /* UINavigationItem+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationItem+GKCategory.h"; path = "GKNavigationBarViewController/Category/UINavigationItem+GKCategory.h"; sourceTree = "<group>"; };
+		DB4BCC4125A203C99C02F2DC8B35BBAC /* MJRefresh-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MJRefresh-Info.plist"; sourceTree = "<group>"; };
+		DC58D647534140F9E128D53FB62F304A /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+WMPageController.m"; path = "WMPageController/UIViewController+WMPageController.m"; sourceTree = "<group>"; };
 		E05670596CA91842D310D05561DF7F52 /* Pods-GKPageScrollViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GKPageScrollViewDemo.release.xcconfig"; sourceTree = "<group>"; };
-		E19F3801D088532702FEAF29BFB1C798 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		F070575C739FDC723BC4D9212123EF09 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		F56CEA1BAE8D49B5BB8DF7C75C083839 /* WMPageController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-umbrella.h"; sourceTree = "<group>"; };
+		E0B312DAF52D47F40CE1552B4F4D920A /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		E251B75143288C669356CC11B61BA958 /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJRefresh.modulemap; sourceTree = "<group>"; };
+		E45550948CEF0513142DF3A64E65BB6D /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
+		EAC55B73EE7D46CB119D466E65C7D4C6 /* UIViewController+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+GKCategory.h"; path = "GKNavigationBarViewController/Category/UIViewController+GKCategory.h"; sourceTree = "<group>"; };
+		EAFD5168E770661A6CEEF4169FE42E0F /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		EB256E189FD8B9CAD094F0A7B384DEFE /* WMPageController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WMPageController.modulemap; sourceTree = "<group>"; };
+		EB8D833499D7C5C88B44574D24D9BFE5 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
+		EBD0420278097626F5B42240ECF0DA4A /* GKPushTransitionAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPushTransitionAnimation.h; path = GKNavigationBarViewController/TransitionAnimation/GKPushTransitionAnimation.h; sourceTree = "<group>"; };
+		EF8960D5AEE9CE87DC41216DDF6E797C /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		EF9F67CB77B4EFCA00A77597F841EEDE /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
+		EFB78C8105FB59E8A43B93490C458655 /* WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMPageController.m; path = WMPageController/WMPageController.m; sourceTree = "<group>"; };
+		F11D2A747E27BD106CA1DAB88A65C280 /* MJRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-prefix.pch"; sourceTree = "<group>"; };
+		F1A171B1C2DC09215C34E83341696DB4 /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateHeader.h; path = MJRefresh/Custom/Header/MJRefreshStateHeader.h; sourceTree = "<group>"; };
+		F5454C04CA43BC98E97410F0980B7189 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
+		F6269036FFCE7C248B0B4FA1C4FEBB02 /* MJRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh-dummy.m"; sourceTree = "<group>"; };
+		F666A2C97902BF0A8E659A6DAB97EB77 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
 		F79C9676EA5DA12D9E4301C530C50074 /* Pods-GKPageScrollViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GKPageScrollViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		F9E1B444E9AAA10434FAB312AFAA26A9 /* WMMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuItem.m; path = WMPageController/WMMenuView/WMMenuItem.m; sourceTree = "<group>"; };
+		F7C59ACED21BF79932DD285B80B68D18 /* WMPageController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WMPageController.xcconfig; sourceTree = "<group>"; };
+		F84637A35A20844B11B3AFB7DE7C2DDE /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
+		FACCBA1C3C564D2D90722AA41D4AC161 /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
+		FC948EE5946D1B123217929B5BE467DF /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		FE14C9A66ED8ED0C0A59EDA2166AED71 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		15936FC428FFB84D2E1F8B0F1F395B4B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				73FA32A3D3F86B7A5727BCB6F28E9D89 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3A7D6E70DA2F5E0F418BCB15090269FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,13 +322,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9551C677E49D046BF0F32FEEC3BC6801 /* Frameworks */ = {
+		4330790BF93619542494717EF5872A17 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47FE242BB4EF9689EF9FD460460EB5B3 /* CoreGraphics.framework in Frameworks */,
-				C67395B2593F5C97FACF59BA8E1EFF23 /* Foundation.framework in Frameworks */,
-				BAF51D035443B58367A51F814606E26D /* UIKit.framework in Frameworks */,
+				BD549FDDF8E18393542908E05DF10310 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C93ED25CACF94465FB9DA87FBB51A54E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				668ACF490FD9733FA0C2B1F71D6EB61C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5E73A6A3F105C92B7AE3795BD60D5B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60ED14BBC51189EA4BD35DF655BDF8EC /* CoreGraphics.framework in Frameworks */,
+				056236357DE24E569F12C22683DF5F44 /* Foundation.framework in Frameworks */,
+				B11C6B548F3259BD2BF35C9E569BE94F /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,20 +360,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B0CEF6D8DEB2532CCE3007C196B927F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0B5EF3929E951C4D0E0663DBA76D3F12 /* GKNavigationBarViewController.modulemap */,
-				84F2D0A0F6DCAAA75878167593509F4C /* GKNavigationBarViewController.xcconfig */,
-				01340040C7DCB79F594F6E06E843CE6A /* GKNavigationBarViewController-dummy.m */,
-				276E9F72996C3644271D905FD6009221 /* GKNavigationBarViewController-Info.plist */,
-				AF992190681653BBC4C22C4C61E66B05 /* GKNavigationBarViewController-prefix.pch */,
-				321D89330E2640CE0D3779056027D084 /* GKNavigationBarViewController-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/GKNavigationBarViewController";
-			sourceTree = "<group>";
-		};
 		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,45 +368,71 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3A7DA5364D17B1E30BECFA85212A3D2C /* Support Files */ = {
+		42A304A7EA508A165BA03A6566220FFA /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				837053FEAB4B72EF4AD9958481EA8BF4 /* WMPageController.modulemap */,
-				53B836159F2F90B7B12C68D21C7859B4 /* WMPageController.xcconfig */,
-				5B792C21F1B09FFEB4ED22D59433A315 /* WMPageController-dummy.m */,
-				9577DDDACE809F6A51CDB155906F83BE /* WMPageController-Info.plist */,
-				009B30356EB5E1BE2EA46ECAAB6BA2C6 /* WMPageController-prefix.pch */,
-				F56CEA1BAE8D49B5BB8DF7C75C083839 /* WMPageController-umbrella.h */,
+				938F1DD683B6F96DD80C8A9B3BE2E185 /* MJRefresh.h */,
+				F5454C04CA43BC98E97410F0980B7189 /* MJRefreshAutoFooter.h */,
+				92DA74991EFAC9E08D2ECEE5A228CEE8 /* MJRefreshAutoFooter.m */,
+				9EE54F2BB4D1CB8AC487116BBB96BA30 /* MJRefreshAutoGifFooter.h */,
+				C4E5E912B632AF6A67FCBE6FB5CFB835 /* MJRefreshAutoGifFooter.m */,
+				939ADDD60C3A982A8E54BA6CD8703582 /* MJRefreshAutoNormalFooter.h */,
+				BAE3B50AA2F5C081F06FBF57775D1CC1 /* MJRefreshAutoNormalFooter.m */,
+				1C357C286D23D08D28A7613D0F8B1283 /* MJRefreshAutoStateFooter.h */,
+				C8BF497ACA1EF06B75473AE16AA72ABC /* MJRefreshAutoStateFooter.m */,
+				6B3731E81AC354F31DDF0431C738A801 /* MJRefreshBackFooter.h */,
+				8953EB4BFE4F6CB7231586DDC7A4CCC1 /* MJRefreshBackFooter.m */,
+				B57BCADDA617A8EF112D69556E367F29 /* MJRefreshBackGifFooter.h */,
+				F84637A35A20844B11B3AFB7DE7C2DDE /* MJRefreshBackGifFooter.m */,
+				1CE3F08F8D9B4FB6AD1D01F6A56DE8BB /* MJRefreshBackNormalFooter.h */,
+				7D283CC2669D99E9E895D704EF0E0C98 /* MJRefreshBackNormalFooter.m */,
+				9FF882E4D58507157A089C1DAB99C60F /* MJRefreshBackStateFooter.h */,
+				0A16C02856067B9AC5EFA2F6224CA1AD /* MJRefreshBackStateFooter.m */,
+				252E64DC7B2A071FF21A88EB86E40E03 /* MJRefreshComponent.h */,
+				AD77580682F5ADC34C80551AD7615798 /* MJRefreshComponent.m */,
+				0980FAD3AA683017818D32E10D8884D5 /* MJRefreshConst.h */,
+				96406E1077A4CC24AB0A7C5AD69F676F /* MJRefreshConst.m */,
+				0841C2E50BAFD63BAFB2AF73B25B690D /* MJRefreshFooter.h */,
+				95D3F76B86E03473D4BD7A7178CB96BF /* MJRefreshFooter.m */,
+				6A6B34FDEF6D01E3E7027343952E4539 /* MJRefreshGifHeader.h */,
+				BD908CC2E552AE6DBA75AFC62B8320A8 /* MJRefreshGifHeader.m */,
+				FACCBA1C3C564D2D90722AA41D4AC161 /* MJRefreshHeader.h */,
+				762B5BF221481A776A48EDBA9E70C118 /* MJRefreshHeader.m */,
+				338971AD2D46BFBF17A517205ADDACB0 /* MJRefreshNormalHeader.h */,
+				6302885C0061796634231F70FEF10D11 /* MJRefreshNormalHeader.m */,
+				F1A171B1C2DC09215C34E83341696DB4 /* MJRefreshStateHeader.h */,
+				EF9F67CB77B4EFCA00A77597F841EEDE /* MJRefreshStateHeader.m */,
+				B465867219678E4E395B6013637F4289 /* NSBundle+MJRefresh.h */,
+				1B3BE4CCBC6FAA1594AF83DC05CA52A5 /* NSBundle+MJRefresh.m */,
+				0608A779B4796863FB0AE6AB8109B458 /* UIScrollView+MJExtension.h */,
+				23963CB7D89626C3D652AB88A304BEE1 /* UIScrollView+MJExtension.m */,
+				93CFDD57716CCE85E9EF6192BE1EB986 /* UIScrollView+MJRefresh.h */,
+				FE14C9A66ED8ED0C0A59EDA2166AED71 /* UIScrollView+MJRefresh.m */,
+				C9E86F42C626BA81AA3C82BB881FEEBB /* UIView+MJExtension.h */,
+				774605ACBBC2A7B0D81253A233A9D568 /* UIView+MJExtension.m */,
+				5477350D395E9AF96B3323E6D3BD0EC5 /* Resources */,
+				EC522F4A1EE6AD767FCE60E059F5D8FA /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/WMPageController";
+			name = MJRefresh;
+			path = MJRefresh;
 			sourceTree = "<group>";
 		};
-		4ECFF40E8B43493E2A8DAEBEE3D0E55C /* Resources */ = {
+		5477350D395E9AF96B3323E6D3BD0EC5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				819F3F778CE47A6C1956E7ED7C59CD12 /* GKNavigationBarViewController.bundle */,
+				98114CF2B395420FCB059615A6B15CB9 /* MJRefresh.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		511C15442BA58C685859BAEA8A6261B3 /* Pods */ = {
+		5DABA056C547658C893BC5176AEF108F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E7FC9210BC7301230911A67EF230B85B /* GKNavigationBarViewController */,
-				DF16F3EFDCFCB05AECA978F695A25118 /* Masonry */,
-				A5804A2DB52A95642440DA52E32EB2D9 /* WMPageController */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		65DBDE20253FB362DA73229114C158B7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				25808447F8D67553FE8E24B347394C3F /* GKNavigationBarViewController.framework */,
-				C17F39D7D2BF41B6DF2469F51A23F011 /* Masonry.framework */,
-				67A1683BA7B83099DA1995C2A948522C /* Pods_GKPageScrollViewDemo.framework */,
-				78ED1F27B64A8F0A1BBFD229DA6F6BA5 /* WMPageController.framework */,
+				080113C18C59D8C19C095FF7C1033B00 /* GKNavigationBarViewController.framework */,
+				3BE9BA6059BC470D1A769AFF318517D7 /* Masonry.framework */,
+				D71604937DCC5F512A732A0F133BE581 /* MJRefresh.framework */,
+				8071CBA068F8F7879967727A644D5C04 /* Pods_GKPageScrollViewDemo.framework */,
+				A5C77172D96CB18016FBC4B682D4C2B6 /* WMPageController.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -335,45 +452,32 @@
 			children = (
 				B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				511C15442BA58C685859BAEA8A6261B3 /* Pods */,
-				65DBDE20253FB362DA73229114C158B7 /* Products */,
+				C24843D88CCF4E55D63FB1EE373B179D /* Pods */,
+				5DABA056C547658C893BC5176AEF108F /* Products */,
 				BD98D57329B673777F55346D43C8E1CB /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A5804A2DB52A95642440DA52E32EB2D9 /* WMPageController */ = {
+		8D88A38B7861ACE42CF131FAB742F868 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B33E8FBB339701B11703DD364CAB18CA /* UIViewController+WMPageController.h */,
-				136B110425503869463C05D0D144DDA8 /* UIViewController+WMPageController.m */,
-				81C43BF39138ED8F7852A2D7B92A7AC4 /* WMMenuItem.h */,
-				F9E1B444E9AAA10434FAB312AFAA26A9 /* WMMenuItem.m */,
-				BD199BB296659C0B513B4B2B9127D4AA /* WMMenuView.h */,
-				06B23ABC7E0EFBBD0E1C65285FA9EC1A /* WMMenuView.m */,
-				53C3ED9E445EE43BA54E53A9CFA684C7 /* WMPageController.h */,
-				7FC4A796C177A03749889BBB3F83389F /* WMPageController.m */,
-				B68E647B9404AD58CB301B4D34EB21EB /* WMProgressView.h */,
-				0E4B8769ECAAB60B0BD52537873A12C1 /* WMProgressView.m */,
-				318DF61217C1C412640291EF1F8313EB /* WMScrollView.h */,
-				CCA3CC70E3008EDFA343E77F3D61A39C /* WMScrollView.m */,
-				3A7DA5364D17B1E30BECFA85212A3D2C /* Support Files */,
+				BCEE4E132FF00FFFCBFEE8D21386922B /* GKNavigationBarViewController.bundle */,
 			);
-			name = WMPageController;
-			path = WMPageController;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		A9E912A915DD22B6C1D0824A5E462481 /* Support Files */ = {
+		9AFEB073DC065CA798B2E380800814A4 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1A59B7131A483C81A014085A14A4F257 /* Masonry.modulemap */,
-				40B5E325C2C278E554CDD7263F75439A /* Masonry.xcconfig */,
-				883C614EE2E2B8B0DF2B510DC85B3A7D /* Masonry-dummy.m */,
-				116BF3764DD07BA2BAF4D8827549268E /* Masonry-Info.plist */,
-				43A7741706B071D4484A3CC11ACD255C /* Masonry-prefix.pch */,
-				8BC9743CE8B28AD9ABA22ACA1AB9208F /* Masonry-umbrella.h */,
+				A619DB408D8AD5D579D8F4D963C8179F /* GKNavigationBarViewController.modulemap */,
+				92572FBDD4A457C058EAAF93A2F79D2C /* GKNavigationBarViewController.xcconfig */,
+				1F6674932BB705E4BB568FF5414D53D2 /* GKNavigationBarViewController-dummy.m */,
+				81D744F2290548C754280C0E789672B5 /* GKNavigationBarViewController-Info.plist */,
+				331E30F0EC70503E144F4FAEF98C7E2D /* GKNavigationBarViewController-prefix.pch */,
+				D65DA6A7428C041325DF42E4BD1D5E17 /* GKNavigationBarViewController-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Masonry";
+			path = "../Target Support Files/GKNavigationBarViewController";
 			sourceTree = "<group>";
 		};
 		BD98D57329B673777F55346D43C8E1CB /* Targets Support Files */ = {
@@ -401,79 +505,181 @@
 			path = "Target Support Files/Pods-GKPageScrollViewDemo";
 			sourceTree = "<group>";
 		};
-		DF16F3EFDCFCB05AECA978F695A25118 /* Masonry */ = {
+		C24843D88CCF4E55D63FB1EE373B179D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BFC5CB9F96D2C9DAA23FA4D8EF200475 /* MASCompositeConstraint.h */,
-				AED17C4D273CB34E325B76092627463A /* MASCompositeConstraint.m */,
-				2B8137F4859AB162CFEB21171A72C58D /* MASConstraint.h */,
-				C3BCB24A8393B36DA27BB80D5FC6CFD6 /* MASConstraint.m */,
-				C0B7484BC80E4C84AAA8002459822035 /* MASConstraint+Private.h */,
-				7C0535A983186B8C7DF8304ED29CBE30 /* MASConstraintMaker.h */,
-				3456E0B16BC8B43645CF974420BB25F7 /* MASConstraintMaker.m */,
-				497FE032265414C5F9E4D8BB51D3B2FD /* MASLayoutConstraint.h */,
-				80E5A38D70DE860D273BB625DE7E79AA /* MASLayoutConstraint.m */,
-				97012C6780EF89B092A4387AA34BEBF6 /* Masonry.h */,
-				9F743E4AF35CB68B1095E7B08C1B4B55 /* MASUtilities.h */,
-				B57D90DE99B9BE3DE9465ACBACFB9D77 /* MASViewAttribute.h */,
-				669AAA4504EA67FC3E52787016B1CBE5 /* MASViewAttribute.m */,
-				1ED73C775A4547AFB71800560CA63A94 /* MASViewConstraint.h */,
-				2891EA72CB6F9621805D927BAB4E130A /* MASViewConstraint.m */,
-				4BC55BD1F0320C19E0FFFB476B060E7E /* NSArray+MASAdditions.h */,
-				637FF9C6A3F61BADEEC2454BAAC39B26 /* NSArray+MASAdditions.m */,
-				F070575C739FDC723BC4D9212123EF09 /* NSArray+MASShorthandAdditions.h */,
-				6116B8EE10A8994FCB23AF93A26D3B10 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				37D114B7270598D39513083FB976AF3E /* NSLayoutConstraint+MASDebugAdditions.m */,
-				1C44BCDEC4789F8679922C6CA6C00F23 /* View+MASAdditions.h */,
-				7B138D14FAC5C2184267CC64232BC25D /* View+MASAdditions.m */,
-				E19F3801D088532702FEAF29BFB1C798 /* View+MASShorthandAdditions.h */,
-				6E26BCF4F7F229B412CF6EBA7C7545CA /* ViewController+MASAdditions.h */,
-				2FDE35843E4F3D5093233AD3586CF2AA /* ViewController+MASAdditions.m */,
-				A9E912A915DD22B6C1D0824A5E462481 /* Support Files */,
+				F1FB5365BDFABF408CDA8CD2A85097DD /* GKNavigationBarViewController */,
+				F4CF37D7D9986AD1B925E36D90336F04 /* Masonry */,
+				42A304A7EA508A165BA03A6566220FFA /* MJRefresh */,
+				EA2E92F6C595F6203F3A7D78ED90E044 /* WMPageController */,
 			);
-			name = Masonry;
-			path = Masonry;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		E7FC9210BC7301230911A67EF230B85B /* GKNavigationBarViewController */ = {
+		C78B32EBD995FB5FFA08D551ADA7E303 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				949E168CD19F523BCD12A651A36E5988 /* GKCategory.h */,
-				8CCCB30C722FCBCFA5D87C59938F9A4B /* GKCommon.h */,
-				9D3DA9BAD90F418B438DD62358EC1C97 /* GKDelegateHandler.h */,
-				AF3B16866DDD772E16916A28DFB1D1E1 /* GKDelegateHandler.m */,
-				5FBB008B41AFF34E50ED0FF711AC001C /* GKNavigationBar.h */,
-				B4C5BA55D48E6A6E7B7D7A2C3BFBA75E /* GKNavigationBar.m */,
-				1FE66FF4ED5A6978C21069FD5391E3DB /* GKNavigationBarConfigure.h */,
-				67DD96700EFA8F332E04E886D53EBA57 /* GKNavigationBarConfigure.m */,
-				7BB447DDE7BA132C243BB077657BB060 /* GKNavigationBarViewController.h */,
-				DFB9B62B4330BBC685E35552BBC233C1 /* GKNavigationBarViewController.m */,
-				2F1F70F525C6114BF31699EE676AFE4A /* GKPopTransitionAnimation.h */,
-				924E3E5E452642169C0D00BD4479638E /* GKPopTransitionAnimation.m */,
-				CD45804EC53DD96B7EB42C72FCCA8D69 /* GKPushTransitionAnimation.h */,
-				C08AE67CCAB83DA8409F645F86826BE4 /* GKPushTransitionAnimation.m */,
-				4F1DC3A81CE26D52BF741B88A8892081 /* UIBarButtonItem+GKCategory.h */,
-				9ADAD92D7817C922A6B5D5E7EAF051AE /* UIBarButtonItem+GKCategory.m */,
-				892490C7B4A92E2E5A7EB4862408D445 /* UINavigationController+GKCategory.h */,
-				66B593F3E3CB57390B5DEB79E86AE9CA /* UINavigationController+GKCategory.m */,
-				532DC3D0A9FBFE832DEDD9E849406B45 /* UINavigationItem+GKCategory.h */,
-				BEB0C0A9845C8966A4F35DE31BBB3153 /* UINavigationItem+GKCategory.m */,
-				0E8DD9396028E29FEAB8DA3FED4E703E /* UIScrollView+GKCategory.h */,
-				51176F9E67C6B029AE9BE25EDA2C45D3 /* UIScrollView+GKCategory.m */,
-				B8C85861AA06CCDD366D1E89CB6C9172 /* UIViewController+GKCategory.h */,
-				65978ED6E00599C7B60EBDC3AA4CB734 /* UIViewController+GKCategory.m */,
-				D8A2080E9E8BFDA26AD4323DD4E5EB69 /* UIViewController+GKRotation.h */,
-				683860252EA3CF158F1653AEA9D55507 /* UIViewController+GKRotation.m */,
-				4ECFF40E8B43493E2A8DAEBEE3D0E55C /* Resources */,
-				0B0CEF6D8DEB2532CCE3007C196B927F /* Support Files */,
+				EB256E189FD8B9CAD094F0A7B384DEFE /* WMPageController.modulemap */,
+				F7C59ACED21BF79932DD285B80B68D18 /* WMPageController.xcconfig */,
+				185514851C11D8F4485A7E9E635E5100 /* WMPageController-dummy.m */,
+				AD9FD775CC745D5CE8E6A67678B22636 /* WMPageController-Info.plist */,
+				AC3EF9BC6E05B2BA93CECC9E5E135F1D /* WMPageController-prefix.pch */,
+				71D0DEE60282480ECD449C6F947D8A81 /* WMPageController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WMPageController";
+			sourceTree = "<group>";
+		};
+		EA2E92F6C595F6203F3A7D78ED90E044 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				177670D6044454B6F73A5CDFE5118033 /* UIViewController+WMPageController.h */,
+				DC58D647534140F9E128D53FB62F304A /* UIViewController+WMPageController.m */,
+				2ED93AAB7F9885A2A63C36BEDF962923 /* WMMenuItem.h */,
+				B8192020213BD64333EBA9FED5528A79 /* WMMenuItem.m */,
+				409031075F3ADC7EF1B2DA25387A0779 /* WMMenuView.h */,
+				C31418341D34A71D8BF4B2EFDA038865 /* WMMenuView.m */,
+				2844668C6D47FD8E095B78E2252A7BA9 /* WMPageController.h */,
+				EFB78C8105FB59E8A43B93490C458655 /* WMPageController.m */,
+				4C12A2B4E5A6E5224E9667AB47BA941B /* WMProgressView.h */,
+				90B4FC6FA9E034CE2973F72BCCC094BF /* WMProgressView.m */,
+				7596E608892AEC13CCC40A86ECBB09A3 /* WMScrollView.h */,
+				7BF627E3AB7A7D19C2954C4F531B583D /* WMScrollView.m */,
+				C78B32EBD995FB5FFA08D551ADA7E303 /* Support Files */,
+			);
+			name = WMPageController;
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		EC522F4A1EE6AD767FCE60E059F5D8FA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E251B75143288C669356CC11B61BA958 /* MJRefresh.modulemap */,
+				37E0E321F63C94CE8A758A19BE5B9E5D /* MJRefresh.xcconfig */,
+				F6269036FFCE7C248B0B4FA1C4FEBB02 /* MJRefresh-dummy.m */,
+				DB4BCC4125A203C99C02F2DC8B35BBAC /* MJRefresh-Info.plist */,
+				F11D2A747E27BD106CA1DAB88A65C280 /* MJRefresh-prefix.pch */,
+				D079A2DE303E71FA5735FD69FFE633E0 /* MJRefresh-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MJRefresh";
+			sourceTree = "<group>";
+		};
+		F1FB5365BDFABF408CDA8CD2A85097DD /* GKNavigationBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4DD4C572084E03D7E5DE4D808DE11823 /* GKCategory.h */,
+				2F7FD864276E45BDB9DA29D65E05F7FA /* GKCommon.h */,
+				65DD0E184C1272F8A1066938A8418E00 /* GKDelegateHandler.h */,
+				360853E6300B04D243EB8617CD9F62A4 /* GKDelegateHandler.m */,
+				D73749C2B8DE20902201B2EDDA13F8A2 /* GKNavigationBar.h */,
+				BC3621C9FBF2C4FDCF93FC77211249BF /* GKNavigationBar.m */,
+				B7E25520633691451A615A3F7CB661B7 /* GKNavigationBarConfigure.h */,
+				8CF6D36C5ED44ACFFC5C51A650B24D89 /* GKNavigationBarConfigure.m */,
+				9B431A1E66F86C8A7A4F776C3ABF4177 /* GKNavigationBarViewController.h */,
+				66879F7B8A3610E950E4B0CE8C2922EA /* GKNavigationBarViewController.m */,
+				2B134E91C2F2842DD2444882BB483E8D /* GKPopTransitionAnimation.h */,
+				B574D86E338BA3B56093BEF79D56B723 /* GKPopTransitionAnimation.m */,
+				EBD0420278097626F5B42240ECF0DA4A /* GKPushTransitionAnimation.h */,
+				27E15A3152B5BC1E5D6CF5E23C8E0D7B /* GKPushTransitionAnimation.m */,
+				4D6912EB055D0BF84A499F99AF795BAD /* UIBarButtonItem+GKCategory.h */,
+				D592B53795CDDCB11C386C6B50F3E15A /* UIBarButtonItem+GKCategory.m */,
+				179CF63177C39A4049211FAAE217DCAD /* UINavigationController+GKCategory.h */,
+				6A2A2D104EFD68C76F8C6158E9F8D793 /* UINavigationController+GKCategory.m */,
+				DA0954A8A7444DEB95151D2BA3010FF3 /* UINavigationItem+GKCategory.h */,
+				D1AD0A938927DCF83ADEB28A735FAE5C /* UINavigationItem+GKCategory.m */,
+				415DD347C2AC3E0F21CD51786A1C1D5D /* UIScrollView+GKCategory.h */,
+				52507AD3115EE633B39C12700D2B4244 /* UIScrollView+GKCategory.m */,
+				EAC55B73EE7D46CB119D466E65C7D4C6 /* UIViewController+GKCategory.h */,
+				BFFB5239B05B576ACF7FC130ACA01578 /* UIViewController+GKCategory.m */,
+				8D938D7FE7007F00DD396DFFAA815649 /* UIViewController+GKRotation.h */,
+				066F3FDB1C9FB3E13041E2D5763BDD36 /* UIViewController+GKRotation.m */,
+				8D88A38B7861ACE42CF131FAB742F868 /* Resources */,
+				9AFEB073DC065CA798B2E380800814A4 /* Support Files */,
 			);
 			name = GKNavigationBarViewController;
 			path = GKNavigationBarViewController;
 			sourceTree = "<group>";
 		};
+		F4CF37D7D9986AD1B925E36D90336F04 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				0428EF1B8E968BD299C67A024F88A234 /* MASCompositeConstraint.h */,
+				742CA7A753BF995DF403B8510617A8DA /* MASCompositeConstraint.m */,
+				BBCFCB68BB5521D101DF18D896C1937A /* MASConstraint.h */,
+				F666A2C97902BF0A8E659A6DAB97EB77 /* MASConstraint.m */,
+				398B49D7FBD3A02D5F0B75D23D30CB25 /* MASConstraint+Private.h */,
+				18AC80769F2F556803A0BC87C571EFD0 /* MASConstraintMaker.h */,
+				6B0CB2FF189B09F19ED8C69B49C8F0F8 /* MASConstraintMaker.m */,
+				E0B312DAF52D47F40CE1552B4F4D920A /* MASLayoutConstraint.h */,
+				C0CFBDF545A090162866390A04CA13FE /* MASLayoutConstraint.m */,
+				459E35632E6634B375D0C6C3BAC34E5B /* Masonry.h */,
+				1A867D6568830D2CB489A9851EB99FE0 /* MASUtilities.h */,
+				D89E2A05F388E452E56D5FB2A89E37E4 /* MASViewAttribute.h */,
+				20D3A1F10DEACE11F24A0FD4B3E31585 /* MASViewAttribute.m */,
+				754B611942B1184C9A5E5C3C6964A31E /* MASViewConstraint.h */,
+				56858649ACEDA085B0CF0F30EDE29FA5 /* MASViewConstraint.m */,
+				AE6AFC9EABD7E8174E23EF91E28667DB /* NSArray+MASAdditions.h */,
+				5A54C59CBD04AB3E947BE746F45F51DE /* NSArray+MASAdditions.m */,
+				019254221F5AB11A17E0F5CD24C0FB5E /* NSArray+MASShorthandAdditions.h */,
+				6395ED6CE176EF8CAD22F1B62D701A53 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				9D52FD97A987A1C47B33D745189DD3EF /* NSLayoutConstraint+MASDebugAdditions.m */,
+				EB8D833499D7C5C88B44574D24D9BFE5 /* View+MASAdditions.h */,
+				B57CFE00C5CB09C73352E2473E55413A /* View+MASAdditions.m */,
+				EF8960D5AEE9CE87DC41216DDF6E797C /* View+MASShorthandAdditions.h */,
+				EAFD5168E770661A6CEEF4169FE42E0F /* ViewController+MASAdditions.h */,
+				0F7F679F750BA6B0E873A3EEEAF29C2B /* ViewController+MASAdditions.m */,
+				F8D5993BDD75B4A38C371F7C246A7682 /* Support Files */,
+			);
+			name = Masonry;
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		F8D5993BDD75B4A38C371F7C246A7682 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C763B33E30EC18CAD3A55986B51ACBE1 /* Masonry.modulemap */,
+				7ED7AC7EDAB7458B635143DF326881FC /* Masonry.xcconfig */,
+				A3EE97293407B0FEFB788FA1ECBF9220 /* Masonry-dummy.m */,
+				2CAECB1B51A1B764FE06359F74AF8B8A /* Masonry-Info.plist */,
+				FC948EE5946D1B123217929B5BE467DF /* Masonry-prefix.pch */,
+				E45550948CEF0513142DF3A64E65BB6D /* Masonry-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Masonry";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		08EF78522D0C15FAC07E3DF1CA39E77C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				205C539389D123F0D635AEEE94E23A57 /* MJRefresh-umbrella.h in Headers */,
+				6C7D22626A2F5AD4BB1ACC02D8F10731 /* MJRefresh.h in Headers */,
+				19A2D61A783C422B8828408F98E56290 /* MJRefreshAutoFooter.h in Headers */,
+				2AE9F2C800AA6D4A6EDD9DB4B93DCDCF /* MJRefreshAutoGifFooter.h in Headers */,
+				79E7436378404C9DD06E9F65180D62A4 /* MJRefreshAutoNormalFooter.h in Headers */,
+				B967DE3AFEE4C96AAB002B8095B6C7C2 /* MJRefreshAutoStateFooter.h in Headers */,
+				72BA18069C0DFC671464EB497250D358 /* MJRefreshBackFooter.h in Headers */,
+				1364E587347DB7B32700946C39D69836 /* MJRefreshBackGifFooter.h in Headers */,
+				16145634E76498599E08EE59BF2BA9D9 /* MJRefreshBackNormalFooter.h in Headers */,
+				02B6166834FDE582A7475C4D021C532A /* MJRefreshBackStateFooter.h in Headers */,
+				DEF65EB64591CE2D6F99463627951710 /* MJRefreshComponent.h in Headers */,
+				57F9EB19DF46EC2590C8B10DB89D146E /* MJRefreshConst.h in Headers */,
+				62E84F67014328D5ED1B0F65775CDDFA /* MJRefreshFooter.h in Headers */,
+				7FC1CEA91F90834F660AA84E603B37AD /* MJRefreshGifHeader.h in Headers */,
+				370474488F17310C2E917826EE8B93FB /* MJRefreshHeader.h in Headers */,
+				366A0A2B7CC87D039FD802C7FF82BEE7 /* MJRefreshNormalHeader.h in Headers */,
+				7F9B9007891D36363BE6BE0CB08C1006 /* MJRefreshStateHeader.h in Headers */,
+				04E5A6920974A68B2D15090CBE56D58B /* NSBundle+MJRefresh.h in Headers */,
+				35CCA902DF0D8C0AB9C3A7C8AF4FD40D /* UIScrollView+MJExtension.h in Headers */,
+				7203872DAF858D609912A7D0F768FEAF /* UIScrollView+MJRefresh.h in Headers */,
+				B356C813D009D8F48B49B93F970B1F1B /* UIView+MJExtension.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45F8EDB81B405B9AF3E3CCB4B59ABD97 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,17 +703,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8A09E7646248AE9C5BF8FDF5DF907C59 /* Headers */ = {
+		93449FF24FED7A0AA72CD268FE59BBE6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C13FE96E29E0687DBFD73A15F504E097 /* UIViewController+WMPageController.h in Headers */,
-				418024818E4492C5F458CB599D86C0A9 /* WMMenuItem.h in Headers */,
-				56BC3D44FE3E01258BAB8F8B0C2F7EA2 /* WMMenuView.h in Headers */,
-				8DCB0CECC25C0DC0275A6E7E28730541 /* WMPageController-umbrella.h in Headers */,
-				C1D7903849CA81D660D50D0809B59EBF /* WMPageController.h in Headers */,
-				3B134BA71C572292701B2F2C64FC9686 /* WMProgressView.h in Headers */,
-				8622C7A7B28E6D0F63081AEFF7CE6801 /* WMScrollView.h in Headers */,
+				29242A37A7066BBDB72257519869850E /* UIViewController+WMPageController.h in Headers */,
+				0711A1D75306869BEFA3AF2199E98601 /* WMMenuItem.h in Headers */,
+				C75FB64A22D867377A7EAFE012CBC107 /* WMMenuView.h in Headers */,
+				860432B34D2D2D6D9847B7A640A9BD69 /* WMPageController-umbrella.h in Headers */,
+				DDF1CF7C609D8221ACA3FD05229236F8 /* WMPageController.h in Headers */,
+				94F6CE09F609B0D6AE9406E6FE89C6EC /* WMProgressView.h in Headers */,
+				8D50C03D06DF55C9FDE7CC49D58BEF93 /* WMScrollView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4904D3178D9488A31CD3C7A6BD6DF7A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5079158F4FC39A937CAD94D6E1D1AE00 /* Pods-GKPageScrollViewDemo-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,25 +747,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D646E8391EC6F45F0FFA367FEBF7C702 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				79A86E841F696E2E25F118B6A79B5119 /* Pods-GKPageScrollViewDemo-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		14FC201DE17C0185AF150E9FC423EB67 /* WMPageController */ = {
+		0B728ABC9963A80486C1572CC3980612 /* Pods-GKPageScrollViewDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D270E2D99E119C49BFE849FF112BCA74 /* Build configuration list for PBXNativeTarget "WMPageController" */;
+			buildConfigurationList = 8526BAD492B0B9BF9ACF1046FA19EFEC /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewDemo" */;
 			buildPhases = (
-				8A09E7646248AE9C5BF8FDF5DF907C59 /* Headers */,
-				B537F96D3C0BFF876C3AE172A22C5DA9 /* Sources */,
-				9551C677E49D046BF0F32FEEC3BC6801 /* Frameworks */,
-				FB76639288D4C6DBCFD6E5BD97E8B44A /* Resources */,
+				B4904D3178D9488A31CD3C7A6BD6DF7A /* Headers */,
+				87B0AD2B857532C5E98E5B6311B651C9 /* Sources */,
+				C93ED25CACF94465FB9DA87FBB51A54E /* Frameworks */,
+				A58F2C949D392F9A0ABDA8CE9496A066 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4D25DB3EFBFC7F5FB8E682124BBBDE9 /* PBXTargetDependency */,
+				66FEB1AEB4261F4DAA5FD3F9FFF64576 /* PBXTargetDependency */,
+				38C837D9DA8DA2F2F4DD3AD986511C71 /* PBXTargetDependency */,
+				78B1EE6FD60925563057D37BD0AE3693 /* PBXTargetDependency */,
+			);
+			name = "Pods-GKPageScrollViewDemo";
+			productName = "Pods-GKPageScrollViewDemo";
+			productReference = 8071CBA068F8F7879967727A644D5C04 /* Pods_GKPageScrollViewDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3E05A2E91CDD43423FA4DE56A7BA40A9 /* WMPageController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FE0C68CC1C876A78B78BEC29690FBE0 /* Build configuration list for PBXNativeTarget "WMPageController" */;
+			buildPhases = (
+				93449FF24FED7A0AA72CD268FE59BBE6 /* Headers */,
+				155C1411DC5AEE392B8CD78551F992F4 /* Sources */,
+				F5E73A6A3F105C92B7AE3795BD60D5B3 /* Frameworks */,
+				7C40E481426B3FE36250A21756E0770E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -559,7 +787,25 @@
 			);
 			name = WMPageController;
 			productName = WMPageController;
-			productReference = 78ED1F27B64A8F0A1BBFD229DA6F6BA5 /* WMPageController.framework */;
+			productReference = A5C77172D96CB18016FBC4B682D4C2B6 /* WMPageController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		546B747B9DB0515E059EEBA0B9E98B42 /* MJRefresh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6F83A3523D8341EDA917BED02337C9A /* Build configuration list for PBXNativeTarget "MJRefresh" */;
+			buildPhases = (
+				08EF78522D0C15FAC07E3DF1CA39E77C /* Headers */,
+				43D5CCDE6E144B6F6AEE48CEDD25AC1C /* Sources */,
+				4330790BF93619542494717EF5872A17 /* Frameworks */,
+				862C3C5F3DC00E80837F3E923C463301 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MJRefresh;
+			productName = MJRefresh;
+			productReference = D71604937DCC5F512A732A0F133BE581 /* MJRefresh.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C1526AB455834F202F54C3E610451799 /* GKNavigationBarViewController */ = {
@@ -577,28 +823,7 @@
 			);
 			name = GKNavigationBarViewController;
 			productName = GKNavigationBarViewController;
-			productReference = 25808447F8D67553FE8E24B347394C3F /* GKNavigationBarViewController.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DBA8B8DD7C72524AFFED30147EB8CF2B /* Pods-GKPageScrollViewDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DA934E67994B2C4B883E470317B76676 /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewDemo" */;
-			buildPhases = (
-				D646E8391EC6F45F0FFA367FEBF7C702 /* Headers */,
-				689A5E859D2AACBA5CC3C18DE98B75AE /* Sources */,
-				15936FC428FFB84D2E1F8B0F1F395B4B /* Frameworks */,
-				34926C52533150B7D1FF6FB07CC581E3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6B80CD902A2D4932278654FC3C868BF5 /* PBXTargetDependency */,
-				DD93E62EFF02B2DA7875D5EF481ADC17 /* PBXTargetDependency */,
-				C6E9F6E7F0B0D666D6BD7A99BF78F6E2 /* PBXTargetDependency */,
-			);
-			name = "Pods-GKPageScrollViewDemo";
-			productName = "Pods-GKPageScrollViewDemo";
-			productReference = 67A1683BA7B83099DA1995C2A948522C /* Pods_GKPageScrollViewDemo.framework */;
+			productReference = 080113C18C59D8C19C095FF7C1033B00 /* GKNavigationBarViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		FF7468B4F5259B98018DD1ABAD2D2593 /* Masonry */ = {
@@ -616,7 +841,7 @@
 			);
 			name = Masonry;
 			productName = Masonry;
-			productReference = C17F39D7D2BF41B6DF2469F51A23F011 /* Masonry.framework */;
+			productReference = 3BE9BA6059BC470D1A769AFF318517D7 /* Masonry.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -636,31 +861,47 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 65DBDE20253FB362DA73229114C158B7 /* Products */;
+			productRefGroup = 5DABA056C547658C893BC5176AEF108F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C1526AB455834F202F54C3E610451799 /* GKNavigationBarViewController */,
 				FF7468B4F5259B98018DD1ABAD2D2593 /* Masonry */,
-				DBA8B8DD7C72524AFFED30147EB8CF2B /* Pods-GKPageScrollViewDemo */,
-				14FC201DE17C0185AF150E9FC423EB67 /* WMPageController */,
+				546B747B9DB0515E059EEBA0B9E98B42 /* MJRefresh */,
+				0B728ABC9963A80486C1572CC3980612 /* Pods-GKPageScrollViewDemo */,
+				3E05A2E91CDD43423FA4DE56A7BA40A9 /* WMPageController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		34926C52533150B7D1FF6FB07CC581E3 /* Resources */ = {
+		578E15321C94E9E6F5CE957DAFE8E326 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB7EB5D105816193E5B2E141D80EE308 /* GKNavigationBarViewController.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C40E481426B3FE36250A21756E0770E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		578E15321C94E9E6F5CE957DAFE8E326 /* Resources */ = {
+		862C3C5F3DC00E80837F3E923C463301 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB7EB5D105816193E5B2E141D80EE308 /* GKNavigationBarViewController.bundle in Resources */,
+				10884584B45C6564993981E004AE6B5B /* MJRefresh.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A58F2C949D392F9A0ABDA8CE9496A066 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,21 +912,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB76639288D4C6DBCFD6E5BD97E8B44A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		689A5E859D2AACBA5CC3C18DE98B75AE /* Sources */ = {
+		155C1411DC5AEE392B8CD78551F992F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				097E1E5C0EC7662773E7FB8673550467 /* Pods-GKPageScrollViewDemo-dummy.m in Sources */,
+				24D677EDB9ED42B0ECCBC1DC21A4C97F /* UIViewController+WMPageController.m in Sources */,
+				54A56E164AB1CA90A6CF0D1D817754EE /* WMMenuItem.m in Sources */,
+				EC440904188BC2DBDAFEA16AC866316C /* WMMenuView.m in Sources */,
+				2E9BEC50BC177DAB18B7F6BC6FB5532F /* WMPageController-dummy.m in Sources */,
+				CE1352C3DE85EA603F8C42AFCFC89206 /* WMPageController.m in Sources */,
+				37C8BB1F8EBA9658D0F1524854E8A820 /* WMProgressView.m in Sources */,
+				260F9D3312D9CF0E3D4B8C2D8F7FECC7 /* WMScrollView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43D5CCDE6E144B6F6AEE48CEDD25AC1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				482B75E0CB8031D3F673F70242FA41FB /* MJRefresh-dummy.m in Sources */,
+				DB70C0344D46C9DBD3DBD9CA84C639D3 /* MJRefreshAutoFooter.m in Sources */,
+				B50A173CC006987E8682D89650F14F63 /* MJRefreshAutoGifFooter.m in Sources */,
+				6E560D2FE4A36AB742453E3CF5F4CE68 /* MJRefreshAutoNormalFooter.m in Sources */,
+				6D2FD545E0B463F0210B5242E1477721 /* MJRefreshAutoStateFooter.m in Sources */,
+				EEDC5683FF36946364A3C8344630705B /* MJRefreshBackFooter.m in Sources */,
+				F41FA61294C6ABEEAEDC06A420AD696E /* MJRefreshBackGifFooter.m in Sources */,
+				2EFA8D0D3C31B3A77612C955773F7D36 /* MJRefreshBackNormalFooter.m in Sources */,
+				C1117CCC45FA6780A4E9CC0879D5C3EA /* MJRefreshBackStateFooter.m in Sources */,
+				A7ED1FA2F59F020062DE3B579AF84F55 /* MJRefreshComponent.m in Sources */,
+				F024CC151BA9C2DCEEEDB1857C832CB8 /* MJRefreshConst.m in Sources */,
+				4E75F1293990391FB686C2BBD734E715 /* MJRefreshFooter.m in Sources */,
+				94237113054B0D5CE28D86E2C827BD72 /* MJRefreshGifHeader.m in Sources */,
+				B7170162BEBD63676519BFABE4D76287 /* MJRefreshHeader.m in Sources */,
+				EF873453BEEE867C2F8C43660CEB4A78 /* MJRefreshNormalHeader.m in Sources */,
+				31D52A4583BB36984AEC4C6D71265746 /* MJRefreshStateHeader.m in Sources */,
+				9A9931F189A4EF1FABC8C731BC11AEFE /* NSBundle+MJRefresh.m in Sources */,
+				81727E0FB34C0FE08D39BDE52687701F /* UIScrollView+MJExtension.m in Sources */,
+				CF76306C6168AD7A6C076288CA899B02 /* UIScrollView+MJRefresh.m in Sources */,
+				8234F492BBE286EA25736C05B5728C82 /* UIView+MJExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,17 +974,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B537F96D3C0BFF876C3AE172A22C5DA9 /* Sources */ = {
+		87B0AD2B857532C5E98E5B6311B651C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				365C096A613F404568BA9F80A5DE30F1 /* UIViewController+WMPageController.m in Sources */,
-				6BC4DCD480A10D5113BBE269FBE8BFBD /* WMMenuItem.m in Sources */,
-				A7618D8B5A8BAEEC7E570D816FED9EB3 /* WMMenuView.m in Sources */,
-				7AD2B42FFAAD3DF943B196DFFEFBB53D /* WMPageController-dummy.m in Sources */,
-				1C2C4F8EC63A52133C0E70314822F1EF /* WMPageController.m in Sources */,
-				405653B29E027E6A91B90B73BDA5F5BB /* WMProgressView.m in Sources */,
-				FC6A1A8B813CD8511268FAF690FFB9A2 /* WMScrollView.m in Sources */,
+				5FF8EC37FC444D9085BDF33259BD7AC5 /* Pods-GKPageScrollViewDemo-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,23 +1005,29 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6B80CD902A2D4932278654FC3C868BF5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GKNavigationBarViewController;
-			target = C1526AB455834F202F54C3E610451799 /* GKNavigationBarViewController */;
-			targetProxy = 2A77B24896A08402CA34B5682C9BDB80 /* PBXContainerItemProxy */;
-		};
-		C6E9F6E7F0B0D666D6BD7A99BF78F6E2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = WMPageController;
-			target = 14FC201DE17C0185AF150E9FC423EB67 /* WMPageController */;
-			targetProxy = C2971940179E6A55F24BBC24E1517C77 /* PBXContainerItemProxy */;
-		};
-		DD93E62EFF02B2DA7875D5EF481ADC17 /* PBXTargetDependency */ = {
+		38C837D9DA8DA2F2F4DD3AD986511C71 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Masonry;
 			target = FF7468B4F5259B98018DD1ABAD2D2593 /* Masonry */;
-			targetProxy = F02E538E8A9828149E8DAA415DBAFE22 /* PBXContainerItemProxy */;
+			targetProxy = C2E0BC8C1BBC3154B367CC9F4CF2F6DA /* PBXContainerItemProxy */;
+		};
+		66FEB1AEB4261F4DAA5FD3F9FFF64576 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MJRefresh;
+			target = 546B747B9DB0515E059EEBA0B9E98B42 /* MJRefresh */;
+			targetProxy = 4D5F6D8BD8FD0CDCF4796A58F30B6989 /* PBXContainerItemProxy */;
+		};
+		78B1EE6FD60925563057D37BD0AE3693 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WMPageController;
+			target = 3E05A2E91CDD43423FA4DE56A7BA40A9 /* WMPageController */;
+			targetProxy = 55CFAA536BFA7A74E00189EB0AA1D16F /* PBXContainerItemProxy */;
+		};
+		B4D25DB3EFBFC7F5FB8E682124BBBDE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GKNavigationBarViewController;
+			target = C1526AB455834F202F54C3E610451799 /* GKNavigationBarViewController */;
+			targetProxy = 93E12C4DC5ADA27C3E817BA12BBED11B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -829,7 +1096,44 @@
 			};
 			name = Debug;
 		};
-		1610CCE90A8B82FB8AEBFFAB081BB677 /* Release */ = {
+		09919D6C1CFDD2C4B74FDCA65536EDB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F79C9676EA5DA12D9E4301C530C50074 /* Pods-GKPageScrollViewDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		101F88BD888881782B14AAC0D901E6D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E05670596CA91842D310D05561DF7F52 /* Pods-GKPageScrollViewDemo.release.xcconfig */;
 			buildSettings = {
@@ -867,9 +1171,44 @@
 			};
 			name = Release;
 		};
+		2362046ED3958F1ADD4DDDB1E6E7A556 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37E0E321F63C94CE8A758A19BE5B9E5D /* MJRefresh.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MJRefresh/MJRefresh-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MJRefresh/MJRefresh.modulemap";
+				PRODUCT_MODULE_NAME = MJRefresh;
+				PRODUCT_NAME = MJRefresh;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		4BCC2E6646A819C14001BF3066EEA13B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40B5E325C2C278E554CDD7263F75439A /* Masonry.xcconfig */;
+			baseConfigurationReference = 7ED7AC7EDAB7458B635143DF326881FC /* Masonry.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -902,80 +1241,9 @@
 			};
 			name = Release;
 		};
-		647834979D9DC1A7F74B044D7155D397 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F79C9676EA5DA12D9E4301C530C50074 /* Pods-GKPageScrollViewDemo.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8AFE9ED0A60223F621E8E0F243D8E585 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53B836159F2F90B7B12C68D21C7859B4 /* WMPageController.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/WMPageController/WMPageController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/WMPageController/WMPageController-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/WMPageController/WMPageController.modulemap";
-				PRODUCT_MODULE_NAME = WMPageController;
-				PRODUCT_NAME = WMPageController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		98B2AE5C0B25D26BC252CFA0D9C155C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40B5E325C2C278E554CDD7263F75439A /* Masonry.xcconfig */;
+			baseConfigurationReference = 7ED7AC7EDAB7458B635143DF326881FC /* Masonry.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -998,6 +1266,40 @@
 				MODULEMAP_FILE = "Target Support Files/Masonry/Masonry.modulemap";
 				PRODUCT_MODULE_NAME = Masonry;
 				PRODUCT_NAME = Masonry;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BA4CD0378C3448DDEB7A07087785010A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7C59ACED21BF79932DD285B80B68D18 /* WMPageController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WMPageController/WMPageController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WMPageController/WMPageController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WMPageController/WMPageController.modulemap";
+				PRODUCT_MODULE_NAME = WMPageController;
+				PRODUCT_NAME = WMPageController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1067,9 +1369,78 @@
 			};
 			name = Release;
 		};
+		E9C18D9B1A06237A945C64249FCA4449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7C59ACED21BF79932DD285B80B68D18 /* WMPageController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WMPageController/WMPageController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WMPageController/WMPageController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WMPageController/WMPageController.modulemap";
+				PRODUCT_MODULE_NAME = WMPageController;
+				PRODUCT_NAME = WMPageController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ED11ABC8D9F6E04D63F9C3B5A309B049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37E0E321F63C94CE8A758A19BE5B9E5D /* MJRefresh.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MJRefresh/MJRefresh-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MJRefresh/MJRefresh.modulemap";
+				PRODUCT_MODULE_NAME = MJRefresh;
+				PRODUCT_NAME = MJRefresh;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		F84539C2DB1B9F7020F9ACF5AC64370C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84F2D0A0F6DCAAA75878167593509F4C /* GKNavigationBarViewController.xcconfig */;
+			baseConfigurationReference = 92572FBDD4A457C058EAAF93A2F79D2C /* GKNavigationBarViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1103,7 +1474,7 @@
 		};
 		FCA71A2009CD03849CAFAE7AB2AF6B67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84F2D0A0F6DCAAA75878167593509F4C /* GKNavigationBarViewController.xcconfig */;
+			baseConfigurationReference = 92572FBDD4A457C058EAAF93A2F79D2C /* GKNavigationBarViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1136,41 +1507,6 @@
 			};
 			name = Release;
 		};
-		FF9D437253F5759A58CEA71C8818D1C8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53B836159F2F90B7B12C68D21C7859B4 /* WMPageController.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/WMPageController/WMPageController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/WMPageController/WMPageController-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/WMPageController/WMPageController.modulemap";
-				PRODUCT_MODULE_NAME = WMPageController;
-				PRODUCT_NAME = WMPageController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1192,6 +1528,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		8526BAD492B0B9BF9ACF1046FA19EFEC /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09919D6C1CFDD2C4B74FDCA65536EDB2 /* Debug */,
+				101F88BD888881782B14AAC0D901E6D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FE0C68CC1C876A78B78BEC29690FBE0 /* Build configuration list for PBXNativeTarget "WMPageController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA4CD0378C3448DDEB7A07087785010A /* Debug */,
+				E9C18D9B1A06237A945C64249FCA4449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D12A963CBC07FB1800469DCD230BC941 /* Build configuration list for PBXNativeTarget "GKNavigationBarViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1201,20 +1555,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D270E2D99E119C49BFE849FF112BCA74 /* Build configuration list for PBXNativeTarget "WMPageController" */ = {
+		E6F83A3523D8341EDA917BED02337C9A /* Build configuration list for PBXNativeTarget "MJRefresh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8AFE9ED0A60223F621E8E0F243D8E585 /* Debug */,
-				FF9D437253F5759A58CEA71C8818D1C8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DA934E67994B2C4B883E470317B76676 /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				647834979D9DC1A7F74B044D7155D397 /* Debug */,
-				1610CCE90A8B82FB8AEBFFAB081BB677 /* Release */,
+				ED11ABC8D9F6E04D63F9C3B5A309B049 /* Debug */,
+				2362046ED3958F1ADD4DDDB1E6E7A556 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

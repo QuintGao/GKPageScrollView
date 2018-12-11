@@ -10,6 +10,7 @@
 #import "GKPageScrollView.h"
 #import "GKTestListView.h"
 #import "JXCategoryView.h"
+#import <MJRefresh/MJRefresh.h>
 
 #define kTestHeaderHeight kScreenW * 385.0f / 704.0f
 
@@ -49,6 +50,10 @@
     }];
     
     [self.pageScrollView reloadData];
+    
+//    self.pageScrollView.mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        NSLog(@"mainTableView刷新");
+//    }];
 }
 
 #pragma mark - GKPageScrollViewDelegate
@@ -141,6 +146,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
+        _pageScrollView.isAllowListRefresh = YES;
     }
     return _pageScrollView;
 }
@@ -176,13 +182,22 @@
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
         lineView.indicatorLineWidth = ADAPTATIONRATIO * 50.0f;
-        lineView.indicatorLineViewHeight = ADAPTATIONRATIO * 8.0f;
+        lineView.indicatorLineViewHeight = ADAPTATIONRATIO * 4.0f;
         lineView.indicatorLineViewColor = [UIColor redColor];
         lineView.indicatorLineViewCornerRadius = 0;
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
+        lineView.verticalMargin = ADAPTATIONRATIO * 1.0f;
         _segmentView.indicators = @[lineView];
         
         _segmentView.contentScrollView = self.contentScrollView;
+        
+        UIView *btmLineView = [UIView new];
+        btmLineView.backgroundColor = [UIColor grayColor];
+        [_segmentView addSubview:btmLineView];
+        [btmLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self.segmentView);
+            make.height.mas_equalTo(ADAPTATIONRATIO * 1.0f);
+        }];
     }
     return _segmentView;
 }

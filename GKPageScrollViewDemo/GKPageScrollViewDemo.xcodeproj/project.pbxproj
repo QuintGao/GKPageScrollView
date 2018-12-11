@@ -10,6 +10,10 @@
 		49BCDD4E503FFBE8DCDC9B52 /* Pods_GKPageScrollViewDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B7D43D367279863317FB60 /* Pods_GKPageScrollViewDemo.framework */; };
 		605182FC21B9148600CCCC9E /* GKTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605182FB21B9148600CCCC9E /* GKTestViewController.m */; };
 		6051830521B914B200CCCC9E /* GKTestListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6051830421B914B200CCCC9E /* GKTestListView.m */; };
+		60657EE821BF5317000F97DA /* GKBasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60657EE721BF5317000F97DA /* GKBasePageViewController.m */; };
+		60657EEB21BF536C000F97DA /* GKBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60657EEA21BF536C000F97DA /* GKBaseListViewController.m */; };
+		60657EEE21BF6314000F97DA /* GKMainRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60657EED21BF6314000F97DA /* GKMainRefreshViewController.m */; };
+		60657EF121BF631F000F97DA /* GKListRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60657EF021BF631F000F97DA /* GKListRefreshViewController.m */; };
 		60AA4F0A21BA0BAB00D36D9C /* GKPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA4F0821BA0BAB00D36D9C /* GKPageScrollView.m */; };
 		60AA4F0B21BA0BAB00D36D9C /* GKPageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AA4F0921BA0BAB00D36D9C /* GKPageTableView.m */; };
 		79E2EDC021B40F1E00DEF5B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E2EDBF21B40F1E00DEF5B1 /* AppDelegate.m */; };
@@ -88,6 +92,14 @@
 		605182FB21B9148600CCCC9E /* GKTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKTestViewController.m; sourceTree = "<group>"; };
 		6051830321B914B200CCCC9E /* GKTestListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKTestListView.h; sourceTree = "<group>"; };
 		6051830421B914B200CCCC9E /* GKTestListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKTestListView.m; sourceTree = "<group>"; };
+		60657EE621BF5317000F97DA /* GKBasePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBasePageViewController.h; sourceTree = "<group>"; };
+		60657EE721BF5317000F97DA /* GKBasePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKBasePageViewController.m; sourceTree = "<group>"; };
+		60657EE921BF536C000F97DA /* GKBaseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKBaseListViewController.h; sourceTree = "<group>"; };
+		60657EEA21BF536C000F97DA /* GKBaseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKBaseListViewController.m; sourceTree = "<group>"; };
+		60657EEC21BF6314000F97DA /* GKMainRefreshViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKMainRefreshViewController.h; sourceTree = "<group>"; };
+		60657EED21BF6314000F97DA /* GKMainRefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKMainRefreshViewController.m; sourceTree = "<group>"; };
+		60657EEF21BF631F000F97DA /* GKListRefreshViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKListRefreshViewController.h; sourceTree = "<group>"; };
+		60657EF021BF631F000F97DA /* GKListRefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKListRefreshViewController.m; sourceTree = "<group>"; };
 		60AA4F0621BA0BAB00D36D9C /* GKPageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPageTableView.h; sourceTree = "<group>"; };
 		60AA4F0721BA0BAB00D36D9C /* GKPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPageScrollView.h; sourceTree = "<group>"; };
 		60AA4F0821BA0BAB00D36D9C /* GKPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPageScrollView.m; sourceTree = "<group>"; };
@@ -237,6 +249,24 @@
 				6051830421B914B200CCCC9E /* GKTestListView.m */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		60657EE121BF52BB000F97DA /* MainRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				60657EEC21BF6314000F97DA /* GKMainRefreshViewController.h */,
+				60657EED21BF6314000F97DA /* GKMainRefreshViewController.m */,
+			);
+			path = MainRefresh;
+			sourceTree = "<group>";
+		};
+		60657EE221BF52CA000F97DA /* ListRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				60657EEF21BF631F000F97DA /* GKListRefreshViewController.h */,
+				60657EF021BF631F000F97DA /* GKListRefreshViewController.m */,
+			);
+			path = ListRefresh;
 			sourceTree = "<group>";
 		};
 		60AA4F0521BA0BAB00D36D9C /* GKPageScrollView */ = {
@@ -462,6 +492,8 @@
 				79E2EF8D21B4228D00DEF5B1 /* 微博 */,
 				79E2EF8621B4228D00DEF5B1 /* 网易云音乐 */,
 				79E2EF9B21B4228D00DEF5B1 /* 抖音 */,
+				60657EE121BF52BB000F97DA /* MainRefresh */,
+				60657EE221BF52CA000F97DA /* ListRefresh */,
 				605182F921B9144F00CCCC9E /* Test */,
 			);
 			path = Demo;
@@ -502,6 +534,10 @@
 				79E2EF9921B4228D00DEF5B1 /* GKDemoBaseViewController.m */,
 				79E2EF9721B4228D00DEF5B1 /* GKBaseTableViewController.h */,
 				79E2EF9A21B4228D00DEF5B1 /* GKBaseTableViewController.m */,
+				60657EE621BF5317000F97DA /* GKBasePageViewController.h */,
+				60657EE721BF5317000F97DA /* GKBasePageViewController.m */,
+				60657EE921BF536C000F97DA /* GKBaseListViewController.h */,
+				60657EEA21BF536C000F97DA /* GKBaseListViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -671,12 +707,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GKPageScrollViewDemo/Pods-GKPageScrollViewDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GKNavigationBarViewController/GKNavigationBarViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/WMPageController/WMPageController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKNavigationBarViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPageController.framework",
 			);
@@ -715,6 +753,7 @@
 				79E2EEFB21B410E900DEF5B1 /* JXCategoryDotCell.m in Sources */,
 				79E2EF0D21B410E900DEF5B1 /* UIColor+JXAdd.m in Sources */,
 				79E2EF0821B410E900DEF5B1 /* JXCategoryNumberCell.m in Sources */,
+				60657EEE21BF6314000F97DA /* GKMainRefreshViewController.m in Sources */,
 				79E2EF0221B410E900DEF5B1 /* JXCategoryTitleCell.m in Sources */,
 				605182FC21B9148600CCCC9E /* GKTestViewController.m in Sources */,
 				79E2EFA621B4228E00DEF5B1 /* GKWBHeaderView.m in Sources */,
@@ -723,6 +762,7 @@
 				79E2EEF821B410E900DEF5B1 /* JXCategoryIndicatorCellModel.m in Sources */,
 				6051830521B914B200CCCC9E /* GKTestListView.m in Sources */,
 				79E2EF0621B410E900DEF5B1 /* JXCategoryImageCellModel.m in Sources */,
+				60657EEB21BF536C000F97DA /* GKBaseListViewController.m in Sources */,
 				79E2EF0B21B410E900DEF5B1 /* JXCategoryFactory.m in Sources */,
 				79E2EFA421B4228E00DEF5B1 /* GKWYViewController.m in Sources */,
 				79E2EF0C21B410E900DEF5B1 /* JXCategoryCollectionView.m in Sources */,
@@ -738,6 +778,7 @@
 				79E2EEF221B410E900DEF5B1 /* JXCategoryIndicatorLineView.m in Sources */,
 				79E2EFAD21B4228E00DEF5B1 /* GKDYHeaderView.m in Sources */,
 				79E2EFAB21B4228E00DEF5B1 /* GKDYViewController.m in Sources */,
+				60657EE821BF5317000F97DA /* GKBasePageViewController.m in Sources */,
 				79E2EF0721B410E900DEF5B1 /* JXCategoryNumberView.m in Sources */,
 				79E2EFA321B4228E00DEF5B1 /* GKWYHeaderView.m in Sources */,
 				79E2EFA521B4228E00DEF5B1 /* GKWBListViewController.m in Sources */,
@@ -757,6 +798,7 @@
 				79E2EFA721B4228E00DEF5B1 /* GKWBPageViewController.m in Sources */,
 				79E2EEF921B410E900DEF5B1 /* JXCategoryIndicatorCell.m in Sources */,
 				79E2EF0121B410E900DEF5B1 /* JXCategoryTitleCellModel.m in Sources */,
+				60657EF121BF631F000F97DA /* GKListRefreshViewController.m in Sources */,
 				79E2EF0E21B410E900DEF5B1 /* JXCategoryBaseView.m in Sources */,
 				79E2EF0F21B410E900DEF5B1 /* JXCategoryBaseCell.m in Sources */,
 				79E2EF0321B410E900DEF5B1 /* JXCategoryTitleView.m in Sources */,

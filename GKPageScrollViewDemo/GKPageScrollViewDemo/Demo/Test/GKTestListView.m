@@ -7,6 +7,7 @@
 //
 
 #import "GKTestListView.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface GKTestListView()<UITableViewDataSource, UITableViewDelegate>
 
@@ -29,6 +30,12 @@
         }];
         
         [self.listTableView reloadData];
+        
+        self.listTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.listTableView.mj_header endRefreshing];
+            });
+        }];
     }
     return self;
 }

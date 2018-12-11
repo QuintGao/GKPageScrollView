@@ -32,6 +32,8 @@
     self.dataSource = @[@{@"title": @"微博个人主页", @"class": @"GKWBViewController"},
                         @{@"title": @"网易云歌手页", @"class": @"GKWYViewController"},
                         @{@"title": @"抖音个人主页", @"class": @"GKDYViewController"},
+                        @{@"title": @"mainTableView刷新", @"class": @"GKMainRefreshViewController"},
+                        @{@"title": @"listTableView刷新", @"class": @"GKListRefreshViewController"},
                         @{@"title": @"测试", @"class": @"GKTestViewController"}];
     
     [self.tableView reloadData];
