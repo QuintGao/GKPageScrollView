@@ -50,10 +50,6 @@
     }];
     
     [self.pageScrollView reloadData];
-    
-//    self.pageScrollView.mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        NSLog(@"mainTableView刷新");
-//    }];
 }
 
 #pragma mark - GKPageScrollViewDelegate

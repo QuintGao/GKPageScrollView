@@ -53,14 +53,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     !self.listScrollViewScrollCallback ? : self.listScrollViewScrollCallback(scrollView);
-    
-//    if (scrollView.isDragging) {
-//        if (scrollView.contentOffset.y >= self.beginOffset) {
-//            [self btmHide];
-//        }else {
-//            [self btmShow];
-//        }
-//    }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
