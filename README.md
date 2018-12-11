@@ -24,4 +24,4 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 
 ## 版本更新
 2018.12.11
-    1.0.3 - 增加下拉刷新、上拉加载功能
+    1.0.3 - 支持下拉刷新、上拉加载
