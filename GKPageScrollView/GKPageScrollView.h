@@ -62,6 +62,11 @@
 
 @optional
 
+/**
+ mainTableView开始滑动
+
+ @param scrollView mainTableView
+ */
 - (void)mainTableViewWillBeginDragging:(UIScrollView *)scrollView;
 
 /**
@@ -72,8 +77,19 @@
  */
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll;
 
+/**
+ mainTableView结束滑动
+
+ @param scrollView mainTableView
+ @param decelerate 是否将要减速
+ */
 - (void)mainTableViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 
+/**
+ mainTableView结束滑动
+
+ @param scrollView mainTableView
+ */
 - (void)mainTableViewDidEndDecelerating:(UIScrollView *)scrollView;
 
 @end
@@ -86,6 +102,9 @@
 
 // 吸顶临界点高度（默认值：状态栏+导航栏）
 @property (nonatomic, assign) CGFloat           ceilPointHeight;
+
+// 是否允许子列表下拉刷新
+@property (nonatomic, assign) BOOL              isAllowListRefresh;
 
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate;
 
