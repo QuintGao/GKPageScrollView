@@ -102,6 +102,27 @@ NO)
     self.mainTableView.scrollEnabled = YES;
 }
 
+- (void)scrollToOriginalPoint {
+    [self.currentListScrollView setContentOffset:CGPointZero animated:YES];
+    
+    self.isMainCanScroll = YES;
+    self.isListCanScroll = NO;
+    
+    [self.mainTableView setContentOffset:CGPointZero animated:YES];
+    
+    // 修正listView偏移
+    [self listScrollViewOffsetFixed];
+}
+
+- (void)scrollToCriticalPoint {
+    CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
+    
+    [self.mainTableView setContentOffset:CGPointMake(0, criticalPoint) animated:YES];
+    
+    self.isMainCanScroll = NO;
+    self.isListCanScroll = YES;
+}
+
 #pragma mark - Private Methods
 - (void)configListViewScroll {
     [[self.delegate listViewsInPageScrollView:self] enumerateObjectsUsingBlock:^(id<GKPageListViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

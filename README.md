@@ -23,5 +23,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
 
 ## 版本更新
+2019.2.20
+    1.0.6 - 增加快速切换临界点和原点的方法
 2018.12.11
     1.0.3 - 支持下拉刷新、上拉加载

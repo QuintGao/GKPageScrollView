@@ -42,6 +42,8 @@
     
     self.gk_navBackgroundColor = [UIColor clearColor];
     
+    self.gk_navRightBarButtonItems = @[[UIBarButtonItem itemWithTitle:@"临界点" target:self action:@selector(criticalPoint)], [UIBarButtonItem itemWithTitle:@"原点" target:self action:@selector(originalPoint)]];
+    
     [self.view addSubview:self.pageScrollView];
     [self.view addSubview:self.bottomView];
     
@@ -58,6 +60,14 @@
     }];
     
     [self.pageScrollView reloadData];
+}
+
+- (void)criticalPoint {
+    [self.pageScrollView scrollToCriticalPoint];
+}
+
+- (void)originalPoint {
+    [self.pageScrollView scrollToOriginalPoint];
 }
 
 #pragma mark - GKPageScrollViewDelegate
