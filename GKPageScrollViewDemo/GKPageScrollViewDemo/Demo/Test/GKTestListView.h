@@ -16,11 +16,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)bottomHide;
 - (void)bottomShow;
 
+- (void)listLoadData;
+
 @end
 
 @interface GKTestListView : UIView<GKPageListViewDelegate>
 
 @property (nonatomic, weak) id<GKTestListViewDelegate> delegate;
+
+- (void)setCount:(NSInteger)count;
 
 @end
 

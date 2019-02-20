@@ -49,6 +49,14 @@
         make.edges.equalTo(self.view);
     }];
     
+    self.pageScrollView.mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        GKTestListView *listView = self.listViews[self.segmentView.selectedIndex];
+        
+        [listView setCount:20];
+        
+        [self.pageScrollView.mainTableView.mj_header endRefreshing];
+    }];
+    
     [self.pageScrollView reloadData];
 }
 
@@ -66,15 +74,7 @@
 }
 
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {
-//    if (isMainCanScroll) {
-//        if (scrollView.isDragging) {
-//            if (scrollView.contentOffset.y >= self.beginOffset) {
-//                [self bottomHide];
-//            }else {
-//                [self bottomShow];
-//            }
-//        }
-//    }
+    NSLog(@"%@", isMainCanScroll ? @"main可滑动" : @"main不可滑动");
 }
 
 - (void)mainTableViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -137,12 +137,15 @@
     }];
 }
 
+- (void)listLoadData {
+    [self.pageScrollView.mainTableView.mj_header beginRefreshing];
+}
+
 #pragma mark - 懒加载
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
-        _pageScrollView.isAllowListRefresh = YES;
     }
     return _pageScrollView;
 }

@@ -73,7 +73,7 @@
  mainTableView滑动，用于实现导航栏渐变、头图缩放等
 
  @param scrollView mainTableView
- @param isMainCanScroll 是否到达临界点，YES表示到达临界点，mainTableView不再滑动，NO表示我到达临界点，mainTableView仍可滑动
+ @param isMainCanScroll mainTableView是否可滑动，YES表示可滑动，没有到达临界点，NO表示不可滑动，已到达临界点
  */
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll;
 

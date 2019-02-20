@@ -169,9 +169,8 @@ NO)
         scrollView.contentOffset = CGPointMake(0, criticalPoint);
         self.isMainCanScroll = NO;
         self.isListCanScroll = YES;
-        
     }else {
-        // 如果允许列表刷新，并且mainTableView的offsetY小于0 或者 当前列表的offsetY小于0
+        // 如果允许列表刷新，并且mainTableView的offsetY小于0 或者 当前列表的offsetY小于0,mainScrollView不可滑动
         if (self.isAllowListRefresh && (offsetY <= 0 || self.currentListScrollView.contentOffset.y < 0)) {
             scrollView.contentOffset = CGPointZero;
         }else {

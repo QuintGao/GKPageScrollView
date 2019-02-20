@@ -17,6 +17,8 @@
 
 @property (nonatomic, assign) CGFloat beginOffset;
 
+@property (nonatomic, assign) BOOL      isLoad;
+
 @end
 
 @implementation GKTestListView
@@ -31,18 +33,31 @@
         
         [self.listTableView reloadData];
         
-        self.listTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.listTableView.mj_header endRefreshing];
-            });
+        self.listTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            NSLog(@"mj_footer刷新");
         }];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadData)];
+        [self.listTableView addGestureRecognizer:tap];
     }
     return self;
 }
 
+- (void)setCount:(NSInteger)count {
+    self.isLoad = YES;
+    
+    [self.listTableView reloadData];
+}
+
+- (void)loadData {
+    if ([self.delegate respondsToSelector:@selector(listLoadData)]) {
+        [self.delegate listLoadData];
+    }
+}
+
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.isLoad ? 20 : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
