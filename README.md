@@ -1,4 +1,10 @@
-## GKPageScrollView
+<div align=center><img src="GKPageScrollViewDemo/gif/GKPageScrollView.png" width="405" height="63" /></div>
+
+[![platform](https://img.shields.io/badge/platform-iOS-blue.svg?style=plastic)](#)
+[![languages](https://img.shields.io/badge/language-objective--c-blue.svg)](#) 
+[![cocoapods](https://img.shields.io/badge/cocoapods-supported-4BC51D.svg?style=plastic)](https://cocoapods.org/pods/GKPageScrollView)
+[![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
+
 GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingView](https://github.com/pujiaxin33/JXPagingView)，在他的基础上做了修改，实现了自己想要的效果。
 
 ## 主要功能
