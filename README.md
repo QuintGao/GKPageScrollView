@@ -6,6 +6,9 @@
 [![cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollView)&nbsp;&nbsp;
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
+iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
+==========
+
 GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingView](https://github.com/pujiaxin33/JXPagingView)，在他的基础上做了修改，实现了自己想要的效果。
 
 ## 主要功能
