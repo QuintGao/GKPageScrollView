@@ -1,9 +1,9 @@
 <div align=center><img src="GKPageScrollViewDemo/gif/GKPageScrollView.png" width="405" height="63" /></div>
 
-[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)
-[![platform](http://img.shields.io/cocoapods/p/GKPageScrollView.svg?style=flat)](http://cocoadocs.org/docsets/GKPageScrollView)
-[![languages](https://img.shields.io/badge/language-objective--c-blue.svg)](#) 
-[![cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollView)
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
+[![platform](http://img.shields.io/cocoapods/p/GKPageScrollView.svg?style=flat)](http://cocoadocs.org/docsets/GKPageScrollView)&nbsp;&nbsp;
+[![languages](https://img.shields.io/badge/language-objective--c-blue.svg)](#) &nbsp;&nbsp;
+[![cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollView)&nbsp;&nbsp;
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
 GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingView](https://github.com/pujiaxin33/JXPagingView)，在他的基础上做了修改，实现了自己想要的效果。
