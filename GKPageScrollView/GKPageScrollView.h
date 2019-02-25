@@ -106,6 +106,9 @@
 // 是否允许子列表下拉刷新
 @property (nonatomic, assign) BOOL              isAllowListRefresh;
 
+// 是否在吸顶状态下禁止mainScroll滑动
+@property (nonatomic, assign) BOOL              isDisableMainScrollInCeil;
+
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate;
 
 /**

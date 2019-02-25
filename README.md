@@ -24,6 +24,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 | 说明 | 效果图 |
 |-------|-------|
 | **微博个人主页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/wb.gif) |
+| **微博发现页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/wb_find.gif) |
 | **网易云歌手页** | ![wy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/wy.gif) |
 | **抖音个人主页** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/dy.gif) |
 | **主页下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/mainRefresh.gif) |
@@ -33,6 +34,8 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
 
 ## 版本更新
+2019.2.25
+    1.0.7 - 优化切换临界点和原点的方法，增加仿微博发现页demo
 2019.2.20
     1.0.6 - 增加快速切换临界点和原点的方法
 2018.12.11
