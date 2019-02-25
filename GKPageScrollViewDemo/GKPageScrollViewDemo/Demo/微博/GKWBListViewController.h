@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GKWBListViewController : GKDemoBaseViewController<GKPageListViewDelegate>
 
+@property (nonatomic, assign) BOOL  isCanScroll;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,7 @@
 //
 
 #import "GKWBListViewController.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface GKWBListViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -27,6 +28,15 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    if (self.isCanScroll) {
+        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                [self.tableView.mj_header endRefreshing];
+            });
+        }];
+    }
 }
 
 #pragma mark - GKPageListViewDelegate

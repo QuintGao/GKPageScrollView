@@ -84,16 +84,16 @@
 }
 
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {
-    NSLog(@"%@", isMainCanScroll ? @"main可滑动" : @"main不可滑动");
+//    NSLog(@"%@", isMainCanScroll ? @"main可滑动" : @"main不可滑动");
 }
 
 - (void)mainTableViewWillBeginDragging:(UIScrollView *)scrollView {
-    NSLog(@"main开始滑动");
+//    NSLog(@"main开始滑动");
     self.beginOffset = scrollView.contentOffset.y;
 }
 
 - (void)mainTableViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"main结束滑动");
+//    NSLog(@"main结束滑动");
     if (scrollView.contentOffset.y >= self.beginOffset) {
         if (scrollView.contentOffset.y == self.beginOffset && self.beginOffset == 0) return;
         [self bottomHide];
@@ -104,7 +104,7 @@
 
 - (void)mainTableViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate) {
-        NSLog(@"main无减速滑动");
+//        NSLog(@"main无减速滑动");
         if (scrollView.contentOffset.y >= self.beginOffset) {
             if (scrollView.contentOffset.y == self.beginOffset && self.beginOffset == 0) return;
             [self bottomHide];
@@ -156,6 +156,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
+        _pageScrollView.isDisableMainScrollInCeil = YES;
     }
     return _pageScrollView;
 }

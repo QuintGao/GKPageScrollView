@@ -20,6 +20,7 @@ static const void* GKStatusBarStyleKey  = @"GKStatusBarStyleKey";
 static const void* GKStatusBarHiddenKey = @"GKStatusBarHiddenKey";
 static const void* GKBackStyleKey       = @"GKBackStyleKey";
 static const void* GKPushDelegateKey    = @"GKPushDelegateKey";
+static const void* GKPopDelegateKey     = @"GKPopDelegateKey";
 
 @implementation UIViewController (GKCategory)
 
@@ -153,6 +154,17 @@ static const void* GKPushDelegateKey    = @"GKPushDelegateKey";
 
 - (void)setGk_pushDelegate:(id<GKViewControllerPushDelegate>)gk_pushDelegate {
     objc_setAssociatedObject(self, GKPushDelegateKey, gk_pushDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (id<GKViewControllerPopDelegate>)gk_popDelegate {
+    return objc_getAssociatedObject(self, GKPopDelegateKey);
+}
+
+- (void)setGk_popDelegate:(id<GKViewControllerPopDelegate>)gk_popDelegate {
+    objc_setAssociatedObject(self, GKPopDelegateKey, gk_popDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    // 当属性改变时，发送通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:GKViewControllerPropertyChangedNotification object:@{@"viewController": self}];
 }
 
 - (void)setNavBarAlpha:(CGFloat)alpha {

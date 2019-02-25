@@ -6,10 +6,8 @@
 //  Copyright © 2017年 高坤. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GKBaseTransitionAnimation.h"
 
-@interface GKPopTransitionAnimation : NSObject<UIViewControllerAnimatedTransitioning>
-
-+ (instancetype)transitionWithScale:(BOOL)scale;
+@interface GKPopTransitionAnimation : GKBaseTransitionAnimation
 
 @end

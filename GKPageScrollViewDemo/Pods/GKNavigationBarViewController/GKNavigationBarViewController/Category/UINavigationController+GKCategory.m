@@ -137,11 +137,16 @@
     
     BOOL isRootVC = vc == self.viewControllers.firstObject;
     
+    // 移除手势处理方法
+//    SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");
+//    [self.panGesture removeTarget:[self systemTarget] action:internalAction];
+//    [self.panGesture removeTarget:self.navDelegate action:@selector(panGestureAction:)];
+    
+    // 重新根据属性添加手势方法
     if (vc.gk_interactivePopDisabled) { // 禁止滑动
         self.interactivePopGestureRecognizer.delegate = nil;
         self.interactivePopGestureRecognizer.enabled = NO;
     }else if (vc.gk_fullScreenPopDisabled) { // 禁止全屏滑动
-        
         [self.interactivePopGestureRecognizer.view removeGestureRecognizer:self.panGesture];
         
         if (self.gk_translationScale) {
@@ -162,14 +167,16 @@
         self.interactivePopGestureRecognizer.enabled = NO;
         [self.interactivePopGestureRecognizer.view removeGestureRecognizer:self.screenPanGesture];
         
+        // 给self.interactivePopGestureRecognizer.view 添加全屏滑动手势
         if (!isRootVC && ![self.interactivePopGestureRecognizer.view.gestureRecognizers containsObject:self.panGesture]) {
             [self.interactivePopGestureRecognizer.view addGestureRecognizer:self.panGesture];
             self.panGesture.delegate = self.popGestureDelegate;
         }
-        if (self.gk_translationScale || self.gk_openScrollLeftPush) {
+        
+        // 添加手势处理
+        if (self.gk_translationScale || self.gk_openScrollLeftPush || self.visibleViewController.gk_popDelegate) {
             [self.panGesture addTarget:self.navDelegate action:@selector(panGestureAction:)];
         }else {
-            
             SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");
             [self.panGesture addTarget:[self systemTarget] action:internalAction];
         }

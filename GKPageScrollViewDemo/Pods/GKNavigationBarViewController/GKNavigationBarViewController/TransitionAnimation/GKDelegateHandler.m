@@ -32,14 +32,18 @@
     
     SEL action = NSSelectorFromString(@"handleNavigationTransition:");
     
-    if (transition.x < 0) {
-        if (self.navigationController.gk_openScrollLeftPush) {
+    if (transition.x < 0) { // 左滑处理
+        // 开启了左滑push并设置了代理
+        if (self.navigationController.gk_openScrollLeftPush && topVC.gk_pushDelegate) {
             [gestureRecognizer removeTarget:self.systemTarget action:action];
             [gestureRecognizer addTarget:self.customTarget action:@selector(panGestureAction:)];
         }else {
             return NO;
         }
-    }else {
+    }else { // 右滑处理
+        // 解决根控制器右滑时出现的卡死情况
+        if (self.navigationController.viewControllers.count <= 1) return NO;
+        
         // 全屏滑动时起作用
         if (!topVC.gk_fullScreenPopDisabled) {
             // 上下滑动
@@ -49,8 +53,12 @@
         // 忽略超出手势区域
         CGPoint beginningLocation = [gestureRecognizer locationInView:gestureRecognizer.view];
         CGFloat maxAllowDistance  = topVC.gk_popMaxAllowedDistanceToLeftEdge;
+        
         if (maxAllowDistance > 0 && beginningLocation.x > maxAllowDistance) {
             return NO;
+        }else if (self.navigationController.visibleViewController.gk_popDelegate) {
+            [gestureRecognizer removeTarget:self.systemTarget action:action];
+            [gestureRecognizer addTarget:self.customTarget action:@selector(panGestureAction:)];
         }else if(!self.navigationController.gk_translationScale) { // 非缩放，系统处理
             [gestureRecognizer removeTarget:self.customTarget action:@selector(panGestureAction:)];
             [gestureRecognizer addTarget:self.systemTarget action:action];
@@ -130,6 +138,8 @@
     
     progress = MIN(1.0, MAX(0.0, progress));
     
+    UIViewController *visibleVC = self.navigationController.visibleViewController;
+    
     if (gesture.state == UIGestureRecognizerStateBegan) {
         if (self.isGesturePush) {
             if (self.navigationController.gk_openScrollLeftPush && [self.pushDelegate respondsToSelector:@selector(pushNext)]) {
@@ -141,8 +151,14 @@
                 [self.pushTransition updateInteractiveTransition:0];
             }
         }else {
-            self.popTransition = [UIPercentDrivenInteractiveTransition new];
-            [self.navigationController popViewControllerAnimated:YES];
+            if (visibleVC.gk_popDelegate) {
+                if ([visibleVC.gk_popDelegate respondsToSelector:@selector(viewControllerPopScrollBegan)]) {
+                    [self.navigationController.visibleViewController.gk_popDelegate viewControllerPopScrollBegan];
+                }
+            }else {
+                self.popTransition = [UIPercentDrivenInteractiveTransition new];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         }
     }else if (gesture.state == UIGestureRecognizerStateChanged) {
         if (self.isGesturePush) {
@@ -150,7 +166,13 @@
                 [self.pushTransition updateInteractiveTransition:progress];
             }
         }else {
-            [self.popTransition updateInteractiveTransition:progress];
+            if (visibleVC.gk_popDelegate) {
+                if ([visibleVC.gk_popDelegate respondsToSelector:@selector(viewControllerPopScrollUpdate:)]) {
+                    [visibleVC.gk_popDelegate viewControllerPopScrollUpdate:progress];
+                }
+            }else {
+                [self.popTransition updateInteractiveTransition:progress];
+            }
         }
     }else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
         if (self.isGesturePush) {
@@ -162,10 +184,18 @@
                 }
             }
         }else {
-            if (progress > 0.5) {
-                [self.popTransition finishInteractiveTransition];
+            if (visibleVC.gk_popDelegate) {
+                if (gesture.state == UIGestureRecognizerStateEnded) {
+                    if ([visibleVC.gk_popDelegate respondsToSelector:@selector(viewControllerPopScrollEnded)]) {
+                        [visibleVC.gk_popDelegate viewControllerPopScrollEnded];
+                    }
+                }
             }else {
-                [self.popTransition cancelInteractiveTransition];
+                if (progress > 0.5) {
+                    [self.popTransition finishInteractiveTransition];
+                }else {
+                    [self.popTransition cancelInteractiveTransition];
+                }
             }
         }
         self.pushTransition = nil;
