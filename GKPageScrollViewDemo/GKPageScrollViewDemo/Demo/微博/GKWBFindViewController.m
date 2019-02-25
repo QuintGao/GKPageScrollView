@@ -168,9 +168,9 @@
     if (!_headerView) {
         UIImage *headerImg = [UIImage imageNamed:@"wb_find"];
         
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width + 20)];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width + GK_STATUSBAR_HEIGHT)];
         
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width)];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, GK_STATUSBAR_HEIGHT, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width)];
         imgView.image = headerImg;
         [_headerView addSubview:imgView];
     }

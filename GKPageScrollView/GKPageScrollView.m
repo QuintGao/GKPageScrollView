@@ -79,9 +79,6 @@ NO)
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.mainTableView.showsVerticalScrollIndicator = NO;
     self.mainTableView.showsHorizontalScrollIndicator = NO;
-    self.mainTableView.estimatedRowHeight = 0;
-    self.mainTableView.estimatedSectionHeaderHeight = 0;
-    self.mainTableView.estimatedSectionFooterHeight = 0;
     self.mainTableView.tableHeaderView = [self.delegate headerViewInPageScrollView:self];
     if (@available(iOS 11.0, *)) {
         self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -347,9 +344,6 @@ NO)
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    NSLog(@"%@动画结束%@", scrollView, NSStringFromCGPoint(scrollView.contentOffset));
-    scrollView.contentOffset = CGPointZero;
-    
     if (self.isScrollToOriginal) {
         self.isScrollToOriginal = NO;
         self.isCeilPoint = NO;
