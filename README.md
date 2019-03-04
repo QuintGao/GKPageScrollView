@@ -20,6 +20,18 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 - 可实现导航栏颜色渐变、头图下拉放大等效果
 - 支持主页、列表页下拉刷新，上拉加载
 
+## 使用方法
+### 1、手动安装
+##### 下载GKPageScrollView demo
+* Objective-C：拖入GKPageScrollView/objc文件夹中的.h和.m文件，#import "GKPageScrollView.h"，开始使用
+* Swift：拖入GKPageScrollView/swift文件夹中的.swift文件，开始使用
+
+### 2、CocoaPods安装：
+* Objective-C：`pod 'GKPageScrollView'` then `#import <GKPageScrollView.h>`
+* Swift：`pod 'GKPageScrollViewSwift'` then `import GKPageScrollViewSwift`
+
+如果发现pod search GKPageScrollView/GKPageScrollViewSwift 不是最新版本，在终端执行pod setup命令更新本地spec镜像缓存，重新搜索即可。
+
 ## 效果图
 
 | 说明 | 效果图 |
