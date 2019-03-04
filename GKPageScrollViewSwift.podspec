@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
 
-  s.name                = 'GKPageScrollView'
+  s.name                = 'GKPageScrollViewSwift'
 
-  s.version             = '1.0.8'
+  s.version             = '1.0.0'
 
   s.summary             = 'iOS UIScrollView嵌套滑动分页视图'
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.source              = { :git => "https://github.com/QuintGao/GKPageScrollView.git", :tag => s.version.to_s }
 
-  s.source_files        = 'GKPageScrollView/objc/*.{h,m}'
+  s.source_files        = 'GKPageScrollView/swift/*.{swift}'
 
   s.frameworks          = "Foundation", "UIKit"
 

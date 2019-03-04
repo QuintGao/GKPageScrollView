@@ -1,0 +1,32 @@
+PODS:
+  - GKNavigationBarViewController (2.2.1)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.7)
+  - SnapKit (4.2.0)
+  - WMPageController (2.5.2)
+
+DEPENDENCIES:
+  - GKNavigationBarViewController
+  - Masonry
+  - MJRefresh
+  - SnapKit
+  - WMPageController
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GKNavigationBarViewController
+    - Masonry
+    - MJRefresh
+    - SnapKit
+    - WMPageController
+
+SPEC CHECKSUMS:
+  GKNavigationBarViewController: 4f109d065297c6750e4e3ec3cb9496324d423d27
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
+
+PODFILE CHECKSUM: 84dff5560a238c6f76d953698898f6b505d0e4c2
+
+COCOAPODS: 1.6.1

@@ -1,0 +1,1143 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		19510CD3B30378DAA00FF039 /* Pods_GKPageScrollViewSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF84D77570853DCA6E94706 /* Pods_GKPageScrollViewSwift.framework */; };
+		60A20C2B221E77A700DB2193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C2A221E77A700DB2193 /* AppDelegate.swift */; };
+		60A20C2D221E77A700DB2193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C2C221E77A700DB2193 /* ViewController.swift */; };
+		60A20C30221E77A700DB2193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C2E221E77A700DB2193 /* Main.storyboard */; };
+		60A20C32221E77A800DB2193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C31221E77A800DB2193 /* Assets.xcassets */; };
+		60A20C35221E77A800DB2193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C33221E77A800DB2193 /* LaunchScreen.storyboard */; };
+		60A20C40221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C3F221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift */; };
+		60A20C4B221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C4A221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift */; };
+		60A20C5B221E77FE00DB2193 /* GKPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C59221E77FE00DB2193 /* GKPageTableView.swift */; };
+		60A20C5C221E77FE00DB2193 /* GKPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */; };
+		60A20C91221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C5F221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift */; };
+		60A20C92221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C60221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift */; };
+		60A20C93221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C61221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift */; };
+		60A20C94221E782000DB2193 /* JXSegmentedListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C63221E782000DB2193 /* JXSegmentedListContainerView.swift */; };
+		60A20C95221E782000DB2193 /* JXSegmentedAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C64221E782000DB2193 /* JXSegmentedAnimator.swift */; };
+		60A20C96221E782000DB2193 /* JXSegmentedViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C65221E782000DB2193 /* JXSegmentedViewTool.swift */; };
+		60A20C97221E782000DB2193 /* JXSegmentedDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C67221E782000DB2193 /* JXSegmentedDotCell.swift */; };
+		60A20C98221E782000DB2193 /* JXSegmentedDotDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C68221E782000DB2193 /* JXSegmentedDotDataSource.swift */; };
+		60A20C99221E782000DB2193 /* JXSegmentedDotItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C69221E782000DB2193 /* JXSegmentedDotItemModel.swift */; };
+		60A20C9A221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6B221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift */; };
+		60A20C9B221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6C221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift */; };
+		60A20C9C221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6D221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift */; };
+		60A20C9D221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6E221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift */; };
+		60A20C9E221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6F221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift */; };
+		60A20C9F221E782000DB2193 /* JXSegmentedIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C70221E782000DB2193 /* JXSegmentedIndicatorImageView.swift */; };
+		60A20CA0221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C71221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift */; };
+		60A20CA1221E782000DB2193 /* JXSegmentedIndicatorLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C72221E782000DB2193 /* JXSegmentedIndicatorLineView.swift */; };
+		60A20CA2221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C73221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift */; };
+		60A20CA3221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C74221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift */; };
+		60A20CA4221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C75221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift */; };
+		60A20CA5221E782000DB2193 /* JXSegmentedComponetGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C76221E782000DB2193 /* JXSegmentedComponetGradientView.swift */; };
+		60A20CA6221E782000DB2193 /* JXSegmentedTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C78221E782000DB2193 /* JXSegmentedTitleCell.swift */; };
+		60A20CA7221E782000DB2193 /* JXSegmentedTitleItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C79221E782000DB2193 /* JXSegmentedTitleItemModel.swift */; };
+		60A20CA8221E782000DB2193 /* JXSegmentedTitleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C7A221E782000DB2193 /* JXSegmentedTitleDataSource.swift */; };
+		60A20CA9221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C7C221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift */; };
+		60A20CAA221E782000DB2193 /* JXSegmentedTitleGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C7D221E782000DB2193 /* JXSegmentedTitleGradientCell.swift */; };
+		60A20CAB221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C7E221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift */; };
+		60A20CAC221E782000DB2193 /* JXSegmentedTitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C80221E782000DB2193 /* JXSegmentedTitleImageCell.swift */; };
+		60A20CAD221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C81221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift */; };
+		60A20CAE221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C82221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift */; };
+		60A20CAF221E782000DB2193 /* JXSegmentedNumberDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C84221E782000DB2193 /* JXSegmentedNumberDataSource.swift */; };
+		60A20CB0221E782000DB2193 /* JXSegmentedNumberItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C85221E782000DB2193 /* JXSegmentedNumberItemModel.swift */; };
+		60A20CB1221E782000DB2193 /* JXSegmentedNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C86221E782000DB2193 /* JXSegmentedNumberCell.swift */; };
+		60A20CB2221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C88221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift */; };
+		60A20CB3221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C89221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift */; };
+		60A20CB4221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8A221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift */; };
+		60A20CB5221E782000DB2193 /* JXSegmentedBaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8C221E782000DB2193 /* JXSegmentedBaseDataSource.swift */; };
+		60A20CB6221E782000DB2193 /* JXSegmentedBaseItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8D221E782000DB2193 /* JXSegmentedBaseItemModel.swift */; };
+		60A20CB7221E782000DB2193 /* JXSegmentedBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8E221E782000DB2193 /* JXSegmentedBaseCell.swift */; };
+		60A20CB8221E782000DB2193 /* JXSegmentedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8F221E782000DB2193 /* JXSegmentedCollectionView.swift */; };
+		60A20CB9221E782000DB2193 /* JXSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C90221E782000DB2193 /* JXSegmentedView.swift */; };
+		60A20D0D221E813300DB2193 /* GKDemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D0C221E813300DB2193 /* GKDemoBaseViewController.swift */; };
+		60A20D0F221E827800DB2193 /* GKBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D0E221E827800DB2193 /* GKBaseTableViewController.swift */; };
+		60A20D11221E828F00DB2193 /* GKBasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D10221E828F00DB2193 /* GKBasePageViewController.swift */; };
+		60A20D13221E829800DB2193 /* GKBaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D12221E829800DB2193 /* GKBaseListViewController.swift */; };
+		60A20D15221E918E00DB2193 /* GKWBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D14221E918E00DB2193 /* GKWBViewController.swift */; };
+		60A20D17221E91B900DB2193 /* GKWBListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D16221E91B900DB2193 /* GKWBListViewController.swift */; };
+		60A20D1B221E91CF00DB2193 /* GKWBHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D1A221E91CF00DB2193 /* GKWBHeaderView.swift */; };
+		60A20D1D221E928B00DB2193 /* GKWBPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D1C221E928B00DB2193 /* GKWBPageViewController.swift */; };
+		60A20D2C221E92D600DB2193 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D1F221E92D600DB2193 /* WMPageController.m */; };
+		60A20D2D221E92D600DB2193 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D20221E92D600DB2193 /* UIViewController+WMPageController.m */; };
+		60A20D2E221E92D600DB2193 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D26221E92D600DB2193 /* WMMenuItem.m */; };
+		60A20D2F221E92D600DB2193 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D27221E92D600DB2193 /* WMScrollView.m */; };
+		60A20D30221E92D600DB2193 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D28221E92D600DB2193 /* WMMenuView.m */; };
+		60A20D31221E92D600DB2193 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D29221E92D600DB2193 /* WMProgressView.m */; };
+		60A20D33221F956B00DB2193 /* GKWYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D32221F956B00DB2193 /* GKWYViewController.swift */; };
+		60A20D35221F958500DB2193 /* GKWYListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D34221F958500DB2193 /* GKWYListViewController.swift */; };
+		60A20D37221F958F00DB2193 /* GKWYHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D36221F958F00DB2193 /* GKWYHeaderView.swift */; };
+		60A20D3A221F973F00DB2193 /* GKCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D39221F973F00DB2193 /* GKCommon.swift */; };
+		60A20D4B2223BACB00DB2193 /* GKWBFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D4A2223BACB00DB2193 /* GKWBFindViewController.swift */; };
+		60A20D5022256CBC00DB2193 /* GKDYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D4F22256CBC00DB2193 /* GKDYViewController.swift */; };
+		60A20D5222256CC900DB2193 /* GKDYListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D5122256CC900DB2193 /* GKDYListViewController.swift */; };
+		60A20D5422256CD600DB2193 /* GKDYHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D5322256CD600DB2193 /* GKDYHeaderView.swift */; };
+		60A20D562226611300DB2193 /* GKMainRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */; };
+		60A20D582226612C00DB2193 /* GKListRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		60A20C3C221E77A800DB2193 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60A20C1F221E77A700DB2193 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60A20C26221E77A700DB2193;
+			remoteInfo = GKPageScrollViewSwift;
+		};
+		60A20C47221E77A800DB2193 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60A20C1F221E77A700DB2193 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60A20C26221E77A700DB2193;
+			remoteInfo = GKPageScrollViewSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		490C3794BF2506265BE4F750 /* Pods-GKPageScrollViewSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.release.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.release.xcconfig"; sourceTree = "<group>"; };
+		60A20C27221E77A700DB2193 /* GKPageScrollViewSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKPageScrollViewSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A20C2A221E77A700DB2193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		60A20C2C221E77A700DB2193 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		60A20C2F221E77A700DB2193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		60A20C31221E77A800DB2193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		60A20C34221E77A800DB2193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		60A20C36221E77A800DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60A20C3B221E77A800DB2193 /* GKPageScrollViewSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A20C3F221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPageScrollViewSwiftTests.swift; sourceTree = "<group>"; };
+		60A20C41221E77A800DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60A20C46221E77A800DB2193 /* GKPageScrollViewSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A20C4A221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPageScrollViewSwiftUITests.swift; sourceTree = "<group>"; };
+		60A20C4C221E77A800DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60A20C59221E77FE00DB2193 /* GKPageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageTableView.swift; path = ../../../GKPageScrollView/swift/GKPageTableView.swift; sourceTree = "<group>"; };
+		60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageScrollView.swift; path = ../../../GKPageScrollView/swift/GKPageScrollView.swift; sourceTree = "<group>"; };
+		60A20C5F221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeDataSource.swift; sourceTree = "<group>"; };
+		60A20C60221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeItemModel.swift; sourceTree = "<group>"; };
+		60A20C61221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeCell.swift; sourceTree = "<group>"; };
+		60A20C63221E782000DB2193 /* JXSegmentedListContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedListContainerView.swift; sourceTree = "<group>"; };
+		60A20C64221E782000DB2193 /* JXSegmentedAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedAnimator.swift; sourceTree = "<group>"; };
+		60A20C65221E782000DB2193 /* JXSegmentedViewTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedViewTool.swift; sourceTree = "<group>"; };
+		60A20C67221E782000DB2193 /* JXSegmentedDotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedDotCell.swift; sourceTree = "<group>"; };
+		60A20C68221E782000DB2193 /* JXSegmentedDotDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedDotDataSource.swift; sourceTree = "<group>"; };
+		60A20C69221E782000DB2193 /* JXSegmentedDotItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedDotItemModel.swift; sourceTree = "<group>"; };
+		60A20C6B221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorDotLineView.swift; sourceTree = "<group>"; };
+		60A20C6C221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorGradientView.swift; sourceTree = "<group>"; };
+		60A20C6D221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorTriangleView.swift; sourceTree = "<group>"; };
+		60A20C6E221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorBaseView.swift; sourceTree = "<group>"; };
+		60A20C6F221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorRainbowLineView.swift; sourceTree = "<group>"; };
+		60A20C70221E782000DB2193 /* JXSegmentedIndicatorImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorImageView.swift; sourceTree = "<group>"; };
+		60A20C71221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorBackgroundView.swift; sourceTree = "<group>"; };
+		60A20C72221E782000DB2193 /* JXSegmentedIndicatorLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorLineView.swift; sourceTree = "<group>"; };
+		60A20C73221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorProtocol.swift; sourceTree = "<group>"; };
+		60A20C74221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorParamsModel.swift; sourceTree = "<group>"; };
+		60A20C75221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorDoubleLineView.swift; sourceTree = "<group>"; };
+		60A20C76221E782000DB2193 /* JXSegmentedComponetGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedComponetGradientView.swift; sourceTree = "<group>"; };
+		60A20C78221E782000DB2193 /* JXSegmentedTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleCell.swift; sourceTree = "<group>"; };
+		60A20C79221E782000DB2193 /* JXSegmentedTitleItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleItemModel.swift; sourceTree = "<group>"; };
+		60A20C7A221E782000DB2193 /* JXSegmentedTitleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleDataSource.swift; sourceTree = "<group>"; };
+		60A20C7C221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleGradientDataSource.swift; sourceTree = "<group>"; };
+		60A20C7D221E782000DB2193 /* JXSegmentedTitleGradientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleGradientCell.swift; sourceTree = "<group>"; };
+		60A20C7E221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleGradientItemModel.swift; sourceTree = "<group>"; };
+		60A20C80221E782000DB2193 /* JXSegmentedTitleImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleImageCell.swift; sourceTree = "<group>"; };
+		60A20C81221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleImageItemModel.swift; sourceTree = "<group>"; };
+		60A20C82221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleImageDataSource.swift; sourceTree = "<group>"; };
+		60A20C84221E782000DB2193 /* JXSegmentedNumberDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedNumberDataSource.swift; sourceTree = "<group>"; };
+		60A20C85221E782000DB2193 /* JXSegmentedNumberItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedNumberItemModel.swift; sourceTree = "<group>"; };
+		60A20C86221E782000DB2193 /* JXSegmentedNumberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedNumberCell.swift; sourceTree = "<group>"; };
+		60A20C88221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleOrImageItemModel.swift; sourceTree = "<group>"; };
+		60A20C89221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleOrImageDataSource.swift; sourceTree = "<group>"; };
+		60A20C8A221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleOrImageCell.swift; sourceTree = "<group>"; };
+		60A20C8C221E782000DB2193 /* JXSegmentedBaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedBaseDataSource.swift; sourceTree = "<group>"; };
+		60A20C8D221E782000DB2193 /* JXSegmentedBaseItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedBaseItemModel.swift; sourceTree = "<group>"; };
+		60A20C8E221E782000DB2193 /* JXSegmentedBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedBaseCell.swift; sourceTree = "<group>"; };
+		60A20C8F221E782000DB2193 /* JXSegmentedCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedCollectionView.swift; sourceTree = "<group>"; };
+		60A20C90221E782000DB2193 /* JXSegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedView.swift; sourceTree = "<group>"; };
+		60A20CBA221E78D300DB2193 /* libGKNavigationBarViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGKNavigationBarViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A20CBC221E78D300DB2193 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A20CBE221E78D300DB2193 /* libSnapKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSnapKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A20CC0221E78D300DB2193 /* libWMPageController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libWMPageController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A20CC2221E78F500DB2193 /* libGKNavigationBarViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGKNavigationBarViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A20D00221E7F0000DB2193 /* GKPageScrollViewSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GKPageScrollViewSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		60A20D0C221E813300DB2193 /* GKDemoBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKDemoBaseViewController.swift; sourceTree = "<group>"; };
+		60A20D0E221E827800DB2193 /* GKBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKBaseTableViewController.swift; sourceTree = "<group>"; };
+		60A20D10221E828F00DB2193 /* GKBasePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKBasePageViewController.swift; sourceTree = "<group>"; };
+		60A20D12221E829800DB2193 /* GKBaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKBaseListViewController.swift; sourceTree = "<group>"; };
+		60A20D14221E918E00DB2193 /* GKWBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKWBViewController.swift; sourceTree = "<group>"; };
+		60A20D16221E91B900DB2193 /* GKWBListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKWBListViewController.swift; sourceTree = "<group>"; };
+		60A20D1A221E91CF00DB2193 /* GKWBHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKWBHeaderView.swift; sourceTree = "<group>"; };
+		60A20D1C221E928B00DB2193 /* GKWBPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKWBPageViewController.swift; sourceTree = "<group>"; };
+		60A20D1F221E92D600DB2193 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		60A20D20221E92D600DB2193 /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WMPageController.m"; sourceTree = "<group>"; };
+		60A20D22221E92D600DB2193 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		60A20D23221E92D600DB2193 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
+		60A20D24221E92D600DB2193 /* WMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuView.h; sourceTree = "<group>"; };
+		60A20D25221E92D600DB2193 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		60A20D26221E92D600DB2193 /* WMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuItem.m; sourceTree = "<group>"; };
+		60A20D27221E92D600DB2193 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		60A20D28221E92D600DB2193 /* WMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuView.m; sourceTree = "<group>"; };
+		60A20D29221E92D600DB2193 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
+		60A20D2A221E92D600DB2193 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		60A20D2B221E92D600DB2193 /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WMPageController.h"; sourceTree = "<group>"; };
+		60A20D32221F956B00DB2193 /* GKWYViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKWYViewController.swift; sourceTree = "<group>"; };
+		60A20D34221F958500DB2193 /* GKWYListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKWYListViewController.swift; sourceTree = "<group>"; };
+		60A20D36221F958F00DB2193 /* GKWYHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKWYHeaderView.swift; sourceTree = "<group>"; };
+		60A20D39221F973F00DB2193 /* GKCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKCommon.swift; sourceTree = "<group>"; };
+		60A20D4A2223BACB00DB2193 /* GKWBFindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKWBFindViewController.swift; sourceTree = "<group>"; };
+		60A20D4F22256CBC00DB2193 /* GKDYViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKDYViewController.swift; sourceTree = "<group>"; };
+		60A20D5122256CC900DB2193 /* GKDYListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKDYListViewController.swift; sourceTree = "<group>"; };
+		60A20D5322256CD600DB2193 /* GKDYHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKDYHeaderView.swift; sourceTree = "<group>"; };
+		60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKMainRefreshViewController.swift; sourceTree = "<group>"; };
+		60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKListRefreshViewController.swift; sourceTree = "<group>"; };
+		6AF84D77570853DCA6E94706 /* Pods_GKPageScrollViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKPageScrollViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		60A20C24221E77A700DB2193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19510CD3B30378DAA00FF039 /* Pods_GKPageScrollViewSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60A20C38221E77A800DB2193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60A20C43221E77A800DB2193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D3BB49EA7CF77ECC9D63661 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */,
+				490C3794BF2506265BE4F750 /* Pods-GKPageScrollViewSwift.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		60A20C1E221E77A700DB2193 = {
+			isa = PBXGroup;
+			children = (
+				60A20C29221E77A700DB2193 /* GKPageScrollViewSwift */,
+				60A20C3E221E77A800DB2193 /* GKPageScrollViewSwiftTests */,
+				60A20C49221E77A800DB2193 /* GKPageScrollViewSwiftUITests */,
+				60A20C28221E77A700DB2193 /* Products */,
+				2D3BB49EA7CF77ECC9D63661 /* Pods */,
+				AD9C4495DC5A2FBDD815ADA8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		60A20C28221E77A700DB2193 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C27221E77A700DB2193 /* GKPageScrollViewSwift.app */,
+				60A20C3B221E77A800DB2193 /* GKPageScrollViewSwiftTests.xctest */,
+				60A20C46221E77A800DB2193 /* GKPageScrollViewSwiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		60A20C29221E77A700DB2193 /* GKPageScrollViewSwift */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D1E221E92D600DB2193 /* WMPageController */,
+				60A20C5D221E780E00DB2193 /* JXSegmentedView */,
+				60A20C58221E77C500DB2193 /* GKPageScrollView */,
+				60A20D04221E80AA00DB2193 /* Demo */,
+				60A20C2A221E77A700DB2193 /* AppDelegate.swift */,
+				60A20C2C221E77A700DB2193 /* ViewController.swift */,
+				60A20C2E221E77A700DB2193 /* Main.storyboard */,
+				60A20C31221E77A800DB2193 /* Assets.xcassets */,
+				60A20C33221E77A800DB2193 /* LaunchScreen.storyboard */,
+				60A20C36221E77A800DB2193 /* Info.plist */,
+				60A20D00221E7F0000DB2193 /* GKPageScrollViewSwift-Bridging-Header.h */,
+				60A20D39221F973F00DB2193 /* GKCommon.swift */,
+			);
+			path = GKPageScrollViewSwift;
+			sourceTree = "<group>";
+		};
+		60A20C3E221E77A800DB2193 /* GKPageScrollViewSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C3F221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift */,
+				60A20C41221E77A800DB2193 /* Info.plist */,
+			);
+			path = GKPageScrollViewSwiftTests;
+			sourceTree = "<group>";
+		};
+		60A20C49221E77A800DB2193 /* GKPageScrollViewSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C4A221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift */,
+				60A20C4C221E77A800DB2193 /* Info.plist */,
+			);
+			path = GKPageScrollViewSwiftUITests;
+			sourceTree = "<group>";
+		};
+		60A20C58221E77C500DB2193 /* GKPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */,
+				60A20C59221E77FE00DB2193 /* GKPageTableView.swift */,
+			);
+			path = GKPageScrollView;
+			sourceTree = "<group>";
+		};
+		60A20C5D221E780E00DB2193 /* JXSegmentedView */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C5E221E782000DB2193 /* AttributeTitle */,
+				60A20C62221E782000DB2193 /* Common */,
+				60A20C8B221E782000DB2193 /* Core */,
+				60A20C66221E782000DB2193 /* Dot */,
+				60A20C6A221E782000DB2193 /* Indicator */,
+				60A20C83221E782000DB2193 /* Number */,
+				60A20C77221E782000DB2193 /* Title */,
+				60A20C7B221E782000DB2193 /* TitleGradient */,
+				60A20C7F221E782000DB2193 /* TitleImage */,
+				60A20C87221E782000DB2193 /* TitleOrImage */,
+			);
+			path = JXSegmentedView;
+			sourceTree = "<group>";
+		};
+		60A20C5E221E782000DB2193 /* AttributeTitle */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C5F221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift */,
+				60A20C60221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift */,
+				60A20C61221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift */,
+			);
+			path = AttributeTitle;
+			sourceTree = "<group>";
+		};
+		60A20C62221E782000DB2193 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C63221E782000DB2193 /* JXSegmentedListContainerView.swift */,
+				60A20C64221E782000DB2193 /* JXSegmentedAnimator.swift */,
+				60A20C65221E782000DB2193 /* JXSegmentedViewTool.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		60A20C66221E782000DB2193 /* Dot */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C67221E782000DB2193 /* JXSegmentedDotCell.swift */,
+				60A20C68221E782000DB2193 /* JXSegmentedDotDataSource.swift */,
+				60A20C69221E782000DB2193 /* JXSegmentedDotItemModel.swift */,
+			);
+			path = Dot;
+			sourceTree = "<group>";
+		};
+		60A20C6A221E782000DB2193 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C6B221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift */,
+				60A20C6C221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift */,
+				60A20C6D221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift */,
+				60A20C6E221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift */,
+				60A20C6F221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift */,
+				60A20C70221E782000DB2193 /* JXSegmentedIndicatorImageView.swift */,
+				60A20C71221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift */,
+				60A20C72221E782000DB2193 /* JXSegmentedIndicatorLineView.swift */,
+				60A20C73221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift */,
+				60A20C74221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift */,
+				60A20C75221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift */,
+				60A20C76221E782000DB2193 /* JXSegmentedComponetGradientView.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		60A20C77221E782000DB2193 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C78221E782000DB2193 /* JXSegmentedTitleCell.swift */,
+				60A20C79221E782000DB2193 /* JXSegmentedTitleItemModel.swift */,
+				60A20C7A221E782000DB2193 /* JXSegmentedTitleDataSource.swift */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
+		60A20C7B221E782000DB2193 /* TitleGradient */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C7C221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift */,
+				60A20C7D221E782000DB2193 /* JXSegmentedTitleGradientCell.swift */,
+				60A20C7E221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift */,
+			);
+			path = TitleGradient;
+			sourceTree = "<group>";
+		};
+		60A20C7F221E782000DB2193 /* TitleImage */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C80221E782000DB2193 /* JXSegmentedTitleImageCell.swift */,
+				60A20C81221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift */,
+				60A20C82221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift */,
+			);
+			path = TitleImage;
+			sourceTree = "<group>";
+		};
+		60A20C83221E782000DB2193 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C84221E782000DB2193 /* JXSegmentedNumberDataSource.swift */,
+				60A20C85221E782000DB2193 /* JXSegmentedNumberItemModel.swift */,
+				60A20C86221E782000DB2193 /* JXSegmentedNumberCell.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		60A20C87221E782000DB2193 /* TitleOrImage */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C88221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift */,
+				60A20C89221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift */,
+				60A20C8A221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift */,
+			);
+			path = TitleOrImage;
+			sourceTree = "<group>";
+		};
+		60A20C8B221E782000DB2193 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				60A20C8C221E782000DB2193 /* JXSegmentedBaseDataSource.swift */,
+				60A20C8D221E782000DB2193 /* JXSegmentedBaseItemModel.swift */,
+				60A20C8E221E782000DB2193 /* JXSegmentedBaseCell.swift */,
+				60A20C8F221E782000DB2193 /* JXSegmentedCollectionView.swift */,
+				60A20C90221E782000DB2193 /* JXSegmentedView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		60A20D04221E80AA00DB2193 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D05221E80B700DB2193 /* Base */,
+				60A20D06221E80BD00DB2193 /* 微博 */,
+				60A20D08221E80C900DB2193 /* 网易云音乐 */,
+				60A20D07221E80C200DB2193 /* 抖音 */,
+				60A20D09221E80CE00DB2193 /* MainRefresh */,
+				60A20D0A221E80D400DB2193 /* ListRefresh */,
+				60A20D0B221E80DB00DB2193 /* Test */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		60A20D05221E80B700DB2193 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D0C221E813300DB2193 /* GKDemoBaseViewController.swift */,
+				60A20D0E221E827800DB2193 /* GKBaseTableViewController.swift */,
+				60A20D10221E828F00DB2193 /* GKBasePageViewController.swift */,
+				60A20D12221E829800DB2193 /* GKBaseListViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		60A20D06221E80BD00DB2193 /* 微博 */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D14221E918E00DB2193 /* GKWBViewController.swift */,
+				60A20D4A2223BACB00DB2193 /* GKWBFindViewController.swift */,
+				60A20D16221E91B900DB2193 /* GKWBListViewController.swift */,
+				60A20D1C221E928B00DB2193 /* GKWBPageViewController.swift */,
+				60A20D1A221E91CF00DB2193 /* GKWBHeaderView.swift */,
+			);
+			path = "微博";
+			sourceTree = "<group>";
+		};
+		60A20D07221E80C200DB2193 /* 抖音 */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D4F22256CBC00DB2193 /* GKDYViewController.swift */,
+				60A20D5122256CC900DB2193 /* GKDYListViewController.swift */,
+				60A20D5322256CD600DB2193 /* GKDYHeaderView.swift */,
+			);
+			path = "抖音";
+			sourceTree = "<group>";
+		};
+		60A20D08221E80C900DB2193 /* 网易云音乐 */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D32221F956B00DB2193 /* GKWYViewController.swift */,
+				60A20D34221F958500DB2193 /* GKWYListViewController.swift */,
+				60A20D36221F958F00DB2193 /* GKWYHeaderView.swift */,
+			);
+			path = "网易云音乐";
+			sourceTree = "<group>";
+		};
+		60A20D09221E80CE00DB2193 /* MainRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */,
+			);
+			path = MainRefresh;
+			sourceTree = "<group>";
+		};
+		60A20D0A221E80D400DB2193 /* ListRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */,
+			);
+			path = ListRefresh;
+			sourceTree = "<group>";
+		};
+		60A20D0B221E80DB00DB2193 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		60A20D1E221E92D600DB2193 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D21221E92D600DB2193 /* WMMenuView */,
+				60A20D2A221E92D600DB2193 /* WMPageController.h */,
+				60A20D1F221E92D600DB2193 /* WMPageController.m */,
+				60A20D2B221E92D600DB2193 /* UIViewController+WMPageController.h */,
+				60A20D20221E92D600DB2193 /* UIViewController+WMPageController.m */,
+			);
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		60A20D21221E92D600DB2193 /* WMMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				60A20D22221E92D600DB2193 /* WMScrollView.h */,
+				60A20D23221E92D600DB2193 /* WMMenuItem.h */,
+				60A20D24221E92D600DB2193 /* WMMenuView.h */,
+				60A20D25221E92D600DB2193 /* WMProgressView.h */,
+				60A20D26221E92D600DB2193 /* WMMenuItem.m */,
+				60A20D27221E92D600DB2193 /* WMScrollView.m */,
+				60A20D28221E92D600DB2193 /* WMMenuView.m */,
+				60A20D29221E92D600DB2193 /* WMProgressView.m */,
+			);
+			path = WMMenuView;
+			sourceTree = "<group>";
+		};
+		AD9C4495DC5A2FBDD815ADA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60A20CC2221E78F500DB2193 /* libGKNavigationBarViewController.a */,
+				60A20CBA221E78D300DB2193 /* libGKNavigationBarViewController.a */,
+				60A20CBC221E78D300DB2193 /* libMJRefresh.a */,
+				60A20CBE221E78D300DB2193 /* libSnapKit.a */,
+				60A20CC0221E78D300DB2193 /* libWMPageController.a */,
+				6AF84D77570853DCA6E94706 /* Pods_GKPageScrollViewSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		60A20C26221E77A700DB2193 /* GKPageScrollViewSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60A20C4F221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwift" */;
+			buildPhases = (
+				0EE27D26A2E01EB534D5FCF2 /* [CP] Check Pods Manifest.lock */,
+				60A20C23221E77A700DB2193 /* Sources */,
+				60A20C24221E77A700DB2193 /* Frameworks */,
+				60A20C25221E77A700DB2193 /* Resources */,
+				A5FC5F38A1F919417C158BDA /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GKPageScrollViewSwift;
+			productName = GKPageScrollViewSwift;
+			productReference = 60A20C27221E77A700DB2193 /* GKPageScrollViewSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		60A20C3A221E77A800DB2193 /* GKPageScrollViewSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60A20C52221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwiftTests" */;
+			buildPhases = (
+				60A20C37221E77A800DB2193 /* Sources */,
+				60A20C38221E77A800DB2193 /* Frameworks */,
+				60A20C39221E77A800DB2193 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60A20C3D221E77A800DB2193 /* PBXTargetDependency */,
+			);
+			name = GKPageScrollViewSwiftTests;
+			productName = GKPageScrollViewSwiftTests;
+			productReference = 60A20C3B221E77A800DB2193 /* GKPageScrollViewSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		60A20C45221E77A800DB2193 /* GKPageScrollViewSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60A20C55221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwiftUITests" */;
+			buildPhases = (
+				60A20C42221E77A800DB2193 /* Sources */,
+				60A20C43221E77A800DB2193 /* Frameworks */,
+				60A20C44221E77A800DB2193 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60A20C48221E77A800DB2193 /* PBXTargetDependency */,
+			);
+			name = GKPageScrollViewSwiftUITests;
+			productName = GKPageScrollViewSwiftUITests;
+			productReference = 60A20C46221E77A800DB2193 /* GKPageScrollViewSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60A20C1F221E77A700DB2193 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = gaokun;
+				TargetAttributes = {
+					60A20C26221E77A700DB2193 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					60A20C3A221E77A800DB2193 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 60A20C26221E77A700DB2193;
+					};
+					60A20C45221E77A800DB2193 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 60A20C26221E77A700DB2193;
+					};
+				};
+			};
+			buildConfigurationList = 60A20C22221E77A700DB2193 /* Build configuration list for PBXProject "GKPageScrollViewSwift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 60A20C1E221E77A700DB2193;
+			productRefGroup = 60A20C28221E77A700DB2193 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				60A20C26221E77A700DB2193 /* GKPageScrollViewSwift */,
+				60A20C3A221E77A800DB2193 /* GKPageScrollViewSwiftTests */,
+				60A20C45221E77A800DB2193 /* GKPageScrollViewSwiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		60A20C25221E77A700DB2193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60A20C35221E77A800DB2193 /* LaunchScreen.storyboard in Resources */,
+				60A20C32221E77A800DB2193 /* Assets.xcassets in Resources */,
+				60A20C30221E77A700DB2193 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60A20C39221E77A800DB2193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60A20C44221E77A800DB2193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EE27D26A2E01EB534D5FCF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GKPageScrollViewSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5FC5F38A1F919417C158BDA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		60A20C23221E77A700DB2193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60A20CB0221E782000DB2193 /* JXSegmentedNumberItemModel.swift in Sources */,
+				60A20D37221F958F00DB2193 /* GKWYHeaderView.swift in Sources */,
+				60A20CB7221E782000DB2193 /* JXSegmentedBaseCell.swift in Sources */,
+				60A20D11221E828F00DB2193 /* GKBasePageViewController.swift in Sources */,
+				60A20D3A221F973F00DB2193 /* GKCommon.swift in Sources */,
+				60A20CA7221E782000DB2193 /* JXSegmentedTitleItemModel.swift in Sources */,
+				60A20C93221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift in Sources */,
+				60A20CA0221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift in Sources */,
+				60A20D31221E92D600DB2193 /* WMProgressView.m in Sources */,
+				60A20CA5221E782000DB2193 /* JXSegmentedComponetGradientView.swift in Sources */,
+				60A20D2E221E92D600DB2193 /* WMMenuItem.m in Sources */,
+				60A20CA2221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift in Sources */,
+				60A20C98221E782000DB2193 /* JXSegmentedDotDataSource.swift in Sources */,
+				60A20C9E221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift in Sources */,
+				60A20D2C221E92D600DB2193 /* WMPageController.m in Sources */,
+				60A20CB9221E782000DB2193 /* JXSegmentedView.swift in Sources */,
+				60A20C97221E782000DB2193 /* JXSegmentedDotCell.swift in Sources */,
+				60A20C99221E782000DB2193 /* JXSegmentedDotItemModel.swift in Sources */,
+				60A20D2D221E92D600DB2193 /* UIViewController+WMPageController.m in Sources */,
+				60A20D5022256CBC00DB2193 /* GKDYViewController.swift in Sources */,
+				60A20D0D221E813300DB2193 /* GKDemoBaseViewController.swift in Sources */,
+				60A20C95221E782000DB2193 /* JXSegmentedAnimator.swift in Sources */,
+				60A20D582226612C00DB2193 /* GKListRefreshViewController.swift in Sources */,
+				60A20C94221E782000DB2193 /* JXSegmentedListContainerView.swift in Sources */,
+				60A20D5222256CC900DB2193 /* GKDYListViewController.swift in Sources */,
+				60A20CAA221E782000DB2193 /* JXSegmentedTitleGradientCell.swift in Sources */,
+				60A20C2D221E77A700DB2193 /* ViewController.swift in Sources */,
+				60A20CAD221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift in Sources */,
+				60A20D2F221E92D600DB2193 /* WMScrollView.m in Sources */,
+				60A20D33221F956B00DB2193 /* GKWYViewController.swift in Sources */,
+				60A20CAE221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift in Sources */,
+				60A20D35221F958500DB2193 /* GKWYListViewController.swift in Sources */,
+				60A20D1B221E91CF00DB2193 /* GKWBHeaderView.swift in Sources */,
+				60A20CA8221E782000DB2193 /* JXSegmentedTitleDataSource.swift in Sources */,
+				60A20CB2221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift in Sources */,
+				60A20D30221E92D600DB2193 /* WMMenuView.m in Sources */,
+				60A20CB6221E782000DB2193 /* JXSegmentedBaseItemModel.swift in Sources */,
+				60A20D4B2223BACB00DB2193 /* GKWBFindViewController.swift in Sources */,
+				60A20D17221E91B900DB2193 /* GKWBListViewController.swift in Sources */,
+				60A20C92221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift in Sources */,
+				60A20C5B221E77FE00DB2193 /* GKPageTableView.swift in Sources */,
+				60A20D5422256CD600DB2193 /* GKDYHeaderView.swift in Sources */,
+				60A20CA4221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift in Sources */,
+				60A20C5C221E77FE00DB2193 /* GKPageScrollView.swift in Sources */,
+				60A20CAF221E782000DB2193 /* JXSegmentedNumberDataSource.swift in Sources */,
+				60A20C9F221E782000DB2193 /* JXSegmentedIndicatorImageView.swift in Sources */,
+				60A20CB4221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift in Sources */,
+				60A20C9B221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift in Sources */,
+				60A20CAB221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift in Sources */,
+				60A20C2B221E77A700DB2193 /* AppDelegate.swift in Sources */,
+				60A20D15221E918E00DB2193 /* GKWBViewController.swift in Sources */,
+				60A20D0F221E827800DB2193 /* GKBaseTableViewController.swift in Sources */,
+				60A20CA1221E782000DB2193 /* JXSegmentedIndicatorLineView.swift in Sources */,
+				60A20D13221E829800DB2193 /* GKBaseListViewController.swift in Sources */,
+				60A20CA9221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift in Sources */,
+				60A20CB5221E782000DB2193 /* JXSegmentedBaseDataSource.swift in Sources */,
+				60A20C91221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift in Sources */,
+				60A20CA3221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift in Sources */,
+				60A20C9C221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift in Sources */,
+				60A20C96221E782000DB2193 /* JXSegmentedViewTool.swift in Sources */,
+				60A20D562226611300DB2193 /* GKMainRefreshViewController.swift in Sources */,
+				60A20C9D221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift in Sources */,
+				60A20CAC221E782000DB2193 /* JXSegmentedTitleImageCell.swift in Sources */,
+				60A20CB3221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift in Sources */,
+				60A20C9A221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift in Sources */,
+				60A20CA6221E782000DB2193 /* JXSegmentedTitleCell.swift in Sources */,
+				60A20CB1221E782000DB2193 /* JXSegmentedNumberCell.swift in Sources */,
+				60A20CB8221E782000DB2193 /* JXSegmentedCollectionView.swift in Sources */,
+				60A20D1D221E928B00DB2193 /* GKWBPageViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60A20C37221E77A800DB2193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60A20C40221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60A20C42221E77A800DB2193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60A20C4B221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		60A20C3D221E77A800DB2193 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60A20C26221E77A700DB2193 /* GKPageScrollViewSwift */;
+			targetProxy = 60A20C3C221E77A800DB2193 /* PBXContainerItemProxy */;
+		};
+		60A20C48221E77A800DB2193 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60A20C26221E77A700DB2193 /* GKPageScrollViewSwift */;
+			targetProxy = 60A20C47221E77A800DB2193 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		60A20C2E221E77A700DB2193 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60A20C2F221E77A700DB2193 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		60A20C33221E77A800DB2193 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60A20C34221E77A800DB2193 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		60A20C4D221E77A800DB2193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		60A20C4E221E77A800DB2193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60A20C50221E77A800DB2193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = GKPageScrollViewSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GKPageScrollViewSwift/GKPageScrollViewSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+			};
+			name = Debug;
+		};
+		60A20C51221E77A800DB2193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 490C3794BF2506265BE4F750 /* Pods-GKPageScrollViewSwift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = GKPageScrollViewSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GKPageScrollViewSwift/GKPageScrollViewSwift-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+			};
+			name = Release;
+		};
+		60A20C53221E77A800DB2193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GKPageScrollViewSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKPageScrollViewSwift.app/GKPageScrollViewSwift";
+			};
+			name = Debug;
+		};
+		60A20C54221E77A800DB2193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GKPageScrollViewSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKPageScrollViewSwift.app/GKPageScrollViewSwift";
+			};
+			name = Release;
+		};
+		60A20C56221E77A800DB2193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GKPageScrollViewSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GKPageScrollViewSwift;
+			};
+			name = Debug;
+		};
+		60A20C57221E77A800DB2193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GKPageScrollViewSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GKPageScrollViewSwift;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		60A20C22221E77A700DB2193 /* Build configuration list for PBXProject "GKPageScrollViewSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60A20C4D221E77A800DB2193 /* Debug */,
+				60A20C4E221E77A800DB2193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60A20C4F221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60A20C50221E77A800DB2193 /* Debug */,
+				60A20C51221E77A800DB2193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60A20C52221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60A20C53221E77A800DB2193 /* Debug */,
+				60A20C54221E77A800DB2193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60A20C55221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60A20C56221E77A800DB2193 /* Debug */,
+				60A20C57221E77A800DB2193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 60A20C1F221E77A700DB2193 /* Project object */;
+}
