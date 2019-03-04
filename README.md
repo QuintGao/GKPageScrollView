@@ -1,4 +1,4 @@
-<div align=center><img src="./GKPageScrollView.png" width="405" height="63" /></div>
+<div align=center><img src="GKPageScrollView.png" width="405" height="63" /></div>
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
 [![platform](http://img.shields.io/cocoapods/p/GKPageScrollView.svg?style=flat)](http://cocoadocs.org/docsets/GKPageScrollView)&nbsp;&nbsp;
@@ -23,12 +23,12 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 
 | 说明 | 效果图 |
 |-------|-------|
-| **微博个人主页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/wb.gif) |
-| **微博发现页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/wb_find.gif) |
-| **网易云歌手页** | ![wy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/wy.gif) |
-| **抖音个人主页** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/dy.gif) |
-| **主页下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/mainRefresh.gif) |
-| **列表下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/GKPageScrollViewDemo/gif/listRefresh.gif) |
+| **微博个人主页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/wb.gif) |
+| **微博发现页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/wb_find.gif) |
+| **网易云歌手页** | ![wy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/wy.gif) |
+| **抖音个人主页** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/dy.gif) |
+| **主页下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/mainRefresh.gif) |
+| **列表下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/listRefresh.gif) |
 
 ## 说明
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
