@@ -1,5 +1,6 @@
 <div align=center><img src="/Pictures/GKPageScrollView.png" width="405" height="63" /></div>
 
+![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;&nbsp;
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
 ![](https://img.shields.io/badge/language-Objective--C%2FSwift%204.x-orange.svg)&nbsp;&nbsp;
 ![](https://img.shields.io/badge/pod%20Objc-1.0.9-blue.svg) &nbsp;&nbsp;
