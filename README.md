@@ -1,4 +1,4 @@
-<div align=center><img src="GKPageScrollView.png" width="405" height="63" /></div>
+<div align=center><img src="/Pictures/GKPageScrollView.png" width="405" height="63" /></div>
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
 [![platform](http://img.shields.io/cocoapods/p/GKPageScrollView.svg?style=flat)](http://cocoadocs.org/docsets/GKPageScrollView)&nbsp;&nbsp;
