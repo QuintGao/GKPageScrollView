@@ -96,6 +96,13 @@ class GKWBFindViewController: GKNavigationBarViewController {
         
         segmentedView.contentScrollView = self.contentScrollView;
         
+        view.addSubview(self.backBtn)
+        self.backBtn.snp.makeConstraints({ (make) in
+            make.left.equalTo(view).offset(ADAPTATIONRATIO * 12.0)
+            make.centerY.equalTo(view)
+            make.width.height.equalTo(44.0)
+        })
+        
         let btmLineView = UIView()
         btmLineView.backgroundColor = UIColor.grayColor(g: 226.0)
         segmentedView.addSubview(btmLineView)
@@ -105,6 +112,14 @@ class GKWBFindViewController: GKNavigationBarViewController {
         })
         
         return view
+    }()
+    
+    lazy var backBtn: UIButton = {
+        let backBtn = UIButton()
+        backBtn.setImage(UIImage(named: "btn_back_black"), for: .normal)
+        backBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        backBtn.isHidden = true
+        return backBtn
     }()
     
     lazy var contentScrollView: UIScrollView = {
@@ -139,7 +154,7 @@ class GKWBFindViewController: GKNavigationBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.gk_navBackgroundColor = UIColor.clear
+        self.gk_navigationBar.isHidden = true
         
         self.view.addSubview(self.pageScrollView)
         self.view.addSubview(self.topView)
@@ -160,9 +175,6 @@ class GKWBFindViewController: GKNavigationBarViewController {
         })
         
         self.pageScrollView.reloadData()
-        
-        self.backItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_back_black"), target: self, action: #selector(backAction))
-        self.gk_navLeftBarButtonItem = nil
         
         self.gk_statusBarStyle = .default
     }
@@ -195,13 +207,12 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
         self.isMainCanScroll = isMainCanScroll
         
         if self.isMainCanScroll {
-            self.gk_navLeftBarButtonItem = nil
+            self.backBtn.isHidden = true
             self.gk_popDelegate = nil
         }else {
-            self.gk_navLeftBarButtonItem = self.backItem
+            self.backBtn.isHidden = false
             self.gk_popDelegate = self
         }
-        
         
         // topView透明度渐变
         // contentOffsetY GK_STATUSBAR_HEIGHT-64  topView的alpha 0-1

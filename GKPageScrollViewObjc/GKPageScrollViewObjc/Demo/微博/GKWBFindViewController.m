@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UIView                    *pageView;
 @property (nonatomic, strong) UIView                    *segmentedView;
 @property (nonatomic, strong) UIScrollView              *contentScrollView;
+@property (nonatomic, strong) UIButton                  *backBtn;
 
 @property (nonatomic, strong) NSArray                   *titles;
 @property (nonatomic, strong) NSArray                   *childVCs;
@@ -38,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.gk_navBackgroundColor = [UIColor clearColor];
+    self.gk_navigationBar.hidden = YES;
     
     [self.view addSubview:self.pageScrollView];
     [self.view addSubview:self.topView];
@@ -59,9 +60,6 @@
     }];
     
     [self.pageScrollView reloadData];
-    
-    self.backItem = [UIBarButtonItem itemWithTitle:nil image:GKImage(@"btn_back_black") target:self action:@selector(backAction)];
-    self.gk_navLeftBarButtonItem = nil;
 }
 
 - (void)backAction {
@@ -103,10 +101,10 @@
     self.isMainCanScroll = isMainCanScroll;
     
     if (!isMainCanScroll) {
-        self.gk_navLeftBarButtonItem = self.backItem;
+        self.backBtn.hidden = NO;
         self.gk_popDelegate = self;
     }else {
-        self.gk_navLeftBarButtonItem = nil;
+        self.backBtn.hidden = YES;
         self.gk_popDelegate = nil;
     }
     
@@ -209,6 +207,13 @@
         
         titleView.contentScrollView = self.contentScrollView;
         
+        [_segmentedView addSubview:self.backBtn];
+        [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self->_segmentedView).offset(ADAPTATIONRATIO * 12.0f);
+            make.centerY.equalTo(self->_segmentedView);
+            make.width.height.mas_equalTo(44.0f);
+        }];
+        
         UIView *btmLineView = [UIView new];
         btmLineView.backgroundColor = GKColorGray(226.0f);
         [_segmentedView addSubview:btmLineView];
@@ -218,6 +223,16 @@
         }];
     }
     return _segmentedView;
+}
+
+- (UIButton *)backBtn {
+    if (!_backBtn) {
+        _backBtn = [UIButton new];
+        [_backBtn setImage:[UIImage imageNamed:@"btn_back_black"] forState:UIControlStateNormal];
+        [_backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        _backBtn.hidden = YES;
+    }
+    return _backBtn;
 }
 
 - (UIScrollView *)contentScrollView {
