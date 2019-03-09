@@ -15,8 +15,6 @@
 		60A20C35221E77A800DB2193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C33221E77A800DB2193 /* LaunchScreen.storyboard */; };
 		60A20C40221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C3F221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift */; };
 		60A20C4B221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C4A221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift */; };
-		60A20C5B221E77FE00DB2193 /* GKPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C59221E77FE00DB2193 /* GKPageTableView.swift */; };
-		60A20C5C221E77FE00DB2193 /* GKPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */; };
 		60A20C91221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C5F221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift */; };
 		60A20C92221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C60221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift */; };
 		60A20C93221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C61221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift */; };
@@ -82,6 +80,8 @@
 		60A20D5422256CD600DB2193 /* GKDYHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D5322256CD600DB2193 /* GKDYHeaderView.swift */; };
 		60A20D562226611300DB2193 /* GKMainRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */; };
 		60A20D582226612C00DB2193 /* GKListRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */; };
+		7941391A22339128003410B0 /* GKPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7941391822339128003410B0 /* GKPageScrollView.swift */; };
+		7941391B22339128003410B0 /* GKPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7941391922339128003410B0 /* GKPageTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,8 +116,6 @@
 		60A20C46221E77A800DB2193 /* GKPageScrollViewSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20C4A221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPageScrollViewSwiftUITests.swift; sourceTree = "<group>"; };
 		60A20C4C221E77A800DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60A20C59221E77FE00DB2193 /* GKPageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageTableView.swift; path = ../../../GKPageScrollView/swift/GKPageTableView.swift; sourceTree = "<group>"; };
-		60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageScrollView.swift; path = ../../../GKPageScrollView/swift/GKPageScrollView.swift; sourceTree = "<group>"; };
 		60A20C5F221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeDataSource.swift; sourceTree = "<group>"; };
 		60A20C60221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeItemModel.swift; sourceTree = "<group>"; };
 		60A20C61221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeCell.swift; sourceTree = "<group>"; };
@@ -196,6 +194,8 @@
 		60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKMainRefreshViewController.swift; sourceTree = "<group>"; };
 		60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKListRefreshViewController.swift; sourceTree = "<group>"; };
 		6AF84D77570853DCA6E94706 /* Pods_GKPageScrollViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKPageScrollViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7941391822339128003410B0 /* GKPageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageScrollView.swift; path = ../../../GKPageScrollView/swift/GKPageScrollView.swift; sourceTree = "<group>"; };
+		7941391922339128003410B0 /* GKPageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageTableView.swift; path = ../../../GKPageScrollView/swift/GKPageTableView.swift; sourceTree = "<group>"; };
 		F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,9 +260,9 @@
 		60A20C29221E77A700DB2193 /* GKPageScrollViewSwift */ = {
 			isa = PBXGroup;
 			children = (
+				794139172233911A003410B0 /* GKPageScrollView */,
 				60A20D1E221E92D600DB2193 /* WMPageController */,
 				60A20C5D221E780E00DB2193 /* JXSegmentedView */,
-				60A20C58221E77C500DB2193 /* GKPageScrollView */,
 				60A20D04221E80AA00DB2193 /* Demo */,
 				60A20C2A221E77A700DB2193 /* AppDelegate.swift */,
 				60A20C2C221E77A700DB2193 /* ViewController.swift */,
@@ -292,15 +292,6 @@
 				60A20C4C221E77A800DB2193 /* Info.plist */,
 			);
 			path = GKPageScrollViewSwiftUITests;
-			sourceTree = "<group>";
-		};
-		60A20C58221E77C500DB2193 /* GKPageScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */,
-				60A20C59221E77FE00DB2193 /* GKPageTableView.swift */,
-			);
-			path = GKPageScrollView;
 			sourceTree = "<group>";
 		};
 		60A20C5D221E780E00DB2193 /* JXSegmentedView */ = {
@@ -538,6 +529,15 @@
 			path = WMMenuView;
 			sourceTree = "<group>";
 		};
+		794139172233911A003410B0 /* GKPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				7941391822339128003410B0 /* GKPageScrollView.swift */,
+				7941391922339128003410B0 /* GKPageTableView.swift */,
+			);
+			path = GKPageScrollView;
+			sourceTree = "<group>";
+		};
 		AD9C4495DC5A2FBDD815ADA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,6 +736,7 @@
 			files = (
 				60A20CB0221E782000DB2193 /* JXSegmentedNumberItemModel.swift in Sources */,
 				60A20D37221F958F00DB2193 /* GKWYHeaderView.swift in Sources */,
+				7941391A22339128003410B0 /* GKPageScrollView.swift in Sources */,
 				60A20CB7221E782000DB2193 /* JXSegmentedBaseCell.swift in Sources */,
 				60A20D11221E828F00DB2193 /* GKBasePageViewController.swift in Sources */,
 				60A20D3A221F973F00DB2193 /* GKCommon.swift in Sources */,
@@ -774,10 +775,8 @@
 				60A20D4B2223BACB00DB2193 /* GKWBFindViewController.swift in Sources */,
 				60A20D17221E91B900DB2193 /* GKWBListViewController.swift in Sources */,
 				60A20C92221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift in Sources */,
-				60A20C5B221E77FE00DB2193 /* GKPageTableView.swift in Sources */,
 				60A20D5422256CD600DB2193 /* GKDYHeaderView.swift in Sources */,
 				60A20CA4221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift in Sources */,
-				60A20C5C221E77FE00DB2193 /* GKPageScrollView.swift in Sources */,
 				60A20CAF221E782000DB2193 /* JXSegmentedNumberDataSource.swift in Sources */,
 				60A20C9F221E782000DB2193 /* JXSegmentedIndicatorImageView.swift in Sources */,
 				60A20CB4221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift in Sources */,
@@ -799,6 +798,7 @@
 				60A20CAC221E782000DB2193 /* JXSegmentedTitleImageCell.swift in Sources */,
 				60A20CB3221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift in Sources */,
 				60A20C9A221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift in Sources */,
+				7941391B22339128003410B0 /* GKPageTableView.swift in Sources */,
 				60A20CA6221E782000DB2193 /* JXSegmentedTitleCell.swift in Sources */,
 				60A20CB1221E782000DB2193 /* JXSegmentedNumberCell.swift in Sources */,
 				60A20CB8221E782000DB2193 /* JXSegmentedCollectionView.swift in Sources */,

@@ -15,8 +15,6 @@
 		60A20AA1221CFF8500DB2193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AA0221CFF8500DB2193 /* main.m */; };
 		60A20AAB221CFF8500DB2193 /* GKPageScrollViewObjcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AAA221CFF8500DB2193 /* GKPageScrollViewObjcTests.m */; };
 		60A20AB6221CFF8500DB2193 /* GKPageScrollViewObjcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AB5221CFF8500DB2193 /* GKPageScrollViewObjcUITests.m */; };
-		60A20AC8221D01AA00DB2193 /* GKPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AC4221D01AA00DB2193 /* GKPageScrollView.m */; };
-		60A20AC9221D01AA00DB2193 /* GKPageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AC7221D01AA00DB2193 /* GKPageTableView.m */; };
 		60A20B41221D023900DB2193 /* GKTestListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20ACC221D023800DB2193 /* GKTestListView.m */; };
 		60A20B42221D023900DB2193 /* GKTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20ACD221D023800DB2193 /* GKTestViewController.m */; };
 		60A20B43221D023900DB2193 /* GKWYListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AD2221D023800DB2193 /* GKWYListViewController.m */; };
@@ -67,6 +65,8 @@
 		60A20B70221D023900DB2193 /* JXCategoryBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20B3F221D023900DB2193 /* JXCategoryBaseCell.m */; };
 		60A20B71221D023900DB2193 /* JXCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20B40221D023900DB2193 /* JXCategoryBaseCellModel.m */; };
 		60A20D4E2225225400DB2193 /* GKWBFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D4C2225225100DB2193 /* GKWBFindViewController.m */; };
+		794139152233910D003410B0 /* GKPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 794139132233910D003410B0 /* GKPageScrollView.m */; };
+		794139162233910D003410B0 /* GKPageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 794139142233910D003410B0 /* GKPageTableView.m */; };
 		EEB3B8E667A420C2B1527D6C /* libPods-GKPageScrollViewObjc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F6BEA1D8BA4A2D94EE2D7E /* libPods-GKPageScrollViewObjc.a */; };
 /* End PBXBuildFile section */
 
@@ -105,10 +105,6 @@
 		60A20AB1221CFF8500DB2193 /* GKPageScrollViewObjcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewObjcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20AB5221CFF8500DB2193 /* GKPageScrollViewObjcUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPageScrollViewObjcUITests.m; sourceTree = "<group>"; };
 		60A20AB7221CFF8500DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60A20AC4221D01AA00DB2193 /* GKPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageScrollView.m; path = ../../../GKPageScrollView/objc/GKPageScrollView.m; sourceTree = "<group>"; };
-		60A20AC5221D01AA00DB2193 /* GKPageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageTableView.h; path = ../../../GKPageScrollView/objc/GKPageTableView.h; sourceTree = "<group>"; };
-		60A20AC6221D01AA00DB2193 /* GKPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageScrollView.h; path = ../../../GKPageScrollView/objc/GKPageScrollView.h; sourceTree = "<group>"; };
-		60A20AC7221D01AA00DB2193 /* GKPageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageTableView.m; path = ../../../GKPageScrollView/objc/GKPageTableView.m; sourceTree = "<group>"; };
 		60A20ACC221D023800DB2193 /* GKTestListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestListView.m; sourceTree = "<group>"; };
 		60A20ACD221D023800DB2193 /* GKTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestViewController.m; sourceTree = "<group>"; };
 		60A20ACE221D023800DB2193 /* GKTestListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestListView.h; sourceTree = "<group>"; };
@@ -214,6 +210,10 @@
 		60A20D4C2225225100DB2193 /* GKWBFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWBFindViewController.m; sourceTree = "<group>"; };
 		60A20D4D2225225300DB2193 /* GKWBFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWBFindViewController.h; sourceTree = "<group>"; };
 		63F3699EF4265905771A0FD8 /* Pods-GKPageScrollViewObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewObjc.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewObjc/Pods-GKPageScrollViewObjc.debug.xcconfig"; sourceTree = "<group>"; };
+		794139112233910D003410B0 /* GKPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageScrollView.h; path = ../../../GKPageScrollView/objc/GKPageScrollView.h; sourceTree = "<group>"; };
+		794139122233910D003410B0 /* GKPageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageTableView.h; path = ../../../GKPageScrollView/objc/GKPageTableView.h; sourceTree = "<group>"; };
+		794139132233910D003410B0 /* GKPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageScrollView.m; path = ../../../GKPageScrollView/objc/GKPageScrollView.m; sourceTree = "<group>"; };
+		794139142233910D003410B0 /* GKPageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageTableView.m; path = ../../../GKPageScrollView/objc/GKPageTableView.m; sourceTree = "<group>"; };
 		E7F6BEA1D8BA4A2D94EE2D7E /* libPods-GKPageScrollViewObjc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GKPageScrollViewObjc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -276,7 +276,7 @@
 		60A20A90221CFF8400DB2193 /* GKPageScrollViewObjc */ = {
 			isa = PBXGroup;
 			children = (
-				60A20AC3221D018E00DB2193 /* GKPageScrollView */,
+				79413910223390F8003410B0 /* GKPageScrollView */,
 				60A20AF6221D023900DB2193 /* JXCategoryView */,
 				60A20ACA221D023800DB2193 /* Demo */,
 				60A20A91221CFF8400DB2193 /* AppDelegate.h */,
@@ -309,17 +309,6 @@
 				60A20AB7221CFF8500DB2193 /* Info.plist */,
 			);
 			path = GKPageScrollViewObjcUITests;
-			sourceTree = "<group>";
-		};
-		60A20AC3221D018E00DB2193 /* GKPageScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				60A20AC6221D01AA00DB2193 /* GKPageScrollView.h */,
-				60A20AC4221D01AA00DB2193 /* GKPageScrollView.m */,
-				60A20AC5221D01AA00DB2193 /* GKPageTableView.h */,
-				60A20AC7221D01AA00DB2193 /* GKPageTableView.m */,
-			);
-			path = GKPageScrollView;
 			sourceTree = "<group>";
 		};
 		60A20ACA221D023800DB2193 /* Demo */ = {
@@ -567,6 +556,17 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		79413910223390F8003410B0 /* GKPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				794139112233910D003410B0 /* GKPageScrollView.h */,
+				794139132233910D003410B0 /* GKPageScrollView.m */,
+				794139122233910D003410B0 /* GKPageTableView.h */,
+				794139142233910D003410B0 /* GKPageTableView.m */,
+			);
+			path = GKPageScrollView;
+			sourceTree = "<group>";
+		};
 		B7D9371C8BED22BFC872F09A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,6 +758,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				794139152233910D003410B0 /* GKPageScrollView.m in Sources */,
 				60A20B45221D023900DB2193 /* GKWYViewController.m in Sources */,
 				60A20B58221D023900DB2193 /* JXCategoryIndicatorBackgroundView.m in Sources */,
 				60A20B63221D023900DB2193 /* JXCategoryTitleCell.m in Sources */,
@@ -770,6 +771,7 @@
 				60A20B61221D023900DB2193 /* JXCategoryTitleImageCellModel.m in Sources */,
 				60A20B48221D023900DB2193 /* GKWBPageViewController.m in Sources */,
 				60A20B71221D023900DB2193 /* JXCategoryBaseCellModel.m in Sources */,
+				794139162233910D003410B0 /* GKPageTableView.m in Sources */,
 				60A20B55221D023900DB2193 /* JXCategoryIndicatorImageView.m in Sources */,
 				60A20B5A221D023900DB2193 /* JXCategoryIndicatorCell.m in Sources */,
 				60A20B47221D023900DB2193 /* GKWBHeaderView.m in Sources */,
@@ -788,8 +790,6 @@
 				60A20B67221D023900DB2193 /* JXCategoryImageCellModel.m in Sources */,
 				60A20B6D221D023900DB2193 /* JXCategoryCollectionView.m in Sources */,
 				60A20B41221D023900DB2193 /* GKTestListView.m in Sources */,
-				60A20AC8221D01AA00DB2193 /* GKPageScrollView.m in Sources */,
-				60A20AC9221D01AA00DB2193 /* GKPageTableView.m in Sources */,
 				60A20B6C221D023900DB2193 /* JXCategoryFactory.m in Sources */,
 				60A20B6A221D023900DB2193 /* JXCategoryNumberCellModel.m in Sources */,
 				60A20B64221D023900DB2193 /* JXCategoryTitleView.m in Sources */,
