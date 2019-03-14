@@ -19,6 +19,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 - 支持多种分页控件，如[JXCategory](https://github.com/pujiaxin33/JXCategoryView),[WMPageController](https://github.com/wangmchn/WMPageController)等
 - 可实现导航栏颜色渐变、头图下拉放大等效果
 - 支持主页、列表页下拉刷新，上拉加载
+- 支持列表懒加载功能
 
 ## 使用方法
 ### 1、手动安装
