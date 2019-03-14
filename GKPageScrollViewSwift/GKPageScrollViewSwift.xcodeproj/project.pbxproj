@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19510CD3B30378DAA00FF039 /* Pods_GKPageScrollViewSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF84D77570853DCA6E94706 /* Pods_GKPageScrollViewSwift.framework */; };
+		60A09FCA22390AD6004AE07A /* GKPageListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A09FC922390AD6004AE07A /* GKPageListContainerView.swift */; };
+		60A09FCD2239F420004AE07A /* GKListLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A09FCC2239F420004AE07A /* GKListLoadViewController.swift */; };
 		60A20C2B221E77A700DB2193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C2A221E77A700DB2193 /* AppDelegate.swift */; };
 		60A20C2D221E77A700DB2193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C2C221E77A700DB2193 /* ViewController.swift */; };
 		60A20C30221E77A700DB2193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C2E221E77A700DB2193 /* Main.storyboard */; };
@@ -15,47 +17,8 @@
 		60A20C35221E77A800DB2193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C33221E77A800DB2193 /* LaunchScreen.storyboard */; };
 		60A20C40221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C3F221E77A800DB2193 /* GKPageScrollViewSwiftTests.swift */; };
 		60A20C4B221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C4A221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift */; };
-		60A20C91221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C5F221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift */; };
-		60A20C92221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C60221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift */; };
-		60A20C93221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C61221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift */; };
-		60A20C94221E782000DB2193 /* JXSegmentedListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C63221E782000DB2193 /* JXSegmentedListContainerView.swift */; };
-		60A20C95221E782000DB2193 /* JXSegmentedAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C64221E782000DB2193 /* JXSegmentedAnimator.swift */; };
-		60A20C96221E782000DB2193 /* JXSegmentedViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C65221E782000DB2193 /* JXSegmentedViewTool.swift */; };
-		60A20C97221E782000DB2193 /* JXSegmentedDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C67221E782000DB2193 /* JXSegmentedDotCell.swift */; };
-		60A20C98221E782000DB2193 /* JXSegmentedDotDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C68221E782000DB2193 /* JXSegmentedDotDataSource.swift */; };
-		60A20C99221E782000DB2193 /* JXSegmentedDotItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C69221E782000DB2193 /* JXSegmentedDotItemModel.swift */; };
-		60A20C9A221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6B221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift */; };
-		60A20C9B221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6C221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift */; };
-		60A20C9C221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6D221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift */; };
-		60A20C9D221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6E221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift */; };
-		60A20C9E221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C6F221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift */; };
-		60A20C9F221E782000DB2193 /* JXSegmentedIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C70221E782000DB2193 /* JXSegmentedIndicatorImageView.swift */; };
-		60A20CA0221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C71221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift */; };
-		60A20CA1221E782000DB2193 /* JXSegmentedIndicatorLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C72221E782000DB2193 /* JXSegmentedIndicatorLineView.swift */; };
-		60A20CA2221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C73221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift */; };
-		60A20CA3221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C74221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift */; };
-		60A20CA4221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C75221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift */; };
-		60A20CA5221E782000DB2193 /* JXSegmentedComponetGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C76221E782000DB2193 /* JXSegmentedComponetGradientView.swift */; };
-		60A20CA6221E782000DB2193 /* JXSegmentedTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C78221E782000DB2193 /* JXSegmentedTitleCell.swift */; };
-		60A20CA7221E782000DB2193 /* JXSegmentedTitleItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C79221E782000DB2193 /* JXSegmentedTitleItemModel.swift */; };
-		60A20CA8221E782000DB2193 /* JXSegmentedTitleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C7A221E782000DB2193 /* JXSegmentedTitleDataSource.swift */; };
-		60A20CA9221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C7C221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift */; };
-		60A20CAA221E782000DB2193 /* JXSegmentedTitleGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C7D221E782000DB2193 /* JXSegmentedTitleGradientCell.swift */; };
-		60A20CAB221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C7E221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift */; };
-		60A20CAC221E782000DB2193 /* JXSegmentedTitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C80221E782000DB2193 /* JXSegmentedTitleImageCell.swift */; };
-		60A20CAD221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C81221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift */; };
-		60A20CAE221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C82221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift */; };
-		60A20CAF221E782000DB2193 /* JXSegmentedNumberDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C84221E782000DB2193 /* JXSegmentedNumberDataSource.swift */; };
-		60A20CB0221E782000DB2193 /* JXSegmentedNumberItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C85221E782000DB2193 /* JXSegmentedNumberItemModel.swift */; };
-		60A20CB1221E782000DB2193 /* JXSegmentedNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C86221E782000DB2193 /* JXSegmentedNumberCell.swift */; };
-		60A20CB2221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C88221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift */; };
-		60A20CB3221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C89221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift */; };
-		60A20CB4221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8A221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift */; };
-		60A20CB5221E782000DB2193 /* JXSegmentedBaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8C221E782000DB2193 /* JXSegmentedBaseDataSource.swift */; };
-		60A20CB6221E782000DB2193 /* JXSegmentedBaseItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8D221E782000DB2193 /* JXSegmentedBaseItemModel.swift */; };
-		60A20CB7221E782000DB2193 /* JXSegmentedBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8E221E782000DB2193 /* JXSegmentedBaseCell.swift */; };
-		60A20CB8221E782000DB2193 /* JXSegmentedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C8F221E782000DB2193 /* JXSegmentedCollectionView.swift */; };
-		60A20CB9221E782000DB2193 /* JXSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C90221E782000DB2193 /* JXSegmentedView.swift */; };
+		60A20C5B221E77FE00DB2193 /* GKPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C59221E77FE00DB2193 /* GKPageTableView.swift */; };
+		60A20C5C221E77FE00DB2193 /* GKPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */; };
 		60A20D0D221E813300DB2193 /* GKDemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D0C221E813300DB2193 /* GKDemoBaseViewController.swift */; };
 		60A20D0F221E827800DB2193 /* GKBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D0E221E827800DB2193 /* GKBaseTableViewController.swift */; };
 		60A20D11221E828F00DB2193 /* GKBasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D10221E828F00DB2193 /* GKBasePageViewController.swift */; };
@@ -80,8 +43,6 @@
 		60A20D5422256CD600DB2193 /* GKDYHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D5322256CD600DB2193 /* GKDYHeaderView.swift */; };
 		60A20D562226611300DB2193 /* GKMainRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */; };
 		60A20D582226612C00DB2193 /* GKListRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */; };
-		7941391A22339128003410B0 /* GKPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7941391822339128003410B0 /* GKPageScrollView.swift */; };
-		7941391B22339128003410B0 /* GKPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7941391922339128003410B0 /* GKPageTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		490C3794BF2506265BE4F750 /* Pods-GKPageScrollViewSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.release.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.release.xcconfig"; sourceTree = "<group>"; };
+		60A09FC922390AD6004AE07A /* GKPageListContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageListContainerView.swift; path = ../../../GKPageScrollView/swift/GKPageListContainerView.swift; sourceTree = "<group>"; };
+		60A09FCC2239F420004AE07A /* GKListLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKListLoadViewController.swift; sourceTree = "<group>"; };
 		60A20C27221E77A700DB2193 /* GKPageScrollViewSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKPageScrollViewSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20C2A221E77A700DB2193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60A20C2C221E77A700DB2193 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,47 +79,8 @@
 		60A20C46221E77A800DB2193 /* GKPageScrollViewSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20C4A221E77A800DB2193 /* GKPageScrollViewSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPageScrollViewSwiftUITests.swift; sourceTree = "<group>"; };
 		60A20C4C221E77A800DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60A20C5F221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeDataSource.swift; sourceTree = "<group>"; };
-		60A20C60221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeItemModel.swift; sourceTree = "<group>"; };
-		60A20C61221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleAttributeCell.swift; sourceTree = "<group>"; };
-		60A20C63221E782000DB2193 /* JXSegmentedListContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedListContainerView.swift; sourceTree = "<group>"; };
-		60A20C64221E782000DB2193 /* JXSegmentedAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedAnimator.swift; sourceTree = "<group>"; };
-		60A20C65221E782000DB2193 /* JXSegmentedViewTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedViewTool.swift; sourceTree = "<group>"; };
-		60A20C67221E782000DB2193 /* JXSegmentedDotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedDotCell.swift; sourceTree = "<group>"; };
-		60A20C68221E782000DB2193 /* JXSegmentedDotDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedDotDataSource.swift; sourceTree = "<group>"; };
-		60A20C69221E782000DB2193 /* JXSegmentedDotItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedDotItemModel.swift; sourceTree = "<group>"; };
-		60A20C6B221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorDotLineView.swift; sourceTree = "<group>"; };
-		60A20C6C221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorGradientView.swift; sourceTree = "<group>"; };
-		60A20C6D221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorTriangleView.swift; sourceTree = "<group>"; };
-		60A20C6E221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorBaseView.swift; sourceTree = "<group>"; };
-		60A20C6F221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorRainbowLineView.swift; sourceTree = "<group>"; };
-		60A20C70221E782000DB2193 /* JXSegmentedIndicatorImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorImageView.swift; sourceTree = "<group>"; };
-		60A20C71221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorBackgroundView.swift; sourceTree = "<group>"; };
-		60A20C72221E782000DB2193 /* JXSegmentedIndicatorLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorLineView.swift; sourceTree = "<group>"; };
-		60A20C73221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorProtocol.swift; sourceTree = "<group>"; };
-		60A20C74221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorParamsModel.swift; sourceTree = "<group>"; };
-		60A20C75221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedIndicatorDoubleLineView.swift; sourceTree = "<group>"; };
-		60A20C76221E782000DB2193 /* JXSegmentedComponetGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedComponetGradientView.swift; sourceTree = "<group>"; };
-		60A20C78221E782000DB2193 /* JXSegmentedTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleCell.swift; sourceTree = "<group>"; };
-		60A20C79221E782000DB2193 /* JXSegmentedTitleItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleItemModel.swift; sourceTree = "<group>"; };
-		60A20C7A221E782000DB2193 /* JXSegmentedTitleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleDataSource.swift; sourceTree = "<group>"; };
-		60A20C7C221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleGradientDataSource.swift; sourceTree = "<group>"; };
-		60A20C7D221E782000DB2193 /* JXSegmentedTitleGradientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleGradientCell.swift; sourceTree = "<group>"; };
-		60A20C7E221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleGradientItemModel.swift; sourceTree = "<group>"; };
-		60A20C80221E782000DB2193 /* JXSegmentedTitleImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleImageCell.swift; sourceTree = "<group>"; };
-		60A20C81221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleImageItemModel.swift; sourceTree = "<group>"; };
-		60A20C82221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleImageDataSource.swift; sourceTree = "<group>"; };
-		60A20C84221E782000DB2193 /* JXSegmentedNumberDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedNumberDataSource.swift; sourceTree = "<group>"; };
-		60A20C85221E782000DB2193 /* JXSegmentedNumberItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedNumberItemModel.swift; sourceTree = "<group>"; };
-		60A20C86221E782000DB2193 /* JXSegmentedNumberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedNumberCell.swift; sourceTree = "<group>"; };
-		60A20C88221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleOrImageItemModel.swift; sourceTree = "<group>"; };
-		60A20C89221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleOrImageDataSource.swift; sourceTree = "<group>"; };
-		60A20C8A221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedTitleOrImageCell.swift; sourceTree = "<group>"; };
-		60A20C8C221E782000DB2193 /* JXSegmentedBaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedBaseDataSource.swift; sourceTree = "<group>"; };
-		60A20C8D221E782000DB2193 /* JXSegmentedBaseItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedBaseItemModel.swift; sourceTree = "<group>"; };
-		60A20C8E221E782000DB2193 /* JXSegmentedBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedBaseCell.swift; sourceTree = "<group>"; };
-		60A20C8F221E782000DB2193 /* JXSegmentedCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedCollectionView.swift; sourceTree = "<group>"; };
-		60A20C90221E782000DB2193 /* JXSegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSegmentedView.swift; sourceTree = "<group>"; };
+		60A20C59221E77FE00DB2193 /* GKPageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageTableView.swift; path = ../../../GKPageScrollView/swift/GKPageTableView.swift; sourceTree = "<group>"; };
+		60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageScrollView.swift; path = ../../../GKPageScrollView/swift/GKPageScrollView.swift; sourceTree = "<group>"; };
 		60A20CBA221E78D300DB2193 /* libGKNavigationBarViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGKNavigationBarViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20CBC221E78D300DB2193 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20CBE221E78D300DB2193 /* libSnapKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSnapKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,8 +118,6 @@
 		60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKMainRefreshViewController.swift; sourceTree = "<group>"; };
 		60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKListRefreshViewController.swift; sourceTree = "<group>"; };
 		6AF84D77570853DCA6E94706 /* Pods_GKPageScrollViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKPageScrollViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7941391822339128003410B0 /* GKPageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageScrollView.swift; path = ../../../GKPageScrollView/swift/GKPageScrollView.swift; sourceTree = "<group>"; };
-		7941391922339128003410B0 /* GKPageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageTableView.swift; path = ../../../GKPageScrollView/swift/GKPageTableView.swift; sourceTree = "<group>"; };
 		F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +157,14 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		60A09FCB2239F3F9004AE07A /* ListLoad */ = {
+			isa = PBXGroup;
+			children = (
+				60A09FCC2239F420004AE07A /* GKListLoadViewController.swift */,
+			);
+			path = ListLoad;
+			sourceTree = "<group>";
+		};
 		60A20C1E221E77A700DB2193 = {
 			isa = PBXGroup;
 			children = (
@@ -260,9 +190,8 @@
 		60A20C29221E77A700DB2193 /* GKPageScrollViewSwift */ = {
 			isa = PBXGroup;
 			children = (
-				794139172233911A003410B0 /* GKPageScrollView */,
 				60A20D1E221E92D600DB2193 /* WMPageController */,
-				60A20C5D221E780E00DB2193 /* JXSegmentedView */,
+				60A20C58221E77C500DB2193 /* GKPageScrollView */,
 				60A20D04221E80AA00DB2193 /* Demo */,
 				60A20C2A221E77A700DB2193 /* AppDelegate.swift */,
 				60A20C2C221E77A700DB2193 /* ViewController.swift */,
@@ -294,132 +223,14 @@
 			path = GKPageScrollViewSwiftUITests;
 			sourceTree = "<group>";
 		};
-		60A20C5D221E780E00DB2193 /* JXSegmentedView */ = {
+		60A20C58221E77C500DB2193 /* GKPageScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				60A20C5E221E782000DB2193 /* AttributeTitle */,
-				60A20C62221E782000DB2193 /* Common */,
-				60A20C8B221E782000DB2193 /* Core */,
-				60A20C66221E782000DB2193 /* Dot */,
-				60A20C6A221E782000DB2193 /* Indicator */,
-				60A20C83221E782000DB2193 /* Number */,
-				60A20C77221E782000DB2193 /* Title */,
-				60A20C7B221E782000DB2193 /* TitleGradient */,
-				60A20C7F221E782000DB2193 /* TitleImage */,
-				60A20C87221E782000DB2193 /* TitleOrImage */,
+				60A20C5A221E77FE00DB2193 /* GKPageScrollView.swift */,
+				60A20C59221E77FE00DB2193 /* GKPageTableView.swift */,
+				60A09FC922390AD6004AE07A /* GKPageListContainerView.swift */,
 			);
-			path = JXSegmentedView;
-			sourceTree = "<group>";
-		};
-		60A20C5E221E782000DB2193 /* AttributeTitle */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C5F221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift */,
-				60A20C60221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift */,
-				60A20C61221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift */,
-			);
-			path = AttributeTitle;
-			sourceTree = "<group>";
-		};
-		60A20C62221E782000DB2193 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C63221E782000DB2193 /* JXSegmentedListContainerView.swift */,
-				60A20C64221E782000DB2193 /* JXSegmentedAnimator.swift */,
-				60A20C65221E782000DB2193 /* JXSegmentedViewTool.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		60A20C66221E782000DB2193 /* Dot */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C67221E782000DB2193 /* JXSegmentedDotCell.swift */,
-				60A20C68221E782000DB2193 /* JXSegmentedDotDataSource.swift */,
-				60A20C69221E782000DB2193 /* JXSegmentedDotItemModel.swift */,
-			);
-			path = Dot;
-			sourceTree = "<group>";
-		};
-		60A20C6A221E782000DB2193 /* Indicator */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C6B221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift */,
-				60A20C6C221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift */,
-				60A20C6D221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift */,
-				60A20C6E221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift */,
-				60A20C6F221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift */,
-				60A20C70221E782000DB2193 /* JXSegmentedIndicatorImageView.swift */,
-				60A20C71221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift */,
-				60A20C72221E782000DB2193 /* JXSegmentedIndicatorLineView.swift */,
-				60A20C73221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift */,
-				60A20C74221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift */,
-				60A20C75221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift */,
-				60A20C76221E782000DB2193 /* JXSegmentedComponetGradientView.swift */,
-			);
-			path = Indicator;
-			sourceTree = "<group>";
-		};
-		60A20C77221E782000DB2193 /* Title */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C78221E782000DB2193 /* JXSegmentedTitleCell.swift */,
-				60A20C79221E782000DB2193 /* JXSegmentedTitleItemModel.swift */,
-				60A20C7A221E782000DB2193 /* JXSegmentedTitleDataSource.swift */,
-			);
-			path = Title;
-			sourceTree = "<group>";
-		};
-		60A20C7B221E782000DB2193 /* TitleGradient */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C7C221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift */,
-				60A20C7D221E782000DB2193 /* JXSegmentedTitleGradientCell.swift */,
-				60A20C7E221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift */,
-			);
-			path = TitleGradient;
-			sourceTree = "<group>";
-		};
-		60A20C7F221E782000DB2193 /* TitleImage */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C80221E782000DB2193 /* JXSegmentedTitleImageCell.swift */,
-				60A20C81221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift */,
-				60A20C82221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift */,
-			);
-			path = TitleImage;
-			sourceTree = "<group>";
-		};
-		60A20C83221E782000DB2193 /* Number */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C84221E782000DB2193 /* JXSegmentedNumberDataSource.swift */,
-				60A20C85221E782000DB2193 /* JXSegmentedNumberItemModel.swift */,
-				60A20C86221E782000DB2193 /* JXSegmentedNumberCell.swift */,
-			);
-			path = Number;
-			sourceTree = "<group>";
-		};
-		60A20C87221E782000DB2193 /* TitleOrImage */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C88221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift */,
-				60A20C89221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift */,
-				60A20C8A221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift */,
-			);
-			path = TitleOrImage;
-			sourceTree = "<group>";
-		};
-		60A20C8B221E782000DB2193 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				60A20C8C221E782000DB2193 /* JXSegmentedBaseDataSource.swift */,
-				60A20C8D221E782000DB2193 /* JXSegmentedBaseItemModel.swift */,
-				60A20C8E221E782000DB2193 /* JXSegmentedBaseCell.swift */,
-				60A20C8F221E782000DB2193 /* JXSegmentedCollectionView.swift */,
-				60A20C90221E782000DB2193 /* JXSegmentedView.swift */,
-			);
-			path = Core;
+			path = GKPageScrollView;
 			sourceTree = "<group>";
 		};
 		60A20D04221E80AA00DB2193 /* Demo */ = {
@@ -431,6 +242,7 @@
 				60A20D07221E80C200DB2193 /* 抖音 */,
 				60A20D09221E80CE00DB2193 /* MainRefresh */,
 				60A20D0A221E80D400DB2193 /* ListRefresh */,
+				60A09FCB2239F3F9004AE07A /* ListLoad */,
 				60A20D0B221E80DB00DB2193 /* Test */,
 			);
 			path = Demo;
@@ -527,15 +339,6 @@
 				60A20D29221E92D600DB2193 /* WMProgressView.m */,
 			);
 			path = WMMenuView;
-			sourceTree = "<group>";
-		};
-		794139172233911A003410B0 /* GKPageScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				7941391822339128003410B0 /* GKPageScrollView.swift */,
-				7941391922339128003410B0 /* GKPageTableView.swift */,
-			);
-			path = GKPageScrollView;
 			sourceTree = "<group>";
 		};
 		AD9C4495DC5A2FBDD815ADA8 /* Frameworks */ = {
@@ -712,14 +515,18 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GKNavigationBarViewController-framework/GKNavigationBarViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKNavigationBarViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXSegmentedView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,74 +541,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60A20CB0221E782000DB2193 /* JXSegmentedNumberItemModel.swift in Sources */,
 				60A20D37221F958F00DB2193 /* GKWYHeaderView.swift in Sources */,
-				7941391A22339128003410B0 /* GKPageScrollView.swift in Sources */,
-				60A20CB7221E782000DB2193 /* JXSegmentedBaseCell.swift in Sources */,
 				60A20D11221E828F00DB2193 /* GKBasePageViewController.swift in Sources */,
 				60A20D3A221F973F00DB2193 /* GKCommon.swift in Sources */,
-				60A20CA7221E782000DB2193 /* JXSegmentedTitleItemModel.swift in Sources */,
-				60A20C93221E782000DB2193 /* JXSegmentedTitleAttributeCell.swift in Sources */,
-				60A20CA0221E782000DB2193 /* JXSegmentedIndicatorBackgroundView.swift in Sources */,
 				60A20D31221E92D600DB2193 /* WMProgressView.m in Sources */,
-				60A20CA5221E782000DB2193 /* JXSegmentedComponetGradientView.swift in Sources */,
 				60A20D2E221E92D600DB2193 /* WMMenuItem.m in Sources */,
-				60A20CA2221E782000DB2193 /* JXSegmentedIndicatorProtocol.swift in Sources */,
-				60A20C98221E782000DB2193 /* JXSegmentedDotDataSource.swift in Sources */,
-				60A20C9E221E782000DB2193 /* JXSegmentedIndicatorRainbowLineView.swift in Sources */,
+				60A09FCA22390AD6004AE07A /* GKPageListContainerView.swift in Sources */,
 				60A20D2C221E92D600DB2193 /* WMPageController.m in Sources */,
-				60A20CB9221E782000DB2193 /* JXSegmentedView.swift in Sources */,
-				60A20C97221E782000DB2193 /* JXSegmentedDotCell.swift in Sources */,
-				60A20C99221E782000DB2193 /* JXSegmentedDotItemModel.swift in Sources */,
 				60A20D2D221E92D600DB2193 /* UIViewController+WMPageController.m in Sources */,
 				60A20D5022256CBC00DB2193 /* GKDYViewController.swift in Sources */,
 				60A20D0D221E813300DB2193 /* GKDemoBaseViewController.swift in Sources */,
-				60A20C95221E782000DB2193 /* JXSegmentedAnimator.swift in Sources */,
 				60A20D582226612C00DB2193 /* GKListRefreshViewController.swift in Sources */,
-				60A20C94221E782000DB2193 /* JXSegmentedListContainerView.swift in Sources */,
 				60A20D5222256CC900DB2193 /* GKDYListViewController.swift in Sources */,
-				60A20CAA221E782000DB2193 /* JXSegmentedTitleGradientCell.swift in Sources */,
 				60A20C2D221E77A700DB2193 /* ViewController.swift in Sources */,
-				60A20CAD221E782000DB2193 /* JXSegmentedTitleImageItemModel.swift in Sources */,
 				60A20D2F221E92D600DB2193 /* WMScrollView.m in Sources */,
+				60A09FCD2239F420004AE07A /* GKListLoadViewController.swift in Sources */,
 				60A20D33221F956B00DB2193 /* GKWYViewController.swift in Sources */,
-				60A20CAE221E782000DB2193 /* JXSegmentedTitleImageDataSource.swift in Sources */,
 				60A20D35221F958500DB2193 /* GKWYListViewController.swift in Sources */,
 				60A20D1B221E91CF00DB2193 /* GKWBHeaderView.swift in Sources */,
-				60A20CA8221E782000DB2193 /* JXSegmentedTitleDataSource.swift in Sources */,
-				60A20CB2221E782000DB2193 /* JXSegmentedTitleOrImageItemModel.swift in Sources */,
 				60A20D30221E92D600DB2193 /* WMMenuView.m in Sources */,
-				60A20CB6221E782000DB2193 /* JXSegmentedBaseItemModel.swift in Sources */,
 				60A20D4B2223BACB00DB2193 /* GKWBFindViewController.swift in Sources */,
 				60A20D17221E91B900DB2193 /* GKWBListViewController.swift in Sources */,
-				60A20C92221E782000DB2193 /* JXSegmentedTitleAttributeItemModel.swift in Sources */,
+				60A20C5B221E77FE00DB2193 /* GKPageTableView.swift in Sources */,
 				60A20D5422256CD600DB2193 /* GKDYHeaderView.swift in Sources */,
-				60A20CA4221E782000DB2193 /* JXSegmentedIndicatorDoubleLineView.swift in Sources */,
-				60A20CAF221E782000DB2193 /* JXSegmentedNumberDataSource.swift in Sources */,
-				60A20C9F221E782000DB2193 /* JXSegmentedIndicatorImageView.swift in Sources */,
-				60A20CB4221E782000DB2193 /* JXSegmentedTitleOrImageCell.swift in Sources */,
-				60A20C9B221E782000DB2193 /* JXSegmentedIndicatorGradientView.swift in Sources */,
-				60A20CAB221E782000DB2193 /* JXSegmentedTitleGradientItemModel.swift in Sources */,
+				60A20C5C221E77FE00DB2193 /* GKPageScrollView.swift in Sources */,
 				60A20C2B221E77A700DB2193 /* AppDelegate.swift in Sources */,
 				60A20D15221E918E00DB2193 /* GKWBViewController.swift in Sources */,
 				60A20D0F221E827800DB2193 /* GKBaseTableViewController.swift in Sources */,
-				60A20CA1221E782000DB2193 /* JXSegmentedIndicatorLineView.swift in Sources */,
 				60A20D13221E829800DB2193 /* GKBaseListViewController.swift in Sources */,
-				60A20CA9221E782000DB2193 /* JXSegmentedTitleGradientDataSource.swift in Sources */,
-				60A20CB5221E782000DB2193 /* JXSegmentedBaseDataSource.swift in Sources */,
-				60A20C91221E782000DB2193 /* JXSegmentedTitleAttributeDataSource.swift in Sources */,
-				60A20CA3221E782000DB2193 /* JXSegmentedIndicatorParamsModel.swift in Sources */,
-				60A20C9C221E782000DB2193 /* JXSegmentedIndicatorTriangleView.swift in Sources */,
-				60A20C96221E782000DB2193 /* JXSegmentedViewTool.swift in Sources */,
 				60A20D562226611300DB2193 /* GKMainRefreshViewController.swift in Sources */,
-				60A20C9D221E782000DB2193 /* JXSegmentedIndicatorBaseView.swift in Sources */,
-				60A20CAC221E782000DB2193 /* JXSegmentedTitleImageCell.swift in Sources */,
-				60A20CB3221E782000DB2193 /* JXSegmentedTitleOrImageDataSource.swift in Sources */,
-				60A20C9A221E782000DB2193 /* JXSegmentedIndicatorDotLineView.swift in Sources */,
-				7941391B22339128003410B0 /* GKPageTableView.swift in Sources */,
-				60A20CA6221E782000DB2193 /* JXSegmentedTitleCell.swift in Sources */,
-				60A20CB1221E782000DB2193 /* JXSegmentedNumberCell.swift in Sources */,
-				60A20CB8221E782000DB2193 /* JXSegmentedCollectionView.swift in Sources */,
 				60A20D1D221E928B00DB2193 /* GKWBPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -979,7 +747,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = GKPageScrollViewSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -987,8 +756,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.pageScrollSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
 				SWIFT_OBJC_BRIDGING_HEADER = "GKPageScrollViewSwift/GKPageScrollViewSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1003,7 +773,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = GKPageScrollViewSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1011,8 +782,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.pageScrollSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
 				SWIFT_OBJC_BRIDGING_HEADER = "GKPageScrollViewSwift/GKPageScrollViewSwift-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

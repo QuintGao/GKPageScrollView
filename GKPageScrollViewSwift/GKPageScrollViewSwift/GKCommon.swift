@@ -35,3 +35,14 @@ extension UIColor {
         return UIColor.rgbColor(r: g, g: g, b: g)
     }
 }
+
+public func changeColor(image: UIImage, color: UIColor) -> UIImage {
+    UIGraphicsBeginImageContext(image.size)
+    color.setFill()
+    let bounds = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+    UIRectFill(bounds)
+    image.draw(in: bounds, blendMode: CGBlendMode.destinationIn, alpha: 1.0)
+    let resultImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return resultImage!
+}

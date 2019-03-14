@@ -116,6 +116,10 @@ class GKWBViewController: GKDemoBaseViewController {
 }
 
 extension GKWBViewController: GKPageScrollViewDelegate {
+    func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool {
+        return false
+    }
+    
     func headerView(in pageScrollView: GKPageScrollView) -> UIView {
         return self.headerView
     }
@@ -146,7 +150,8 @@ extension GKWBViewController: GKPageScrollViewDelegate {
             
             self.gk_statusBarStyle = .default
             self.gk_navLeftBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_back_black"), target: self, action: #selector(backAction))
-            self.gk_navRightBarButtonItem = UIBarButtonItem(title: nil, image: changeImage(color: UIColor.black, image: UIImage(named: "wb_more")!), target: self, action: #selector(moreAction))
+            
+            self.gk_navRightBarButtonItem = UIBarButtonItem(title: nil, image: changeColor(image: UIImage(named: "wb_more")!, color: UIColor.black), target: self, action: #selector(moreAction))
             self.titleLabel.alpha = 1
         }else {
             alpha = (offsetY - 60) / (100 - 60)
@@ -154,7 +159,7 @@ extension GKWBViewController: GKPageScrollViewDelegate {
             if alpha > 0.8 {
                 self.gk_statusBarStyle = .default
                 self.gk_navLeftBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_back_black"), target: self, action: #selector(backAction))
-                self.gk_navRightBarButtonItem = UIBarButtonItem(title: nil, image: changeImage(color: UIColor.black, image: UIImage(named: "wb_more")!), target: self, action: #selector(moreAction))
+                self.gk_navRightBarButtonItem = UIBarButtonItem(title: nil, image: changeColor(image: UIImage(named: "wb_more")!, color: UIColor.black), target: self, action: #selector(moreAction))
                 self.titleLabel.alpha = (offsetY - 92) / (100 - 92)
             }else {
                 self.titleLabel.alpha = 0
@@ -167,17 +172,6 @@ extension GKWBViewController: GKPageScrollViewDelegate {
         
         // 头图下拉
         self.headerView.scrollViewDidScroll(offsetY: scrollView.contentOffset.y)
-    }
-    
-    func changeImage(color: UIColor, image: UIImage) -> UIImage? {
-        UIGraphicsBeginImageContext(image.size)
-        color.setFill()
-        let bounds = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-        UIRectFill(bounds)
-        image.draw(in: bounds, blendMode: CGBlendMode.destinationIn, alpha: 1.0)
-        let resultImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return resultImage
     }
 }
 

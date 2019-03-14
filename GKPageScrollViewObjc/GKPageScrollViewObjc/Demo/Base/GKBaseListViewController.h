@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger count;
 
+@property (nonatomic, assign) BOOL  shouldLoadData;
+
 - (void)addHeaderRefresh;
 
 @end

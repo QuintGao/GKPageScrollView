@@ -3,8 +3,8 @@
 ![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;&nbsp;
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
 ![](https://img.shields.io/badge/language-Objective--C%2FSwift%204.x-orange.svg)&nbsp;&nbsp;
-![](https://img.shields.io/badge/pod%20Objc-1.0.9-blue.svg) &nbsp;&nbsp;
-![](https://img.shields.io/badge/pod%20Swift-1.0.9-blue.svg) &nbsp;&nbsp;
+![](https://img.shields.io/badge/pod%20Objc-1.1.0-blue.svg) &nbsp;&nbsp;
+![](https://img.shields.io/badge/pod%20Swift-1.1.0-blue.svg) &nbsp;&nbsp;
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
 iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
@@ -47,6 +47,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
 
 ## 版本更新
+* 2019.3.14   1.1.0 - 增加列表懒加载功能，可用于子列表较多的情况
 * 2019.3.4     1.0.9 - 增加Swift版本，pod统一更新到1.0.9
 * 2019.2.25   1.0.7 - 优化切换临界点和原点的方法，增加仿微博发现页demo
 * 2019.2.20   1.0.6 - 增加快速切换临界点和原点的方法

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JXSegmentedView
 
 let kCriticalPoint = -ADAPTATIONRATIO * 50.0
 
@@ -154,6 +155,10 @@ class GKWYViewController: GKDemoBaseViewController {
 }
 
 extension GKWYViewController: GKPageScrollViewDelegate {
+    func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool {
+        return false
+    }
+    
     func listView(in pageScrollView: GKPageScrollView) -> [GKPageListViewDelegate] {
         return self.childVCs
     }

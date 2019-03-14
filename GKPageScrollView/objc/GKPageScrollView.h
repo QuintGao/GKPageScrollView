@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GKPageTableView.h"
+#import "GKPageListContainerView.h"
 
 @class GKPageScrollView;
 
@@ -30,11 +31,29 @@
  */
 - (void)listViewDidScrollCallback:(void (^)(UIScrollView *scrollView))callback;
 
+@optional
+
+/**
+ 返回listView
+ 
+ @return UIView
+ */
+- (UIView *)listView;
+
 @end
 
 @protocol GKPageScrollViewDelegate <NSObject>
 
 @required
+
+/**
+ 返回是否懒加载列表（据此代理实现懒加载和非懒加载相应方法）
+ 
+ @param pageScrollView paegScrollView description
+ @return 是否懒加载
+ */
+- (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView;
+
 /**
  返回tableHeaderView
 
@@ -43,24 +62,52 @@
  */
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView;
 
+@optional
+
+#pragma mark - 非懒加载相关方法(`shouldLazyLoadListInPageScrollView`方法返回NO时必须实现下面的方法)
 /**
  返回分页视图
-
+ 
  @param pageScrollView pageScrollView description
  @return pageView
  */
 - (UIView *)pageViewInPageScrollView:(GKPageScrollView *)pageScrollView;
 
-
 /**
  返回listView
-
+ 
  @param pageScrollView pageScrollView description
  @return listView
  */
 - (NSArray <id <GKPageListViewDelegate>> *)listViewsInPageScrollView:(GKPageScrollView *)pageScrollView;
 
-@optional
+#pragma mark - 懒加载相关方法(`shouldLazyLoadListInPageScrollView`方法返回YES时必须实现下面的方法)
+
+/**
+ 返回中间的segmentedView
+
+ @param pageScrollView pageScrollView description
+ @return segmentedView
+ */
+- (UIView *)segmentedViewInPageScrollView:(GKPageScrollView *)pageScrollView;
+/**
+ 返回列表的数量
+
+ @param pageScrollView pageScrollView description
+ @return 列表的数量
+ */
+- (NSInteger)numberOfListsInPageScrollView:(GKPageScrollView *)pageScrollView;
+
+/**
+ 根据index初始化一个列表实例，需实现`GKPageListViewDelegate`代理
+
+ @param pageScrollView pageScrollView description
+ @param index 对应的索引
+ @return 实例对象
+ */
+- (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index;
+
+#pragma mark - mainTableView滚动相关方法
 
 /**
  mainTableView开始滑动
@@ -98,7 +145,12 @@
 
 @property (nonatomic, weak) id<GKPageScrollViewDelegate> delegate;
 
-@property (nonatomic, strong) GKPageTableView   *mainTableView;
+@property (nonatomic, strong, readonly) GKPageTableView   *mainTableView;
+
+@property (nonatomic, strong, readonly) GKPageListContainerView *listContainerView;
+
+// 当前已经加载过的可用的列表字典，key是index值，value是对应列表
+@property (nonatomic, strong, readonly) NSDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
 
 // 吸顶临界点高度（默认值：状态栏+导航栏）
 @property (nonatomic, assign) CGFloat           ceilPointHeight;

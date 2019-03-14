@@ -44,4 +44,7 @@ NO)
 
 #define kRefreshDuration   0.5f
 
+#define kBaseHeaderHeight  kScreenW * 385.0f / 704.0f
+#define kBaseSegmentHeight 40.0f
+
 #endif /* PrefixHeader_pch */

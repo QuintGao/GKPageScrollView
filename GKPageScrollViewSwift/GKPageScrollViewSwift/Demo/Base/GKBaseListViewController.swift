@@ -13,7 +13,43 @@ class GKBaseListViewController: GKBaseTableViewController {
 
     public var count = 30
     
+    public var shouldLoadData = false
+    
     var scrollCallBack: ((UIScrollView) -> ())?
+    
+    lazy var loadingView: UIImageView = {
+        var images = [UIImage]()
+        for i in 0..<4 {
+            let imgName = "cm2_list_icn_loading" + "\(i+1)"
+            
+            let img = changeColor(image: UIImage(named: imgName)!, color: UIColor.rgbColor(r: 200, g: 38, b: 39))
+            images.append(img)
+        }
+        
+        for i in (0..<4).reversed() {
+            let imgName = "cm2_list_icn_loading" + "\(i+1)"
+            
+            let img = changeColor(image: UIImage(named: imgName)!, color: UIColor.rgbColor(r: 200, g: 38, b: 39))
+            images.append(img)
+        }
+        
+        let loadingView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20.0, height: 20.0))
+        loadingView.animationImages = images
+        loadingView.animationDuration = 0.75
+        loadingView.isHidden = true
+        
+        return loadingView
+    }()
+    
+    lazy var loadLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14.0)
+        label.textColor = UIColor.gray
+        label.text = "正在加载..."
+        label.isHidden = true
+        
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +70,49 @@ class GKBaseListViewController: GKBaseTableViewController {
                 self.tableView.reloadData()
             })
         })
+        
+        if self.shouldLoadData {
+            self.tableView.addSubview(self.loadingView)
+            self.tableView.addSubview(self.loadLabel)
+            
+            self.loadingView.snp.makeConstraints { (make) in
+                make.top.equalTo(self.tableView).offset(40.0)
+                make.centerX.equalTo(self.tableView)
+            }
+            
+            self.loadLabel.snp.makeConstraints { (make) in
+                make.top.equalTo(self.loadingView.snp.bottom).offset(10.0)
+                make.centerX.equalTo(self.loadingView)
+            }
+            
+            self.loadData()
+        }
+    }
+    
+    func loadData() {
+        self.count = 0
+        
+        self.showLoading()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.count = 30
+            
+            self.hideLoading()
+            
+            self.tableView.reloadData()
+        }
+    }
+    
+    func showLoading() {
+        self.loadingView.isHidden = false
+        self.loadLabel.isHidden = false
+        self.loadingView.startAnimating()
+    }
+    
+    func hideLoading() {
+        self.loadingView.isHidden = true
+        self.loadLabel.isHidden = true
+        self.loadingView.stopAnimating()
     }
     
     public func addHeaderRefresh() {
@@ -50,6 +129,7 @@ class GKBaseListViewController: GKBaseTableViewController {
 
 extension GKBaseListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.tableView.mj_footer.isHidden = self.count == 0
         return self.count
     }
     
@@ -65,6 +145,10 @@ extension GKBaseListViewController {
 }
 
 extension GKBaseListViewController: GKPageListViewDelegate {
+    func listView() -> UIView {
+        return self.view
+    }
+    
     func listScrollView() -> UIScrollView {
         return self.tableView
     }

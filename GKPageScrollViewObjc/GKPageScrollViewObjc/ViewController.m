@@ -35,6 +35,7 @@
                         @{@"title": @"抖音个人主页", @"class": @"GKDYViewController"},
                         @{@"title": @"mainTableView刷新", @"class": @"GKMainRefreshViewController"},
                         @{@"title": @"listTableView刷新", @"class": @"GKListRefreshViewController"},
+                        @{@"title": @"懒加载列表", @"class": @"GKListLoadViewController"},
                         @{@"title": @"测试", @"class": @"GKTestViewController"}];
     
     [self.tableView reloadData];
@@ -77,6 +78,5 @@
     }
     return _tableView;
 }
-
 
 @end

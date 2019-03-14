@@ -72,6 +72,10 @@
 }
 
 #pragma mark - GKPageScrollViewDelegate
+- (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return NO;
+}
+
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
 }
@@ -241,7 +245,7 @@
         _categoryView.titleSelectedColor = GKColorRGB(200, 38, 39);
         _categoryView.titleFont = [UIFont systemFontOfSize:16.0f];
         _categoryView.titleSelectedFont = [UIFont boldSystemFontOfSize:16.0f];
-        _categoryView.cellChangeInHalf = YES;   // 当scrollView滑动到一半时改变cell状态
+//        _categoryView.cellChangeInHalf = YES;   // 当scrollView滑动到一半时改变cell状态
         
         JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
         lineView.indicatorLineViewColor = GKColorRGB(200, 38, 39);

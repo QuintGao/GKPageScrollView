@@ -11,9 +11,6 @@
 #import "GKBaseListViewController.h"
 #import "JXCategoryView.h"
 
-#define kBaseHeaderHeight  kScreenW * 385.0f / 704.0f
-#define kBaseSegmentHeight 40.0f
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKBasePageViewController : GKDemoBaseViewController<GKPageScrollViewDelegate>

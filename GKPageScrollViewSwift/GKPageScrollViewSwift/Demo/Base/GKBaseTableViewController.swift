@@ -15,6 +15,7 @@ class GKBaseTableViewController: GKDemoBaseViewController {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .never
         }
