@@ -43,6 +43,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 | **抖音个人主页** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/dy.gif) |
 | **主页下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/mainRefresh.gif) |
 | **列表下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/listRefresh.gif) |
+| **列表懒加载** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/lazyload.gif) |
 
 ## 说明
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
