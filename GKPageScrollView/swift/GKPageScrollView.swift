@@ -208,6 +208,10 @@ open class GKPageScrollView: UIView {
         }
         validListDict.removeAll()
         
+        if !(self.delegate!.shouldLazyLoadList(in: self)) {
+            self.configListViewScroll()
+        }
+        
         self.mainTableView.reloadData()
         
         if self.delegate!.shouldLazyLoadList(in: self) {
@@ -254,9 +258,11 @@ open class GKPageScrollView: UIView {
     
     // MARK: - Private Methods
     fileprivate func configListViewScroll() {
-        for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
-            value.listViewDidScroll { (scrollView) in
-                self.listScrollViewDidScroll(scrollView: scrollView)
+        if (self.delegate!.listView?(in: self).count) ?? 0 > 0 {
+            for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
+                value.listViewDidScroll { (scrollView) in
+                    self.listScrollViewDidScroll(scrollView: scrollView)
+                }
             }
         }
     }
@@ -390,11 +396,13 @@ open class GKPageScrollView: UIView {
                 }
             }
         }else {
-            for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
-                let listScrollView = value.listScrollView()
-                
-                if listScrollView.contentOffset.y != 0 {
-                    self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+            if self.delegate!.listView?(in: self).count ?? 0 > 0 {
+                for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
+                    let listScrollView = value.listScrollView()
+                    
+                    if listScrollView.contentOffset.y != 0 {
+                        self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+                    }
                 }
             }
         }
@@ -408,10 +416,12 @@ open class GKPageScrollView: UIView {
                 listScrollView.showsVerticalScrollIndicator = false
             }
         }else {
-            for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
-                let listScrollView = value.listScrollView()
-                listScrollView.contentOffset = .zero
-                listScrollView.showsVerticalScrollIndicator = false
+            if self.delegate!.listView?(in: self).count ?? 0 > 0 {
+                for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
+                    let listScrollView = value.listScrollView()
+                    listScrollView.contentOffset = .zero
+                    listScrollView.showsVerticalScrollIndicator = false
+                }
             }
         }
     }

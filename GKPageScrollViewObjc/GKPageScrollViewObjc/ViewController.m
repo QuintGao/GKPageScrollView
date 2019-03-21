@@ -36,6 +36,7 @@
                         @{@"title": @"mainTableView刷新", @"class": @"GKMainRefreshViewController"},
                         @{@"title": @"listTableView刷新", @"class": @"GKListRefreshViewController"},
                         @{@"title": @"懒加载列表", @"class": @"GKListLoadViewController"},
+                        @{@"title": @"item加载", @"class": @"GKItemLoadViewController"},
                         @{@"title": @"测试", @"class": @"GKTestViewController"}];
     
     [self.tableView reloadData];

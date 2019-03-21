@@ -116,6 +116,10 @@ NO)
     }
     [_validListDict removeAllObjects];
     
+    if (![self.delegate shouldLazyLoadListInPageScrollView:self]) {
+        [self configListViewScroll];
+    }
+    
     [self.mainTableView reloadData];
     
     if ([self.delegate shouldLazyLoadListInPageScrollView:self]) {

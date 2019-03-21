@@ -125,14 +125,6 @@
     self.listScrollViewScrollCallback = callback;
 }
 
-- (void)listDidAppear {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-- (void)listDidDisappear {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
 - (UIImage *)changeImageWithImage:(UIImage *)image color:(UIColor *)color {
     UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
