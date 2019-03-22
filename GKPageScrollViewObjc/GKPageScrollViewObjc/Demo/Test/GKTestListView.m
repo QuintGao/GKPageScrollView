@@ -31,14 +31,14 @@
             make.edges.equalTo(self);
         }];
         
-        [self.listTableView reloadData];
+        [self setCount:20];
         
-        self.listTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            NSLog(@"mj_footer刷新");
-        }];
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadData)];
-        [self.listTableView addGestureRecognizer:tap];
+//        self.listTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//            NSLog(@"mj_footer刷新");
+//        }];
+//
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadData)];
+//        [self.listTableView addGestureRecognizer:tap];
     }
     return self;
 }
