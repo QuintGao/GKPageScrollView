@@ -43,7 +43,7 @@
     if (@available(iOS 10.0, *)) {
         self.collectionView.prefetchingEnabled = NO;
     }
-    if (@available(iOS 10.0, *)) {
+    if (@available(iOS 11.0, *)) {
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self addSubview:self.collectionView];

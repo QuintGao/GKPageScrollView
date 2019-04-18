@@ -187,4 +187,8 @@
  */
 - (void)scrollToCriticalPoint;
 
+// 用于自行处理滑动
+- (void)listScrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)mainScrollViewDidScroll:(UIScrollView *)scrollView;
+
 @end

@@ -7,16 +7,18 @@
 //
 
 #import "GKTestViewController.h"
-#import "GKPageScrollView.h"
+#import "GKTestScrollView.h"
 #import "GKTestListView.h"
 #import "JXCategoryView.h"
 #import <MJRefresh/MJRefresh.h>
 
-#define kTestHeaderHeight (kScreenH - ADAPTATIONRATIO * 100.0f)
+//#define kTestHeaderHeight (kScreenH - ADAPTATIONRATIO * 400.0f)
+
+#define kTestHeaderHeight (ADAPTATIONRATIO * 400.0f)
 
 @interface GKTestViewController ()<GKPageScrollViewDelegate, UIScrollViewDelegate, GKTestListViewDelegate>
 
-@property (nonatomic, strong) GKPageScrollView      *pageScrollView;
+@property (nonatomic, strong) GKTestScrollView      *pageScrollView;
 
 @property (nonatomic, strong) UIImageView           *headerView;
 
@@ -127,34 +129,34 @@
 //            [self bottomShow];
 //        }
 //    }
-    CGFloat offsetY = scrollView.contentOffset.y;
-    
-    if (decelerate) {
-        if (offsetY > self.beginOffset) {   // 上滑减速，滑动到临界点
+//    CGFloat offsetY = scrollView.contentOffset.y;
+//
+//    if (decelerate) {
+//        if (offsetY > self.beginOffset) {   // 上滑减速，滑动到临界点
+////            [self.pageScrollView scrollToCriticalPoint];
+//            CGFloat criticalPoint = [self.pageScrollView.mainTableView rectForSection:0].origin.y - self.pageScrollView.ceilPointHeight;
+//            [UIView animateWithDuration:0.25 animations:^{
+//                self.pageScrollView.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
+//            }];
+//
+//        }else { // 下滑减速，滑动到原点
+////            [self.pageScrollView scrollToOriginalPoint];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                self.pageScrollView.mainTableView.bounces = NO;
+//                [UIView animateWithDuration:0.25 animations:^{
+//                    self.pageScrollView.mainTableView.contentOffset = CGPointZero;
+//                } completion:^(BOOL finished) {
+//                    self.pageScrollView.mainTableView.bounces = YES;
+//                }];
+//            });
+//        }
+//    }else {
+//        if (offsetY >= kTestHeaderHeight * 0.5) {    // 结束滑动，大于140，滑动到临界点
 //            [self.pageScrollView scrollToCriticalPoint];
-            CGFloat criticalPoint = [self.pageScrollView.mainTableView rectForSection:0].origin.y - self.pageScrollView.ceilPointHeight;
-            [UIView animateWithDuration:0.25 animations:^{
-                self.pageScrollView.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
-            }];
-            
-        }else { // 下滑减速，滑动到原点
+//        }else { // 结束滑动，小于140，回到原点
 //            [self.pageScrollView scrollToOriginalPoint];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.pageScrollView.mainTableView.bounces = NO;
-                [UIView animateWithDuration:0.25 animations:^{
-                    self.pageScrollView.mainTableView.contentOffset = CGPointZero;
-                } completion:^(BOOL finished) {
-                    self.pageScrollView.mainTableView.bounces = YES;
-                }];
-            });
-        }
-    }else {
-        if (offsetY >= kTestHeaderHeight * 0.5) {    // 结束滑动，大于140，滑动到临界点
-            [self.pageScrollView scrollToCriticalPoint];
-        }else { // 结束滑动，小于140，回到原点
-            [self.pageScrollView scrollToOriginalPoint];
-        }
-    }
+//        }
+//    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -195,11 +197,12 @@
 }
 
 #pragma mark - 懒加载
-- (GKPageScrollView *)pageScrollView {
+- (GKTestScrollView *)pageScrollView {
     if (!_pageScrollView) {
-        _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
+        _pageScrollView = [[GKTestScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
 //        _pageScrollView.mainTableView.bounces = NO;
+        _pageScrollView.ceilPointHeight = -(GK_NAVBAR_HEIGHT + ADAPTATIONRATIO * 100.0f);
     }
     return _pageScrollView;
 }

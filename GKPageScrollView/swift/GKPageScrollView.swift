@@ -256,18 +256,7 @@ open class GKPageScrollView: UIView {
         self.mainTableViewCanScrollUpdate()
     }
     
-    // MARK: - Private Methods
-    fileprivate func configListViewScroll() {
-        if (self.delegate!.listView?(in: self).count) ?? 0 > 0 {
-            for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
-                value.listViewDidScroll { (scrollView) in
-                    self.listScrollViewDidScroll(scrollView: scrollView)
-                }
-            }
-        }
-    }
-    
-    func listScrollViewDidScroll(scrollView: UIScrollView) {
+    public func listScrollViewDidScroll(scrollView: UIScrollView) {
         self.currentListScrollView = scrollView
         
         if self.isScrollToOriginal || self.isScrollToCritical {return}
@@ -321,7 +310,7 @@ open class GKPageScrollView: UIView {
         }
     }
     
-    func mainScrollViewDidScroll(scrollView: UIScrollView) {
+    public func mainScrollViewDidScroll(scrollView: UIScrollView) {
         // 获取mainScrollView偏移量
         let offsetY = scrollView.contentOffset.y
         // 临界点
@@ -381,6 +370,17 @@ open class GKPageScrollView: UIView {
         }
         
         self.mainTableViewCanScrollUpdate()
+    }
+    
+    // MARK: - Private Methods
+    fileprivate func configListViewScroll() {
+        if (self.delegate!.listView?(in: self).count) ?? 0 > 0 {
+            for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
+                value.listViewDidScroll { (scrollView) in
+                    self.listScrollViewDidScroll(scrollView: scrollView)
+                }
+            }
+        }
     }
     
     // 修正mainTableView的位置
