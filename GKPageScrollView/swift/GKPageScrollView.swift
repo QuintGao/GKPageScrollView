@@ -438,6 +438,7 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.selectionStyle = .none
         for view in cell.contentView.subviews {
             view.removeFromSuperview()
         }

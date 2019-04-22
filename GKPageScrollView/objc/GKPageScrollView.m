@@ -343,6 +343,7 @@ NO)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     UIView *pageView = nil;
     if ([self.delegate shouldLazyLoadListInPageScrollView:self]) {
