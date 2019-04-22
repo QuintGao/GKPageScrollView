@@ -143,6 +143,9 @@ open class GKPageScrollView: UIView {
     // listScrollView是否可以滑动
     var isListCanScroll: Bool = false
     
+    // 是否开始拖拽，只有在拖拽中才去处理滑动，解决使用mj_header可能出现的bug
+    var isBeginDragging: Bool = false
+    
     // 快速切换原点和临界点
     var isScrollToOriginal: Bool = false
     var isScrollToCritical: Bool = false
@@ -311,6 +314,7 @@ open class GKPageScrollView: UIView {
     }
     
     public func mainScrollViewDidScroll(scrollView: UIScrollView) {
+        if (!self.isBeginDragging) return
         // 获取mainScrollView偏移量
         let offsetY = scrollView.contentOffset.y
         // 临界点
@@ -474,6 +478,7 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.isBeginDragging = true
         if self.isScrollToOriginal {
             self.isScrollToOriginal = false
             self.isCeilPoint = false
@@ -488,10 +493,14 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.isBeginDragging = false
+        }
         self.delegate!.mainTableViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.isBeginDragging = false
         self.delegate!.mainTableViewDidEndDecelerating?(scrollView)
     }
     

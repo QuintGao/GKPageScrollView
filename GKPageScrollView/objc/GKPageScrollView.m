@@ -42,6 +42,9 @@ NO)
 // listScrollView是否可滑动
 @property (nonatomic, assign) BOOL                      isListCanScroll;
 
+// 是否开始拖拽，只有在拖拽中才去处理滑动，解决使用mj_header可能出现的bug
+@property (nonatomic, assign) BOOL                      isBeginDragging;
+
 // 快速切换原点和临界点
 @property (nonatomic, assign) BOOL                      isScrollToOriginal;
 @property (nonatomic, assign) BOOL                      isScrollToCritical;
@@ -230,6 +233,7 @@ NO)
 }
 
 - (void)mainScrollViewDidScroll:(UIScrollView *)scrollView {
+    if (!self.isBeginDragging) return;
     // 获取mainScrollview偏移量
     CGFloat offsetY = scrollView.contentOffset.y;
     // 临界点
@@ -398,6 +402,8 @@ NO)
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.isBeginDragging = YES;
+    
     if (self.isScrollToOriginal) {
         self.isScrollToOriginal = NO;
         self.isCeilPoint = NO;
@@ -418,12 +424,16 @@ NO)
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        self.isBeginDragging = NO;
+    }
     if ([self.delegate respondsToSelector:@selector(mainTableViewDidEndDragging:willDecelerate:)]) {
         [self.delegate mainTableViewDidEndDragging:scrollView willDecelerate:decelerate];
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.isBeginDragging = NO;
     if ([self.delegate respondsToSelector:@selector(mainTableViewDidEndDecelerating:)]) {
         [self.delegate mainTableViewDidEndDecelerating:scrollView];
     }

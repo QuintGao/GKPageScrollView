@@ -55,6 +55,10 @@
         make.edges.equalTo(self.view);
     }];
     
+    UIBarButtonItem *topItem = [UIBarButtonItem itemWithTitle:@"吸顶" target:self action:@selector(scrollToCriticalPoint)];
+    UIBarButtonItem *oriItem = [UIBarButtonItem itemWithTitle:@"还原" target:self action:@selector(scrollToOriginalPoint)];
+    self.gk_navRightBarButtonItems = @[topItem, oriItem];
+    
 //    self.upSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction:)];
 //    self.upSwipeGesture.direction = UISwipeGestureRecognizerDirectionUp;
 //    [self.pageScrollView.mainTableView addGestureRecognizer:self.upSwipeGesture];
@@ -80,6 +84,14 @@
     }else if (gesture.direction == UISwipeGestureRecognizerDirectionDown) {
         [self.pageScrollView scrollToOriginalPoint];
     }
+}
+
+- (void)scrollToCriticalPoint {
+    [self.pageScrollView scrollToCriticalPoint];
+}
+
+- (void)scrollToOriginalPoint {
+    [self.pageScrollView scrollToOriginalPoint];
 }
 
 #pragma mark - GKPageScrollViewDelegate
@@ -202,7 +214,7 @@
         _pageScrollView = [[GKTestScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
 //        _pageScrollView.mainTableView.bounces = NO;
-        _pageScrollView.ceilPointHeight = -(GK_NAVBAR_HEIGHT + ADAPTATIONRATIO * 100.0f);
+//        _pageScrollView.ceilPointHeight = -(GK_NAVBAR_HEIGHT + ADAPTATIONRATIO * 100.0f);
     }
     return _pageScrollView;
 }

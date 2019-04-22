@@ -24,6 +24,8 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kRefreshDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.pageScrollView.mainTableView.mj_header endRefreshing];
             
+            [self.pageScrollView reloadData];
+            
             // 取出当前显示的listView
             GKBaseListViewController *currentListVC = self.childVCs[self.segmentView.selectedIndex];
             
@@ -33,7 +35,7 @@
         });
     }];
     
-    [self.pageScrollView reloadData];
+    [self.pageScrollView.mainTableView.mj_header beginRefreshing];
 }
 
 @end
