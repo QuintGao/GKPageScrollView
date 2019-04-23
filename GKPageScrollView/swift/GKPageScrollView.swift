@@ -314,7 +314,7 @@ open class GKPageScrollView: UIView {
     }
     
     public func mainScrollViewDidScroll(scrollView: UIScrollView) {
-        if (!self.isBeginDragging) return
+        if !self.isBeginDragging {return}
         // 获取mainScrollView偏移量
         let offsetY = scrollView.contentOffset.y
         // 临界点
