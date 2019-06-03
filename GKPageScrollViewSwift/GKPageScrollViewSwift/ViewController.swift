@@ -31,7 +31,8 @@ class ViewController: GKNavigationBarViewController {
                       ["title": "mainTableView刷新", "class": "GKMainRefreshViewController"],
                       ["title": "listTableView刷新", "class": "GKListRefreshViewController"],
                       ["title": "列表懒加载", "class": "GKListLoadViewController"],
-                      ["title": "item加载", "class": "GKItemLoadViewController"]]
+                      ["title": "item加载", "class": "GKItemLoadViewController"],
+                      ["title": "HeaderScroll", "class": "GKHeaderScrollViewController"]]
 //                      ["title": "测试", "class": "GKTestViewController"]]
     
     override func viewDidLoad() {

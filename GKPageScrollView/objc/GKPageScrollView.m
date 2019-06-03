@@ -233,7 +233,14 @@ NO)
 }
 
 - (void)mainScrollViewDidScroll:(UIScrollView *)scrollView {
-    if (!self.isBeginDragging) return;
+    if (!self.isBeginDragging) {
+        // 点击状态栏滑动
+        [self listScrollViewOffsetFixed];
+        
+        [self mainTableViewCanScrollUpdate];
+        
+        return;
+    }
     // 获取mainScrollview偏移量
     CGFloat offsetY = scrollView.contentOffset.y;
     // 临界点

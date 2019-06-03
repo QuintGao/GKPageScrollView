@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6008911D22A0BC5E002A6D52 /* GKHeaderScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6008911C22A0BC5E002A6D52 /* GKHeaderScrollViewController.m */; };
+		6008912022A0BC89002A6D52 /* GKHeaderScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6008911F22A0BC89002A6D52 /* GKHeaderScrollView.m */; };
 		601482522238AB7500723BA3 /* GKListLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601482512238AB7500723BA3 /* GKListLoadViewController.m */; };
 		6036C3D622438C47000BE576 /* GKItemLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6036C3D522438C47000BE576 /* GKItemLoadViewController.m */; };
 		605A579C226844A2000265F5 /* GKTestScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 605A579B226844A2000265F5 /* GKTestScrollView.m */; };
@@ -62,6 +64,10 @@
 
 /* Begin PBXFileReference section */
 		4386C749590B58507E131C37 /* Pods-GKPageScrollViewObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewObjc.release.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewObjc/Pods-GKPageScrollViewObjc.release.xcconfig"; sourceTree = "<group>"; };
+		6008911B22A0BC5E002A6D52 /* GKHeaderScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKHeaderScrollViewController.h; sourceTree = "<group>"; };
+		6008911C22A0BC5E002A6D52 /* GKHeaderScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKHeaderScrollViewController.m; sourceTree = "<group>"; };
+		6008911E22A0BC89002A6D52 /* GKHeaderScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKHeaderScrollView.h; sourceTree = "<group>"; };
+		6008911F22A0BC89002A6D52 /* GKHeaderScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKHeaderScrollView.m; sourceTree = "<group>"; };
 		601482502238AB7500723BA3 /* GKListLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKListLoadViewController.h; sourceTree = "<group>"; };
 		601482512238AB7500723BA3 /* GKListLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKListLoadViewController.m; sourceTree = "<group>"; };
 		6036C3D422438C47000BE576 /* GKItemLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKItemLoadViewController.h; sourceTree = "<group>"; };
@@ -167,6 +173,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6008911A22A0BC32002A6D52 /* HeaderScroll */ = {
+			isa = PBXGroup;
+			children = (
+				6008911B22A0BC5E002A6D52 /* GKHeaderScrollViewController.h */,
+				6008911C22A0BC5E002A6D52 /* GKHeaderScrollViewController.m */,
+				6008911E22A0BC89002A6D52 /* GKHeaderScrollView.h */,
+				6008911F22A0BC89002A6D52 /* GKHeaderScrollView.m */,
+			);
+			path = HeaderScroll;
+			sourceTree = "<group>";
+		};
 		6014824F2238AB4A00723BA3 /* ListLoad */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +285,7 @@
 				60A20AE0221D023800DB2193 /* ListRefresh */,
 				6014824F2238AB4A00723BA3 /* ListLoad */,
 				6036C3D322438C17000BE576 /* ItemLoad */,
+				6008911A22A0BC32002A6D52 /* HeaderScroll */,
 				60A20ACB221D023800DB2193 /* Test */,
 			);
 			path = Demo;
@@ -569,8 +587,10 @@
 				605A579C226844A2000265F5 /* GKTestScrollView.m in Sources */,
 				60A20B51221D023900DB2193 /* GKDYListViewController.m in Sources */,
 				60A20AA1221CFF8500DB2193 /* main.m in Sources */,
+				6008912022A0BC89002A6D52 /* GKHeaderScrollView.m in Sources */,
 				60A20B41221D023900DB2193 /* GKTestListView.m in Sources */,
 				60A20AC8221D01AA00DB2193 /* GKPageScrollView.m in Sources */,
+				6008911D22A0BC5E002A6D52 /* GKHeaderScrollViewController.m in Sources */,
 				60A20AC9221D01AA00DB2193 /* GKPageTableView.m in Sources */,
 				60A20A93221CFF8400DB2193 /* AppDelegate.m in Sources */,
 				60A20B4C221D023900DB2193 /* GKBasePageViewController.m in Sources */,

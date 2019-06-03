@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19510CD3B30378DAA00FF039 /* Pods_GKPageScrollViewSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF84D77570853DCA6E94706 /* Pods_GKPageScrollViewSwift.framework */; };
+		600891D822A4FD9A002A6D52 /* GKHeaderScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600891D722A4FD9A002A6D52 /* GKHeaderScrollViewController.swift */; };
+		600891DA22A4FDBB002A6D52 /* GKHeaderScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600891D922A4FDBB002A6D52 /* GKHeaderScrollView.swift */; };
 		6036C3D922439A2F000BE576 /* GKItemLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036C3D822439A2F000BE576 /* GKItemLoadViewController.swift */; };
 		60A09FCA22390AD6004AE07A /* GKPageListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A09FC922390AD6004AE07A /* GKPageListContainerView.swift */; };
 		60A09FCD2239F420004AE07A /* GKListLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A09FCC2239F420004AE07A /* GKListLoadViewController.swift */; };
@@ -65,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		490C3794BF2506265BE4F750 /* Pods-GKPageScrollViewSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.release.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.release.xcconfig"; sourceTree = "<group>"; };
+		600891D722A4FD9A002A6D52 /* GKHeaderScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKHeaderScrollViewController.swift; sourceTree = "<group>"; };
+		600891D922A4FDBB002A6D52 /* GKHeaderScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKHeaderScrollView.swift; sourceTree = "<group>"; };
 		6036C3D822439A2F000BE576 /* GKItemLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKItemLoadViewController.swift; sourceTree = "<group>"; };
 		60A09FC922390AD6004AE07A /* GKPageListContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageListContainerView.swift; path = ../../../GKPageScrollView/swift/GKPageListContainerView.swift; sourceTree = "<group>"; };
 		60A09FCC2239F420004AE07A /* GKListLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKListLoadViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,15 @@
 			);
 			name = Pods;
 			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		600891D622A4FD4F002A6D52 /* HeaderScroll */ = {
+			isa = PBXGroup;
+			children = (
+				600891D722A4FD9A002A6D52 /* GKHeaderScrollViewController.swift */,
+				600891D922A4FDBB002A6D52 /* GKHeaderScrollView.swift */,
+			);
+			path = HeaderScroll;
 			sourceTree = "<group>";
 		};
 		6036C3D722439A0A000BE576 /* ItemLoad */ = {
@@ -254,6 +267,7 @@
 				60A20D0A221E80D400DB2193 /* ListRefresh */,
 				60A09FCB2239F3F9004AE07A /* ListLoad */,
 				6036C3D722439A0A000BE576 /* ItemLoad */,
+				600891D622A4FD4F002A6D52 /* HeaderScroll */,
 				60A20D0B221E80DB00DB2193 /* Test */,
 			);
 			path = Demo;
@@ -576,12 +590,14 @@
 				60A20C5B221E77FE00DB2193 /* GKPageTableView.swift in Sources */,
 				60A20D5422256CD600DB2193 /* GKDYHeaderView.swift in Sources */,
 				60A20C5C221E77FE00DB2193 /* GKPageScrollView.swift in Sources */,
+				600891DA22A4FDBB002A6D52 /* GKHeaderScrollView.swift in Sources */,
 				6036C3D922439A2F000BE576 /* GKItemLoadViewController.swift in Sources */,
 				60A20C2B221E77A700DB2193 /* AppDelegate.swift in Sources */,
 				60A20D15221E918E00DB2193 /* GKWBViewController.swift in Sources */,
 				60A20D0F221E827800DB2193 /* GKBaseTableViewController.swift in Sources */,
 				60A20D13221E829800DB2193 /* GKBaseListViewController.swift in Sources */,
 				60A20D562226611300DB2193 /* GKMainRefreshViewController.swift in Sources */,
+				600891D822A4FD9A002A6D52 /* GKHeaderScrollViewController.swift in Sources */,
 				60A20D1D221E928B00DB2193 /* GKWBPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

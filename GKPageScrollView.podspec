@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name                = 'GKPageScrollView'
 
-  s.version             = '1.2.4'
+  s.version             = '1.2.5'
 
   s.summary             = 'iOS UIScrollView嵌套滑动分页视图'
 
