@@ -449,14 +449,16 @@
 				TargetAttributes = {
 					60A20C26221E77A700DB2193 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					60A20C3A221E77A800DB2193 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 60A20C26221E77A700DB2193;
 					};
 					60A20C45221E77A800DB2193 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 60A20C26221E77A700DB2193;
 					};
 				};
@@ -789,7 +791,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
 				SWIFT_OBJC_BRIDGING_HEADER = "GKPageScrollViewSwift/GKPageScrollViewSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
@@ -814,7 +816,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
 				SWIFT_OBJC_BRIDGING_HEADER = "GKPageScrollViewSwift/GKPageScrollViewSwift-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
@@ -834,7 +836,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKPageScrollViewSwift.app/GKPageScrollViewSwift";
 			};
@@ -854,7 +856,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKPageScrollViewSwift.app/GKPageScrollViewSwift";
 			};
@@ -873,7 +875,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = GKPageScrollViewSwift;
 			};
@@ -892,7 +894,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = GKPageScrollViewSwift;
 			};

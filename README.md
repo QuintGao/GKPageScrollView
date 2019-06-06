@@ -49,6 +49,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
 
 ## 版本更新
+* 2019.06.06   1.2.6 - 解决当HeaderView的高度设置为小于1时列表不能滑动问题
 * 2019.06.03   1.2.5 - 修改点击状态栏后位置错乱问题
 * 2019.04.22   1.2.3 - UITableView cell点击处理，解决使用mj_header可能出现的bug
 * 2019.04.18   1.2.1 - 公开滑动处理方法，修复方法版本判断错误问题

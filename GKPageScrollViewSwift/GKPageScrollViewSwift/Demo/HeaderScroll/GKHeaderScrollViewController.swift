@@ -21,7 +21,7 @@ class GKHeaderScrollViewController: GKDemoBaseViewController {
     }()
     
     lazy var headerView: GKHeaderScrollView = {
-        let headerH = (kScreenW - 40)/4 + 20;
+        var headerH = (kScreenW - 40)/4 + 20;
         
         let headerView = GKHeaderScrollView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: headerH))
         headerView.delegate = self

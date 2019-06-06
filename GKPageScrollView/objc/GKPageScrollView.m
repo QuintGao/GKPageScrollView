@@ -146,8 +146,8 @@ NO)
         self.isScrollToOriginal  = YES;
         self.isCeilPoint         = NO;
         
-        self.isMainCanScroll = YES;
-        self.isListCanScroll = NO;
+        self.isMainCanScroll     = YES;
+        self.isListCanScroll     = NO;
         
         [self.mainTableView setContentOffset:CGPointZero animated:YES];
     });
@@ -215,16 +215,23 @@ NO)
         if (self.isListCanScroll) {
             scrollView.showsVerticalScrollIndicator = YES;
             
-            // 如果此时mianTableView并没有滑动，则禁止listView滑动
-            if (self.mainTableView.contentOffset.y == 0) {
-                self.isMainCanScroll = YES;
-                self.isListCanScroll = NO;
-                
-                scrollView.contentOffset = CGPointZero;
-                scrollView.showsHorizontalScrollIndicator = NO;
-            }else { // 矫正mainTableView的位置
+            CGFloat headerHeight = CGRectGetHeight([self.delegate headerViewInPageScrollView:self].frame);
+            
+            if (floor(headerHeight) == 0) {
                 CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
                 self.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
+            }else {
+                // 如果此时mianTableView并没有滑动，则禁止listView滑动
+                if (self.mainTableView.contentOffset.y == 0 && floor(headerHeight) != 0) {
+                    self.isMainCanScroll = YES;
+                    self.isListCanScroll = NO;
+                    
+                    scrollView.contentOffset = CGPointZero;
+                    scrollView.showsHorizontalScrollIndicator = NO;
+                }else { // 矫正mainTableView的位置
+                    CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
+                    self.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
+                }
             }
         }else {
             scrollView.contentOffset = CGPointZero;
@@ -256,7 +263,7 @@ NO)
     }
     
     // 无偏差临界点，对float值取整判断
-    if (!self.isCeilPoint) {
+    if (!self.isCeilPoint ) {
         if (floor(offsetY) == floor(criticalPoint)) {
             self.isCeilPoint = YES;
         }
@@ -396,13 +403,6 @@ NO)
             [weakSelf listScrollViewDidScroll:scrollView];
         }];
         _validListDict[@(row)] = list;
-    }
-    for (id<GKPageListViewDelegate> listItem in self.validListDict.allValues) {
-        if (listItem == list) {
-            [listItem listScrollView].scrollsToTop = YES;
-        }else {
-            [listItem listScrollView].scrollsToTop = NO;
-        }
     }
     return [list listView];
 }

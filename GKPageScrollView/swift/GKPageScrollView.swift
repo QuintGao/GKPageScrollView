@@ -296,16 +296,23 @@ open class GKPageScrollView: UIView {
             if self.isListCanScroll {
                 scrollView.showsVerticalScrollIndicator = true
                 
-                // 如果此时mainTableView并没有滑动，则禁止listView滑动
-                if self.mainTableView.contentOffset.y == 0 {
-                    self.isMainCanScroll = true
-                    self.isListCanScroll = false
-                    
-                    scrollView.contentOffset = .zero
-                    scrollView.showsVerticalScrollIndicator = false
-                }else { // 矫正mainTableView的位置
+                let headerHeight = self.delegate?.headerView(in: self).frame.size.height
+                
+                if floor(headerHeight ?? 0) == 0 {
                     let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
                     self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+                }else {
+                    // 如果此时mainTableView并没有滑动，则禁止listView滑动
+                    if self.mainTableView.contentOffset.y == 0 {
+                        self.isMainCanScroll = true
+                        self.isListCanScroll = false
+                        
+                        scrollView.contentOffset = .zero
+                        scrollView.showsVerticalScrollIndicator = false
+                    }else { // 矫正mainTableView的位置
+                        let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
+                        self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+                    }
                 }
             }else {
                 scrollView.contentOffset = .zero
@@ -543,13 +550,6 @@ extension GKPageScrollView: GKPageListContainerViewDelegate {
                 self?.listScrollViewDidScroll(scrollView: scrollView)
             })
             validListDict[row] = list!
-        }
-        for listItem in validListDict.values {
-            if listItem === list {
-                listItem.listScrollView().scrollsToTop = true
-            }else {
-                listItem.listScrollView().scrollsToTop = false
-            }
         }
         return list!.listView!()
     }
