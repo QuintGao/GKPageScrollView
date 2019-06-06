@@ -9,6 +9,7 @@ target 'GKPageScrollViewObjc' do
   pod 'WMPageController'
   pod 'MJRefresh'
   pod 'JXCategoryView'
+  pod 'VTMagic'
 end
 
 target 'GKPageScrollViewSwift' do
@@ -18,6 +19,7 @@ target 'GKPageScrollViewSwift' do
   pod 'GKNavigationBarViewController'
   pod 'MJRefresh'
   pod 'JXSegmentedView'
+  pod 'VTMagic'
   
   use_frameworks!
   pod 'SnapKit'

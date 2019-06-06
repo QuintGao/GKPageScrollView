@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GKNavigationBarViewController-framework" "${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh-framework" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GKNavigationBarViewController-framework" "${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh-framework" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" "${PODS_CONFIGURATION_BUILD_DIR}/VTMagic-framework"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GKNavigationBarViewController-framework/GKNavigationBarViewController.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView/JXSegmentedView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh-framework/MJRefresh.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GKNavigationBarViewController-framework/GKNavigationBarViewController.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView/JXSegmentedView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh-framework/MJRefresh.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/VTMagic-framework/VTMagic.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "Foundation" -framework "GKNavigationBarViewController" -framework "JXSegmentedView" -framework "MJRefresh" -framework "SnapKit" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "Foundation" -framework "GKNavigationBarViewController" -framework "JXSegmentedView" -framework "MJRefresh" -framework "SnapKit" -framework "UIKit" -framework "VTMagic"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

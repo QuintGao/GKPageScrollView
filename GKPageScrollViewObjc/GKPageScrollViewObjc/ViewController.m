@@ -38,6 +38,7 @@
                         @{@"title": @"懒加载列表", @"class": @"GKListLoadViewController"},
                         @{@"title": @"item加载", @"class": @"GKItemLoadViewController"},
                         @{@"title": @"HeaderScroll", @"class": @"GKHeaderScrollViewController"},
+                        @{@"title": @"VTMagic", @"class": @"GKVTMagicViewController"},
                         @{@"title": @"测试", @"class": @"GKTestViewController"}];
     
     [self.tableView reloadData];
