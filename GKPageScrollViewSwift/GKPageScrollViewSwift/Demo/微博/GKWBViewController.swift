@@ -33,8 +33,8 @@ class GKWBViewController: GKDemoBaseViewController {
     
     lazy var childVCs: [GKWBListViewController] = {
         var childVCs = [GKWBListViewController]()
-        let homeVC = GKWBListViewController()
-        let wbVC = GKWBListViewController()
+        let homeVC  = GKWBListViewController()
+        let wbVC    = GKWBListViewController()
         let videoVC = GKWBListViewController()
         let storyVC = GKWBListViewController()
         
@@ -116,10 +116,6 @@ class GKWBViewController: GKDemoBaseViewController {
 }
 
 extension GKWBViewController: GKPageScrollViewDelegate {
-    func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool {
-        return false
-    }
-    
     func headerView(in pageScrollView: GKPageScrollView) -> UIView {
         return self.headerView
     }

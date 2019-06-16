@@ -43,17 +43,19 @@ let GKPage_NavBar_Height: CGFloat = GKPage_IS_iPhoneX ? 88.0 : 64.0
 }
 
 @objc public protocol GKPageScrollViewDelegate : NSObjectProtocol {
-    /// 返回是否懒加载列表（据此代理实现懒加载和非懒加载相应方法）
-    ///
-    /// - Parameter pageScrollView: pageScrollView description
-    /// - Returns: 是否懒加载
-    func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool
-    
     /// 返回tableHeaderView
     ///
     /// - Parameter pageScrollView: pageScrollView description
     /// - Returns: tableHeaderView
     func headerView(in pageScrollView: GKPageScrollView) -> UIView
+    
+    // MARK: - 是否懒加载列表，优先级高于属性isLazyLoadList
+    
+    /// 返回是否懒加载列表（据此代理实现懒加载和非懒加载相应方法）
+    ///
+    /// - Parameter pageScrollView: pageScrollView description
+    /// - Returns: 是否懒加载
+    @objc optional func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool
     
     // MARK: - 非懒加载相关方法(`shouldLazyLoadListInPageScrollView`方法返回NO时必须实现下面的方法)
     
@@ -134,6 +136,9 @@ open class GKPageScrollView: UIView {
     // 是否禁止mainScrollView在到达临界点后继续滑动，默认为NO
     public var isDisableMainScrollInCeil: Bool = false
     
+    // 是否懒加载列表
+    public var isLazyLoadList: Bool = false
+    
     // 是否滑动到临界点，可以有偏差
     var isCriticalPoint: Bool = false
     // 是否达到临界点，无偏差
@@ -151,7 +156,17 @@ open class GKPageScrollView: UIView {
     var isScrollToCritical: Bool = false
     
     // 是否加载
-    var isLoaded: Bool = false
+    var isLoaded: Bool = false {
+        didSet {
+            if self.shouldLazyLoadListView() {
+                self.listContainerView = GKPageListContainerView(delegate: self)
+                self.listContainerView.mainTableView = self.mainTableView
+            }else {
+                // 处理listView滑动
+                self.configListViewScroll()
+            }
+        }
+    }
     
     // 当前滑动的listScrollView
     var currentListScrollView = UIScrollView()
@@ -185,17 +200,6 @@ open class GKPageScrollView: UIView {
             self.mainTableView.contentInsetAdjustmentBehavior = .never
         }
         self.addSubview(mainTableView)
-        
-        // 是否懒加载
-        let shouldLazyload = self.delegate!.shouldLazyLoadList(in: self)
-        
-        if shouldLazyload {
-            self.listContainerView = GKPageListContainerView(delegate: self)
-            self.listContainerView.mainTableView = self.mainTableView
-        }else {
-            // 处理listView滑动
-            self.configListViewScroll()
-        }
     }
     
     // MARK: - Public Methods
@@ -211,15 +215,14 @@ open class GKPageScrollView: UIView {
         }
         validListDict.removeAll()
         
-        if !(self.delegate!.shouldLazyLoadList(in: self)) {
+        // 设置列表加载方式
+        if self.shouldLazyLoadListView() {
+            self.listContainerView.reloadData()
+        }else {
             self.configListViewScroll()
         }
         
         self.mainTableView.reloadData()
-        
-        if self.delegate!.shouldLazyLoadList(in: self) {
-            self.listContainerView.reloadData()
-        }
     }
     
     public func horizonScrollViewWillBeginScroll() {
@@ -407,7 +410,7 @@ open class GKPageScrollView: UIView {
         // 获取临界点位置
         let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
         
-        if self.delegate!.shouldLazyLoadList(in: self) {
+        if self.shouldLazyLoadListView() {
             for listItem in self.validListDict.values {
                 let listScrollView = listItem.listScrollView()
                 if listScrollView.contentOffset.y != 0 {
@@ -428,7 +431,7 @@ open class GKPageScrollView: UIView {
     }
     
     fileprivate func listScrollViewOffsetFixed() {
-        if self.delegate!.shouldLazyLoadList(in: self) {
+        if self.shouldLazyLoadListView() {
             for listItem in self.validListDict.values {
                 let listScrollView = listItem.listScrollView()
                 listScrollView.contentOffset = .zero
@@ -448,6 +451,14 @@ open class GKPageScrollView: UIView {
     fileprivate func mainTableViewCanScrollUpdate() {
         self.delegate!.mainTableViewDidScroll?(self.mainTableView, isMainCanScroll: self.isMainCanScroll)
     }
+    
+    fileprivate func shouldLazyLoadListView() -> Bool {
+        if self.delegate?.shouldLazyLoadList?(in: self) ?? false {
+            return self.delegate!.shouldLazyLoadList!(in: self)
+        }else {
+            return self.isLazyLoadList
+        }
+    }
 }
 
 extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
@@ -462,7 +473,7 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
             view.removeFromSuperview()
         }
         let pageView: UIView
-        if self.delegate!.shouldLazyLoadList(in: self) {
+        if self.shouldLazyLoadListView() {
             pageView = UIView()
             
             let segmentedView = self.delegate!.segmentedView?(in: self)

@@ -87,10 +87,6 @@
 }
 
 #pragma mark - GKPageScrollViewDelegate
-- (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return NO;
-}
-
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
 }

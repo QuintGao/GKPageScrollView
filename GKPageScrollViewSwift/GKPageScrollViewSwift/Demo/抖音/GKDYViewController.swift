@@ -126,10 +126,6 @@ class GKDYViewController: GKDemoBaseViewController {
 }
 
 extension GKDYViewController: GKPageScrollViewDelegate {
-    func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool {
-        return false
-    }
-    
     func headerView(in pageScrollView: GKPageScrollView) -> UIView {
         return headerView
     }

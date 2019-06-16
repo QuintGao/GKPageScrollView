@@ -32,6 +32,9 @@
     [super viewDidLoad];
     
     self.gk_navBarAlpha = 0;
+    self.gk_navTitle = @"VTMagicDemo";
+    self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    self.gk_navTitleColor = [UIColor whiteColor];
     
     [self.view addSubview:self.pageScrollView];
     
@@ -45,10 +48,6 @@
 }
 
 #pragma mark - GKPageScrollViewDelegate
-- (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return NO;
-}
-
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
 }

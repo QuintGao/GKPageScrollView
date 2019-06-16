@@ -16,7 +16,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 
 - 支持上下滑动、左右滑动，手势返回等
 - 支持如UITableView的sectionView的悬停效果
-- 支持多种分页控件，如[JXCategory](https://github.com/pujiaxin33/JXCategoryView),[WMPageController](https://github.com/wangmchn/WMPageController)等
+- 支持多种分页控件，如[JXCategory](https://github.com/pujiaxin33/JXCategoryView),[WMPageController](https://github.com/wangmchn/WMPageController),[VTMagic](https://github.com/tianzhuo112/VTMagic)等
 - 可实现导航栏颜色渐变、头图下拉放大等效果
 - 支持主页、列表页下拉刷新，上拉加载
 - 支持列表懒加载功能
@@ -49,6 +49,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingV
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
 
 ## 版本更新
+* 2019.06.16   1.2.7 - 优化设置列表加载方式的方法，可通过属性设置懒加载方式
 * 2019.06.06   1.2.6 - 解决当HeaderView的高度设置为小于1时列表不能滑动问题
 * 2019.06.03   1.2.5 - 修改点击状态栏后位置错乱问题
 * 2019.04.22   1.2.3 - UITableView cell点击处理，解决使用mj_header可能出现的bug

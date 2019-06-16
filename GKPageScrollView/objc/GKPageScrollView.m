@@ -93,11 +93,12 @@ NO)
         self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self addSubview:self.mainTableView];
+}
+
+- (void)setIsLazyLoadList:(BOOL)isLazyLoadList {
+    _isLazyLoadList = isLazyLoadList;
     
-    // 是否懒加载
-    BOOL shouldLazyload = [self.delegate shouldLazyLoadListInPageScrollView:self];
-    
-    if (shouldLazyload) {
+    if ([self shouldLazyLoadListView]) {
         self.listContainerView = [[GKPageListContainerView alloc] initWithDelegate:self];
         self.listContainerView.mainTableView = self.mainTableView;
     }else {
@@ -119,15 +120,14 @@ NO)
     }
     [_validListDict removeAllObjects];
     
-    if (![self.delegate shouldLazyLoadListInPageScrollView:self]) {
+    // 判断加载方式
+    if ([self shouldLazyLoadListView]) {
+        [self.listContainerView reloadData];
+    }else {
         [self configListViewScroll];
     }
     
     [self.mainTableView reloadData];
-    
-    if ([self.delegate shouldLazyLoadListInPageScrollView:self]) {
-        [self.listContainerView reloadData];
-    }
 }
 
 - (void)horizonScrollViewWillBeginScroll {
@@ -314,7 +314,7 @@ NO)
     // 获取临界点位置
     CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
     
-    if ([self.delegate shouldLazyLoadListInPageScrollView:self]) {
+    if ([self shouldLazyLoadListView]) {
         for (id<GKPageListViewDelegate> listItem in self.validListDict.allValues) {
             UIScrollView *listScrollView = [listItem listScrollView];
             if (listScrollView.contentOffset.y != 0) {
@@ -333,7 +333,7 @@ NO)
 
 // 修正listScrollView的位置
 - (void)listScrollViewOffsetFixed {
-    if ([self.delegate shouldLazyLoadListInPageScrollView:self]) {
+    if ([self shouldLazyLoadListView]) {
         for (id<GKPageListViewDelegate> listItem in self.validListDict.allValues) {
             UIScrollView *listScrollView = [listItem listScrollView];
             listScrollView.contentOffset = CGPointZero;
@@ -354,6 +354,14 @@ NO)
     }
 }
 
+- (BOOL)shouldLazyLoadListView {
+    if ([self.delegate respondsToSelector:@selector(shouldLazyLoadListInPageScrollView:)]) {
+        return [self.delegate shouldLazyLoadListInPageScrollView:self];
+    }else {
+        return self.isLazyLoadList;
+    }
+}
+
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.isLoaded ? 1 : 0;
@@ -364,7 +372,7 @@ NO)
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     UIView *pageView = nil;
-    if ([self.delegate shouldLazyLoadListInPageScrollView:self]) {
+    if ([self shouldLazyLoadListView]) {
         pageView = [UIView new];
         
         UIView *segmentedView = [self.delegate segmentedViewInPageScrollView:self];

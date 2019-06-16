@@ -47,14 +47,6 @@
 @required
 
 /**
- 返回是否懒加载列表（据此代理实现懒加载和非懒加载相应方法）
- 
- @param pageScrollView paegScrollView description
- @return 是否懒加载
- */
-- (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView;
-
-/**
  返回tableHeaderView
 
  @param pageScrollView pageScrollView description
@@ -63,6 +55,15 @@
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView;
 
 @optional
+
+#pragma mark - 是否懒加载列表，优先级高于属性isLazyLoadList
+/**
+ 返回是否懒加载列表（据此代理实现懒加载和非懒加载相应方法）
+ 
+ @param pageScrollView paegScrollView description
+ @return 是否懒加载
+ */
+- (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView;
 
 #pragma mark - 非懒加载相关方法(`shouldLazyLoadListInPageScrollView`方法返回NO时必须实现下面的方法)
 /**
@@ -160,6 +161,9 @@
 
 // 是否在吸顶状态下禁止mainScroll滑动
 @property (nonatomic, assign) BOOL              isDisableMainScrollInCeil;
+
+// 是否懒加载列表（默认为NO）
+@property (nonatomic, assign) BOOL              isLazyLoadList;
 
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate;
 

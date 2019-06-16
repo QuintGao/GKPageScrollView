@@ -122,10 +122,6 @@ extension GKBasePageViewController: JXSegmentedViewDelegate {
 }
 
 extension GKBasePageViewController: GKPageScrollViewDelegate {
-    func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool {
-        return false
-    }
-    
     func headerView(in pageScrollView: GKPageScrollView) -> UIView {
         return headerView
     }

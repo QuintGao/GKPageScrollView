@@ -114,10 +114,6 @@ class GKHeaderScrollViewController: GKDemoBaseViewController {
 }
 
 extension GKHeaderScrollViewController: GKPageScrollViewDelegate {
-    func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool {
-        return false
-    }
-    
     func headerView(in pageScrollView: GKPageScrollView) -> UIView {
         return self.headerView
     }
