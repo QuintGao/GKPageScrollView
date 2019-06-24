@@ -200,6 +200,11 @@ open class GKPageScrollView: UIView {
             self.mainTableView.contentInsetAdjustmentBehavior = .never
         }
         self.addSubview(mainTableView)
+        
+        if self.shouldLazyLoadListView() {
+            self.listContainerView = GKPageListContainerView(delegate: self)
+            self.listContainerView.mainTableView = self.mainTableView
+        }
     }
     
     // MARK: - Public Methods

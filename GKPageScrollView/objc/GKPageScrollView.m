@@ -93,6 +93,11 @@ NO)
         self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self addSubview:self.mainTableView];
+    
+    if ([self shouldLazyLoadListView]) {
+        self.listContainerView = [[GKPageListContainerView alloc] initWithDelegate:self];
+        self.listContainerView.mainTableView = self.mainTableView;
+    }
 }
 
 - (void)setIsLazyLoadList:(BOOL)isLazyLoadList {

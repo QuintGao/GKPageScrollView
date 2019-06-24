@@ -79,6 +79,10 @@ class GKListLoadViewController: GKDemoBaseViewController {
 }
 
 extension GKListLoadViewController: GKPageScrollViewDelegate {
+    func shouldLazyLoadList(in pageScrollView: GKPageScrollView) -> Bool {
+        return true
+    }
+    
     func headerView(in pageScrollView: GKPageScrollView) -> UIView {
         return self.headerView
     }
