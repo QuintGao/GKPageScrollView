@@ -12,6 +12,7 @@
 #import "JXCategoryView.h"
 #import <MJRefresh/MJRefresh.h>
 #import "GKTestListScrollView.h"
+#import "GKTestListCollectionView.h"
 
 //#define kTestHeaderHeight (kScreenH - ADAPTATIONRATIO * 400.0f)
 
@@ -195,11 +196,21 @@
         _contentScrollView.pagingEnabled = YES;
         _contentScrollView.bounces = NO;
         
-        for (NSInteger i = 0; i < 2; i++) {
-            GKTestListScrollView *listView = [[GKTestListScrollView alloc] initWithFrame:CGRectMake(i * scrollW, 0, scrollW, scrollH)];
-            [self.listViews addObject:listView];
-            [_contentScrollView addSubview:listView];
-        }
+        GKTestListScrollView *listScrollView = [[GKTestListScrollView alloc] initWithFrame:CGRectMake(0, 0, scrollW, scrollH)];
+        [self.listViews addObject:listScrollView];
+        [_contentScrollView addSubview:listScrollView];
+        
+        GKTestListCollectionView *listCollectionView = [GKTestListCollectionView new];
+        listCollectionView.frame = CGRectMake(scrollW, 0, scrollW, scrollH);
+        [self.listViews addObject:listCollectionView];
+        [_contentScrollView addSubview:listCollectionView];
+        
+        
+//        for (NSInteger i = 0; i < 2; i++) {
+//            GKTestListScrollView *listView = [[GKTestListScrollView alloc] initWithFrame:CGRectMake(i * scrollW, 0, scrollW, scrollH)];
+//            [self.listViews addObject:listView];
+//            [_contentScrollView addSubview:listView];
+//        }
         _contentScrollView.contentSize = CGSizeMake(2 * scrollW, 0);
     }
     return _contentScrollView;
