@@ -10,13 +10,13 @@
 iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
 ==========
 
-GKPageScrollView是一个UIScrollview嵌套滑动库，主页参考了[JXPagingView](https://github.com/pujiaxin33/JXPagingView)，在他的基础上做了修改，实现了自己想要的效果。
+GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingView](https://github.com/pujiaxin33/JXPagingView)，在他的基础上做了修改，实现了自己想要的效果。
 
 ## 主要功能
 
 - 支持上下滑动、左右滑动，手势返回等
 - 支持如UITableView的sectionView的悬停效果
-- 支持多种分页控件，如[JXCategory](https://github.com/pujiaxin33/JXCategoryView),[WMPageController](https://github.com/wangmchn/WMPageController),[VTMagic](https://github.com/tianzhuo112/VTMagic)等
+- 支持多种分页控件，如[JXCategoryView](https://github.com/pujiaxin33/JXCategoryView),[WMPageController](https://github.com/wangmchn/WMPageController),[VTMagic](https://github.com/tianzhuo112/VTMagic)等
 - 可实现导航栏颜色渐变、头图下拉放大等效果
 - 支持主页、列表页下拉刷新，上拉加载
 - 支持列表懒加载功能
