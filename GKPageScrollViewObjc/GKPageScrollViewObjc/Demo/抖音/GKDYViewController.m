@@ -35,11 +35,8 @@
     
     self.gk_navBarAlpha = 0;
     self.gk_navBackgroundColor = GKColorRGB(34, 33, 37);
-    
     self.gk_navTitleView = self.titleView;
-    
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
-    
     self.gk_navLineHidden = YES;
     
     [self.view addSubview:self.pageScrollView];
@@ -79,7 +76,7 @@
     }
     self.gk_navBarAlpha = alpha;
     self.titleView.alpha = alpha;
-    
+
     [self.headerView scrollViewDidScroll:offsetY];
 }
 

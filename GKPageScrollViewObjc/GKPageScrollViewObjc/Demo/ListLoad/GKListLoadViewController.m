@@ -63,6 +63,7 @@
 - (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index {
     GKBaseListViewController *listVC = [GKBaseListViewController new];
     listVC.shouldLoadData = YES;
+    [self addChildViewController:listVC];
     return listVC;
 }
 

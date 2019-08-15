@@ -41,6 +41,7 @@
     
     self.gk_navTitleView = self.titleView;
     
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithTitle:nil image:GKImage(@"btn_back_white") target:self action:@selector(back)];
     self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithImageName:@"wb_more" target:self action:@selector(more)];
     
     [self.view addSubview:self.pageScrollView];
