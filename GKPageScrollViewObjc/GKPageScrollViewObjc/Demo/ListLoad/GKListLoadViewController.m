@@ -71,7 +71,7 @@
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
-//        _pageScrollView.isLazyLoadList = YES;
+        _pageScrollView.isLazyLoadList = YES;
     }
     return _pageScrollView;
 }

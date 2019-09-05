@@ -50,6 +50,10 @@
     [self.pageScrollView horizonScrollViewWillBeginScroll];
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self.pageScrollView horizonScrollViewDidEndedScroll];
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self.pageScrollView horizonScrollViewDidEndedScroll];
 }

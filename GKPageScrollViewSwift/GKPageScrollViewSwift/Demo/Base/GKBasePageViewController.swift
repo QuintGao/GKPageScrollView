@@ -143,4 +143,8 @@ extension GKBasePageViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.pageScrollView.horizonScrollViewDidEndedScroll()
     }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.pageScrollView.horizonScrollViewDidEndedScroll()
+    }
 }
