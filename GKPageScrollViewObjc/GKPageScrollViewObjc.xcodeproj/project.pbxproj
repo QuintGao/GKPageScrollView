@@ -42,6 +42,9 @@
 		60A20B52221D023900DB2193 /* GKDYHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AF5221D023800DB2193 /* GKDYHeaderView.m */; };
 		60A20D4E2225225400DB2193 /* GKWBFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D4C2225225100DB2193 /* GKWBFindViewController.m */; };
 		60F0C51122A91A9E0092CE79 /* GKVTMagicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F0C51022A91A9E0092CE79 /* GKVTMagicViewController.m */; };
+		79142FB823268A57009F16E7 /* GKPageListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79142FB6232689E1009F16E7 /* GKPageListContainerView.m */; };
+		79142FB923268A57009F16E7 /* GKPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79142FB4232689E1009F16E7 /* GKPageScrollView.m */; };
+		79142FBA23268A57009F16E7 /* GKPageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79142FB3232689E1009F16E7 /* GKPageTableView.m */; };
 		EEB3B8E667A420C2B1527D6C /* libPods-GKPageScrollViewObjc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F6BEA1D8BA4A2D94EE2D7E /* libPods-GKPageScrollViewObjc.a */; };
 /* End PBXBuildFile section */
 
@@ -136,12 +139,12 @@
 		60F0C50F22A91A9E0092CE79 /* GKVTMagicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKVTMagicViewController.h; sourceTree = "<group>"; };
 		60F0C51022A91A9E0092CE79 /* GKVTMagicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKVTMagicViewController.m; sourceTree = "<group>"; };
 		63F3699EF4265905771A0FD8 /* Pods-GKPageScrollViewObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewObjc.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewObjc/Pods-GKPageScrollViewObjc.debug.xcconfig"; sourceTree = "<group>"; };
-		79142FA523214D06009F16E7 /* GKPageListContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GKPageListContainerView.h; path = ../../../GKPageScrollView/objc/GKPageListContainerView.h; sourceTree = "<group>"; };
-		79142FA623214D06009F16E7 /* GKPageListContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GKPageListContainerView.m; path = ../../../GKPageScrollView/objc/GKPageListContainerView.m; sourceTree = "<group>"; };
-		79142FA723214D06009F16E7 /* GKPageScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GKPageScrollView.m; path = ../../../GKPageScrollView/objc/GKPageScrollView.m; sourceTree = "<group>"; };
-		79142FA823214D06009F16E7 /* GKPageScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GKPageScrollView.h; path = ../../../GKPageScrollView/objc/GKPageScrollView.h; sourceTree = "<group>"; };
-		79142FA923214D06009F16E7 /* GKPageTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GKPageTableView.h; path = ../../../GKPageScrollView/objc/GKPageTableView.h; sourceTree = "<group>"; };
-		79142FAA23214D06009F16E7 /* GKPageTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GKPageTableView.m; path = ../../../GKPageScrollView/objc/GKPageTableView.m; sourceTree = "<group>"; };
+		79142FB2232689E1009F16E7 /* GKPageScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GKPageScrollView.h; path = ../../../GKPageScrollView/objc/GKPageScrollView.h; sourceTree = "<group>"; };
+		79142FB3232689E1009F16E7 /* GKPageTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GKPageTableView.m; path = ../../../GKPageScrollView/objc/GKPageTableView.m; sourceTree = "<group>"; };
+		79142FB4232689E1009F16E7 /* GKPageScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GKPageScrollView.m; path = ../../../GKPageScrollView/objc/GKPageScrollView.m; sourceTree = "<group>"; };
+		79142FB5232689E1009F16E7 /* GKPageTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GKPageTableView.h; path = ../../../GKPageScrollView/objc/GKPageTableView.h; sourceTree = "<group>"; };
+		79142FB6232689E1009F16E7 /* GKPageListContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GKPageListContainerView.m; path = ../../../GKPageScrollView/objc/GKPageListContainerView.m; sourceTree = "<group>"; };
+		79142FB7232689E1009F16E7 /* GKPageListContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GKPageListContainerView.h; path = ../../../GKPageScrollView/objc/GKPageListContainerView.h; sourceTree = "<group>"; };
 		E7F6BEA1D8BA4A2D94EE2D7E /* libPods-GKPageScrollViewObjc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GKPageScrollViewObjc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -390,12 +393,12 @@
 		79142FA423214CF3009F16E7 /* GKPageScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				79142FA823214D06009F16E7 /* GKPageScrollView.h */,
-				79142FA723214D06009F16E7 /* GKPageScrollView.m */,
-				79142FA923214D06009F16E7 /* GKPageTableView.h */,
-				79142FAA23214D06009F16E7 /* GKPageTableView.m */,
-				79142FA523214D06009F16E7 /* GKPageListContainerView.h */,
-				79142FA623214D06009F16E7 /* GKPageListContainerView.m */,
+				79142FB2232689E1009F16E7 /* GKPageScrollView.h */,
+				79142FB4232689E1009F16E7 /* GKPageScrollView.m */,
+				79142FB5232689E1009F16E7 /* GKPageTableView.h */,
+				79142FB3232689E1009F16E7 /* GKPageTableView.m */,
+				79142FB7232689E1009F16E7 /* GKPageListContainerView.h */,
+				79142FB6232689E1009F16E7 /* GKPageListContainerView.m */,
 			);
 			path = GKPageScrollView;
 			sourceTree = "<group>";
@@ -584,6 +587,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79142FB823268A57009F16E7 /* GKPageListContainerView.m in Sources */,
+				79142FB923268A57009F16E7 /* GKPageScrollView.m in Sources */,
+				79142FBA23268A57009F16E7 /* GKPageTableView.m in Sources */,
 				60A20B45221D023900DB2193 /* GKWYViewController.m in Sources */,
 				601482522238AB7500723BA3 /* GKListLoadViewController.m in Sources */,
 				60A20D4E2225225400DB2193 /* GKWBFindViewController.m in Sources */,
