@@ -15,10 +15,6 @@ let GKPage_IS_iPhoneX: Bool = (
     (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), UIScreen.main.bounds.size) : false) ||
     (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), UIScreen.main.bounds.size) : false))
 
-// 屏幕宽高
-let GKPage_Screen_Width  = UIScreen.main.bounds.size.width
-let GKPage_Screen_Height = UIScreen.main.bounds.size.height
-
 // 导航栏+状态栏高度
 let GKPage_NavBar_Height: CGFloat = GKPage_IS_iPhoneX ? 88.0 : 64.0
 
@@ -485,8 +481,8 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
             
             let x: CGFloat = 0
             let y: CGFloat = segmentedView!.frame.size.height
-            let w: CGFloat = GKPage_Screen_Width
-            let h: CGFloat = GKPage_Screen_Height - self.ceilPointHeight - y
+            let w: CGFloat = self.frame.size.width
+            let h: CGFloat = self.frame.size.height - self.ceilPointHeight - y
             
             pageView.addSubview(segmentedView!)
             self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
@@ -495,13 +491,13 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
         }else {
             pageView = (self.delegate!.pageView?(in: self))!
         }
-        pageView.frame = CGRect(x: 0, y: 0, width: GKPage_Screen_Width, height: GKPage_Screen_Height - self.ceilPointHeight)
+        pageView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height - self.ceilPointHeight)
         cell.contentView.addSubview(pageView)
         return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return GKPage_Screen_Height - self.ceilPointHeight
+        return self.frame.size.height - self.ceilPointHeight
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {

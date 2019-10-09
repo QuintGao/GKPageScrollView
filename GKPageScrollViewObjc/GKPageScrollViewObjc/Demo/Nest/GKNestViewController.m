@@ -11,7 +11,7 @@
 #import <JXCategoryView/JXCategoryView.h>
 #import "GKNestView.h"
 
-@interface GKNestViewController()<GKPageScrollViewDelegate, GKPageTableViewGestureDelegate, JXCategoryViewDelegate>
+@interface GKNestViewController()<GKPageScrollViewDelegate, JXCategoryViewDelegate>
 
 @property (nonatomic, strong) GKPageScrollView      *pageScrollView;
 
@@ -78,7 +78,6 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.isLazyLoadList = YES;
-        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
 }
