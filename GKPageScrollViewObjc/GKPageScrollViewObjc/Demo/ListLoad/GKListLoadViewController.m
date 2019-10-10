@@ -9,7 +9,6 @@
 #import "GKListLoadViewController.h"
 #import "GKPageScrollView.h"
 #import <JXCategoryView/JXCategoryView.h>
-#import <JXCategoryView/JXCategoryListCollectionContainerView.h>
 #import "GKBaseListViewController.h"
 
 @interface GKListLoadViewController ()<GKPageScrollViewDelegate>
@@ -32,6 +31,7 @@
     self.gk_navTitleColor = [UIColor whiteColor];
     self.gk_navTitleFont = [UIFont boldSystemFontOfSize:18.0f];
     self.gk_navBackgroundColor = [UIColor clearColor];
+    self.gk_navLineHidden = YES;
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     self.gk_navTitle = @"懒加载列表";
     
@@ -104,7 +104,7 @@
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
-        lineView.indicatorLineViewHeight = ADAPTATIONRATIO * 4.0f;
+        lineView.indicatorHeight = ADAPTATIONRATIO * 4.0f;
         lineView.verticalMargin = ADAPTATIONRATIO * 2.0f;
         _categoryView.indicators = @[lineView];
         

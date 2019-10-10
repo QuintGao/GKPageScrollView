@@ -165,10 +165,10 @@
         _segmentView.titleSelectedColor = [UIColor redColor];
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
-        lineView.indicatorLineWidth = ADAPTATIONRATIO * 50.0f;
-        lineView.indicatorLineViewHeight = ADAPTATIONRATIO * 4.0f;
-        lineView.indicatorLineViewColor = [UIColor redColor];
-        lineView.indicatorLineViewCornerRadius = 0;
+        lineView.indicatorWidth = ADAPTATIONRATIO * 50.0f;
+        lineView.indicatorHeight = ADAPTATIONRATIO * 4.0f;
+        lineView.indicatorColor = [UIColor redColor];
+        lineView.indicatorCornerRadius = 0;
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
         lineView.verticalMargin = ADAPTATIONRATIO * 1.0f;
         _segmentView.indicators = @[lineView];

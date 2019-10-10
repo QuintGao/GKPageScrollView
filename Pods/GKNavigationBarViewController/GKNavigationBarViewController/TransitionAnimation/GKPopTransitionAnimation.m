@@ -14,22 +14,36 @@
 - (void)animateTransition {
     [self.containerView insertSubview:self.toViewController.view belowSubview:self.fromViewController.view];
     
+    BOOL isHideTabBar = self.toViewController.tabBarController && self.fromViewController.hidesBottomBarWhenPushed;
+    __block UIView *toView = nil;
+    
+    if (isHideTabBar) {
+        UIImageView *captureView = [[UIImageView alloc] initWithImage:self.toViewController.gk_captureImage];
+        captureView.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+        [self.containerView insertSubview:captureView belowSubview:self.fromViewController.view];
+        toView = captureView;
+        self.toViewController.view.hidden = YES;
+        self.toViewController.tabBarController.tabBar.hidden = YES;
+    }else {
+        toView = self.toViewController.view;
+    }
+    
     if (self.scale) {
         // 初始化阴影图层
         self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT)];
         self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
         
-        [self.toViewController.view addSubview:self.shadowView];
+        [toView addSubview:self.shadowView];
         
         if (GKDeviceVersion >= 11.0) {
-            CGRect frame = self.toViewController.view.frame;
+            CGRect frame = toView.frame;
             frame.origin.x     = GKConfigure.gk_translationX;
             frame.origin.y     = GKConfigure.gk_translationY;
             frame.size.height -= 2 * GKConfigure.gk_translationY;
             
-            self.toViewController.view.frame = frame;
+            toView.frame = frame;
         }else {
-            self.toViewController.view.transform = CGAffineTransformMakeScale(GKConfigure.gk_scaleX, GKConfigure.gk_scaleY);
+            toView.transform = CGAffineTransformMakeScale(GKConfigure.gk_scaleX, GKConfigure.gk_scaleY);
         }
     }else {
         self.fromViewController.view.frame = CGRectMake(- (0.3 * GK_SCREEN_WIDTH), 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
@@ -46,12 +60,21 @@
         self.fromViewController.view.frame = CGRectMake(GK_SCREEN_WIDTH, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
         
         if (GKDeviceVersion >= 11.0) {
-            self.toViewController.view.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
+            toView.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
         }else {
-            self.toViewController.view.transform = CGAffineTransformIdentity;
+            toView.transform = CGAffineTransformIdentity;
         }
     }completion:^(BOOL finished) {
         [self completeTransition];
+        if (isHideTabBar) {
+            [toView removeFromSuperview];
+            toView = nil;
+            
+            self.toViewController.view.hidden = NO;
+            if (self.toViewController.navigationController.childViewControllers.count == 1) {
+                self.toViewController.tabBarController.tabBar.hidden = NO;
+            }
+        }
         [self.shadowView removeFromSuperview];
     }];
 }

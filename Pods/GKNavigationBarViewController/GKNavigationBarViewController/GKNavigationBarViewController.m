@@ -164,7 +164,6 @@
 
 #pragma mark - 控制状态栏的方法
 - (BOOL)prefersStatusBarHidden {
-    [self setupNavBarFrame];
     return self.gk_statusBarHidden;
 }
 

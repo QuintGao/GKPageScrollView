@@ -25,6 +25,7 @@
 #import "GKDelegateHandler.h"
 #import "GKPopTransitionAnimation.h"
 #import "GKPushTransitionAnimation.h"
+#import "UIViewController+GKCapture.h"
 
 FOUNDATION_EXPORT double GKNavigationBarViewControllerVersionNumber;
 FOUNDATION_EXPORT const unsigned char GKNavigationBarViewControllerVersionString[];

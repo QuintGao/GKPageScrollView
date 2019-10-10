@@ -136,8 +136,9 @@
         }
     }
     
-    self.gk_navBarAlpha = alpha;
-    
+    if (self.gk_navBarAlpha != alpha) {
+        self.gk_navBarAlpha = alpha;
+    }
     
     // 头图下拉
     [self.headerView scrollViewDidScroll:scrollView.contentOffset.y];

@@ -27,6 +27,7 @@
     [super viewDidLoad];
     
     self.gk_navBackgroundColor = [UIColor clearColor];
+    self.gk_navLineHidden = YES;
     
     [self.view addSubview:self.pageScrollView];
     

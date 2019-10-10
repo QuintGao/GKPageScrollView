@@ -1,5 +1,5 @@
 PODS:
-  - GKNavigationBarViewController (2.3.4)
+  - GKNavigationBarViewController (2.3.6)
   - JXCategoryView (1.5.2)
   - JXSegmentedView (1.0.0)
   - Masonry (1.1.0)
@@ -32,7 +32,7 @@ SPEC REPOS:
     - WMPageController
 
 SPEC CHECKSUMS:
-  GKNavigationBarViewController: 92f856c67ec7f21a3d9466ddb1521315a0e13856
+  GKNavigationBarViewController: 9b1dbec5ff4f8c02d030bb2ae6b279f05c5cc8a5
   JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
   JXSegmentedView: 257773dde0c65f86c9d873c5cf93d15c76e170cc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201

@@ -136,9 +136,9 @@
         _categoryView.titleSelectedFont = [UIFont systemFontOfSize:16.0f];
         
         JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-        lineView.indicatorLineViewColor = [UIColor yellowColor];
-        lineView.indicatorLineWidth = 80.0f;
-        lineView.indicatorLineViewCornerRadius = 0;
+        lineView.indicatorColor = [UIColor yellowColor];
+        lineView.indicatorWidth = 80.0f;
+        lineView.indicatorCornerRadius = 0;
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
         _categoryView.indicators = @[lineView];
         

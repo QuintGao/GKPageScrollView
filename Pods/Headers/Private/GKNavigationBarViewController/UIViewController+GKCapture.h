@@ -1,0 +1,1 @@
+../../../GKNavigationBarViewController/GKNavigationBarViewController/TransitionAnimation/UIViewController+GKCapture.h

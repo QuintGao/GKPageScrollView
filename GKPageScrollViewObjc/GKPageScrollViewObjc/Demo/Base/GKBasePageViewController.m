@@ -97,7 +97,7 @@
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
-        lineView.indicatorLineViewHeight = ADAPTATIONRATIO * 4.0f;
+        lineView.indicatorHeight = ADAPTATIONRATIO * 4.0f;
         lineView.verticalMargin = ADAPTATIONRATIO * 2.0f;
         _segmentView.indicators = @[lineView];
         

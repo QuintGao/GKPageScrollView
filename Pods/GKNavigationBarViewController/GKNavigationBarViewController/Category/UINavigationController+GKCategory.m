@@ -16,6 +16,9 @@
     return [[self alloc] initWithRootVC:rootVC translationScale:translationScale];
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
+ 
 - (instancetype)initWithRootVC:(UIViewController *)rootVC translationScale:(BOOL)translationScale {
     if (self = [super init]) {
         [self pushViewController:rootVC animated:YES];
@@ -23,6 +26,8 @@
     }
     return self;
 }
+
+#pragma clang diagnostic pop
 
 // 方法交换
 + (void)load {
