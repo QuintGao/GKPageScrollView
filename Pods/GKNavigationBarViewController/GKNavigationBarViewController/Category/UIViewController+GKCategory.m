@@ -1,6 +1,6 @@
 //
 //  UIViewController+GKCategory.m
-//  GKCustomNavigationBar
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/7/7.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -12,15 +12,15 @@
 
 NSString *const GKViewControllerPropertyChangedNotification = @"GKViewControllerPropertyChangedNotification";
 
-static const void* GKInteractivePopKey  = @"GKInteractivePopKey";
-static const void* GKFullScreenPopKey   = @"GKFullScreenPopKey";
-static const void* GKPopMaxDistanceKey  = @"GKPopMaxDistanceKey";
-static const void* GKNavBarAlphaKey     = @"GKNavBarAlphaKey";
-static const void* GKStatusBarStyleKey  = @"GKStatusBarStyleKey";
-static const void* GKStatusBarHiddenKey = @"GKStatusBarHiddenKey";
-static const void* GKBackStyleKey       = @"GKBackStyleKey";
-static const void* GKPushDelegateKey    = @"GKPushDelegateKey";
-static const void* GKPopDelegateKey     = @"GKPopDelegateKey";
+static const void* GKInteractivePopKey      = @"GKInteractivePopKey";
+static const void* GKFullScreenPopKey       = @"GKFullScreenPopKey";
+static const void* GKPopMaxDistanceKey      = @"GKPopMaxDistanceKey";
+static const void* GKNavBarAlphaKey         = @"GKNavBarAlphaKey";
+static const void* GKStatusBarStyleKey      = @"GKStatusBarStyleKey";
+static const void* GKStatusBarHiddenKey     = @"GKStatusBarHiddenKey";
+static const void* GKBackStyleKey           = @"GKBackStyleKey";
+static const void* GKPushDelegateKey        = @"GKPushDelegateKey";
+static const void* GKPopDelegateKey         = @"GKPopDelegateKey";
 
 @implementation UIViewController (GKCategory)
 
@@ -29,9 +29,7 @@ static const void* GKPopDelegateKey     = @"GKPopDelegateKey";
     // 保证其只执行一次
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        
-        gk_swizzled_method(class, @selector(viewDidAppear:) ,@selector(gk_viewDidAppear:));
+        gk_swizzled_method(self, @"viewDidAppear:" ,self);
     });
 }
 

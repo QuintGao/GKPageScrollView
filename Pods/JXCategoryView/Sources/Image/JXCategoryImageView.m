@@ -79,14 +79,17 @@
     JXCategoryImageCellModel *leftModel = (JXCategoryImageCellModel *)leftCellModel;
     JXCategoryImageCellModel *rightModel = (JXCategoryImageCellModel *)rightCellModel;
 
-    if (self.imageZoomEnabled) {
+    if (self.isImageZoomEnabled) {
         leftModel.imageZoomScale = [JXCategoryFactory interpolationFrom:self.imageZoomScale to:1.0 percent:ratio];
         rightModel.imageZoomScale = [JXCategoryFactory interpolationFrom:1.0 to:self.imageZoomScale percent:ratio];
     }
 }
 
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
-    return self.imageSize.width;
+    if (self.cellWidth == JXCategoryViewAutomaticDimension) {
+        return self.imageSize.width;
+    }
+    return self.cellWidth;
 }
 
 @end

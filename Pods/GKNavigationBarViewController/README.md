@@ -27,7 +27,7 @@ iOS自定义导航栏 - 导航栏联动效果
 ## Demo中部分截图如下
 
 ![今日头条](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/Demo/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1.gif)
-
+ 
 ![网易云音乐](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/Demo/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90.gif)
 
 ![网易新闻](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/Demo/%E7%BD%91%E6%98%93%E6%96%B0%E9%97%BB.gif)
@@ -142,6 +142,14 @@ pod 'GKNavigationBarViewController'
 
 
 ## 时间记录(倒序)
+* 2019.8.2     -- 2.3.4 适配iOS13，优化导航栏左右item间距的处理
+* 2019.7.18   -- 2.3.3 修复滑动返回手势与其他手势冲突的bug
+* 2019.6.18   -- 2.3.2 优化导航栏item设置为nil时可能出现的问题
+* 2019.5.28   -- 2.3.0 优化导航栏分割线的处理及创建方式
+* 2019.5.24   -- 2.2.6 优化导航栏左右item间距的处理方法
+* 2019.5.5     -- 2.2.5 增加自定义缩放转场动画时的偏移量
+* 2019.4.21   -- 2.2.4 增加push、pop滑动过渡时的临界值
+* 2019.3.15   -- 2.2.3 增加禁止手势冲突处理属性，可对某个UISCrollView单独处理
 * 2019.3.5     -- 2.2.2 优化根控制器的gk_popDelegate功能失效问题
 * 2019.2.24   -- 2.2.1 增加gk_popDelegate，实现该协议原来的右滑返回操作将失效
 * 2019.1.17   -- 2.2.0 优化push和pop动画

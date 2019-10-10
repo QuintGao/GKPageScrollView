@@ -44,7 +44,7 @@
 @property (nonatomic, strong) UIBarButtonItem               *gk_navRightBarButtonItem;
 @property (nonatomic, strong) NSArray<UIBarButtonItem *>    *gk_navRightBarButtonItems;
 
-/** 导航栏左右按钮距离屏幕边缘的距离 */
+/** 导航栏左右按钮距离屏幕边缘的距离，需在设置左右item之前设置此属性 */
 @property (nonatomic, assign) CGFloat                       gk_navItemLeftSpace;
 @property (nonatomic, assign) CGFloat                       gk_navItemRightSpace;
 

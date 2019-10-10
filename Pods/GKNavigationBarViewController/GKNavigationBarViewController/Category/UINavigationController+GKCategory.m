@@ -1,6 +1,6 @@
 //
 //  UINavigationController+GKCategory.m
-//  GKCustomNavigationBar
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/7/7.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -29,22 +29,7 @@
     // 保证其只执行一次
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        
-        gk_swizzled_method(class, @selector(viewDidLoad), @selector(gk_viewDidLoad));
-        
-        // FIXME: 修复iOS11之后push或pop动画为NO，系统不主动调用UINavigationBar的layoutSubviews方法
-        if (GKDeviceVersion >= 11.0) {
-            gk_swizzled_method(class, @selector(pushViewController:animated:), @selector(gk_pushViewController:animated:));
-            
-            gk_swizzled_method(class, @selector(popViewControllerAnimated:), @selector(gk_popViewControllerAnimated:));
-            
-            gk_swizzled_method(class, @selector(popToViewController:animated:), @selector(gk_popToViewController:animated:));
-            
-            gk_swizzled_method(class, @selector(popToRootViewControllerAnimated:), @selector(gk_popToRootViewControllerAnimated:));
-            
-            gk_swizzled_method(class, @selector(setViewControllers:animated:), @selector(gk_setViewControllers:animated:));
-        }
+        gk_swizzled_method(self, @"viewDidLoad", self);
     });
 }
 
@@ -66,66 +51,6 @@
     [self gk_viewDidLoad];
 }
 
-// FIXME: 修复iOS11之后push或pop动画为NO，系统不主动调用UINavigationBar的layoutSubviews方法
-- (void)gk_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    [self gk_pushViewController:viewController animated:animated];
-    if (!GKConfigure.gk_disableFixSpace) {
-        if (!animated) {
-            [self layoutNavBarWithViewController:viewController];
-        }
-    }
-}
-
-- (nullable UIViewController *)gk_popViewControllerAnimated:(BOOL)animated {
-    UIViewController *vc = [self gk_popViewControllerAnimated:animated];
-    if (!GKConfigure.gk_disableFixSpace) {
-        if (!animated) {
-            [self layoutNavBarWithViewController:vc];
-        }
-    }
-    return vc;
-}
-
-- (nullable NSArray<__kindof UIViewController *> *)gk_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSArray *vcs = [self gk_popToViewController:viewController animated:animated];
-    if (!GKConfigure.gk_disableFixSpace) {
-        if (!animated) {
-            [self layoutNavBarWithViewController:self.visibleViewController];
-        }
-    }
-    return vcs;
-}
-
-- (NSArray<UIViewController *> *)gk_popToRootViewControllerAnimated:(BOOL)animated {
-    NSArray *vcs = [self gk_popToRootViewControllerAnimated:animated];
-    if (!GKConfigure.gk_disableFixSpace) {
-        if (!animated) {
-            [self layoutNavBarWithViewController:self.visibleViewController];
-        }
-    }
-    return vcs;
-}
-
-- (void)gk_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
-    [self gk_setViewControllers:viewControllers animated:animated];
-    if (!GKConfigure.gk_disableFixSpace) {
-        if (!animated) {
-            [self layoutNavBarWithViewController:self.visibleViewController];
-        }
-    }
-}
-
-- (void)layoutNavBarWithViewController:(UIViewController *)viewController {
-    UINavigationBar *navBar = nil;
-    if ([viewController isKindOfClass:[GKNavigationBarViewController class]]) {
-        GKNavigationBarViewController *vc = (GKNavigationBarViewController *)viewController;
-        navBar = vc.gk_navigationBar;
-    }else {
-        navBar = self.navigationBar;
-    }
-    [navBar layoutSubviews];
-}
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:GKViewControllerPropertyChangedNotification object:nil];
 }
@@ -137,15 +62,13 @@
     
     BOOL isRootVC = vc == self.viewControllers.firstObject;
     
-    // 移除手势处理方法
-//    SEL internalAction = NSSelectorFromString(@"handleNavigationTransition:");
-//    [self.panGesture removeTarget:[self systemTarget] action:internalAction];
-//    [self.panGesture removeTarget:self.navDelegate action:@selector(panGestureAction:)];
-    
     // 重新根据属性添加手势方法
     if (vc.gk_interactivePopDisabled) { // 禁止滑动
         self.interactivePopGestureRecognizer.delegate = nil;
         self.interactivePopGestureRecognizer.enabled = NO;
+        
+        [self.interactivePopGestureRecognizer.view removeGestureRecognizer:self.screenPanGesture];
+        [self.interactivePopGestureRecognizer.view removeGestureRecognizer:self.panGesture];
     }else if (vc.gk_fullScreenPopDisabled) { // 禁止全屏滑动
         [self.interactivePopGestureRecognizer.view removeGestureRecognizer:self.panGesture];
         

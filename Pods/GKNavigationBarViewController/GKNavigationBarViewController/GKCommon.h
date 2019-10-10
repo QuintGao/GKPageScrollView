@@ -1,6 +1,6 @@
 //
 //  GKCommon.h
-//  GKNavigationBarViewControllerTest
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/10/13.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -52,13 +52,18 @@ typedef NS_ENUM(NSUInteger, GKNavigationBarBackStyle) {
 };
 
 // 使用static inline创建静态内联函数，方便调用
-static inline void gk_swizzled_method(Class cls ,SEL originalSelector, SEL swizzledSelector) {
-    Method originalMethod = class_getInstanceMethod(cls, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(cls, swizzledSelector);
+static inline void gk_swizzled_method(Class oldClass ,NSString *oldSelector, Class newClass) {
+    NSString *newSelector = [NSString stringWithFormat:@"gk_%@", oldSelector];
     
-    BOOL isAdd = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+    SEL originalSelector = NSSelectorFromString(oldSelector);
+    SEL swizzledSelector = NSSelectorFromString(newSelector);
+    
+    Method originalMethod = class_getInstanceMethod(oldClass, NSSelectorFromString(oldSelector));
+    Method swizzledMethod = class_getInstanceMethod(newClass, NSSelectorFromString(newSelector));
+    
+    BOOL isAdd = class_addMethod(oldClass, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
     if (isAdd) {
-        class_replaceMethod(cls, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+        class_replaceMethod(newClass, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
     }else {
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }

@@ -1,6 +1,6 @@
 //
 //  GKPopTransitionAnimation.m
-//  GKNavigationBarViewControllerDemo
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/7/10.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -8,7 +8,6 @@
 
 #import "GKPopTransitionAnimation.h"
 #import "GKCommon.h"
-#import "UIView+GKCategory.h"
 
 @implementation GKPopTransitionAnimation
 
@@ -24,13 +23,13 @@
         
         if (GKDeviceVersion >= 11.0) {
             CGRect frame = self.toViewController.view.frame;
-            frame.origin.x     = 5;
-            frame.origin.y     = 5;
-            frame.size.height -= 10;
+            frame.origin.x     = GKConfigure.gk_translationX;
+            frame.origin.y     = GKConfigure.gk_translationY;
+            frame.size.height -= 2 * GKConfigure.gk_translationY;
             
             self.toViewController.view.frame = frame;
         }else {
-            self.toViewController.view.transform = CGAffineTransformMakeScale(0.95, 0.97);
+            self.toViewController.view.transform = CGAffineTransformMakeScale(GKConfigure.gk_scaleX, GKConfigure.gk_scaleY);
         }
     }else {
         self.fromViewController.view.frame = CGRectMake(- (0.3 * GK_SCREEN_WIDTH), 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);

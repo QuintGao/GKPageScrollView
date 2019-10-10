@@ -1,5 +1,5 @@
 //
-//  JXCategoryImageView.m
+//  JXCategoryTitleImageView.m
 //  JXCategoryView
 //
 //  Created by jiaxin on 2018/8/8.
@@ -88,33 +88,36 @@
     JXCategoryTitleImageCellModel *leftModel = (JXCategoryTitleImageCellModel *)leftCellModel;
     JXCategoryTitleImageCellModel *rightModel = (JXCategoryTitleImageCellModel *)rightCellModel;
 
-    if (self.imageZoomEnabled) {
+    if (self.isImageZoomEnabled) {
         leftModel.imageZoomScale = [JXCategoryFactory interpolationFrom:self.imageZoomScale to:1.0 percent:ratio];
         rightModel.imageZoomScale = [JXCategoryFactory interpolationFrom:1.0 to:self.imageZoomScale percent:ratio];
     }
 }
 
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
-    CGFloat titleWidth = [super preferredCellWidthAtIndex:index];
-    JXCategoryTitleImageType type = [self.imageTypes[index] integerValue];
-    CGFloat cellWidth = 0;
-    switch (type) {
-        case JXCategoryTitleImageType_OnlyTitle:
-            cellWidth = titleWidth;
-            break;
-        case JXCategoryTitleImageType_OnlyImage:
-            cellWidth = self.imageSize.width;
-            break;
-        case JXCategoryTitleImageType_LeftImage:
-        case JXCategoryTitleImageType_RightImage:
-            cellWidth = titleWidth + self.titleImageSpacing + self.imageSize.width;
-            break;
-        case JXCategoryTitleImageType_TopImage:
-        case JXCategoryTitleImageType_BottomImage:
-            cellWidth = MAX(titleWidth, self.imageSize.width);
-            break;
+    if (self.cellWidth == JXCategoryViewAutomaticDimension) {
+        CGFloat titleWidth = [super preferredCellWidthAtIndex:index];
+        JXCategoryTitleImageType type = [self.imageTypes[index] integerValue];
+        CGFloat cellWidth = 0;
+        switch (type) {
+            case JXCategoryTitleImageType_OnlyTitle:
+                cellWidth = titleWidth;
+                break;
+            case JXCategoryTitleImageType_OnlyImage:
+                cellWidth = self.imageSize.width;
+                break;
+            case JXCategoryTitleImageType_LeftImage:
+            case JXCategoryTitleImageType_RightImage:
+                cellWidth = titleWidth + self.titleImageSpacing + self.imageSize.width;
+                break;
+            case JXCategoryTitleImageType_TopImage:
+            case JXCategoryTitleImageType_BottomImage:
+                cellWidth = MAX(titleWidth, self.imageSize.width);
+                break;
+        }
+        return cellWidth;
     }
-    return cellWidth;
+    return self.cellWidth;
 }
 
 @end
