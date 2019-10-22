@@ -3,28 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0096B5A8BA8E4F2BFD8839D0FE7CD696 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCAE64D58957C0810CC6459B54EF30B /* MASLayoutConstraint.m */; };
 		00C71907AD90B2073C272B02001608FC /* MJRefresh-library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A52D414567CD04F0693ADB5642F326C9 /* MJRefresh-library-dummy.m */; };
 		013FB481056C447A5ADADF531121A391 /* VTMenuBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BE11320CAB2B57A859C999A9D4B32886 /* VTMenuBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01408404EFFBB95EE9232E585C3855CF /* UIViewController+WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A56F5B35226EBA2BFEF3EE298E0F55B /* UIViewController+WMPageController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		01AF9FE5FF9C801CE65132D07148992B /* JXCategoryIndicatorBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = FCAEDFFD0EA3A6D5FD12DC5ECF84EB12 /* JXCategoryIndicatorBackgroundView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		01C74A1E35500C2456CB85CB9D371C7A /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = ED22053A15111D90C6AD7442DAF7DCD5 /* MJRefreshHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01F150BB89E74FDA60E71F6987A2C12A /* Pods-GKPageScrollViewSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E14A6532F4965E8FBE092D4FFB41E29 /* Pods-GKPageScrollViewSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02CB8363FA5CD92A22A8247D6F7487D1 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = E9FB26050847710F7A244065BA60749E /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		030F174BE09211371619F46F4163972B /* UIViewController+GKRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB99AD5F9488518ED244D6074AC1819 /* UIViewController+GKRotation.m */; };
-		06B4E5C636E9B622D47987350A8329AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		03595F3C5D00ACA30ECC58BCE9C7D100 /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EF737ABA5D91426BC96DE5A6E1FE27D /* WMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06B4E5C636E9B622D47987350A8329AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
 		06CA6E96C264B0752BC586B94A8A249B /* UIViewController+GKCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = D85CEFA98A42985BE6689E61339DF821 /* UIViewController+GKCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06E03DF98D64FC637EA365A060E0F77A /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 14F2787F2B3C1D5AACD8E0EDED1DECDC /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0828C274EB6BF998BC515A56AA24DDCE /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 934E9F542E389E35233EAE3FD6AA0BE7 /* WMMenuView.m */; };
 		0867CA32AF92C5B8C8550CC01D20AFEF /* JXCategoryTitleCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A9167A206BAB4AB7722BB03A96E18E /* JXCategoryTitleCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		08BE19F181A6F360609067FE980B06FE /* UINavigationItem+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 861B617C75F1361DD5E798DB5754338E /* UINavigationItem+GKCategory.m */; };
 		08D29B78ECD77AE36B17595BC8056E74 /* VTMenuBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BE11320CAB2B57A859C999A9D4B32886 /* VTMenuBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0910F27BC32E8EDE2B4498549099CEC5 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A33C3F8AAAB53BC01A069FBD1296B3 /* UIScrollView+MJExtension.m */; };
 		095547A88EE037F12395713A469C9B60 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356411AACC67714FE812E65022C136BC /* ConstraintLayoutSupport.swift */; };
-		09BB333E707924861ED2368D8E0DC0A4 /* WMMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = BE92ACEB402DB774CC1B4D07518C933B /* WMMenuView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0A01037DEBCB935AE3709FFE4F973907 /* JXSegmentedTitleAttributeItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4BBF32E76F86FDA04459B8DE27C53F /* JXSegmentedTitleAttributeItemModel.swift */; };
 		0C98D7D745D87E60FA3EDD1D69678B84 /* JXCategoryTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = F2AE9AE9430C718A8A4EEA2EDA0D04B9 /* JXCategoryTitleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0CAEDEC17D3D0E71BD514CC8120BEE2C /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 991EAD4E48D3FCD788157E155AC0C756 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -35,6 +34,7 @@
 		10B2E13F2870EAE6EDC6CC564EFD6833 /* JXCategoryDotView.h in Headers */ = {isa = PBXBuildFile; fileRef = C3B449BFD5B5AAD88ED70CBF1F00E7DD /* JXCategoryDotView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		115ACCE253A886181B55773DDC70D6ED /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B490FB27A2567FABC36257E4E2BBD7 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		14E9ACC5796C5E35C84DD6659BEB788F /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1700B31B55D4F51CB0BBFE0679518 /* ConstraintPriorityTarget.swift */; };
+		160DCAC67FCF4164B05D61E5EE4792A8 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD38B99E18E52D5A993501AA70A702C /* WMPageController.m */; };
 		16799DC7F05F1C33AF7971A31A079B6A /* JXSegmentedTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E9F22E6E64EBA475DBAC9B25BACA6 /* JXSegmentedTitleCell.swift */; };
 		1730345E31C44C91B0AF1CF62C0EC4A5 /* JXSegmentedBaseItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F03E0E00BA580E02EB4C1C9D66B5C0C /* JXSegmentedBaseItemModel.swift */; };
 		17C5F480B24C438D7F63CB49AF8B1A6E /* UIColor+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9C62B8FE00740F5A4DD4C36A4A4A1 /* UIColor+VTMagic.m */; };
@@ -43,7 +43,6 @@
 		1AD892EE535725FD7EBC932925C7069A /* JXSegmentedTitleOrImageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785AE03B5B5E6A2E304390C0F7AA1E6 /* JXSegmentedTitleOrImageItemModel.swift */; };
 		1B4510DB705D5E4C8E159226D444FF86 /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = ED22053A15111D90C6AD7442DAF7DCD5 /* MJRefreshHeader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1C951AF2A43B36BF2B8E46811F8E616B /* JXCategoryTitleVerticalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95377A464110F9E5078E26A6593501F4 /* JXCategoryTitleVerticalZoomView.m */; };
-		1D9D4F37D652DF8329DCF4CEA506CAAD /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97735938BA4267BD9BBE21E49671B431 /* WMMenuView.m */; };
 		1DBA74FF8025B96C803E5540129B3646 /* JXCategoryTitleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE8F448A65F0A5D3B1C163BDBACA18F /* JXCategoryTitleCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1DD1E108011687F1ECEC43604DA0F827 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F07C786F37E6421A8CAE33F8A0D9DD /* UIView+MJExtension.m */; };
 		1E5D56FF58658F9F45723CA2940489EE /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDCF6FCF5F1A59DCA33028BD0E87F1F /* MASConstraintMaker.m */; };
@@ -56,18 +55,20 @@
 		21C225F36182F9C3D71DCBD34BC49E52 /* JXCategoryIndicatorDotLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 460BAFDDC8CB6C378BC69AFC7657961A /* JXCategoryIndicatorDotLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		21FAFE324EBA9381D8CF835D44DA1907 /* JXCategoryIndicatorTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D17BB7C199D7F8FB78F2554D841BE /* JXCategoryIndicatorTriangleView.m */; };
 		229C28954C88EA3EF2D5D36B06329F6D /* GKNavigationBarConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = 70AC61C59DBFB9E5CC796796A311150C /* GKNavigationBarConfigure.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		249F45FA1BC0076503426C2EA1D0DA30 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675C1A9CBD451B68184A2A9D11C7C5 /* WMPageController.m */; };
+		22A635BE37F24D172C32ECF5BC80C7FC /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EF737ABA5D91426BC96DE5A6E1FE27D /* WMMenuItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		24C87B36626DA4EE38146E6D04AF578A /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 268A1D95DC6FFDF7271F212F472C85BA /* NSBundle+MJRefresh.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		254C55799DD2491D0A257AECC458FEE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
 		26A777661645A96ADAF8AF55A8CBA60F /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC61EBEC87B3FE78280F5972D2DB122 /* MJRefreshAutoFooter.m */; };
 		276EE563D9B688173DBBF47DB80D72D8 /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F565B0D8161FDB2DED95A443BD22C /* ConstraintLayoutGuideDSL.swift */; };
+		282F3D7C9242D215B02FA9FE0DC14AD4 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E717C68E8E1F9407E1119F80294C3576 /* WMProgressView.m */; };
 		28400157B63F40AA135BF16780AB4B96 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C32E3FFC5AF0495CD8ED66BDB7C2EB96 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2874770643FD2D1B0A4E5F1B17D4077C /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE6FED21CBEF41F1F865570FA369461 /* MJRefreshHeader.m */; };
 		28756CEF95AC1EECA53D7F6A5BC0F804 /* JXCategoryIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0869469DD0B6D173607DA395FE678D /* JXCategoryIndicatorView.m */; };
-		28ABC848DE41572BE6C72C7E4D898345 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2835448E78ABC35F6E2B812BAEEF015C /* WMMenuItem.m */; };
 		28D521DF14CD9AA53855E026E09A916C /* GKDelegateHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F88B1A5383A0DBCDE56D32FBE7AAB43 /* GKDelegateHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		28E79F819D284FD600822D329C9EC062 /* JXCategoryNumberCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D34568A5E8B2DB95B3C1F5B61411E9F5 /* JXCategoryNumberCellModel.m */; };
 		293C9909CC59FD4FB21E0CE200D12EDD /* JXCategoryBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7451947F4B98F9D19BF5F21A65E78C /* JXCategoryBaseView.m */; };
 		29DB3CF2D99F7495DF7E585D712C00D1 /* VTMagicProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F016D9E2DD259667F8C4706AC7B76FFB /* VTMagicProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2B20C49FE8E6BB9E20D68D26A7EC0720 /* WMMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = A29294866672C98498EE17D2F25A5EA7 /* WMMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B82B7B076FB22856EA61D998A6613D1 /* JXCategoryDotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E893BBB87F5ED99A569CAC8FA2098A9 /* JXCategoryDotCell.m */; };
 		2C2F0017C0875742002A47EFD21ED5D4 /* JXCategoryNumberCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E391840A35D3D95125948A95F556DB3 /* JXCategoryNumberCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2C4674D5143C1D1908B5E974B8E5B86B /* JXSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ADB6BF1E8D1651574454A1C6A2ED43 /* JXSegmentedView.swift */; };
@@ -78,9 +79,9 @@
 		2FB10AEEDCC209BBFF850DCBAAE43730 /* GKBaseTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C374E3C41B96FE60FBD060E58F9E7564 /* GKBaseTransitionAnimation.m */; };
 		31CB0F886C01D2757E7CBA06DB0CAB3D /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E06F404672F756710485991F5FA096EC /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		33AB2D6BCC71B7E55950BD57A58F4F11 /* GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 872D7A20582794E37FC751A301D4A9C4 /* GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		350C94ABC747B523ECE5270C33419B9A /* Pods-GKPageScrollViewObjc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE26F988CC59F4039017EFEFB852F5E /* Pods-GKPageScrollViewObjc-dummy.m */; };
 		35CDFA197D8219EB8DEFC227259A5C03 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430EB4AC191F26D74E6B3CA362A332A2 /* ConstraintMakerRelatable.swift */; };
 		36C98D7E58C10449EC28B47679D4CF74 /* JXSegmentedIndicatorRainbowLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36655088A2A2D98F607D451587145CBB /* JXSegmentedIndicatorRainbowLineView.swift */; };
+		3732383FF24D77222D5AD649C9EB2E05 /* UIViewController+WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = F36B5381795B3EB88364CFC1FA1F16BF /* UIViewController+WMPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		378E7736B4D7B69F0539A201C51B4115 /* VTMagicController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B93D0A8E6369BDC19BCD9698F17EF87 /* VTMagicController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		398ED7782441E0200103019422A2EA59 /* JXCategoryIndicatorParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 876D999EE12FD3325185E9EDE532B72E /* JXCategoryIndicatorParamsModel.m */; };
 		3A802C2B3A8B7F06AEC477E263088246 /* JXCategoryListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBD762BAEE746A7EB311E802CFE5D22 /* JXCategoryListContainerView.m */; };
@@ -89,6 +90,7 @@
 		3E7DB872EC5D887D718438323F6ADB0B /* UIScrollView+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2C40F1010242134A375E49E57FF169 /* UIScrollView+VTMagic.m */; };
 		3F1E442C6EED5544C0D7512487F88839 /* UIColor+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = CF66D9E962533C73443F96F750713CAD /* UIColor+VTMagic.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3F9779677ECBDE22BC0D29BAA2A8BC01 /* JXCategoryIndicatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC339E944ECD04735D1FC8306865381C /* JXCategoryIndicatorLineView.m */; };
+		3FD2F8376EF179817274BDADE412B4AF /* WMPageController-library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3457031AF2C45EE173C05B60D1F8CBA0 /* WMPageController-library-dummy.m */; };
 		40104465CB411E8F912203C4531277C4 /* UIColor+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = CF66D9E962533C73443F96F750713CAD /* UIColor+VTMagic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		423A02B0A39EFDC599124EB9971D0B0D /* JXCategoryTitleImageCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E6C9887BE0A6D42D771081C6C1E05AE7 /* JXCategoryTitleImageCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4268E348E6D5E9037A640ADC8E065009 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808A9490FBAD3ABB20A2E5F6689059C0 /* ConstraintMakerEditable.swift */; };
@@ -111,17 +113,17 @@
 		4CFE92F269E6670DA300AD8CF2BCB51C /* JXCategoryImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA72FA3EC1E2A645F412C9E9407E2B9B /* JXCategoryImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4D6FD86D495DE180905681C9988648F4 /* JXSegmentedTitleOrImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5775DB3C771F4BD14430FD8A0D6802 /* JXSegmentedTitleOrImageCell.swift */; };
 		4F4354FABB6E4FC7126CBB977FF5596F /* JXCategoryNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 925A96F1684AEC00B09090B93EC63611 /* JXCategoryNumberCell.m */; };
-		5009DCC235EF43F241AEBE3633C84826 /* WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6716E93938E9DC8EC6FA88D37DD02D26 /* WMPageController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5059AA05A9030F80BBC58F8E23C08C2E /* VTMagicView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F860411B63EB2E9FA2AD170614D7326 /* VTMagicView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5199B3B83795970406E6F666EA91A525 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 407EDBDB371409D51570F532EE3A7529 /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		51AFC60F1A8737F11C37B3EC5F96E154 /* GKNavigationBarConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = 70AC61C59DBFB9E5CC796796A311150C /* GKNavigationBarConfigure.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		51F37368D57CC5705D4D3167816CE06C /* JXCategoryViewDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 71CC2FBB4E51FE409CEBCAA7ED1C963D /* JXCategoryViewDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5278AF8E01155CA611036CB332959E97 /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0090791BD4089BDB49FD51E655BA3F4F /* WMScrollView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		52B85E4CDBFD3CCC87804F23492B36DA /* JXCategoryIndicatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A486F5F905194E17B4981CECA1C69A /* JXCategoryIndicatorCell.m */; };
 		52D4386347ADD028544BBD5C4746AF70 /* JXCategoryIndicatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A49F519BB23FD2AF7084D97993A40A0B /* JXCategoryIndicatorProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		53A23CAEEBE798D7273210B98D8B5369 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = C2495054CDE33F1FF00AC73CFAB5656E /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		54D1686EFA926E23C4BED5EEE7A19C08 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86A994FB0FC7F28DCC76486583D0859 /* ConstraintInsets.swift */; };
 		5544BDD6A14E06C7FB3A878BC3E96299 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34717E1877BBB4C52F51C123DAED24B /* ConstraintView.swift */; };
-		5550EB3714454C740E08ACAF8C00AE78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		5550EB3714454C740E08ACAF8C00AE78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
 		571D05C6591D01CB15BD411F72F70F39 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DACC5A956D9484F47CDA3706DACFA37 /* MJRefreshBackNormalFooter.m */; };
 		572D05B146EAA3EF5530A0D0E34904A0 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C77A694940E5D207BE6895AF87A628 /* MASViewConstraint.m */; };
 		57BA69A9FBC54F9D0490613A923A727B /* GKNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA13C67DD84AD7E9BF825ED024D447F9 /* GKNavigationBarViewController.m */; };
@@ -131,11 +133,14 @@
 		59EA578EED8BAC126FDC60C32AE11521 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 572CA709A590CFCF0268F5DEB5AB2F67 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		59FF40BDD00A60A050BCB39554651425 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 89531C542CBE75C7C125AFA0C0067D9B /* UIScrollView+MJRefresh.m */; };
 		5AC46532C27A418212F59CED857BDF5E /* JXSegmentedIndicatorDotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1809B0DC3AB5E559A131F4A8D01B25 /* JXSegmentedIndicatorDotLineView.swift */; };
+		5BD50630B2584B51060D9D3CE349866C /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826254301BC88BF42317FEAB1A93C64 /* WMScrollView.m */; };
+		5C20E64BB739450DCF71E3E54E4B0D09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */; };
 		5C220685C59BEBEABC43B2F96A2D03B3 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 780EBD3ED636301C8A86B875DEE21D9E /* MJRefreshBackGifFooter.m */; };
 		5C376607904258A10F4DDD6D42EFC491 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A0B1377F2A64CE54A1BA1BACE1774C /* ConstraintMaker.swift */; };
 		5DBFB9A0499F04CBE806486211A4ABD0 /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BC591AD439A05743B9789368047B77 /* SnapKit-dummy.m */; };
 		5DCDBCA5717DB2039C0C388272F37B1C /* VTMagic-framework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 27DEEA84401002D9D32578452A357C25 /* VTMagic-framework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6002E4C2F25386D38E7CEF83E0EA56DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		5FD07032F65FBE86F530B6D46F5205C6 /* WMPageController-framework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF94B967F19C079923796E92B36A2529 /* WMPageController-framework-dummy.m */; };
+		6002E4C2F25386D38E7CEF83E0EA56DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
 		607CF411539E683205DD58E6F880B92F /* GKPopTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C93B8F8D0AB95C39E2626522337355C4 /* GKPopTransitionAnimation.m */; };
 		6145A16C12761C040C6DE31F9F20201B /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D990B8ABBFDD931D4229C97F2E5D0F /* MJRefreshBackFooter.m */; };
 		626926BCC27CC5CCDC90F0B253DF938F /* JXSegmentedTitleGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F567740E451E866EA1B006B8C71700D /* JXSegmentedTitleGradientCell.swift */; };
@@ -146,14 +151,14 @@
 		64C9AFAE337310D37638D1ECDB2AAD27 /* VTMagic-library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 354722243CC8C6E5ACC74E42C6968E3F /* VTMagic-library-dummy.m */; };
 		65E88072A2BDC576BFC85E67EF9FBBC6 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D661FB825CAB8B23AA54DD7B1032A48F /* MASUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		65F1CAACBCEF74C4BF71492E1AAC7207 /* JXCategoryTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B4097680FA689B99F3582680C44A56 /* JXCategoryTitleCell.m */; };
-		67776864843D84DC929C1B66FF8C94F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		67776864843D84DC929C1B66FF8C94F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
 		67939071BB6319FA32FA0571DF0D4653 /* VTMagicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5916B87D6140E19575E9F0AD81CEA747 /* VTMagicController.m */; };
 		688EF56EEABEE184F241CD2DC55A451D /* JXCategoryView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9078C40DD027959B3BE49153EC69083D /* JXCategoryView-dummy.m */; };
 		696B17525A2594B996553853A827C51F /* JXSegmentedDotItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97746BB9DA7A39C895E94506BFEA82E1 /* JXSegmentedDotItemModel.swift */; };
 		69F8D50E925887289D8AF6567983D466 /* UIScrollView+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB38D213A24388B0E8AA894E182FB38 /* UIScrollView+GKCategory.m */; };
+		6A6DE95DA112778C758F4FB954230CCE /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 934E9F542E389E35233EAE3FD6AA0BE7 /* WMMenuView.m */; };
 		6B43F2F53DD6C161CF414A9BF67550C5 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D846EC44D2BB873853DC5E63FB5649D0 /* ConstraintDSL.swift */; };
 		6BA911D47FF29628CC51AE6B4A88BCE9 /* JXCategoryTitleCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECBFAD3A1832A8E07DD7D7F72911CAD /* JXCategoryTitleCellModel.m */; };
-		6D45B0DD77BEA1D8C75F35C0A339726B /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48971B76841295F70A60E3EE536205D4 /* WMScrollView.m */; };
 		6DEDCD5F8FF3F5A34A74BC3FF256576F /* JXCategoryNumberCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FD599F10A15B6D70E42D9E245879B87E /* JXCategoryNumberCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6E65461CD063782A715817A93C5392DB /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = F7EF22D278F8B6156A3C8EF237801BE2 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F26FC610135C7E461012CC3E6867FDC /* VTContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 45C9C87AF43E24D98BF2ECFA94F3A6CB /* VTContentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -167,19 +172,21 @@
 		740D46BD0BA62D15260BACFD2D285F49 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5851B062F612C997DDB4D53A29821417 /* MJRefreshConfig.m */; };
 		74A4111081845241A817EB9E207F8B68 /* GKBaseTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 329D73534163E0E4A45A8F835E52581C /* GKBaseTransitionAnimation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		74A6151B2D981A0FCF75655DDD236E24 /* GKPopTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = AE0C0C0BD817526DFD717E88A4779E02 /* GKPopTransitionAnimation.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		753B4BAB31C0A092BF5B1F317167C9A7 /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BD0A5987AA3CC53219E74B345CE11EA /* WMMenuItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		76BDEA82F686E3250B535CEBB642E6EB /* GKNavigationBarViewController-framework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE70C5A45941AC719B1A1E15B8B3AD9 /* GKNavigationBarViewController-framework-dummy.m */; };
 		77A618FE4FF299682F776C974300EBA1 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B198E203AE34AA8E69F521B886736 /* ConstraintView+Extensions.swift */; };
 		78D7AA737FFFDC17EBC5B6051B6BFE37 /* JXCategoryBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 80ED50BFC0CE66998658DBC3FAE644E3 /* JXCategoryBaseView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		795B466C406C85CDEEB2033E9BEC52FE /* JXCategoryDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE7CD73F298BCDC0345C20DD73FEC /* JXCategoryDotView.m */; };
 		7998914D061BCBEB27250B4A0F4FD748 /* JXCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAB80950B5FCBBA4E86558AD33BDF12 /* JXCategoryBaseCellModel.m */; };
+		7A020E671065CD432918484C4238A7BF /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0090791BD4089BDB49FD51E655BA3F4F /* WMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A1E878301FEE89F39F5063FE660FCAA /* UINavigationController+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D14A8AB170C84D751C572CB0EDC1E1D /* UINavigationController+GKCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7A78A04ED4552E88CD431DC4D7561226 /* JXCategoryListContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B60A04AEB89C995DA67DB9D94015FD0 /* JXCategoryListContainerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7ADFA989008C8B269C1792AF455BE6EC /* VTContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1F9F228B1EA9008A50055C3EFD19EC /* VTContentView.m */; };
 		7B743423204A22AC9DED4ED0F5FDBC1D /* JXCategoryIndicatorCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E8F9D01DCC99DDF9EDF484EB6D15FFE /* JXCategoryIndicatorCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7B918276989AA214CF83C98C75D687CD /* JXSegmentedBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC8FAE53EF8FE00B40D2D771CF2DB6 /* JXSegmentedBaseCell.swift */; };
 		7C3F13CB85F7A871BDD7806ABBAF3422 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 6179663A634CC271282BDC61E0E2D3C3 /* MJRefreshConst.m */; };
+		7C4E3D960691B791F274D15DE112FF0E /* Pods-GKPageScrollViewObjc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE26F988CC59F4039017EFEFB852F5E /* Pods-GKPageScrollViewObjc-dummy.m */; };
 		7CF2AC7A3B3ED03B30C1E4ED662B0551 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = DD34596FE7DA76BFCF9E7E31E4EBFF15 /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7DD25BA293B2C448895B5BBEC2389B3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
 		7DEB9DE8E224983D804D813BEDFA1A4F /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B0723B9C3D98438CBEE63D6DE57B7F0 /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7ED12926E82C9D1DE457504DA75B80A9 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEEF5BACA2924B946F75AFBB3108444 /* LayoutConstraintItem.swift */; };
 		801FDBF7C1F964383CA7E41A36F0D34F /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E7ABFF03C316E9B6331FF9943A8120 /* MJRefreshGifHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -196,7 +203,7 @@
 		87D0E97F0BABCF56BC33EF9EF55778A9 /* JXCategoryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 651C819DB0C7B2B4830F124F251CF885 /* JXCategoryFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8A2974303D594A45C2CEE0B4A4361CF6 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 780EBD3ED636301C8A86B875DEE21D9E /* MJRefreshBackGifFooter.m */; };
 		8A7BEB20BA8825CD2D03946CD155FB3A /* GKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CE1792A26CA2CA9D0348C03609D6472 /* GKCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8AF8A00FF99FA533AF6C67FF2031E4BE /* WMPageController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9550753249BC8B294740DAF559671AD /* WMPageController-dummy.m */; };
+		8B366D305A4A9EC152384725505FCA4B /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CF1E1D956975A023CE9BDFAA86134 /* WMMenuItem.m */; };
 		8B3D310E6D6DAD37A7D2108BFBE5A1D1 /* JXSegmentedListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C94A8236BD2B010BE13A0EEAF0B620 /* JXSegmentedListContainerView.swift */; };
 		8B8BE709B46663F60DB6A661A3B2A28A /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3854C88FEF47E72F023E8A2973F301 /* ConstraintMakerPriortizable.swift */; };
 		8BD2B624B4F1950C636A5E2D8A0CAC47 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5851B062F612C997DDB4D53A29821417 /* MJRefreshConfig.m */; };
@@ -219,7 +226,6 @@
 		927B96A6B4E683D1D9FB03C9C90B26FC /* JXSegmentedView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F14D44357D20FA18EDEA6004FB0E5991 /* JXSegmentedView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9289DAE8E5F75D759C96D9508F7F24CE /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE6FED21CBEF41F1F865570FA369461 /* MJRefreshHeader.m */; };
 		92BF70E9D3285561EB404A7C4A4A6DEE /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = F773E3C03C55B2C22A75BF09F02D866D /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		93245CFD1F995A11CF08B7B7ABEB1492 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EAE5088D7C915AEDED6F51A78D5B0F /* WMProgressView.m */; };
 		93D573EF4D80A77A170B33A9EFC9E403 /* UIViewController+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB97CCCF93FF62B24FFC5CAD7D590EF /* UIViewController+VTMagic.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9432185152350A4A90F6DD19C33AC057 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74BF4E779E4FB11926D0D5CDE6C104 /* Debugging.swift */; };
 		9469CDBBFFB9C7C1D36E083A5A31F99D /* MJRefresh-framework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C1158A174DEEE4E965D1B09896B8544 /* MJRefresh-framework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -242,28 +248,33 @@
 		A04D46C4C48247D004BAE5C7AD6E05A3 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5114FE148F366B23EA3FC9C4BA4EF80 /* ConstraintConfig.swift */; };
 		A1966F3C23ADBDEB1053DFC6BD2A6E3A /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = C2495054CDE33F1FF00AC73CFAB5656E /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1F4FFCDEED8AECA2F2BF99EF676A77E /* GKBaseTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 329D73534163E0E4A45A8F835E52581C /* GKBaseTransitionAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2560BE7A8CE736956DD4D36360070CC /* WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9731A065CC148DC51A5A489A257FB7 /* WMPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A28B3228E734E36B0AD36702E8B72CA3 /* JXSegmentedIndicatorParamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F47BC3141952C86F5E44E26FF87542 /* JXSegmentedIndicatorParamsModel.swift */; };
 		A28D578EAA192F6C782A86E71017B07A /* UIViewController+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = F690B65083E8FFC2C790A2A0B208382C /* UIViewController+VTMagic.m */; };
 		A3307B8FB6EE0A049DBAE3AA4D2C6DA0 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C859CF5AAFF906C6C988267052593055 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A3DEA82F229FDF7C9444CEFEE3D9AB84 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9E5DB6ED6491B3D8B911FEAE7FBABA /* ConstraintMultiplierTarget.swift */; };
 		A4070B8C9BD30965648B2876CD3C1C43 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620E13D99052370533DD7AFBED384B8B /* ConstraintAttributes.swift */; };
 		A482F623A133B7E947C01456C779622A /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7577F310A6AFE83259D8817E5F42612 /* ConstraintPriority.swift */; };
+		A486BE54D9046A6DCA0E1A0EB424B05B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
 		A4925DD89878897A90DD265AF839CA6A /* JXCategoryDotCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A60C600AC88B0E44B6F69B6B8FE947A /* JXCategoryDotCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A539C6AF9839B570E7AE0E4EDCDEA5D0 /* JXSegmentedIndicatorLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB28D2CAE3CBB8F03F4CE5EC9F557D9 /* JXSegmentedIndicatorLineView.swift */; };
 		A5B677ECDD97180DBF3D1EBFE400EC0F /* JXCategoryTitleVerticalZoomCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 42460B9A4A52296398870C7BEEAAB287 /* JXCategoryTitleVerticalZoomCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A61466C6FA96255FB910904931F235CA /* GKPopTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = AE0C0C0BD817526DFD717E88A4779E02 /* GKPopTransitionAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A62389999F94B0CCDA61DF6398BB6A0C /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0671F1B47D296C4167B29CD849A6E5 /* GKNavigationBarConfigure.m */; };
+		A72650C1BE882813A3E486CEF80921AF /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CF1E1D956975A023CE9BDFAA86134 /* WMMenuItem.m */; };
+		A815FB83E6828AC339051DBDF460E0D3 /* Pods-GKPageScrollViewSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C84E0FF3D9882F3D38DA12A2376B37FB /* Pods-GKPageScrollViewSwift-dummy.m */; };
 		A8436424C7C54F01458AEBBE5EF13A1D /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0671F1B47D296C4167B29CD849A6E5 /* GKNavigationBarConfigure.m */; };
 		A88CA06B26B321D397A9E122A9704BCA /* UIScrollView+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 92ECB492B8B858E18B629253FD918D57 /* UIScrollView+GKCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A893FFB0F9137E298D6752729850D1D6 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = B349737FE2EB8730D5837C2B55EFCBC2 /* MASViewAttribute.m */; };
 		AAC22A11B247DCA0517F90153EEC9EE0 /* JXSegmentedTitleOrImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E92B56E21304661ED5ED5B90388F6 /* JXSegmentedTitleOrImageDataSource.swift */; };
 		AADB4727384F7F10ADA3FB3BDBB0927A /* JXSegmentedIndicatorBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E20D57D4F214B4F20DFBC4FD54402E6 /* JXSegmentedIndicatorBaseView.swift */; };
+		AB22D3CDA877F1C1A5B6844A485CB52E /* Pods-GKPageScrollViewSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E14A6532F4965E8FBE092D4FFB41E29 /* Pods-GKPageScrollViewSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC81FB3140E1B2B3CD444C48AD90BE5E /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A89030817F128C0AD8B9D4CD26201BEF /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		AC965E992BB039496C773670226EA626 /* JXCategoryIndicatorComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E0CC2866260858F14599477D1AE54 /* JXCategoryIndicatorComponentView.m */; };
 		AD279037CC5B38C90EB4831F7C44CC70 /* UIColor+JXAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC3FFB42BD7E94E1C1BC93C0C0F939 /* UIColor+JXAdd.m */; };
 		AD6C696704CF8968D17FAE662FB08B1D /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 896A0E4C11D85E24EDBF1B0F089F70A6 /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		AD76C6A7F6348F2F9F65EF9526D580DF /* JXSegmentedIndicatorGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F068E8F7F7BFA7E9F4E4C8E00D946A11 /* JXSegmentedIndicatorGradientView.swift */; };
-		AE1A1314CD6E352B3E251BEF71F202FD /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AD82D2DC8528FB5D069C8EA0590CA4 /* UIViewController+WMPageController.m */; };
+		AFEAE68C6AE74D56A9B98810DDC4B1FC /* WMProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 512280468FF0C5024B55318EC8DA58A2 /* WMProgressView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B00437AB0F2D59C078006A39CE82AD35 /* JXSegmentedView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 301075798012E66D6B5DF828BA9864A2 /* JXSegmentedView-dummy.m */; };
 		B1F068651C3879759496752A5008F7DC /* UIBarButtonItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 54B2E34AD4AB64439FEB1FE0DCB2F089 /* UIBarButtonItem+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B20A0E5D8F9BCED1A82793C4BE9E7258 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0236B900FFAF2AC5CBF847DC75E1B07E /* Masonry.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -274,10 +285,12 @@
 		B633A423152D6C71A75941BAA3BA9270 /* JXSegmentedNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31553D112DA6835173EF4961E32BFD91 /* JXSegmentedNumberCell.swift */; };
 		B65F3BBA6CC5B7EAF77460F5D9CA483E /* UINavigationItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = DC02AA117BBFE51E5D2F93783590D4F8 /* UINavigationItem+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B692D74B6CD0209F2388A03C94ECCA8F /* VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = 193C5374C0DF7E5E6BA646C985D4A17F /* VTMagic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B77D61D4061B366368331CB19CD98AE2 /* UIViewController+WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = F36B5381795B3EB88364CFC1FA1F16BF /* UIViewController+WMPageController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B781F0B1629D2DDC247ABE921E8A5933 /* JXCategoryIndicatorBallView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3439D2D5C6912D77B6268143B16A1B47 /* JXCategoryIndicatorBallView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B79AC1A8041791E6B7BDF841D4A41AD0 /* JXCategoryTitleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9216D00F49EFDBFA7C444CC24674552B /* JXCategoryTitleImageView.m */; };
 		B828D28794F0B0A088F2936F1EA1FFAB /* JXCategoryCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = DE140247F1D285C6571BBCB55C0A4032 /* JXCategoryCollectionView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B946AFB1A725D85E07F645A7EF086383 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562972F65EF83A0640659B3BC12CF6F /* NSArray+MASAdditions.m */; };
+		B95BB858C93BC665250CCFC7D9648303 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79521F9783E45BFF3F2A9E773DD16D33 /* UIViewController+WMPageController.m */; };
 		BA7AC5E88E54859822375C5F4E170B44 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D488783C5ECE924BC2FAD82D3B3EB8 /* NSBundle+MJRefresh.m */; };
 		BB4C2793633BF2B293844A76CF081187 /* VTMagicMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B0FEA55CEE8910293374CF58B5CF1676 /* VTMagicMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BBC4E124DB812DB8679F60721461B33C /* GKNavigationBarViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68452D2C04C61314A78554723FDF2B16 /* GKNavigationBarViewController.bundle */; };
@@ -286,6 +299,7 @@
 		BDDD3087D2D63F695362CE0A0267B703 /* VTContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1F9F228B1EA9008A50055C3EFD19EC /* VTContentView.m */; };
 		BDF54659BD642A1DF4B5BE34875D71CC /* GKPushTransitionAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 421085365BB281571FFF77EAD6D79CD0 /* GKPushTransitionAnimation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BE2B1D315858EF804EDB899B0ABE382E /* JXCategoryIndicatorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = E99B921C43A1EA6B8504781800058538 /* JXCategoryIndicatorBackgroundView.m */; };
+		BE8C34FDF954A2EED46C49A3FC86F60B /* WMPageController-framework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C1371706EF1879C0FFB94F54792DFA61 /* WMPageController-framework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF7843175A0FB0180B6F4C0249B8874A /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE764BE3930D13E2197A9B22226663 /* LayoutConstraint.swift */; };
 		C05FC6699632FE712174ED875A605410 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B49842F36C4DF5E9F617696A1097A /* ViewController+MASAdditions.m */; };
 		C0BA445572EAA6668C82D1EB75D833DE /* GKNavigationBarViewController-framework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C93E1BED786FDE90F90954284AA2BF7F /* GKNavigationBarViewController-framework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -293,26 +307,26 @@
 		C138A5FAFF3F74F506789CF36FE34784 /* JXCategoryTitleImageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95021E909A5D612097384BCBE03DF484 /* JXCategoryTitleImageCellModel.m */; };
 		C1787200A06936BED59F7708C4B4D660 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DACC5A956D9484F47CDA3706DACFA37 /* MJRefreshBackNormalFooter.m */; };
 		C1C2B61E08DAD3B59BA5D82964D39C3C /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57EA558BB519CCE11C2E3F8594D341 /* ConstraintRelation.swift */; };
-		C2140828EA08791A97208C10F9C63F26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		C2140828EA08791A97208C10F9C63F26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
 		C34798362B04BA998D1B83C9D2B5D2A7 /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 896A0E4C11D85E24EDBF1B0F089F70A6 /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C375B57687BC076945E0382B64DAEBC8 /* JXSegmentedIndicatorTriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875C35FC41E89A478E70C29F977BFDB6 /* JXSegmentedIndicatorTriangleView.swift */; };
 		C391751E8D303C86E3030DF431EEE37D /* GKDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABFB8DC7AFFF2119F9164813889B70B /* GKDelegateHandler.m */; };
 		C5642F169D332879327C20D87E577E25 /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4685DF1C44D3D80B53B77476CAFDDA /* VTMenuBar.m */; };
 		C59C845FF1F8EA38D2A34A40F04E9275 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAE9645C37CE7CDA41BF5883FC48115 /* MJRefreshAutoGifFooter.m */; };
 		C5B364BEFDDE9FA28F45D567E06D6AC8 /* JXCategoryTitleImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = E15FACAB679C50ACF3925A74554DC290 /* JXCategoryTitleImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C638DFA31D76E60F59581DD7B1412DEE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		C638DFA31D76E60F59581DD7B1412DEE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
 		C74D2E856ADC8139CD00DBD184061B23 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C735050E03F33A0A21BF9DDCF44900 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C7920681F0164686C56327ED3C6AAC58 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CABA77E9007061DDE46DCAFA858FD0E /* View+MASAdditions.m */; };
 		C7A2470A74517D573538D567E9FCCE4F /* JXCategoryIndicatorLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = D6E19ACAFAA88965279FF3848705D512 /* JXCategoryIndicatorLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C7F991A087DFAE24E5BBFC182F847F2D /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FE0DE801669910A2074799BEBDA3C5 /* MJRefreshFooter.m */; };
 		C8669D1705130F76554C7AB30B3723FE /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 407EDBDB371409D51570F532EE3A7529 /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C95A078DCE9C27CCBBE87E8D1B03E882 /* UIViewController+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BEF6FC1A07CE9E87544F3F75D7E2865 /* UIViewController+GKCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C99006DFE8EB4C1C29E533320FED056E /* WMMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = A29294866672C98498EE17D2F25A5EA7 /* WMMenuView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C9DE12830EDCFF6C96454ACA768634A5 /* UIViewController+GKRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = B28E5576BA9C4B9AE9F6D591A8F1017D /* UIViewController+GKRotation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CA0FAE669FAB7067D09F7007AD838E19 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542514DE320C6107FAF75E2BACA6785 /* ConstraintItem.swift */; };
 		CABB0212319AA1A28AE004F3E325CC1F /* JXSegmentedIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD70FB1E01550C1BAED609D3260E63D /* JXSegmentedIndicatorProtocol.swift */; };
 		CC006B0B11D0C4B16E5533D7015930BE /* JXCategoryViewAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E5766CD42CB0BE3DA297B0A58652915 /* JXCategoryViewAnimator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CC481B7568A06B228E44D0AF32E2492E /* JXCategoryTitleVerticalZoomCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C0CA2E4FD8968A96A5280A0B1AFBD8B /* JXCategoryTitleVerticalZoomCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		CC80C02491577A141ECDAB26AB499692 /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B64B9D18CF55947CD2F6BFE76876A4C /* WMScrollView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CD118F7EA1315F6EB6BB189D089A7ABC /* UINavigationController+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D14A8AB170C84D751C572CB0EDC1E1D /* UINavigationController+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD3E814E2A67CA7809F7D07E7CAB8377 /* GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 306B60709A6418F09DC2E4ED048820A3 /* GKNavigationBar.m */; };
 		CDC1EA228D1BBA8E95CBE53641E7076D /* UIScrollView+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DF19AC8581235518B6FCDB53AA0E590 /* UIScrollView+VTMagic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -321,6 +335,7 @@
 		CF47FE5F3BADE0B6466F0558025E10EB /* UIScrollView+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB38D213A24388B0E8AA894E182FB38 /* UIScrollView+GKCategory.m */; };
 		D044639C2FF79FB1674239DE1FB457CF /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FE0DE801669910A2074799BEBDA3C5 /* MJRefreshFooter.m */; };
 		D12102ABEBE963634E9EDA0FA666C601 /* UIViewController+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BEF6FC1A07CE9E87544F3F75D7E2865 /* UIViewController+GKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D22BF4AA3E4F5114D63834E347F4B632 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79521F9783E45BFF3F2A9E773DD16D33 /* UIViewController+WMPageController.m */; };
 		D25422182AF626B9F1DAD526918C3584 /* GKNavigationBarViewController-library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28086618D2178C85F36BC034D2C205 /* GKNavigationBarViewController-library-dummy.m */; };
 		D28294604CE61C9B455EE20A024215E9 /* JXCategoryDotCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D57B16A7A4464C8297284548636028D /* JXCategoryDotCellModel.m */; };
 		D2884180D365F5E4BC7B7465B86906E2 /* UIViewController+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = F690B65083E8FFC2C790A2A0B208382C /* UIViewController+VTMagic.m */; };
@@ -329,7 +344,6 @@
 		D3722E6487785AAF88794430CE75EC29 /* GKPushTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A16526EF42C808834C80557F24CB616 /* GKPushTransitionAnimation.m */; };
 		D4107C2499EBD3C1F7FAA7C149D97446 /* MJRefreshBackFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = D89A3AFBE45AAE0A40A1550AB2390231 /* MJRefreshBackFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D440C891C274600E184EE977DE4BE22D /* JXCategoryBaseCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 867B6C40C635C858CFAEC0223BA83DFB /* JXCategoryBaseCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D4D0E707C87EBF060DB3DCFB0F090235 /* Pods-GKPageScrollViewSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C84E0FF3D9882F3D38DA12A2376B37FB /* Pods-GKPageScrollViewSwift-dummy.m */; };
 		D5327F973DF8F361338F9F6999D782CB /* JXCategoryIndicatorRainbowLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = E62E2D46EDF9F190C2A0B86DEC901CC5 /* JXCategoryIndicatorRainbowLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D69459F53D869F13D822234CFC34E931 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F6B1A09EEDE570161A9BB94061B4B /* MJRefreshStateHeader.m */; };
 		D6C23B62C9DA7836E6EC44D100B62074 /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 45A576FB0BFEE8FA7700CF8C0AE9EBAE /* MJRefreshAutoFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -352,12 +366,12 @@
 		DC4B0C282CEA13C6F242D3554EC91764 /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E686A84738494D69643FFA75727891F /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCAC5C40D7804F2D23F4B35352F636C9 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC61EBEC87B3FE78280F5972D2DB122 /* MJRefreshAutoFooter.m */; };
 		DCCEFF1B52226DE5ABB2D0043442FE61 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C0D990B0123E315FC13D12F9689682 /* Constraint.swift */; };
-		DCE1E129DCB14E7BDDF54EFA60D2C158 /* WMProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 914A3D040E4D98FDB8AA75ABF9286791 /* WMProgressView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DE1B0CF73833A39B01414ED0481994ED /* JXCategoryIndicatorParamsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C77E5E5E6604673161E2AC434B12E151 /* JXCategoryIndicatorParamsModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DE56FF4C1565E34568BBE2D30B300567 /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 991EAD4E48D3FCD788157E155AC0C756 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DEA5F24EF2079C611CF5AD8CF1DECE35 /* JXSegmentedNumberItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1C93AE1CC8DD900D944DD1F6C2D9DA /* JXSegmentedNumberItemModel.swift */; };
 		DEC3E541DB551729EC407FA6566CEE54 /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACF51855886C7C9547F8D1C04B4FBC7 /* ConstraintViewDSL.swift */; };
 		E0CA7E7C28BE45EE8A360A9B4D3F7F1B /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E89492637939AB6726C8F5B74B2F8 /* MJRefreshNormalHeader.m */; };
+		E1EA76C5D0968C86E50AB630B726D1C5 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E717C68E8E1F9407E1119F80294C3576 /* WMProgressView.m */; };
 		E257EBFC689004C0731452E5384C2647 /* JXSegmentedTitleGradientItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CE76193178544E6BE78C1235FE3FAC /* JXSegmentedTitleGradientItemModel.swift */; };
 		E3BA0FCE7A471C850CBA8349FF3D309C /* UIColor+JXAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CCCA2CC8DAA8C32EE56047E8B636700 /* UIColor+JXAdd.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E3BA7ABA03EF2970D7A155A7A0FE1BC2 /* UIViewController+GKRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = B28E5576BA9C4B9AE9F6D591A8F1017D /* UIViewController+GKRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -371,27 +385,30 @@
 		EB39FC5DFD479A1B1F420565E2FCE2CA /* JXSegmentedViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4960B13776F3E6F64376D7B1120517E5 /* JXSegmentedViewTool.swift */; };
 		EB663E3E1EB4BB670DC29B77DB330135 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 822590987AB90D8CE82E17988DC8B80B /* MASConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EBA799B817ABA1117D4CABE1B06047DB /* JXCategoryIndicatorBallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73198DFA24A1D350797103595653B843 /* JXCategoryIndicatorBallView.m */; };
-		EBACD003A0E828129018AABABC3B9448 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		EBACD003A0E828129018AABABC3B9448 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
 		EBC14BEF8B3D0084F0B6ECE37F8B250D /* JXCategoryTitleVerticalZoomCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C8B15D81888A1148D55E75708C1C47 /* JXCategoryTitleVerticalZoomCellModel.m */; };
+		EBCAD76B2AD78E072E139B0EDADC3D19 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826254301BC88BF42317FEAB1A93C64 /* WMScrollView.m */; };
 		ED1E18C429E28D11A9754C76B93195E6 /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 268A1D95DC6FFDF7271F212F472C85BA /* NSBundle+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED4296A6F60C7317DA4F9C3E89AE6F17 /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDDA520055F697209B1DFC4EA13D3AE /* VTMagicView.m */; };
 		EE6FA6C79353FA315753304FAD69CA5D /* JXSegmentedTitleGradientDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A066924BE0015CA4CF4887AD2256C6F /* JXSegmentedTitleGradientDataSource.swift */; };
 		EE936A6838005A5ED1BC5F74BE37B7BD /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 003F828526B8E8C84909F7A53C7A5D77 /* MASConstraint.m */; };
 		EFB139B900FE4141AC0DFD79C9E8E825 /* JXSegmentedDotDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C59A9BA975072C48843199677D914B /* JXSegmentedDotDataSource.swift */; };
 		F025D10681CF420B7955DF87CE5B285C /* UINavigationItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = DC02AA117BBFE51E5D2F93783590D4F8 /* UINavigationItem+GKCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F1B1D3E03573AD0CDB88C11DBF6288B1 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD38B99E18E52D5A993501AA70A702C /* WMPageController.m */; };
 		F1B75048874B8773E5568E6D3ACA12E4 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 24254A412EF72B9638B2CB06BFFEACF1 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F2AB60CE8CE540735CA7811509B4710E /* JXCategoryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BA90627D6ECBA65557411E4A934091 /* JXCategoryTitleView.m */; };
-		F3D494F9393E6C6566812F81F3FE9CA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		F3F047AF39237F1AC6C712BDBCA2D85C /* WMProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 512280468FF0C5024B55318EC8DA58A2 /* WMProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F41CA723E31884664B9C032D90EAEF1A /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6415A6797D4ED7383550E910D3AEBC4E /* ConstraintInsetTarget.swift */; };
 		F492D58DD4EEF61A111BDE9CD9A9A036 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3621498E82D6F48F467C9DC64C7F84CD /* MJRefreshAutoNormalFooter.m */; };
 		F4EB98F96441AB5E41CB490FCD4873F3 /* JXCategoryIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9673AD809D02F4458A02C6F54E7E6E96 /* JXCategoryIndicatorView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F55A806F0EF6CAE4844E679E1342F2FA /* VTEnumType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C02EDC65B4D7061A7312C95A7D05CAB /* VTEnumType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6A6D6CE8492169751AE826E2F92E248 /* GKDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABFB8DC7AFFF2119F9164813889B70B /* GKDelegateHandler.m */; };
 		F6C7F81AA5BBC4042A3A78D5EA8E62A4 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C99D7E0923386E7090841125ED9AA /* ConstraintLayoutSupportDSL.swift */; };
-		F75F7BBE2B00ECC4D36D898861600E82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		F75F7BBE2B00ECC4D36D898861600E82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
 		F813D84E5D208A32E0B8121F7D225842 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 14F2787F2B3C1D5AACD8E0EDED1DECDC /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9844817DA996253BDA7004E9E0717B1 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B47C3B0C110CD6259B9C24928BCD7 /* MJRefreshBackStateFooter.m */; };
 		F9CE6F25EF8533DD6238566E52F21B4E /* GKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CE1792A26CA2CA9D0348C03609D6472 /* GKCommon.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F9DC49C86179B872691E1D445E990E8D /* WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9731A065CC148DC51A5A489A257FB7 /* WMPageController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FA7D9540635BE2CE5B313A07B6F6FE94 /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 45A576FB0BFEE8FA7700CF8C0AE9EBAE /* MJRefreshAutoFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FAFA9FE806A0ADE1A2041671B173CCDA /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDDA520055F697209B1DFC4EA13D3AE /* VTMagicView.m */; };
 		FB9C5F7E5B573BCC9E341D720381FF90 /* VTMagicMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B0FEA55CEE8910293374CF58B5CF1676 /* VTMagicMacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -409,88 +426,97 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0033FB327E42342B38E8A84A894A62D6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F416AC8F0D62165F413AB85939EB0CA2;
-			remoteInfo = "GKNavigationBarViewController-library";
-		};
-		0DA9007FA6B6CE89072073BD28739557 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5F0DD7F63EAD7CD8C9B1EF5399FF4A2D;
-			remoteInfo = "MJRefresh-framework";
-		};
-		1CD4C3F29A08A19488DC934CC53EB83F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 61A3503BEDF7C001CA7654D5485C4E63;
-			remoteInfo = "MJRefresh-library";
-		};
-		44C354FD354C2C76C64B1A9190A20F6B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 55AF53E6C77A10ED4985E04D74A8878E;
-			remoteInfo = Masonry;
-		};
-		4DD6C9F5CEB446F684E3BCCA7D4CAD1E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8BEAFAA726C1965864B79B4B441AA513;
-			remoteInfo = JXCategoryView;
-		};
-		68BBA69B18EAEC138290DA3A73452614 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E863A9A96F52A35F47491E7B41ECEF9A;
-			remoteInfo = JXSegmentedView;
-		};
-		71E75CA6EDC8D672C2693C8C32F9DACA /* PBXContainerItemProxy */ = {
+		0E79F8A1B4A63954DE18FB05C9342D48 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F303E1FE6E4E36AABF9E505B5A5EE2A7;
 			remoteInfo = "GKNavigationBarViewController-framework";
 		};
-		983C1032526D96AF1194C50897307F0C /* PBXContainerItemProxy */ = {
+		19448A0BBC7EF0F9359B950BEB38569A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
-			remoteInfo = SnapKit;
+			remoteGlobalIDString = 55AF53E6C77A10ED4985E04D74A8878E;
+			remoteInfo = Masonry;
 		};
-		A604C0FD88E700CAFE0864D55A57AAE6 /* PBXContainerItemProxy */ = {
+		6DFBACCCD1D4CA9C0D515F891F9FCF68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61A3503BEDF7C001CA7654D5485C4E63;
+			remoteInfo = "MJRefresh-library";
+		};
+		873FCBC1816A779DACCBDD66628EF6B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8D6FFB9FFC5A595FB2C4DC112C8F5981;
 			remoteInfo = "VTMagic-library";
 		};
-		B63A0F1AD9F211F973A0F816F4C54846 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 08883C0649C4BF01A927DCFD71B79C92;
-			remoteInfo = WMPageController;
-		};
-		E54E7179EB03B6CF517A2330CEBC991E /* PBXContainerItemProxy */ = {
+		8E44D1DA726319F7E73CAC27F3BDC18F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5588360FF43B8281CA7E3F2325A23292;
 			remoteInfo = "VTMagic-framework";
 		};
+		C24DF3FCEBBA6BC0705E89E8A5BA814C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E863A9A96F52A35F47491E7B41ECEF9A;
+			remoteInfo = JXSegmentedView;
+		};
+		C2F2C3CA3D44E82C0F549372945289D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
+			remoteInfo = SnapKit;
+		};
+		D7E1CB69D548A89929750A23E7101699 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 655EF5CFBAD96F453A34298DA599B451;
+			remoteInfo = "WMPageController-framework";
+		};
+		DAB0EA8192BB024B2A016C1F025A22AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F0DD7F63EAD7CD8C9B1EF5399FF4A2D;
+			remoteInfo = "MJRefresh-framework";
+		};
+		EE7D8E0C533E78EC8141B2EE856DF64F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BEAFAA726C1965864B79B4B441AA513;
+			remoteInfo = JXCategoryView;
+		};
+		F5FDDB49178257BAD83709FD71E508BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F416AC8F0D62165F413AB85939EB0CA2;
+			remoteInfo = "GKNavigationBarViewController-library";
+		};
+		FB754C106864A3EEC3EF9AEE98B2B05D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 361390C6DB5DA1436844D8393ABE85CB;
+			remoteInfo = "WMPageController-library";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		003F828526B8E8C84909F7A53C7A5D77 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
+		0090791BD4089BDB49FD51E655BA3F4F /* WMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMScrollView.h; path = WMPageController/WMMenuView/WMScrollView.h; sourceTree = "<group>"; };
 		009520EE0919C1A8452AC97EA505CCEF /* Pods-GKPageScrollViewSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GKPageScrollViewSwift.release.xcconfig"; sourceTree = "<group>"; };
+		01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		0236B900FFAF2AC5CBF847DC75E1B07E /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		0257B40720EF99B1CD0EFB00C09106BC /* JXCategoryTitleVerticalZoomCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleVerticalZoomCell.m; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomCell.m; sourceTree = "<group>"; };
 		028B44DBF2A21B9D4C20EE77B47650B5 /* Pods-GKPageScrollViewSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GKPageScrollViewSwift-Info.plist"; sourceTree = "<group>"; };
@@ -505,12 +531,12 @@
 		0A3B47C3B0C110CD6259B9C24928BCD7 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
 		0AB28D2CAE3CBB8F03F4CE5EC9F557D9 /* JXSegmentedIndicatorLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorLineView.swift; path = Sources/Indicator/JXSegmentedIndicatorLineView.swift; sourceTree = "<group>"; };
 		0BB6259BA3FF230DE5A0A4004DDE55B9 /* JXSegmentedCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedCollectionView.swift; path = Sources/Core/JXSegmentedCollectionView.swift; sourceTree = "<group>"; };
-		0BD0A5987AA3CC53219E74B345CE11EA /* WMMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuItem.h; path = WMPageController/WMMenuView/WMMenuItem.h; sourceTree = "<group>"; };
 		0C1F6A1105DD7C9C309BABCBBC113BAE /* JXCategoryIndicatorImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorImageView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorImageView.m; sourceTree = "<group>"; };
 		0E1C93AE1CC8DD900D944DD1F6C2D9DA /* JXSegmentedNumberItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedNumberItemModel.swift; path = Sources/Number/JXSegmentedNumberItemModel.swift; sourceTree = "<group>"; };
 		0E391840A35D3D95125948A95F556DB3 /* JXCategoryNumberCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryNumberCell.h; path = Sources/Number/JXCategoryNumberCell.h; sourceTree = "<group>"; };
 		0E5B6631672B3465A8F1552F482AD73F /* GKNavigationBarViewController-library-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GKNavigationBarViewController-library-prefix.pch"; path = "../GKNavigationBarViewController-library/GKNavigationBarViewController-library-prefix.pch"; sourceTree = "<group>"; };
 		0E893BBB87F5ED99A569CAC8FA2098A9 /* JXCategoryDotCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryDotCell.m; path = Sources/Dot/JXCategoryDotCell.m; sourceTree = "<group>"; };
+		0EF737ABA5D91426BC96DE5A6E1FE27D /* WMMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuItem.h; path = WMPageController/WMMenuView/WMMenuItem.h; sourceTree = "<group>"; };
 		126C44888CB53AAE1521021A969D667C /* JXCategoryImageCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryImageCellModel.h; path = Sources/Image/JXCategoryImageCellModel.h; sourceTree = "<group>"; };
 		13D990B8ABBFDD931D4229C97F2E5D0F /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
 		14F2787F2B3C1D5AACD8E0EDED1DECDC /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
@@ -537,8 +563,8 @@
 		26A549BB4CA1F88A6FAAD9F5A0ADED05 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
 		270CF85783FD71378A7E44E887D2B75E /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		275B198E203AE34AA8E69F521B886736 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
+		276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		27DEEA84401002D9D32578452A357C25 /* VTMagic-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VTMagic-framework-umbrella.h"; sourceTree = "<group>"; };
-		2835448E78ABC35F6E2B812BAEEF015C /* WMMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuItem.m; path = WMPageController/WMMenuView/WMMenuItem.m; sourceTree = "<group>"; };
 		29362246B5D4CF864A1614C1B849F498 /* Pods_GKPageScrollViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKPageScrollViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1E00704B907EBAFA014F756FB1BBEE /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
 		2D8E0CC2866260858F14599477D1AE54 /* JXCategoryIndicatorComponentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorComponentView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorComponentView.m; sourceTree = "<group>"; };
@@ -546,24 +572,25 @@
 		2DD7CB5F850757566660796F8CC1D65B /* MJRefreshConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConfig.h; path = MJRefresh/MJRefreshConfig.h; sourceTree = "<group>"; };
 		301075798012E66D6B5DF828BA9864A2 /* JXSegmentedView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JXSegmentedView-dummy.m"; sourceTree = "<group>"; };
 		306B60709A6418F09DC2E4ED048820A3 /* GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBar.m; path = GKNavigationBarViewController/GKNavigationBar.m; sourceTree = "<group>"; };
-		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		31553D112DA6835173EF4961E32BFD91 /* JXSegmentedNumberCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedNumberCell.swift; path = Sources/Number/JXSegmentedNumberCell.swift; sourceTree = "<group>"; };
 		329D73534163E0E4A45A8F835E52581C /* GKBaseTransitionAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKBaseTransitionAnimation.h; path = GKNavigationBarViewController/TransitionAnimation/GKBaseTransitionAnimation.h; sourceTree = "<group>"; };
 		334C99D7E0923386E7090841125ED9AA /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		3439D2D5C6912D77B6268143B16A1B47 /* JXCategoryIndicatorBallView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorBallView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorBallView.h; sourceTree = "<group>"; };
 		344E5BEC2E5480716AFC5F281638D701 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
+		3457031AF2C45EE173C05B60D1F8CBA0 /* WMPageController-library-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "WMPageController-library-dummy.m"; path = "../WMPageController-library/WMPageController-library-dummy.m"; sourceTree = "<group>"; };
 		3546E93D7DC828A9FF87C7159E2D4877 /* JXCategoryImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryImageView.m; path = Sources/Image/JXCategoryImageView.m; sourceTree = "<group>"; };
 		354722243CC8C6E5ACC74E42C6968E3F /* VTMagic-library-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "VTMagic-library-dummy.m"; path = "../VTMagic-library/VTMagic-library-dummy.m"; sourceTree = "<group>"; };
 		356411AACC67714FE812E65022C136BC /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		3621498E82D6F48F467C9DC64C7F84CD /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoNormalFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
 		36655088A2A2D98F607D451587145CBB /* JXSegmentedIndicatorRainbowLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorRainbowLineView.swift; path = Sources/Indicator/JXSegmentedIndicatorRainbowLineView.swift; sourceTree = "<group>"; };
 		37E5AD2ABE2875D2603C1A7A486D586B /* JXSegmentedTitleAttributeCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleAttributeCell.swift; path = Sources/AttributeTitle/JXSegmentedTitleAttributeCell.swift; sourceTree = "<group>"; };
+		3826254301BC88BF42317FEAB1A93C64 /* WMScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMScrollView.m; path = WMPageController/WMMenuView/WMScrollView.m; sourceTree = "<group>"; };
 		3A47288A1957F6C8A214872DE73CA0C1 /* VTMagic-framework-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VTMagic-framework-prefix.pch"; sourceTree = "<group>"; };
-		3A56F5B35226EBA2BFEF3EE298E0F55B /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+WMPageController.h"; path = "WMPageController/UIViewController+WMPageController.h"; sourceTree = "<group>"; };
 		3B8D79F47096B2ED2EDE63092F1DBE5D /* JXCategoryIndicatorComponentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorComponentView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorComponentView.h; sourceTree = "<group>"; };
 		3E686A84738494D69643FFA75727891F /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
 		3E74BF4E779E4FB11926D0D5CDE6C104 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
 		3E8F9D01DCC99DDF9EDF484EB6D15FFE /* JXCategoryIndicatorCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorCellModel.h; path = Sources/Indicator/JXCategoryIndicatorCellModel.h; sourceTree = "<group>"; };
+		3E9731A065CC148DC51A5A489A257FB7 /* WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMPageController.h; path = WMPageController/WMPageController.h; sourceTree = "<group>"; };
 		3EDCF6FCF5F1A59DCA33028BD0E87F1F /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 		3F5DA3271296DD5A8FF09724B4DBC27B /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F860411B63EB2E9FA2AD170614D7326 /* VTMagicView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMagicView.h; path = VTMagic/VTMagicView.h; sourceTree = "<group>"; };
@@ -576,16 +603,15 @@
 		41B4097680FA689B99F3582680C44A56 /* JXCategoryTitleCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleCell.m; path = Sources/Title/JXCategoryTitleCell.m; sourceTree = "<group>"; };
 		421085365BB281571FFF77EAD6D79CD0 /* GKPushTransitionAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPushTransitionAnimation.h; path = GKNavigationBarViewController/TransitionAnimation/GKPushTransitionAnimation.h; sourceTree = "<group>"; };
 		42460B9A4A52296398870C7BEEAAB287 /* JXCategoryTitleVerticalZoomCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleVerticalZoomCellModel.h; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomCellModel.h; sourceTree = "<group>"; };
+		429AB7A30CA406B5D0FF0A46563C53AD /* WMPageController-framework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WMPageController-framework-Info.plist"; sourceTree = "<group>"; };
 		430EB4AC191F26D74E6B3CA362A332A2 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		433EA7E9D41ED9D93D097A03CFE1EB80 /* JXSegmentedTitleAttributeDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleAttributeDataSource.swift; path = Sources/AttributeTitle/JXSegmentedTitleAttributeDataSource.swift; sourceTree = "<group>"; };
-		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		45A576FB0BFEE8FA7700CF8C0AE9EBAE /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		45C9C87AF43E24D98BF2ECFA94F3A6CB /* VTContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTContentView.h; path = VTMagic/VTContentView.h; sourceTree = "<group>"; };
 		45D4ED1452FB56389F31A48DBD25750F /* VTMagic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VTMagic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		460BAFDDC8CB6C378BC69AFC7657961A /* JXCategoryIndicatorDotLineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorDotLineView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorDotLineView.h; sourceTree = "<group>"; };
 		47968548A9BC9669F882B8DA249C8D60 /* Pods-GKPageScrollViewSwift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GKPageScrollViewSwift-acknowledgements.markdown"; sourceTree = "<group>"; };
 		47A9167A206BAB4AB7722BB03A96E18E /* JXCategoryTitleCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleCellModel.h; path = Sources/Title/JXCategoryTitleCellModel.h; sourceTree = "<group>"; };
-		48971B76841295F70A60E3EE536205D4 /* WMScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMScrollView.m; path = WMPageController/WMMenuView/WMScrollView.m; sourceTree = "<group>"; };
 		4960B13776F3E6F64376D7B1120517E5 /* JXSegmentedViewTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedViewTool.swift; path = Sources/Common/JXSegmentedViewTool.swift; sourceTree = "<group>"; };
 		4AD9C1FA4BC6D70B629836CD8AB3BBB5 /* JXSegmentedComponetGradientView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedComponetGradientView.swift; path = Sources/Indicator/JXSegmentedComponetGradientView.swift; sourceTree = "<group>"; };
 		4AE8F448A65F0A5D3B1C163BDBACA18F /* JXCategoryTitleCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleCell.h; path = Sources/Title/JXCategoryTitleCell.h; sourceTree = "<group>"; };
@@ -593,6 +619,8 @@
 		4DE26F988CC59F4039017EFEFB852F5E /* Pods-GKPageScrollViewObjc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GKPageScrollViewObjc-dummy.m"; sourceTree = "<group>"; };
 		4E5766CD42CB0BE3DA297B0A58652915 /* JXCategoryViewAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryViewAnimator.h; path = Sources/Common/JXCategoryViewAnimator.h; sourceTree = "<group>"; };
 		4F4BBF32E76F86FDA04459B8DE27C53F /* JXSegmentedTitleAttributeItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleAttributeItemModel.swift; path = Sources/AttributeTitle/JXSegmentedTitleAttributeItemModel.swift; sourceTree = "<group>"; };
+		4FDBEDF152D623FBF18E7A218A858D93 /* WMPageController-framework.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "WMPageController-framework.xcconfig"; sourceTree = "<group>"; };
+		512280468FF0C5024B55318EC8DA58A2 /* WMProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMProgressView.h; path = WMPageController/WMMenuView/WMProgressView.h; sourceTree = "<group>"; };
 		519074A0D48836FB4CDB0222037D14AF /* JXCategoryIndicatorTriangleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorTriangleView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorTriangleView.h; sourceTree = "<group>"; };
 		52D488783C5ECE924BC2FAD82D3B3EB8 /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
 		54B2E34AD4AB64439FEB1FE0DCB2F089 /* UIBarButtonItem+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+GKCategory.h"; path = "GKNavigationBarViewController/Category/UIBarButtonItem+GKCategory.h"; sourceTree = "<group>"; };
@@ -619,7 +647,6 @@
 		630F565B0D8161FDB2DED95A443BD22C /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
 		6415A6797D4ED7383550E910D3AEBC4E /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Source/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
 		651C819DB0C7B2B4830F124F251CF885 /* JXCategoryFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryFactory.h; path = Sources/Common/JXCategoryFactory.h; sourceTree = "<group>"; };
-		6716E93938E9DC8EC6FA88D37DD02D26 /* WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMPageController.h; path = WMPageController/WMPageController.h; sourceTree = "<group>"; };
 		6746640BE5E08C535F9581C8809AED48 /* GKNavigationBarViewController-framework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GKNavigationBarViewController-framework-Info.plist"; sourceTree = "<group>"; };
 		68452D2C04C61314A78554723FDF2B16 /* GKNavigationBarViewController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GKNavigationBarViewController.bundle; path = GKNavigationBarViewController/GKNavigationBarViewController.bundle; sourceTree = "<group>"; };
 		6A16526EF42C808834C80557F24CB616 /* GKPushTransitionAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPushTransitionAnimation.m; path = GKNavigationBarViewController/TransitionAnimation/GKPushTransitionAnimation.m; sourceTree = "<group>"; };
@@ -643,13 +670,12 @@
 		751FD8A1BBC4A1D54B180E4C8F725B9C /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		78026D7D4760E1482F514986B494D44D /* JXCategoryTitleImageCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleImageCell.h; path = Sources/TitleImage/JXCategoryTitleImageCell.h; sourceTree = "<group>"; };
 		780EBD3ED636301C8A86B875DEE21D9E /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
+		79521F9783E45BFF3F2A9E773DD16D33 /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+WMPageController.m"; path = "WMPageController/UIViewController+WMPageController.m"; sourceTree = "<group>"; };
 		79FE0DE801669910A2074799BEBDA3C5 /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
 		7A066924BE0015CA4CF4887AD2256C6F /* JXSegmentedTitleGradientDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleGradientDataSource.swift; path = Sources/TitleGradient/JXSegmentedTitleGradientDataSource.swift; sourceTree = "<group>"; };
-		7B64B9D18CF55947CD2F6BFE76876A4C /* WMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMScrollView.h; path = WMPageController/WMMenuView/WMScrollView.h; sourceTree = "<group>"; };
 		7C68F6F0069332A6994BC0CE8DCA67AC /* JXSegmentedDotCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedDotCell.swift; path = Sources/Dot/JXSegmentedDotCell.swift; sourceTree = "<group>"; };
 		7C747ED8DCFF54B9B6A638C51FC72960 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		7CC2BBA8E9BBA05E53BCDB33576A151E /* Pods-GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GKPageScrollViewSwift.debug.xcconfig"; sourceTree = "<group>"; };
-		7CC6E45DDBA3BD306913D7F5E6893F33 /* WMPageController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-prefix.pch"; sourceTree = "<group>"; };
 		7CCCA2CC8DAA8C32EE56047E8B636700 /* UIColor+JXAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+JXAdd.h"; path = "Sources/Common/UIColor+JXAdd.h"; sourceTree = "<group>"; };
 		7D1809B0DC3AB5E559A131F4A8D01B25 /* JXSegmentedIndicatorDotLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorDotLineView.swift; path = Sources/Indicator/JXSegmentedIndicatorDotLineView.swift; sourceTree = "<group>"; };
 		7DB8EF809599EF84DB16BBCF0B0F04AE /* JXSegmentedTitleDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleDataSource.swift; path = Sources/Title/JXSegmentedTitleDataSource.swift; sourceTree = "<group>"; };
@@ -674,6 +700,7 @@
 		896A0E4C11D85E24EDBF1B0F089F70A6 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		8B0723B9C3D98438CBEE63D6DE57B7F0 /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
 		8B4D17BB7C199D7F8FB78F2554D841BE /* JXCategoryIndicatorTriangleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorTriangleView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorTriangleView.m; sourceTree = "<group>"; };
+		8B6E6E0B8EB882942E4284C6C54F832C /* WMPageController-library-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WMPageController-library-prefix.pch"; path = "../WMPageController-library/WMPageController-library-prefix.pch"; sourceTree = "<group>"; };
 		8CABA77E9007061DDE46DCAFA858FD0E /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
 		8D0671F1B47D296C4167B29CD849A6E5 /* GKNavigationBarConfigure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarConfigure.m; path = GKNavigationBarViewController/GKNavigationBarConfigure.m; sourceTree = "<group>"; };
 		8D9E9F22E6E64EBA475DBAC9B25BACA6 /* JXSegmentedTitleCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleCell.swift; path = Sources/Title/JXSegmentedTitleCell.swift; sourceTree = "<group>"; };
@@ -683,18 +710,16 @@
 		8F273FBF4CFC6E3E6F125D8D2FC94604 /* JXCategoryView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryView.h; path = Sources/JXCategoryView.h; sourceTree = "<group>"; };
 		9078C40DD027959B3BE49153EC69083D /* JXCategoryView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JXCategoryView-dummy.m"; sourceTree = "<group>"; };
 		91291D776D9C350AC8F770BA3D15DB9E /* JXSegmentedView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXSegmentedView-prefix.pch"; sourceTree = "<group>"; };
-		914A3D040E4D98FDB8AA75ABF9286791 /* WMProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMProgressView.h; path = WMPageController/WMMenuView/WMProgressView.h; sourceTree = "<group>"; };
 		9216D00F49EFDBFA7C444CC24674552B /* JXCategoryTitleImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleImageView.m; path = Sources/TitleImage/JXCategoryTitleImageView.m; sourceTree = "<group>"; };
 		925A96F1684AEC00B09090B93EC63611 /* JXCategoryNumberCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryNumberCell.m; path = Sources/Number/JXCategoryNumberCell.m; sourceTree = "<group>"; };
-		92EAE5088D7C915AEDED6F51A78D5B0F /* WMProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMProgressView.m; path = WMPageController/WMMenuView/WMProgressView.m; sourceTree = "<group>"; };
 		92ECB492B8B858E18B629253FD918D57 /* UIScrollView+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+GKCategory.h"; path = "GKNavigationBarViewController/Category/UIScrollView+GKCategory.h"; sourceTree = "<group>"; };
+		934E9F542E389E35233EAE3FD6AA0BE7 /* WMMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuView.m; path = WMPageController/WMMenuView/WMMenuView.m; sourceTree = "<group>"; };
 		938F268EDD175489715FC74F5ECCBB66 /* libPods-GKPageScrollViewObjc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GKPageScrollViewObjc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95021E909A5D612097384BCBE03DF484 /* JXCategoryTitleImageCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleImageCellModel.m; path = Sources/TitleImage/JXCategoryTitleImageCellModel.m; sourceTree = "<group>"; };
 		9534B60D6FF5E3270E520EC82E971033 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Source/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
 		95377A464110F9E5078E26A6593501F4 /* JXCategoryTitleVerticalZoomView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleVerticalZoomView.m; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomView.m; sourceTree = "<group>"; };
 		9562972F65EF83A0640659B3BC12CF6F /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		9673AD809D02F4458A02C6F54E7E6E96 /* JXCategoryIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorView.h; path = Sources/Indicator/JXCategoryIndicatorView.h; sourceTree = "<group>"; };
-		97735938BA4267BD9BBE21E49671B431 /* WMMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuView.m; path = WMPageController/WMMenuView/WMMenuView.m; sourceTree = "<group>"; };
 		97746BB9DA7A39C895E94506BFEA82E1 /* JXSegmentedDotItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedDotItemModel.swift; path = Sources/Dot/JXSegmentedDotItemModel.swift; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		984087356CC08CE5F6FF2B29FD920FA8 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -709,10 +734,13 @@
 		9D14A8AB170C84D751C572CB0EDC1E1D /* UINavigationController+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+GKCategory.h"; path = "GKNavigationBarViewController/Category/UINavigationController+GKCategory.h"; sourceTree = "<group>"; };
 		9D37EEC7AF5287E411D0E1F4744654DB /* VTMagic-library-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "VTMagic-library-prefix.pch"; path = "../VTMagic-library/VTMagic-library-prefix.pch"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DD38B99E18E52D5A993501AA70A702C /* WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMPageController.m; path = WMPageController/WMPageController.m; sourceTree = "<group>"; };
 		9DE70C5A45941AC719B1A1E15B8B3AD9 /* GKNavigationBarViewController-framework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKNavigationBarViewController-framework-dummy.m"; sourceTree = "<group>"; };
 		9E1E92B56E21304661ED5ED5B90388F6 /* JXSegmentedTitleOrImageDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleOrImageDataSource.swift; path = Sources/TitleOrImage/JXSegmentedTitleOrImageDataSource.swift; sourceTree = "<group>"; };
 		9E70929DFD70842AD58D6293EAB9A90C /* JXCategoryFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryFactory.m; path = Sources/Common/JXCategoryFactory.m; sourceTree = "<group>"; };
+		A10CF1E1D956975A023CE9BDFAA86134 /* WMMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMMenuItem.m; path = WMPageController/WMMenuView/WMMenuItem.m; sourceTree = "<group>"; };
 		A123254B5509F64E57E517B0E315A5D8 /* JXCategoryBaseCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryBaseCell.m; path = Sources/Base/JXCategoryBaseCell.m; sourceTree = "<group>"; };
+		A29294866672C98498EE17D2F25A5EA7 /* WMMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuView.h; path = WMPageController/WMMenuView/WMMenuView.h; sourceTree = "<group>"; };
 		A2A0751828A9CEB1078BC597E51A3212 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		A49F519BB23FD2AF7084D97993A40A0B /* JXCategoryIndicatorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorProtocol.h; path = Sources/Common/JXCategoryIndicatorProtocol.h; sourceTree = "<group>"; };
 		A52D414567CD04F0693ADB5642F326C9 /* MJRefresh-library-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MJRefresh-library-dummy.m"; path = "../MJRefresh-library/MJRefresh-library-dummy.m"; sourceTree = "<group>"; };
@@ -726,10 +754,12 @@
 		A89030817F128C0AD8B9D4CD26201BEF /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
 		A8CD4CEA6209C4125240FE4618DFAF04 /* VTMagic-framework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VTMagic-framework-dummy.m"; sourceTree = "<group>"; };
 		AA765FF735521F800CB7E80C00EF75D0 /* JXCategoryView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXCategoryView-prefix.pch"; sourceTree = "<group>"; };
+		AA9875960B2EEE66FD5DE0873206524D /* WMPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WMPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA908BC8BCE509866B4B96810E7E568 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
 		AB0BA1F2397A93EDBE79E65E326E2858 /* MJRefreshComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshComponent.m; path = MJRefresh/Base/MJRefreshComponent.m; sourceTree = "<group>"; };
 		ABAE9645C37CE7CDA41BF5883FC48115 /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoGifFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
 		AC339E944ECD04735D1FC8306865381C /* JXCategoryIndicatorLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorLineView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorLineView.m; sourceTree = "<group>"; };
+		AD2E1FCC386E7599D4072E20940292F6 /* WMPageController-framework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "WMPageController-framework.modulemap"; sourceTree = "<group>"; };
 		AD63250A1A5E13C4F09B117F0079A665 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Source/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
 		ADEEF5BACA2924B946F75AFBB3108444 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
 		AE0C0C0BD817526DFD717E88A4779E02 /* GKPopTransitionAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPopTransitionAnimation.h; path = GKNavigationBarViewController/TransitionAnimation/GKPopTransitionAnimation.h; sourceTree = "<group>"; };
@@ -737,7 +767,6 @@
 		B0E94E696980D542A0F2B4281C4A6CE3 /* GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKCategory.h; path = GKNavigationBarViewController/Category/GKCategory.h; sourceTree = "<group>"; };
 		B0FEA55CEE8910293374CF58B5CF1676 /* VTMagicMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMagicMacros.h; path = VTMagic/VTMagicMacros.h; sourceTree = "<group>"; };
 		B28E5576BA9C4B9AE9F6D591A8F1017D /* UIViewController+GKRotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+GKRotation.h"; path = "GKNavigationBarViewController/Category/UIViewController+GKRotation.h"; sourceTree = "<group>"; };
-		B2AD82D2DC8528FB5D069C8EA0590CA4 /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+WMPageController.m"; path = "WMPageController/UIViewController+WMPageController.m"; sourceTree = "<group>"; };
 		B34717E1877BBB4C52F51C123DAED24B /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
 		B349737FE2EB8730D5837C2B55EFCBC2 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		B480F1F427C68347260AD5199C835C54 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
@@ -750,13 +779,14 @@
 		B9C8B15D81888A1148D55E75708C1C47 /* JXCategoryTitleVerticalZoomCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleVerticalZoomCellModel.m; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomCellModel.m; sourceTree = "<group>"; };
 		BBFFD2B7F54160D07D34E7762CBBD83C /* JXSegmentedNumberDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedNumberDataSource.swift; path = Sources/Number/JXSegmentedNumberDataSource.swift; sourceTree = "<group>"; };
 		BC1F9F228B1EA9008A50055C3EFD19EC /* VTContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VTContentView.m; path = VTMagic/VTContentView.m; sourceTree = "<group>"; };
-		BC675C1A9CBD451B68184A2A9D11C7C5 /* WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMPageController.m; path = WMPageController/WMPageController.m; sourceTree = "<group>"; };
 		BCCAE64D58957C0810CC6459B54EF30B /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		BD9E5DB6ED6491B3D8B911FEAE7FBABA /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		BDA5A11EB88C2939DB5008C18691F7D0 /* WMPageController-framework-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-framework-prefix.pch"; sourceTree = "<group>"; };
 		BE11320CAB2B57A859C999A9D4B32886 /* VTMenuBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMenuBar.h; path = VTMagic/VTMenuBar.h; sourceTree = "<group>"; };
-		BE92ACEB402DB774CC1B4D07518C933B /* WMMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMMenuView.h; path = WMPageController/WMMenuView/WMMenuView.h; sourceTree = "<group>"; };
 		BEB97CCCF93FF62B24FFC5CAD7D590EF /* UIViewController+VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+VTMagic.h"; path = "VTMagic/UIViewController+VTMagic.h"; sourceTree = "<group>"; };
+		BF94B967F19C079923796E92B36A2529 /* WMPageController-framework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WMPageController-framework-dummy.m"; sourceTree = "<group>"; };
 		C0B490FB27A2567FABC36257E4E2BBD7 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
+		C1371706EF1879C0FFB94F54792DFA61 /* WMPageController-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-framework-umbrella.h"; sourceTree = "<group>"; };
 		C23F87CF278F6A25D5B3E971B32165DE /* Pods-GKPageScrollViewObjc-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GKPageScrollViewObjc-acknowledgements.plist"; sourceTree = "<group>"; };
 		C2495054CDE33F1FF00AC73CFAB5656E /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
 		C32E3FFC5AF0495CD8ED66BDB7C2EB96 /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
@@ -772,7 +802,6 @@
 		C859CF5AAFF906C6C988267052593055 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		C93B8F8D0AB95C39E2626522337355C4 /* GKPopTransitionAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPopTransitionAnimation.m; path = GKNavigationBarViewController/TransitionAnimation/GKPopTransitionAnimation.m; sourceTree = "<group>"; };
 		C93E1BED786FDE90F90954284AA2BF7F /* GKNavigationBarViewController-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKNavigationBarViewController-framework-umbrella.h"; sourceTree = "<group>"; };
-		C9550753249BC8B294740DAF559671AD /* WMPageController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WMPageController-dummy.m"; sourceTree = "<group>"; };
 		CA13C67DD84AD7E9BF825ED024D447F9 /* GKNavigationBarViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarViewController.m; path = GKNavigationBarViewController/GKNavigationBarViewController.m; sourceTree = "<group>"; };
 		CA2C40F1010242134A375E49E57FF169 /* UIScrollView+VTMagic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+VTMagic.m"; path = "VTMagic/UIScrollView+VTMagic.m"; sourceTree = "<group>"; };
 		CCB20397A1B1B084533AD67D6E4483BD /* MJRefresh-framework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "MJRefresh-framework.modulemap"; sourceTree = "<group>"; };
@@ -780,7 +809,6 @@
 		CF66D9E962533C73443F96F750713CAD /* UIColor+VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+VTMagic.h"; path = "VTMagic/UIColor+VTMagic.h"; sourceTree = "<group>"; };
 		CF7451947F4B98F9D19BF5F21A65E78C /* JXCategoryBaseView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryBaseView.m; path = Sources/Base/JXCategoryBaseView.m; sourceTree = "<group>"; };
 		D02FC9F47B6A5B2F4C47BEA1877846C5 /* JXSegmentedTitleImageCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleImageCell.swift; path = Sources/TitleImage/JXSegmentedTitleImageCell.swift; sourceTree = "<group>"; };
-		D0303F3E748FA10CADB614128420C032 /* WMPageController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WMPageController.xcconfig; sourceTree = "<group>"; };
 		D0C0D990B0123E315FC13D12F9689682 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
 		D1A715BC581AEC806EC2DE350F78F8B0 /* MJRefresh-framework-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-framework-prefix.pch"; sourceTree = "<group>"; };
 		D316C1B46872CCE902844D579C1003E8 /* JXCategoryIndicatorImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorImageView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorImageView.h; sourceTree = "<group>"; };
@@ -807,6 +835,7 @@
 		DC02AA117BBFE51E5D2F93783590D4F8 /* UINavigationItem+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationItem+GKCategory.h"; path = "GKNavigationBarViewController/Category/UINavigationItem+GKCategory.h"; sourceTree = "<group>"; };
 		DD34596FE7DA76BFCF9E7E31E4EBFF15 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
 		DDB99AD5F9488518ED244D6074AC1819 /* UIViewController+GKRotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GKRotation.m"; path = "GKNavigationBarViewController/Category/UIViewController+GKRotation.m"; sourceTree = "<group>"; };
+		DDE4926F0B3EFFD14D48335889B3B949 /* WMPageController-library.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "WMPageController-library.xcconfig"; path = "../WMPageController-library/WMPageController-library.xcconfig"; sourceTree = "<group>"; };
 		DE140247F1D285C6571BBCB55C0A4032 /* JXCategoryCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryCollectionView.h; path = Sources/Common/JXCategoryCollectionView.h; sourceTree = "<group>"; };
 		DFBD762BAEE746A7EB311E802CFE5D22 /* JXCategoryListContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryListContainerView.m; path = Sources/Common/JXCategoryListContainerView.m; sourceTree = "<group>"; };
 		E06F404672F756710485991F5FA096EC /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
@@ -816,6 +845,7 @@
 		E62E2D46EDF9F190C2A0B86DEC901CC5 /* JXCategoryIndicatorRainbowLineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorRainbowLineView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorRainbowLineView.h; sourceTree = "<group>"; };
 		E6C77A694940E5D207BE6895AF87A628 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		E6C9887BE0A6D42D771081C6C1E05AE7 /* JXCategoryTitleImageCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleImageCellModel.h; path = Sources/TitleImage/JXCategoryTitleImageCellModel.h; sourceTree = "<group>"; };
+		E717C68E8E1F9407E1119F80294C3576 /* WMProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMProgressView.m; path = WMPageController/WMMenuView/WMProgressView.m; sourceTree = "<group>"; };
 		E738600F634EB32DB6965F25012CC3AA /* VTMagic-framework.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "VTMagic-framework.xcconfig"; sourceTree = "<group>"; };
 		E77F4AFCC71480332CF76A1D150E9D9B /* Pods-GKPageScrollViewObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GKPageScrollViewObjc.debug.xcconfig"; sourceTree = "<group>"; };
 		E940CCAF7E70E8F60C7AFDB239B58F7A /* JXCategoryIndicatorDotLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorDotLineView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorDotLineView.m; sourceTree = "<group>"; };
@@ -834,17 +864,19 @@
 		F17FCC0B03BD8ECC786C474D14FBADFA /* JXSegmentedView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JXSegmentedView-Info.plist"; sourceTree = "<group>"; };
 		F2AE9AE9430C718A8A4EEA2EDA0D04B9 /* JXCategoryTitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleView.h; path = Sources/Title/JXCategoryTitleView.h; sourceTree = "<group>"; };
 		F307BEF951606B29E6992456A452D94E /* JXSegmentedIndicatorBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorBackgroundView.swift; path = Sources/Indicator/JXSegmentedIndicatorBackgroundView.swift; sourceTree = "<group>"; };
+		F36B5381795B3EB88364CFC1FA1F16BF /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+WMPageController.h"; path = "WMPageController/UIViewController+WMPageController.h"; sourceTree = "<group>"; };
 		F3A3CD9F0B1E93B08A21B062C44ADEA7 /* JXCategoryImageCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryImageCell.h; path = Sources/Image/JXCategoryImageCell.h; sourceTree = "<group>"; };
 		F4144C065944C2CC63906B5A073984F3 /* JXSegmentedTitleImageDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleImageDataSource.swift; path = Sources/TitleImage/JXSegmentedTitleImageDataSource.swift; sourceTree = "<group>"; };
 		F5114FE148F366B23EA3FC9C4BA4EF80 /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
 		F690B65083E8FFC2C790A2A0B208382C /* UIViewController+VTMagic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+VTMagic.m"; path = "VTMagic/UIViewController+VTMagic.m"; sourceTree = "<group>"; };
 		F773E3C03C55B2C22A75BF09F02D866D /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		F7EF22D278F8B6156A3C8EF237801BE2 /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
-		FB4DD2CD9E6286B9CB4B358E95FE3F6D /* libWMPageController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWMPageController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD70FB1E01550C1BAED609D3260E63D /* JXSegmentedIndicatorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorProtocol.swift; path = Sources/Indicator/JXSegmentedIndicatorProtocol.swift; sourceTree = "<group>"; };
 		FCAEDFFD0EA3A6D5FD12DC5ECF84EB12 /* JXCategoryIndicatorBackgroundView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorBackgroundView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorBackgroundView.h; sourceTree = "<group>"; };
+		FD38CD190844C73447144FEAD7764891 /* libWMPageController-library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libWMPageController-library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD44298B371DC162B1117DF75637488D /* JXCategoryDotCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryDotCellModel.h; path = Sources/Dot/JXCategoryDotCellModel.h; sourceTree = "<group>"; };
 		FD599F10A15B6D70E42D9E245879B87E /* JXCategoryNumberCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryNumberCellModel.h; path = Sources/Number/JXCategoryNumberCellModel.h; sourceTree = "<group>"; };
+		FD608BCCF279B1277BB911F33106997F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		FD6BA572641F57DDCB470AF3A81C8C7F /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		FDF0991EE7B8174868207389D2338B48 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
 		FDFC8FAE53EF8FE00B40D2D771CF2DB6 /* JXSegmentedBaseCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedBaseCell.swift; path = Sources/Core/JXSegmentedBaseCell.swift; sourceTree = "<group>"; };
@@ -868,6 +900,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0C4525D5487055060F589F4A9DA54377 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1F5F15A6FEB528D1D3FD224A5DCEB358 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -875,10 +914,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		40EB215396948D98D1DCFD395FEB40E3 /* Frameworks */ = {
+		3DD775C7CE8FB025A809A8BCF9F2FD8C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A486BE54D9046A6DCA0E1A0EB424B05B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58FC117C3E83F675249D28CED9FCCF6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C20E64BB739450DCF71E3E54E4B0D09 /* CoreGraphics.framework in Frameworks */,
+				7DD25BA293B2C448895B5BBEC2389B3C /* Foundation.framework in Frameworks */,
+				254C55799DD2491D0A257AECC458FEE0 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,22 +949,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78C52FF5AD7A42DCCB2D7A72E26A5483 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D519D1F9BD85E00A31C5AEC9D899002 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8106BE4228B17BDC8C59A8DC475D815B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F3D494F9393E6C6566812F81F3FE9CA8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8160B6BCCF756C641FC21026413D832E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -966,6 +1008,14 @@
 			path = VTMagic;
 			sourceTree = "<group>";
 		};
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABE8076CBFEE71A3B199C34F20F66745 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		116315B45E4BEEC8ABE154B70BF7FF15 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,14 +1028,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/JXSegmentedView";
-			sourceTree = "<group>";
-		};
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		276BA466C08ECBEDB17734F5563AA07A /* Pods-GKPageScrollViewObjc */ = {
@@ -1086,26 +1128,6 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		4AEF6D4DCFEEFD2CC067DCE4DB967FC1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				74C8D2D97FD26446C8962A6A577036F7 /* GKNavigationBarViewController.framework */,
-				07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */,
-				DAA3337F153A92E2C69DA3C07D85C6AB /* libGKNavigationBarViewController-library.a */,
-				C3A46B03C308EEEB11F2A62BA5D2E8BE /* libJXCategoryView.a */,
-				1FFED36A657123030ABB700256D73F15 /* libMasonry.a */,
-				9C7F166CC810DCBA0B98A55275DA6CF6 /* libMJRefresh-library.a */,
-				938F268EDD175489715FC74F5ECCBB66 /* libPods-GKPageScrollViewObjc.a */,
-				6FD64BC6FDEC3F706ACC23B8C60025E2 /* libVTMagic-library.a */,
-				FB4DD2CD9E6286B9CB4B358E95FE3F6D /* libWMPageController.a */,
-				3F5DA3271296DD5A8FF09724B4DBC27B /* MJRefresh.framework */,
-				29362246B5D4CF864A1614C1B849F498 /* Pods_GKPageScrollViewSwift.framework */,
-				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
-				45D4ED1452FB56389F31A48DBD25750F /* VTMagic.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4EF333B332C6B800F34199AA075DDD79 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -1194,6 +1216,44 @@
 				116315B45E4BEEC8ABE154B70BF7FF15 /* Support Files */,
 			);
 			path = JXSegmentedView;
+			sourceTree = "<group>";
+		};
+		67414858844BE1641F7B66D2935716A9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD2E1FCC386E7599D4072E20940292F6 /* WMPageController-framework.modulemap */,
+				4FDBEDF152D623FBF18E7A218A858D93 /* WMPageController-framework.xcconfig */,
+				BF94B967F19C079923796E92B36A2529 /* WMPageController-framework-dummy.m */,
+				429AB7A30CA406B5D0FF0A46563C53AD /* WMPageController-framework-Info.plist */,
+				BDA5A11EB88C2939DB5008C18691F7D0 /* WMPageController-framework-prefix.pch */,
+				C1371706EF1879C0FFB94F54792DFA61 /* WMPageController-framework-umbrella.h */,
+				DDE4926F0B3EFFD14D48335889B3B949 /* WMPageController-library.xcconfig */,
+				3457031AF2C45EE173C05B60D1F8CBA0 /* WMPageController-library-dummy.m */,
+				8B6E6E0B8EB882942E4284C6C54F832C /* WMPageController-library-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WMPageController-framework";
+			sourceTree = "<group>";
+		};
+		768FE00EC0F52D2C07BD8F2E0A7E2B88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74C8D2D97FD26446C8962A6A577036F7 /* GKNavigationBarViewController.framework */,
+				07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */,
+				DAA3337F153A92E2C69DA3C07D85C6AB /* libGKNavigationBarViewController-library.a */,
+				C3A46B03C308EEEB11F2A62BA5D2E8BE /* libJXCategoryView.a */,
+				1FFED36A657123030ABB700256D73F15 /* libMasonry.a */,
+				9C7F166CC810DCBA0B98A55275DA6CF6 /* libMJRefresh-library.a */,
+				938F268EDD175489715FC74F5ECCBB66 /* libPods-GKPageScrollViewObjc.a */,
+				6FD64BC6FDEC3F706ACC23B8C60025E2 /* libVTMagic-library.a */,
+				FD38CD190844C73447144FEAD7764891 /* libWMPageController-library.a */,
+				3F5DA3271296DD5A8FF09724B4DBC27B /* MJRefresh.framework */,
+				29362246B5D4CF864A1614C1B849F498 /* Pods_GKPageScrollViewSwift.framework */,
+				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
+				45D4ED1452FB56389F31A48DBD25750F /* VTMagic.framework */,
+				AA9875960B2EEE66FD5DE0873206524D /* WMPageController.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		84FE5A5107320D1F2695951CD29D1A7A /* Pods-GKPageScrollViewSwift */ = {
@@ -1300,17 +1360,6 @@
 			path = JXCategoryView;
 			sourceTree = "<group>";
 		};
-		96981AF1E3BF0B4F94D38E35983926B5 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D0303F3E748FA10CADB614128420C032 /* WMPageController.xcconfig */,
-				C9550753249BC8B294740DAF559671AD /* WMPageController-dummy.m */,
-				7CC6E45DDBA3BD306913D7F5E6893F33 /* WMPageController-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/WMPageController";
-			sourceTree = "<group>";
-		};
 		9FCFAD16F21D82E5570506E560220D6C /* SnapKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1363,9 +1412,19 @@
 				3312C80473770C9186FB040FD73AEC6F /* MJRefresh */,
 				9FCFAD16F21D82E5570506E560220D6C /* SnapKit */,
 				0054B183E660B0543CF3AAFFDAB00AC7 /* VTMagic */,
-				C043070665B0AAEC144DB06EA7C61945 /* WMPageController */,
+				BBD5F23E428FE933D4CEFC9F41646C2C /* WMPageController */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		ABE8076CBFEE71A3B199C34F20F66745 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */,
+				FD608BCCF279B1277BB911F33106997F /* Foundation.framework */,
+				01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		AFB6C589E6051C23F672919FB61EDC1C /* Support Files */ = {
@@ -1377,6 +1436,26 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/JXCategoryView";
+			sourceTree = "<group>";
+		};
+		BBD5F23E428FE933D4CEFC9F41646C2C /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				F36B5381795B3EB88364CFC1FA1F16BF /* UIViewController+WMPageController.h */,
+				79521F9783E45BFF3F2A9E773DD16D33 /* UIViewController+WMPageController.m */,
+				0EF737ABA5D91426BC96DE5A6E1FE27D /* WMMenuItem.h */,
+				A10CF1E1D956975A023CE9BDFAA86134 /* WMMenuItem.m */,
+				A29294866672C98498EE17D2F25A5EA7 /* WMMenuView.h */,
+				934E9F542E389E35233EAE3FD6AA0BE7 /* WMMenuView.m */,
+				3E9731A065CC148DC51A5A489A257FB7 /* WMPageController.h */,
+				9DD38B99E18E52D5A993501AA70A702C /* WMPageController.m */,
+				512280468FF0C5024B55318EC8DA58A2 /* WMProgressView.h */,
+				E717C68E8E1F9407E1119F80294C3576 /* WMProgressView.m */,
+				0090791BD4089BDB49FD51E655BA3F4F /* WMScrollView.h */,
+				3826254301BC88BF42317FEAB1A93C64 /* WMScrollView.m */,
+				67414858844BE1641F7B66D2935716A9 /* Support Files */,
+			);
+			path = WMPageController;
 			sourceTree = "<group>";
 		};
 		BDF2414173858CA34242CC1740DAD460 /* Support Files */ = {
@@ -1394,26 +1473,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MJRefresh-framework";
-			sourceTree = "<group>";
-		};
-		C043070665B0AAEC144DB06EA7C61945 /* WMPageController */ = {
-			isa = PBXGroup;
-			children = (
-				3A56F5B35226EBA2BFEF3EE298E0F55B /* UIViewController+WMPageController.h */,
-				B2AD82D2DC8528FB5D069C8EA0590CA4 /* UIViewController+WMPageController.m */,
-				0BD0A5987AA3CC53219E74B345CE11EA /* WMMenuItem.h */,
-				2835448E78ABC35F6E2B812BAEEF015C /* WMMenuItem.m */,
-				BE92ACEB402DB774CC1B4D07518C933B /* WMMenuView.h */,
-				97735938BA4267BD9BBE21E49671B431 /* WMMenuView.m */,
-				6716E93938E9DC8EC6FA88D37DD02D26 /* WMPageController.h */,
-				BC675C1A9CBD451B68184A2A9D11C7C5 /* WMPageController.m */,
-				914A3D040E4D98FDB8AA75ABF9286791 /* WMProgressView.h */,
-				92EAE5088D7C915AEDED6F51A78D5B0F /* WMProgressView.m */,
-				7B64B9D18CF55947CD2F6BFE76876A4C /* WMScrollView.h */,
-				48971B76841295F70A60E3EE536205D4 /* WMScrollView.m */,
-				96981AF1E3BF0B4F94D38E35983926B5 /* Support Files */,
-			);
-			path = WMPageController;
 			sourceTree = "<group>";
 		};
 		C3522CAD7EBFD84858D08615B348E801 /* Core */ = {
@@ -1483,20 +1542,11 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				A211456938C1CCB3653803002E0402A2 /* Pods */,
-				4AEF6D4DCFEEFD2CC067DCE4DB967FC1 /* Products */,
+				768FE00EC0F52D2C07BD8F2E0A7E2B88 /* Products */,
 				46E2EC59E94F58A64220FF855B546B50 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
-				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		E3B6B34C5CF4B85F998E7655A218C5F6 /* Support Files */ = {
@@ -1544,6 +1594,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		13D2F9653E5D36859B3EE3E1B4784281 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77D61D4061B366368331CB19CD98AE2 /* UIViewController+WMPageController.h in Headers */,
+				22A635BE37F24D172C32ECF5BC80C7FC /* WMMenuItem.h in Headers */,
+				C99006DFE8EB4C1C29E533320FED056E /* WMMenuView.h in Headers */,
+				F9DC49C86179B872691E1D445E990E8D /* WMPageController.h in Headers */,
+				AFEAE68C6AE74D56A9B98810DDC4B1FC /* WMProgressView.h in Headers */,
+				5278AF8E01155CA611036CB332959E97 /* WMScrollView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2697A8D6B2989B073B236F7B4BF67F30 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1675,16 +1738,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C7E3CCBE1BF1EB6078F04E662B02BE4 /* Headers */ = {
+		4E0C4A1AF94F341B1B48AE3D61ABEA76 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01408404EFFBB95EE9232E585C3855CF /* UIViewController+WMPageController.h in Headers */,
-				753B4BAB31C0A092BF5B1F317167C9A7 /* WMMenuItem.h in Headers */,
-				09BB333E707924861ED2368D8E0DC0A4 /* WMMenuView.h in Headers */,
-				5009DCC235EF43F241AEBE3633C84826 /* WMPageController.h in Headers */,
-				DCE1E129DCB14E7BDDF54EFA60D2C158 /* WMProgressView.h in Headers */,
-				CC80C02491577A141ECDAB26AB499692 /* WMScrollView.h in Headers */,
+				AB22D3CDA877F1C1A5B6844A485CB52E /* Pods-GKPageScrollViewSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1693,6 +1751,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				927B96A6B4E683D1D9FB03C9C90B26FC /* JXSegmentedView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F50150F35791CF7B6AC30247FF02B55 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3732383FF24D77222D5AD649C9EB2E05 /* UIViewController+WMPageController.h in Headers */,
+				03595F3C5D00ACA30ECC58BCE9C7D100 /* WMMenuItem.h in Headers */,
+				2B20C49FE8E6BB9E20D68D26A7EC0720 /* WMMenuView.h in Headers */,
+				BE8C34FDF954A2EED46C49A3FC86F60B /* WMPageController-framework-umbrella.h in Headers */,
+				A2560BE7A8CE736956DD4D36360070CC /* WMPageController.h in Headers */,
+				F3F047AF39237F1AC6C712BDBCA2D85C /* WMProgressView.h in Headers */,
+				7A020E671065CD432918484C4238A7BF /* WMScrollView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1747,13 +1819,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76C1BF59ED3D1B8111A9BB8E6C5D1405 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8CC55074E501ADFE1435BEA0E04211D4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1769,14 +1834,6 @@
 				29DB3CF2D99F7495DF7E585D712C00D1 /* VTMagicProtocol.h in Headers */,
 				8C869D139796B8608F9C8C5DE5568D17 /* VTMagicView.h in Headers */,
 				08D29B78ECD77AE36B17595BC8056E74 /* VTMenuBar.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F06B9865F551EFFEFA4D7E34C385982 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				01F150BB89E74FDA60E71F6987A2C12A /* Pods-GKPageScrollViewSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1799,26 +1856,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C93CE92E4D0CA27108E83930A8F8AA7C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		08883C0649C4BF01A927DCFD71B79C92 /* WMPageController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DEBF1A222C8B5F9B1F47C4CCF1883AA3 /* Build configuration list for PBXNativeTarget "WMPageController" */;
-			buildPhases = (
-				5C7E3CCBE1BF1EB6078F04E662B02BE4 /* Headers */,
-				E2A1BA0EB54636FC7A9381D92EDC6048 /* Sources */,
-				40EB215396948D98D1DCFD395FEB40E3 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WMPageController;
-			productName = WMPageController;
-			productReference = FB4DD2CD9E6286B9CB4B358E95FE3F6D /* libWMPageController.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31C2F67A24EFF2D5F6410E6A9D00BB2A /* Build configuration list for PBXNativeTarget "SnapKit" */;
@@ -1837,23 +1884,40 @@
 			productReference = 979486118B3E90C08386079D57962701 /* SnapKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		480E388E3C52A94E63B389FB2F326255 /* Pods-GKPageScrollViewObjc */ = {
+		361390C6DB5DA1436844D8393ABE85CB /* WMPageController-library */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE797B671A506A31F70AAC685F1EAA69 /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewObjc" */;
+			buildConfigurationList = 161A582EC3539AC2FE62F051923C839A /* Build configuration list for PBXNativeTarget "WMPageController-library" */;
 			buildPhases = (
-				76C1BF59ED3D1B8111A9BB8E6C5D1405 /* Headers */,
-				55E31B5FE10E7D0B2556D20DC22533AF /* Sources */,
-				8160B6BCCF756C641FC21026413D832E /* Frameworks */,
+				13D2F9653E5D36859B3EE3E1B4784281 /* Headers */,
+				B6C146EDB4FC0D799CF5D789A6AC07B0 /* Sources */,
+				0C4525D5487055060F589F4A9DA54377 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2EEFDE501A7F74848D742F93B3683651 /* PBXTargetDependency */,
-				883D0978C5EC0C202AFB384699E29110 /* PBXTargetDependency */,
-				800E2BA17D3CFF28377C9FED16B71DB5 /* PBXTargetDependency */,
-				F454604A491EA411C6127FA20D49FABA /* PBXTargetDependency */,
-				22C56515389ADD43FF04F5CE8A722B8D /* PBXTargetDependency */,
-				C513738E9BD4D84A58BBCAEBEFA71BEC /* PBXTargetDependency */,
+			);
+			name = "WMPageController-library";
+			productName = "WMPageController-library";
+			productReference = FD38CD190844C73447144FEAD7764891 /* libWMPageController-library.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		480E388E3C52A94E63B389FB2F326255 /* Pods-GKPageScrollViewObjc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD490B9AE8357F6D5A1B34B7EF76D0DC /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewObjc" */;
+			buildPhases = (
+				C93CE92E4D0CA27108E83930A8F8AA7C /* Headers */,
+				1FB3DC5B7F3B4C7B42E52995A5313846 /* Sources */,
+				78C52FF5AD7A42DCCB2D7A72E26A5483 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1C589C6EF1E600D65A68CC817AC1336 /* PBXTargetDependency */,
+				EEC9C4EF8392C01E6112945952FA3AD8 /* PBXTargetDependency */,
+				CD1997A4DFF3AE32528539A8BE180CF1 /* PBXTargetDependency */,
+				ED4D52EE4E3A70824F2CA501D3580872 /* PBXTargetDependency */,
+				EF238F28FDFA5A1655DAB5C2BFF7F2CC /* PBXTargetDependency */,
+				E051882398BE6F4213F08830791882E9 /* PBXTargetDependency */,
 			);
 			name = "Pods-GKPageScrollViewObjc";
 			productName = "Pods-GKPageScrollViewObjc";
@@ -1915,21 +1979,22 @@
 		};
 		613639B4F1A78FEA10E11B4E4346824F /* Pods-GKPageScrollViewSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27C439E1D375A0D368E3EFE444A14CD2 /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewSwift" */;
+			buildConfigurationList = BD8AB7444EE4A43BF15128E825ACE44A /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewSwift" */;
 			buildPhases = (
-				8F06B9865F551EFFEFA4D7E34C385982 /* Headers */,
-				8CEA2AA816E174409F6B837AE919BD48 /* Sources */,
-				8106BE4228B17BDC8C59A8DC475D815B /* Frameworks */,
-				784CE0AD81A0DEEB1816952F0B35BC1F /* Resources */,
+				4E0C4A1AF94F341B1B48AE3D61ABEA76 /* Headers */,
+				0648F2DA71B1BE2661147CB96335F6AE /* Sources */,
+				3DD775C7CE8FB025A809A8BCF9F2FD8C /* Frameworks */,
+				33B7F7BF76935A756B963A52FB23E845 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2E32F5BDF8962D50B578B71CF4D70091 /* PBXTargetDependency */,
-				D5EE95EF20731B6B27CCEDE158979E4E /* PBXTargetDependency */,
-				A64E035FA7D0A7AFE1A552BDE992E276 /* PBXTargetDependency */,
-				A5879A6C179F8E628D4F93EA1CA20B78 /* PBXTargetDependency */,
-				61920B065CD228C41940CF3AFDB6850D /* PBXTargetDependency */,
+				2867B65BB4881DF4AD53B5CE60DA07BD /* PBXTargetDependency */,
+				FACCFA9D593B90FF0133F21354735C28 /* PBXTargetDependency */,
+				A8E2A8CCC6ABECDE50556E48447A332D /* PBXTargetDependency */,
+				513598EA39D857639FAEB273257E66E3 /* PBXTargetDependency */,
+				B80192D4652B3FB387B6C55D85BD303B /* PBXTargetDependency */,
+				252C444E5346A3ADD8185D02C7B90C8B /* PBXTargetDependency */,
 			);
 			name = "Pods-GKPageScrollViewSwift";
 			productName = "Pods-GKPageScrollViewSwift";
@@ -1952,6 +2017,24 @@
 			productName = "MJRefresh-library";
 			productReference = 9C7F166CC810DCBA0B98A55275DA6CF6 /* libMJRefresh-library.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		655EF5CFBAD96F453A34298DA599B451 /* WMPageController-framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A90C0FA306AA4374587CBB3AE32A282 /* Build configuration list for PBXNativeTarget "WMPageController-framework" */;
+			buildPhases = (
+				6F50150F35791CF7B6AC30247FF02B55 /* Headers */,
+				F1639BD518101817BDA13A2B7060FFEE /* Sources */,
+				58FC117C3E83F675249D28CED9FCCF6A /* Frameworks */,
+				14BA6EFBC1542067F19754593E19BD34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WMPageController-framework";
+			productName = "WMPageController-framework";
+			productReference = AA9875960B2EEE66FD5DE0873206524D /* WMPageController.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		8BEAFAA726C1965864B79B4B441AA513 /* JXCategoryView */ = {
 			isa = PBXNativeTarget;
@@ -2048,17 +2131,21 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1110;
+				TargetAttributes = {
+					19622742EBA51E823D6DAE3F8CDBFAD4 = {
+						LastSwiftMigration = 1110;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 4AEF6D4DCFEEFD2CC067DCE4DB967FC1 /* Products */;
+			productRefGroup = 768FE00EC0F52D2C07BD8F2E0A7E2B88 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -2074,13 +2161,28 @@
 				19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */,
 				5588360FF43B8281CA7E3F2325A23292 /* VTMagic-framework */,
 				8D6FFB9FFC5A595FB2C4DC112C8F5981 /* VTMagic-library */,
-				08883C0649C4BF01A927DCFD71B79C92 /* WMPageController */,
+				655EF5CFBAD96F453A34298DA599B451 /* WMPageController-framework */,
+				361390C6DB5DA1436844D8393ABE85CB /* WMPageController-library */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		14BA6EFBC1542067F19754593E19BD34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FA6EE6BB1452EE8D40646CF50CA9922 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33B7F7BF76935A756B963A52FB23E845 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2092,13 +2194,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC4E124DB812DB8679F60721461B33C /* GKNavigationBarViewController.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		784CE0AD81A0DEEB1816952F0B35BC1F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2127,6 +2222,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0648F2DA71B1BE2661147CB96335F6AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A815FB83E6828AC339051DBDF460E0D3 /* Pods-GKPageScrollViewSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17A57E88AE7F879D7B274076E7EA348A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2173,6 +2276,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FB3DC5B7F3B4C7B42E52995A5313846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C4E3D960691B791F274D15DE112FF0E /* Pods-GKPageScrollViewObjc-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45F857C333249A316C1FCE2FCE495AFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2198,14 +2309,6 @@
 				0910F27BC32E8EDE2B4498549099CEC5 /* UIScrollView+MJExtension.m in Sources */,
 				63ABB1DBCA43DCEF3C1A8D881E5C5A42 /* UIScrollView+MJRefresh.m in Sources */,
 				FF11AB5E2DA2AB1F94B7EE077166F06A /* UIView+MJExtension.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		55E31B5FE10E7D0B2556D20DC22533AF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				350C94ABC747B523ECE5270C33419B9A /* Pods-GKPageScrollViewObjc-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2276,14 +2379,6 @@
 				59EA578EED8BAC126FDC60C32AE11521 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C7920681F0164686C56327ED3C6AAC58 /* View+MASAdditions.m in Sources */,
 				C05FC6699632FE712174ED875A605410 /* ViewController+MASAdditions.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8CEA2AA816E174409F6B837AE919BD48 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4D0E707C87EBF060DB3DCFB0F090235 /* Pods-GKPageScrollViewSwift-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2379,6 +2474,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B6C146EDB4FC0D799CF5D789A6AC07B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B95BB858C93BC665250CCFC7D9648303 /* UIViewController+WMPageController.m in Sources */,
+				8B366D305A4A9EC152384725505FCA4B /* WMMenuItem.m in Sources */,
+				6A6DE95DA112778C758F4FB954230CCE /* WMMenuView.m in Sources */,
+				3FD2F8376EF179817274BDADE412B4AF /* WMPageController-library-dummy.m in Sources */,
+				160DCAC67FCF4164B05D61E5EE4792A8 /* WMPageController.m in Sources */,
+				282F3D7C9242D215B02FA9FE0DC14AD4 /* WMProgressView.m in Sources */,
+				EBCAD76B2AD78E072E139B0EDADC3D19 /* WMScrollView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CB6950B5F087240300C9D48A4A380A0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2428,92 +2537,122 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2A1BA0EB54636FC7A9381D92EDC6048 /* Sources */ = {
+		F1639BD518101817BDA13A2B7060FFEE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE1A1314CD6E352B3E251BEF71F202FD /* UIViewController+WMPageController.m in Sources */,
-				28ABC848DE41572BE6C72C7E4D898345 /* WMMenuItem.m in Sources */,
-				1D9D4F37D652DF8329DCF4CEA506CAAD /* WMMenuView.m in Sources */,
-				8AF8A00FF99FA533AF6C67FF2031E4BE /* WMPageController-dummy.m in Sources */,
-				249F45FA1BC0076503426C2EA1D0DA30 /* WMPageController.m in Sources */,
-				93245CFD1F995A11CF08B7B7ABEB1492 /* WMProgressView.m in Sources */,
-				6D45B0DD77BEA1D8C75F35C0A339726B /* WMScrollView.m in Sources */,
+				D22BF4AA3E4F5114D63834E347F4B632 /* UIViewController+WMPageController.m in Sources */,
+				A72650C1BE882813A3E486CEF80921AF /* WMMenuItem.m in Sources */,
+				0828C274EB6BF998BC515A56AA24DDCE /* WMMenuView.m in Sources */,
+				5FD07032F65FBE86F530B6D46F5205C6 /* WMPageController-framework-dummy.m in Sources */,
+				F1B1D3E03573AD0CDB88C11DBF6288B1 /* WMPageController.m in Sources */,
+				E1EA76C5D0968C86E50AB630B726D1C5 /* WMProgressView.m in Sources */,
+				5BD50630B2584B51060D9D3CE349866C /* WMScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		22C56515389ADD43FF04F5CE8A722B8D /* PBXTargetDependency */ = {
+		252C444E5346A3ADD8185D02C7B90C8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "VTMagic-library";
-			target = 8D6FFB9FFC5A595FB2C4DC112C8F5981 /* VTMagic-library */;
-			targetProxy = A604C0FD88E700CAFE0864D55A57AAE6 /* PBXContainerItemProxy */;
+			name = "WMPageController-framework";
+			target = 655EF5CFBAD96F453A34298DA599B451 /* WMPageController-framework */;
+			targetProxy = D7E1CB69D548A89929750A23E7101699 /* PBXContainerItemProxy */;
 		};
-		2E32F5BDF8962D50B578B71CF4D70091 /* PBXTargetDependency */ = {
+		2867B65BB4881DF4AD53B5CE60DA07BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "GKNavigationBarViewController-framework";
 			target = F303E1FE6E4E36AABF9E505B5A5EE2A7 /* GKNavigationBarViewController-framework */;
-			targetProxy = 71E75CA6EDC8D672C2693C8C32F9DACA /* PBXContainerItemProxy */;
+			targetProxy = 0E79F8A1B4A63954DE18FB05C9342D48 /* PBXContainerItemProxy */;
 		};
-		2EEFDE501A7F74848D742F93B3683651 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "GKNavigationBarViewController-library";
-			target = F416AC8F0D62165F413AB85939EB0CA2 /* GKNavigationBarViewController-library */;
-			targetProxy = 0033FB327E42342B38E8A84A894A62D6 /* PBXContainerItemProxy */;
-		};
-		61920B065CD228C41940CF3AFDB6850D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "VTMagic-framework";
-			target = 5588360FF43B8281CA7E3F2325A23292 /* VTMagic-framework */;
-			targetProxy = E54E7179EB03B6CF517A2330CEBC991E /* PBXContainerItemProxy */;
-		};
-		800E2BA17D3CFF28377C9FED16B71DB5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "MJRefresh-library";
-			target = 61A3503BEDF7C001CA7654D5485C4E63 /* MJRefresh-library */;
-			targetProxy = 1CD4C3F29A08A19488DC934CC53EB83F /* PBXContainerItemProxy */;
-		};
-		883D0978C5EC0C202AFB384699E29110 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JXCategoryView;
-			target = 8BEAFAA726C1965864B79B4B441AA513 /* JXCategoryView */;
-			targetProxy = 4DD6C9F5CEB446F684E3BCCA7D4CAD1E /* PBXContainerItemProxy */;
-		};
-		A5879A6C179F8E628D4F93EA1CA20B78 /* PBXTargetDependency */ = {
+		513598EA39D857639FAEB273257E66E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SnapKit;
 			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
-			targetProxy = 983C1032526D96AF1194C50897307F0C /* PBXContainerItemProxy */;
+			targetProxy = C2F2C3CA3D44E82C0F549372945289D7 /* PBXContainerItemProxy */;
 		};
-		A64E035FA7D0A7AFE1A552BDE992E276 /* PBXTargetDependency */ = {
+		A1C589C6EF1E600D65A68CC817AC1336 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "GKNavigationBarViewController-library";
+			target = F416AC8F0D62165F413AB85939EB0CA2 /* GKNavigationBarViewController-library */;
+			targetProxy = F5FDDB49178257BAD83709FD71E508BD /* PBXContainerItemProxy */;
+		};
+		A8E2A8CCC6ABECDE50556E48447A332D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "MJRefresh-framework";
 			target = 5F0DD7F63EAD7CD8C9B1EF5399FF4A2D /* MJRefresh-framework */;
-			targetProxy = 0DA9007FA6B6CE89072073BD28739557 /* PBXContainerItemProxy */;
+			targetProxy = DAB0EA8192BB024B2A016C1F025A22AE /* PBXContainerItemProxy */;
 		};
-		C513738E9BD4D84A58BBCAEBEFA71BEC /* PBXTargetDependency */ = {
+		B80192D4652B3FB387B6C55D85BD303B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = WMPageController;
-			target = 08883C0649C4BF01A927DCFD71B79C92 /* WMPageController */;
-			targetProxy = B63A0F1AD9F211F973A0F816F4C54846 /* PBXContainerItemProxy */;
+			name = "VTMagic-framework";
+			target = 5588360FF43B8281CA7E3F2325A23292 /* VTMagic-framework */;
+			targetProxy = 8E44D1DA726319F7E73CAC27F3BDC18F /* PBXContainerItemProxy */;
 		};
-		D5EE95EF20731B6B27CCEDE158979E4E /* PBXTargetDependency */ = {
+		CD1997A4DFF3AE32528539A8BE180CF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = JXSegmentedView;
-			target = E863A9A96F52A35F47491E7B41ECEF9A /* JXSegmentedView */;
-			targetProxy = 68BBA69B18EAEC138290DA3A73452614 /* PBXContainerItemProxy */;
+			name = "MJRefresh-library";
+			target = 61A3503BEDF7C001CA7654D5485C4E63 /* MJRefresh-library */;
+			targetProxy = 6DFBACCCD1D4CA9C0D515F891F9FCF68 /* PBXContainerItemProxy */;
 		};
-		F454604A491EA411C6127FA20D49FABA /* PBXTargetDependency */ = {
+		E051882398BE6F4213F08830791882E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "WMPageController-library";
+			target = 361390C6DB5DA1436844D8393ABE85CB /* WMPageController-library */;
+			targetProxy = FB754C106864A3EEC3EF9AEE98B2B05D /* PBXContainerItemProxy */;
+		};
+		ED4D52EE4E3A70824F2CA501D3580872 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Masonry;
 			target = 55AF53E6C77A10ED4985E04D74A8878E /* Masonry */;
-			targetProxy = 44C354FD354C2C76C64B1A9190A20F6B /* PBXContainerItemProxy */;
+			targetProxy = 19448A0BBC7EF0F9359B950BEB38569A /* PBXContainerItemProxy */;
+		};
+		EEC9C4EF8392C01E6112945952FA3AD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JXCategoryView;
+			target = 8BEAFAA726C1965864B79B4B441AA513 /* JXCategoryView */;
+			targetProxy = EE7D8E0C533E78EC8141B2EE856DF64F /* PBXContainerItemProxy */;
+		};
+		EF238F28FDFA5A1655DAB5C2BFF7F2CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "VTMagic-library";
+			target = 8D6FFB9FFC5A595FB2C4DC112C8F5981 /* VTMagic-library */;
+			targetProxy = 873FCBC1816A779DACCBDD66628EF6B9 /* PBXContainerItemProxy */;
+		};
+		FACCFA9D593B90FF0133F21354735C28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JXSegmentedView;
+			target = E863A9A96F52A35F47491E7B41ECEF9A /* JXSegmentedView */;
+			targetProxy = C24DF3FCEBBA6BC0705E89E8A5BA814C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		14E1ABED76610F100058F9C821816D12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDE4926F0B3EFFD14D48335889B3B949 /* WMPageController-library.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/WMPageController-library/WMPageController-library-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = WMPageController;
+				PRODUCT_NAME = "WMPageController-library";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		162C9D95BE60DFE5046151D5B9A3F433 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6118891B50D8B4EB081393E6B9D6845B /* SnapKit.xcconfig */;
@@ -2542,12 +2681,34 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		1FE79C65205158EA8224CCF8BCC42135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 604C5B4D132787C691FF731C78CA653E /* Pods-GKPageScrollViewObjc.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		259C899F46619ED96BFE1E1CF2BA4D28 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2668,6 +2829,42 @@
 			};
 			name = Debug;
 		};
+		41EF459D040ADF4AAE82624DA8658412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FDBEDF152D623FBF18E7A218A858D93 /* WMPageController-framework.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WMPageController-framework/WMPageController-framework-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WMPageController-framework/WMPageController-framework-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WMPageController-framework/WMPageController-framework.modulemap";
+				PRODUCT_MODULE_NAME = WMPageController;
+				PRODUCT_NAME = WMPageController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		4347B62B850367357781887237E794E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6118891B50D8B4EB081393E6B9D6845B /* SnapKit.xcconfig */;
@@ -2696,7 +2893,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2785,67 +2982,6 @@
 			};
 			name = Debug;
 		};
-		72DC1B669C6CED660306A35B283DF53B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CC2BBA8E9BBA05E53BCDB33576A151E /* Pods-GKPageScrollViewSwift.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		773FC171E4BCE3210A4271028E0B9FC0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0303F3E748FA10CADB614128420C032 /* WMPageController.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/WMPageController/WMPageController-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = WMPageController;
-				PRODUCT_NAME = WMPageController;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		7BDC6047C071A50E1F63429B8CD12723 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4102164EC5FACE25F4C87850403A9935 /* JXCategoryView.xcconfig */;
@@ -2894,28 +3030,43 @@
 			};
 			name = Release;
 		};
-		88C9C8BC4134017668A82243E022AD9D /* Debug */ = {
+		8288468C46E8F2EF8702672428289302 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0303F3E748FA10CADB614128420C032 /* WMPageController.xcconfig */;
+			baseConfigurationReference = 009520EE0919C1A8452AC97EA505CCEF /* Pods-GKPageScrollViewSwift.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/WMPageController/WMPageController-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = WMPageController;
-				PRODUCT_NAME = WMPageController;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		88E18722FE2812826C119109335B1DB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3123,30 +3274,67 @@
 			};
 			name = Release;
 		};
-		9DE42329258884CD2DA18C513CB9AA5F /* Debug */ = {
+		9D723595A2B79528905EA0086AF87F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E77F4AFCC71480332CF76A1D150E9D9B /* Pods-GKPageScrollViewObjc.debug.xcconfig */;
+			baseConfigurationReference = 4FDBEDF152D623FBF18E7A218A858D93 /* WMPageController-framework.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WMPageController-framework/WMPageController-framework-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WMPageController-framework/WMPageController-framework-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WMPageController-framework/WMPageController-framework.modulemap";
+				PRODUCT_MODULE_NAME = WMPageController;
+				PRODUCT_NAME = WMPageController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B5FB114459DEEC52F80E879220C247F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDE4926F0B3EFFD14D48335889B3B949 /* WMPageController-library.xcconfig */;
+			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/WMPageController-library/WMPageController-library-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = WMPageController;
+				PRODUCT_NAME = "WMPageController-library";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		AAA43E0D61F266A1B179C018ECCB2BE0 /* Release */ = {
+		BE11BCA6901F0DEB7BC7A95D2D19E99C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 009520EE0919C1A8452AC97EA505CCEF /* Pods-GKPageScrollViewSwift.release.xcconfig */;
+			baseConfigurationReference = 7CC2BBA8E9BBA05E53BCDB33576A151E /* Pods-GKPageScrollViewSwift.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -3176,11 +3364,10 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		BFEF51A855E95189E53C685C73B07D72 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3347,28 +3534,6 @@
 			};
 			name = Release;
 		};
-		F4958918AB5C372B66AA1679EC3EE4BD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 604C5B4D132787C691FF731C78CA653E /* Pods-GKPageScrollViewObjc.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		F6276430BA610CCDEA64DAE8C92C86E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D3E9E91E162CD94177BE9358D8C805B /* GKNavigationBarViewController-library.xcconfig */;
@@ -3393,6 +3558,27 @@
 			};
 			name = Release;
 		};
+		FA43FCDC00F900C7D408F438D4DBE64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E77F4AFCC71480332CF76A1D150E9D9B /* Pods-GKPageScrollViewObjc.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3405,20 +3591,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		161A582EC3539AC2FE62F051923C839A /* Build configuration list for PBXNativeTarget "WMPageController-library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5FB114459DEEC52F80E879220C247F7 /* Debug */,
+				14E1ABED76610F100058F9C821816D12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A90C0FA306AA4374587CBB3AE32A282 /* Build configuration list for PBXNativeTarget "WMPageController-framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D723595A2B79528905EA0086AF87F0A /* Debug */,
+				41EF459D040ADF4AAE82624DA8658412 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1C4F6AFE7BF18756E35156F89EF9B118 /* Build configuration list for PBXNativeTarget "JXCategoryView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5BD844E4E0E64C5DA45C08FFEB160C94 /* Debug */,
 				7BDC6047C071A50E1F63429B8CD12723 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27C439E1D375A0D368E3EFE444A14CD2 /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewSwift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				72DC1B669C6CED660306A35B283DF53B /* Debug */,
-				AAA43E0D61F266A1B179C018ECCB2BE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3477,6 +3672,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		AD490B9AE8357F6D5A1B34B7EF76D0DC /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewObjc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA43FCDC00F900C7D408F438D4DBE64A /* Debug */,
+				1FE79C65205158EA8224CCF8BCC42135 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B4D7F62B6ADF1F134CAE7196A63F81AA /* Build configuration list for PBXNativeTarget "MJRefresh-library" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3495,20 +3699,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DEBF1A222C8B5F9B1F47C4CCF1883AA3 /* Build configuration list for PBXNativeTarget "WMPageController" */ = {
+		BD8AB7444EE4A43BF15128E825ACE44A /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				88C9C8BC4134017668A82243E022AD9D /* Debug */,
-				773FC171E4BCE3210A4271028E0B9FC0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE797B671A506A31F70AAC685F1EAA69 /* Build configuration list for PBXNativeTarget "Pods-GKPageScrollViewObjc" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9DE42329258884CD2DA18C513CB9AA5F /* Debug */,
-				F4958918AB5C372B66AA1679EC3EE4BD /* Release */,
+				BE11BCA6901F0DEB7BC7A95D2D19E99C /* Debug */,
+				8288468C46E8F2EF8702672428289302 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

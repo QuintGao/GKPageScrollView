@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WMPageController
 
 class GKWBViewController: GKDemoBaseViewController {
 

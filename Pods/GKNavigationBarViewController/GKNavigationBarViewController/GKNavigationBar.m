@@ -43,7 +43,7 @@
                         y = self.gk_statusBarHidden ? 0 : GK_STATUSBAR_HEIGHT;
                     }
                 }else {
-                    y = self.gk_statusBarHidden ? GK_SAVEAREA_TOP : GK_STATUSBAR_HEIGHT;
+                    y = self.gk_statusBarHidden ? GK_SAFEAREA_TOP : GK_STATUSBAR_HEIGHT;
                 }
         
                 CGRect frame   = obj.frame;
@@ -76,16 +76,23 @@
     [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (GKDeviceVersion >= 10.0f && [obj isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                obj.alpha = gk_navBarBackgroundAlpha;
+                if (obj.alpha != gk_navBarBackgroundAlpha) {
+                    obj.alpha = gk_navBarBackgroundAlpha;
+                }
             });
         }else if ([obj isKindOfClass:NSClassFromString(@"_UINavigationBarBackground")]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                obj.alpha = gk_navBarBackgroundAlpha;
+                if (obj.alpha != gk_navBarBackgroundAlpha) {
+                    obj.alpha = gk_navBarBackgroundAlpha;
+                }
             });
         }
     }];
     
-    self.clipsToBounds = gk_navBarBackgroundAlpha == 0.0;
+    BOOL isClipsToBounds = (gk_navBarBackgroundAlpha == 0.0f);
+    if (self.clipsToBounds != isClipsToBounds) {
+        self.clipsToBounds = isClipsToBounds;
+    }
 }
 
 @end

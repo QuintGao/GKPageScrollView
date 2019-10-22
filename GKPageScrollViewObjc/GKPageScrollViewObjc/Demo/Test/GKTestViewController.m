@@ -225,7 +225,7 @@
 
 - (UIView *)bottomView {
     if (!_bottomView) {
-        CGFloat btmH = GK_SAVEAREA_BTM + ADAPTATIONRATIO * 100.0f;
+        CGFloat btmH = GK_SAFEAREA_BTM + ADAPTATIONRATIO * 100.0f;
         
         _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenH - btmH, kScreenW, btmH)];
         _bottomView.backgroundColor = [UIColor redColor];

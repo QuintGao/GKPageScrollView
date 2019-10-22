@@ -14,7 +14,8 @@
 - (void)animateTransition {
     [self.containerView insertSubview:self.toViewController.view belowSubview:self.fromViewController.view];
     
-    BOOL isHideTabBar = self.toViewController.tabBarController && self.fromViewController.hidesBottomBarWhenPushed;
+    // 是否隐藏tabbar
+    BOOL isHideTabBar = self.toViewController.tabBarController && self.fromViewController.hidesBottomBarWhenPushed && self.toViewController.gk_captureImage;
     __block UIView *toView = nil;
     
     if (isHideTabBar) {

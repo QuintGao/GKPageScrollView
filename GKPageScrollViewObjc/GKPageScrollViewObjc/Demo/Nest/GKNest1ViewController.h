@@ -1,5 +1,5 @@
 //
-//  GKNestViewController.h
+//  GKNest1ViewController.h
 //  GKPageScrollViewObjc
 //
 //  Created by gaokun on 2019/9/30.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKNestViewController : GKDemoBaseViewController
+@interface GKNest1ViewController : GKDemoBaseViewController
 
 @end
 

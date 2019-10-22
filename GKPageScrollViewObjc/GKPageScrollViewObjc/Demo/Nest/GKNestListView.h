@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKPageScrollView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKNestListView : UIView
+@interface GKNestListView : UIView<GKPageListViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 

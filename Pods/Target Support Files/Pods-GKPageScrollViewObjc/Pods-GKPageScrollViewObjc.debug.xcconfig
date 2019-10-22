@@ -1,7 +1,7 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/GKNavigationBarViewController" "${PODS_ROOT}/Headers/Public/JXCategoryView" "${PODS_ROOT}/Headers/Public/MJRefresh" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/VTMagic" "${PODS_ROOT}/Headers/Public/WMPageController"
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GKNavigationBarViewController-library" "${PODS_CONFIGURATION_BUILD_DIR}/JXCategoryView" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh-library" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/VTMagic-library" "${PODS_CONFIGURATION_BUILD_DIR}/WMPageController"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"GKNavigationBarViewController-library" -l"JXCategoryView" -l"MJRefresh-library" -l"Masonry" -l"VTMagic-library" -l"WMPageController" -framework "CoreGraphics" -framework "Foundation" -framework "UIKit"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GKNavigationBarViewController-library" "${PODS_CONFIGURATION_BUILD_DIR}/JXCategoryView" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh-library" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/VTMagic-library" "${PODS_CONFIGURATION_BUILD_DIR}/WMPageController-library"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"GKNavigationBarViewController-library" -l"JXCategoryView" -l"MJRefresh-library" -l"Masonry" -l"VTMagic-library" -l"WMPageController-library" -framework "CoreGraphics" -framework "Foundation" -framework "UIKit"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/..

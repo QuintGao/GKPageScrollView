@@ -32,12 +32,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"你好，我的第%zd行cell", indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"你好，这是第%zd行cell", indexPath.row + 1];
     return cell;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     !self.scrollCallback ? : self.scrollCallback(scrollView);
+}
+
+#pragma mark - GKPageListViewDelegate
+- (UIView *)listView {
+    return self;
+}
+
+- (UIScrollView *)listScrollView {
+    return self.tableView;
+}
+
+- (void)listViewDidScrollCallback:(void (^)(UIScrollView *))callback {
+    self.scrollCallback = callback;
 }
 
 #pragma mark - 懒加载

@@ -10,7 +10,7 @@
 #import "GKNestListView.h"
 #import <JXCategoryView/JXCategoryView.h>
 
-@interface GKNestView()<JXCategoryViewDelegate>
+@interface GKNestView()<JXCategoryViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 
@@ -94,10 +94,30 @@
     }
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(nestViewWillScroll)]) {
+        [self.delegate nestViewWillScroll];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if ([self.delegate respondsToSelector:@selector(nestViewEndScroll)]) {
+        [self.delegate nestViewEndScroll];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(nestViewEndScroll)]) {
+        [self.delegate nestViewEndScroll];
+    }
+}
+
 #pragma mark - 懒加载
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {
         _categoryView = [[JXCategoryTitleView alloc] init];
+        _categoryView.backgroundColor = [UIColor whiteColor];
         _categoryView.titles = @[@"综合", @"销量", @"价格"];
         _categoryView.titleFont = [UIFont systemFontOfSize:14.0f];
         _categoryView.titleSelectedFont = [UIFont systemFontOfSize:14.0f];
@@ -119,6 +139,7 @@
         _contentScrollView = [[UIScrollView alloc] init];
         _contentScrollView.pagingEnabled = YES;
         _contentScrollView.bounces = NO;
+        _contentScrollView.delegate = self;
         
         [_contentScrollView addSubview:self.compListView];
         [_contentScrollView addSubview:self.saleListView];

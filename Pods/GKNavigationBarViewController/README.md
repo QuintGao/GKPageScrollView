@@ -1,9 +1,11 @@
 ## GKNavigationBarViewController
 
-[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKNavigationBarViewController/master/LICENSE)&nbsp;&nbsp;
-[![platform](http://img.shields.io/cocoapods/p/GKNavigationBarViewController.svg?style=flat)](http://cocoadocs.org/docsets/GKNavigationBarViewController)&nbsp;&nbsp;
-[![languages](https://img.shields.io/badge/language-objective--c-blue.svg)](#) &nbsp;&nbsp;
-[![cocoapods](http://img.shields.io/cocoapods/v/GKNavigationBarViewController.svg?style=flat)](https://cocoapods.org/pods/GKNavigationBarViewController)&nbsp;&nbsp;
+[![Build Status](http://img.shields.io/travis/QuintGao/GKNavigationBarViewController/master.svg?style=flat)](https://travis-ci.org/QuintGao/GKNavigationBarViewController)
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKNavigationBarViewController/master/LICENSE)
+[![platform](http://img.shields.io/cocoapods/p/GKNavigationBarViewController.svg?style=flat)](http://cocoadocs.org/docsets/GKNavigationBarViewController)
+[![languages](https://img.shields.io/badge/language-objective--c-blue.svg)](#)
+[![cocoapods](http://img.shields.io/cocoapods/v/GKNavigationBarViewController.svg?style=flat)](https://cocoapods.org/pods/GKNavigationBarViewController)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/QuintGao/GKNavigationBarViewController)
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
 
@@ -146,6 +148,7 @@ pod 'GKNavigationBarViewController'
 
 
 ## 时间记录(倒序)
+* 2019.10.17 -- 2.3.7 优化代码，删除弃用方法，增加对Carthage的支持
 * 2019.10.10 -- 2.3.6 优化带tabbar的控制器的push、pop动画，已知bug修复
 * 2019.8.2     -- 2.3.4 适配iOS13，优化导航栏左右item间距的处理
 * 2019.7.18   -- 2.3.3 修复滑动返回手势与其他手势冲突的bug

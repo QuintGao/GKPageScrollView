@@ -81,7 +81,7 @@ static GKNavigationBarConfigure *instance = nil;
 
 // 获取当前显示的控制器
 - (UIViewController *)visibleController {
-    return [[UIApplication sharedApplication].keyWindow.rootViewController gk_visibleViewControllerIfExist];
+    return [[[UIApplication sharedApplication].windows firstObject].rootViewController gk_visibleViewControllerIfExist];
 }
 
 - (CGFloat)gk_fixedSpace {

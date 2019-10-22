@@ -16,12 +16,12 @@ target 'GKPageScrollViewSwift' do
   platform :ios, '9.0'
   project 'GKPageScrollViewSwift/GKPageScrollViewSwift.xcodeproj'
   
+  use_frameworks!
+  
   pod 'GKNavigationBarViewController'
+  pod 'SnapKit'
   pod 'MJRefresh'
+  pod 'WMPageController'
   pod 'JXSegmentedView'
   pod 'VTMagic'
-  
-  use_frameworks!
-  pod 'SnapKit'
-  
 end

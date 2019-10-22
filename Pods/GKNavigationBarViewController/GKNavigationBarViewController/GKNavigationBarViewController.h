@@ -14,19 +14,14 @@
 
 @interface GKNavigationBarViewController : UIViewController
 
-/**
- 自定义导航条
- */
+/// 自定义导航条
 @property (nonatomic, strong, readonly) GKNavigationBar     *gk_navigationBar;
 
-/**
- 自定义导航栏栏目
- */
+/// 自定义导航条栏目
 @property (nonatomic, strong, readonly) UINavigationItem    *gk_navigationItem;
 
 #pragma mark - 额外的快速设置导航栏的属性
 @property (nonatomic, strong) UIColor                       *gk_navBarTintColor;
-/** 设置导航栏背景，[UIColor clearColor]可设置为透明 */
 @property (nonatomic, strong) UIColor                       *gk_navBackgroundColor;
 @property (nonatomic, strong) UIImage                       *gk_navBackgroundImage;
 /** 设置导航栏分割线颜色或图片 */
@@ -51,20 +46,18 @@
 /** 页面标题-快速设置 */
 @property (nonatomic, copy) NSString                        *gk_navTitle;
 
-/** 是否隐藏分割线（默认NO）注意：此方法尽量在viewDidAppear中使用，如果想在viewDidLoad中隐藏分割线，可使用以下方法
- *  1、self.gk_navShadowColor = [UIColor clearColor]
- *  2、self.gk_navShadowImage = [UIImage new];
- */
+/// 是否隐藏导航栏分割线，默认为NO
 @property (nonatomic, assign) BOOL                          gk_navLineHidden;
 
 
-/**
- 显示导航栏分割线
- */
+
+/// 显示导航栏分割线
 - (void)showNavLine;
-/**
- 隐藏导航栏分割线
- */
+
+/// 隐藏导航栏分割线
 - (void)hideNavLine;
+
+/// 刷新导航栏frame
+- (void)refreshNavBarFrame;
 
 @end
