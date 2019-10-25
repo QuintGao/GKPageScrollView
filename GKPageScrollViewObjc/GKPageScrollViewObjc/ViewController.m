@@ -39,7 +39,7 @@
                         @{@"title": @"item加载", @"class": @"GKItemLoadViewController"},
                         @{@"title": @"Header左右滑动", @"class": @"GKHeaderScrollViewController"},
                         @{@"title": @"VTMagic使用", @"class": @"GKVTMagicViewController"},
-//                        @{@"title": @"测试", @"class": @"GKTestViewController"},
+                        @{@"title": @"测试", @"class": @"GKTestViewController"},
                         @{@"title": @"嵌套使用1", @"class": @"GKNest1ViewController"},
                         @{@"title": @"嵌套使用2", @"class": @"GKNest2ViewController"}];
     

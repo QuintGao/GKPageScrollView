@@ -10,7 +10,7 @@
 #import <JXCategoryView/JXCategoryView.h>
 #import "GKNestListView.h"
 
-@interface GKNest2View()<GKPageScrollViewDelegate>
+@interface GKNest2View()<GKPageScrollViewDelegate, GKPageTableViewGestureDelegate>
 
 @property (nonatomic, strong) UIImageView       *headerView;
 
@@ -56,6 +56,16 @@
     return self;
 }
 
+#pragma mark - GKPageTableViewGestureDelegate
+- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+
+    if ((UIScrollView *)gestureRecognizer.view == self.mainScrollView || (UIScrollView *)otherGestureRecognizer.view == self.mainScrollView) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 #pragma mark - 懒加载
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
@@ -63,6 +73,7 @@
         _pageScrollView.isLazyLoadList = YES;
         _pageScrollView.ceilPointHeight = 0;
         _pageScrollView.listContainerView.collectionView.isNestEnabled = YES;
+        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
 }

@@ -53,6 +53,7 @@ class GKNest2ViewController: GKDemoBaseViewController {
         
         for (i, value) in self.titleDataSource.titles.enumerated() {
             let nestView = GKNest2View()
+            nestView.mainScrollView = scrollView
             nestView.frame = CGRect(x: CGFloat(i) * width, y: 0, width: width, height: height)
             scrollView.addSubview(nestView)
         }

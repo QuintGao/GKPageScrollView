@@ -15,8 +15,11 @@ class GKNest2View: UIView {
         let pageScrollView = GKPageScrollView(delegate: self)
         pageScrollView.isLazyLoadList = true
         pageScrollView.ceilPointHeight = 0
+        pageScrollView.mainTableView.gestureDelegate = self
         return pageScrollView
     }()
+    
+    public weak var mainScrollView: UIScrollView?
     
     lazy var headerView: UIImageView = {
         let headerView = UIImageView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: ADAPTATIONRATIO * 400.0))
@@ -89,5 +92,16 @@ extension GKNest2View: JXSegmentedViewDelegate {
 extension GKNest2View: JXSegmentedListContainerViewListDelegate {
     func listView() -> UIView {
         return self
+    }
+}
+
+extension GKNest2View: GKPageTableViewGestureDelegate {
+    func pageTableView(_ tableView: GKPageTableView, gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if gestureRecognizer.view == self.mainScrollView || otherGestureRecognizer.view == self.mainScrollView {
+            return false
+        }
+        
+        return true;
     }
 }

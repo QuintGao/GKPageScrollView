@@ -11,7 +11,7 @@
 #import "GKNest2View.h"
 #import <JXCategoryView/JXCategoryView.h>
 
-@interface GKNest2ViewController ()<JXCategoryViewDelegate, UIScrollViewDelegate, JXCategoryListContainerViewDelegate, GKNestScrollViewGestureDelegate>
+@interface GKNest2ViewController ()<JXCategoryViewDelegate, UIScrollViewDelegate, GKNestScrollViewGestureDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 
@@ -42,16 +42,6 @@
 #pragma mark - JXCateogryViewDelegate
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
     self.nestView = (GKNest2View *)self.contentScrollView.subviews[index];
-}
-
-#pragma mark - JXCategoryListContainerViewDelegate
-- (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
-    return self.categoryView.titles.count;
-}
-
-- (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    GKNest2View *nestView = [GKNest2View new];
-    return nestView;
 }
 
 #pragma mark - GKNestScrollViewGestureDelegate
@@ -152,6 +142,7 @@
         [self.categoryView.titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             GKNest2View *nestView = [GKNest2View new];
             nestView.frame = CGRectMake(idx * width, 0, width, height);
+            nestView.mainScrollView = self->_contentScrollView;
             [self->_contentScrollView addSubview:nestView];
         }];
 

@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) GKPageScrollView  *pageScrollView;
 
+@property (nonatomic, weak) UIScrollView        *mainScrollView;
+
 @end
 
 NS_ASSUME_NONNULL_END
