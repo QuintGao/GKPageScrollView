@@ -13,6 +13,7 @@ class GKListRefreshViewController: GKBasePageViewController {
         super.viewDidLoad()
         
         self.gk_navTitle = "listRefresh"
+        self.gk_navLineHidden = true
         
         self.pageScrollView.isAllowListRefresh = true
         

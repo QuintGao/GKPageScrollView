@@ -18,6 +18,7 @@
     [super viewDidLoad];
     
     self.gk_navTitle = @"ListRefresh";
+    self.gk_navLineHidden = YES;
     
     self.pageScrollView.isAllowListRefresh = YES;
     

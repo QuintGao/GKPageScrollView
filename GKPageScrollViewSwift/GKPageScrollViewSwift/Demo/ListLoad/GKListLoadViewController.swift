@@ -67,6 +67,7 @@ class GKListLoadViewController: GKDemoBaseViewController {
         self.gk_navBackgroundColor = UIColor.clear
         self.gk_statusBarStyle = .lightContent
         self.gk_navTitle = "列表懒加载"
+        self.gk_navLineHidden = true
         
         self.view.addSubview(pageScrollView)
         

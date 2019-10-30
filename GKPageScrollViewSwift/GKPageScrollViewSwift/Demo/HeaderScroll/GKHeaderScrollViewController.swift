@@ -87,6 +87,7 @@ class GKHeaderScrollViewController: GKDemoBaseViewController {
         self.gk_statusBarStyle = .default;
         self.gk_backStyle = .black;
         self.gk_navTitle = "headerScroll";
+        self.gk_navLineHidden = true
         
         self.view.addSubview(pageScrollView)
         
