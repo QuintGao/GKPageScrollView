@@ -1,6 +1,6 @@
 //
 //  UIViewController+GKCategory.h
-//  GKCustomNavigationBar
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/7/7.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -12,6 +12,7 @@
 extern NSString *const GKViewControllerPropertyChangedNotification;
 
 // 交给单独控制器处理
+// push代理
 @protocol GKViewControllerPushDelegate <NSObject>
 
 @optional
@@ -19,10 +20,10 @@ extern NSString *const GKViewControllerPropertyChangedNotification;
 
 @end
 
+// pop代理
 @protocol GKViewControllerPopDelegate <NSObject>
 
 @optional
-// 实现下面任意一个方法，滑动返回手势都会失效
 - (void)viewControllerPopScrollBegan;
 - (void)viewControllerPopScrollUpdate:(float)progress;
 - (void)viewControllerPopScrollEnded;
@@ -46,7 +47,7 @@ extern NSString *const GKViewControllerPropertyChangedNotification;
 /** 设置状态栏类型 */
 @property (nonatomic, assign) UIStatusBarStyle gk_statusBarStyle;
 
-/** 设置状态栏是否显示(default is NO 即不隐藏) */
+/** 设置状态栏是否隐藏(default is NO 即不隐藏) */
 @property (nonatomic, assign) BOOL gk_statusBarHidden;
 
 /** 设置返回按钮的类型 */
@@ -55,7 +56,7 @@ extern NSString *const GKViewControllerPropertyChangedNotification;
 /** push代理 */
 @property (nonatomic, weak) id<GKViewControllerPushDelegate> gk_pushDelegate;
 
-/** pop代理，实现gk_popDelegate，原来的滑动返回手势将失效 */
+/** pop代理，如果设置了gk_popDelegate，原来的滑动返回手势将失效 */
 @property (nonatomic, weak) id<GKViewControllerPopDelegate> gk_popDelegate;
 
 /**

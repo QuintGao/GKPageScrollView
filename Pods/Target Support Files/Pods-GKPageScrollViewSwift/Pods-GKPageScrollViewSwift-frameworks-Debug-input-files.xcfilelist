@@ -2,5 +2,6 @@ ${PODS_ROOT}/Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollVi
 ${BUILT_PRODUCTS_DIR}/GKNavigationBarViewController-framework/GKNavigationBarViewController.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework
+${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework
 ${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

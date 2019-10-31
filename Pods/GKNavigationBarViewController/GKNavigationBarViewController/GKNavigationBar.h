@@ -1,6 +1,6 @@
 //
 //  GKNavigationBar.h
-//  GKNavigationBarViewControllerTest
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/9/20.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -17,11 +17,6 @@
 @property (nonatomic, assign) CGFloat   gk_navBarBackgroundAlpha;
 
 @property (nonatomic, assign) BOOL      gk_navLineHidden;
-
-// 左边item间距
-@property (nonatomic, assign) CGFloat   gk_navItemLeftSpace;
-// 右边item间距
-@property (nonatomic, assign) CGFloat   gk_navItemRightSpace;
 
 - (void)gk_navLineHideOrShow;
 

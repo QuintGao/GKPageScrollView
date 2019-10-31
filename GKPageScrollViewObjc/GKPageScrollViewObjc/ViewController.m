@@ -33,13 +33,15 @@
                         @{@"title": @"微博发现页", @"class": @"GKWBFindViewController"},
                         @{@"title": @"网易云歌手页", @"class": @"GKWYViewController"},
                         @{@"title": @"抖音个人主页", @"class": @"GKDYViewController"},
-                        @{@"title": @"mainTableView刷新", @"class": @"GKMainRefreshViewController"},
-                        @{@"title": @"listTableView刷新", @"class": @"GKListRefreshViewController"},
-                        @{@"title": @"懒加载列表", @"class": @"GKListLoadViewController"},
+                        @{@"title": @"主页刷新", @"class": @"GKMainRefreshViewController"},
+                        @{@"title": @"列表刷新", @"class": @"GKListRefreshViewController"},
+                        @{@"title": @"列表懒加载", @"class": @"GKListLoadViewController"},
                         @{@"title": @"item加载", @"class": @"GKItemLoadViewController"},
-                        @{@"title": @"HeaderScroll", @"class": @"GKHeaderScrollViewController"},
-                        @{@"title": @"VTMagic", @"class": @"GKVTMagicViewController"},
-                        @{@"title": @"测试", @"class": @"GKTestViewController"}];
+                        @{@"title": @"Header左右滑动", @"class": @"GKHeaderScrollViewController"},
+                        @{@"title": @"VTMagic使用", @"class": @"GKVTMagicViewController"},
+                        @{@"title": @"测试", @"class": @"GKTestViewController"},
+                        @{@"title": @"嵌套使用1", @"class": @"GKNest1ViewController"},
+                        @{@"title": @"嵌套使用2", @"class": @"GKNest2ViewController"}];
     
     [self.tableView reloadData];
 }

@@ -11,6 +11,8 @@ import UIKit
 open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
     /// title数组
     open var titles = [String]()
+    /// 如果将JXSegmentedView嵌套进UITableView的cell，每次重用的时候，JXSegmentedView进行reloadData时，会重新计算所有的title宽度。所以该应用场景，需要UITableView的cellModel缓存titles的文字宽度，再通过该闭包方法返回给JXSegmentedView。
+    open var widthForTitleClosure: ((String)->(CGFloat))?
     /// label的numberOfLines
     open var titleNumberOfLines: Int = 1
     /// title普通状态的textColor
@@ -34,6 +36,10 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
     /// title是否使用遮罩过渡
     open var isTitleMaskEnabled: Bool = false
 
+    deinit {
+        widthForTitleClosure = nil
+    }
+
     open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedTitleItemModel()
     }
@@ -56,6 +62,7 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         }
 
         myItemModel.title = titles[index]
+        myItemModel.textWidth = widthForItem(title: myItemModel.title ?? "")
         myItemModel.titleNumberOfLines = titleNumberOfLines
         myItemModel.isSelectedAnimable = isSelectedAnimable
         myItemModel.titleNormalColor = titleNormalColor
@@ -80,13 +87,20 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         }
     }
 
+    open func widthForItem(title: String) -> CGFloat {
+        if widthForTitleClosure != nil {
+            return widthForTitleClosure!(title)
+        }else {
+            let textWidth = NSString(string: title).boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : titleNormalFont], context: nil).size.width
+            return CGFloat(ceilf(Float(textWidth)))
+        }
+    }
+
+    /// 因为该方法会被频繁调用，所以应该在`preferredRefreshItemModel( _ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int)`方法里面，根据数据源计算好文字宽度，然后缓存起来。该方法直接使用已经计算好的文字宽度即可。
     open override func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
         var itemWidth = super.preferredSegmentedView(segmentedView, widthForItemAt: index)
         if itemContentWidth == JXSegmentedViewAutomaticDimension {
-            if let title = (dataSource[index] as? JXSegmentedTitleItemModel)?.title {
-                let textWidth = NSString(string: title).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: segmentedView.bounds.size.height), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : titleNormalFont], context: nil).size.width
-                itemWidth += CGFloat(ceilf(Float(textWidth)))
-            }
+            itemWidth += (dataSource[index] as! JXSegmentedTitleItemModel).textWidth
         }else {
             itemWidth += itemContentWidth
         }

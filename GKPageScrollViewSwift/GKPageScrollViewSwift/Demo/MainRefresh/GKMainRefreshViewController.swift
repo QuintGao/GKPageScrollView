@@ -14,6 +14,7 @@ class GKMainRefreshViewController: GKBasePageViewController {
         super.viewDidLoad()
         
         self.gk_navTitle = "MainRefresh"
+        self.gk_navLineHidden = true
         
         self.pageScrollView.mainTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             DispatchQueue.main.asyncAfter(deadline: .now() + kRefreshDuration, execute: {

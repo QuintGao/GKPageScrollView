@@ -21,16 +21,19 @@ CGSizeEqualToSize(CGSizeMake(896, 414),[UIScreen mainScreen].bounds.size))\
 :\
 NO)
 
+// 导航栏+状态栏高度
+#define GKPAGE_NAVBAR_HEIGHT    (GKPAGE_IS_iPhoneX ? 88.0f : 64.0f)
+
 // 屏幕宽高
 #define GKPAGE_SCREEN_WIDTH     [UIScreen mainScreen].bounds.size.width
 #define GKPAGE_SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
-// 导航栏+状态栏高度
-#define GKPAGE_NAVBAR_HEIGHT    (GKPAGE_IS_iPhoneX ? 88.0f : 64.0f)
 
 @interface GKPageScrollView()<UITableViewDataSource, UITableViewDelegate, GKPageListContainerViewDelegate>
 
 @property (nonatomic, strong) GKPageTableView           *mainTableView;
 @property (nonatomic, strong) GKPageListContainerView   *listContainerView;
+// 当前滑动的listView
+@property (nonatomic, weak) UIScrollView                *currentListScrollView;
 @property (nonatomic, strong) NSMutableDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
 
 // 是否滑动到临界点，可有偏差
@@ -51,9 +54,6 @@ NO)
 
 // 是否加载
 @property (nonatomic, assign) BOOL                      isLoaded;
-
-// 当前滑动的listView
-@property (nonatomic, weak) UIScrollView                *currentListScrollView;
 
 @end
 
@@ -376,6 +376,8 @@ NO)
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    CGFloat width  = self.frame.size.width == 0 ? GKPAGE_SCREEN_WIDTH : self.frame.size.width;
+    CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
     UIView *pageView = nil;
     if ([self shouldLazyLoadListView]) {
         pageView = [UIView new];
@@ -384,8 +386,8 @@ NO)
         
         CGFloat x = 0;
         CGFloat y = segmentedView.frame.size.height;
-        CGFloat w = GKPAGE_SCREEN_WIDTH;
-        CGFloat h = GKPAGE_SCREEN_HEIGHT - self.ceilPointHeight - y;
+        CGFloat w = width;
+        CGFloat h = height - self.ceilPointHeight - y;
         
         self.listContainerView.frame = CGRectMake(x, y, w, h);
         [pageView addSubview:segmentedView];
@@ -393,13 +395,14 @@ NO)
     }else {
         pageView = [self.delegate pageViewInPageScrollView:self];
     }
-    pageView.frame = CGRectMake(0, 0, GKPAGE_SCREEN_WIDTH, GKPAGE_SCREEN_HEIGHT - self.ceilPointHeight);
+    pageView.frame = CGRectMake(0, 0, width, height - self.ceilPointHeight);
     [cell.contentView addSubview:pageView];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return GKPAGE_SCREEN_HEIGHT - self.ceilPointHeight;
+    CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
+    return height - self.ceilPointHeight;
 }
 
 #pragma mark - GKPageListContainerViewDelegate

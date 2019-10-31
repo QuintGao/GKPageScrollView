@@ -39,6 +39,7 @@
     [super viewDidLoad];
     
     self.gk_navBackgroundColor = [UIColor clearColor];
+    self.gk_navLineHidden = YES;
     
     [self.view addSubview:self.pageScrollView];
     [self.view addSubview:self.topView];
@@ -201,10 +202,10 @@
         [_segmentedView addSubview:titleView];
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
-        lineView.indicatorLineWidth = ADAPTATIONRATIO * 60.0f;
-        lineView.indicatorLineViewHeight = ADAPTATIONRATIO * 6.0f;
+        lineView.indicatorWidth = ADAPTATIONRATIO * 60.0f;
+        lineView.indicatorHeight = ADAPTATIONRATIO * 6.0f;
         lineView.verticalMargin = ADAPTATIONRATIO * 4.0f;
-        lineView.lineStyle = JXCategoryIndicatorLineStyle_IQIYI;
+        lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
         titleView.indicators = @[lineView];
         
         titleView.contentScrollView = self.contentScrollView;

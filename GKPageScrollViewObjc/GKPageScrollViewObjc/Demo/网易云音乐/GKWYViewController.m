@@ -37,6 +37,7 @@
     [super viewDidLoad];
     
     self.gk_navBackgroundColor = [UIColor clearColor];
+    self.gk_navLineHidden = YES;
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     self.gk_navTitleColor = [UIColor whiteColor];
     
@@ -248,9 +249,9 @@
 //        _categoryView.cellChangeInHalf = YES;   // 当scrollView滑动到一半时改变cell状态
         
         JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-        lineView.indicatorLineViewColor = GKColorRGB(200, 38, 39);
-        lineView.indicatorLineWidth = 30.0f;
-        lineView.lineStyle = JXCategoryIndicatorLineStyle_IQIYI;
+        lineView.indicatorColor = GKColorRGB(200, 38, 39);
+        lineView.indicatorWidth = 30.0f;
+        lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
         _categoryView.indicators = @[lineView];
         
         _categoryView.contentScrollView = self.scrollView;

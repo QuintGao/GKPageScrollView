@@ -1,6 +1,6 @@
 //
 //  GKCommon.h
-//  GKNavigationBarViewControllerTest
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/10/13.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -25,8 +25,8 @@
 // 屏幕相关
 #define GK_SCREEN_WIDTH                 [UIScreen mainScreen].bounds.size.width
 #define GK_SCREEN_HEIGHT                [UIScreen mainScreen].bounds.size.height
-#define GK_SAVEAREA_TOP                 (GK_IS_iPhoneX ? 24.0f : 0.0f)   // 顶部安全区域
-#define GK_SAVEAREA_BTM                 (GK_IS_iPhoneX ? 34.0f : 0.0f)   // 底部安全区域
+#define GK_SAFEAREA_TOP                 (GK_IS_iPhoneX ? 24.0f : 0.0f)   // 顶部安全区域
+#define GK_SAFEAREA_BTM                 (GK_IS_iPhoneX ? 34.0f : 0.0f)   // 底部安全区域
 #define GK_STATUSBAR_HEIGHT             (GK_IS_iPhoneX ? 44.0f : 20.0f)  // 状态栏高度
 #define GK_NAVBAR_HEIGHT                44.0f   // 导航栏高度
 #define GK_STATUSBAR_NAVBAR_HEIGHT      (GK_STATUSBAR_HEIGHT + GK_NAVBAR_HEIGHT) // 状态栏+导航栏高度
@@ -52,13 +52,18 @@ typedef NS_ENUM(NSUInteger, GKNavigationBarBackStyle) {
 };
 
 // 使用static inline创建静态内联函数，方便调用
-static inline void gk_swizzled_method(Class cls ,SEL originalSelector, SEL swizzledSelector) {
-    Method originalMethod = class_getInstanceMethod(cls, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(cls, swizzledSelector);
+static inline void gk_swizzled_method(Class oldClass ,NSString *oldSelector, Class newClass) {
+    NSString *newSelector = [NSString stringWithFormat:@"gk_%@", oldSelector];
     
-    BOOL isAdd = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+    SEL originalSelector = NSSelectorFromString(oldSelector);
+    SEL swizzledSelector = NSSelectorFromString(newSelector);
+    
+    Method originalMethod = class_getInstanceMethod(oldClass, NSSelectorFromString(oldSelector));
+    Method swizzledMethod = class_getInstanceMethod(newClass, NSSelectorFromString(newSelector));
+    
+    BOOL isAdd = class_addMethod(oldClass, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
     if (isAdd) {
-        class_replaceMethod(cls, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+        class_replaceMethod(newClass, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
     }else {
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }

@@ -13,16 +13,19 @@
 #import <MJRefresh/MJRefresh.h>
 #import "GKTestListScrollView.h"
 #import "GKTestListCollectionView.h"
+#import "GKTestHeaderView.h"
 
 //#define kTestHeaderHeight (kScreenH - ADAPTATIONRATIO * 400.0f)
 
 #define kTestHeaderHeight (ADAPTATIONRATIO * 400.0f)
 
-@interface GKTestViewController ()<GKPageScrollViewDelegate, UIScrollViewDelegate, GKTestListViewDelegate>
+@interface GKTestViewController ()<GKPageScrollViewDelegate, UIScrollViewDelegate, GKTestListViewDelegate, GKPageTableViewGestureDelegate>
 
 @property (nonatomic, strong) GKTestScrollView      *pageScrollView;
 
-@property (nonatomic, strong) UIImageView           *headerView;
+//@property (nonatomic, strong) UIImageView           *headerView;
+//@property (nonatomic, strong) UIScrollView          *headerView;
+@property (nonatomic, strong) GKTestHeaderView      *headerView;
 
 @property (nonatomic, strong) UIView                *pageView;
 
@@ -98,6 +101,28 @@
     [self.pageScrollView horizonScrollViewDidEndedScroll];
 }
 
+#pragma mark - GKPageTableViewGestureDelegate
+//- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+//    UIScrollView *scrollView = self.headerView;
+//
+//    if (scrollView.isTracking || scrollView.isDragging) {
+//        CGFloat height = scrollView.frame.size.height;
+//        CGFloat offsetY = scrollView.contentOffset.y;
+//        CGFloat btmDistance = scrollView.contentSize.height - offsetY;
+//
+//        if (ceilf(offsetY + height) >= ceilf(scrollView.contentSize.height)) {
+//            return YES;
+//        }else {
+//            return NO;
+//        }
+//    }
+//
+//    return YES;
+//}
+//- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+//    return NO;
+//}
+
 #pragma mark - GKTestListViewDelegate
 - (void)bottomHide {
     if (self.isAnimation) return;
@@ -131,19 +156,37 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKTestScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
+        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
 }
 
-- (UIImageView *)headerView {
+- (GKTestHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kTestHeaderHeight)];
-        _headerView.contentMode = UIViewContentModeScaleAspectFill;
-        _headerView.clipsToBounds = YES;
-        _headerView.image = [UIImage imageNamed:@"wb_bg"];
+        _headerView = [[GKTestHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - ADAPTATIONRATIO * 100.0f)];
     }
     return _headerView;
 }
+
+//- (UIScrollView *)headerView {
+//    if (!_headerView) {
+//        _headerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - ADAPTATIONRATIO * 100.0f)];
+//        _headerView.backgroundColor = [UIColor redColor];
+//        _headerView.contentSize = CGSizeMake(0, 2 * _headerView.frame.size.height);
+//        _headerView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    }
+//    return _headerView;
+//}
+
+//- (UIImageView *)headerView {
+//    if (!_headerView) {
+//        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kTestHeaderHeight)];
+//        _headerView.contentMode = UIViewContentModeScaleAspectFill;
+//        _headerView.clipsToBounds = YES;
+//        _headerView.image = [UIImage imageNamed:@"wb_bg"];
+//    }
+//    return _headerView;
+//}
 
 - (UIView *)pageView {
     if (!_pageView) {
@@ -165,10 +208,10 @@
         _segmentView.titleSelectedColor = [UIColor redColor];
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
-        lineView.indicatorLineWidth = ADAPTATIONRATIO * 50.0f;
-        lineView.indicatorLineViewHeight = ADAPTATIONRATIO * 4.0f;
-        lineView.indicatorLineViewColor = [UIColor redColor];
-        lineView.indicatorLineViewCornerRadius = 0;
+        lineView.indicatorWidth = ADAPTATIONRATIO * 50.0f;
+        lineView.indicatorHeight = ADAPTATIONRATIO * 4.0f;
+        lineView.indicatorColor = [UIColor redColor];
+        lineView.indicatorCornerRadius = 0;
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
         lineView.verticalMargin = ADAPTATIONRATIO * 1.0f;
         _segmentView.indicators = @[lineView];
@@ -225,7 +268,7 @@
 
 - (UIView *)bottomView {
     if (!_bottomView) {
-        CGFloat btmH = GK_SAVEAREA_BTM + ADAPTATIONRATIO * 100.0f;
+        CGFloat btmH = GK_SAFEAREA_BTM + ADAPTATIONRATIO * 100.0f;
         
         _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenH - btmH, kScreenW, btmH)];
         _bottomView.backgroundColor = [UIColor redColor];

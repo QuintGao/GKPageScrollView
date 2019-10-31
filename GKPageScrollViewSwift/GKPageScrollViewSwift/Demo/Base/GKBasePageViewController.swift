@@ -16,7 +16,7 @@ public let kBaseSegmentHeight: CGFloat = 40.0
 class GKBasePageViewController: GKDemoBaseViewController {
 
     lazy var headerView: UIImageView! = {
-        let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: GKPage_Screen_Width, height: kBaseHeaderHeight))
+        let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kBaseHeaderHeight))
         imgView.contentMode = .scaleAspectFill
         imgView.clipsToBounds = true
         imgView.image = UIImage(named: "test")
@@ -77,8 +77,8 @@ class GKBasePageViewController: GKDemoBaseViewController {
     }()
    
     lazy var contentScrollView: UIScrollView = {
-        let scrollW = GKPage_Screen_Width
-        let scrollH = GKPage_Screen_Height - GKPage_NavBar_Height - kBaseSegmentHeight
+        let scrollW = kScreenW
+        let scrollH = kScreenH - GKPage_NavBar_Height - kBaseSegmentHeight
         
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: kBaseSegmentHeight, width: scrollW, height: scrollH))
         scrollView.delegate = self

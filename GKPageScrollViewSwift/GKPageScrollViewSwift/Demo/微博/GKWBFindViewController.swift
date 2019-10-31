@@ -141,6 +141,7 @@ class GKWBFindViewController: GKNavigationBarViewController {
         super.viewDidLoad()
 
         self.gk_navBackgroundColor = UIColor.clear
+        self.gk_navLineHidden = true
         
         self.view.addSubview(self.pageScrollView)
         self.view.addSubview(self.topView)

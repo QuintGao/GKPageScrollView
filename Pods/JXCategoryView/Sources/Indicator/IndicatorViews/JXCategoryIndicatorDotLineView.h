@@ -10,11 +10,7 @@
 
 @interface JXCategoryIndicatorDotLineView : JXCategoryIndicatorComponentView
 
-//点的尺寸。默认：CGSizeMake(10, 10)
-@property (nonatomic, assign) CGSize dotSize;
 //线状态的最大宽度。默认：50
 @property (nonatomic, assign) CGFloat lineWidth;
-//点线的颜色值。默认为[UIColor redColor]
-@property (nonatomic, strong) UIColor *dotLineViewColor;
 
 @end

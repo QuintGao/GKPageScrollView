@@ -1,6 +1,12 @@
 ## GKNavigationBarViewController
-[![CocoaPods](https://img.shields.io/cocoapods/v/GKNavigationBarViewController.svg?style=flat)](https://github.com/QuintGao/GKNavigationBarViewController)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+[![Build Status](http://img.shields.io/travis/QuintGao/GKNavigationBarViewController/master.svg?style=flat)](https://travis-ci.org/QuintGao/GKNavigationBarViewController)
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKNavigationBarViewController/master/LICENSE)
+[![platform](http://img.shields.io/cocoapods/p/GKNavigationBarViewController.svg?style=flat)](http://cocoadocs.org/docsets/GKNavigationBarViewController)
+[![languages](https://img.shields.io/badge/language-objective--c-blue.svg)](#)
+[![cocoapods](http://img.shields.io/cocoapods/v/GKNavigationBarViewController.svg?style=flat)](https://cocoapods.org/pods/GKNavigationBarViewController)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/QuintGao/GKNavigationBarViewController)
+[![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
 
 iOS自定义导航栏 - 导航栏联动效果
@@ -26,13 +32,13 @@ iOS自定义导航栏 - 导航栏联动效果
 
 ## Demo中部分截图如下
 
-![今日头条](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/Demo/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1.gif)
+![今日头条](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/imgs/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1.gif)
+ 
+![网易云音乐](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/imgs/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90.gif)
 
-![网易云音乐](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/Demo/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90.gif)
+![网易新闻](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/imgs/%E7%BD%91%E6%98%93%E6%96%B0%E9%97%BB.gif)
 
-![网易新闻](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/Demo/%E7%BD%91%E6%98%93%E6%96%B0%E9%97%BB.gif)
-
-![抖音](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/Demo/douyin.gif)
+![抖音](https://github.com/QuintGao/GKNavigationBarViewController/blob/master/imgs/douyin.gif)
 
 
 ## 使用说明
@@ -142,6 +148,16 @@ pod 'GKNavigationBarViewController'
 
 
 ## 时间记录(倒序)
+* 2019.10.17 -- 2.3.7 优化代码，删除弃用方法，增加对Carthage的支持
+* 2019.10.10 -- 2.3.6 优化带tabbar的控制器的push、pop动画，已知bug修复
+* 2019.8.2     -- 2.3.4 适配iOS13，优化导航栏左右item间距的处理
+* 2019.7.18   -- 2.3.3 修复滑动返回手势与其他手势冲突的bug
+* 2019.6.18   -- 2.3.2 优化导航栏item设置为nil时可能出现的问题
+* 2019.5.28   -- 2.3.0 优化导航栏分割线的处理及创建方式
+* 2019.5.24   -- 2.2.6 优化导航栏左右item间距的处理方法
+* 2019.5.5     -- 2.2.5 增加自定义缩放转场动画时的偏移量
+* 2019.4.21   -- 2.2.4 增加push、pop滑动过渡时的临界值
+* 2019.3.15   -- 2.2.3 增加禁止手势冲突处理属性，可对某个UISCrollView单独处理
 * 2019.3.5     -- 2.2.2 优化根控制器的gk_popDelegate功能失效问题
 * 2019.2.24   -- 2.2.1 增加gk_popDelegate，实现该协议原来的右滑返回操作将失效
 * 2019.1.17   -- 2.2.0 优化push和pop动画
@@ -153,11 +169,11 @@ pod 'GKNavigationBarViewController'
 * 2018.9.27   -- 2.1.1 全面适配iPhone X系列机型，修复bug
 * 2018.9.11   -- 2.1.0 解决根控制器开启左滑push无效的问题
 * 2018.9.10   -- 2.0.8 拆分左右间距设置属性，可分别设置导航栏左右间距
-* 2018.9.7     -- 2.0.6发布，增加设置导航栏标题和隐藏分割线的属性
-* 2018.3.8     -- 2.0.1发布，修复bug，控制器新增设置导航栏左右按钮间距的属性
-* 2018.3.5     -- 2.0.0发布，修复bug，解决崩溃问题
-* 2017.10.11 -- 1.3.0版本,   修复bug，解决手势冲突问题
-* 2017.9.20   -- 1.2.6版本  适配iOS11，iPhone X
+* 2018.9.7     -- 2.0.6 发布，增加设置导航栏标题和隐藏分割线的属性
+* 2018.3.8     -- 2.0.1 发布，修复bug，控制器新增设置导航栏左右按钮间距的属性
+* 2018.3.5     -- 2.0.0 发布，修复bug，解决崩溃问题
+* 2017.10.11 -- 1.3.0 版本,   修复bug，解决手势冲突问题
+* 2017.9.20   -- 1.2.6 版本  适配iOS11，iPhone X
 * 2017.8.31   --
     1. 新增控制器旋转的方法，可以很好的控制单个控制器的旋转问题
     2. 新增获取当前显示的控制器的方法
@@ -169,4 +185,3 @@ pod 'GKNavigationBarViewController'
 * 2017.8.18   -- 修复pod错误问题
 * 2017.7.14   -- 支持cocoapods
 * 2017.7.13   -- 框架实现完成，发布
-

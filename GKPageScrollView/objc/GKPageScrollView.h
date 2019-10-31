@@ -34,7 +34,7 @@
 @optional
 
 /**
- 返回listView
+ 返回listView，懒加载方式时必传
  
  @return UIView
  */
@@ -146,8 +146,13 @@
 
 @property (nonatomic, weak) id<GKPageScrollViewDelegate> delegate;
 
+/// 主列表
 @property (nonatomic, strong, readonly) GKPageTableView   *mainTableView;
 
+/// 当前滑动的子列表
+@property (nonatomic, weak, readonly) UIScrollView *currentListScrollView;
+
+/// 懒加载形式的容器
 @property (nonatomic, strong, readonly) GKPageListContainerView *listContainerView;
 
 // 当前已经加载过的可用的列表字典，key是index值，value是对应列表

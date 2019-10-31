@@ -15,12 +15,12 @@ let GKPage_IS_iPhoneX: Bool = (
     (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), UIScreen.main.bounds.size) : false) ||
     (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), UIScreen.main.bounds.size) : false))
 
-// 屏幕宽高
-let GKPage_Screen_Width  = UIScreen.main.bounds.size.width
-let GKPage_Screen_Height = UIScreen.main.bounds.size.height
-
 // 导航栏+状态栏高度
 let GKPage_NavBar_Height: CGFloat = GKPage_IS_iPhoneX ? 88.0 : 64.0
+
+// 屏幕宽高
+let GKPage_Screen_Width = UIScreen.main.bounds.size.width
+let GKPage_Screen_Height = UIScreen.main.bounds.size.height
 
 @objc public protocol GKPageListViewDelegate : NSObjectProtocol {
     
@@ -122,7 +122,11 @@ let GKPage_NavBar_Height: CGFloat = GKPage_IS_iPhoneX ? 88.0 : 64.0
 
 open class GKPageScrollView: UIView {
     open weak var delegate: GKPageScrollViewDelegate?
+    // 主列表
     open var mainTableView: GKPageTableView!
+    // 当前滑动的子列表
+    open var currentListScrollView = UIScrollView()
+    // 懒加载时使用的容器
     open var listContainerView: GKPageListContainerView!
     // 当前已经加载过可用的列表字典，key是index值，value是对应的列表
     public var validListDict = [Int: GKPageListViewDelegate]()
@@ -167,9 +171,6 @@ open class GKPageScrollView: UIView {
             }
         }
     }
-    
-    // 当前滑动的listScrollView
-    var currentListScrollView = UIScrollView()
     
     public init(delegate: GKPageScrollViewDelegate) {
         self.delegate = delegate
@@ -477,6 +478,9 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
         for view in cell.contentView.subviews {
             view.removeFromSuperview()
         }
+        let width = self.frame.size.width == 0 ? GKPage_Screen_Width : self.frame.size.width
+        let height = self.frame.size.height == 0 ? GKPage_Screen_Height : self.frame.size.height
+        
         let pageView: UIView
         if self.shouldLazyLoadListView() {
             pageView = UIView()
@@ -485,23 +489,23 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
             
             let x: CGFloat = 0
             let y: CGFloat = segmentedView!.frame.size.height
-            let w: CGFloat = GKPage_Screen_Width
-            let h: CGFloat = GKPage_Screen_Height - self.ceilPointHeight - y
+            let w: CGFloat = width
+            let h: CGFloat = height - self.ceilPointHeight - y
             
-            pageView.addSubview(segmentedView!)
             self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
             pageView.addSubview(segmentedView!)
             pageView.addSubview(self.listContainerView)
         }else {
             pageView = (self.delegate!.pageView?(in: self))!
         }
-        pageView.frame = CGRect(x: 0, y: 0, width: GKPage_Screen_Width, height: GKPage_Screen_Height - self.ceilPointHeight)
+        pageView.frame = CGRect(x: 0, y: 0, width: width, height: height - self.ceilPointHeight)
         cell.contentView.addSubview(pageView)
         return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return GKPage_Screen_Height - self.ceilPointHeight
+        let height = self.frame.size.height == 0 ? GKPage_Screen_Height : self.frame.size.height
+        return height - self.ceilPointHeight
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {

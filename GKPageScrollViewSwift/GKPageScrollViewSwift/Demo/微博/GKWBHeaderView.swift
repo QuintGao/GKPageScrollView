@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kWBHeaderHeight = GKPage_Screen_Width * 385.0 / 704.0
+let kWBHeaderHeight = kScreenW * 385.0 / 704.0
 
 class GKWBHeaderView: UIView {
 
@@ -58,7 +58,7 @@ class GKWBHeaderView: UIView {
         self.bgImgView.frame = self.bgImgFrame
         
         let bgImg = self.bgImgView.image
-        self.bgImgH = GKPage_Screen_Width * (bgImg?.size.height)! / (bgImg?.size.width)!
+        self.bgImgH = kScreenW * (bgImg?.size.height)! / (bgImg?.size.width)!
         
         self.coverView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.bgImgView)

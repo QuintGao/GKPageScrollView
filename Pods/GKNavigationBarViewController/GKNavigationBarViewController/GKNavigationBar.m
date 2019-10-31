@@ -1,6 +1,6 @@
 //
 //  GKNavigationBar.m
-//  GKNavigationBarViewControllerTest
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/9/20.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -24,16 +24,14 @@
     [super layoutSubviews];
     
     // 这里为了适配iOS11，需要遍历所有的子控件，并向下移动状态栏的高度
-    CGFloat systemVersion = [UIDevice currentDevice].systemVersion.floatValue;
-    
-    if (systemVersion >= 11.0) {
+    if (GKDeviceVersion >= 11.0) {
         [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([obj isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
                 CGRect frame = obj.frame;
                 frame.size.height = self.frame.size.height;
                 obj.frame = frame;
             }else {
-                CGFloat width = [UIScreen mainScreen].bounds.size.width;
+                CGFloat width  = [UIScreen mainScreen].bounds.size.width;
                 CGFloat height = [UIScreen mainScreen].bounds.size.height;
                 
                 CGFloat y = 0;
@@ -45,7 +43,7 @@
                         y = self.gk_statusBarHidden ? 0 : GK_STATUSBAR_HEIGHT;
                     }
                 }else {
-                    y = self.gk_statusBarHidden ? GK_SAVEAREA_TOP : GK_STATUSBAR_HEIGHT;
+                    y = self.gk_statusBarHidden ? GK_SAFEAREA_TOP : GK_STATUSBAR_HEIGHT;
                 }
         
                 CGRect frame   = obj.frame;
@@ -60,19 +58,6 @@
     
     // 显隐分割线
     [self gk_navLineHideOrShow];
-    
-    // 设置导航item偏移量
-    if (GKDeviceVersion >= 11.0 && !GKConfigure.gk_disableFixSpace) {
-        self.layoutMargins = UIEdgeInsetsZero;
-        
-        for (UIView *subview in self.subviews) {
-            if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
-                // 修复iOS11 之后的偏移
-                subview.layoutMargins = UIEdgeInsetsMake(0, self.gk_navItemLeftSpace, 0, self.gk_navItemRightSpace);
-                break;
-            }
-        }
-    }
 }
 
 - (void)gk_navLineHideOrShow {
@@ -91,16 +76,23 @@
     [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (GKDeviceVersion >= 10.0f && [obj isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                obj.alpha = gk_navBarBackgroundAlpha;
+                if (obj.alpha != gk_navBarBackgroundAlpha) {
+                    obj.alpha = gk_navBarBackgroundAlpha;
+                }
             });
         }else if ([obj isKindOfClass:NSClassFromString(@"_UINavigationBarBackground")]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                obj.alpha = gk_navBarBackgroundAlpha;
+                if (obj.alpha != gk_navBarBackgroundAlpha) {
+                    obj.alpha = gk_navBarBackgroundAlpha;
+                }
             });
         }
     }];
     
-    self.clipsToBounds = gk_navBarBackgroundAlpha == 0.0;
+    BOOL isClipsToBounds = (gk_navBarBackgroundAlpha == 0.0f);
+    if (self.clipsToBounds != isClipsToBounds) {
+        self.clipsToBounds = isClipsToBounds;
+    }
 }
 
 @end

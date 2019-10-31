@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WMPageController
 
 class GKWBViewController: GKDemoBaseViewController {
 
@@ -47,7 +48,7 @@ class GKWBViewController: GKDemoBaseViewController {
     }()
     
     lazy var headerView: GKWBHeaderView! = {
-        return GKWBHeaderView(frame: CGRect(x: 0, y: 0, width: GKPage_Screen_Width, height: kWBHeaderHeight))
+        return GKWBHeaderView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kWBHeaderHeight))
     }()
     
     lazy var pageView: UIView! = {
@@ -62,7 +63,7 @@ class GKWBViewController: GKDemoBaseViewController {
         pageVC.delegate = self
         
         // 菜单属性
-        pageVC.menuItemWidth = GKPage_Screen_Width / 4.0 - 20
+        pageVC.menuItemWidth = kScreenW / 4.0 - 20
         pageVC.menuViewStyle = .line
         
         pageVC.titleSizeNormal = 16.0
@@ -190,11 +191,11 @@ extension GKWBViewController: WMPageControllerDataSource, WMPageControllerDelega
         }
         
         let maxY = self.pageController(pageController, preferredFrameFor: menuView).maxY
-        return CGRect(x: 0, y: maxY, width: GKPage_Screen_Width, height: GKPage_Screen_Height - maxY - GKPage_NavBar_Height)
+        return CGRect(x: 0, y: maxY, width: kScreenW, height: kScreenH - maxY - GKPage_NavBar_Height)
     }
     
     func pageController(_ pageController: WMPageController, preferredFrameFor menuView: WMMenuView) -> CGRect {
-        return CGRect(x: 0, y: 0, width: GKPage_Screen_Width, height: 40.0)
+        return CGRect(x: 0, y: 0, width: kScreenW, height: 40.0)
     }
     
     func pageController(_ pageController: WMPageController, didEnter viewController: UIViewController, withInfo info: [AnyHashable : Any]) {

@@ -1,6 +1,6 @@
 //
 //  GKDelegateHandler.m
-//  GKCustomNavigationBar
+//  GKNavigationBarViewController
 //
 //  Created by QuintGao on 2017/7/7.
 //  Copyright © 2017年 高坤. All rights reserved.
@@ -23,9 +23,7 @@
         // 设置了gk_popDelegate
     }else {
         // 忽略根控制器
-        if (self.navigationController.viewControllers.count <= 1) {
-            return NO;
-        }
+        if (self.navigationController.viewControllers.count <= 1) return NO;
     }
     
     // 忽略禁用手势
@@ -99,7 +97,6 @@
 
 #pragma mark - UINavigationControllerDelegate
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    
     if ((self.navigationController.gk_translationScale) || (self.navigationController.gk_openScrollLeftPush && self.pushTransition)) {
         if (operation == UINavigationControllerOperationPush) {
             return [GKPushTransitionAnimation transitionWithScale:self.navigationController.gk_translationScale];
@@ -112,7 +109,6 @@
 }
 
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
-    
     if ((self.navigationController.gk_translationScale) || (self.navigationController.gk_openScrollLeftPush && self.pushTransition)) {
         
         if ([animationController isKindOfClass:[GKPopTransitionAnimation class]]) {
@@ -127,6 +123,8 @@
 
 #pragma mark - 滑动手势处理
 - (void)panGestureAction:(UIPanGestureRecognizer *)gesture {
+    UIViewController *visibleVC = self.navigationController.visibleViewController;
+    
     // 进度
     CGFloat progress    = [gesture translationInView:gesture.view].x / gesture.view.bounds.size.width;
     CGPoint translation = [gesture velocityInView:gesture.view];
@@ -142,8 +140,6 @@
     }
     
     progress = MIN(1.0, MAX(0.0, progress));
-    
-    UIViewController *visibleVC = self.navigationController.visibleViewController;
     
     if (gesture.state == UIGestureRecognizerStateBegan) {
         if (self.isGesturePush) {
@@ -182,7 +178,7 @@
     }else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
         if (self.isGesturePush) {
             if (self.navigationController.gk_openScrollLeftPush) {
-                if (progress > 0.3) {
+                if (progress > GKConfigure.gk_pushTransitionCriticalValue) {
                     [self.pushTransition finishInteractiveTransition];
                 }else {
                     [self.pushTransition cancelInteractiveTransition];
@@ -194,7 +190,7 @@
                     [visibleVC.gk_popDelegate viewControllerPopScrollEnded];
                 }
             }else {
-                if (progress > 0.5) {
+                if (progress > GKConfigure.gk_popTransitionCriticalValue) {
                     [self.popTransition finishInteractiveTransition];
                 }else {
                     [self.popTransition cancelInteractiveTransition];

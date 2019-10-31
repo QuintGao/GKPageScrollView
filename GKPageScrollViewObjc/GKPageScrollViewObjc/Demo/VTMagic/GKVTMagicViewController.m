@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     self.gk_navBarAlpha = 0;
-    self.gk_navTitle = @"VTMagicDemo";
+    self.gk_navTitle = @"VTMagic使用";
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     self.gk_navTitleColor = [UIColor whiteColor];
     
@@ -94,7 +94,7 @@
 - (UIView *)headerView {
     if (!_headerView) {
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200.0f)];
-        _headerView.backgroundColor = [UIColor blackColor];
+        _headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test"]];
     }
     return _headerView;
 }
