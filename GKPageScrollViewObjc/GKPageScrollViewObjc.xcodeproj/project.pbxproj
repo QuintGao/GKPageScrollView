@@ -520,7 +520,7 @@
 		60A20A86221CFF8400DB2193 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = gaokun;
 				TargetAttributes = {
 					60A20A8D221CFF8400DB2193 = {
