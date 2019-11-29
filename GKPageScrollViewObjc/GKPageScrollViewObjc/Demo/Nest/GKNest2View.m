@@ -62,6 +62,11 @@
     if ((UIScrollView *)gestureRecognizer.view == self.mainScrollView || (UIScrollView *)otherGestureRecognizer.view == self.mainScrollView) {
         return NO;
     }
+
+    // 特殊处理，解决返回手势与GKPageTableView手势的冲突
+    NSArray *internalTargets = [otherGestureRecognizer valueForKey:@"targets"];
+    id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
+    if ([internalTarget isKindOfClass:NSClassFromString(@"_UINavigationInteractiveTransition")]) return NO;
     
     return YES;
 }

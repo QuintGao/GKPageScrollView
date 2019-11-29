@@ -102,6 +102,13 @@ extension GKNest2View: GKPageTableViewGestureDelegate {
             return false
         }
         
-        return true;
+        // 特殊处理，解决返回手势与GKPageTableView手势的冲突
+        let internalTargets: [AnyObject] = otherGestureRecognizer.value(forKey: "targets") as! [AnyObject]
+        let internalTarget: AnyObject = (internalTargets.first?.value(forKey: "target"))! as AnyObject
+        if internalTarget.isKind(of: NSClassFromString("_UINavigationInteractiveTransition")!) {
+            return false
+        }
+        
+        return true
     }
 }

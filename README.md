@@ -44,6 +44,8 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 | **主页下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/mainRefresh.gif) |
 | **列表下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/listRefresh.gif) |
 | **列表懒加载** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/lazyload.gif) |
+| **嵌套滑动1** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/nest1.gif) |
+| **嵌套滑动2** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/nest2.gif) |
 
 ## 说明
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
@@ -52,6 +54,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 1、尽量不要在代理方法里创建视图，如headerView，pageView等
 
 ## 版本更新
+* 2019.11.11   1.3.3 - 修复GKPageScrollView与返回手势的滑动冲突
 * 2019.10.25   1.3.1 - 增加GKPageTableViewDelegate，解决嵌套时的滑动冲突 
 * 2019.10.22   1.3.0 - 修复pageScrollView高度为0时出现的崩溃问题
 * 2019.10.09   1.2.9 - 解决pageScrollView不是全屏时的高度不准确问题

@@ -41,6 +41,11 @@ open class GKPageListContainerCollectionView: UICollectionView, UIGestureRecogni
                 return true
             }
         }
+        
+        if self.panBack(gestureRecognizer: gestureRecognizer) {
+            return false
+        }
+        
         return true
     }
     
@@ -49,6 +54,27 @@ open class GKPageListContainerCollectionView: UICollectionView, UIGestureRecogni
             return result
         }
         
+        if self.panBack(gestureRecognizer: gestureRecognizer) {
+            return true
+        }
+        
+        return false
+    }
+    
+    func panBack(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == self.panGestureRecognizer {
+            let point = self.panGestureRecognizer.translation(in: self)
+            let state = gestureRecognizer.state
+            
+            let locationDistance = UIScreen.main.bounds.size.width
+            
+            if state == .began || state == .possible {
+                let location = gestureRecognizer.location(in: self)
+                if point.x > 0 && location.x < locationDistance && self.contentOffset.x <= 0 {
+                    return true
+                }
+            }
+        }
         return false
     }
 }
