@@ -14,12 +14,13 @@
 #import "GKTestListScrollView.h"
 #import "GKTestListCollectionView.h"
 #import "GKTestHeaderView.h"
+#import "GKTestListViewController.h"
 
 //#define kTestHeaderHeight (kScreenH - ADAPTATIONRATIO * 400.0f)
 
 #define kTestHeaderHeight (ADAPTATIONRATIO * 400.0f)
 
-@interface GKTestViewController ()<GKPageScrollViewDelegate, UIScrollViewDelegate, GKTestListViewDelegate, GKPageTableViewGestureDelegate>
+@interface GKTestViewController ()<GKPageScrollViewDelegate, UIScrollViewDelegate, GKTestListViewDelegate, GKPageTableViewGestureDelegate, JXCategoryListContainerViewDelegate>
 
 @property (nonatomic, strong) GKTestScrollView      *pageScrollView;
 
@@ -32,6 +33,8 @@
 @property (nonatomic, strong) JXCategoryTitleView   *segmentView;
 @property (nonatomic, strong) UIScrollView          *contentScrollView;
 @property (nonatomic, strong) NSMutableArray        *listViews;
+
+@property (nonatomic, strong) JXCategoryListContainerView *containerView;
 
 @property (nonatomic, strong) UIView                *bottomView;
 
@@ -56,11 +59,12 @@
         make.edges.equalTo(self.view);
     }];
     
-    UIBarButtonItem *topItem = [UIBarButtonItem itemWithTitle:@"吸顶" target:self action:@selector(scrollToCriticalPoint)];
-    UIBarButtonItem *oriItem = [UIBarButtonItem itemWithTitle:@"还原" target:self action:@selector(scrollToOriginalPoint)];
-    self.gk_navRightBarButtonItems = @[topItem, oriItem];
+//    UIBarButtonItem *topItem = [UIBarButtonItem itemWithTitle:@"吸顶" target:self action:@selector(scrollToCriticalPoint)];
+//    UIBarButtonItem *oriItem = [UIBarButtonItem itemWithTitle:@"还原" target:self action:@selector(scrollToOriginalPoint)];
+//    self.gk_navRightBarButtonItems = @[topItem, oriItem];
     
     [self.pageScrollView reloadData];
+    [self.containerView reloadData];
 }
 
 - (void)swipeAction:(UISwipeGestureRecognizer *)gesture {
@@ -84,12 +88,29 @@
     return self.headerView;
 }
 
-- (UIView *)pageViewInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return self.pageView;
+//- (UIView *)pageViewInPageScrollView:(GKPageScrollView *)pageScrollView {
+//    return self.pageView;
+//}
+//
+//- (NSArray<id<GKPageListViewDelegate>> *)listViewsInPageScrollView:(GKPageScrollView *)pageScrollView {
+//    return self.listViews;
+//}
+- (NSInteger)numberOfListsInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return 2;
 }
 
-- (NSArray<id<GKPageListViewDelegate>> *)listViewsInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return self.listViews;
+
+
+#pragma mark - JXCategoryListContainerViewDelegate
+- (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
+//    return self.listViews.count;
+    return 2;
+}
+
+- (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
+    GKTestListViewController *listVC = [GKTestListViewController new];
+    [self addChildViewController:listVC];
+    return listVC;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -157,15 +178,23 @@
         _pageScrollView = [[GKTestScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
         _pageScrollView.mainTableView.gestureDelegate = self;
+        _pageScrollView.isLazyLoadList = YES;
     }
     return _pageScrollView;
 }
 
 - (GKTestHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[GKTestHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - ADAPTATIONRATIO * 100.0f)];
+        _headerView = [[GKTestHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, ADAPTATIONRATIO * 500.0f)];
     }
     return _headerView;
+}
+
+- (JXCategoryListContainerView *)containerView {
+    if (!_containerView) {
+        _containerView = [[JXCategoryListContainerView alloc] initWithType:JXCategoryListContainerType_CollectionView delegate:self];
+    }
+    return _containerView;
 }
 
 //- (UIScrollView *)headerView {
@@ -193,7 +222,8 @@
         _pageView = [UIView new];
         
         [_pageView addSubview:self.segmentView];
-        [_pageView addSubview:self.contentScrollView];
+//        [_pageView addSubview:self.contentScrollView];
+        [_pageView addSubview:self.containerView];
     }
     return _pageView;
 }
@@ -216,7 +246,8 @@
         lineView.verticalMargin = ADAPTATIONRATIO * 1.0f;
         _segmentView.indicators = @[lineView];
         
-        _segmentView.contentScrollView = self.contentScrollView;
+//        _segmentView.contentScrollView = self.contentScrollView;
+        _segmentView.listContainer = self.containerView;
         
         UIView *btmLineView = [UIView new];
         btmLineView.backgroundColor = [UIColor grayColor];
