@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;&nbsp;
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
-![](https://img.shields.io/badge/language-Objective--C%2FSwift%204.x-orange.svg)&nbsp;&nbsp;
+![](https://img.shields.io/badge/language-Objective--C%2FSwift%205.x-orange.svg)&nbsp;&nbsp;
 [![cocoapods](https://img.shields.io/badge/pod%20Objc-1.3.4-blue.svg)](https://cocoapods.org/pods/GKPageScrollView) &nbsp;&nbsp;
 [![cocoapods](https://img.shields.io/badge/pod%20Swift-1.3.4-blue.svg)](https://cocoapods.org/pods/GKPageScrollViewSwift) &nbsp;&nbsp;
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
