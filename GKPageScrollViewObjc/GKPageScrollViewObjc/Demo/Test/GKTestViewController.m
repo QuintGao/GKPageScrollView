@@ -88,16 +88,16 @@
     return self.headerView;
 }
 
-//- (UIView *)pageViewInPageScrollView:(GKPageScrollView *)pageScrollView {
-//    return self.pageView;
-//}
-//
-//- (NSArray<id<GKPageListViewDelegate>> *)listViewsInPageScrollView:(GKPageScrollView *)pageScrollView {
-//    return self.listViews;
-//}
-- (NSInteger)numberOfListsInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return 2;
+- (UIView *)pageViewInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.pageView;
 }
+
+- (NSArray<id<GKPageListViewDelegate>> *)listViewsInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.listViews;
+}
+//- (NSInteger)numberOfListsInPageScrollView:(GKPageScrollView *)pageScrollView {
+//    return 2;
+//}
 
 
 
@@ -178,7 +178,7 @@
         _pageScrollView = [[GKTestScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
         _pageScrollView.mainTableView.gestureDelegate = self;
-        _pageScrollView.isLazyLoadList = YES;
+//        _pageScrollView.isLazyLoadList = YES;
     }
     return _pageScrollView;
 }
@@ -222,8 +222,8 @@
         _pageView = [UIView new];
         
         [_pageView addSubview:self.segmentView];
-//        [_pageView addSubview:self.contentScrollView];
-        [_pageView addSubview:self.containerView];
+        [_pageView addSubview:self.contentScrollView];
+//        [_pageView addSubview:self.containerView];
     }
     return _pageView;
 }
@@ -246,8 +246,8 @@
         lineView.verticalMargin = ADAPTATIONRATIO * 1.0f;
         _segmentView.indicators = @[lineView];
         
-//        _segmentView.contentScrollView = self.contentScrollView;
-        _segmentView.listContainer = self.containerView;
+        _segmentView.contentScrollView = self.contentScrollView;
+//        _segmentView.listContainer = self.containerView;
         
         UIView *btmLineView = [UIView new];
         btmLineView.backgroundColor = [UIColor grayColor];
@@ -270,7 +270,7 @@
         _contentScrollView.pagingEnabled = YES;
         _contentScrollView.bounces = NO;
         
-        GKTestListScrollView *listScrollView = [[GKTestListScrollView alloc] initWithFrame:CGRectMake(0, 0, scrollW, scrollH)];
+        GKTestListView *listScrollView = [[GKTestListView alloc] initWithFrame:CGRectMake(0, 0, scrollW, scrollH)];
         [self.listViews addObject:listScrollView];
         [_contentScrollView addSubview:listScrollView];
         

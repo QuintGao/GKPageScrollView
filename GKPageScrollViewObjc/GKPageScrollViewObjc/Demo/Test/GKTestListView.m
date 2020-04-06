@@ -57,13 +57,15 @@
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.isLoad ? 20 : 0;
+//    return self.isLoad ? 20 : 0;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"第%zd行", indexPath.row + 1];
-    return cell;
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCell" forIndexPath:indexPath];
+//    cell.textLabel.text = [NSString stringWithFormat:@"第%zd行", indexPath.row + 1];
+//    return cell;
+    return nil;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

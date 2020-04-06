@@ -48,6 +48,7 @@
 		60A20D5422256CD600DB2193 /* GKDYHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D5322256CD600DB2193 /* GKDYHeaderView.swift */; };
 		60A20D562226611300DB2193 /* GKMainRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */; };
 		60A20D582226612C00DB2193 /* GKListRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */; };
+		79C48BB9243AF94D000B0815 /* GKPageScrollViewSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 79C48BB8243AF94D000B0815 /* GKPageScrollViewSwift.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKMainRefreshViewController.swift; sourceTree = "<group>"; };
 		60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKListRefreshViewController.swift; sourceTree = "<group>"; };
 		6AF84D77570853DCA6E94706 /* Pods_GKPageScrollViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GKPageScrollViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C48BB8243AF94D000B0815 /* GKPageScrollViewSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKPageScrollViewSwift.podspec; path = ../../GKPageScrollViewSwift.podspec; sourceTree = "<group>"; };
 		F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,6 +244,7 @@
 				60A20C36221E77A800DB2193 /* Info.plist */,
 				60A20D00221E7F0000DB2193 /* GKPageScrollViewSwift-Bridging-Header.h */,
 				60A20D39221F973F00DB2193 /* GKCommon.swift */,
+				79C48BB8243AF94D000B0815 /* GKPageScrollViewSwift.podspec */,
 			);
 			path = GKPageScrollViewSwift;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				60A20C35221E77A800DB2193 /* LaunchScreen.storyboard in Resources */,
 				60A20C32221E77A800DB2193 /* Assets.xcassets in Resources */,
 				60A20C30221E77A700DB2193 /* Main.storyboard in Resources */,
+				79C48BB9243AF94D000B0815 /* GKPageScrollViewSwift.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
