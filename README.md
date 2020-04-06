@@ -3,8 +3,8 @@
 ![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;&nbsp;
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
 ![](https://img.shields.io/badge/language-Objective--C%2FSwift%204.x-orange.svg)&nbsp;&nbsp;
-[![cocoapods](https://img.shields.io/badge/pod%20Objc-1.2.9-blue.svg)](https://cocoapods.org/pods/GKPageScrollView) &nbsp;&nbsp;
-[![cocoapods](https://img.shields.io/badge/pod%20Swift-1.2.9-blue.svg)](https://cocoapods.org/pods/GKPageScrollViewSwift) &nbsp;&nbsp;
+[![cocoapods](https://img.shields.io/badge/pod%20Objc-1.3.4-blue.svg)](https://cocoapods.org/pods/GKPageScrollView) &nbsp;&nbsp;
+[![cocoapods](https://img.shields.io/badge/pod%20Swift-1.3.4-blue.svg)](https://cocoapods.org/pods/GKPageScrollViewSwift) &nbsp;&nbsp;
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
 iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
@@ -54,6 +54,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 1、尽量不要在代理方法里创建视图，如headerView，pageView等
 
 ## 版本更新
+* 2020.04.06   1.3.4 - 优化代码，支持Swift 5.0 
 * 2019.11.11   1.3.3 - 修复GKPageScrollView与返回手势的滑动冲突
 * 2019.10.25   1.3.1 - 增加GKPageTableViewDelegate，解决嵌套时的滑动冲突 
 * 2019.10.22   1.3.0 - 修复pageScrollView高度为0时出现的崩溃问题
