@@ -63,9 +63,9 @@ class GKBaseListViewController: GKBaseTableViewController {
                 self.count += 20
                 
                 if self.count >= 100 {
-                    self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                    self.tableView.mj_footer?.endRefreshingWithNoMoreData()
                 }else {
-                    self.tableView.mj_footer.endRefreshing()
+                    self.tableView.mj_footer?.endRefreshing()
                 }
                 self.tableView.reloadData()
             })
@@ -118,7 +118,7 @@ class GKBaseListViewController: GKBaseTableViewController {
     public func addHeaderRefresh() {
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             DispatchQueue.main.asyncAfter(deadline: .now() + kRefreshDuration, execute: {
-                self.tableView.mj_header.endRefreshing()
+                self.tableView.mj_header?.endRefreshing()
                 
                 self.count = 30
                 self.tableView.reloadData()
@@ -129,7 +129,7 @@ class GKBaseListViewController: GKBaseTableViewController {
 
 extension GKBaseListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.tableView.mj_footer.isHidden = self.count == 0
+        self.tableView.mj_footer?.isHidden = self.count == 0
         return self.count
     }
     

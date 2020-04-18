@@ -30,8 +30,6 @@
 		60A20A9B221CFF8500DB2193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A20A9A221CFF8500DB2193 /* Assets.xcassets */; };
 		60A20A9E221CFF8500DB2193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A20A9C221CFF8500DB2193 /* LaunchScreen.storyboard */; };
 		60A20AA1221CFF8500DB2193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AA0221CFF8500DB2193 /* main.m */; };
-		60A20AAB221CFF8500DB2193 /* GKPageScrollViewObjcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AAA221CFF8500DB2193 /* GKPageScrollViewObjcTests.m */; };
-		60A20AB6221CFF8500DB2193 /* GKPageScrollViewObjcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AB5221CFF8500DB2193 /* GKPageScrollViewObjcUITests.m */; };
 		60A20B41221D023900DB2193 /* GKTestListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20ACC221D023800DB2193 /* GKTestListView.m */; };
 		60A20B42221D023900DB2193 /* GKTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20ACD221D023800DB2193 /* GKTestViewController.m */; };
 		60A20B43221D023900DB2193 /* GKWYListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A20AD2221D023800DB2193 /* GKWYListViewController.m */; };
@@ -115,11 +113,7 @@
 		60A20A9F221CFF8500DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60A20AA0221CFF8500DB2193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		60A20AA6221CFF8500DB2193 /* GKPageScrollViewObjcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewObjcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		60A20AAA221CFF8500DB2193 /* GKPageScrollViewObjcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPageScrollViewObjcTests.m; sourceTree = "<group>"; };
-		60A20AAC221CFF8500DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60A20AB1221CFF8500DB2193 /* GKPageScrollViewObjcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewObjcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		60A20AB5221CFF8500DB2193 /* GKPageScrollViewObjcUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPageScrollViewObjcUITests.m; sourceTree = "<group>"; };
-		60A20AB7221CFF8500DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60A20ACC221D023800DB2193 /* GKTestListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestListView.m; sourceTree = "<group>"; };
 		60A20ACD221D023800DB2193 /* GKTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestViewController.m; sourceTree = "<group>"; };
 		60A20ACE221D023800DB2193 /* GKTestListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestListView.h; sourceTree = "<group>"; };
@@ -260,8 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				60A20A90221CFF8400DB2193 /* GKPageScrollViewObjc */,
-				60A20AA9221CFF8500DB2193 /* GKPageScrollViewObjcTests */,
-				60A20AB4221CFF8500DB2193 /* GKPageScrollViewObjcUITests */,
 				60A20A8F221CFF8400DB2193 /* Products */,
 				B7D9371C8BED22BFC872F09A /* Pods */,
 				5D78039C8BF9977342EB16BB /* Frameworks */,
@@ -296,24 +288,6 @@
 				79C48BB6243AF943000B0815 /* GKPageScrollView.podspec */,
 			);
 			path = GKPageScrollViewObjc;
-			sourceTree = "<group>";
-		};
-		60A20AA9221CFF8500DB2193 /* GKPageScrollViewObjcTests */ = {
-			isa = PBXGroup;
-			children = (
-				60A20AAA221CFF8500DB2193 /* GKPageScrollViewObjcTests.m */,
-				60A20AAC221CFF8500DB2193 /* Info.plist */,
-			);
-			path = GKPageScrollViewObjcTests;
-			sourceTree = "<group>";
-		};
-		60A20AB4221CFF8500DB2193 /* GKPageScrollViewObjcUITests */ = {
-			isa = PBXGroup;
-			children = (
-				60A20AB5221CFF8500DB2193 /* GKPageScrollViewObjcUITests.m */,
-				60A20AB7221CFF8500DB2193 /* Info.plist */,
-			);
-			path = GKPageScrollViewObjcUITests;
 			sourceTree = "<group>";
 		};
 		60A20ACA221D023800DB2193 /* Demo */ = {
@@ -528,6 +502,8 @@
 		60A20A86221CFF8400DB2193 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Latest;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = gaokun;
 				TargetAttributes = {
@@ -687,7 +663,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60A20AAB221CFF8500DB2193 /* GKPageScrollViewObjcTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,7 +670,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60A20AB6221CFF8500DB2193 /* GKPageScrollViewObjcUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

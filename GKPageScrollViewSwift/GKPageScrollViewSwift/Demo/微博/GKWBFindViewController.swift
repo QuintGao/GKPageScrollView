@@ -8,10 +8,10 @@
 
 import UIKit
 import MJRefresh
-import GKNavigationBarViewController
 import JXSegmentedView
+import GKNavigationBarSwift
 
-class GKWBFindViewController: GKNavigationBarViewController {
+class GKWBFindViewController: GKDemoBaseViewController {
 
     var titleDataSource = JXSegmentedTitleDataSource()
     
@@ -157,13 +157,13 @@ class GKWBFindViewController: GKNavigationBarViewController {
         
         self.pageScrollView.mainTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.pageScrollView.mainTableView.mj_header.endRefreshing()
+                self.pageScrollView.mainTableView.mj_header?.endRefreshing()
             })
         })
         
         self.pageScrollView.reloadData()
         
-        self.backItem = UIBarButtonItem(title: nil, image: UIImage(named: "btn_back_black"), target: self, action: #selector(backAction))
+        self.backItem = UIBarButtonItem.gk_item(image: UIImage(named: "btn_back_black"), target: self, action: #selector(backAction))
         self.gk_navLeftBarButtonItem = nil
         
         self.gk_statusBarStyle = .default

@@ -408,6 +408,10 @@ open class JXSegmentedView: UIView {
             let contentOffset = change?[NSKeyValueChangeKey.newKey] as! CGPoint
             if contentScrollView?.isTracking == true || contentScrollView?.isDecelerating == true {
                 //用户滚动引起的contentOffset变化，才处理。
+                if contentScrollView?.bounds.size.width == 0 {
+                    // 如果contentScrollView Frame为零，直接忽略
+                    return
+                }
                 var progress = contentOffset.x/contentScrollView!.bounds.size.width
                 if Int(progress) > itemDataSource.count - 1 || progress < 0 {
                     //超过了边界，不需要处理
@@ -559,7 +563,7 @@ open class JXSegmentedView: UIView {
         let lastSelectedIndex = selectedIndex
         selectedIndex = index
 
-        let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
+        let currentSelectedItemFrame = getSelectedItemFrameAt(index: selectedIndex)
         for indicator in indicators {
             let indicatorParamsModel = JXSegmentedIndicatorParamsModel()
             indicatorParamsModel.lastSelectedIndex = lastSelectedIndex
@@ -611,6 +615,25 @@ open class JXSegmentedView: UIView {
         var width: CGFloat = 0
         let selectedItemModel = itemDataSource[index]
         if selectedItemModel.isTransitionAnimating && selectedItemModel.isItemWidthZoomEnabled {
+            width = (dataSource?.segmentedView(self, widthForItemAt: selectedItemModel.index, isItemWidthZoomValid: false) ?? 0) * selectedItemModel.itemWidthSelectedZoomScale
+        }else {
+            width = selectedItemModel.itemWidth
+        }
+        return CGRect(x: x, y: 0, width: width, height: bounds.size.height)
+    }
+
+    private func getSelectedItemFrameAt(index: Int) -> CGRect {
+        guard index < itemDataSource.count else {
+            return CGRect.zero
+        }
+        var x = getContentEdgeInsetLeft()
+        for i in 0..<index {
+            let itemWidth = (dataSource?.segmentedView(self, widthForItemAt: i, isItemWidthZoomValid: false) ?? 0)
+            x += itemWidth + innerItemSpacing
+        }
+        var width: CGFloat = 0
+        let selectedItemModel = itemDataSource[index]
+        if selectedItemModel.isItemWidthZoomEnabled {
             width = (dataSource?.segmentedView(self, widthForItemAt: selectedItemModel.index, isItemWidthZoomValid: false) ?? 0) * selectedItemModel.itemWidthSelectedZoomScale
         }else {
             width = selectedItemModel.itemWidth

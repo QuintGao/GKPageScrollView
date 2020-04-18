@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'GKPageScrollView'
-  s.version             = '1.3.4'
+  s.version             = '1.3.5'
   s.summary             = 'iOS UIScrollView嵌套滑动分页视图'
   s.homepage            = 'https://github.com/QuintGao/GKPageScrollView'
   s.license             = { :type => "MIT", :file => "LICENSE" }

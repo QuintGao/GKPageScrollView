@@ -8,10 +8,9 @@
 
 import UIKit
 import SnapKit
-import GKNavigationBarViewController
 import MJRefresh
 
-class ViewController: GKNavigationBarViewController {
+class ViewController: GKDemoBaseViewController {
 
     lazy var tableView: UITableView! = {
         let tableView = UITableView(frame: .zero, style: .plain)

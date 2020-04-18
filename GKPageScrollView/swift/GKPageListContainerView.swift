@@ -158,21 +158,17 @@ extension GKPageListContainerView: UICollectionViewDataSource, UICollectionViewD
         return false
     }
     
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.mainTableView?.isScrollEnabled = false
+    }
+    
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.mainTableView?.isScrollEnabled = true
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.mainTableView?.isScrollEnabled = true
-    }
-    
-    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        self.mainTableView?.isScrollEnabled = true
-    }
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.isTracking || scrollView.isDecelerating {
-            self.mainTableView?.isScrollEnabled = false
+        if !decelerate {
+            self.mainTableView?.isScrollEnabled = true
         }
     }
 }

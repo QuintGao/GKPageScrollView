@@ -20,4 +20,12 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return self.gk_statusBarHidden;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return self.gk_statusBarStyle;
+}
+
 @end

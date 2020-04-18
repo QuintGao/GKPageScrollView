@@ -14,11 +14,12 @@ class GKMainRefreshViewController: GKBasePageViewController {
         super.viewDidLoad()
         
         self.gk_navTitle = "MainRefresh"
+        self.gk_navTitleColor = .white
         self.gk_navLineHidden = true
         
         self.pageScrollView.mainTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             DispatchQueue.main.asyncAfter(deadline: .now() + kRefreshDuration, execute: {
-                self.pageScrollView.mainTableView.mj_header.endRefreshing()
+                self.pageScrollView.mainTableView.mj_header?.endRefreshing()
                 
                 // 取出当前显示的listView
                 let currentListVC = self.childVCs[self.segmentedView.selectedIndex]

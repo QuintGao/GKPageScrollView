@@ -4,7 +4,7 @@ target 'GKPageScrollViewObjc' do
   platform :ios, '9.0'
   project 'GKPageScrollViewObjc/GKPageScrollViewObjc.xcodeproj'
 
-  pod 'GKNavigationBarViewController'
+  pod 'GKNavigationBar'
   pod 'Masonry'
   pod 'WMPageController'
   pod 'MJRefresh'
@@ -18,7 +18,7 @@ target 'GKPageScrollViewSwift' do
   
   use_frameworks!
   
-  pod 'GKNavigationBarViewController'
+  pod 'GKNavigationBarSwift'
   pod 'SnapKit'
   pod 'MJRefresh'
   pod 'WMPageController'

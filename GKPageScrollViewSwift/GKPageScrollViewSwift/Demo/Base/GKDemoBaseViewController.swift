@@ -6,13 +6,22 @@
 //  Copyright © 2019 gaokun. All rights reserved.
 //
 
-import GKNavigationBarViewController
+import UIKit
+import GKNavigationBarSwift
 
-class GKDemoBaseViewController: GKNavigationBarViewController {
+class GKDemoBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return self.gk_statusBarHidden
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.gk_statusBarStyle
     }
 }

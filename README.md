@@ -54,7 +54,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 1、尽量不要在代理方法里创建视图，如headerView，pageView等
 
 ## 版本更新
-* 2020.04.06   1.3.4 - 优化代码，支持Swift 5.0 
+* 2020.04.18   1.3.5 - 优化代码，支持Swift 5.x
 * 2019.11.11   1.3.3 - 修复GKPageScrollView与返回手势的滑动冲突
 * 2019.10.25   1.3.1 - 增加GKPageTableViewGestureDelegate，解决嵌套时的滑动冲突 
 * 2019.10.22   1.3.0 - 修复pageScrollView高度为0时出现的崩溃问题

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GKNavigationBarViewController
+import GKNavigationBarSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,18 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let configure = GKNavigationBarConfigure.sharedInstance()
-        configure!.setupCustomConfigure { (configure) in
-            configure?.titleColor = UIColor.black
-            configure?.titleFont = UIFont.systemFont(ofSize: 18)
-            configure?.gk_navItemLeftSpace = 4.0;
-            configure?.gk_navItemRightSpace = 4.0;
-            configure?.backStyle = .white;
+        GKConfigure.awake()
+        GKConfigure.setupCustom { (configure) in
+            configure.titleColor = .black
+            configure.titleFont = UIFont.systemFont(ofSize: 18.0)
+            configure.gk_navItemLeftSpace = 4.0
+            configure.gk_navItemRightSpace = 4.0
+            configure.backStyle = .white
         }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        window?.rootViewController = UINavigationController.rootVC(ViewController(), translationScale: false)
+        window?.rootViewController = UINavigationController(rootVC: ViewController())
         window?.makeKeyAndVisible()
         
         return true
