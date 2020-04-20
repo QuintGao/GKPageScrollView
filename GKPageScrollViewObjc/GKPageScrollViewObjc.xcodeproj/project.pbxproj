@@ -825,7 +825,7 @@
 			baseConfigurationReference = 63F3699EF4265905771A0FD8 /* Pods-GKPageScrollViewObjc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xinjun zhang (DNJGV7XB9Q)";
+				CODE_SIGN_IDENTITY = "Apple Development: xinjun zhang (DNJGV7XB9Q)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKPageScrollViewObjc/PrefixHeader.pch;
@@ -846,7 +846,7 @@
 			baseConfigurationReference = 4386C749590B58507E131C37 /* Pods-GKPageScrollViewObjc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xinjun zhang (DNJGV7XB9Q)";
+				CODE_SIGN_IDENTITY = "Apple Development: xinjun zhang (DNJGV7XB9Q)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKPageScrollViewObjc/PrefixHeader.pch;

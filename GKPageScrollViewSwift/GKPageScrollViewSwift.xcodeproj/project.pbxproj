@@ -47,7 +47,6 @@
 		60A20D562226611300DB2193 /* GKMainRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D552226611200DB2193 /* GKMainRefreshViewController.swift */; };
 		60A20D582226612C00DB2193 /* GKListRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */; };
 		796AB5FA2443326F00C724D4 /* GKPageScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796AB5F12443326F00C724D4 /* GKPageScrollView.framework */; };
-		796AB6012443326F00C724D4 /* GKPageScrollViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796AB6002443326F00C724D4 /* GKPageScrollViewTests.swift */; };
 		796AB6032443326F00C724D4 /* GKPageScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AB5F32443326F00C724D4 /* GKPageScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		796AB6062443326F00C724D4 /* GKPageScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796AB5F12443326F00C724D4 /* GKPageScrollView.framework */; };
 		796AB6072443326F00C724D4 /* GKPageScrollView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 796AB5F12443326F00C724D4 /* GKPageScrollView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -161,8 +160,6 @@
 		796AB5F32443326F00C724D4 /* GKPageScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPageScrollView.h; sourceTree = "<group>"; };
 		796AB5F42443326F00C724D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796AB5F92443326F00C724D4 /* GKPageScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		796AB6002443326F00C724D4 /* GKPageScrollViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPageScrollViewTests.swift; sourceTree = "<group>"; };
-		796AB6022443326F00C724D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C48BB8243AF94D000B0815 /* GKPageScrollViewSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKPageScrollViewSwift.podspec; path = ../../GKPageScrollViewSwift.podspec; sourceTree = "<group>"; };
 		F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,7 +267,6 @@
 			children = (
 				60A20C29221E77A700DB2193 /* GKPageScrollViewSwift */,
 				796AB5F22443326F00C724D4 /* GKPageScrollView */,
-				796AB5FF2443326F00C724D4 /* GKPageScrollViewTests */,
 				60A20C28221E77A700DB2193 /* Products */,
 				2D3BB49EA7CF77ECC9D63661 /* Pods */,
 				AD9C4495DC5A2FBDD815ADA8 /* Frameworks */,
@@ -410,15 +406,6 @@
 				796AB5F42443326F00C724D4 /* Info.plist */,
 			);
 			path = GKPageScrollView;
-			sourceTree = "<group>";
-		};
-		796AB5FF2443326F00C724D4 /* GKPageScrollViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				796AB6002443326F00C724D4 /* GKPageScrollViewTests.swift */,
-				796AB6022443326F00C724D4 /* Info.plist */,
-			);
-			path = GKPageScrollViewTests;
 			sourceTree = "<group>";
 		};
 		AD9C4495DC5A2FBDD815ADA8 /* Frameworks */ = {
@@ -750,7 +737,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				796AB6012443326F00C724D4 /* GKPageScrollViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,7 +912,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xinjun zhang (DNJGV7XB9Q)";
+				CODE_SIGN_IDENTITY = "Apple Development: xinjun zhang (DNJGV7XB9Q)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = "";
@@ -953,7 +939,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xinjun zhang (DNJGV7XB9Q)";
+				CODE_SIGN_IDENTITY = "Apple Development: xinjun zhang (DNJGV7XB9Q)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = "";
