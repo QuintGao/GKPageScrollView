@@ -37,15 +37,15 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 
 | 说明 | 效果图 |
 |-------|-------|
-| **微博个人主页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/wb.gif) |
-| **微博发现页** | ![wb](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/wb_find.gif) |
-| **网易云歌手页** | ![wy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/wy.gif) |
-| **抖音个人主页** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/dy.gif) |
-| **主页下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/mainRefresh.gif) |
-| **列表下拉刷新** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/listRefresh.gif) |
-| **列表懒加载** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/lazyload.gif) |
-| **嵌套滑动1** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/nest1.gif) |
-| **嵌套滑动2** | ![dy](https://github.com/QuintGao/GKPageScrollView/blob/master/Pictures/nest2.gif) |
+| **微博个人主页** | ![wb](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/wb.gif) |
+| **微博发现页** | ![wb](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/wb_find.gif) |
+| **网易云歌手页** | ![wy](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/wy.gif) |
+| **抖音个人主页** | ![dy](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/dy.gif) |
+| **主页下拉刷新** | ![dy](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/mainRefresh.gif) |
+| **列表下拉刷新** | ![dy](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/listRefresh.gif) |
+| **列表懒加载** | ![dy](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/lazyload.gif) |
+| **嵌套滑动1** | ![dy](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/nest1.gif) |
+| **嵌套滑动2** | ![dy](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/nest2.gif) |
 
 ## 说明
 简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
