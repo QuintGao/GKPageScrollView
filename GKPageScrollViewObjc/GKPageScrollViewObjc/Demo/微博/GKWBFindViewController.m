@@ -12,7 +12,7 @@
 #import "JXCategoryView.h"
 #import <MJRefresh/MJRefresh.h>
 
-@interface GKWBFindViewController ()<GKPageScrollViewDelegate, JXCategoryViewDelegate, UIScrollViewDelegate, GKViewControllerPopDelegate>
+@interface GKWBFindViewController ()<GKPageScrollViewDelegate, JXCategoryViewDelegate, UIScrollViewDelegate, GKViewControllerPopDelegate, GKPageTableViewGestureDelegate>
 
 @property (nonatomic, strong) UIView                    *topView;
 
@@ -129,13 +129,22 @@
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    NSLog(@"scrollView滑动开始");
-    [self.pageScrollView horizonScrollViewWillBeginScroll];
-}
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+//    NSLog(@"scrollView滑动开始");
+//    [self.pageScrollView horizonScrollViewWillBeginScroll];
+//}
+//
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+//    [self.pageScrollView horizonScrollViewDidEndedScroll];
+//}
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self.pageScrollView horizonScrollViewDidEndedScroll];
+#pragma mark - GKPageTableViewGestureDelegate
+- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // 禁止UIScrollView左右滑动时，上下左右都可以滑动
+    if (otherGestureRecognizer == self.contentScrollView.panGestureRecognizer) {
+        return NO;
+    }
+    return [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]];
 }
 
 #pragma mark - GKViewControllerPopDelegate
@@ -161,6 +170,7 @@
         _pageScrollView.ceilPointHeight = GK_STATUSBAR_HEIGHT;
         _pageScrollView.isAllowListRefresh = YES;
         _pageScrollView.isDisableMainScrollInCeil = YES;
+        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
 }
