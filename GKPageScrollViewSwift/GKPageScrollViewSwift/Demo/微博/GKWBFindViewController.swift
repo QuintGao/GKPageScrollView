@@ -9,7 +9,7 @@
 import UIKit
 import MJRefresh
 import JXSegmentedView
-import GKNavigationBarSwift
+import GKNavigationBar
 
 class GKWBFindViewController: GKDemoBaseViewController {
 
@@ -162,8 +162,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
         })
         
         self.pageScrollView.reloadData()
-        
-        self.backItem = UIBarButtonItem.gk_item(image: UIImage(named: "btn_back_black"), target: self, action: #selector(backAction))
+        self.backItem = UIBarButtonItem.gk_item(with: UIImage.gk_imageNamed("btn_back_black"), target: self, action: #selector(backAction))
         self.gk_navLeftBarButtonItem = nil
         
         self.gk_statusBarStyle = .default

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GKNavigationBarSwift
+import GKNavigationBar
 
 class GKDemoBaseViewController: UIViewController {
 
