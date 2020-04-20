@@ -186,6 +186,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = GKColorGray(232);
+        _pageScrollView.isControlVerticalIndicator = YES;
     }
     return _pageScrollView;
 }

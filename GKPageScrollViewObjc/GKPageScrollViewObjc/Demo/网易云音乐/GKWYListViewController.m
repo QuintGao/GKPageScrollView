@@ -22,6 +22,7 @@
     self.gk_navigationBar.hidden = YES;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"listCell"];
+    self.tableView.showsVerticalScrollIndicator = NO;
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate

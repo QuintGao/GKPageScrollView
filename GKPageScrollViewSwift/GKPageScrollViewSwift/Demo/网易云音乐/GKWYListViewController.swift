@@ -18,6 +18,7 @@ class GKWYListViewController: GKBaseTableViewController {
         self.gk_navigationBar.isHidden = true
         
         self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "listCell")
+        self.tableView.showsVerticalScrollIndicator = false
     }
 }
 

@@ -202,7 +202,9 @@ NO)
                 self.isListCanScroll = NO;
                 
                 scrollView.contentOffset = CGPointZero;
-                scrollView.showsVerticalScrollIndicator = NO;
+                if (self.isControlVerticalIndicator) {
+                    scrollView.showsVerticalScrollIndicator = NO;
+                }
             }
         }else {
             if (self.isAllowListRefresh && offsetY < 0 && self.mainTableView.contentOffset.y == 0) {
@@ -213,12 +215,16 @@ NO)
                 self.isListCanScroll = NO;
                 
                 scrollView.contentOffset = CGPointZero;
-                scrollView.showsVerticalScrollIndicator = NO;
+                if (self.isControlVerticalIndicator) {
+                    scrollView.showsVerticalScrollIndicator = NO;
+                }
             }
         }
     }else {
         if (self.isListCanScroll) {
-            scrollView.showsVerticalScrollIndicator = YES;
+            if (self.isControlVerticalIndicator) {
+                scrollView.showsVerticalScrollIndicator = YES;
+            }
             
             CGFloat headerHeight = CGRectGetHeight([self.delegate headerViewInPageScrollView:self].frame);
             
@@ -232,7 +238,9 @@ NO)
                     self.isListCanScroll = NO;
                     
                     scrollView.contentOffset = CGPointZero;
-                    scrollView.showsHorizontalScrollIndicator = NO;
+                    if (self.isControlVerticalIndicator) {
+                        scrollView.showsVerticalScrollIndicator = NO;
+                    }
                 }else { // 矫正mainTableView的位置
                     CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
                     self.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
@@ -342,13 +350,17 @@ NO)
         for (id<GKPageListViewDelegate> listItem in self.validListDict.allValues) {
             UIScrollView *listScrollView = [listItem listScrollView];
             listScrollView.contentOffset = CGPointZero;
-            listScrollView.showsVerticalScrollIndicator = NO;
+            if (self.isControlVerticalIndicator) {
+                listScrollView.showsVerticalScrollIndicator = NO;
+            }
         }
     }else {
         [[self.delegate listViewsInPageScrollView:self] enumerateObjectsUsingBlock:^(id<GKPageListViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIScrollView *listScrollView = [obj listScrollView];
             listScrollView.contentOffset = CGPointZero;
-            listScrollView.showsVerticalScrollIndicator = NO;
+            if (self.isControlVerticalIndicator) {
+                listScrollView.showsVerticalScrollIndicator = NO;
+            }
         }];
     }
 }

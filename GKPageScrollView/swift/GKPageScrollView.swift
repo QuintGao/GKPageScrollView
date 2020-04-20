@@ -143,6 +143,9 @@ open class GKPageScrollView: UIView {
     // 是否懒加载列表
     public var isLazyLoadList: Bool = false
     
+    // 是否内部控制指示器的显示与隐藏（默认为NO）
+    public var isControlVerticalIndicator: Bool = false
+    
     // 是否滑动到临界点，可以有偏差
     var isCriticalPoint: Bool = false
     // 是否达到临界点，无偏差
@@ -287,7 +290,9 @@ open class GKPageScrollView: UIView {
                     self.isListCanScroll = false
                     
                     scrollView.contentOffset = .zero
-                    scrollView.showsVerticalScrollIndicator = false
+                    if self.isControlVerticalIndicator {
+                        scrollView.showsVerticalScrollIndicator = false
+                    }
                 }
             }else {
                 if self.isAllowListRefresh && offsetY < 0 && self.mainTableView.contentOffset.y == 0 {
@@ -298,12 +303,16 @@ open class GKPageScrollView: UIView {
                     self.isListCanScroll = false
                     
                     scrollView.contentOffset = .zero
-                    scrollView.showsVerticalScrollIndicator = false
+                    if self.isControlVerticalIndicator {
+                        scrollView.showsVerticalScrollIndicator = false
+                    }
                 }
             }
         }else {
             if self.isListCanScroll {
-                scrollView.showsVerticalScrollIndicator = true
+                if self.isControlVerticalIndicator {
+                    scrollView.showsVerticalScrollIndicator = true
+                }
                 
                 let headerHeight = self.delegate?.headerView(in: self).frame.size.height
                 
@@ -317,7 +326,9 @@ open class GKPageScrollView: UIView {
                         self.isListCanScroll = false
                         
                         scrollView.contentOffset = .zero
-                        scrollView.showsVerticalScrollIndicator = false
+                        if self.isControlVerticalIndicator {
+                            scrollView.showsVerticalScrollIndicator = false
+                        }
                     }else { // 矫正mainTableView的位置
                         let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
                         self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
@@ -441,14 +452,18 @@ open class GKPageScrollView: UIView {
             for listItem in self.validListDict.values {
                 let listScrollView = listItem.listScrollView()
                 listScrollView.contentOffset = .zero
-                listScrollView.showsVerticalScrollIndicator = false
+                if self.isControlVerticalIndicator {
+                    listScrollView.showsVerticalScrollIndicator = false
+                }
             }
         }else {
             if self.delegate!.listView?(in: self).count ?? 0 > 0 {
                 for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
                     let listScrollView = value.listScrollView()
                     listScrollView.contentOffset = .zero
-                    listScrollView.showsVerticalScrollIndicator = false
+                    if self.isControlVerticalIndicator {
+                        listScrollView.showsVerticalScrollIndicator = false
+                    }
                 }
             }
         }

@@ -88,6 +88,7 @@ class GKWBViewController: GKDemoBaseViewController {
     lazy var pageScrollView: GKPageScrollView! = {
         let pageScrollView = GKPageScrollView(delegate: self)
         pageScrollView.mainTableView.backgroundColor = UIColor.gray
+        pageScrollView.isControlVerticalIndicator = true
         return pageScrollView
     }()
     
