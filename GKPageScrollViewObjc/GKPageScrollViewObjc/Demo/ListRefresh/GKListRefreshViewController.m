@@ -19,6 +19,7 @@
     
     self.gk_navTitle = @"ListRefresh";
     self.gk_navLineHidden = YES;
+    self.gk_navTitleColor = [UIColor whiteColor];
     
     self.pageScrollView.isAllowListRefresh = YES;
     

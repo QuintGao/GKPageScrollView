@@ -79,11 +79,11 @@ class GKItemLoadViewController: GKDemoBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.gk_navTitleColor = UIColor.white
         self.gk_navTitleFont = UIFont.boldSystemFont(ofSize: 18)
         self.gk_navBackgroundColor = UIColor.clear
         self.gk_statusBarStyle = .lightContent
         self.gk_navTitle = "item加载"
+        self.gk_navTitleColor = UIColor.white
         self.gk_navLineHidden = true
         
         self.view.addSubview(pageScrollView)
@@ -94,7 +94,7 @@ class GKItemLoadViewController: GKDemoBaseViewController {
         
         pageScrollView.mainTableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                self.pageScrollView.mainTableView.mj_header.endRefreshing()
+                self.pageScrollView.mainTableView.mj_header?.endRefreshing()
                 
                 // 此时标题获取成功
                 self.titleDataSource.titles = self.titles;
@@ -115,7 +115,7 @@ class GKItemLoadViewController: GKDemoBaseViewController {
             }
         })
         
-        self.pageScrollView.mainTableView.mj_header.beginRefreshing()
+        self.pageScrollView.mainTableView.mj_header?.beginRefreshing()
     }
 }
 

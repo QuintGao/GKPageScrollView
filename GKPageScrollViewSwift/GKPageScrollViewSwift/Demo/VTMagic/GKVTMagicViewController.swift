@@ -25,6 +25,7 @@ class GKVTMagicViewController: GKDemoBaseViewController {
 
     lazy var pageScrollView: GKPageScrollView! = {
         let pageScrollView = GKPageScrollView(delegate: self)
+        pageScrollView.mainTableView.gestureDelegate = self
         return pageScrollView
     }()
     
@@ -126,5 +127,18 @@ extension GKVTMagicViewController: VTMagicViewDataSource, VTMagicViewDelegate {
     
     func magicView(_ magicView: VTMagicView, viewControllerAtPage pageIndex: UInt) -> UIViewController {
         return self.childVCs[Int(pageIndex)]
+    }
+}
+
+extension GKVTMagicViewController: GKPageTableViewGestureDelegate {
+    func pageTableView(_ tableView: GKPageTableView, gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        let scrollView: UIScrollView = self.magicVC.magicView.value(forKey: "contentView") as! UIScrollView
+        
+        if otherGestureRecognizer == scrollView.panGestureRecognizer {
+            return false
+        }
+        
+        return gestureRecognizer.view?.isKind(of: UIScrollView.classForCoder()) ?? false && otherGestureRecognizer.view?.isKind(of: UIScrollView.classForCoder()) ?? false
     }
 }

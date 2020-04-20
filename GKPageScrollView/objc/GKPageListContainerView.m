@@ -140,14 +140,14 @@
     self.mainTableView.scrollEnabled = NO;
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.mainTableView.scrollEnabled = YES;
+}
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate) {
         self.mainTableView.scrollEnabled = YES;
     }
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.mainTableView.scrollEnabled = YES;
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

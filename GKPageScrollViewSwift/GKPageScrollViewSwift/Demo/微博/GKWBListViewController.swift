@@ -43,7 +43,7 @@ class GKWBListViewController: GKDemoBaseViewController {
             self.tableView.mj_header = MJRefreshNormalHeader.init {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                     self.tableView.reloadData()
-                    self.tableView.mj_header.endRefreshing()
+                    self.tableView.mj_header?.endRefreshing()
                 })
             }
         }

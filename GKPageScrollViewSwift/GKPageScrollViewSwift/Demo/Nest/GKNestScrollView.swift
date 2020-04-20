@@ -13,7 +13,7 @@ protocol GKNestScrollViewDelegate: AnyObject {
     func nestScrollGestureRecognizer(_ scrollView: GKNestScrollView, gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
 }
 
-class GKNestScrollView: UIScrollView, UIGestureRecognizerDelegate {
+class GKNestScrollView: UIScrollView {
 
     public weak var gestureDelegate: GKNestScrollViewDelegate?
     

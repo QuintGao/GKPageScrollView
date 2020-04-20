@@ -71,6 +71,7 @@
 }
 
 - (void)initializeViews {
+    _listCellBackgroundColor = [UIColor whiteColor];
     _containerVC = [[JXCategoryListContainerViewController alloc] init];
     self.containerVC.view.backgroundColor = [UIColor clearColor];
     [self addSubview:self.containerVC.view];
@@ -91,7 +92,7 @@
         if (self.delegate &&
             [self.delegate respondsToSelector:@selector(scrollViewClassInlistContainerView:)] &&
             [[self.delegate scrollViewClassInlistContainerView:self] isKindOfClass:object_getClass([UIScrollView class])]) {
-            _scrollView = (UICollectionView *)[[[self.delegate scrollViewClassInlistContainerView:self] alloc] init];
+            _scrollView = (UIScrollView *)[[[self.delegate scrollViewClassInlistContainerView:self] alloc] init];
         }else {
             _scrollView = [[UIScrollView alloc] init];
         }
@@ -193,13 +194,15 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor whiteColor];
+    cell.contentView.backgroundColor = self.listCellBackgroundColor;
     for (UIView *subview in cell.contentView.subviews) {
         [subview removeFromSuperview];
     }
     id<JXCategoryListContentViewDelegate> list = _validListDict[@(indexPath.item)];
-    [list listView].frame = cell.contentView.bounds;
-    [cell.contentView addSubview:[list listView]];
+    if (list != nil) {
+        [list listView].frame = cell.contentView.bounds;
+        [cell.contentView addSubview:[list listView]];
+    }
     return cell;
 }
 
@@ -210,6 +213,9 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listContainerViewDidScroll:)]) {
+        [self.delegate listContainerViewDidScroll:scrollView];
+    }
     CGFloat currentIndexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width;
     if (self.willAppearIndex != -1 || self.willDisappearIndex != -1) {
         NSInteger disappearIndex = self.willDisappearIndex;
@@ -306,6 +312,9 @@
 - (void)reloadData {
     for (id<JXCategoryListContentViewDelegate> list in _validListDict.allValues) {
         [[list listView] removeFromSuperview];
+        if ([list isKindOfClass:[UIViewController class]]) {
+            [(UIViewController *)list removeFromParentViewController];
+        }
     }
     [_validListDict removeAllObjects];
 

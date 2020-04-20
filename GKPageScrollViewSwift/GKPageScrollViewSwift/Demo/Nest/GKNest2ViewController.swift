@@ -8,7 +8,6 @@
 
 import UIKit
 import JXSegmentedView
-import GKNavigationBarViewController
 
 class GKNest2ViewController: GKDemoBaseViewController {
 

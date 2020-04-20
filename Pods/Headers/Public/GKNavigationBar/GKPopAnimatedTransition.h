@@ -1,0 +1,1 @@
+../../../GKNavigationBar/GKNavigationBar/GKTransition/GKPopAnimatedTransition.h

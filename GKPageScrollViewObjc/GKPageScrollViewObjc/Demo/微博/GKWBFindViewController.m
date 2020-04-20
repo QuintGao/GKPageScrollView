@@ -61,7 +61,7 @@
     
     [self.pageScrollView reloadData];
     
-    self.backItem = [UIBarButtonItem itemWithTitle:nil image:GKImage(@"btn_back_black") target:self action:@selector(backAction)];
+    self.backItem = [UIBarButtonItem gk_itemWithTitle:nil image:[UIImage gk_imageNamed:@"btn_back_black"] target:self action:@selector(backAction)];
     self.gk_navLeftBarButtonItem = nil;
 }
 

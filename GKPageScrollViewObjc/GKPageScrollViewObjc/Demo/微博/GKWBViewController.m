@@ -40,9 +40,9 @@
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     
     self.gk_navTitleView = self.titleView;
-    
-    self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithTitle:nil image:GKImage(@"btn_back_white") target:self action:@selector(back)];
-    self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithImageName:@"wb_more" target:self action:@selector(more)];
+
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithTitle:nil image:[UIImage gk_imageNamed:@"btn_back_white"] target:self action:@selector(back)];
+    self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithImage:[UIImage gk_imageNamed:@"wb_more"] target:self action:@selector(more)];
     
     [self.view addSubview:self.pageScrollView];
     [self.pageScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -102,16 +102,16 @@
         self.titleLabel.alpha = 0;
         
         self.gk_statusBarStyle = UIStatusBarStyleLightContent;
-        self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithTitle:nil image:GKImage(@"btn_back_white") target:self action:@selector(back)];
-        self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithImageName:@"wb_more" target:self action:@selector(more)];
+        self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithTitle:nil image:[UIImage gk_imageNamed:@"btn_back_white"] target:self action:@selector(back)];
+        self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithImage:[UIImage imageNamed:@"wb_more"] target:self action:@selector(more)];
         
     }else if (offsetY >= 100.0f) {
         alpha = 1.0f;
         
         self.gk_statusBarStyle = UIStatusBarStyleDefault;
-        self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithTitle:nil image:GKImage(@"btn_back_black") target:self action:@selector(back)];
+        self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithTitle:nil image:[UIImage gk_imageNamed:@"btn_back_black"] target:self action:@selector(back)];
         
-        self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:nil image:[self changeImageWithColor:[UIColor blackColor] image:[UIImage imageNamed:@"wb_more"]] target:self action:@selector(more)];
+        self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:nil image:[self changeImageWithColor:[UIColor blackColor] image:[UIImage imageNamed:@"wb_more"]] target:self action:@selector(more)];
         
         // 92
         self.titleLabel.alpha = 1;
@@ -121,8 +121,8 @@
         
         if (alpha > 0.8) {
             self.gk_statusBarStyle = UIStatusBarStyleDefault;
-            self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithTitle:nil image:GKImage(@"btn_back_black") target:self action:@selector(back)];
-            self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithTitle:nil image:[self changeImageWithColor:[UIColor blackColor] image:[UIImage imageNamed:@"wb_more"]] target:self action:@selector(more)];
+            self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithTitle:nil image:[UIImage gk_imageNamed:@"btn_back_black"] target:self action:@selector(back)];
+            self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithTitle:nil image:[self changeImageWithColor:[UIColor blackColor] image:[UIImage imageNamed:@"wb_more"]] target:self action:@selector(more)];
             
             // 92
             self.titleLabel.alpha = (offsetY - 92) / (100 - 92);
@@ -131,8 +131,8 @@
             self.titleLabel.alpha = 0;
             
             self.gk_statusBarStyle = UIStatusBarStyleLightContent;
-            self.gk_navLeftBarButtonItem = [UIBarButtonItem itemWithTitle:nil image:GKImage(@"btn_back_white") target:self action:@selector(back)];
-            self.gk_navRightBarButtonItem = [UIBarButtonItem itemWithImageName:@"wb_more" target:self action:@selector(more)];
+            self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithTitle:nil image:[UIImage gk_imageNamed:@"btn_back_white"] target:self action:@selector(back)];
+            self.gk_navRightBarButtonItem = [UIBarButtonItem gk_itemWithImage:[UIImage imageNamed:@"wb_more"] target:self action:@selector(more)];
         }
     }
     
