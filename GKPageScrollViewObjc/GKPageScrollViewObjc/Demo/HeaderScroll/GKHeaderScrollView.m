@@ -39,24 +39,6 @@
     return cell;
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if ([self.delegate respondsToSelector:@selector(headerScrollViewWillBeginScroll)]) {
-        [self.delegate headerScrollViewWillBeginScroll];
-    }
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if ([self.delegate respondsToSelector:@selector(headerScrollViewDidEndScroll)]) {
-        [self.delegate headerScrollViewDidEndScroll];
-    }
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if ([self.delegate respondsToSelector:@selector(headerScrollViewDidEndScroll)]) {
-        [self.delegate headerScrollViewDidEndScroll];
-    }
-}
-
 #pragma mark - 懒加载
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
