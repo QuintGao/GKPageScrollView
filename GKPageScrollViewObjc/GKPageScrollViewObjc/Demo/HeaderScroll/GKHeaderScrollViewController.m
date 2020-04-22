@@ -13,7 +13,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import "GKBaseListViewController.h"
 
-@interface GKHeaderScrollViewController()<GKPageScrollViewDelegate, UIScrollViewDelegate, GKHeaderScrollViewDelegate>
+@interface GKHeaderScrollViewController()<GKPageScrollViewDelegate, GKPageTableViewGestureDelegate>
 
 @property (nonatomic, strong) GKPageScrollView      *pageScrollView;
 
@@ -76,26 +76,20 @@
     return self.childVCs;
 }
 
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.pageScrollView horizonScrollViewWillBeginScroll];
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self.pageScrollView horizonScrollViewDidEndedScroll];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [self.pageScrollView horizonScrollViewDidEndedScroll];
-}
-
-#pragma mark - GKHeaderScrollViewDelegate
-- (void)headerScrollViewWillBeginScroll {
-    [self.pageScrollView horizonScrollViewWillBeginScroll];
-}
-
-- (void)headerScrollViewDidEndScroll {
-    [self.pageScrollView horizonScrollViewDidEndedScroll];
+#pragma mark - GKPageTableViewGestureDelegate
+- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // 禁止UIScrollView左右滑动时，上下左右都可以滑动
+    UIScrollView *scrollView = [self.headerView valueForKey:@"collectionView"];
+    
+    if (otherGestureRecognizer == scrollView.panGestureRecognizer) {
+        return NO;
+    }
+    
+    if (otherGestureRecognizer == self.scrollView.panGestureRecognizer) {
+        return NO;
+    }
+    
+    return [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]];
 }
 
 #pragma mark - 懒加载
@@ -103,6 +97,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.ceilPointHeight = 0;
+        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
 }
@@ -112,7 +107,6 @@
         CGFloat headerH = (kScreenW - 40) / 4 + 20;
         
         _headerView = [[GKHeaderScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, headerH)];
-        _headerView.delegate = self;
     }
     return _headerView;
 }
@@ -170,7 +164,6 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kBaseSegmentHeight, w, h)];
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = NO;
-        _scrollView.delegate = self;
     }
     return _scrollView;
 }
