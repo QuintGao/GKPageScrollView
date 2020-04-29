@@ -54,6 +54,13 @@
     return self;
 }
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    
+    self.bgImgFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    self.bgImgView.frame = self.bgImgFrame;
+}
+
 - (void)scrollViewDidScroll:(CGFloat)offsetY {
     // headerView下拉放大
     CGRect frame = self.bgImgFrame;

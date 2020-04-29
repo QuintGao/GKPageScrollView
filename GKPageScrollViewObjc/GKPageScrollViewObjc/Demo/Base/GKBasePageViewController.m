@@ -124,11 +124,20 @@
         _contentScrollView.bounces = NO;
         _contentScrollView.delegate = self;
         
-        [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.childVCs enumerateObjectsUsingBlock:^(GKBaseListViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
             [self addChildViewController:vc];
             [self->_contentScrollView addSubview:vc.view];
             
             vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
+            
+            vc.scrollToTop = ^(GKBaseListViewController * _Nonnull listVC, NSIndexPath * _Nonnull indexPath) {
+                [self.pageScrollView scrollToCriticalPoint];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    
+                    [listVC.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+                });
+            };
         }];
         _contentScrollView.contentSize = CGSizeMake(scrollW * self.childVCs.count, 0);
     }

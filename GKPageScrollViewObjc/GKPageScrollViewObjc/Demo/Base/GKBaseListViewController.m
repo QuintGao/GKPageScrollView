@@ -108,6 +108,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    !self.scrollToTop ? : self.scrollToTop(self, indexPath);
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     !self.listScrollViewScrollCallback ? : self.listScrollViewScrollCallback(scrollView);
 }
