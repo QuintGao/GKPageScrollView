@@ -97,6 +97,8 @@ class GKWBFindViewController: GKDemoBaseViewController {
         
         segmentedView.contentScrollView = self.contentScrollView;
         
+        view.addSubview(self.backBtn)
+        
         let btmLineView = UIView()
         btmLineView.backgroundColor = UIColor.grayColor(g: 226.0)
         segmentedView.addSubview(btmLineView)
@@ -106,6 +108,16 @@ class GKWBFindViewController: GKDemoBaseViewController {
         })
         
         return view
+    }()
+    
+    lazy var backBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage.gk_imageNamed("btn_back_black"), for: .normal)
+        btn.frame = CGRect(x: 12, y: 0, width: 44, height: 44)
+        btn.isHidden = true
+        btn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        
+        return btn
     }()
     
     lazy var contentScrollView: UIScrollView = {
@@ -139,9 +151,6 @@ class GKWBFindViewController: GKDemoBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.gk_navBackgroundColor = UIColor.clear
-        self.gk_navLineHidden = true
         
         self.view.addSubview(self.pageScrollView)
         self.view.addSubview(self.topView)
@@ -162,8 +171,6 @@ class GKWBFindViewController: GKDemoBaseViewController {
         })
         
         self.pageScrollView.reloadData()
-        self.backItem = UIBarButtonItem.gk_item(with: UIImage.gk_imageNamed("btn_back_black"), target: self, action: #selector(backAction))
-        self.gk_navLeftBarButtonItem = nil
         
         self.gk_statusBarStyle = .default
     }
@@ -173,7 +180,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
             self.navigationController?.popViewController(animated: true)
         }else {
             self.pageScrollView.scrollToOriginalPoint()
-            self.gk_navLeftBarButtonItem = nil
+            self.backBtn.isHidden = true
             self.topView.alpha = 0
         }
     }
@@ -196,10 +203,10 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
         self.isMainCanScroll = isMainCanScroll
         
         if self.isMainCanScroll {
-            self.gk_navLeftBarButtonItem = nil
+            self.backBtn.isHidden = true
             self.gk_popDelegate = nil
         }else {
-            self.gk_navLeftBarButtonItem = self.backItem
+            self.backBtn.isHidden = false
             self.gk_popDelegate = self
         }
         
