@@ -163,7 +163,7 @@
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
     CGFloat maxY = CGRectGetMaxY([self pageController:pageController preferredFrameForMenuView:pageController.menuView]);
-    return CGRectMake(0, maxY, kScreenW, kScreenH - maxY - kNavBarHeight);
+    return CGRectMake(0, maxY, kScreenW, kScreenH - maxY - self.pageScrollView.ceilPointHeight);
 }
 
 #pragma mark - WMPageControllerDelegate
@@ -179,6 +179,19 @@
 
 - (void)pageScrollViewDidEndedScroll {
     [self.pageScrollView horizonScrollViewDidEndedScroll];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    self.headerView.frame = CGRectMake(0, 0, kScreenW, kWBHeaderHeight);
+    
+    if (kScreenH > kScreenW) {
+        self.pageScrollView.ceilPointHeight = GK_STATUSBAR_NAVBAR_HEIGHT;
+    }else {
+        self.pageScrollView.ceilPointHeight = 44.0f;
+    }
+    [self.pageVC reloadData];
 }
 
 #pragma mark - 懒加载

@@ -10,16 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GKHeaderScrollViewDelegate <NSObject>
-
-- (void)headerScrollViewWillBeginScroll;
-- (void)headerScrollViewDidEndScroll;
-
-@end
-
 @interface GKHeaderScrollView : UIView
-
-@property (nonatomic, weak) id<GKHeaderScrollViewDelegate> delegate;
 
 @end
 

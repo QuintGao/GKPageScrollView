@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIView                    *headerView;
 
 @property (nonatomic, strong) UIView                    *pageView;
+@property (nonatomic, strong) UIButton                  *backBtn;
 @property (nonatomic, strong) UIView                    *segmentedView;
 @property (nonatomic, strong) UIScrollView              *contentScrollView;
 
@@ -37,9 +38,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.gk_navBackgroundColor = [UIColor clearColor];
-    self.gk_navLineHidden = YES;
     
     [self.view addSubview:self.pageScrollView];
     [self.view addSubview:self.topView];
@@ -60,9 +58,6 @@
     }];
     
     [self.pageScrollView reloadData];
-    
-    self.backItem = [UIBarButtonItem gk_itemWithTitle:nil image:[UIImage gk_imageNamed:@"btn_back_black"] target:self action:@selector(backAction)];
-    self.gk_navLeftBarButtonItem = nil;
 }
 
 - (void)backAction {
@@ -70,21 +65,8 @@
         [self.navigationController popViewControllerAnimated:YES];
     }else {
         [self.pageScrollView scrollToOriginalPoint];
-        self.gk_navLeftBarButtonItem = nil;
         self.topView.alpha = 0;
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-//    self.gk_popDelegate = self;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-//    self.gk_popDelegate = nil;
 }
 
 #pragma mark - GKPageScrollViewDelegate
@@ -104,11 +86,11 @@
     self.isMainCanScroll = isMainCanScroll;
     
     if (!isMainCanScroll) {
-        self.gk_navLeftBarButtonItem = self.backItem;
         self.gk_popDelegate = self;
+        self.backBtn.hidden = NO;
     }else {
-        self.gk_navLeftBarButtonItem = nil;
         self.gk_popDelegate = nil;
+        self.backBtn.hidden = YES;
     }
     
     // topView透明度渐变
@@ -127,16 +109,6 @@
     
     self.topView.alpha = alpha;
 }
-
-#pragma mark - UIScrollViewDelegate
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    NSLog(@"scrollView滑动开始");
-//    [self.pageScrollView horizonScrollViewWillBeginScroll];
-//}
-//
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    [self.pageScrollView horizonScrollViewDidEndedScroll];
-//}
 
 #pragma mark - GKPageTableViewGestureDelegate
 - (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -160,6 +132,7 @@
         _topView = [UIView new];
         _topView.backgroundColor = [UIColor whiteColor];
         _topView.alpha = 0;
+        _topView.userInteractionEnabled = NO;
     }
     return _topView;
 }
@@ -220,6 +193,8 @@
         
         titleView.contentScrollView = self.contentScrollView;
         
+        [_segmentedView addSubview:self.backBtn];
+        
         UIView *btmLineView = [UIView new];
         btmLineView.backgroundColor = GKColorGray(226.0f);
         [_segmentedView addSubview:btmLineView];
@@ -229,6 +204,17 @@
         }];
     }
     return _segmentedView;
+}
+
+- (UIButton *)backBtn {
+    if (!_backBtn) {
+        _backBtn = [UIButton new];
+        [_backBtn setImage:[UIImage gk_imageNamed:@"btn_back_black"] forState:UIControlStateNormal];
+        _backBtn.frame = CGRectMake(12, 0, 44, 44);
+        _backBtn.hidden = YES;
+        [_backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _backBtn;
 }
 
 - (UIScrollView *)contentScrollView {

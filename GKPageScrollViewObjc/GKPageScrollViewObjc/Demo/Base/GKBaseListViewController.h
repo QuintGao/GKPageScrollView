@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL  shouldLoadData;
 
+@property (nonatomic, copy) void(^scrollToTop)(GKBaseListViewController *listVC,NSIndexPath *indexPath);
+
 - (void)addHeaderRefresh;
 
 @end
