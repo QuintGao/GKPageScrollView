@@ -7,31 +7,15 @@
 //
 
 #import "GKPageScrollView.h"
-
-// 是否是iPhone X系列
-#define GKPAGE_IS_iPhoneX       ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?\
-(\
-CGSizeEqualToSize(CGSizeMake(375, 812),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(812, 375),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(414, 896),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(896, 414),[UIScreen mainScreen].bounds.size))\
-:\
-NO)
-
-// 导航栏+状态栏高度
-#define GKPAGE_NAVBAR_HEIGHT    (GKPAGE_IS_iPhoneX ? 88.0f : 64.0f)
-
-// 屏幕宽高
-#define GKPAGE_SCREEN_WIDTH     [UIScreen mainScreen].bounds.size.width
-#define GKPAGE_SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
+#import "GKPageDefine.h"
 
 @interface GKPageScrollView()<UITableViewDataSource, UITableViewDelegate, GKPageListContainerViewDelegate>
 
 @property (nonatomic, strong) GKPageTableView           *mainTableView;
 @property (nonatomic, strong) GKPageListContainerView   *listContainerView;
+
+@property (nonatomic, weak) id<GKPageScrollViewDelegate> delegate;
+
 // 当前滑动的listView
 @property (nonatomic, weak) UIScrollView                *currentListScrollView;
 @property (nonatomic, strong) NSMutableDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
@@ -60,7 +44,7 @@ NO)
 @implementation GKPageScrollView
 
 - (instancetype)initWithDelegate:(id<GKPageScrollViewDelegate>)delegate {
-    if (self = [super init]) {
+    if (self = [super initWithFrame:CGRectZero]) {
         self.delegate = delegate;
         self.ceilPointHeight = GKPAGE_NAVBAR_HEIGHT;
         self.validListDict = [NSMutableDictionary new];

@@ -144,8 +144,6 @@
 
 @interface GKPageScrollView : UIView
 
-@property (nonatomic, weak) id<GKPageScrollViewDelegate> delegate;
-
 /// 主列表
 @property (nonatomic, strong, readonly) GKPageTableView   *mainTableView;
 
@@ -173,7 +171,10 @@
 // 是否内部控制指示器的显示与隐藏（默认为NO）
 @property (nonatomic, assign) BOOL              isControlVerticalIndicator;
 
-- (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate;
+- (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 /**
  刷新headerView，headerView高度改变时调用

@@ -11,16 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GKNestViewDelegate <NSObject>
-
-- (void)nestViewWillScroll;
-- (void)nestViewEndScroll;
-
-@end
-
 @interface GKNestView : UIView<GKPageListViewDelegate>
-
-@property (nonatomic, weak) id<GKNestViewDelegate> delegate;
 
 @property (nonatomic, strong) UIScrollView  *contentScrollView;
 

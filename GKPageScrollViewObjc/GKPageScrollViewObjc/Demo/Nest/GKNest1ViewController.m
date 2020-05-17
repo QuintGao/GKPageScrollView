@@ -11,7 +11,7 @@
 #import <JXCategoryView/JXCategoryView.h>
 #import "GKNestView.h"
 
-@interface GKNest1ViewController()<GKPageScrollViewDelegate, JXCategoryViewDelegate, GKNestViewDelegate, GKPageListContainerCollectionViewGestureDelegate>
+@interface GKNest1ViewController()<GKPageScrollViewDelegate, JXCategoryViewDelegate, GKPageTableViewGestureDelegate, JXCategoryCollectionViewGestureDelegate>
 
 @property (nonatomic, strong) GKPageScrollView      *pageScrollView;
 
@@ -62,7 +62,6 @@
 
 - (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index {
     GKNestView *nestView = [GKNestView new];
-    nestView.delegate = self;
     return nestView;
 }
 
@@ -71,42 +70,35 @@
     self.currentNestView = (GKNestView *)self.pageScrollView.validListDict[@(index)];
 }
 
-#pragma mark - GKNestViewDelegate
-- (void)nestViewWillScroll {
-    [self.pageScrollView horizonScrollViewWillBeginScroll];
+#pragma mark - GKPageTableViewGestureDelegate
+- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if (otherGestureRecognizer.view == self.categoryView.collectionView) {
+        return NO;
+    }
+    
+    if (otherGestureRecognizer.view == self.currentNestView.contentScrollView) {
+        return NO;
+    }
+    
+    return [gestureRecognizer.view isKindOfClass:[UIScrollView class]] && [otherGestureRecognizer.view isKindOfClass:[UIScrollView class]];
 }
 
-- (void)nestViewEndScroll {
-    [self.pageScrollView horizonScrollViewDidEndedScroll];
-}
-
-#pragma mark - GKPageListContainerCollectionViewGestureDelegate
-- (BOOL)pageListContainerCollectionView:(GKPageListContainerCollectionView *)collectionView gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    if ([self panBackWithScrollView:collectionView gestureRecognizer:gestureRecognizer]) return NO;
+#pragma mark - JXCategoryCollectionViewGestureDelegate
+- (BOOL)categoryCollectionView:(JXCategoryCollectionView *)collectionView gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     
-    UIScrollView *listScrollView = self.currentNestView.contentScrollView;
-    
-    if (listScrollView.isTracking || listScrollView.isDragging) {
-        if ([gestureRecognizer isMemberOfClass:NSClassFromString(@"UIScrollViewPanGestureRecognizer")]) {
-            CGFloat velocityX = [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:gestureRecognizer.view].x;
-            // x大于0就是右滑，如果列表容器没有滑动到最右边，禁止滑动
-            if (velocityX > 0) {
-                if (listScrollView.contentOffset.x != 0) {
-                    return NO;
-                }
-            }else if (velocityX < 0) { // x小于0是往左滑
-                if (listScrollView.contentOffset.x + listScrollView.bounds.size.width != listScrollView.contentSize.width) {
-                    return NO;
-                }
-            }
-        }
+    if ([self panBackWithScrollView:collectionView gestureRecognizer:gestureRecognizer]) {
+        return NO;
     }
     
     return YES;
 }
 
-- (BOOL)pageListContainerCollectionView:(GKPageListContainerCollectionView *)collectionView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    if ([self panBackWithScrollView:collectionView gestureRecognizer:gestureRecognizer]) return YES;
+- (BOOL)categoryCollectionView:(JXCategoryCollectionView *)collectionView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    
+    if ([self panBackWithScrollView:collectionView gestureRecognizer:gestureRecognizer]) {
+        return YES;
+    }
+    
     return NO;
 }
 
@@ -133,7 +125,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.isLazyLoadList = YES;
-        _pageScrollView.listContainerView.collectionView.gestureDelegate = self;
+        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
 }
@@ -155,6 +147,7 @@
         _categoryView.titleColor = [UIColor blackColor];
         _categoryView.titleSelectedColor = [UIColor blackColor];
         _categoryView.delegate = self;
+        _categoryView.collectionView.gestureDelegate = self;
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;

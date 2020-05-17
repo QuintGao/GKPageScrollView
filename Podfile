@@ -18,7 +18,7 @@ target 'GKPageScrollViewSwift' do
   
   use_frameworks!
   
-  pod 'GKNavigationBar'
+  pod 'GKNavigationBarSwift'
   pod 'SnapKit'
   pod 'MJRefresh'
   pod 'WMPageController'

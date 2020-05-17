@@ -1,5 +1,6 @@
 PODS:
   - GKNavigationBar (1.0.4)
+  - GKNavigationBarSwift (0.0.4)
   - JXCategoryView (1.5.5)
   - JXSegmentedView (1.0.6)
   - Masonry (1.1.0)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - GKNavigationBar
+  - GKNavigationBarSwift
   - JXCategoryView
   - JXSegmentedView
   - Masonry
@@ -23,6 +25,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - GKNavigationBar
+    - GKNavigationBarSwift
     - JXCategoryView
     - JXSegmentedView
     - Masonry
@@ -33,6 +36,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   GKNavigationBar: 6bcc56c2ad9c01effa641816a73c750f12f5764d
+  GKNavigationBarSwift: 1f352951fbd3bd213d5047e2ee3391ac7e10c86c
   JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
   JXSegmentedView: ceb6fb3a12716408bcd5c4210b93d947d079de25
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -41,6 +45,6 @@ SPEC CHECKSUMS:
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: b0ad05ea24e35b6b6f3ca9234f175957caf5ccc6
+PODFILE CHECKSUM: 01122e12a1421b310560da259a895d7690ef3dad
 
 COCOAPODS: 1.9.1

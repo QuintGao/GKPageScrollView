@@ -8,6 +8,7 @@
 
 import UIKit
 import JXSegmentedView
+import GKNavigationBarSwift
 
 protocol GKNestViewDelegate: AnyObject {
     func nestViewWillScroll()

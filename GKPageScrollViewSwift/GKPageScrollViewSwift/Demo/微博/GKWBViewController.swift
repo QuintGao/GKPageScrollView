@@ -98,7 +98,7 @@ class GKWBViewController: GKDemoBaseViewController {
         self.gk_navBarAlpha = 0.0
         self.gk_statusBarStyle = .lightContent
         self.gk_navTitleView = titleView
-        self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(with: UIImage(named: "wb_more")!, target: self, action: #selector(moreAction))
+        self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(image: UIImage(named: "wb_more")!, target: self, action: #selector(moreAction))
         
         self.view.addSubview(self.pageScrollView)
         self.pageScrollView.snp.makeConstraints { (make) in
@@ -141,27 +141,27 @@ extension GKWBViewController: GKPageScrollViewDelegate {
             
             self.titleLabel.alpha = 0
             self.gk_statusBarStyle = .lightContent
-            self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(with: UIImage(named: "btn_back_white")!, target: self, action: #selector(backAction))
-            self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(with: UIImage(named: "wb_more")!, target: self, action: #selector(moreAction))
+            self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(image: UIImage(named: "btn_back_white")!, target: self, action: #selector(backAction))
+            self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(image: UIImage(named: "wb_more")!, target: self, action: #selector(moreAction))
         }else if offsetY >= 100.0 {
             alpha = 1.0
             self.gk_statusBarStyle = .default
-            self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(with: UIImage(named: "btn_back_black")!, target: self, action: #selector(backAction))
-            self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(with: UIImage.gk_change(UIImage(named: "wb_more")!, color: .black), target: self, action: #selector(moreAction))
+            self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(image: UIImage(named: "btn_back_black")!, target: self, action: #selector(backAction))
+            self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(image: UIImage.gk_change(with: UIImage(named: "wb_more")!, color: .black), target: self, action: #selector(moreAction))
             self.titleLabel.alpha = 1
         }else {
             alpha = (offsetY - 60) / (100 - 60)
             
             if alpha > 0.8 {
                 self.gk_statusBarStyle = .default
-                self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(with: UIImage(named: "btn_back_black")!, target: self, action: #selector(backAction))
-                self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(with: UIImage.gk_change(UIImage(named: "wb_more")!, color: .black), target: self, action: #selector(moreAction))
+                self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(image: UIImage(named: "btn_back_black")!, target: self, action: #selector(backAction))
+                self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(image: UIImage.gk_change(with: UIImage(named: "wb_more")!, color: .black), target: self, action: #selector(moreAction))
                 self.titleLabel.alpha = (offsetY - 92) / (100 - 92)
             }else {
                 self.titleLabel.alpha = 0
                 self.gk_statusBarStyle = .lightContent
-                self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(with: UIImage(named: "btn_back_black")!, target: self, action: #selector(backAction))
-                self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(with: UIImage(named: "wb_more")!, target: self, action: #selector(moreAction))
+                self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(image: UIImage(named: "btn_back_black")!, target: self, action: #selector(backAction))
+                self.gk_navRightBarButtonItem = UIBarButtonItem.gk_item(image: UIImage(named: "wb_more")!, target: self, action: #selector(moreAction))
             }
         }
         self.gk_navBarAlpha = alpha

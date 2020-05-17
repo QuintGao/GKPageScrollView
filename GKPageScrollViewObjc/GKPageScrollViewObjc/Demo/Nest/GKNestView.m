@@ -94,25 +94,6 @@
     }
 }
 
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if ([self.delegate respondsToSelector:@selector(nestViewWillScroll)]) {
-        [self.delegate nestViewWillScroll];
-    }
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if ([self.delegate respondsToSelector:@selector(nestViewEndScroll)]) {
-        [self.delegate nestViewEndScroll];
-    }
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if ([self.delegate respondsToSelector:@selector(nestViewEndScroll)]) {
-        [self.delegate nestViewEndScroll];
-    }
-}
-
 #pragma mark - 懒加载
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {

@@ -9,7 +9,7 @@
 import UIKit
 import MJRefresh
 import JXSegmentedView
-import GKNavigationBar
+import GKNavigationBarSwift
 
 class GKWBFindViewController: GKDemoBaseViewController {
 
@@ -112,7 +112,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
     
     lazy var backBtn: UIButton = {
         let btn = UIButton()
-        btn.setImage(UIImage.gk_imageNamed("btn_back_black"), for: .normal)
+        btn.setImage(UIImage.gk_image(with: "btn_back_black"), for: .normal)
         btn.frame = CGRect(x: 12, y: 0, width: 44, height: 44)
         btn.isHidden = true
         btn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
