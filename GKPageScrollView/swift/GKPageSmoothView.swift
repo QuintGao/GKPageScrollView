@@ -181,9 +181,9 @@ open class GKPageSmoothView: UIView {
         super.layoutSubviews()
         
         listCollectionView.frame = bounds
-        if headerContainerView.frame == .zero {
-            reloadData()
-        }
+//        if headerContainerView.frame == .zero {
+//            reloadData()
+//        }
     }
     
     // MARK: - KVO

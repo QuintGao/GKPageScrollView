@@ -20,6 +20,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 - 可实现导航栏颜色渐变、头图下拉放大等效果
 - 支持主页、列表页下拉刷新，上拉加载
 - 支持列表懒加载功能
+- 支持列表延续滑动（只支持懒加载形式）
 
 ## 使用方法
 ### 1、手动安装
@@ -54,6 +55,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 1、尽量不要在代理方法里创建视图，如headerView，pageView等
 
 ## 版本更新
+* 2020.05.19   1.3.6 - 增加列表延续滑动功能，需使用GKPageSmoothView类
 * 2020.04.18   1.3.5 - 优化代码，支持Swift 5.x
 * 2019.11.11   1.3.3 - 修复GKPageScrollView与返回手势的滑动冲突
 * 2019.10.25   1.3.1 - 增加GKPageTableViewGestureDelegate，解决嵌套时的滑动冲突 
