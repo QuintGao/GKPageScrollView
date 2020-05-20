@@ -41,10 +41,11 @@
                         @{@"title": @"VTMagic使用", @"class": @"GKVTMagicViewController"},
 //                        @{@"title": @"测试", @"class": @"GKTestViewController"},
                         @{@"title": @"嵌套使用1", @"class": @"GKNest1ViewController"},
-                        @{@"title": @"嵌套使用2", @"class": @"GKNest2ViewController"}];
+                        @{@"title": @"嵌套使用2", @"class": @"GKNest2ViewController"},
+                        @{@"title": @"滑动延续", @"class": @"GKSmoothViewController"}];
     
     [self.tableView reloadData];
-}
+
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

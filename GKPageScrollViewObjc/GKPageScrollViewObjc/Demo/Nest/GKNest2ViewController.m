@@ -11,7 +11,7 @@
 #import "GKNest2View.h"
 #import <JXCategoryView/JXCategoryView.h>
 
-@interface GKNest2ViewController ()<JXCategoryViewDelegate, UIScrollViewDelegate, GKNestScrollViewGestureDelegate>
+@interface GKNest2ViewController ()<JXCategoryViewDelegate, UIScrollViewDelegate, GKNestScrollViewGestureDelegate, JXCategoryCollectionViewGestureDelegate>
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 
@@ -77,16 +77,21 @@
     return NO;
 }
 
-// 检查contentScrollView是否滑动到边缘
-- (BOOL)checkIsContentScrollEdge {
-    UIScrollView *listCollectionView = self.nestView.pageScrollView.listContainerView.collectionView;
-    
-    if (listCollectionView.contentOffset.x == 0 || (listCollectionView.contentOffset.x + listCollectionView.frame.size.width) == listCollectionView.contentSize.width) {
-        return YES;
+#pragma mark - JXCategoryCollectionViewGestureDelegate
+- (BOOL)categoryCollectionView:(JXCategoryCollectionView *)collectionView gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if ([self panBackWithScrollView:collectionView gestureRecognizer:gestureRecognizer]) {
+        return NO;
     }
+    return YES;
+}
+
+- (BOOL)categoryCollectionView:(JXCategoryCollectionView *)collectionView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if ([self panBackWithScrollView:collectionView gestureRecognizer:gestureRecognizer]) return YES;
+    
     return NO;
 }
 
+#pragma mark - 此方法解决UIScrollView左右滑动与侧滑返回手势的冲突
 - (BOOL)panBackWithScrollView:(UIScrollView *)scrollView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
     if (gestureRecognizer == scrollView.panGestureRecognizer) {
         CGPoint point = [scrollView.panGestureRecognizer translationInView:scrollView];
@@ -117,6 +122,7 @@
         _categoryView.delegate = self;
         _categoryView.contentEdgeInsetLeft = 0;
         _categoryView.contentEdgeInsetRight = 0;
+        _categoryView.collectionView.gestureDelegate = self;
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;

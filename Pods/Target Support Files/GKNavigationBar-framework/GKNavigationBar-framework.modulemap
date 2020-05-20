@@ -1,6 +1,0 @@
-framework module GKNavigationBar {
-  umbrella header "GKNavigationBar-framework-umbrella.h"
-
-  export *
-  module * { export * }
-}

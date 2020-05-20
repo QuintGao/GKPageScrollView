@@ -63,6 +63,8 @@ class GKNest1ViewController: GKDemoBaseViewController {
         self.gk_navBackgroundColor = UIColor.clear
         self.gk_navLineHidden = true
         self.gk_statusBarStyle = .lightContent
+        self.gk_navTitleColor = .white
+        self.gk_navTitle = "嵌套滑动1"
         
         self.view.addSubview(self.pageScrollView)
         

@@ -34,7 +34,8 @@ class ViewController: GKDemoBaseViewController {
                       ["title": "Header左右滑动", "class": "GKHeaderScrollViewController"],
                       ["title": "VTMagic使用", "class": "GKVTMagicViewController"],
                       ["title": "嵌套使用1", "class": "GKNest1ViewController"],
-                      ["title": "嵌套使用2", "class": "GKNest2ViewController"]]
+                      ["title": "嵌套使用2", "class": "GKNest2ViewController"],
+                      ["title": "滑动延续", "class": "GKSmoothViewController"]]
 //                      ["title": "测试", "class": "GKTestViewController"]]
     
     override func viewDidLoad() {
