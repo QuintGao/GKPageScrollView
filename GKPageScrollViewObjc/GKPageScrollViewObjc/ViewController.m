@@ -45,7 +45,7 @@
                         @{@"title": @"滑动延续", @"class": @"GKSmoothViewController"}];
     
     [self.tableView reloadData];
-
+}
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
