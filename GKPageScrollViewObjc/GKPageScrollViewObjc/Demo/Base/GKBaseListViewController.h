@@ -11,7 +11,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKBaseListViewController : GKBaseTableViewController<GKPageListViewDelegate>
+typedef NS_ENUM(NSUInteger, GKBaseListType) {
+    GKBaseListType_UITableView          = 0,
+    GKBaseListType_UICollectionView     = 1,
+    GKBaseListType_UIScrollView         = 2,
+    GKBaseListType_WKWebView            = 3
+};
+
+@interface GKBaseListViewController : UIViewController<GKPageListViewDelegate>
+
+- (instancetype)initWithListType:(GKBaseListType)listType;
 
 @property (nonatomic, assign) NSInteger count;
 
@@ -20,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void(^scrollToTop)(GKBaseListViewController *listVC,NSIndexPath *indexPath);
 
 - (void)addHeaderRefresh;
+
+- (void)reloadData;
 
 @end
 

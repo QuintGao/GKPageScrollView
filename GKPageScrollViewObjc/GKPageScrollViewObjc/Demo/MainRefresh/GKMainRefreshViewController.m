@@ -33,7 +33,7 @@
             
             // 模拟下拉刷新
             currentListVC.count = 30;
-            [currentListVC.tableView reloadData];
+            [currentListVC reloadData];
         });
     }];
     

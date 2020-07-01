@@ -89,7 +89,7 @@
 - (JXCategoryTitleView *)segmentView {
     if (!_segmentView) {
         _segmentView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseSegmentHeight)];
-        _segmentView.titles = @[@"动态", @"文章", @"更多"];
+        _segmentView.titles = @[@"TableView", @"CollectionView", @"ScrollView", @"WebView"];
         _segmentView.titleFont = [UIFont systemFontOfSize:15.0f];
         _segmentView.titleSelectedFont = [UIFont systemFontOfSize:15.0f];
         _segmentView.titleColor = [UIColor grayColor];
@@ -135,7 +135,7 @@
                 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     
-                    [listVC.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+//                    [listVC.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
                 });
             };
         }];
@@ -146,13 +146,15 @@
 
 - (NSArray *)childVCs {
     if (!_childVCs) {
-        GKBaseListViewController *dynamicVC = [GKBaseListViewController new];
+        GKBaseListViewController *dynamicVC = [[GKBaseListViewController alloc] initWithListType:GKBaseListType_UITableView];
         
-        GKBaseListViewController *articleVC = [GKBaseListViewController new];
+        GKBaseListViewController *articleVC = [[GKBaseListViewController alloc] initWithListType:GKBaseListType_UICollectionView];
         
-        GKBaseListViewController *moreVC = [GKBaseListViewController new];
+        GKBaseListViewController *moreVC = [[GKBaseListViewController alloc] initWithListType:GKBaseListType_UIScrollView];
         
-        _childVCs = @[dynamicVC, articleVC, moreVC];
+        GKBaseListViewController *webVC = [[GKBaseListViewController alloc] initWithListType:GKBaseListType_WKWebView];
+        
+        _childVCs = @[dynamicVC, articleVC, moreVC, webVC];
     }
     return _childVCs;
 }

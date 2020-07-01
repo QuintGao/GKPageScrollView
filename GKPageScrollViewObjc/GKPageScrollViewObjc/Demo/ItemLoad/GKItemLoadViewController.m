@@ -54,7 +54,7 @@
             
             // 根据标题创建控制器并添加到scrollView
             [self.titles enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                GKBaseListViewController *vc = [GKBaseListViewController new];
+                GKBaseListViewController *vc = [[GKBaseListViewController alloc] initWithListType:idx];
                 
                 [self.childVCs addObject:vc];
                 
@@ -104,7 +104,7 @@
 
 - (NSArray *)titles {
     if (!_titles) {
-        _titles = @[@"动态", @"文章", @"更多"];
+        _titles = @[@"TableView", @"CollectionView", @"ScrollView", @"WebView"];
     }
     return _titles;
 }

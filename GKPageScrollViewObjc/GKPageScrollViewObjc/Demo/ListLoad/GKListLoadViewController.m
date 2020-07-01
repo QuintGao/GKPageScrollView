@@ -61,7 +61,9 @@
 }
 
 - (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index {
-    GKBaseListViewController *listVC = [GKBaseListViewController new];
+    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
+    listVC.count = 0;
+    [listVC reloadData];
     listVC.shouldLoadData = YES;
     [self addChildViewController:listVC];
     return listVC;
@@ -88,7 +90,7 @@
 
 - (NSArray *)titles {
     if (!_titles) {
-        _titles = @[@"动态", @"文章", @"更多"];
+        _titles = @[@"TableView", @"CollectionView", @"ScrollView", @"WebView"];
     }
     return _titles;
 }
