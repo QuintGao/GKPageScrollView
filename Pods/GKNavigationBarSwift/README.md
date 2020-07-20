@@ -23,6 +23,8 @@ GKNavigationBar的Swift版本 - iOS自定义导航栏，为你的每个控制器
 * 可实现左滑push一个控制器的效果（如：网易新闻）
 
 ## 重要！！！
+感谢使用该库，如果在使用过程中遇到问题可查看issue或提交issue，或者进QQ群1047100313
+
 1、如果想要在控制器中动态改变状态栏样式，需要在基类控制器实现下面的方法
 ```
 override var prefersStatusBarHidden: Bool {
@@ -77,10 +79,13 @@ self.gk_navBackgroundColor = [UIColor red]
 
 ## 效果图
 
-![demo](https://github.com/QuintGao/GKNavigationBarSwift/blob/master/imgs/demo.png)
+![demo](https://github.com/QuintGao/GKExampleImages/blob/master/GKNavigationBar/demo.png)
 
 ## 版本记录
 
+* 0.0.9 - 2020.07.16 增加gk_backImage，可自定义导航栏返回按钮图片
+* 0.0.7 - 2020.06.22 设置导航栏间距不再局限于GKNavigationBar
+* 0.0.6 - 2020.06.18  修复设置导航栏item间距的bug
 * 0.0.4 - 2020.04.18  修复设置标题文字颜色及大小可能无效的情况
 * 0.0.3 - 2020.04.12  优化对UIScrollView手势的处理
 * 0.0.1 - 2020.04.12  初始版本，支持Cocoapods，Carthage，SPM

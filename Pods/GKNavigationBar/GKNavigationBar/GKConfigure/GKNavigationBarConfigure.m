@@ -13,6 +13,8 @@
 @property (nonatomic, assign) CGFloat navItemLeftSpace;
 @property (nonatomic, assign) CGFloat navItemRightSpace;
 
+@property (nonatomic, strong) NSArray *shiledVCs;
+
 @end
 
 @implementation GKNavigationBarConfigure
@@ -62,6 +64,10 @@
 
 - (void)updateConfigure:(void (^)(GKNavigationBarConfigure * _Nonnull))block {
     !block ? : block(self);
+}
+
+- (void)setupShiledVCs:(NSArray *)vcs {
+    self.shiledVCs = vcs;
 }
 
 - (CGFloat)gk_fixedSpace {

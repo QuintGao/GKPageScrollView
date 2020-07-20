@@ -51,6 +51,9 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 /// 设置导航栏类型
 @property (nonatomic, assign) UIStatusBarStyle gk_statusBarStyle;
 
+/// 设置返回按钮图片
+@property (nonatomic, strong) UIImage *gk_backImage;
+
 /// 设置返回按钮类型
 @property (nonatomic, assign) GKNavigationBarBackStyle gk_backStyle;
 

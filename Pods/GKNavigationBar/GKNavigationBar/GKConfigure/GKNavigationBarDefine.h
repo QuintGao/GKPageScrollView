@@ -28,6 +28,9 @@ CGSizeEqualToSize(CGSizeMake(896, 414),[UIScreen mainScreen].bounds.size))\
 :\
 NO)
 
+// 判断是否是iPad
+#define GK_IS_iPad                  UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+
 // 顶部安全区域高度
 #define GK_SAFEAREA_TOP             (GK_NOTCHED_SCREEN ? 24.0f : 0.0f)
 // 底部安全区域高度

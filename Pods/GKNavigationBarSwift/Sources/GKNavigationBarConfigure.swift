@@ -63,7 +63,9 @@ open class GKNavigationBarConfigure : NSObject {
     open var navItemLeftSpace: CGFloat = 0
 
     open var navItemRightSpace: CGFloat = 0
-
+    
+    /// 调整导航栏间距时需要屏蔽的VC
+    open var shiledVCs: [UIViewController]?
     
     /// 单例，设置一次全局使用
     public static let shared: GKNavigationBarConfigure = {
@@ -120,6 +122,11 @@ open class GKNavigationBarConfigure : NSObject {
         block(self)
     }
 
+    
+    // 屏蔽某些控制器对导航栏间距调整的影响
+    open func setupShiledVCs(vcs: [UIViewController]?) {
+        self.shiledVCs = vcs
+    }
     
     /// 获取当前item修复间距
     open func gk_fixedSpace() -> CGFloat {

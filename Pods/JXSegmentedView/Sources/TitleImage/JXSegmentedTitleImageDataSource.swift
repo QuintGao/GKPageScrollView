@@ -64,20 +64,35 @@ open class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
     }
 
     open override func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
-        var itemWidth = super.preferredSegmentedView(segmentedView, widthForItemAt: index)
-        if itemContentWidth == JXSegmentedViewAutomaticDimension {
+        var width = super.preferredSegmentedView(segmentedView, widthForItemAt: index)
+        if itemWidth == JXSegmentedViewAutomaticDimension {
             switch titleImageType {
             case .leftImage, .rightImage:
-                itemWidth += titleImageSpacing + imageSize.width
+                width += titleImageSpacing + imageSize.width
             case .topImage, .bottomImage:
-                itemWidth = max(itemWidth, imageSize.width)
+                width = max(itemWidth, imageSize.width)
             case .onlyImage:
-                itemWidth = imageSize.width
+                width = imageSize.width
             case .onlyTitle:
                 break
             }
         }
-        return itemWidth
+        return width
+    }
+
+    public override func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat {
+        var width = super.segmentedView(segmentedView, widthForItemContentAt: index)
+        switch titleImageType {
+        case .leftImage, .rightImage:
+            width += titleImageSpacing + imageSize.width
+        case .topImage, .bottomImage:
+            width = max(itemWidth, imageSize.width)
+        case .onlyImage:
+            width = imageSize.width
+        case .onlyTitle:
+            break
+        }
+        return width
     }
 
     //MARK: - JXSegmentedViewDataSource

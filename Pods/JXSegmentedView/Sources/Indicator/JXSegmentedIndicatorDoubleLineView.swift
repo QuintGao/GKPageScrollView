@@ -25,7 +25,7 @@ open class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
         addSubview(otherLineView)
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorParamsModel) {
+    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         selectedLineView.backgroundColor = indicatorColor
@@ -33,23 +33,26 @@ open class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
         selectedLineView.layer.cornerRadius = getIndicatorCornerRadius(itemFrame: model.currentSelectedItemFrame)
         otherLineView.layer.cornerRadius = getIndicatorCornerRadius(itemFrame: model.currentSelectedItemFrame)
 
-        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame)
+        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
         let height = getIndicatorHeight(itemFrame: model.currentSelectedItemFrame)
         let x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - width)/2
-        var y = model.currentSelectedItemFrame.size.height - height - verticalOffset
-        if indicatorPosition == .top {
+        var y: CGFloat = 0
+        switch indicatorPosition {
+        case .top:
             y = verticalOffset
+        case .bottom:
+            y = model.currentSelectedItemFrame.size.height - height - verticalOffset
+        case .center:
+            y = (model.currentSelectedItemFrame.size.height - height)/2 + verticalOffset
         }
         selectedLineView.frame = CGRect(x: x, y: y, width: width, height: height)
         otherLineView.frame = selectedLineView.frame
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorParamsModel) {
+    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
-        if model.percent == 0 || !isScrollEnabled {
-            //model.percent等于0时不需要处理，会调用selectItem(model: JXSegmentedIndicatorParamsModel)方法处理
-            //isScrollEnabled为false不需要处理
+        guard canHandleTransition(model: model) else {
             return
         }
 
@@ -59,8 +62,8 @@ open class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
 
         let leftCenter = getCenter(in: leftItemFrame)
         let rightCenter = getCenter(in: rightItemFrame)
-        let leftMaxWidth = getIndicatorWidth(itemFrame: leftItemFrame)
-        let rightMaxWidth = getIndicatorWidth(itemFrame: rightItemFrame)
+        let leftMaxWidth = getIndicatorWidth(itemFrame: leftItemFrame, itemContentWidth: model.leftItemContentWidth)
+        let rightMaxWidth = getIndicatorWidth(itemFrame: rightItemFrame, itemContentWidth: model.rightItemContentWidth)
         let leftMinWidth = leftMaxWidth*minLineWidthPercent
         let rightMinWidth = rightMaxWidth*minLineWidthPercent
 
@@ -88,10 +91,10 @@ open class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
         }
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorParamsModel) {
+    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
-        let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame)
+        let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
         let targetCenter = getCenter(in: model.currentSelectedItemFrame)
         selectedLineView.bounds.size.width = targetWidth
         selectedLineView.center = targetCenter

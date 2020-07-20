@@ -13,6 +13,7 @@
 		600A95BE235EAFE3009EAA9F /* GKNest2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600A95BD235EAFE3009EAA9F /* GKNest2ViewController.swift */; };
 		600A95C0235EB04F009EAA9F /* GKNestScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600A95BF235EB04F009EAA9F /* GKNestScrollView.swift */; };
 		600A95C2235EB064009EAA9F /* GKNest2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600A95C1235EB064009EAA9F /* GKNest2View.swift */; };
+		602D636524C59FF400D35E08 /* GKBallLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D636324C59FF400D35E08 /* GKBallLoadingView.m */; };
 		6036C3D922439A2F000BE576 /* GKItemLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036C3D822439A2F000BE576 /* GKItemLoadViewController.swift */; };
 		603E262F23AC8B7300FFEF28 /* GKTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E262E23AC8B7300FFEF28 /* GKTestViewController.swift */; };
 		603EDE4B23599F2D006D135C /* GKNest1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603EDE4A23599F2D006D135C /* GKNest1ViewController.swift */; };
@@ -121,6 +122,8 @@
 		600A95BD235EAFE3009EAA9F /* GKNest2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKNest2ViewController.swift; sourceTree = "<group>"; };
 		600A95BF235EB04F009EAA9F /* GKNestScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKNestScrollView.swift; sourceTree = "<group>"; };
 		600A95C1235EB064009EAA9F /* GKNest2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKNest2View.swift; sourceTree = "<group>"; };
+		602D636324C59FF400D35E08 /* GKBallLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBallLoadingView.m; sourceTree = "<group>"; };
+		602D636424C59FF400D35E08 /* GKBallLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBallLoadingView.h; sourceTree = "<group>"; };
 		6036C3D822439A2F000BE576 /* GKItemLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKItemLoadViewController.swift; sourceTree = "<group>"; };
 		603E262E23AC8B7300FFEF28 /* GKTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKTestViewController.swift; sourceTree = "<group>"; };
 		603EDE4A23599F2D006D135C /* GKNest1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKNest1ViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +241,15 @@
 			path = HeaderScroll;
 			sourceTree = "<group>";
 		};
+		602D636224C59FF400D35E08 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				602D636424C59FF400D35E08 /* GKBallLoadingView.h */,
+				602D636324C59FF400D35E08 /* GKBallLoadingView.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		6036C3D722439A0A000BE576 /* ItemLoad */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +344,7 @@
 				603EDE47235992B6006D135C /* Nest */,
 				79CBF847246ADC330020B259 /* Smooth */,
 				60A20D0B221E80DB00DB2193 /* Test */,
+				602D636224C59FF400D35E08 /* Tools */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -728,6 +741,7 @@
 				60A20C2B221E77A700DB2193 /* AppDelegate.swift in Sources */,
 				603EDE4D23599F3F006D135C /* GKNestView.swift in Sources */,
 				603EDE522359A018006D135C /* GKVTMagicViewController.swift in Sources */,
+				602D636524C59FF400D35E08 /* GKBallLoadingView.m in Sources */,
 				79410CA9246AE31700073657 /* GKPageListContainerView.swift in Sources */,
 				60A20D15221E918E00DB2193 /* GKWBViewController.swift in Sources */,
 				603EDE4F23599F46006D135C /* GKNestListView.swift in Sources */,

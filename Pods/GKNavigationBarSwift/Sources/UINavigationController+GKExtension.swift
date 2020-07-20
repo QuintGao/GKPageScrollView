@@ -132,11 +132,11 @@ extension UINavigationController: GKChildAwakeProtocol {
     private static let onceToken = UUID().uuidString
     public static func gkChildAwake() {
         DispatchQueue.once(token: onceToken) {
-            gk_swizzled_instanceMethod(self, oldSelector: "viewDidLoad", newClass: self)
+            gk_swizzled_instanceMethod(self, oldSelector: "viewDidLoad", newClass: self, prefixString: "gkNavVC_")
         }
     }
     
-    @objc func gk_viewDidLoad() {
+    @objc func gkNavVC_viewDidLoad() {
         if self.gk_openGestureHandle {
             if self.isKind(of: UIImagePickerController.classForCoder()) {
                 return
@@ -154,7 +154,7 @@ extension UINavigationController: GKChildAwakeProtocol {
             // 注册控制器属性改变通知
             NotificationCenter.default.addObserver(self, selector: #selector(propertyChangeNotification(_:)), name: GKViewControllerPropertyChanged, object: nil)
         }
-        gk_viewDidLoad()
+        gkNavVC_viewDidLoad()
     }
     
     @objc func propertyChangeNotification(_ notify: Notification) {

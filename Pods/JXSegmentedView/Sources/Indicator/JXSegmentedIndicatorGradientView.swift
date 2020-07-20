@@ -8,11 +8,17 @@
 
 import UIKit
 
+/// 整个背景是一个渐变色layer，通过gradientMaskLayer遮罩显示不同位置，达到不同文字底部有不同的渐变色。
 open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
+    @available(*, deprecated, renamed: "indicatorWidthIncrement")
+    open var gradientViewWidthIncrement: CGFloat = 20 {
+        didSet {
+            indicatorWidthIncrement = gradientViewWidthIncrement
+        }
+    }
+
     /// 渐变colors
     open var gradientColors = [CGColor]()
-    /// 宽度增量，背景指示器一般要比cell宽一些
-    open var gradientViewWidthIncrement: CGFloat = 20
     /// 渐变CAGradientLayer，通过它设置startPoint、endPoint等其他属性
     open var gradientLayer: CAGradientLayer {
         return layer as! CAGradientLayer
@@ -28,7 +34,10 @@ open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
     open override func commonInit() {
         super.commonInit()
 
+        indicatorWidthIncrement = 20
         indicatorHeight = 26
+        indicatorPosition = .center
+        verticalOffset = 0
 
         gradientColors = [UIColor(red: 194.0/255, green: 229.0/255, blue: 156.0/255, alpha: 1).cgColor, UIColor(red: 100.0/255, green: 179.0/255, blue: 244.0/255, alpha: 1).cgColor]
 
@@ -37,40 +46,48 @@ open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
         layer.mask = gradientMaskLayer
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorParamsModel) {
+    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         gradientLayer.colors = gradientColors
 
-        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame)
+        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
         let height = getIndicatorHeight(itemFrame: model.currentSelectedItemFrame)
         let x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - width)/2
-        let y = (model.currentSelectedItemFrame.size.height - height)/2
+        var y: CGFloat = 0
+        switch indicatorPosition {
+        case .top:
+            y = verticalOffset
+        case .bottom:
+            y = model.currentSelectedItemFrame.size.height - height - verticalOffset
+        case .center:
+            y = (model.currentSelectedItemFrame.size.height - height)/2 + verticalOffset
+        }
         gradientMaskLayerFrame = CGRect(x: x, y: y, width: width, height: height)
         let path = UIBezierPath(roundedRect: gradientMaskLayerFrame, cornerRadius: getIndicatorCornerRadius(itemFrame: model.currentSelectedItemFrame))
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         gradientMaskLayer.path = path.cgPath
         CATransaction.commit()
-        frame = CGRect(x: 0, y: 0, width: model.contentSize.width, height: model.contentSize.height)
+        if let collectionViewContentSize = model.collectionViewContentSize {
+            frame = CGRect(x: 0, y: 0, width: collectionViewContentSize.width, height: collectionViewContentSize.height)
+        }
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorParamsModel) {
+    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
-        if model.percent == 0 || !isScrollEnabled {
-            //model.percent等于0时不需要处理，会调用selectItem(model: JXSegmentedIndicatorParamsModel)方法处理
-            //isScrollEnabled为false不需要处理
+        guard canHandleTransition(model: model) else {
             return
         }
 
         let rightItemFrame = model.rightItemFrame
         let leftItemFrame = model.leftItemFrame
         let percent = model.percent
-        var targetWidth = getIndicatorWidth(itemFrame: leftItemFrame)
+        var targetWidth = getIndicatorWidth(itemFrame: leftItemFrame, itemContentWidth: model.leftItemContentWidth)
 
         let leftWidth = targetWidth
-        let rightWidth = getIndicatorWidth(itemFrame: rightItemFrame)
+        let rightWidth = getIndicatorWidth(itemFrame: rightItemFrame, itemContentWidth: model.rightItemContentWidth)
         let leftX = leftItemFrame.origin.x + (leftItemFrame.size.width - leftWidth)/2
         let rightX = rightItemFrame.origin.x + (rightItemFrame.size.width - rightWidth)/2
         let targetX = JXSegmentedViewTool.interpolate(from: leftX, to: rightX, percent: CGFloat(percent))
@@ -87,16 +104,15 @@ open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
         CATransaction.commit()
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorParamsModel) {
+    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
-        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame)
+        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
         var toFrame = gradientMaskLayerFrame
         toFrame.origin.x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - width)/2
         toFrame.size.width = width
         let path = UIBezierPath(roundedRect: toFrame, cornerRadius: getIndicatorCornerRadius(itemFrame: model.currentSelectedItemFrame))
-        if isScrollEnabled && (model.selectedType == .click || model.selectedType == .code) {
-            //允许滚动且选中类型是点击或代码选中，才进行动画过渡
+        if canSelectedWithAnimation(model: model) {
             gradientMaskLayer.removeAnimation(forKey: "path")
             let animation = CABasicAnimation(keyPath: "path")
             animation.fromValue = gradientMaskLayer.path
@@ -111,9 +127,5 @@ open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
             gradientMaskLayer.path = path.cgPath
             CATransaction.commit()
         }
-    }
-
-    open override func getIndicatorWidth(itemFrame: CGRect) -> CGFloat {
-        return super.getIndicatorWidth(itemFrame: itemFrame) + gradientViewWidthIncrement
     }
 }

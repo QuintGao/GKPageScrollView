@@ -15,6 +15,7 @@
 		601482522238AB7500723BA3 /* GKListLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601482512238AB7500723BA3 /* GKListLoadViewController.m */; };
 		6021DF0022DC79AA00F4714E /* GKTestListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6021DEFF22DC79AA00F4714E /* GKTestListCollectionView.m */; };
 		60253560235D952800077962 /* GKNestScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6025355F235D952800077962 /* GKNestScrollView.m */; };
+		602D636124C59F9B00D35E08 /* GKBallLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D635F24C59F9B00D35E08 /* GKBallLoadingView.m */; };
 		6033D06A235D5A54003C48BB /* GKNest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D069235D5A54003C48BB /* GKNest2ViewController.m */; };
 		6033D06D235D5B33003C48BB /* GKNest2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D06C235D5B33003C48BB /* GKNest2View.m */; };
 		6036C3D622438C47000BE576 /* GKItemLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6036C3D522438C47000BE576 /* GKItemLoadViewController.m */; };
@@ -93,6 +94,8 @@
 		6021DEFF22DC79AA00F4714E /* GKTestListCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKTestListCollectionView.m; sourceTree = "<group>"; };
 		6025355E235D952800077962 /* GKNestScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNestScrollView.h; sourceTree = "<group>"; };
 		6025355F235D952800077962 /* GKNestScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNestScrollView.m; sourceTree = "<group>"; };
+		602D635F24C59F9B00D35E08 /* GKBallLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBallLoadingView.m; sourceTree = "<group>"; };
+		602D636024C59F9B00D35E08 /* GKBallLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBallLoadingView.h; sourceTree = "<group>"; };
 		6033D068235D5A54003C48BB /* GKNest2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNest2ViewController.h; sourceTree = "<group>"; };
 		6033D069235D5A54003C48BB /* GKNest2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNest2ViewController.m; sourceTree = "<group>"; };
 		6033D06B235D5B33003C48BB /* GKNest2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNest2View.h; sourceTree = "<group>"; };
@@ -251,6 +254,15 @@
 			path = ListLoad;
 			sourceTree = "<group>";
 		};
+		602D635E24C59F9B00D35E08 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				602D636024C59F9B00D35E08 /* GKBallLoadingView.h */,
+				602D635F24C59F9B00D35E08 /* GKBallLoadingView.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		6036C3D322438C17000BE576 /* ItemLoad */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +328,7 @@
 				6004DC632341D1E300248558 /* Nest */,
 				79CBF82F246526CE0020B259 /* Smooth */,
 				60A20ACB221D023800DB2193 /* Test */,
+				602D635E24C59F9B00D35E08 /* Tools */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -683,6 +696,7 @@
 				6004DC662341D20800248558 /* GKNest1ViewController.m in Sources */,
 				791B46492471797D00674815 /* GKPageSmoothView.m in Sources */,
 				60A20B52221D023900DB2193 /* GKDYHeaderView.m in Sources */,
+				602D636124C59F9B00D35E08 /* GKBallLoadingView.m in Sources */,
 				6033D06D235D5B33003C48BB /* GKNest2View.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,6 +872,7 @@
 				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKPageScrollViewObjc/PrefixHeader.pch;
 				INFOPLIST_FILE = GKPageScrollViewObjc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -879,6 +894,7 @@
 				DEVELOPMENT_TEAM = X52753HQNM;
 				GCC_PREFIX_HEADER = GKPageScrollViewObjc/PrefixHeader.pch;
 				INFOPLIST_FILE = GKPageScrollViewObjc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

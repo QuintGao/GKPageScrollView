@@ -84,21 +84,22 @@ static char kAssociatedObjectKey_statusBarStyle;
     return (style != nil) ? [style integerValue] : GKConfigure.statusBarStyle;
 }
 
+static char kAssociatedObjectKey_backImage;
+- (void)setGk_backImage:(UIImage *)gk_backImage {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_backImage, gk_backImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [self setBackItemImage:gk_backImage];
+}
+
+- (UIImage *)gk_backImage {
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_backImage);
+}
+
 static char kAssociatedObjectKey_backStyle;
 - (void)setGk_backStyle:(GKNavigationBarBackStyle)gk_backStyle {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_backStyle, @(gk_backStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (self.navigationController.childViewControllers.count <= 1) return;
-    
-    if (gk_backStyle != GKNavigationBarBackStyleNone) {
-        NSString *imageName = gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
-        
-        UIImage *backImage = [UIImage gk_imageNamed:imageName];
-        
-        if (self.gk_NavBarInit) {
-            self.gk_navigationItem.leftBarButtonItem = [UIBarButtonItem gk_itemWithImage:backImage target:self action:@selector(backItemClick:)];
-        }
-    }
+    [self setBackItemImage:self.gk_backImage];
 }
 
 - (GKNavigationBarBackStyle)gk_backStyle {
@@ -134,6 +135,23 @@ static char kAssociatedObjectKey_popDelegate;
     [[NSNotificationCenter defaultCenter] postNotificationName:GKViewControllerPropertyChangedNotification object:@{@"viewController": self}];
 }
 
+- (void)setBackItemImage:(UIImage *)image {
+    // 根控制器不作处理
+    if (self.navigationController.childViewControllers.count <= 1) return;
+    
+    if (!image) {
+        if (self.gk_backStyle != GKNavigationBarBackStyleNone) {
+            NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
+            image = [UIImage gk_imageNamed:imageName];
+        }
+    }
+    
+    // 没有image
+    if (!image) return;
+    
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
+}
+
 - (void)backItemClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -145,9 +163,9 @@ static char kAssociatedObjectKey_popDelegate;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSArray <NSString *> *oriSels = @[@"viewWillAppear:",
+        NSArray <NSString *> *oriSels = @[@"viewDidLoad",
+                                          @"viewWillAppear:",
                                           @"viewDidAppear:",
-                                          @"viewWillDisappear:",
                                           @"viewWillLayoutSubviews"];
         
         [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -156,7 +174,27 @@ static char kAssociatedObjectKey_popDelegate;
     });
 }
 
+- (void)gk_viewDidLoad {
+    // 设置默认导航栏间距
+    self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
+    self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
+    [self gk_viewDidLoad];
+}
+
 - (void)gk_viewWillAppear:(BOOL)animated {
+    if ([self isKindOfClass:[UINavigationController class]]) return;
+    if ([self isKindOfClass:[UITabBarController class]]) return;
+    if (!self.navigationController) return;
+    
+    __block BOOL exist = NO;
+    [GKConfigure.shiledVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([self isKindOfClass:vc.class]) {
+            exist = YES;
+            *stop = YES;
+        }
+    }];
+    if (exist) return;
+    
     if (self.gk_NavBarInit) {
         // 隐藏系统导航栏
         [self.navigationController setNavigationBarHidden:YES];
@@ -166,23 +204,23 @@ static char kAssociatedObjectKey_popDelegate;
             [self.view bringSubviewToFront:self.gk_navigationBar];
         }
         
-        if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
-            self.gk_navItemLeftSpace = GKConfigure.gk_navItemLeftSpace;
-        }
-        
-        if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
-            self.gk_navItemRightSpace = GKConfigure.gk_navItemRightSpace;
-        }
-        
-        // 重置navItem_space
-        [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-            configure.gk_navItemLeftSpace  = self.gk_navItemLeftSpace;
-            configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
-        }];
-        
         // 状态栏是否隐藏
         self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden;
     }
+    
+    if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
+        self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
+    }
+    
+    if (self.gk_navItemRightSpace == GKNavigationBarItemSpace) {
+        self.gk_navItemRightSpace = GKConfigure.navItemRightSpace;
+    }
+    
+    // 重置navItem_space
+    [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
+        configure.gk_navItemLeftSpace  = self.gk_navItemLeftSpace;
+        configure.gk_navItemRightSpace = self.gk_navItemRightSpace;
+    }];
     
     [self gk_viewWillAppear:animated];
 }
@@ -191,15 +229,6 @@ static char kAssociatedObjectKey_popDelegate;
     [self postPropertyChangeNotification];
 
     [self gk_viewDidAppear:animated];
-}
-
-- (void)gk_viewWillDisappear:(BOOL)animated {
-    [GKConfigure updateConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
-        configure.gk_navItemLeftSpace  = configure.navItemLeftSpace;
-        configure.gk_navItemRightSpace = configure.navItemRightSpace;
-    }];
-    
-    [self gk_viewWillDisappear:animated];
 }
 
 - (void)gk_viewWillLayoutSubviews {
@@ -496,10 +525,6 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 #pragma mark - Private Methods
 - (void)setupNavBarAppearance {
-    // 设置默认导航栏间距
-    self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
-    self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
-    
     // 设置默认背景色
     if (self.gk_navBackgroundColor == nil) {
         self.gk_navBackgroundColor = GKConfigure.backgroundColor;
@@ -526,7 +551,11 @@ static char kAssociatedObjectKey_navItemRightSpace;
     
     CGFloat navBarH = 0.0f;
     if (width > height) { // 横屏
-        if (GK_NOTCHED_SCREEN) {
+        if (GK_IS_iPad) {
+            CGFloat statusBarH = [UIApplication sharedApplication].statusBarFrame.size.height;
+            CGFloat navigaBarH = self.navigationController.navigationBar.frame.size.height;
+            navBarH = statusBarH + navigaBarH;
+        }else if (GK_NOTCHED_SCREEN) {
             navBarH = GK_NAVBAR_HEIGHT;
         }else {
             if (width == 736.0f && height == 414.0f) {  // plus横屏

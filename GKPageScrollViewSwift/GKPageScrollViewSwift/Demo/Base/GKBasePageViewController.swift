@@ -35,9 +35,10 @@ class GKBasePageViewController: GKDemoBaseViewController {
     lazy var childVCs: [GKBaseListViewController] = {
         var childVCs = [GKBaseListViewController]()
         
-        childVCs.append(GKBaseListViewController()) // 动态
-        childVCs.append(GKBaseListViewController()) // 文章
-        childVCs.append(GKBaseListViewController()) // 更多
+        childVCs.append(GKBaseListViewController(listType: .UITableView))
+        childVCs.append(GKBaseListViewController(listType: .UICollectionView))
+        childVCs.append(GKBaseListViewController(listType: .UIScrollView))
+        childVCs.append(GKBaseListViewController(listType: .WKWebView))
         
         return childVCs
     }()
@@ -46,7 +47,7 @@ class GKBasePageViewController: GKDemoBaseViewController {
     
     public var pageScrollView: GKPageScrollView!
     public lazy var segmentedView: JXSegmentedView = {
-        titleDataSource.titles = ["动态", "文章", "更多"]
+        titleDataSource.titles = ["TableView", "CollectionView", "ScrollView", "WebView"]
         titleDataSource.titleNormalColor = UIColor.gray
         titleDataSource.titleSelectedColor = UIColor.red
         titleDataSource.titleNormalFont = UIFont.systemFont(ofSize: 15.0)

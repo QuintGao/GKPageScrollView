@@ -97,7 +97,7 @@ extension GKListLoadViewController: GKPageScrollViewDelegate {
     }
     
     func pageScrollView(_ pageScrollView: GKPageScrollView, initListAtIndex index: Int) -> GKPageListViewDelegate {
-        let listVC = GKBaseListViewController()
+        let listVC = GKBaseListViewController(listType: GKBaseListType(rawValue: index)!)
         listVC.shouldLoadData = true
         return listVC
     }

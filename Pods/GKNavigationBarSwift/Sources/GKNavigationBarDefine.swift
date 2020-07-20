@@ -19,6 +19,9 @@ public let GK_NOTCHED_SCREEN: Bool = (
 (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), UIScreen.main.bounds.size) : false) ||
 (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), UIScreen.main.bounds.size) : false))
 
+// 是否是iPad
+public let GK_IS_IPAD: Bool = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad)
+
 public let GK_SAFEAREA_TOP: CGFloat = GK_NOTCHED_SCREEN ? 24.0 : 0.0
 public let GK_SAFEAREA_BTM: CGFloat = GK_NOTCHED_SCREEN ? 34.0 : 0.0
 
@@ -43,12 +46,12 @@ public enum GKNavigationBarBackStyle {
     case white
 }
 
-open class GKNavigationBarDefine {
-    public let GKSCREENW = UIScreen.main.bounds.size.width
+public func gk_swizzled_instanceMethod(_ oldClass: Swift.AnyClass!, oldSelector: String, newClass: Swift.AnyClass!) {
+    gk_swizzled_instanceMethod(oldClass, oldSelector: oldSelector, newClass: newClass, prefixString: "gk_")
 }
 
-public func gk_swizzled_instanceMethod(_ oldClass: Swift.AnyClass!, oldSelector: String, newClass: Swift.AnyClass!) {
-    let newSelector = "gk_" + oldSelector
+public func gk_swizzled_instanceMethod(_ oldClass: Swift.AnyClass!, oldSelector: String, newClass: Swift.AnyClass!, prefixString: String) {
+    let newSelector = prefixString + oldSelector
     
     let originalSelector = NSSelectorFromString(oldSelector)
     let swizzledSelector = NSSelectorFromString(newSelector)
