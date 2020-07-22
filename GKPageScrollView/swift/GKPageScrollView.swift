@@ -178,7 +178,7 @@ open class GKPageScrollView: UIView {
     }
     
     fileprivate func initSubviews() {
-        self.mainTableView = GKPageTableView(frame: .zero)
+        self.mainTableView = GKPageTableView(frame: .zero, style: .plain)
         self.mainTableView.dataSource = self
         self.mainTableView.delegate = self
         self.mainTableView.separatorStyle = .none
@@ -307,7 +307,7 @@ open class GKPageScrollView: UIView {
                     self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
                 }else {
                     // 如果此时mainTableView并没有滑动，则禁止listView滑动
-                    if self.mainTableView.contentOffset.y == 0 {
+                    if self.mainTableView.contentOffset.y == 0 && floor(headerHeight ?? 0) != 0 {
                         self.isMainCanScroll = true
                         self.isListCanScroll = false
                         
