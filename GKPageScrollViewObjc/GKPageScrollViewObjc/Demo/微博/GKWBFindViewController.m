@@ -141,7 +141,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.ceilPointHeight = GK_STATUSBAR_HEIGHT;
-        _pageScrollView.isAllowListRefresh = YES;
+//        _pageScrollView.isAllowListRefresh = YES;
         _pageScrollView.isDisableMainScrollInCeil = YES;
         _pageScrollView.mainTableView.gestureDelegate = self;
     }
@@ -153,6 +153,7 @@
         UIImage *headerImg = [UIImage imageNamed:@"wb_find"];
         
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width + GK_STATUSBAR_HEIGHT)];
+//        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 1400)];
         
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, GK_STATUSBAR_HEIGHT, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width)];
         imgView.image = headerImg;

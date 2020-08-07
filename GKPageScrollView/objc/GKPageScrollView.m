@@ -184,7 +184,8 @@
             }else {
                 self.isMainCanScroll = YES;
                 self.isListCanScroll = NO;
-                
+
+                if (scrollView.isDecelerating) return;
                 scrollView.contentOffset = CGPointZero;
                 if (self.isControlVerticalIndicator) {
                     scrollView.showsVerticalScrollIndicator = NO;
@@ -197,7 +198,8 @@
             }else {
                 self.isMainCanScroll = YES;
                 self.isListCanScroll = NO;
-                
+
+                if (scrollView.isDecelerating) return;
                 scrollView.contentOffset = CGPointZero;
                 if (self.isControlVerticalIndicator) {
                     scrollView.showsVerticalScrollIndicator = NO;
@@ -220,7 +222,8 @@
                 if (self.mainTableView.contentOffset.y == 0 && floor(headerHeight) != 0) {
                     self.isMainCanScroll = YES;
                     self.isListCanScroll = NO;
-                    
+
+                    if (scrollView.isDecelerating) return;
                     scrollView.contentOffset = CGPointZero;
                     if (self.isControlVerticalIndicator) {
                         scrollView.showsVerticalScrollIndicator = NO;
@@ -231,6 +234,7 @@
                 }
             }
         }else {
+            if (scrollView.isDecelerating) return;
             scrollView.contentOffset = CGPointZero;
         }
     }
@@ -288,7 +292,7 @@
                 }
             }else {
                 // 如果允许列表刷新，并且mainTableView的offsetY小于0 或者 当前列表的offsetY小于0,mainScrollView不可滑动
-                if (self.isAllowListRefresh && (offsetY <= 0 || self.currentListScrollView.contentOffset.y < 0)) {
+                if (self.isAllowListRefresh && ((offsetY <= 0 && self.isMainCanScroll) || (self.currentListScrollView.contentOffset.y < 0 && self.isListCanScroll))) {
                     scrollView.contentOffset = CGPointZero;
                 }else {
                     if (self.isMainCanScroll) {
