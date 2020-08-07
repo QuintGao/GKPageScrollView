@@ -16,16 +16,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GKNavigationBarConfigure : NSObject
 
-/// 导航栏背景色
+/// 导航栏背景色，默认白色
 @property (nonatomic, strong) UIColor   *backgroundColor;
 
-/// 导航栏标题颜色
+/// 导航栏标题颜色，默认黑色
 @property (nonatomic, strong) UIColor   *titleColor;
 
-/// 导航栏标题字体
+/// 导航栏标题字体，默认系统字体17
 @property (nonatomic, strong) UIFont    *titleFont;
 
-/// 返回按钮样式
+/// 返回按钮图片(默认nil，优先级高于backStyle)
+@property (nonatomic, strong) UIImage   *backImage;
+
+/// 返回按钮样式，默认GKNavigationBarBackStyleBlack
 @property (nonatomic, assign) GKNavigationBarBackStyle backStyle;
 
 /// 是否禁止导航栏左右item间距调整，默认是NO
@@ -58,12 +61,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat gk_scaleX;
 @property (nonatomic, assign) CGFloat gk_scaleY;
 
+// 调整导航栏间距时需要屏蔽的VC（默认nil），支持Class或NSString
+@property (nonatomic, strong) NSArray *shiledItemSpaceVCs;
+
+// 需要屏蔽手势处理的VC（默认nil），支持Class或NSString
+@property (nonatomic, strong) NSArray *shiledGuestureVCs;
+
 /// 导航栏左右间距，内部使用
 @property (nonatomic, assign, readonly) CGFloat navItemLeftSpace;
 @property (nonatomic, assign, readonly) CGFloat navItemRightSpace;
-
-// 调整导航栏间距时需要屏蔽的VC
-@property (nonatomic, strong, readonly) NSArray *shiledVCs;
 
 /// 单例，设置一次全局使用
 + (instancetype)sharedInstance;
@@ -78,9 +84,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 更新配置
 /// @param block 配置回调
 - (void)updateConfigure:(void (^)(GKNavigationBarConfigure *configure))block;
-
-/// 屏蔽某些控制器对导航栏间距调整的影响
-- (void)setupShiledVCs:(NSArray *)vcs;
 
 #pragma mark - 内部方法
 

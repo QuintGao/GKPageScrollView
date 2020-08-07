@@ -50,6 +50,14 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 
 ## 使用说明
 
+### 使用方式
+#### 1、直接拖入GKNavigationBar文件夹到项目，#import "GKNavigationBar.h"，开始使用
+
+#### 2、pod方式 Podfile中添加 pod 'GKNavigationBar'，执行pod install 或pod update 安装，#import <GKNavigationBar/GKNavigationBar.h>，开始使用
+
+#### 3、Carthage方式Cartfile中添加 github "QuintGao/GKNavigationBar"，执行carthage update --platform iOS，#import <GKNavigationBar/GKNavigationBar.h>，开始使用
+
+### 使用方法
 #### 1、在AppDelegate中添加导航配置
 
 ```
@@ -71,6 +79,10 @@ self.gk_navBackgroundColor = [UIColor red]
 
 ## 版本记录
 
+* 1.1.3 - 2020.07.28 修复导航栏标题或颜色不生效的bug
+* 1.1.2 - 2020.07.27 修复方法交换可能带来的crash问题
+* 1.1.1 - 2020.07.23 修复手势处理对根控制器的影响
+* 1.1.0 - 2020.07.22 修复手势处理存在的问题，增加属性可屏蔽某些控制器对手势处理的影响
 * 1.0.9 - 2020.07.16 增加gk_backImage，可自定义返回按钮图片
 * 1.0.8 - 2020.07.06 增加某些控制器对导航栏间距调整的影响
 * 1.0.7 - 2020.06.22 设置导航栏间距不再局限于GKNavigationBar

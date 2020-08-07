@@ -185,7 +185,6 @@
                 self.isMainCanScroll = YES;
                 self.isListCanScroll = NO;
 
-                if (scrollView.isDecelerating) return;
                 scrollView.contentOffset = CGPointZero;
                 if (self.isControlVerticalIndicator) {
                     scrollView.showsVerticalScrollIndicator = NO;

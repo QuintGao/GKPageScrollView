@@ -274,7 +274,7 @@ open class GKPageScrollView: UIView {
                 }else {
                     self.isMainCanScroll = true
                     self.isListCanScroll = false
-                    
+
                     scrollView.contentOffset = .zero
                     if self.isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
@@ -287,7 +287,8 @@ open class GKPageScrollView: UIView {
                 }else {
                     self.isMainCanScroll = true
                     self.isListCanScroll = false
-                    
+
+                    if (scrollView.isDecelerating) { return }
                     scrollView.contentOffset = .zero
                     if self.isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
@@ -310,7 +311,8 @@ open class GKPageScrollView: UIView {
                     if self.mainTableView.contentOffset.y == 0 && floor(headerHeight ?? 0) != 0 {
                         self.isMainCanScroll = true
                         self.isListCanScroll = false
-                        
+
+                        if (scrollView.isDecelerating) { return }
                         scrollView.contentOffset = .zero
                         if self.isControlVerticalIndicator {
                             scrollView.showsVerticalScrollIndicator = false
@@ -321,6 +323,7 @@ open class GKPageScrollView: UIView {
                     }
                 }
             }else {
+                if (scrollView.isDecelerating) { return }
                 scrollView.contentOffset = .zero
             }
         }
@@ -379,7 +382,7 @@ open class GKPageScrollView: UIView {
                     }
                 }else {
                     // 如果允许列表刷新，且mainTableView的offsetY小于0 或者 当前列表的offsetY小于0，mainTableView不可滑动
-                    if self.isAllowListRefresh && (offsetY <= 0 || self.currentListScrollView.contentOffset.y < 0) {
+                    if self.isAllowListRefresh && ((offsetY <= 0 && self.isMainCanScroll) || (self.currentListScrollView.contentOffset.y < 0 && self.isListCanScroll)) {
                         scrollView.contentOffset = .zero
                     }else {
                         if self.isMainCanScroll {

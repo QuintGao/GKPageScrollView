@@ -9,6 +9,7 @@
 #import "JXCategoryBaseView.h"
 #import "JXCategoryFactory.h"
 #import "JXCategoryViewAnimator.h"
+#import "RTLManager.h"
 
 struct DelegateFlags {
     unsigned int didSelectedItemAtIndexFlag : 1;
@@ -354,6 +355,10 @@ struct DelegateFlags {
     if (@available(iOS 11.0, *)) {
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
+    if ([RTLManager supportRTL]) {
+        self.collectionView.semanticContentAttribute = UISemanticContentAttributeForceLeftToRight;
+        [RTLManager horizontalFlipView:self.collectionView];
+    }
     [self addSubview:self.collectionView];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -365,7 +370,7 @@ struct DelegateFlags {
 
 - (void)refreshState {
     if (self.selectedIndex < 0 || self.selectedIndex >= self.dataSource.count) {
-        self.selectedIndex = 0;
+        self.defaultSelectedIndex = 0;
     }
 
     self.innerCellSpacing = self.cellSpacing;
@@ -652,7 +657,6 @@ struct DelegateFlags {
             [self.collectionView.collectionViewLayout invalidateLayout];
         }
 
-        [self.listContainer scrollingFromLeftIndex:baseIndex toRightIndex:baseIndex + 1 ratio:remainderRatio selectedIndex:self.selectedIndex];
         if (self.delegateFlags.scrollingFromLeftIndexToRightIndexFlag) {
             [self.delegate categoryView:self scrollingFromLeftIndex:baseIndex toRightIndex:baseIndex + 1 ratio:remainderRatio];
         }

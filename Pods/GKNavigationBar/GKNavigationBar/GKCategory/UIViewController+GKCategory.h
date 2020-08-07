@@ -42,30 +42,17 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 /// 全屏滑动时，滑动区域距离屏幕左侧的最大位置，默认是0：表示全屏可滑动
 @property (nonatomic, assign) CGFloat gk_maxPopDistance;
 
-/// 设置导航栏透明度
-@property (nonatomic, assign) CGFloat gk_navBarAlpha;
-
 /// 设置状态栏是否隐藏，默认NO：不隐藏
 @property (nonatomic, assign) BOOL gk_statusBarHidden;
 
-/// 设置导航栏类型
+/// 设置状态栏类型
 @property (nonatomic, assign) UIStatusBarStyle gk_statusBarStyle;
-
-/// 设置返回按钮图片
-@property (nonatomic, strong) UIImage *gk_backImage;
-
-/// 设置返回按钮类型
-@property (nonatomic, assign) GKNavigationBarBackStyle gk_backStyle;
 
 /// 左滑push代理
 @property (nonatomic, weak) id<GKViewControllerPushDelegate> gk_pushDelegate;
 
 /// 右滑pop代理，如果设置了gk_popDelegate，原来的滑动返回手势将失效
 @property (nonatomic, weak) id<GKViewControllerPopDelegate> gk_popDelegate;
-
-/// 返回按钮点击方法
-/// @param sender sender
-- (void)backItemClick:(id)sender;
 
 @end
 
@@ -76,22 +63,35 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 @property (nonatomic, strong) UINavigationItem      *gk_navigationItem;
 
 /// 是否创建了gk_navigationBar
-/// 返回YES表面当前控制器使用了自定义的gk_navigationBar，默认为NO
+/// 返回YES表明当前控制器使用了自定义的gk_navigationBar，默认为NO
 @property (nonatomic, assign) BOOL                  gk_NavBarInit;
 
 #pragma mark - 常用属性快速设置
+/// 设置导航栏透明度
+@property (nonatomic, assign) CGFloat               gk_navBarAlpha;
+
+/// 设置返回按钮图片（优先级高于gk_backStyle）
+@property (nonatomic, strong) UIImage *gk_backImage;
+
+/// 设置返回按钮类型
+@property (nonatomic, assign) GKNavigationBarBackStyle gk_backStyle;
+
+/// 导航栏背景
 @property (nonatomic, strong) UIColor               *gk_navBackgroundColor;
 @property (nonatomic, strong) UIImage               *gk_navBackgroundImage;
 
+/// 导航栏分割线
 @property (nonatomic, strong) UIColor               *gk_navShadowColor;
 @property (nonatomic, strong) UIImage               *gk_navShadowImage;
 @property (nonatomic, assign) BOOL                  gk_navLineHidden;
 
+/// 导航栏标题
 @property (nullable, nonatomic, strong) NSString    *gk_navTitle;
 @property (nullable, nonatomic, strong) UIView      *gk_navTitleView;
 @property (nonatomic, strong) UIColor               *gk_navTitleColor;
 @property (nonatomic, strong) UIFont                *gk_navTitleFont;
 
+/// 导航栏左右item
 @property (nullable, nonatomic, strong) UIBarButtonItem       *gk_navLeftBarButtonItem;
 @property (nullable, nonatomic, strong) NSArray<UIBarButtonItem *> *gk_navLeftBarButtonItems;
 @property (nullable, nonatomic, strong) UIBarButtonItem       *gk_navRightBarButtonItem;
@@ -109,8 +109,9 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 /// 刷新导航栏frame
 - (void)refreshNavBarFrame;
 
-/// 获取当前controller里的最高层可见的viewController
-- (nullable UIViewController *)gk_visibleViewControllerIfExist;
+/// 返回按钮点击方法
+/// @param sender sender
+- (void)backItemClick:(id)sender;
 
 @end
 

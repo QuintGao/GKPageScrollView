@@ -132,11 +132,11 @@ extension UINavigationController: GKChildAwakeProtocol {
     private static let onceToken = UUID().uuidString
     public static func gkChildAwake() {
         DispatchQueue.once(token: onceToken) {
-            gk_swizzled_instanceMethod(self, oldSelector: "viewDidLoad", newClass: self, prefixString: "gkNavVC_")
+            gk_swizzled_instanceMethod("gkNav", oldClass: self, oldSelector: "viewDidLoad", newClass: self)
         }
     }
     
-    @objc func gkNavVC_viewDidLoad() {
+    @objc func gkNav_viewDidLoad() {
         if self.gk_openGestureHandle {
             if self.isKind(of: UIImagePickerController.classForCoder()) {
                 return
@@ -154,13 +154,35 @@ extension UINavigationController: GKChildAwakeProtocol {
             // 注册控制器属性改变通知
             NotificationCenter.default.addObserver(self, selector: #selector(propertyChangeNotification(_:)), name: GKViewControllerPropertyChanged, object: nil)
         }
-        gkNavVC_viewDidLoad()
+        gkNav_viewDidLoad()
     }
     
     @objc func propertyChangeNotification(_ notify: Notification) {
         guard let obj = notify.object as? [String: Any] else { return }
         
         let vc: UIViewController = obj["viewController"] as! UIViewController
+        
+        // 不处理导航控制器和tabbar控制器
+        if vc.isKind(of: UINavigationController.classForCoder()) { return }
+        if vc.isKind(of: UITabBarController.classForCoder()) { return }
+        if vc.navigationController == nil { return }
+        
+        var exist = false
+        
+        if let shiledVCs = GKConfigure.shiledGuestureVCs {
+            for obj in shiledVCs {
+                if obj is UIViewController.Type {
+                    if self.isKind(of: obj as! UIViewController.Type) {
+                        exist = true
+                    }
+                }else if obj is String {
+                    if NSStringFromClass(self.classForCoder).components(separatedBy: ".").last == (obj as! String) {
+                        exist = true
+                    }
+                }
+            }
+        }
+        if exist { return }
         
         let isRootVC = vc == self.viewControllers.first
         

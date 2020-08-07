@@ -26,7 +26,7 @@
                                               @"setRightBarButtonItems:animated:"];
             
             [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
-                gk_swizzled_instanceMethod(self, oriSel, self);
+                gk_swizzled_instanceMethod(@"gk", self, oriSel, self);
             }];
         });
     }
@@ -116,7 +116,7 @@
             NSDictionary *oriSels = @{@"_UINavigationBarContentView": @"layoutSubviews",
                                       @"_UINavigationBarContentViewLayout": @"_updateMarginConstraints"};
             [oriSels enumerateKeysAndObjectsUsingBlock:^(NSString *cls, NSString *oriSel, BOOL * _Nonnull stop) {
-                gk_swizzled_instanceMethod(NSClassFromString(cls), oriSel, NSObject.class);
+                gk_swizzled_instanceMethod(@"gk", NSClassFromString(cls), oriSel, NSObject.class);
             }];
         }
     });

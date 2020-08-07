@@ -22,6 +22,9 @@ open class GKNavigationBarConfigure : NSObject {
     /// 导航栏标题字体
     open var titleFont: UIFont?
     
+    /// 返回按钮图片，默认nil，优先级高于backStyle
+    open var backImage: UIImage?
+    
     /// 返回按钮样式
     open var backStyle: GKNavigationBarBackStyle = .none
     
@@ -58,14 +61,16 @@ open class GKNavigationBarConfigure : NSObject {
 
     open var gk_scaleY: CGFloat = 0.97
 
+    /// 调整导航栏间距时需要屏蔽的VC，默认nil，支持UIViewController和String
+    open var shiledItemSpaceVCs: [Any]?
+    
+    /// 需要屏蔽手势处理的VC，默认nil，支持UIViewController和String
+    open var shiledGuestureVCs: [Any]?
     
     /// 导航栏左右间距，内部使用
     open var navItemLeftSpace: CGFloat = 0
 
     open var navItemRightSpace: CGFloat = 0
-    
-    /// 调整导航栏间距时需要屏蔽的VC
-    open var shiledVCs: [UIViewController]?
     
     /// 单例，设置一次全局使用
     public static let shared: GKNavigationBarConfigure = {
@@ -73,7 +78,6 @@ open class GKNavigationBarConfigure : NSObject {
         // setup code
         return instance
     }()
-    
     
     /// 设置默认配置
     open func setupDefault() {
@@ -103,7 +107,6 @@ open class GKNavigationBarConfigure : NSObject {
         NSObject.gkObjectAwake()
     }
 
-    
     /// 设置自定义配置，此方法只需调用一次
     /// @param block 配置回调
     open func setupCustom(_ block: @escaping (GKNavigationBarConfigure) -> Void) {
@@ -115,17 +118,10 @@ open class GKNavigationBarConfigure : NSObject {
         navItemRightSpace = gk_navItemRightSpace
     }
 
-    
     /// 更新配置
     /// @param block 配置回调
     open func update(_ block: @escaping (GKNavigationBarConfigure) -> Void) {
         block(self)
-    }
-
-    
-    // 屏蔽某些控制器对导航栏间距调整的影响
-    open func setupShiledVCs(vcs: [UIViewController]?) {
-        self.shiledVCs = vcs
     }
     
     /// 获取当前item修复间距

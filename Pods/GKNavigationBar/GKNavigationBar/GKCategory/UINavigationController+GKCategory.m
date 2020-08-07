@@ -63,11 +63,11 @@ static char kAssociatedObjectKey_openGestureHandle;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        gk_swizzled_instanceMethod(self, @"viewDidLoad", self);
+        gk_swizzled_instanceMethod(@"gkNav", self, @"viewDidLoad", self);
     });
 }
 
-- (void)gk_viewDidLoad {
+- (void)gkNav_viewDidLoad {
     if (self.gk_openGestureHandle) {
         // 处理特殊控制器
         if ([self isKindOfClass:[UIImagePickerController class]]) return;
@@ -82,7 +82,7 @@ static char kAssociatedObjectKey_openGestureHandle;
         // 注册控制器属性改变通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(propertyChangeNotification:) name:GKViewControllerPropertyChangedNotification object:nil];
     }
-    [self gk_viewDidLoad];
+    [self gkNav_viewDidLoad];
 }
 
 - (void)dealloc {
@@ -100,6 +100,28 @@ static char kAssociatedObjectKey_openGestureHandle;
 #pragma mark - Notifiaction
 - (void)propertyChangeNotification:(NSNotification *)notification {
     UIViewController *vc = (UIViewController *)notification.object[@"viewController"];
+    
+    // 不处理导航控制器和tabbar控制器
+    if ([vc isKindOfClass:[UINavigationController class]]) return;
+    if ([vc isKindOfClass:[UITabBarController class]]) return;
+    if (!vc.navigationController) return;
+    if (vc.navigationController != self) return;
+    
+    __block BOOL exist = NO;
+    [GKConfigure.shiledGuestureVCs enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[UIViewController class]]) {
+            if ([self isKindOfClass:[obj class]]) {
+                exist = YES;
+                *stop = YES;
+            }
+        }else if ([obj isKindOfClass:[NSString class]]) {
+            if ([NSStringFromClass(self.class) isEqualToString:obj]) {
+                exist = YES;
+                *stop = YES;
+            }
+        }
+    }];
+    if (exist) return;
     
     BOOL isRootVC = (vc == self.viewControllers.firstObject);
     
@@ -130,12 +152,11 @@ static char kAssociatedObjectKey_openGestureHandle;
         self.interactivePopGestureRecognizer.enabled = NO;
         [self.interactivePopGestureRecognizer.view removeGestureRecognizer:self.screenPanGesture];
         
-        // 给self.interactivePopGestureRecognizer.view 添加全屏滑动手势
-        if (!isRootVC && ![self.interactivePopGestureRecognizer.view.gestureRecognizers containsObject:self.panGesture]) {
+        if (![self.interactivePopGestureRecognizer.view.gestureRecognizers containsObject:self.panGesture]) {
             [self.interactivePopGestureRecognizer.view addGestureRecognizer:self.panGesture];
             self.panGesture.delegate = self.gestureHandler;
         }
-        
+
         // 手势处理
         if (self.gk_transitionScale || self.gk_openScrollLeftPush) {
             [self.panGesture addTarget:self.navigationHandler action:@selector(panGestureAction:)];

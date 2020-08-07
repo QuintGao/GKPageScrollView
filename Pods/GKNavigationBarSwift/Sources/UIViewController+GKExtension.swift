@@ -432,7 +432,7 @@ extension UIViewController: GKAwakeProtocol {
             ]
             
             for oriSel in oriSels {
-                gk_swizzled_instanceMethod(self, oldSelector: oriSel, newClass: self)
+                gk_swizzled_instanceMethod("gk", oldClass: self, oldSelector: oriSel, newClass: self)
             }
         }
     }
@@ -448,14 +448,24 @@ extension UIViewController: GKAwakeProtocol {
     @objc func gk_viewWillAppear(_ animated: Bool) {
         if self.isKind(of: UINavigationController.classForCoder()) { return }
         if self.isKind(of: UITabBarController.classForCoder()) { return }
+        if self.isKind(of: UIImagePickerController.classForCoder()) { return }
+        if self.isKind(of: UIVideoEditorController.classForCoder()) { return }
+        if self.isKind(of: UIAlertController.classForCoder()) { return }
+        if NSStringFromClass(self.classForCoder).components(separatedBy: ".").last == "PUPhotoPickerHostViewController" { return }
         if self.navigationController == nil { return }
         
         var exist = false
         
-        if let shiledVCs = GKConfigure.shiledVCs {
-            for vc in shiledVCs {
-                if self.isKind(of: vc.classForCoder) {
-                    exist = true
+        if let shiledVCs = GKConfigure.shiledItemSpaceVCs {
+            for obj in shiledVCs {
+                if obj is UIViewController.Type {
+                    if self.isKind(of: obj as! UIViewController.Type) {
+                        exist = true
+                    }
+                }else if obj is String {
+                    if NSStringFromClass(self.classForCoder).components(separatedBy: ".").last == (obj as! String) {
+                        exist = true
+                    }
                 }
             }
         }
@@ -512,13 +522,19 @@ extension UIViewController: GKAwakeProtocol {
             self.gk_navBackgroundColor = GKConfigure.backgroundColor
         }
         
-        // 设置默认标题大小及颜色
+        // 设置默认标题字体
         if self.gk_navTitleFont == nil {
             self.gk_navTitleFont = GKConfigure.titleFont
         }
         
+        // 设置默认标题颜色
         if self.gk_navTitleColor == nil {
             self.gk_navTitleColor = GKConfigure.titleColor
+        }
+        
+        // 设置默认返回按钮图片
+        if self.gk_backImage == nil {
+            self.gk_backImage = GKConfigure.backImage
         }
         
         // 设置默认返回样式
@@ -559,6 +575,8 @@ extension UIViewController: GKAwakeProtocol {
     }
     
     fileprivate func setBackItemImage(image: UIImage?) {
+        if self.gk_navBarInit == false { return }
+        
         var backImage = image
         
         // 根控制器不作处理

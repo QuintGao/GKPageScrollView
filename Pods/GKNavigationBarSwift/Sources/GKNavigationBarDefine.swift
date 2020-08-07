@@ -46,12 +46,8 @@ public enum GKNavigationBarBackStyle {
     case white
 }
 
-public func gk_swizzled_instanceMethod(_ oldClass: Swift.AnyClass!, oldSelector: String, newClass: Swift.AnyClass!) {
-    gk_swizzled_instanceMethod(oldClass, oldSelector: oldSelector, newClass: newClass, prefixString: "gk_")
-}
-
-public func gk_swizzled_instanceMethod(_ oldClass: Swift.AnyClass!, oldSelector: String, newClass: Swift.AnyClass!, prefixString: String) {
-    let newSelector = prefixString + oldSelector
+public func gk_swizzled_instanceMethod(_ prefix: String, oldClass: Swift.AnyClass!, oldSelector: String, newClass: Swift.AnyClass) {
+    let newSelector = prefix + "_" + oldSelector;
     
     let originalSelector = NSSelectorFromString(oldSelector)
     let swizzledSelector = NSSelectorFromString(newSelector)

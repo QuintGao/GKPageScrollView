@@ -8,6 +8,7 @@
 
 #import "JXCategoryListContainerView.h"
 #import <objc/runtime.h>
+#import "RTLManager.h"
 
 @interface JXCategoryListContainerViewController : UIViewController
 @property (copy) void(^viewWillAppearBlock)(void);
@@ -105,6 +106,7 @@
         if (@available(iOS 11.0, *)) {
             self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
+        [RTLManager horizontalFlipViewIfNeeded:self.scrollView];
         [self.containerVC.view addSubview:self.scrollView];
     }else {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -131,6 +133,10 @@
         }
         if (@available(iOS 11.0, *)) {
             self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+        if ([RTLManager supportRTL]) {
+            self.collectionView.semanticContentAttribute = UISemanticContentAttributeForceLeftToRight;
+            [RTLManager horizontalFlipView:self.collectionView];
         }
         [self.containerVC.view addSubview:self.collectionView];
         //让外部统一访问scrollView
@@ -169,8 +175,8 @@
         }
     }else {
         if (CGRectEqualToRect(self.collectionView.frame, CGRectZero) ||  !CGSizeEqualToSize(self.collectionView.bounds.size, self.bounds.size)) {
-            self.collectionView.frame = self.bounds;
             [self.collectionView.collectionViewLayout invalidateLayout];
+            self.collectionView.frame = self.bounds;
             [self.collectionView setContentOffset:CGPointMake(self.collectionView.bounds.size.width*self.currentIndex, 0) animated:NO];
         }else {
             self.collectionView.frame = self.bounds;
@@ -184,6 +190,11 @@
     if (initListPercent <= 0 || initListPercent >= 1) {
         NSAssert(NO, @"initListPercent值范围为开区间(0,1)，即不包括0和1");
     }
+}
+
+- (void)setBounces:(BOOL)bounces {
+    _bounces = bounces;
+    self.scrollView.bounces = bounces;
 }
 
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
@@ -216,31 +227,54 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(listContainerViewDidScroll:)]) {
         [self.delegate listContainerViewDidScroll:scrollView];
     }
-    CGFloat currentIndexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width;
-    if (self.willAppearIndex != -1 || self.willDisappearIndex != -1) {
-        NSInteger disappearIndex = self.willDisappearIndex;
-        NSInteger appearIndex = self.willAppearIndex;
-        if (self.willAppearIndex > self.willDisappearIndex) {
-            //将要出现的列表在右边
-            if (currentIndexPercent >= self.willAppearIndex) {
-                self.willDisappearIndex = -1;
-                self.willAppearIndex = -1;
-                [self listDidDisappear:disappearIndex];
-                [self listDidAppear:appearIndex];
-            }
-        }else {
-            //将要出现的列表在左边
-            if (currentIndexPercent <= self.willAppearIndex) {
-                self.willDisappearIndex = -1;
-                self.willAppearIndex = -1;
-                [self listDidDisappear:disappearIndex];
-                [self listDidAppear:appearIndex];
+
+    if (!scrollView.isDragging && !scrollView.isTracking) {
+        return;
+    }
+    CGFloat ratio = scrollView.contentOffset.x/scrollView.bounds.size.width;
+    NSInteger maxCount = round(scrollView.contentSize.width/scrollView.bounds.size.width);
+    NSInteger leftIndex = floorf(ratio);
+    leftIndex = MAX(0, MIN(maxCount - 1, leftIndex));
+    NSInteger rightIndex = leftIndex + 1;
+    if (ratio < 0 || rightIndex >= maxCount) {
+        [self listDidAppearOrDisappear:scrollView];
+        return;
+    }
+    CGFloat remainderRatio = ratio - leftIndex;
+    if (rightIndex == self.currentIndex) {
+        //当前选中的在右边，用户正在从右边往左边滑动
+        if (self.validListDict[@(leftIndex)] == nil && remainderRatio < (1 - self.initListPercent)) {
+            [self initListIfNeededAtIndex:leftIndex];
+        }else if (self.validListDict[@(leftIndex)] != nil) {
+            if (self.willAppearIndex == -1) {
+                self.willAppearIndex = leftIndex;
+                [self listWillAppear:self.willAppearIndex];
             }
         }
+        if (self.willDisappearIndex == -1) {
+            self.willDisappearIndex = rightIndex;
+            [self listWillDisappear:self.willDisappearIndex];
+        }
+    }else {
+        //当前选中的在左边，用户正在从左边往右边滑动
+        if (self.validListDict[@(rightIndex)] == nil && remainderRatio > self.initListPercent) {
+            [self initListIfNeededAtIndex:rightIndex];
+        }else if (self.validListDict[@(rightIndex)] != nil) {
+            if (self.willAppearIndex == -1) {
+                self.willAppearIndex = rightIndex;
+                [self listWillAppear:self.willAppearIndex];
+            }
+        }
+        if (self.willDisappearIndex == -1) {
+            self.willDisappearIndex = leftIndex;
+            [self listWillDisappear:self.willDisappearIndex];
+        }
     }
+    [self listDidAppearOrDisappear:scrollView];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    //滑动到一半又取消滑动处理
     if (self.willDisappearIndex != -1) {
         [self listWillAppear:self.willDisappearIndex];
         [self listWillDisappear:self.willAppearIndex];
@@ -259,40 +293,6 @@
 
 - (void)setDefaultSelectedIndex:(NSInteger)index {
     self.currentIndex = index;
-}
-
-- (void)scrollingFromLeftIndex:(NSInteger)leftIndex toRightIndex:(NSInteger)rightIndex ratio:(CGFloat)ratio selectedIndex:(NSInteger)selectedIndex {
-    if (rightIndex == selectedIndex) {
-        //当前选中的在右边，用户正在从右边往左边滑动
-        if (ratio < (1 - self.initListPercent)) {
-            [self initListIfNeededAtIndex:leftIndex];
-        }
-        if (self.willAppearIndex == -1) {
-            self.willAppearIndex = leftIndex;
-            if (self.validListDict[@(leftIndex)] != nil) {
-                [self listWillAppear:self.willAppearIndex];
-            }
-        }
-        if (self.willDisappearIndex == -1) {
-            self.willDisappearIndex = rightIndex;
-            [self listWillDisappear:self.willDisappearIndex];
-        }
-    }else {
-        //当前选中的在左边，用户正在从左边往右边滑动
-        if (ratio > self.initListPercent) {
-            [self initListIfNeededAtIndex:rightIndex];
-        }
-        if (self.willAppearIndex == -1) {
-            self.willAppearIndex = rightIndex;
-            if (_validListDict[@(rightIndex)] != nil) {
-                [self listWillAppear:self.willAppearIndex];
-            }
-        }
-        if (self.willDisappearIndex == -1) {
-            self.willDisappearIndex = leftIndex;
-            [self listWillDisappear:self.willDisappearIndex];
-        }
-    }
 }
 
 - (void)didClickSelectedItemAtIndex:(NSInteger)index {
@@ -350,6 +350,7 @@
     if (self.containerType == JXCategoryListContainerType_ScrollView) {
         [list listView].frame = CGRectMake(index*self.scrollView.bounds.size.width, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
         [self.scrollView addSubview:[list listView]];
+        [RTLManager horizontalFlipViewIfNeeded:[list listView]];
     }else {
         UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
         for (UIView *subview in cell.contentView.subviews) {
@@ -358,7 +359,6 @@
         [list listView].frame = cell.contentView.bounds;
         [cell.contentView addSubview:[list listView]];
     }
-    [self listWillAppear:index];
 }
 
 - (void)listWillAppear:(NSInteger)index {
@@ -393,6 +393,7 @@
                 if ([list listView].superview == nil) {
                     [list listView].frame = CGRectMake(index*self.scrollView.bounds.size.width, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
                     [self.scrollView addSubview:[list listView]];
+                    [RTLManager horizontalFlipViewIfNeeded:[list listView]];
 
                     if (list && [list respondsToSelector:@selector(listWillAppear)]) {
                         [list listWillAppear];
@@ -471,6 +472,31 @@
         return NO;
     }
     return YES;
+}
+
+- (void)listDidAppearOrDisappear:(UIScrollView *)scrollView {
+    CGFloat currentIndexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width;
+    if (self.willAppearIndex != -1 || self.willDisappearIndex != -1) {
+        NSInteger disappearIndex = self.willDisappearIndex;
+        NSInteger appearIndex = self.willAppearIndex;
+        if (self.willAppearIndex > self.willDisappearIndex) {
+            //将要出现的列表在右边
+            if (currentIndexPercent >= self.willAppearIndex) {
+                self.willDisappearIndex = -1;
+                self.willAppearIndex = -1;
+                [self listDidDisappear:disappearIndex];
+                [self listDidAppear:appearIndex];
+            }
+        }else {
+            //将要出现的列表在左边
+            if (currentIndexPercent <= self.willAppearIndex) {
+                self.willDisappearIndex = -1;
+                self.willAppearIndex = -1;
+                [self listDidDisappear:disappearIndex];
+                [self listDidAppear:appearIndex];
+            }
+        }
+    }
 }
 
 @end
