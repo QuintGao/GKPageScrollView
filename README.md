@@ -3,8 +3,8 @@
 ![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;&nbsp;
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
 ![](https://img.shields.io/badge/language-Objective--C%2FSwift%205.x-orange.svg)&nbsp;&nbsp;
-[![cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollView) &nbsp;&nbsp;
-[![cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollViewSwift.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollViewSwift) &nbsp;&nbsp;
+[![objc cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollView) &nbsp;&nbsp;
+[![swift cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollViewSwift.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollViewSwift) &nbsp;&nbsp;
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
 iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
