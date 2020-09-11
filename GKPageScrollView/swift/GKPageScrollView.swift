@@ -242,14 +242,21 @@ open class GKPageScrollView: UIView {
         }
     }
     
-    public func scrollToCriticalPoint() {
-        if self.isScrollToCritical {return}
+    public func scrollToCriticalPoint(completion: @escaping (() -> Void) = {}) {
+        if self.isScrollToCritical {
+            completion()
+            return
+        }
         
         self.isScrollToCritical = true
         
         let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
         
-        self.mainTableView.setContentOffset(CGPoint(x: 0, y: criticalPoint), animated: true)
+        UIView.animate(withDuration: 0.25, animations: {
+            self.mainTableView.setContentOffset(CGPoint(x: 0, y: criticalPoint), animated: false)
+        }) { (_) in
+            completion()
+        }
         
         self.isMainCanScroll = false
         self.isListCanScroll = true
