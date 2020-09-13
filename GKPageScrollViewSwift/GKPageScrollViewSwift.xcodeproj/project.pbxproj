@@ -177,6 +177,7 @@
 		796AB5F42443326F00C724D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796AB5F92443326F00C724D4 /* GKPageScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C48BB8243AF94D000B0815 /* GKPageScrollViewSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKPageScrollViewSwift.podspec; path = ../../GKPageScrollViewSwift.podspec; sourceTree = "<group>"; };
+		D7A91B6B250E2AC1006BB154 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,6 +291,7 @@
 		60A20C1E221E77A700DB2193 = {
 			isa = PBXGroup;
 			children = (
+				D7A91B6B250E2AC1006BB154 /* Package.swift */,
 				60A20C29221E77A700DB2193 /* GKPageScrollViewSwift */,
 				796AB5F22443326F00C724D4 /* GKPageScrollView */,
 				60A20C28221E77A700DB2193 /* Products */,
