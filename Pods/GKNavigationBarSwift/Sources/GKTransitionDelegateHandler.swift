@@ -100,6 +100,15 @@ class GKNavigationControllerDelegateHandler: NSObject {
 
 extension GKNavigationControllerDelegateHandler: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if fromVC.gk_pushTransition != nil && operation == .push {
+            return fromVC.gk_pushTransition
+        }
+        
+        if fromVC.gk_popTransition != nil && operation == .pop {
+            return fromVC.gk_popTransition
+        }
+        
         if self.navigationController.gk_transitionScale || (self.navigationController.gk_openScrollLeftPush && self.pushTransition != nil) {
             if operation == .push {
                 return GKPushAnimatedTransition(scale: self.navigationController.gk_transitionScale)

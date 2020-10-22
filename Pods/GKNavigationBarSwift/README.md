@@ -39,11 +39,11 @@ override var preferredStatusBarStyle: UIStatusBarStyle {
 2、如果切换控制器的时候出现状态栏显示异常（一半黑一半白等）
 解决办法：在控制器初始化方法里面设置状态栏样式
 ```
-- (instancetype)init {
-    if (self = [super init]) {
-        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
-    }
-    return self;
+// 最好在初始化方法中设置gk_statusBarStyle，否则可能导致状态栏切换闪动问题
+override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    
+    self.gk_statusBarStyle = .lightContent
 }
 ```
 3、Xcode 11.4 在调试的时候会出现不自动调用awake方法
@@ -83,6 +83,8 @@ self.gk_navBackgroundColor = [UIColor red]
 
 ## 版本记录
 
+* 1.1.8 - 2020.10.22 适配iPhone 12机型，增加自定义转场动画属性
+* 1.1.5 - 2020.08.14 修复屏蔽控制器无效的bug
 * 1.0.3 - 2020.07.30 增加某些控制器对导航栏间距调整的影响
 * 1.0.2 - 2020.07.27 修复交换方法可能导致的crash问题
 * 1.0.0 - 2020.07.22 优化手势处理，增加属性可屏蔽某些控制器对手势处理的影响

@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GKNavigationBarDefine.h"
 
-// 配置类宏定义
-#define GKConfigure [GKNavigationBarConfigure sharedInstance]
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKNavigationBarConfigure : NSObject
@@ -84,6 +81,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 更新配置
 /// @param block 配置回调
 - (void)updateConfigure:(void (^)(GKNavigationBarConfigure *configure))block;
+
+/// 获取APP当前最顶层的可见viewController
+- (UIViewController *)visibleViewController;
+
+/// 获取当前APP是否是有缺口的屏幕（刘海屏）
+- (BOOL)gk_isNotchedScreen;
 
 #pragma mark - 内部方法
 

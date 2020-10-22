@@ -26,7 +26,13 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 ## 重要！！！
 感谢使用该库，如果在使用过程中遇到问题可查看issue或提交issue，或者进QQ群1047100313  
 
-1、如果切换控制器的时候出现状态栏显示异常（一半黑一半白等）
+#### 1、手势不生效？
+看看是否使用了+ (instancetype)rootVC:(UIViewController *)rootVC 方法初始化导航控制器
+
+#### 2、导航栏不显示？
+看看是否调用了跟导航栏相关的方法，注意：只有调用跟导航栏相关的方法才会初始化导航栏！
+
+#### 3、切换控制器的时候出现状态栏显示异常（一半黑一半白等）
 解决办法：在控制器初始化方法里面设置状态栏样式
 ```
 - (instancetype)init {
@@ -36,7 +42,7 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
     return self;
 }
 ```
-2、Xcode 11.4 在调试的时候会出现状态栏样式改变不了的情况
+#### 4、Xcode 11.4 在调试的时候会出现状态栏样式改变不了的情况
 解决办法：在基类控制器里实现下面两个方法
 ```
 - (BOOL)prefersStatusBarHidden {
@@ -79,6 +85,9 @@ self.gk_navBackgroundColor = [UIColor red]
 
 ## 版本记录
 
+* 1.1.8 - 2020.10.22 适配iPhone 12 系列手机，增加自定义转场动画属性
+* 1.1.6 - 2020.09.09 修复左滑push卡住不动的bug
+* 1.1.5 - 2020.08.14 修复屏蔽控制器无效的bug
 * 1.1.3 - 2020.07.28 修复导航栏标题或颜色不生效的bug
 * 1.1.2 - 2020.07.27 修复方法交换可能带来的crash问题
 * 1.1.1 - 2020.07.23 修复手势处理对根控制器的影响

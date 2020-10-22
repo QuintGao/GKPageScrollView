@@ -23,12 +23,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) UIView *containerView;
 
 @property (nonatomic, weak) UIViewController *fromViewController;
+
 @property (nonatomic, weak) UIViewController *toViewController;
 
+@property (nonatomic, assign) BOOL isHideTabBar;
 
-/// 默认初始化方法
+@property (nonatomic, strong, nullable) UIView *contentView;
+
+/// 初始化
 /// @param isScale 是否需要缩放
-+ (instancetype)transitionWithScale:(BOOL)isScale;
+- (instancetype)initWithScale:(BOOL)isScale;
+
+/// 动画时间
+- (NSTimeInterval)animationDuration;
 
 /// 动画
 - (void)animateTransition;

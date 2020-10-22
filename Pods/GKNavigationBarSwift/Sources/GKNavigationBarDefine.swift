@@ -13,11 +13,7 @@ public let GK_SCREEN_WIDTH = UIScreen.main.bounds.size.width
 public let GK_SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
 /// 是否是刘海屏
-public let GK_NOTCHED_SCREEN: Bool = (
-(UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 375, height:812), UIScreen.main.bounds.size) : false) ||
-(UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 812, height:375), UIScreen.main.bounds.size) : false) ||
-(UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), UIScreen.main.bounds.size) : false) ||
-(UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), UIScreen.main.bounds.size) : false))
+public let GK_NOTCHED_SCREEN: Bool = GKConfigure.gk_isNotchedScreen()
 
 // 是否是iPad
 public let GK_IS_IPAD: Bool = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad)

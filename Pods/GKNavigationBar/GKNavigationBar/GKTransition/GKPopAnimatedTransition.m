@@ -14,10 +14,10 @@
     [self.containerView insertSubview:self.toViewController.view belowSubview:self.fromViewController.view];
     
     // 是否隐藏tabBar
-    BOOL isHideTabBar = self.toViewController.tabBarController && self.fromViewController.hidesBottomBarWhenPushed && self.toViewController.gk_captureImage;
+    self.isHideTabBar = self.toViewController.tabBarController && self.fromViewController.hidesBottomBarWhenPushed && self.toViewController.gk_captureImage;
     
     __block UIView *toView = nil;
-    if (isHideTabBar) {
+    if (self.isHideTabBar) {
         UIImageView *captureView = [[UIImageView alloc] initWithImage:self.toViewController.gk_captureImage];
         captureView.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
         [self.containerView insertSubview:captureView belowSubview:self.fromViewController.view];
@@ -27,6 +27,7 @@
     }else {
         toView = self.toViewController.view;
     }
+    self.contentView = toView;
     
     if (self.isScale) {
         self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT)];
@@ -62,9 +63,9 @@
         }
     } completion:^(BOOL finished) {
         [self completeTransition];
-        if (isHideTabBar) {
-            [toView removeFromSuperview];
-            toView = nil;
+        if (self.isHideTabBar) {
+            [self.contentView removeFromSuperview];
+            self.contentView = nil;
             
             self.toViewController.view.hidden = NO;
             if (self.toViewController.navigationController.childViewControllers.count == 1) {

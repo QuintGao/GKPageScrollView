@@ -27,11 +27,20 @@
 
 #pragma mark - UINavigationControllerDelegate
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+   
+    if (fromVC.gk_pushTransition && operation == UINavigationControllerOperationPush) {
+        return fromVC.gk_pushTransition;
+    }
+    
+    if (fromVC.gk_popTransition && operation == UINavigationControllerOperationPop) {
+        return fromVC.gk_popTransition;
+    }
+    
     if (self.navigationController.gk_transitionScale || (self.navigationController.gk_openScrollLeftPush && self.pushTransition)) {
         if (operation == UINavigationControllerOperationPush) {
-            return [GKPushAnimatedTransition transitionWithScale:self.navigationController.gk_transitionScale];
+            return [[GKPushAnimatedTransition alloc] initWithScale:self.navigationController.gk_transitionScale];
         }else if (operation == UINavigationControllerOperationPop) {
-            return [GKPopAnimatedTransition transitionWithScale:self.navigationController.gk_transitionScale];
+            return [[GKPopAnimatedTransition alloc] initWithScale:self.navigationController.gk_transitionScale];
         }
     }
     return nil;

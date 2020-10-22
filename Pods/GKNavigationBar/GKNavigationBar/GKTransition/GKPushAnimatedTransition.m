@@ -12,10 +12,10 @@
 
 - (void)animateTransition {
     // 解决UITabbarController左滑push时的显示问题
-    BOOL isHideTabBar = self.fromViewController.tabBarController && self.toViewController.hidesBottomBarWhenPushed;
+    self.isHideTabBar = self.fromViewController.tabBarController && self.toViewController.hidesBottomBarWhenPushed;
     
     __block UIView *fromView = nil;
-    if (isHideTabBar) {
+    if (self.isHideTabBar) {
         // 获取fromViewController的截图
         UIImage *captureImage = [self getCaptureWithView:self.fromViewController.view.window];
         UIImageView *captureView = [[UIImageView alloc] initWithImage:captureImage];
@@ -28,6 +28,8 @@
     }else {
         fromView = self.fromViewController.view;
     }
+    self.contentView = fromView;
+    
     [self.containerView addSubview:self.toViewController.view];
     
     if (self.isScale) {
@@ -61,9 +63,9 @@
         self.toViewController.view.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, GK_SCREEN_HEIGHT);
     } completion:^(BOOL finished) {
         [self completeTransition];
-        if (isHideTabBar) {
-            [fromView removeFromSuperview];
-            fromView = nil;
+        if (self.isHideTabBar) {
+            [self.contentView removeFromSuperview];
+            self.contentView = nil;
             
             self.fromViewController.view.hidden = NO;
             if (self.fromViewController.navigationController.childViewControllers.count == 1) {

@@ -8,6 +8,7 @@
 
 #import "GKCustomNavigationBar.h"
 #import "GKNavigationBarDefine.h"
+#import "GKNavigationBarConfigure.h"
 
 @implementation GKCustomNavigationBar
 

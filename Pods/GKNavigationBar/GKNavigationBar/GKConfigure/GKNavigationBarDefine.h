@@ -9,24 +9,19 @@
 #ifndef GKNavigationBarDefine_h
 #define GKNavigationBarDefine_h
 
+@class GKNavigationBarConfigure;
+
 #import <objc/runtime.h>
 
+// 配置类宏定义
+#define GKConfigure                 [GKNavigationBarConfigure sharedInstance]
+
 // 屏幕相关
-#define GK_SCREEN_WIDTH         [UIScreen mainScreen].bounds.size.width
-#define GK_SCREEN_HEIGHT        [UIScreen mainScreen].bounds.size.height
+#define GK_SCREEN_WIDTH             [UIScreen mainScreen].bounds.size.width
+#define GK_SCREEN_HEIGHT            [UIScreen mainScreen].bounds.size.height
 
 // 判断是否是刘海屏
-#define GK_NOTCHED_SCREEN      ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?\
-(\
-CGSizeEqualToSize(CGSizeMake(375, 812),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(812, 375),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(414, 896),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(896, 414),[UIScreen mainScreen].bounds.size))\
-:\
-NO)
+#define GK_NOTCHED_SCREEN           [GKConfigure gk_isNotchedScreen]
 
 // 判断是否是iPad
 #define GK_IS_iPad                  UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad

@@ -33,6 +33,8 @@ extension UIViewController: GKAwakeProtocol {
         static var gkNavBarAlpha: CGFloat = 1
         static var gkPushDelegate: GKViewControllerPushDelegate?
         static var gkPopDelegate: GKViewControllerPopDelegate?
+        static var gkPushTransition: UIViewControllerAnimatedTransitioning?
+        static var gkPopTransition: UIViewControllerAnimatedTransitioning?
         static var gkNavBarInit: Bool = false
         static var gkNavigationBar: GKNavigationBar = GKNavigationBar()
         static var gkNavigationItem: UINavigationItem = UINavigationItem()
@@ -124,6 +126,24 @@ extension UIViewController: GKAwakeProtocol {
             objc_setAssociatedObject(self, &AssociatedKeys.gkPopDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             postPropertyChangeNotification()
+        }
+    }
+    
+    public var gk_pushTransition: UIViewControllerAnimatedTransitioning? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.gkPushTransition) as? UIViewControllerAnimatedTransitioning
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkPushTransition, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    public var gk_popTransition: UIViewControllerAnimatedTransitioning? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.gkPopTransition) as? UIViewControllerAnimatedTransitioning
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkPopTransition, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -442,20 +462,8 @@ extension UIViewController: GKAwakeProtocol {
         self.gk_navItemLeftSpace  = GKNavigationBarItemSpace
         self.gk_navItemRightSpace = GKNavigationBarItemSpace
         
-        gk_viewDidLoad()
-    }
-    
-    @objc func gk_viewWillAppear(_ animated: Bool) {
-        if self.isKind(of: UINavigationController.classForCoder()) { return }
-        if self.isKind(of: UITabBarController.classForCoder()) { return }
-        if self.isKind(of: UIImagePickerController.classForCoder()) { return }
-        if self.isKind(of: UIVideoEditorController.classForCoder()) { return }
-        if self.isKind(of: UIAlertController.classForCoder()) { return }
-        if NSStringFromClass(self.classForCoder).components(separatedBy: ".").last == "PUPhotoPickerHostViewController" { return }
-        if self.navigationController == nil { return }
-        
+        // 判断是否需要屏蔽导航栏间距调整
         var exist = false
-        
         if let shiledVCs = GKConfigure.shiledItemSpaceVCs {
             for obj in shiledVCs {
                 if obj is UIViewController.Type {
@@ -470,7 +478,21 @@ extension UIViewController: GKAwakeProtocol {
             }
         }
         
-        if exist { return }
+        GKConfigure.update { (configure) in
+            configure.gk_disableFixSpace = exist
+        }
+        
+        gk_viewDidLoad()
+    }
+    
+    @objc func gk_viewWillAppear(_ animated: Bool) {
+        if self.isKind(of: UINavigationController.classForCoder()) { return }
+        if self.isKind(of: UITabBarController.classForCoder()) { return }
+        if self.isKind(of: UIImagePickerController.classForCoder()) { return }
+        if self.isKind(of: UIVideoEditorController.classForCoder()) { return }
+        if self.isKind(of: UIAlertController.classForCoder()) { return }
+        if NSStringFromClass(self.classForCoder).components(separatedBy: ".").last == "PUPhotoPickerHostViewController" { return }
+        if self.navigationController == nil { return }
         
         if self.gk_navBarInit {
             // 隐藏系统导航栏
@@ -485,18 +507,21 @@ extension UIViewController: GKAwakeProtocol {
             self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden
         }
         
-        if self.gk_navItemLeftSpace == GKNavigationBarItemSpace {
-            self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace
-        }
-        
-        if self.gk_navItemRightSpace == GKNavigationBarItemSpace {
-            self.gk_navItemRightSpace = GKConfigure.navItemRightSpace
-        }
-        
-        // 重置navItem_space
-        GKConfigure.update { (configure) in
-            configure.gk_navItemLeftSpace = self.gk_navItemLeftSpace
-            configure.gk_navItemRightSpace = self.gk_navItemRightSpace
+        // 允许调整导航栏间距
+        if !GKConfigure.gk_disableFixSpace {
+            if self.gk_navItemLeftSpace == GKNavigationBarItemSpace {
+                self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace
+            }
+            
+            if self.gk_navItemRightSpace == GKNavigationBarItemSpace {
+                self.gk_navItemRightSpace = GKConfigure.navItemRightSpace
+            }
+            
+            // 重置navItem_space
+            GKConfigure.update { (configure) in
+                configure.gk_navItemLeftSpace = self.gk_navItemLeftSpace
+                configure.gk_navItemRightSpace = self.gk_navItemRightSpace
+            }
         }
         
         gk_viewWillAppear(animated)
