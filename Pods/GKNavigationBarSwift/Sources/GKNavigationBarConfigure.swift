@@ -128,23 +128,44 @@ open class GKNavigationBarConfigure : NSObject {
         return self.getKeyWindow()?.rootViewController?.gk_visibleViewControllerIfExist()
     }
     
+    open func gk_safeAreaInsets() -> UIEdgeInsets {
+        var safeAreaInsets = UIEdgeInsets.zero
+        if #available(iOS 11.0, *) {
+            let keyWindow = GKConfigure.getKeyWindow()
+            if let window = keyWindow {
+                safeAreaInsets = window.safeAreaInsets
+            }else { // 如果获取到的window是空
+                // 对于刘海屏，当window没有创建的时候，可根据状态栏设置安全区域顶部高度
+                // iOS14之后顶部安全区域不再是固定的44，所以修改为以下方式获取
+                if GKConfigure.gk_isNotchedScreen() {
+                    safeAreaInsets = UIEdgeInsets(top: GKConfigure.gk_statusBarFrame().size.height, left: 0, bottom: 34, right: 0)
+                }
+            }
+        }
+        return safeAreaInsets
+    }
+    
+    open func gk_statusBarFrame() -> CGRect {
+        return UIApplication.shared.statusBarFrame
+    }
+    
     open func gk_isNotchedScreen() -> Bool {
         if #available(iOS 11.0, *) {
-            let keyWinwow = self.getKeyWindow()
-            if keyWinwow != nil {
-                return (keyWinwow?.safeAreaInsets.bottom ?? UIEdgeInsets.zero.bottom) > 0 ? true : false
+            let keyWinwow = GKConfigure.getKeyWindow()
+            if let window = keyWinwow {
+                return window.safeAreaInsets.bottom > 0 ? true : false
             }
         }
         // 当iOS11以下或获取不到keyWindow时用以下方案
         let screenSize = UIScreen.main.bounds.size
         return ((UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 375, height:812), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 812, height:375), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 390, height:844), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 844, height:390), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 428, height:926), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 926, height:428), screenSize) : false))
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 812, height:375), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 390, height:844), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 844, height:390), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 428, height:926), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 926, height:428), screenSize) : false))
     }
     
     /// 获取当前item修复间距

@@ -141,6 +141,7 @@
         _contentScrollView.delegate = self;
         _contentScrollView.gestureDelegate = self;
         _contentScrollView.pagingEnabled = YES;
+        _contentScrollView.gk_openGestureHandle = YES;
 
         CGFloat width = kScreenW;
         CGFloat height = kScreenH - GK_STATUSBAR_HEIGHT - 50.0f;
@@ -149,6 +150,7 @@
             GKNest2View *nestView = [GKNest2View new];
             nestView.frame = CGRectMake(idx * width, 0, width, height);
             nestView.mainScrollView = self->_contentScrollView;
+            nestView.mainScrollView.gk_openGestureHandle = YES;
             [self->_contentScrollView addSubview:nestView];
         }];
 

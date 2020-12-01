@@ -14,6 +14,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
     lazy var smoothView: GKPageSmoothView = {
         let smoothView = GKPageSmoothView(delegate: self)
         smoothView.isControlVerticalIndicator = true
+        smoothView.listCollectionView.gk_openGestureHandle = true
         return smoothView
     }()
     

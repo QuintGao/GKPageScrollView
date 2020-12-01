@@ -128,6 +128,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
         scrollView.delegate = self
+        scrollView.gk_openGestureHandle = true
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
         } else {

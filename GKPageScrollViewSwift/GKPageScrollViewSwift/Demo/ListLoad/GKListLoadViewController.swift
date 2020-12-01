@@ -15,6 +15,7 @@ class GKListLoadViewController: GKDemoBaseViewController {
     lazy var pageScrollView: GKPageScrollView! = {
         let pageScrollView = GKPageScrollView(delegate: self)
         pageScrollView.isLazyLoadList = true
+        pageScrollView.listContainerView.collectionView.gk_openGestureHandle = true
         return pageScrollView
     }()
     
@@ -96,9 +97,19 @@ extension GKListLoadViewController: GKPageScrollViewDelegate {
         return self.titles.count
     }
     
+//    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
+//    listVC.count = 0;
+//    [listVC reloadData];
+//    listVC.shouldLoadData = YES;
+//    [self addChildViewController:listVC];
+//    return listVC;
+    
     func pageScrollView(_ pageScrollView: GKPageScrollView, initListAtIndex index: Int) -> GKPageListViewDelegate {
         let listVC = GKBaseListViewController(listType: GKBaseListType(rawValue: index)!)
+        listVC.count = 0;
+        listVC.reloadData()
         listVC.shouldLoadData = true
+        self.addChild(listVC)
         return listVC
     }
 }

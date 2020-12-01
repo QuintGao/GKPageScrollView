@@ -12,8 +12,8 @@ extension UINavigationItem: GKAwakeProtocol {
     // MARK: - 重新系统方法
     private static let onceToken = UUID().uuidString
     @objc public static func gkAwake() {
-        if #available(iOS 11.0, *) {} else {
-            DispatchQueue.once(token: onceToken) {
+        DispatchQueue.once(token: onceToken) {
+            if #available(iOS 11.0, *) {} else {
                 let oriSels = ["setLeftBarButtonItem:animated:",
                                "setLeftBarButtonItems:animated:",
                                "setRightBarButtonItem:animated:",
@@ -88,10 +88,12 @@ extension NSObject: GKObjectAwakeProtocol {
     // MARK: - 重新系统方法
     private static let onceToken = UUID().uuidString
     public static func gkObjectAwake() {
-        if #available(iOS 11.0, *) {
-            let oriSels = ["_UINavigationBarContentView": "layoutSubviews", "_UINavigationBarContentViewLayout": "_updateMarginConstraints"]
-            for (cls, sel) in oriSels {
-                gk_swizzled_instanceMethod("gk", oldClass: NSClassFromString(cls), oldSelector: sel, newClass: NSObject.classForCoder())
+        DispatchQueue.once(token: onceToken) {
+            if #available(iOS 11.0, *) {
+                let oriSels = ["_UINavigationBarContentView": "layoutSubviews", "_UINavigationBarContentViewLayout": "_updateMarginConstraints"]
+                for (cls, sel) in oriSels {
+                    gk_swizzled_instanceMethod("gk", oldClass: NSClassFromString(cls), oldSelector: sel, newClass: NSObject.classForCoder())
+                }
             }
         }
     }

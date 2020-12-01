@@ -369,7 +369,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
                 addSubview(headerContainerView)
             }
         }
-        if currentIndex != index {
+        if currentIndex != index && ratio == 0 {
             currentIndex = index
         }
     }

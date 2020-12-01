@@ -85,6 +85,7 @@ class GKBasePageViewController: GKDemoBaseViewController {
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
+        scrollView.gk_openGestureHandle = true
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
         }

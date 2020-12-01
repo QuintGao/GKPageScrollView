@@ -12,6 +12,8 @@
 
 #import "GKPageScrollView.h"
 #import "GKWBHeaderView.h"
+#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
+#import <GKNavigationBar/UIImage+GKCategory.h>
 
 @interface GKWBViewController ()<GKPageScrollViewDelegate, WMPageControllerDataSource, WMPageControllerDelegate, GKWBPageViewControllDelegate>
 
@@ -192,6 +194,7 @@
         self.pageScrollView.ceilPointHeight = 44.0f;
     }
     [self.pageVC reloadData];
+    self.pageVC.scrollView.gk_openGestureHandle = YES;
 }
 
 #pragma mark - 懒加载

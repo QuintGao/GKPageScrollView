@@ -8,6 +8,7 @@
 
 import UIKit
 import WMPageController
+import GKNavigationBarSwift
 
 class GKWBViewController: GKDemoBaseViewController {
 
@@ -80,8 +81,6 @@ class GKWBViewController: GKDemoBaseViewController {
         
         // 调皮效果
         pageVC.progressViewIsNaughty = true
-        
-        pageVC.reloadData()
         return pageVC
     }()
     
@@ -106,6 +105,21 @@ class GKWBViewController: GKDemoBaseViewController {
         }
         
         self.pageScrollView.reloadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.headerView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: kWBHeaderHeight);
+        
+        if (kScreenH > kScreenW) {
+            self.pageScrollView.ceilPointHeight = GK_STATUSBAR_NAVBAR_HEIGHT;
+        }else {
+            self.pageScrollView.ceilPointHeight = 44.0
+        }
+        
+        self.pageVC.reloadData()
+        self.pageVC.scrollView?.gk_openGestureHandle = true
     }
     
     @objc func backAction() {

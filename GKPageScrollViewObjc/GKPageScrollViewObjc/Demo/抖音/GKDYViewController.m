@@ -163,6 +163,7 @@
         _scrollView.bounces = NO;
         _scrollView.delegate = self;
         _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.gk_openGestureHandle = YES;
         
         [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
             [self addChildViewController:vc];

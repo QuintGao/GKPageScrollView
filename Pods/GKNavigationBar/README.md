@@ -27,10 +27,12 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 感谢使用该库，如果在使用过程中遇到问题可查看issue或提交issue，或者进QQ群1047100313  
 
 #### 1、手势不生效？
-看看是否使用了+ (instancetype)rootVC:(UIViewController *)rootVC 方法初始化导航控制器
+1、查看是否使用了+ (instancetype)rootVC:(UIViewController *)rootVC 方法初始化导航控制器  
+2、查看是否在控制器中禁用了手势返回self.gk_interactivePopDisabled = YES，self.gk_fullScreenPopDisabled = YES
 
 #### 2、导航栏不显示？
-看看是否调用了跟导航栏相关的方法，注意：只有调用跟导航栏相关的方法才会初始化导航栏！
+查看是否调用了跟导航栏相关的方法，如self.gk_navTitle = @"GKNavigationBar"  
+注意：只有调用跟导航栏相关的方法才会初始化导航栏！
 
 #### 3、切换控制器的时候出现状态栏显示异常（一半黑一半白等）
 解决办法：在控制器初始化方法里面设置状态栏样式
@@ -57,11 +59,24 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 ## 使用说明
 
 ### 使用方式
-#### 1、直接拖入GKNavigationBar文件夹到项目，#import "GKNavigationBar.h"，开始使用
+#### 1、手动导入
+直接拖入GKNavigationBar文件夹到项目，#import "GKNavigationBar.h"，开始使用
 
-#### 2、pod方式 Podfile中添加 pod 'GKNavigationBar'，执行pod install 或pod update 安装，#import <GKNavigationBar/GKNavigationBar.h>，开始使用
+#### 2、pod方式 
+Podfile中添加 pod 'GKNavigationBar'，执行pod install 或pod update 安装，
+#import <GKNavigationBar/GKNavigationBar.h>，开始使用
 
-#### 3、Carthage方式Cartfile中添加 github "QuintGao/GKNavigationBar"，执行carthage update --platform iOS，#import <GKNavigationBar/GKNavigationBar.h>，开始使用
+##### 模块说明：
+* 如果你只需要导航栏模块，可使用pod 'GKNavigationBar/NavigationBar'
+* 如果你只需要手势处理模块，可使用pod 'GKNavigationBar/GestureHandle'
+
+#### 3、Carthage方式
+Cartfile中添加 github "QuintGao/GKNavigationBar"，执行carthage update --platform iOS，
+#import <GKNavigationBar/GKNavigationBar.h>，开始使用
+
+#### 4、SPM方式
+在Xcode中点击File->Swift Packages->Add Package Dependency，然后输入https://github.com/QuintGao/GKNavigationBar
+下载相应版本的代码，开始使用
 
 ### 使用方法
 #### 1、在AppDelegate中添加导航配置
@@ -77,14 +92,73 @@ UINavigationController *nav = [UINavigationController rootVC:[GKMainViewControll
 ```
 
 #### 3、设置导航栏属性（调用即创建）
-
 ```
 self.gk_navBackgroundColor = [UIColor red]
 ```
+
+### 部分功能说明
+#### 1、返回按钮点击及返回手势拦截
+```
+// 重写下面的方法，拦截返回按钮点击
+- (void)backItemClick:(id)sender {
+    // do something
+    
+    [super backItemClick:sender];
+}
+```
+
+```
+// 重写下面的方法，拦截返回手势
+#pragma mark - GKGesturePopHandlerProtocol
+- (BOOL)navigationShouldPopOnGesture {
+    // do something
+    
+    return NO;
+}
+```
+
+#### 2、与系统导航平滑过渡
+```
+1、开启系统导航过渡处理 nav.gk_openSystemNavHandle = YES;
+2、在控制器中设置gk_popDelegate并实现下面的方法
+#pragma mark - GKViewControllerPopDelegate
+- (void)viewControllerPopScrollBegan {
+    
+}
+
+- (void)viewControllerPopScrollUpdate:(float)progress {
+    // 由于已经出栈，所以self.navigationController为nil，不能直接获取导航控制器
+    UIViewController *vc = [GKConfigure visibleViewController];
+    vc.navigationController.navigationBar.alpha = 1 - progress;
+}
+
+- (void)viewControllerPopScrollEnded:(BOOL)finished {
+    // 由于已经出栈，所以self.navigationController为nil，不能直接获取导航控制器
+    UIViewController *vc = [GKConfigure visibleViewController];
+    vc.navigationController.navigationBar.alpha = 1;
+    vc.navigationController.navigationBarHidden = finished;
+}
+
+```
+
+#### 3、屏蔽某些类的导航栏间距调整处理及手势处理
+```
+// 屏蔽导航栏间距处理
+configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
+```
+
+```
+// 屏蔽手势处理
+configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
+```
+
 更多属性及方法可在demo中查看
 
 ## 版本记录
 
+* 1.3.3 - 2020.11.29 手势滑动优化，支持与系统导航平滑衔接、控制器屏蔽支持部分匹配
+* 1.3.0 - 2020.10.29 功能模块拆分，可按需pod不同模块
+* 1.2.0 - 2020.10.26 优化代码宏定义，增加自定义转场demo
 * 1.1.8 - 2020.10.22 适配iPhone 12 系列手机，增加自定义转场动画属性
 * 1.1.6 - 2020.09.09 修复左滑push卡住不动的bug
 * 1.1.5 - 2020.08.14 修复屏蔽控制器无效的bug

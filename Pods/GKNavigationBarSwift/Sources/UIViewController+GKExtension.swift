@@ -10,16 +10,43 @@ import UIKit
 
 // 左滑push代理
 @objc
-public protocol GKViewControllerPushDelegate {
-    func pushToNextViewController()
+public protocol GKViewControllerPushDelegate: NSObjectProtocol {
+    /// 左滑push，在这里创建将要push的控制器
+    @objc optional func pushToNextViewController()
+    
+    /// push手势滑动开始
+    @objc optional func viewControllerPushScrollBegan()
+    
+    /// push手势滑动进度更新
+    /// - Parameter progress: 进度（0-1）
+    @objc optional func viewControllerPushScrollUpdate(progress: CGFloat)
+    
+    /// push手势滑动结束
+    /// - Parameter finished: 是否完成push操作（true：push成功 false：push取消）
+    @objc optional func viewControllerPushScrollEnded(finished: Bool)
 }
 
 // 右滑pop代理
 @objc
-public protocol GKViewControllerPopDelegate {
+public protocol GKViewControllerPopDelegate: NSObjectProtocol {
+    
+    /// pop手势滑动开始
     @objc optional func viewControllerPopScrollBegan()
+    
+    /// pop手势滑动进度更新
+    /// - Parameter progress: 进度（0-1）
     @objc optional func viewControllerPopScrollUpdate(progress: CGFloat)
-    @objc optional func viewControllerPopScrollEnded()
+    
+    /// pop手势滑动结束
+    /// - Parameter finished: 是否完成pop操作（true：pop成功 false：pop取消）
+    @objc optional func viewControllerPopScrollEnded(finished: Bool)
+}
+
+// 返回拦截
+@objc
+public protocol GKGesturePopHandlerProtocol: NSObjectProtocol {
+    // 是否可以通过手势pop返回
+    @objc optional func navigationShouldPopOnGesture() -> Bool
 }
 
 public let GKViewControllerPropertyChanged = NSNotification.Name(rawValue: "GKViewControllerPropertyChanged")
@@ -57,6 +84,8 @@ extension UIViewController: GKAwakeProtocol {
         static var gkNavRightBarButtonItems: [UIBarButtonItem]?
         static var gkNavItemLeftSpace: CGFloat = GKConfigure.gk_navItemLeftSpace
         static var gkNavItemRightSpace: CGFloat = GKConfigure.gk_navItemRightSpace
+        static var hasPushDelegate: Bool = false
+        static var hasPopDelegate: Bool = false
     }
     
     public var gk_interactivePopDisabled: Bool {
@@ -441,6 +470,26 @@ extension UIViewController: GKAwakeProtocol {
         }
     }
     
+    var hasPushDelegate: Bool {
+        get {
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.hasPushDelegate) as? Bool else { return false }
+            return obj
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.hasPushDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    var hasPopDelegate: Bool {
+        get {
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.hasPopDelegate) as? Bool else { return false }
+            return obj
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.hasPopDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     // MARK: - 重新系统方法
     private static let onceToken = UUID().uuidString
     @objc public static func gkAwake() {
@@ -448,11 +497,16 @@ extension UIViewController: GKAwakeProtocol {
             let oriSels = ["viewDidLoad",
                            "viewWillAppear:",
                            "viewDidAppear:",
-                           "viewWillLayoutSubviews"
-            ]
+                           "viewWillLayoutSubviews"]
             
             for oriSel in oriSels {
                 gk_swizzled_instanceMethod("gk", oldClass: self, oldSelector: oriSel, newClass: self)
+            }
+            
+            let gestureOriSels = ["viewWillAppear:", "viewDidDisappear:"]
+            
+            for oriSel in gestureOriSels {
+                gk_swizzled_instanceMethod("gkGesture", oldClass: self, oldSelector: oriSel, newClass: self)
             }
         }
     }
@@ -471,8 +525,12 @@ extension UIViewController: GKAwakeProtocol {
                         exist = true
                     }
                 }else if obj is String {
-                    if NSStringFromClass(self.classForCoder).components(separatedBy: ".").last == (obj as! String) {
-                        exist = true
+                    if let cls = NSStringFromClass(self.classForCoder).components(separatedBy: ".").last, let str = obj as? String {
+                        if cls == str {
+                            exist = true
+                        }else if cls.contains(str) {
+                            exist = true
+                        }
                     }
                 }
             }
@@ -496,7 +554,9 @@ extension UIViewController: GKAwakeProtocol {
         
         if self.gk_navBarInit {
             // 隐藏系统导航栏
-            self.navigationController?.isNavigationBarHidden = true
+            if self.navigationController?.gk_openSystemNavHandle == false {
+                self.navigationController?.isNavigationBarHidden = true
+            }
             
             // 将自定义的导航栏放置顶层
             if !self.gk_navigationBar.isHidden {
@@ -531,6 +591,10 @@ extension UIViewController: GKAwakeProtocol {
         // 每次视图出现时重新设置当前控制器的手势
         postPropertyChangeNotification()
         
+        if self.gk_navBarInit && self.navigationController?.isNavigationBarHidden == false {
+            self.navigationController?.isNavigationBarHidden = true
+        }
+        
         gk_viewDidAppear(animated)
     }
     
@@ -539,6 +603,38 @@ extension UIViewController: GKAwakeProtocol {
             setupNavBarFrame()
         }
         gk_viewWillLayoutSubviews()
+    }
+    
+    @objc func gkGesture_viewWillAppear(_ animated: Bool) {
+        if self.hasPushDelegate {
+            self.gk_pushDelegate = self as? GKViewControllerPushDelegate
+            self.hasPushDelegate = false
+        }
+        if self.hasPopDelegate {
+            self.gk_popDelegate = self as? GKViewControllerPopDelegate
+            self.hasPopDelegate = false
+        }
+        gkGesture_viewWillAppear(animated)
+    }
+    
+    @objc func gkGesture_viewDidDisappear(_ animated: Bool) {
+        if let delegate = self.gk_pushDelegate {
+            if delegate as! NSObject == self {
+                self.hasPushDelegate = true
+            }
+        }
+        
+        if let delegate = self.gk_popDelegate {
+            if delegate as! NSObject == self {
+                self.hasPopDelegate = true
+            }
+        }
+        
+        // 这两个代理系统不会自动回收，所以要做下处理
+        self.gk_pushDelegate = nil;
+        self.gk_popDelegate = nil;
+
+        gkGesture_viewDidDisappear(animated)
     }
     
     fileprivate func setupNavBarAppearance() {
@@ -620,7 +716,7 @@ extension UIViewController: GKAwakeProtocol {
         self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(image: backImage, target: self, action: #selector(backItemClick(_:)))
     }
     
-    @objc func backItemClick(_ sender: Any) {
+    @objc open func backItemClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -630,8 +726,8 @@ extension UIViewController: GKAwakeProtocol {
     }
     
     public func gk_visibleViewControllerIfExist() -> UIViewController? {
-        if self.presentingViewController != nil {
-            return self.presentingViewController?.gk_visibleViewControllerIfExist()
+        if self.presentedViewController != nil {
+            return self.presentedViewController?.gk_visibleViewControllerIfExist()
         }
         
         if self.isKind(of: UINavigationController.classForCoder()) {

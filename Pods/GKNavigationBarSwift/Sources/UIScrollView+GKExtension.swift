@@ -10,23 +10,24 @@ import UIKit
 
 extension UIScrollView {
     fileprivate struct AssociatedKeys {
-        static var gkGestureHandleDisabled: Bool = false
+        static var gkOpenGestureHandle: Bool = false
     }
     
-    public var gk_gestureHandleDisabled: Bool {
+    /// 是否开启UIScrollView左滑返回手势处理，默认NO
+    public var gk_openGestureHandle: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkGestureHandleDisabled) as? Bool else { return false }
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkGestureHandleDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }
 
 extension UIScrollView {
     open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if self.gk_gestureHandleDisabled {
+        if !self.gk_openGestureHandle {
             return true
         }
         

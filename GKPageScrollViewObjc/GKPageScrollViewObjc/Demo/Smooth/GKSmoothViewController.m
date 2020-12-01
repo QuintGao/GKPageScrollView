@@ -12,6 +12,7 @@
 #import "GKSmoothListView.h"
 #import "GKDYHeaderView.h"
 #import "GKBaseListViewController.h"
+#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
 
 @interface GKSmoothViewController ()<GKPageSmoothViewDelegate, GKSmoothListViewDelegate>
 
@@ -29,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.gk_navTitle = @"滑动延续";
+    self.gk_navTitleColor = UIColor.whiteColor;
     self.gk_navBarAlpha = 0.0f;
     self.gk_navBackgroundColor = GKColorRGB(34, 33, 37);
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
@@ -98,6 +101,7 @@
 - (GKPageSmoothView *)smoothView {
     if (!_smoothView) {
         _smoothView = [[GKPageSmoothView alloc] initWithDelegate:self];
+        _smoothView.listCollectionView.gk_openGestureHandle = YES;
     }
     return _smoothView;
 }

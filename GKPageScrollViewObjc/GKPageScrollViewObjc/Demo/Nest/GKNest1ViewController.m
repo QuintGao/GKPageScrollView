@@ -62,6 +62,7 @@
 
 - (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index {
     GKNestView *nestView = [GKNestView new];
+    nestView.contentScrollView.gk_openGestureHandle = YES;
     return nestView;
 }
 
@@ -126,6 +127,7 @@
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.isLazyLoadList = YES;
         _pageScrollView.mainTableView.gestureDelegate = self;
+        _pageScrollView.listContainerView.collectionView.gk_openGestureHandle = YES;
     }
     return _pageScrollView;
 }

@@ -30,10 +30,10 @@ extension UINavigationController: GKChildAwakeProtocol {
         static var gkTransitionScale: Bool = false
         static var gkOpenScrollLeftPush: Bool = false
         static var gkOpenGestureHandle: Bool = false
+        static var gkOpenSystemNavHandle: Bool = false
         static var screenPanGesture: UIScreenEdgePanGestureRecognizer = UIScreenEdgePanGestureRecognizer()
         static var panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
-        static var navigationHandle: GKNavigationControllerDelegateHandler = GKNavigationControllerDelegateHandler()
-        static var gestureHandle: GKGestureRecognizerDelegateHandler = GKGestureRecognizerDelegateHandler()
+        static var transition: GKNavigationInteractiveTransition = GKNavigationInteractiveTransition()
     }
     
     public var gk_transitionScale: Bool {
@@ -66,12 +66,23 @@ extension UINavigationController: GKChildAwakeProtocol {
         }
     }
     
+    public var gk_openSystemNavHandle: Bool {
+        get {
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkOpenSystemNavHandle) as? Bool else { return false }
+            return obj
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkOpenSystemNavHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     var screenPanGesture: UIScreenEdgePanGestureRecognizer {
         get {
             var panGesture = objc_getAssociatedObject(self, &AssociatedKeys.screenPanGesture) as? UIScreenEdgePanGestureRecognizer
             if panGesture == nil {
-                panGesture = UIScreenEdgePanGestureRecognizer(target: self.navigationHandler, action:#selector(self.navigationHandler.panGestureAction(_:)))
+                panGesture = UIScreenEdgePanGestureRecognizer(target: self.interactiveTransition, action:#selector(self.interactiveTransition.panGestureAction(_:)))
                 panGesture?.edges = .left
+                panGesture?.delegate = self.interactiveTransition
                 
                 objc_setAssociatedObject(self, &AssociatedKeys.screenPanGesture, panGesture, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
@@ -83,8 +94,9 @@ extension UINavigationController: GKChildAwakeProtocol {
         get {
             var panGesture = objc_getAssociatedObject(self, &AssociatedKeys.panGesture) as? UIPanGestureRecognizer
             if panGesture == nil {
-                panGesture = UIPanGestureRecognizer()
+                panGesture = UIPanGestureRecognizer(target: self.interactiveTransition, action: #selector(self.interactiveTransition.panGestureAction(_:)))
                 panGesture?.maximumNumberOfTouches = 1
+                panGesture?.delegate = self.interactiveTransition
                 
                 objc_setAssociatedObject(self, &AssociatedKeys.panGesture, panGesture, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
@@ -92,31 +104,18 @@ extension UINavigationController: GKChildAwakeProtocol {
         }
     }
     
-    var navigationHandler: GKNavigationControllerDelegateHandler {
+    var interactiveTransition: GKNavigationInteractiveTransition {
         get {
-            var handler = objc_getAssociatedObject(self, &AssociatedKeys.navigationHandle) as? GKNavigationControllerDelegateHandler
-            if handler == nil {
-                handler = GKNavigationControllerDelegateHandler()
-                handler?.navigationController = self
+            var transition = objc_getAssociatedObject(self, &AssociatedKeys.transition) as? GKNavigationInteractiveTransition
+            if transition == nil {
+                transition = GKNavigationInteractiveTransition()
+                transition?.navigationController = self
+                transition?.systemTarget = self.systemTarget
+                transition?.systemAction = self.systemAction
                 
-                objc_setAssociatedObject(self, &AssociatedKeys.navigationHandle, handler, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, &AssociatedKeys.transition, transition, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
-            return handler!
-        }
-    }
-    
-    var gestureHandler: GKGestureRecognizerDelegateHandler {
-        get {
-            var handler = objc_getAssociatedObject(self, &AssociatedKeys.gestureHandle) as? GKGestureRecognizerDelegateHandler
-            if handler == nil {
-                handler = GKGestureRecognizerDelegateHandler()
-                handler?.navigationController = self
-                handler?.systemTarget = self.systemTarget
-                handler?.customTarget = self.navigationHandler
-                
-                objc_setAssociatedObject(self, &AssociatedKeys.gestureHandle, handler, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            }
-            return handler!
+            return transition!
         }
     }
     
@@ -128,11 +127,16 @@ extension UINavigationController: GKChildAwakeProtocol {
         }
     }
     
+    var systemAction: Selector {
+        return NSSelectorFromString("handleNavigationTransition:")
+    }
+    
     // MARK: - 重新系统方法
     private static let onceToken = UUID().uuidString
     public static func gkChildAwake() {
         DispatchQueue.once(token: onceToken) {
             gk_swizzled_instanceMethod("gkNav", oldClass: self, oldSelector: "viewDidLoad", newClass: self)
+            gk_swizzled_instanceMethod("gkNav", oldClass: self, oldSelector: "pushViewController:animated:", newClass: self)
         }
     }
     
@@ -149,12 +153,20 @@ extension UINavigationController: GKChildAwakeProtocol {
             self.view.backgroundColor = UIColor.black
             
             // 设置代理
-            self.delegate = self.navigationHandler
+            self.delegate = self.interactiveTransition
+            self.interactivePopGestureRecognizer?.isEnabled = false
             
             // 注册控制器属性改变通知
             NotificationCenter.default.addObserver(self, selector: #selector(propertyChangeNotification(_:)), name: GKViewControllerPropertyChanged, object: nil)
         }
         gkNav_viewDidLoad()
+    }
+    
+    @objc func gkNav_pushViewController(_ viewController: UIViewController, animated: Bool) {
+        if self.gk_openSystemNavHandle {
+            self.isNavigationBarHidden = true
+        }
+        gkNav_pushViewController(viewController, animated: animated)
     }
     
     @objc func propertyChangeNotification(_ notify: Notification) {
@@ -166,6 +178,7 @@ extension UINavigationController: GKChildAwakeProtocol {
         if vc.isKind(of: UINavigationController.classForCoder()) { return }
         if vc.isKind(of: UITabBarController.classForCoder()) { return }
         if vc.navigationController == nil { return }
+        if vc.navigationController != self { return }
         
         var exist = false
         
@@ -176,59 +189,30 @@ extension UINavigationController: GKChildAwakeProtocol {
                         exist = true
                     }
                 }else if obj is String {
-                    if NSStringFromClass(vc.classForCoder).components(separatedBy: ".").last == (obj as! String) {
-                        exist = true
+                    if let cls = NSStringFromClass(vc.classForCoder).components(separatedBy: ".").last, let str = obj as? String {
+                        if cls == str {
+                            exist = true
+                        }else if cls.contains(str) {
+                            exist = true
+                        }
                     }
                 }
             }
         }
         if exist { return }
         
-        let isRootVC = vc == self.viewControllers.first
-        
         // 手势处理
         if vc.gk_interactivePopDisabled { // 禁止滑动
-            self.interactivePopGestureRecognizer?.delegate = nil
-            self.interactivePopGestureRecognizer?.isEnabled = false
-            self.interactivePopGestureRecognizer?.view?.removeGestureRecognizer(self.screenPanGesture)
-            self.interactivePopGestureRecognizer?.view?.removeGestureRecognizer(self.panGesture)
+            self.view.removeGestureRecognizer(self.screenPanGesture)
+            self.view.removeGestureRecognizer(self.panGesture)
         }else if vc.gk_fullScreenPopDisabled { // 禁止全屏滑动，支持边缘滑动
-            self.interactivePopGestureRecognizer?.view?.removeGestureRecognizer(self.panGesture)
-            
-            if self.gk_transitionScale {
-                self.interactivePopGestureRecognizer?.delegate = nil
-                self.interactivePopGestureRecognizer?.isEnabled = false
-                
-                if self.interactivePopGestureRecognizer?.view?.gestureRecognizers?.contains(self.screenPanGesture) == false {
-                    self.interactivePopGestureRecognizer?.view?.addGestureRecognizer(self.screenPanGesture)
-                    self.screenPanGesture.delegate = self.gestureHandler
-                }
-            }else {
-                self.interactivePopGestureRecognizer?.delaysTouchesBegan = true
-                self.interactivePopGestureRecognizer?.delegate = self.gestureHandler
-                self.interactivePopGestureRecognizer?.isEnabled = !isRootVC
-            }
+            self.view.removeGestureRecognizer(self.panGesture)
+            self.view.addGestureRecognizer(self.screenPanGesture)
+            self.screenPanGesture .addTarget(self.systemTarget!, action: self.systemAction)
         }else { // 支持全屏滑动
-            self.interactivePopGestureRecognizer?.delegate = nil
-            self.interactivePopGestureRecognizer?.isEnabled = false
-            self.interactivePopGestureRecognizer?.view?.removeGestureRecognizer(self.screenPanGesture)
-            
-            // 给self.interactivePopGestureRecognizer.view添加全屏滑动手势
-            if !isRootVC && self.interactivePopGestureRecognizer?.view?.gestureRecognizers?.contains(self.panGesture) == false {
-                self.interactivePopGestureRecognizer?.view?.addGestureRecognizer(self.panGesture)
-                self.panGesture.delegate = self.gestureHandler
-            }
-            
-            // 手势处理
-            if self.gk_transitionScale || self.gk_openScrollLeftPush {
-                self.panGesture.addTarget(self.navigationHandler, action: #selector(self.navigationHandler.panGestureAction(_:)))
-            }else {
-                let internalAction = NSSelectorFromString("handleNavigationTransition:")
-                
-                if self.systemTarget != nil {
-                    self.panGesture.addTarget(self.systemTarget!, action: internalAction)
-                }
-            }
+            self.view.removeGestureRecognizer(self.screenPanGesture)
+            self.view.addGestureRecognizer(self.panGesture)
+            self.panGesture.addTarget(self.systemTarget!, action: self.systemAction)
         }
     }
 }

@@ -44,6 +44,9 @@ class GKVTMagicViewController: GKDemoBaseViewController {
         magicVC.magicView.navigationHeight = 40.0
         magicVC.magicView.dataSource = self
         magicVC.magicView.delegate = self
+        
+        let scrollView: UIScrollView = magicVC.magicView.value(forKey: "contentView") as! UIScrollView
+        scrollView.gk_openGestureHandle = true
         return magicVC
     }()
     

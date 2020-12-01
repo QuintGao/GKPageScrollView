@@ -18,11 +18,11 @@ public let GK_NOTCHED_SCREEN: Bool = GKConfigure.gk_isNotchedScreen()
 // 是否是iPad
 public let GK_IS_IPAD: Bool = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad)
 
-public let GK_SAFEAREA_TOP: CGFloat = GK_NOTCHED_SCREEN ? 24.0 : 0.0
-public let GK_SAFEAREA_BTM: CGFloat = GK_NOTCHED_SCREEN ? 34.0 : 0.0
+public let GK_SAFEAREA_TOP: CGFloat = GKConfigure.gk_safeAreaInsets().top
+public let GK_SAFEAREA_BTM: CGFloat = GKConfigure.gk_safeAreaInsets().bottom
 
 /// 状态栏高度
-public let GK_STATUSBAR_HEIGHT: CGFloat = GK_NOTCHED_SCREEN ? 44.0 : 20.0
+public let GK_STATUSBAR_HEIGHT: CGFloat = GKConfigure.gk_statusBarFrame().size.height
 
 /// 导航栏高度
 public let GK_NAVBAR_HEIGHT: CGFloat = 44.0
@@ -31,7 +31,7 @@ public let GK_NAVBAR_HEIGHT: CGFloat = 44.0
 public let GK_STATUSBAR_NAVBAR_HEIGHT: CGFloat = GK_STATUSBAR_HEIGHT + GK_NAVBAR_HEIGHT
 
 /// tabbar高度
-public let GK_TABBAR_HEIGHT: CGFloat = GK_NOTCHED_SCREEN ? 83.0 : 49.0
+public let GK_TABBAR_HEIGHT: CGFloat = (GK_SAFEAREA_BTM + 49.0)
 
 /// 导航栏间距，用于不同控制器之间的间距
 public let GKNavigationBarItemSpace: CGFloat = -1.0

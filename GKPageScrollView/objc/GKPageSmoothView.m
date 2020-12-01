@@ -88,8 +88,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     }
     if (@available(iOS 10.0, *)) {
         self.listCollectionView.prefetchingEnabled = NO;
-        
     }
+    
     [self addSubview:self.listCollectionView];
     _listCollectionView.headerContainerView = self.headerContainerView;
     
@@ -242,7 +242,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
             [self addSubview:self.headerContainerView];
         }
     }
-    if (self.currentIndex != index) {
+    
+    if (index != self.currentIndex && ratio == 0) {
         self.currentIndex = index;
     }
 }

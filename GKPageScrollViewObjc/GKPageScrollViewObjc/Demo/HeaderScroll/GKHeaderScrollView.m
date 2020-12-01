@@ -56,6 +56,7 @@
         _collectionView.delegate = self;
         _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+        _collectionView.gk_openGestureHandle = YES;
     }
     return _collectionView;
 }

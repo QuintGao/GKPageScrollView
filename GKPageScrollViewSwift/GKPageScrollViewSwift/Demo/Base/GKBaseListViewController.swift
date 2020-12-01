@@ -29,7 +29,7 @@ class GKBaseListViewController: UIViewController {
     }
     
     private var listType: GKBaseListType = .UIScrollView
-    private var currentScrollView: UIScrollView?
+    private weak var currentScrollView: UIScrollView?
     
     public var count = 30
     
@@ -164,8 +164,8 @@ class GKBaseListViewController: UIViewController {
             self.currentScrollView!.addSubview(self.loadLabel)
             
             self.loadingView.snp.makeConstraints { (make) in
-                make.top.equalTo(self.tableView).offset(40.0)
-                make.centerX.equalTo(self.tableView)
+                make.top.equalTo(self.currentScrollView!).offset(40.0)
+                make.centerX.equalTo(self.currentScrollView!)
             }
             
             self.loadLabel.snp.makeConstraints { (make) in
@@ -186,8 +186,6 @@ class GKBaseListViewController: UIViewController {
                     self.loadData()
                 }
             }
-            
-            self.loadData()
         }else {
             self.loadData()
         }

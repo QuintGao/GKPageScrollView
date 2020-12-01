@@ -13,11 +13,11 @@ class GKPopAnimatedTransition: GKBaseAnimatedTransition {
         self.containerView.insertSubview(self.toViewController.view, belowSubview: self.fromViewController.view)
         
         // 是否隐藏tabBar
-        let isHideTabBar = (self.toViewController.tabBarController != nil) && (self.fromViewController.hidesBottomBarWhenPushed == true) && (self.toViewController.gk_captureImage != nil)
+        self.isHideTabBar = (self.toViewController.tabBarController != nil) && (self.fromViewController.hidesBottomBarWhenPushed == true) && (self.toViewController.gk_captureImage != nil)
         
         var toView = self.toViewController.view
         
-        if isHideTabBar {
+        if self.isHideTabBar {
             let captureView = UIImageView(image: self.toViewController.gk_captureImage!)
             captureView.frame = CGRect(x: 0, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
             self.containerView.insertSubview(captureView, belowSubview: self.fromViewController.view)
@@ -25,6 +25,7 @@ class GKPopAnimatedTransition: GKBaseAnimatedTransition {
             self.toViewController.view.isHidden = true
             self.toViewController.tabBarController?.tabBar.isHidden = true
         }
+        self.contentView = toView
         
         let toRect = CGRect(x: -(0.3 * GK_SCREEN_WIDTH), y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
         
@@ -50,7 +51,7 @@ class GKPopAnimatedTransition: GKBaseAnimatedTransition {
         self.fromViewController.view.layer.shadowOpacity = 0.2
         self.fromViewController.view.layer.shadowRadius = 4.0
         
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+        UIView.animate(withDuration: animationDuration(), animations: {
             self.fromViewController.view.frame = CGRect(x: GK_SCREEN_WIDTH, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
             if self.isScale {
                 self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0)
@@ -64,10 +65,11 @@ class GKPopAnimatedTransition: GKBaseAnimatedTransition {
             
         }) { (finished) in
             self.completeTransition()
-            
-            if isHideTabBar {
-                toView?.removeFromSuperview()
-                toView = nil
+            if self.isHideTabBar {
+                if self.contentView != nil {
+                    self.contentView!.removeFromSuperview()
+                    self.contentView = nil
+                }
                 self.toViewController.view.isHidden = false
                 if self.toViewController.navigationController?.children.count == 1 {
                     self.toViewController.tabBarController?.tabBar.isHidden = false

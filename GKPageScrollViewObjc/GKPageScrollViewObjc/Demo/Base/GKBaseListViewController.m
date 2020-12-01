@@ -51,10 +51,6 @@
     }else if (self.listType == GKBaseListType_WKWebView) {
         [self.view addSubview:self.webView];
         self.currentScrollView = self.webView.scrollView;
-        
-        [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view);
-        }];
     }
     
     if (self.listType == GKBaseListType_WKWebView) {

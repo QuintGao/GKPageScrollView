@@ -283,10 +283,10 @@
 		608FC58F25416CCD003DB82F /* swift */ = {
 			isa = PBXGroup;
 			children = (
+				608FC59325416CCD003DB82F /* GKPageScrollView.swift */,
 				608FC59025416CCD003DB82F /* GKPageTableView.swift */,
 				608FC59125416CCD003DB82F /* GKPageListContainerView.swift */,
 				608FC59225416CCD003DB82F /* GKPageSmoothView.swift */,
-				608FC59325416CCD003DB82F /* GKPageScrollView.swift */,
 				608FC59425416CCD003DB82F /* GKPageDefine.swift */,
 			);
 			name = swift;
@@ -578,7 +578,7 @@
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Latest;
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = gaokun;
 				TargetAttributes = {
 					60A20C26221E77A700DB2193 = {

@@ -46,14 +46,16 @@ class GKNest2ViewController: GKDemoBaseViewController {
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
         scrollView.gestureDelegate = self
+        scrollView.gk_openGestureHandle = true
         
         let width = kScreenW
         let height = kScreenH - kStatusBar_Height - 50.0
         
         for (i, value) in self.titleDataSource.titles.enumerated() {
             let nestView = GKNest2View()
-            nestView.mainScrollView = scrollView
             nestView.frame = CGRect(x: CGFloat(i) * width, y: 0, width: width, height: height)
+            nestView.mainScrollView = scrollView
+            nestView.mainScrollView?.gk_openGestureHandle = true
             scrollView.addSubview(nestView)
         }
         scrollView.contentSize = CGSize(width: CGFloat(self.titleDataSource.titles.count) * width, height: 0)

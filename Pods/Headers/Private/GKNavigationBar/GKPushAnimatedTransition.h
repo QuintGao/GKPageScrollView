@@ -1,1 +1,1 @@
-../../../GKNavigationBar/GKNavigationBar/GKTransition/GKPushAnimatedTransition.h
+../../../GKNavigationBar/GKNavigationBar/GestureHandle/GKPushAnimatedTransition.h

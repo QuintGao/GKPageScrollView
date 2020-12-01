@@ -123,6 +123,7 @@
         _contentScrollView.pagingEnabled = YES;
         _contentScrollView.bounces = NO;
         _contentScrollView.delegate = self;
+        _contentScrollView.gk_openGestureHandle = YES;
         
         [self.childVCs enumerateObjectsUsingBlock:^(GKBaseListViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
             [self addChildViewController:vc];

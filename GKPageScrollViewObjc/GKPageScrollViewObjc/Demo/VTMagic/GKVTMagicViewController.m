@@ -128,6 +128,9 @@
         _magicController.magicView.navigationHeight = 40.f;
         _magicController.magicView.dataSource = self;
         _magicController.magicView.delegate = self;
+        
+        UIScrollView *scrollView = [_magicController.magicView valueForKey:@"contentView"];
+        scrollView.gk_openGestureHandle = YES;
     }
     return _magicController;
 }

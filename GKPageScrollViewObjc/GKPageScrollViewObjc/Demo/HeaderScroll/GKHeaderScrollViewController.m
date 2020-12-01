@@ -164,6 +164,7 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kBaseSegmentHeight, w, h)];
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = NO;
+        _scrollView.gk_openGestureHandle = YES;
     }
     return _scrollView;
 }

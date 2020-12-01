@@ -72,6 +72,7 @@ class GKHeaderScrollViewController: GKDemoBaseViewController {
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: kBaseSegmentHeight, width: kScreenW, height: kScreenH - kBaseSegmentHeight - kNavBar_Height))
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
+        scrollView.gk_openGestureHandle = true
         
         return scrollView
     }()

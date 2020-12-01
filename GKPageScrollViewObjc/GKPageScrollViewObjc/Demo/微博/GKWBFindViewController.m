@@ -11,6 +11,8 @@
 #import "GKWBListViewController.h"
 #import "JXCategoryView.h"
 #import <MJRefresh/MJRefresh.h>
+#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
+#import <GKNavigationBar/UIImage+GKCategory.h>
 
 @interface GKWBFindViewController ()<GKPageScrollViewDelegate, JXCategoryViewDelegate, UIScrollViewDelegate, GKViewControllerPopDelegate, GKPageTableViewGestureDelegate>
 
@@ -227,6 +229,7 @@
         _contentScrollView.pagingEnabled = YES;
         _contentScrollView.bounces = NO;
         _contentScrollView.delegate = self;
+        _contentScrollView.gk_openGestureHandle = YES;
         if (@available(iOS 11.0, *)) {
             _contentScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         } else {
