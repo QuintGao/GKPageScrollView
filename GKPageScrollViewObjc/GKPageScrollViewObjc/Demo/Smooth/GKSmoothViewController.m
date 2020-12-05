@@ -10,12 +10,16 @@
 #import "GKPageSmoothView.h"
 #import <JXCategoryView/JXCategoryView.h>
 #import "GKSmoothListView.h"
+#import "GKDYHeaderView.h"
+#import "GKBaseListViewController.h"
+#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
 
-@interface GKSmoothViewController ()<GKPageSmoothViewDelegate>
+@interface GKSmoothViewController ()<GKPageSmoothViewDelegate, GKSmoothListViewDelegate>
 
 @property (nonatomic, strong) GKPageSmoothView  *smoothView;
 
-@property (nonatomic, strong) UIImageView       *headerView;
+//@property (nonatomic, strong) UIImageView       *headerView;
+@property (nonatomic, strong) GKDYHeaderView    *headerView;
 
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 
@@ -26,7 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.gk_navTitle = @"滑动延续";
+    self.gk_navTitleColor = UIColor.whiteColor;
     self.gk_navBarAlpha = 0.0f;
+    self.gk_navBackgroundColor = GKColorRGB(34, 33, 37);
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
     
     [self.view addSubview:self.smoothView];
@@ -34,14 +41,17 @@
         make.edges.equalTo(self.view);
     }];
     
-    [self.smoothView reloadData];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    // 模拟网络请求
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         CGRect frame = self.headerView.frame;
-        frame.size.height = 300.0f;
+        frame.size.height = kDYHeaderHeight;
         self.headerView.frame = frame;
         
+        self.categoryView.contentScrollView = self.smoothView.listCollectionView;
+
         [self.smoothView refreshHeaderView];
+
+        [self.smoothView reloadData];
     });
 }
 
@@ -59,28 +69,59 @@
 }
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
-    GKSmoothListType listType = (GKSmoothListType)index;
-    GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:listType];
+    GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:index];
+    listView.delegate = self;
+    
+    [listView requestData];
+    
     return listView;
+}
+
+#pragma mark - GKSmoothListViewDelegate
+- (void)listViewDidScrollView:(UIScrollView *)scrollView {
+    // 导航栏显隐
+    CGFloat offsetY = scrollView.contentOffset.y + kDYHeaderHeight + kBaseSegmentHeight;
+    // 0-200 0
+    // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
+    // > KDYHeaderHeigh - kNavBarheight 1
+    CGFloat alpha = 0;
+    if (offsetY < 200) {
+        alpha = 0;
+    }else if (offsetY > (kDYHeaderHeight - kNavBarHeight)) {
+        alpha = 1;
+    }else {
+        alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBarHeight - 200);
+    }
+    self.gk_navBarAlpha = alpha;
+    
+    [self.headerView scrollViewDidScroll:offsetY];
 }
 
 #pragma mark - 懒加载
 - (GKPageSmoothView *)smoothView {
     if (!_smoothView) {
         _smoothView = [[GKPageSmoothView alloc] initWithDelegate:self];
+        _smoothView.listCollectionView.gk_openGestureHandle = YES;
     }
     return _smoothView;
 }
 
-- (UIImageView *)headerView {
+- (GKDYHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseHeaderHeight)];
-        _headerView.contentMode = UIViewContentModeScaleAspectFill;
-        _headerView.clipsToBounds = YES;
-        _headerView.image = [UIImage imageNamed:@"test"];
+        _headerView = [[GKDYHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 400)];
     }
     return _headerView;
 }
+
+//- (UIImageView *)headerView {
+//    if (!_headerView) {
+//        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseHeaderHeight)];
+//        _headerView.contentMode = UIViewContentModeScaleAspectFill;
+//        _headerView.clipsToBounds = YES;
+//        _headerView.image = [UIImage imageNamed:@"test"];
+//    }
+//    return _headerView;
+//}
 
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {
@@ -97,7 +138,7 @@
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
         _categoryView.indicators = @[lineView];
         
-        _categoryView.contentScrollView = self.smoothView.listCollectionView;
+//        _categoryView.contentScrollView = self.smoothView.listCollectionView;
     }
     return _categoryView;
 }

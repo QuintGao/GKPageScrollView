@@ -1,1 +1,1 @@
-../../../GKNavigationBar/GKNavigationBar/GKCategory/UINavigationItem+GKCategory.h
+../../../GKNavigationBar/GKNavigationBar/NavigationBar/UINavigationItem+GKCategory.h

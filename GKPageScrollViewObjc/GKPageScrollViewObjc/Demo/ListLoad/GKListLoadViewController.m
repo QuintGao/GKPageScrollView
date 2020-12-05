@@ -74,6 +74,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.isLazyLoadList = YES;
+        _pageScrollView.listContainerView.collectionView.gk_openGestureHandle = YES;
     }
     return _pageScrollView;
 }

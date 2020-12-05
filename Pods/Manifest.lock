@@ -1,10 +1,14 @@
 PODS:
-  - GKNavigationBar (1.0.4)
-  - GKNavigationBarSwift (0.0.4)
-  - JXCategoryView (1.5.5)
-  - JXSegmentedView (1.0.6)
+  - GKNavigationBar (1.3.3):
+    - GKNavigationBar/GestureHandle (= 1.3.3)
+    - GKNavigationBar/NavigationBar (= 1.3.3)
+  - GKNavigationBar/GestureHandle (1.3.3)
+  - GKNavigationBar/NavigationBar (1.3.3)
+  - GKNavigationBarSwift (1.2.4)
+  - JXCategoryView (1.5.8)
+  - JXSegmentedView (1.2.7)
   - Masonry (1.1.0)
-  - MJRefresh (3.4.1)
+  - MJRefresh (3.5.0)
   - SnapKit (4.2.0)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
@@ -35,16 +39,16 @@ SPEC REPOS:
     - WMPageController
 
 SPEC CHECKSUMS:
-  GKNavigationBar: 6bcc56c2ad9c01effa641816a73c750f12f5764d
-  GKNavigationBarSwift: 1f352951fbd3bd213d5047e2ee3391ac7e10c86c
-  JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
-  JXSegmentedView: ceb6fb3a12716408bcd5c4210b93d947d079de25
+  GKNavigationBar: 6c4514127ce7110cf271b0bfc6fe55d5211d2541
+  GKNavigationBarSwift: 5c6397df06763854489c587808068d54bc1d388d
+  JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
+  JXSegmentedView: eb1cad21f57c2543c00c3e08b8fd3c7ca54f5acd
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: 01122e12a1421b310560da259a895d7690ef3dad
+PODFILE CHECKSUM: 8ad3021e5141094dce223b182b43ac38dce8ebdc
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0

@@ -77,6 +77,7 @@
 
 /**
  刷新数据，刷新后pageView才能显示出来
+ 注意：如果需要动态改变headerView的高度，请在refreshHeaderView后在调用reloadData方法
  */
 - (void)reloadData;
 

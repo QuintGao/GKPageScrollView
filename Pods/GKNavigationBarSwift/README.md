@@ -23,6 +23,8 @@ GKNavigationBar的Swift版本 - iOS自定义导航栏，为你的每个控制器
 * 可实现左滑push一个控制器的效果（如：网易新闻）
 
 ## 重要！！！
+感谢使用该库，如果在使用过程中遇到问题可查看issue或提交issue，或者进QQ群1047100313
+
 1、如果想要在控制器中动态改变状态栏样式，需要在基类控制器实现下面的方法
 ```
 override var prefersStatusBarHidden: Bool {
@@ -37,11 +39,11 @@ override var preferredStatusBarStyle: UIStatusBarStyle {
 2、如果切换控制器的时候出现状态栏显示异常（一半黑一半白等）
 解决办法：在控制器初始化方法里面设置状态栏样式
 ```
-- (instancetype)init {
-    if (self = [super init]) {
-        self.gk_statusBarStyle = UIStatusBarStyleLightContent;
-    }
-    return self;
+// 最好在初始化方法中设置gk_statusBarStyle，否则可能导致状态栏切换闪动问题
+override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    
+    self.gk_statusBarStyle = .lightContent
 }
 ```
 3、Xcode 11.4 在调试的时候会出现不自动调用awake方法
@@ -77,10 +79,22 @@ self.gk_navBackgroundColor = [UIColor red]
 
 ## 效果图
 
-![demo](https://github.com/QuintGao/GKNavigationBarSwift/blob/master/imgs/demo.png)
+![demo](https://github.com/QuintGao/GKExampleImages/blob/master/GKNavigationBar/demo.png)
 
 ## 版本记录
 
+* 1.2.4 - 2020.11.27 手势处理优化，bug修改
+* 1.2.3 - 2020.11.16 修复切换根控制器后不能释放的bug
+* 1.2.2 - 2020.11.16 修复iOS12机型设置导航栏按钮间距无效的bug，增加返回手势拦截demo
+* 1.2.0 - 2020.10.27 优化代码宏定义，增加自定义转场demo
+* 1.1.8 - 2020.10.22 适配iPhone 12机型，增加自定义转场动画属性
+* 1.1.5 - 2020.08.14 修复屏蔽控制器无效的bug
+* 1.0.3 - 2020.07.30 增加某些控制器对导航栏间距调整的影响
+* 1.0.2 - 2020.07.27 修复交换方法可能导致的crash问题
+* 1.0.0 - 2020.07.22 优化手势处理，增加属性可屏蔽某些控制器对手势处理的影响
+* 0.0.9 - 2020.07.16 增加gk_backImage，可自定义导航栏返回按钮图片
+* 0.0.7 - 2020.06.22 设置导航栏间距不再局限于GKNavigationBar
+* 0.0.6 - 2020.06.18  修复设置导航栏item间距的bug
 * 0.0.4 - 2020.04.18  修复设置标题文字颜色及大小可能无效的情况
 * 0.0.3 - 2020.04.12  优化对UIScrollView手势的处理
 * 0.0.1 - 2020.04.12  初始版本，支持Cocoapods，Carthage，SPM

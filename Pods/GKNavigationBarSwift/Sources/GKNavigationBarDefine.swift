@@ -13,17 +13,16 @@ public let GK_SCREEN_WIDTH = UIScreen.main.bounds.size.width
 public let GK_SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
 /// 是否是刘海屏
-public let GK_NOTCHED_SCREEN: Bool = (
-(UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 375, height:812), UIScreen.main.bounds.size) : false) ||
-(UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 812, height:375), UIScreen.main.bounds.size) : false) ||
-(UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), UIScreen.main.bounds.size) : false) ||
-(UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), UIScreen.main.bounds.size) : false))
+public let GK_NOTCHED_SCREEN: Bool = GKConfigure.gk_isNotchedScreen()
 
-public let GK_SAFEAREA_TOP: CGFloat = GK_NOTCHED_SCREEN ? 24.0 : 0.0
-public let GK_SAFEAREA_BTM: CGFloat = GK_NOTCHED_SCREEN ? 34.0 : 0.0
+// 是否是iPad
+public let GK_IS_IPAD: Bool = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad)
+
+public let GK_SAFEAREA_TOP: CGFloat = GKConfigure.gk_safeAreaInsets().top
+public let GK_SAFEAREA_BTM: CGFloat = GKConfigure.gk_safeAreaInsets().bottom
 
 /// 状态栏高度
-public let GK_STATUSBAR_HEIGHT: CGFloat = GK_NOTCHED_SCREEN ? 44.0 : 20.0
+public let GK_STATUSBAR_HEIGHT: CGFloat = GKConfigure.gk_statusBarFrame().size.height
 
 /// 导航栏高度
 public let GK_NAVBAR_HEIGHT: CGFloat = 44.0
@@ -32,7 +31,7 @@ public let GK_NAVBAR_HEIGHT: CGFloat = 44.0
 public let GK_STATUSBAR_NAVBAR_HEIGHT: CGFloat = GK_STATUSBAR_HEIGHT + GK_NAVBAR_HEIGHT
 
 /// tabbar高度
-public let GK_TABBAR_HEIGHT: CGFloat = GK_NOTCHED_SCREEN ? 83.0 : 49.0
+public let GK_TABBAR_HEIGHT: CGFloat = (GK_SAFEAREA_BTM + 49.0)
 
 /// 导航栏间距，用于不同控制器之间的间距
 public let GKNavigationBarItemSpace: CGFloat = -1.0
@@ -43,12 +42,8 @@ public enum GKNavigationBarBackStyle {
     case white
 }
 
-open class GKNavigationBarDefine {
-    public let GKSCREENW = UIScreen.main.bounds.size.width
-}
-
-public func gk_swizzled_instanceMethod(_ oldClass: Swift.AnyClass!, oldSelector: String, newClass: Swift.AnyClass!) {
-    let newSelector = "gk_" + oldSelector
+public func gk_swizzled_instanceMethod(_ prefix: String, oldClass: Swift.AnyClass!, oldSelector: String, newClass: Swift.AnyClass) {
+    let newSelector = prefix + "_" + oldSelector;
     
     let originalSelector = NSSelectorFromString(oldSelector)
     let swizzledSelector = NSSelectorFromString(newSelector)

@@ -27,7 +27,6 @@ public protocol JXSegmentedViewListContainer {
     var defaultSelectedIndex: Int { set get }
     func contentScrollView() -> UIScrollView
     func reloadData()
-    func scrolling(from leftIndex: Int, to rightIndex: Int, percent: CGFloat, selectedIndex: Int)
     func didClickSelectedItem(at index: Int)
 }
 
@@ -45,14 +44,19 @@ public protocol JXSegmentedViewDataSource: AnyObject {
     /// - Returns: 数据源数组
     func itemDataSource(in segmentedView: JXSegmentedView) -> [JXSegmentedBaseItemModel]
 
-    /// 返回index对应item的宽度。
+    /// 返回index对应item的宽度，等同于cell的宽度。
     ///
     /// - Parameters:
     ///   - segmentedView: JXSegmentedView
     ///   - index: 目标index
-    ///   - isItemWidthZoomValid: 计算的宽度是否需要受isItemWidthZoomEnabled影响
     /// - Returns: item的宽度
-    func segmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int, isItemWidthZoomValid: Bool) -> CGFloat
+    func segmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat
+
+    /// 返回index对应item的content宽度，等同于cell上面内容的宽度。与上面的代理方法不同，需要注意辨别。部分使用场景下，cell的宽度比较大，但是内容的宽度比较小。这个时候指示器又需要和item的content等宽。所以，添加了此代理方法。
+    /// - Parameters:
+    ///   - segmentedView: JXSegmentedView
+    ///   - index: 目标index
+    func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat
 
     /// 注册cell class
     ///
@@ -143,7 +147,7 @@ public extension JXSegmentedViewDelegate {
 }
 
 /// 内部会自己找到父UIViewController，然后将其automaticallyAdjustsScrollViewInsets设置为false，这一点请知晓。
-open class JXSegmentedView: UIView {
+open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
     open weak var dataSource: JXSegmentedViewDataSource? {
         didSet {
             dataSource?.reloadData(selectedIndex: selectedIndex)
@@ -228,6 +232,10 @@ open class JXSegmentedView: UIView {
         if #available(iOS 11.0, *) {
             collectionView.contentInsetAdjustmentBehavior = .never
         }
+        if segmentedViewShouldRTLLayout() {
+            collectionView.semanticContentAttribute = .forceLeftToRight
+            segmentedView(horizontalFlipForView: collectionView)
+        }
         addSubview(collectionView)
     }
 
@@ -294,7 +302,10 @@ open class JXSegmentedView: UIView {
         var totalContentWidth: CGFloat = getContentEdgeInsetLeft()
         for (index, itemModel) in itemDataSource.enumerated() {
             itemModel.index = index
-            itemModel.itemWidth = (dataSource?.segmentedView(self, widthForItemAt: index, isItemWidthZoomValid: true) ?? 0)
+            itemModel.itemWidth = (dataSource?.segmentedView(self, widthForItemAt: index) ?? 0)
+            if dataSource?.isItemWidthZoomEnabled == true {
+                itemModel.itemWidth *= itemModel.itemWidthCurrentZoomScale
+            }
             itemModel.isSelected = (index == selectedIndex)
             totalItemWidth += itemModel.itemWidth
             if index == itemDataSource.count - 1 {
@@ -365,12 +376,13 @@ open class JXSegmentedView: UIView {
                 indicator.isHidden = true
             }else {
                 indicator.isHidden = false
-                let indicatorParamsModel = JXSegmentedIndicatorParamsModel()
-                indicatorParamsModel.contentSize = CGSize(width: totalContentWidth, height: bounds.size.height)
-                indicatorParamsModel.currentSelectedIndex = selectedIndex
                 let selectedItemFrame = getItemFrameAt(index: selectedIndex)
-                indicatorParamsModel.currentSelectedItemFrame = selectedItemFrame
-                indicator.refreshIndicatorState(model: indicatorParamsModel)
+                let indicatorParams = JXSegmentedIndicatorSelectedParams(currentSelectedIndex: selectedIndex,
+                                                                         currentSelectedItemFrame: selectedItemFrame,
+                                                                         selectedType: .unknown,
+                                                                         currentItemContentWidth: dataSource?.segmentedView(self, widthForItemContentAt: selectedIndex) ?? 0,
+                                                                         collectionViewContentSize: CGSize(width: totalContentWidth, height: bounds.size.height))
+                indicator.refreshIndicatorState(model: indicatorParams)
 
                 if indicator.isIndicatorConvertToItemFrameEnabled {
                     var indicatorConvertToItemFrame = indicator.frame
@@ -433,14 +445,18 @@ open class JXSegmentedView: UIView {
 
                 let leftItemFrame = getItemFrameAt(index: baseIndex)
                 let rightItemFrame = getItemFrameAt(index: baseIndex + 1)
-
-                let indicatorParamsModel = JXSegmentedIndicatorParamsModel()
-                indicatorParamsModel.currentSelectedIndex = selectedIndex
-                indicatorParamsModel.leftIndex = baseIndex
-                indicatorParamsModel.leftItemFrame = leftItemFrame
-                indicatorParamsModel.rightIndex = baseIndex + 1
-                indicatorParamsModel.rightItemFrame = rightItemFrame
-                indicatorParamsModel.percent = remainderProgress
+                var rightItemContentWidth: CGFloat = 0
+                if baseIndex + 1 < itemDataSource.count {
+                    rightItemContentWidth = dataSource?.segmentedView(self, widthForItemContentAt: baseIndex + 1) ?? 0
+                }
+                let indicatorParams = JXSegmentedIndicatorTransitionParams(currentSelectedIndex: selectedIndex,
+                                                                           leftIndex: baseIndex,
+                                                                           leftItemFrame: leftItemFrame,
+                                                                           leftItemContentWidth: dataSource?.segmentedView(self, widthForItemContentAt: baseIndex) ?? 0,
+                                                                           rightIndex: baseIndex + 1,
+                                                                           rightItemFrame: rightItemFrame,
+                                                                           rightItemContentWidth: rightItemContentWidth,
+                                                                           percent: remainderProgress)
 
                 if remainderProgress == 0 {
                     //滑动翻页，需要更新选中状态
@@ -466,7 +482,7 @@ open class JXSegmentedView: UIView {
                     dataSource?.refreshItemModel(self, leftItemModel: itemDataSource[baseIndex], rightItemModel: itemDataSource[baseIndex + 1], percent: remainderProgress)
 
                     for indicator in indicators {
-                        indicator.contentScrollViewDidScroll(model: indicatorParamsModel)
+                        indicator.contentScrollViewDidScroll(model: indicatorParams)
                         if indicator.isIndicatorConvertToItemFrameEnabled {
                             var leftIndicatorConvertToItemFrame = indicator.frame
                             leftIndicatorConvertToItemFrame.origin.x -= leftItemFrame.origin.x
@@ -484,7 +500,6 @@ open class JXSegmentedView: UIView {
                     let rightCell = collectionView.cellForItem(at: IndexPath(item: baseIndex + 1, section: 0)) as? JXSegmentedBaseCell
                     rightCell?.reloadData(itemModel: itemDataSource[baseIndex + 1], selectedType: .unknown)
 
-                    listContainer?.scrolling(from: baseIndex, to: baseIndex + 1, percent: remainderProgress, selectedIndex: selectedIndex)
                     delegate?.segmentedView(self, scrollingFrom: baseIndex, to: baseIndex + 1, percent: remainderProgress)
                 }
             }
@@ -560,17 +575,16 @@ open class JXSegmentedView: UIView {
             contentScrollView!.setContentOffset(CGPoint(x: contentScrollView!.bounds.size.width*CGFloat(index), y: 0), animated: isContentScrollViewClickTransitionAnimationEnabled)
         }
 
-        let lastSelectedIndex = selectedIndex
         selectedIndex = index
 
         let currentSelectedItemFrame = getSelectedItemFrameAt(index: selectedIndex)
         for indicator in indicators {
-            let indicatorParamsModel = JXSegmentedIndicatorParamsModel()
-            indicatorParamsModel.lastSelectedIndex = lastSelectedIndex
-            indicatorParamsModel.currentSelectedIndex = selectedIndex
-            indicatorParamsModel.currentSelectedItemFrame = currentSelectedItemFrame
-            indicatorParamsModel.selectedType = selectedType
-            indicator.selectItem(model: indicatorParamsModel)
+            let indicatorParams = JXSegmentedIndicatorSelectedParams(currentSelectedIndex: selectedIndex,
+                                                                     currentSelectedItemFrame: currentSelectedItemFrame,
+                                                                     selectedType: selectedType,
+                                                                     currentItemContentWidth: dataSource?.segmentedView(self, widthForItemContentAt: selectedIndex) ?? 0,
+                                                                     collectionViewContentSize: nil)
+            indicator.selectItem(model: indicatorParams)
 
             if indicator.isIndicatorConvertToItemFrameEnabled {
                 var indicatorConvertToItemFrame = indicator.frame
@@ -603,9 +617,9 @@ open class JXSegmentedView: UIView {
             if itemModel.isTransitionAnimating && itemModel.isItemWidthZoomEnabled {
                 //正在进行动画的时候，itemWidthCurrentZoomScale是随着动画渐变的，而没有立即更新到目标值
                 if itemModel.isSelected {
-                    itemWidth = (dataSource?.segmentedView(self, widthForItemAt: itemModel.index, isItemWidthZoomValid: false) ?? 0) * itemModel.itemWidthSelectedZoomScale
+                    itemWidth = (dataSource?.segmentedView(self, widthForItemAt: itemModel.index) ?? 0) * itemModel.itemWidthSelectedZoomScale
                 }else {
-                    itemWidth = (dataSource?.segmentedView(self, widthForItemAt: itemModel.index, isItemWidthZoomValid: false) ?? 0) * itemModel.itemWidthNormalZoomScale
+                    itemWidth = (dataSource?.segmentedView(self, widthForItemAt: itemModel.index) ?? 0) * itemModel.itemWidthNormalZoomScale
                 }
             }else {
                 itemWidth = itemModel.itemWidth
@@ -615,7 +629,7 @@ open class JXSegmentedView: UIView {
         var width: CGFloat = 0
         let selectedItemModel = itemDataSource[index]
         if selectedItemModel.isTransitionAnimating && selectedItemModel.isItemWidthZoomEnabled {
-            width = (dataSource?.segmentedView(self, widthForItemAt: selectedItemModel.index, isItemWidthZoomValid: false) ?? 0) * selectedItemModel.itemWidthSelectedZoomScale
+            width = (dataSource?.segmentedView(self, widthForItemAt: selectedItemModel.index) ?? 0) * selectedItemModel.itemWidthSelectedZoomScale
         }else {
             width = selectedItemModel.itemWidth
         }
@@ -628,13 +642,13 @@ open class JXSegmentedView: UIView {
         }
         var x = getContentEdgeInsetLeft()
         for i in 0..<index {
-            let itemWidth = (dataSource?.segmentedView(self, widthForItemAt: i, isItemWidthZoomValid: false) ?? 0)
+            let itemWidth = (dataSource?.segmentedView(self, widthForItemAt: i) ?? 0)
             x += itemWidth + innerItemSpacing
         }
         var width: CGFloat = 0
         let selectedItemModel = itemDataSource[index]
         if selectedItemModel.isItemWidthZoomEnabled {
-            width = (dataSource?.segmentedView(self, widthForItemAt: selectedItemModel.index, isItemWidthZoomValid: false) ?? 0) * selectedItemModel.itemWidthSelectedZoomScale
+            width = (dataSource?.segmentedView(self, widthForItemAt: selectedItemModel.index) ?? 0) * selectedItemModel.itemWidthSelectedZoomScale
         }else {
             width = selectedItemModel.itemWidth
         }

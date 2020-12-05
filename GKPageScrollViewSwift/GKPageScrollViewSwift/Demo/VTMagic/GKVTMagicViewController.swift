@@ -44,6 +44,9 @@ class GKVTMagicViewController: GKDemoBaseViewController {
         magicVC.magicView.navigationHeight = 40.0
         magicVC.magicView.dataSource = self
         magicVC.magicView.delegate = self
+        
+        let scrollView: UIScrollView = magicVC.magicView.value(forKey: "contentView") as! UIScrollView
+        scrollView.gk_openGestureHandle = true
         return magicVC
     }()
     
@@ -56,19 +59,19 @@ class GKVTMagicViewController: GKDemoBaseViewController {
     lazy var childVCs: [GKBaseListViewController] = {
         var childVCs = [GKBaseListViewController]()
         
-        let detailVC = GKBaseListViewController()
+        let detailVC = GKBaseListViewController(listType: .UITableView)
         detailVC.shouldLoadData = false
         childVCs.append(detailVC)
         
-        let hotVC = GKBaseListViewController()
+        let hotVC = GKBaseListViewController(listType: .UITableView)
         hotVC.shouldLoadData = false
         childVCs.append(hotVC)
         
-        let aboutVC = GKBaseListViewController()
+        let aboutVC = GKBaseListViewController(listType: .UITableView)
         aboutVC.shouldLoadData = false
         childVCs.append(aboutVC)
         
-        let chatVC = GKBaseListViewController()
+        let chatVC = GKBaseListViewController(listType: .UITableView)
         chatVC.shouldLoadData = false
         childVCs.append(chatVC)
         

@@ -14,15 +14,13 @@ class GKSmoothViewController: GKDemoBaseViewController {
     lazy var smoothView: GKPageSmoothView = {
         let smoothView = GKPageSmoothView(delegate: self)
         smoothView.isControlVerticalIndicator = true
+        smoothView.listCollectionView.gk_openGestureHandle = true
         return smoothView
     }()
     
-    lazy var headerView: UIImageView = {
-        let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kBaseHeaderHeight))
-        imgView.contentMode = .scaleAspectFill
-        imgView.clipsToBounds = true
-        imgView.image = UIImage(named: "test")
-        return imgView
+    lazy var headerView: GKDYHeaderView = {
+        let headerView = GKDYHeaderView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 400))
+        return headerView
     }()
     
     var titleDataSource = JXSegmentedTitleDataSource()
@@ -44,8 +42,6 @@ class GKSmoothViewController: GKDemoBaseViewController {
         lineView.lineStyle = .lengthen
         categoryView.indicators = [lineView]
         
-        categoryView.contentScrollView = self.smoothView.listCollectionView
-        
         return categoryView
     }()
     
@@ -53,6 +49,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
         super.viewDidLoad()
         
         self.gk_navBarAlpha = 0.0
+        self.gk_navBackgroundColor = UIColor.rgbColor(r: 34, g: 33, b: 37)
         self.gk_statusBarStyle = .lightContent
         self.gk_navTitleColor = .white
         self.gk_navTitle = "滑动延续"
@@ -62,11 +59,14 @@ class GKSmoothViewController: GKDemoBaseViewController {
             make.edges.equalTo(self.view)
         }
         
-        self.smoothView.reloadData()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.25) {
-            self.headerView.frame.size.height = 300.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            var frame = self.headerView.frame
+            frame.size.height = kDYHeaderHeight
+            self.headerView.frame = frame
+            
+            self.categoryView.contentScrollView = self.smoothView.listCollectionView
             self.smoothView.refreshHeaderView()
+            self.smoothView.reloadData()
         }
     }
 }
@@ -85,8 +85,31 @@ extension GKSmoothViewController: GKPageSmoothViewDelegate {
     }
     
     func smoothView(_ smoothView: GKPageSmoothView, initListAtIndex index: Int) -> GKPageSmoothListViewDelegate {
-        let listType: GKSmoothListType = GKSmoothListType(rawValue: index)!
+        let listView = GKSmoothListView(listType: GKSmoothListType(rawValue: index)!)
+        listView.delegate = self
+        listView.requestData()
         
-        return GKSmoothListView(listType: listType)
+        return listView
+    }
+}
+
+extension GKSmoothViewController: GKSmoothListViewDelegate {
+    func listViewDidScroll(scrollView: UIScrollView) {
+        // 导航栏显隐
+        let offsetY = scrollView.contentOffset.y + kDYHeaderHeight + kBaseSegmentHeight;
+        // 0-200 0
+        // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
+        // > KDYHeaderHeigh - kNavBarheight 1
+        var alpha: CGFloat = 0;
+        if (offsetY < 200) {
+            alpha = 0;
+        }else if (offsetY > (kDYHeaderHeight - kNavBar_Height)) {
+            alpha = 1;
+        }else {
+            alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBar_Height - 200);
+        }
+        self.gk_navBarAlpha = alpha;
+        
+        self.headerView.scrollViewDidScroll(offsetY: offsetY);
     }
 }

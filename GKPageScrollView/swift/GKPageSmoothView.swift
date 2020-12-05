@@ -81,12 +81,10 @@ open class GKPageSmoothView: UIView {
     
     var currentIndex: Int = 0
     var isLoaded: Bool = false
-    var isRefreshHeader: Bool = false
 
     deinit {
         listDict.values.forEach {
             $0.listScrollView().removeObserver(self, forKeyPath: "contentOffset")
-            $0.listScrollView().removeObserver(self, forKeyPath: "contentSize")
         }
     }
     
@@ -117,6 +115,9 @@ open class GKPageSmoothView: UIView {
         }
         listCollectionView.headerContainerView = headerContainerView
         self.addSubview(listCollectionView)
+        
+        self.addSubview(self.headerContainerView)
+        self.refreshHeaderView()
     }
     
     required public init?(coder: NSCoder) {
@@ -124,30 +125,8 @@ open class GKPageSmoothView: UIView {
     }
     
     public func refreshHeaderView() {
-        isRefreshHeader = true
-        reloadData()
-    }
-    
-    public func reloadData() {
         guard let delegate = delegate else { return }
-        currentListScrollView = nil
-        if isRefreshHeader {
-            isRefreshHeader = false
-        }else {
-            currentIndex = defaultSelectedIndex
-        }
-        currentHeaderContainerViewY = 0
-        isSyncListContentOffsetEnabled = false
-        isLoaded = true
-        
-        listHeaderDict.removeAll()
-        listDict.values.forEach {
-            $0.listScrollView().removeObserver(self, forKeyPath: "contentOffset")
-            $0.listScrollView().removeObserver(self, forKeyPath: "contentSize")
-            $0.listView().removeFromSuperview()
-        }
-        listDict.removeAll()
-        
+        // 重新设置headerView及segmentedView的frame
         let headerView = delegate.headerView(in: self)
         let segmentedView = delegate.segmentedView(in: self)
         headerContainerView.addSubview(headerView)
@@ -155,23 +134,30 @@ open class GKPageSmoothView: UIView {
         
         headerHeight = headerView.bounds.size.height
         segmentedHeight = segmentedView.bounds.size.height
-        headerContainerHeight = headerHeight + segmentedHeight
+        headerContainerHeight = self.headerHeight + self.segmentedHeight
         
-        var width: CGFloat = bounds.size.width
-        if width == 0 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
-                width = self.bounds.size.width
-                
-                self.headerContainerView.frame = CGRect(x: 0, y: 0, width: width, height: self.headerContainerHeight)
-                headerView.frame = CGRect(x: 0, y: 0, width: width, height: self.headerHeight)
-                segmentedView.frame = CGRect(x: 0, y: self.headerHeight, width: width, height: self.segmentedHeight)
-                self.listCollectionView.setContentOffset(CGPoint(x: width * CGFloat(self.currentIndex), y: 0), animated: false)
-                self.listCollectionView.reloadData()
-            }
-        }else {
+        refreshWidth { (width) in
             self.headerContainerView.frame = CGRect(x: 0, y: 0, width: width, height: self.headerContainerHeight)
             headerView.frame = CGRect(x: 0, y: 0, width: width, height: self.headerHeight)
             segmentedView.frame = CGRect(x: 0, y: self.headerHeight, width: width, height: self.segmentedHeight)
+        }
+    }
+    
+    public func reloadData() {
+        currentListScrollView = nil
+        currentIndex = defaultSelectedIndex
+        currentHeaderContainerViewY = 0
+        isSyncListContentOffsetEnabled = false
+        isLoaded = true
+        
+        listHeaderDict.removeAll()
+        listDict.values.forEach {
+            $0.listScrollView().removeObserver(self, forKeyPath: "contentOffset")
+            $0.listView().removeFromSuperview()
+        }
+        listDict.removeAll()
+        
+        refreshWidth { (width) in
             self.listCollectionView.setContentOffset(CGPoint(x: width * CGFloat(self.currentIndex), y: 0), animated: false)
             self.listCollectionView.reloadData()
         }
@@ -181,9 +167,6 @@ open class GKPageSmoothView: UIView {
         super.layoutSubviews()
         
         listCollectionView.frame = bounds
-//        if headerContainerView.frame == .zero {
-//            reloadData()
-//        }
     }
     
     // MARK: - KVO
@@ -191,14 +174,6 @@ open class GKPageSmoothView: UIView {
         if keyPath == "contentOffset" {
             if let scrollView = object as? UIScrollView {
                 listDidScroll(scrollView: scrollView)
-            }
-        }else if keyPath == "contentSize" {
-            if let scrollView = object as? UIScrollView {
-                let minContentSizeHeight = bounds.size.height - (self.headerHeight - self.ceilPointHeight)
-                if minContentSizeHeight > scrollView.contentSize.height {
-                    scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: minContentSizeHeight)
-                    scrollView.contentOffset = CGPoint(x: 0, y: self.currentHeaderContainerViewY)
-                }
             }
         }else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
@@ -252,6 +227,19 @@ open class GKPageSmoothView: UIView {
                     }
                 }
             }
+        }
+    }
+    
+    func refreshWidth(completion: @escaping (_ width: CGFloat)->()) {
+        var width = self.bounds.size.width
+        
+        if width == 0 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+                width = self.bounds.size.width
+                completion(width)
+            }
+        }else {
+            completion(width)
         }
     }
     
@@ -331,6 +319,9 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
                 list?.listScrollView().contentInsetAdjustmentBehavior = .never
             }
             list?.listScrollView().contentInset = UIEdgeInsets(top: headerContainerHeight, left: 0, bottom: 0, right: 0)
+            if __CGSizeEqualToSize(list?.listScrollView().contentSize ?? .zero, .zero) {
+                list?.listScrollView().contentSize = CGSize(width: list?.listScrollView().contentSize.width ?? 0, height: self.bounds.size.height)
+            }
             currentListInitailzeContentOffsetY = -headerContainerHeight + min(-currentHeaderContainerViewY, (headerHeight - ceilPointHeight))
             list?.listScrollView().contentOffset = CGPoint(x: 0, y: currentListInitailzeContentOffsetY)
             let listHeader = UIView(frame: CGRect(x: 0, y: -headerContainerHeight, width: bounds.size.width, height: headerContainerHeight))
@@ -340,7 +331,6 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             }
             listHeaderDict[indexPath.item] = listHeader
             list?.listScrollView().addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
-            list?.listScrollView().addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         }
         listDict.values.forEach {
             $0.listScrollView().scrollsToTop = ($0 === list)
@@ -379,7 +369,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
                 addSubview(headerContainerView)
             }
         }
-        if currentIndex != index {
+        if currentIndex != index && ratio == 0 {
             currentIndex = index
         }
     }

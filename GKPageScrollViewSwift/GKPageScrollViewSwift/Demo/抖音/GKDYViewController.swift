@@ -72,6 +72,7 @@ class GKDYViewController: GKDemoBaseViewController {
         scrollView.bounces = false
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.gk_openGestureHandle = true
         
         for (idx, vc) in self.childVCs.enumerated() {
             self.addChild(vc)

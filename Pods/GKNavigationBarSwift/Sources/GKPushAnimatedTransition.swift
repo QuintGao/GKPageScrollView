@@ -11,10 +11,10 @@ import UIKit
 class GKPushAnimatedTransition: GKBaseAnimatedTransition {
     public override func animateTransition() {
         // 解决UITabBarController左滑push时的显示问题
-        let isHideTabBar = (self.fromViewController.tabBarController != nil) && (self.toViewController.hidesBottomBarWhenPushed == true)
+        self.isHideTabBar = (self.fromViewController.tabBarController != nil) && (self.toViewController.hidesBottomBarWhenPushed == true)
         
         var fromView = self.fromViewController.view
-        if isHideTabBar {
+        if self.isHideTabBar {
             // 获取fromViewController的截图
             let view: UIView?
             if self.fromViewController.view.window != nil {
@@ -34,6 +34,7 @@ class GKPushAnimatedTransition: GKBaseAnimatedTransition {
                 self.fromViewController.tabBarController?.tabBar.isHidden = true
             }
         }
+        self.contentView = fromView
         
         self.containerView.addSubview(self.toViewController.view)
         
@@ -49,7 +50,7 @@ class GKPushAnimatedTransition: GKBaseAnimatedTransition {
         self.toViewController.view.layer.shadowOpacity = 0.2
         self.toViewController.view.layer.shadowRadius = 4.0
         
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+        UIView.animate(withDuration: animationDuration(), animations: {
             let fromRect = CGRect(x: -(0.3 * GK_SCREEN_WIDTH), y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
             if self.isScale {
                 self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
@@ -69,9 +70,11 @@ class GKPushAnimatedTransition: GKBaseAnimatedTransition {
             self.toViewController.view.frame = CGRect(x: 0, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
         }) { (finished) in
             self.completeTransition()
-            if isHideTabBar {
-                fromView?.removeFromSuperview()
-                fromView = nil
+            if self.isHideTabBar {
+                if self.contentView != nil {
+                    self.contentView!.removeFromSuperview()
+                    self.contentView = nil
+                }
                 self.fromViewController.view.isHidden = false
                 
                 if self.fromViewController.navigationController?.children.count == 1 {

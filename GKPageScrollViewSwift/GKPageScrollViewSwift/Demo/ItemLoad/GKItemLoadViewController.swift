@@ -70,6 +70,7 @@ class GKItemLoadViewController: GKDemoBaseViewController {
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: kBaseSegmentHeight, width: kScreenW, height: kScreenH - kBaseSegmentHeight - kNavBar_Height))
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
+        scrollView.gk_openGestureHandle = true
         
         return scrollView
     }()
@@ -102,7 +103,7 @@ class GKItemLoadViewController: GKDemoBaseViewController {
 
                 // 根据标题创建控制器并添加到scrollView
                 for i in 0..<self.titles.count {
-                    let vc = GKBaseListViewController()
+                    let vc = GKBaseListViewController(listType: GKBaseListType(rawValue: i)!)
                     self.childVCs.append(vc)
                     
                     self.scrollView.addSubview(vc.view)

@@ -8,20 +8,22 @@
 
 import UIKit
 
-class GKBaseAnimatedTransition: NSObject, UIViewControllerAnimatedTransitioning {
-    public var isScale = false
-    public var shadowView: UIView!
-    public var transitionContext: UIViewControllerContextTransitioning!
-    public var containerView: UIView!
-    public var fromViewController: UIViewController!
-    public var toViewController: UIViewController!
+open class GKBaseAnimatedTransition: NSObject, UIViewControllerAnimatedTransitioning {
+    open var isScale = false
+    open var shadowView: UIView!
+    open var transitionContext: UIViewControllerContextTransitioning!
+    open var containerView: UIView!
+    open var fromViewController: UIViewController!
+    open var toViewController: UIViewController!
+    open var isHideTabBar = false
+    open var contentView: UIView?
     
     // MARK - UIViewControllerAnimatedTransitioning
-    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return TimeInterval(UINavigationController.hideShowBarDuration)
     }
     
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         
         let fromVC = transitionContext.viewController(forKey: .from)
@@ -35,7 +37,7 @@ class GKBaseAnimatedTransition: NSObject, UIViewControllerAnimatedTransitioning 
         animateTransition()
     }
     
-    public class func transition(with scale: Bool) -> GKBaseAnimatedTransition {
+    open class func transition(with scale: Bool) -> GKBaseAnimatedTransition {
         return self.init(scale: scale)
     }
     
@@ -43,17 +45,21 @@ class GKBaseAnimatedTransition: NSObject, UIViewControllerAnimatedTransitioning 
         self.isScale = scale
     }
     
-    public func animateTransition() {
+    open func animationDuration() -> TimeInterval {
+        return self.transitionDuration(using: self.transitionContext)
+    }
+    
+    open func animateTransition() {
         // SubClass Implementation
     }
     
-    public func completeTransition() {
+    open func completeTransition() {
         guard let transitionContext = self.transitionContext else { return }
         
         transitionContext .completeTransition(!transitionContext.transitionWasCancelled)
     }
     
-    public func getCapture(with view: UIView) -> UIImage? {
+    open func getCapture(with view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
         let image = UIGraphicsGetImageFromCurrentImageContext()

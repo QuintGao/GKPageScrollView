@@ -1,1 +1,1 @@
-../../../GKNavigationBar/GKNavigationBar/GKCategory/GKCustomNavigationBar.h
+../../../GKNavigationBar/GKNavigationBar/NavigationBar/GKCustomNavigationBar.h

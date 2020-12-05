@@ -17,12 +17,15 @@ class GKListRefreshViewController: GKBasePageViewController {
         self.gk_navLineHidden = true
         
         self.pageScrollView.isAllowListRefresh = true
+        self.pageScrollView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         // 列表添加下拉刷新
-        for (_, vc) in self.childVCs.enumerated() {
+        for vc in self.childVCs {
             vc.addHeaderRefresh()
         }
-        
-        self.pageScrollView.reloadData()
     }
 }

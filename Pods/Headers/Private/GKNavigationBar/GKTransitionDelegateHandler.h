@@ -1,1 +1,0 @@
-../../../GKNavigationBar/GKNavigationBar/GKTransition/GKTransitionDelegateHandler.h

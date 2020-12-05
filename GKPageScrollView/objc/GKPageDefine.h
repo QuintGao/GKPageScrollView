@@ -2,25 +2,16 @@
 //  GKPageDefine.h
 //  GKPageScrollViewObjc
 //
-//  Created by QuintGao on 2020/5/8.
+//  Created by gaokun on 2020/10/22.
 //  Copyright © 2020 gaokun. All rights reserved.
 //
 
-#ifndef GKPageDefine_h
-#define GKPageDefine_h
+#import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 // 是否是iPhone X系列
-#define GKPAGE_IS_iPhoneX       ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?\
-(\
-CGSizeEqualToSize(CGSizeMake(375, 812),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(812, 375),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(414, 896),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(896, 414),[UIScreen mainScreen].bounds.size))\
-:\
-NO)
+#define GKPAGE_IS_iPhoneX       [GKPageDefine gk_isNotchedScreen]
 
 // 导航栏+状态栏高度
 #define GKPAGE_NAVBAR_HEIGHT    (GKPAGE_IS_iPhoneX ? 88.0f : 64.0f)
@@ -29,4 +20,11 @@ NO)
 #define GKPAGE_SCREEN_WIDTH     [UIScreen mainScreen].bounds.size.width
 #define GKPAGE_SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
 
-#endif /* GKPageDefine_h */
+@interface GKPageDefine : NSObject
+
+/// 判断是否是刘海屏
++ (BOOL)gk_isNotchedScreen;
+
+@end
+
+NS_ASSUME_NONNULL_END

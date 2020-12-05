@@ -22,6 +22,9 @@ open class GKNavigationBarConfigure : NSObject {
     /// 导航栏标题字体
     open var titleFont: UIFont?
     
+    /// 返回按钮图片，默认nil，优先级高于backStyle
+    open var backImage: UIImage?
+    
     /// 返回按钮样式
     open var backStyle: GKNavigationBarBackStyle = .none
     
@@ -58,12 +61,16 @@ open class GKNavigationBarConfigure : NSObject {
 
     open var gk_scaleY: CGFloat = 0.97
 
+    /// 调整导航栏间距时需要屏蔽的VC，默认nil，支持UIViewController和String
+    open var shiledItemSpaceVCs: [Any]?
+    
+    /// 需要屏蔽手势处理的VC，默认nil，支持UIViewController和String
+    open var shiledGuestureVCs: [Any]?
     
     /// 导航栏左右间距，内部使用
     open var navItemLeftSpace: CGFloat = 0
 
     open var navItemRightSpace: CGFloat = 0
-
     
     /// 单例，设置一次全局使用
     public static let shared: GKNavigationBarConfigure = {
@@ -71,7 +78,6 @@ open class GKNavigationBarConfigure : NSObject {
         // setup code
         return instance
     }()
-    
     
     /// 设置默认配置
     open func setupDefault() {
@@ -101,7 +107,6 @@ open class GKNavigationBarConfigure : NSObject {
         NSObject.gkObjectAwake()
     }
 
-    
     /// 设置自定义配置，此方法只需调用一次
     /// @param block 配置回调
     open func setupCustom(_ block: @escaping (GKNavigationBarConfigure) -> Void) {
@@ -113,18 +118,81 @@ open class GKNavigationBarConfigure : NSObject {
         navItemRightSpace = gk_navItemRightSpace
     }
 
-    
     /// 更新配置
     /// @param block 配置回调
     open func update(_ block: @escaping (GKNavigationBarConfigure) -> Void) {
         block(self)
     }
-
+    
+    open func visibleViewController() -> UIViewController? {
+        return self.getKeyWindow()?.rootViewController?.gk_visibleViewControllerIfExist()
+    }
+    
+    open func gk_safeAreaInsets() -> UIEdgeInsets {
+        var safeAreaInsets = UIEdgeInsets.zero
+        if #available(iOS 11.0, *) {
+            let keyWindow = GKConfigure.getKeyWindow()
+            if let window = keyWindow {
+                safeAreaInsets = window.safeAreaInsets
+            }else { // 如果获取到的window是空
+                // 对于刘海屏，当window没有创建的时候，可根据状态栏设置安全区域顶部高度
+                // iOS14之后顶部安全区域不再是固定的44，所以修改为以下方式获取
+                if GKConfigure.gk_isNotchedScreen() {
+                    safeAreaInsets = UIEdgeInsets(top: GKConfigure.gk_statusBarFrame().size.height, left: 0, bottom: 34, right: 0)
+                }
+            }
+        }
+        return safeAreaInsets
+    }
+    
+    open func gk_statusBarFrame() -> CGRect {
+        return UIApplication.shared.statusBarFrame
+    }
+    
+    open func gk_isNotchedScreen() -> Bool {
+        if #available(iOS 11.0, *) {
+            let keyWinwow = GKConfigure.getKeyWindow()
+            if let window = keyWinwow {
+                return window.safeAreaInsets.bottom > 0 ? true : false
+            }
+        }
+        // 当iOS11以下或获取不到keyWindow时用以下方案
+        let screenSize = UIScreen.main.bounds.size
+        return ((UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 375, height:812), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 812, height:375), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 390, height:844), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 844, height:390), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 428, height:926), screenSize) : false) ||
+                (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 926, height:428), screenSize) : false))
+    }
     
     /// 获取当前item修复间距
     open func gk_fixedSpace() -> CGFloat {
         let screenSize = UIScreen.main.bounds.size
         return min(screenSize.width, screenSize.height) > 375.0 ? 20.0 : 16.0
+    }
+    
+    fileprivate func getKeyWindow() -> UIWindow? {
+        var window: UIWindow?
+        if #available(iOS 13.0, *) {
+            window = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+        }
+        
+        if window == nil {
+            window = UIApplication.shared.windows.first { $0.isKeyWindow }
+            if window == nil {
+                window = UIApplication.shared.keyWindow
+            }
+        }
+        
+        return window
     }
 }
 

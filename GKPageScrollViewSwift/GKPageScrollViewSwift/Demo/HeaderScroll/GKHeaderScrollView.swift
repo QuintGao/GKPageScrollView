@@ -30,6 +30,7 @@ class GKHeaderScrollView: UIView {
         collectionView.delegate = self;
         collectionView.backgroundColor = .clear;
         collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "cell")
+        collectionView.gk_openGestureHandle = true
         
         return collectionView
     }()

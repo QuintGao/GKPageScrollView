@@ -18,6 +18,7 @@ class GKNest1ViewController: GKDemoBaseViewController {
     lazy var pageScrollView: GKPageScrollView = {
         let pageScrollView = GKPageScrollView(delegate: self)
         pageScrollView.isLazyLoadList = true
+        pageScrollView.listContainerView.collectionView.gk_openGestureHandle = true
         return pageScrollView
     }()
     
@@ -93,6 +94,7 @@ extension GKNest1ViewController: GKPageScrollViewDelegate {
     func pageScrollView(_ pageScrollView: GKPageScrollView, initListAtIndex index: Int) -> GKPageListViewDelegate {
         let nestView = GKNestView()
         nestView.delegate = self
+        nestView.contentScrollView.gk_openGestureHandle = true
         return nestView
     }
 }

@@ -8,14 +8,87 @@
 
 import UIKit
 import MJRefresh
+import WebKit
 
-class GKBaseListViewController: GKBaseTableViewController {
+enum GKBaseListType: Int {
+    case UITableView
+    case UICollectionView
+    case UIScrollView
+    case WKWebView
+}
 
+class GKBaseListViewController: UIViewController {
+
+    init(listType: GKBaseListType) {
+        super.init(nibName: nil, bundle: nil)
+        self.listType = listType
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private var listType: GKBaseListType = .UIScrollView
+    private weak var currentScrollView: UIScrollView?
+    
     public var count = 30
     
     public var shouldLoadData = false
     
     var scrollCallBack: ((UIScrollView) -> ())?
+    
+    public lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
+        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "tableViewCell")
+        return tableView
+    }()
+    
+    public lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 20
+        layout.itemSize = CGSize(width: (kScreenW - 60)/2, height: (kScreenW - 60)/2)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "collectionViewCell")
+        collectionView.backgroundColor = .white
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
+        collectionView.alwaysBounceVertical = true
+        return collectionView
+    }()
+    
+    public lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.delegate = self
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }
+        scrollView.backgroundColor = .white
+        return scrollView
+    }()
+    
+    public lazy var webView: WKWebView = {
+        let configuration = WKWebViewConfiguration()
+        
+        let webView = WKWebView(frame: .zero, configuration: configuration)
+        webView.scrollView.delegate = self
+        if #available(iOS 11.0, *) {
+            webView.scrollView.contentInsetAdjustmentBehavior = .never
+        }
+        webView.navigationDelegate = self
+        return webView
+    }()
     
     lazy var loadingView: UIImageView = {
         var images = [UIImage]()
@@ -53,31 +126,46 @@ class GKBaseListViewController: GKBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.gk_navigationBar.isHidden = true
         
-        self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "listCell")
+        if self.listType == .UITableView {
+            self.view.addSubview(self.tableView)
+            self.currentScrollView = self.tableView
+        }else if self.listType == .UICollectionView {
+            self.view.addSubview(self.collectionView)
+            self.currentScrollView = self.collectionView
+        }else if self.listType == .UIScrollView {
+            self.view.addSubview(self.scrollView)
+            self.currentScrollView = self.scrollView
+        }else if self.listType == .WKWebView {
+            self.view.addSubview(self.webView)
+            self.currentScrollView = self.webView.scrollView
+        }
         
-        self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + kRefreshDuration, execute: {
-                self.count += 20
-                
-                if self.count >= 100 {
-                    self.tableView.mj_footer?.endRefreshingWithNoMoreData()
-                }else {
-                    self.tableView.mj_footer?.endRefreshing()
-                }
-                self.tableView.reloadData()
+        if self.listType == .WKWebView {
+            self.webView.snp.makeConstraints { (make) in
+                make.edges.equalTo(self.view)
+            }
+        }else {
+            self.currentScrollView?.snp.makeConstraints({ (make) in
+                make.edges.equalTo(self.view)
             })
-        })
+        }
+        
+        if self.listType != .WKWebView {
+            self.currentScrollView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + kRefreshDuration) {
+                    self.loadMoreData()
+                }
+            })
+        }
         
         if self.shouldLoadData {
-            self.tableView.addSubview(self.loadingView)
-            self.tableView.addSubview(self.loadLabel)
+            self.currentScrollView!.addSubview(self.loadingView)
+            self.currentScrollView!.addSubview(self.loadLabel)
             
             self.loadingView.snp.makeConstraints { (make) in
-                make.top.equalTo(self.tableView).offset(40.0)
-                make.centerX.equalTo(self.tableView)
+                make.top.equalTo(self.currentScrollView!).offset(40.0)
+                make.centerX.equalTo(self.currentScrollView!)
             }
             
             self.loadLabel.snp.makeConstraints { (make) in
@@ -85,21 +173,84 @@ class GKBaseListViewController: GKBaseTableViewController {
                 make.centerX.equalTo(self.loadingView)
             }
             
+            self.count = 0
+            self.currentScrollView?.mj_footer?.isHidden = self.count == 0
+            self.reloadData()
+            
+            self.showLoading()
+            if self.listType == .WKWebView {
+                self.loadData()
+            }else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.hideLoading()
+                    self.loadData()
+                }
+            }
+        }else {
             self.loadData()
         }
     }
     
     func loadData() {
-        self.count = 0
+        self.count = 30
         
-        self.showLoading()
+        if self.listType == .UIScrollView {
+            self.addCellToScrollView()
+        }else if self.listType == .WKWebView {
+            self.webView.load(URLRequest(url: URL(string: "https://github.com/QuintGao/GKPageScrollView")!))
+        }
+        self.reloadData()
+    }
+    
+    func loadMoreData() {
+        self.count += 20
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.count = 30
+        if self.count >= 100 {
+            self.currentScrollView?.mj_footer?.endRefreshingWithNoMoreData()
+        }else {
+            self.currentScrollView?.mj_footer?.endRefreshing()
+        }
+        
+        if self.listType == .UIScrollView {
+            self.addCellToScrollView()
+        }
+        
+        self.reloadData()
+    }
+    
+    func addCellToScrollView() {
+        for subView in self.scrollView.subviews {
+            subView.removeFromSuperview()
+        }
+        
+        var lastView: UIView?
+        for i in 0..<self.count {
+            let label = UILabel()
+            label.textColor = .black
+            label.font = UIFont.systemFont(ofSize: 16)
+            label.text = "第\(i + 1)行"
+            self.scrollView.addSubview(label)
             
-            self.hideLoading()
-            
+            label.snp.makeConstraints { (make) in
+                make.left.equalTo(30)
+                make.top.equalTo(lastView != nil ? lastView!.snp_bottom : 0)
+                make.width.equalTo(self.scrollView.snp_width)
+                make.height.equalTo(50.0)
+            }
+            lastView = label
+        }
+        
+        self.scrollView.snp.remakeConstraints { (make) in
+            make.edges.equalTo(self.view)
+            make.bottom.equalTo(lastView!.snp_bottom)
+        }
+    }
+    
+    func reloadData() {
+        if self.listType == .UITableView {
             self.tableView.reloadData()
+        }else if self.listType == .UICollectionView {
+            self.collectionView.reloadData()
         }
     }
     
@@ -116,31 +267,70 @@ class GKBaseListViewController: GKBaseTableViewController {
     }
     
     public func addHeaderRefresh() {
-        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+        self.currentScrollView!.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             DispatchQueue.main.asyncAfter(deadline: .now() + kRefreshDuration, execute: {
-                self.tableView.mj_header?.endRefreshing()
+                self.currentScrollView!.mj_header?.endRefreshing()
                 
                 self.count = 30
-                self.tableView.reloadData()
+                self.reloadData()
             })
         })
     }
 }
 
-extension GKBaseListViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension GKBaseListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.tableView.mj_footer?.isHidden = self.count == 0
         return self.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
-        cell.textLabel?.text = "第" + "\(indexPath.row+1)" + "行"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+        cell.textLabel?.text = "第\(indexPath.row+1)行"
         return cell
     }
+}
+
+extension GKBaseListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.collectionView.mj_footer?.isHidden = self.count == 0
+        return self.count
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath)
+        cell.contentView.backgroundColor = .red
+        for subview in cell.contentView.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        let textLabel = UILabel()
+        textLabel.font = UIFont.systemFont(ofSize: 16)
+        textLabel.textColor = .black
+        textLabel.text = "第\(indexPath.item+1)"
+        cell.contentView.addSubview(textLabel)
+        textLabel.snp.makeConstraints { (make) in
+            make.center.equalTo(cell.contentView)
+        }
+        return cell
+    }
+}
+
+extension GKBaseListViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollCallBack!(scrollView)
+    }
+}
+
+extension GKBaseListViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("加载成功")
+        self.hideLoading()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print("加载失败")
+        self.hideLoading()
     }
 }
 

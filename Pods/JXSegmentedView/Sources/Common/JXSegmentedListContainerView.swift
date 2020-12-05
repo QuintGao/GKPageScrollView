@@ -57,7 +57,7 @@ public protocol JXSegmentedListContainerViewDataSource {
     @objc optional func scrollViewClass(in listContainerView: JXSegmentedListContainerView) -> AnyClass
 }
 
-open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer {
+open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer, JXSegmentedViewRTLCompatible {
     open private(set) var type: JXSegmentedListContainerType
     open private(set) weak var dataSource: JXSegmentedListContainerViewDataSource?
     open private(set) var scrollView: UIScrollView!
@@ -136,6 +136,9 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer {
             if #available(iOS 11.0, *) {
                 scrollView.contentInsetAdjustmentBehavior = .never
             }
+            if segmentedViewShouldRTLLayout() {
+                segmentedView(horizontalFlipForView: scrollView)
+            }
             containerVC.view.addSubview(scrollView)
         }else if type == .collectionView {
             collectionView.isPagingEnabled = true
@@ -145,12 +148,16 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer {
             collectionView.bounces = false
             collectionView.dataSource = self
             collectionView.delegate = self
-            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+            collectionView.register(JXSegmentedRTLCollectionCell.self, forCellWithReuseIdentifier: "cell")
             if #available(iOS 10.0, *) {
                 collectionView.isPrefetchingEnabled = false
             }
             if #available(iOS 11.0, *) {
                 self.collectionView.contentInsetAdjustmentBehavior = .never
+            }
+            if segmentedViewShouldRTLLayout() {
+                collectionView.semanticContentAttribute = .forceLeftToRight
+                segmentedView(horizontalFlipForView: collectionView)
             }
             containerVC.view.addSubview(collectionView)
             //让外部统一访问scrollView
@@ -207,37 +214,6 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer {
        }
 
     public func scrolling(from leftIndex: Int, to rightIndex: Int, percent: CGFloat, selectedIndex: Int) {
-        if rightIndex == selectedIndex {
-            //当前选中的在右边，用户正在从右边往左边滑动
-            if percent < (1 - initListPercent) {
-                initListIfNeeded(at: leftIndex)
-            }
-            if willAppearIndex == -1 {
-                willAppearIndex = leftIndex;
-                if validListDict[leftIndex] != nil {
-                    listWillAppear(at: willAppearIndex)
-                }
-            }
-            if willDisappearIndex == -1 {
-                willDisappearIndex = rightIndex
-                listWillDisappear(at: willDisappearIndex)
-            }
-        }else {
-            //当前选中的在左边，用户正在从左边往右边滑动
-            if percent > initListPercent {
-                initListIfNeeded(at: rightIndex)
-            }
-            if willAppearIndex == -1 {
-                willAppearIndex = rightIndex
-                if validListDict[rightIndex] != nil {
-                    listWillAppear(at: willAppearIndex)
-                }
-            }
-            if willDisappearIndex == -1 {
-                willDisappearIndex = leftIndex
-                listWillDisappear(at: willDisappearIndex)
-            }
-        }
     }
 
     open func didClickSelectedItem(at index: Int) {
@@ -298,13 +274,16 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer {
         if type == .scrollView {
             list.listView().frame = CGRect(x: CGFloat(index)*scrollView.bounds.size.width, y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
             scrollView.addSubview(list.listView())
+            
+            if segmentedViewShouldRTLLayout() {
+                segmentedView(horizontalFlipForView: list.listView())
+            }
         }else {
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0))
             cell?.contentView.subviews.forEach { $0.removeFromSuperview() }
             list.listView().frame = cell?.contentView.bounds ?? CGRect.zero
             cell?.contentView.addSubview(list.listView())
         }
-        listWillAppear(at: index)
     }
 
     private func listWillAppear(at index: Int) {
@@ -335,6 +314,10 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer {
                 if list.listView().superview == nil {
                     list.listView().frame = CGRect(x: CGFloat(index)*scrollView.bounds.size.width, y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
                     scrollView.addSubview(list.listView())
+                    
+                    if segmentedViewShouldRTLLayout() {
+                        segmentedView(horizontalFlipForView: list.listView())
+                    }
                 }
                 list.listWillAppear?()
                 if let vc = list as? UIViewController {
@@ -395,6 +378,31 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer {
         }
         return true
     }
+
+    private func listDidAppearOrDisappear(scrollView: UIScrollView) {
+        let currentIndexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width
+        if willAppearIndex != -1 || willDisappearIndex != -1 {
+            let disappearIndex = willDisappearIndex
+            let appearIndex = willAppearIndex
+            if willAppearIndex > willDisappearIndex {
+                //将要出现的列表在右边
+                if currentIndexPercent >= CGFloat(willAppearIndex) {
+                    willDisappearIndex = -1
+                    willAppearIndex = -1
+                    listDidDisappear(at: disappearIndex)
+                    listDidAppear(at: appearIndex)
+                }
+            }else {
+                //将要出现的列表在左边
+                if currentIndexPercent <= CGFloat(willAppearIndex) {
+                    willDisappearIndex = -1
+                    willAppearIndex = -1
+                    listDidDisappear(at: disappearIndex)
+                    listDidAppear(at: appearIndex)
+                }
+            }
+        }
+    }
 }
 
 extension JXSegmentedListContainerView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -420,31 +428,54 @@ extension JXSegmentedListContainerView: UICollectionViewDataSource, UICollection
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentIndexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width
-        if willAppearIndex != -1 || willDisappearIndex != -1 {
-            let disappearIndex = willDisappearIndex
-            let appearIndex = willAppearIndex
-            if willAppearIndex > willDisappearIndex {
-                //将要出现的列表在右边
-                if currentIndexPercent >= CGFloat(willAppearIndex) {
-                    willDisappearIndex = -1
-                    willAppearIndex = -1
-                    listDidDisappear(at: disappearIndex)
-                    listDidAppear(at: appearIndex)
-                }
-            }else {
-                //将要出现的列表在左边
-                if currentIndexPercent <= CGFloat(willAppearIndex) {
-                    willDisappearIndex = -1
-                    willAppearIndex = -1
-                    listDidDisappear(at: disappearIndex)
-                    listDidAppear(at: appearIndex)
+        guard scrollView.isTracking || scrollView.isDragging else {
+            return
+        }
+        let percent = scrollView.contentOffset.x/scrollView.bounds.size.width
+        let maxCount = Int(round(scrollView.contentSize.width/scrollView.bounds.size.width))
+        var leftIndex = Int(floor(Double(percent)))
+        leftIndex = max(0, min(maxCount - 1, leftIndex))
+        let rightIndex = leftIndex + 1;
+        if percent < 0 || rightIndex >= maxCount {
+            listDidAppearOrDisappear(scrollView: scrollView)
+            return
+        }
+        let remainderRatio = percent - CGFloat(leftIndex)
+        if rightIndex == currentIndex {
+            //当前选中的在右边，用户正在从右边往左边滑动
+            if validListDict[leftIndex] == nil && remainderRatio < (1 - initListPercent) {
+                initListIfNeeded(at: leftIndex)
+            }else if validListDict[leftIndex] != nil {
+                if willAppearIndex == -1 {
+                    willAppearIndex = leftIndex;
+                    listWillAppear(at: willAppearIndex)
                 }
             }
+
+            if willDisappearIndex == -1 {
+                willDisappearIndex = rightIndex
+                listWillDisappear(at: willDisappearIndex)
+            }
+        }else {
+            //当前选中的在左边，用户正在从左边往右边滑动
+            if validListDict[rightIndex] == nil && remainderRatio > initListPercent {
+                initListIfNeeded(at: rightIndex)
+            }else if validListDict[rightIndex] != nil {
+                if willAppearIndex == -1 {
+                    willAppearIndex = rightIndex
+                    listWillAppear(at: willAppearIndex)
+                }
+            }
+            if willDisappearIndex == -1 {
+                willDisappearIndex = leftIndex
+                listWillDisappear(at: willDisappearIndex)
+            }
         }
+        listDidAppearOrDisappear(scrollView: scrollView)
     }
 
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        //滑动到一半又取消滑动处理
         if willAppearIndex != -1 || willDisappearIndex != -1 {
             listWillDisappear(at: willAppearIndex)
             listWillAppear(at: willDisappearIndex)

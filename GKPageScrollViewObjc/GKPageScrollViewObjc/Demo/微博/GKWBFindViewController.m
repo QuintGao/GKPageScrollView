@@ -11,6 +11,8 @@
 #import "GKWBListViewController.h"
 #import "JXCategoryView.h"
 #import <MJRefresh/MJRefresh.h>
+#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
+#import <GKNavigationBar/UIImage+GKCategory.h>
 
 @interface GKWBFindViewController ()<GKPageScrollViewDelegate, JXCategoryViewDelegate, UIScrollViewDelegate, GKViewControllerPopDelegate, GKPageTableViewGestureDelegate>
 
@@ -141,7 +143,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.ceilPointHeight = GK_STATUSBAR_HEIGHT;
-        _pageScrollView.isAllowListRefresh = YES;
+//        _pageScrollView.isAllowListRefresh = YES;
         _pageScrollView.isDisableMainScrollInCeil = YES;
         _pageScrollView.mainTableView.gestureDelegate = self;
     }
@@ -153,6 +155,7 @@
         UIImage *headerImg = [UIImage imageNamed:@"wb_find"];
         
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width + GK_STATUSBAR_HEIGHT)];
+//        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 1400)];
         
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, GK_STATUSBAR_HEIGHT, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width)];
         imgView.image = headerImg;
@@ -226,6 +229,7 @@
         _contentScrollView.pagingEnabled = YES;
         _contentScrollView.bounces = NO;
         _contentScrollView.delegate = self;
+        _contentScrollView.gk_openGestureHandle = YES;
         if (@available(iOS 11.0, *)) {
             _contentScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         } else {

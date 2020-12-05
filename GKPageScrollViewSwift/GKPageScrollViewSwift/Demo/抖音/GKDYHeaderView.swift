@@ -78,12 +78,12 @@ class GKDYHeaderView: UIView {
     public func scrollViewDidScroll(offsetY: CGFloat) {
         var frame = self.bgImgFrame
 
-        // 上下放大
-        frame.size.height -= offsetY
-        frame.origin.y = offsetY
-
         // 左右放大
         if offsetY <= 0 {
+            // 上下放大
+            frame.size.height -= offsetY
+            frame.origin.y = offsetY
+            
             frame.size.width = frame.size.height * self.bgImgFrame.size.width / self.bgImgFrame.size.height
             frame.origin.x = (self.frame.size.width - frame.size.width) / 2
         }

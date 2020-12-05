@@ -11,6 +11,7 @@ import UIKit
 public enum JXSegmentedIndicatorPosition {
     case top
     case bottom
+    case center
 }
 
 open class JXSegmentedIndicatorBaseView: UIView, JXSegmentedIndicatorProtocol {
@@ -23,7 +24,7 @@ open class JXSegmentedIndicatorBaseView: UIView, JXSegmentedIndicatorProtocol {
     open var indicatorCornerRadius: CGFloat = JXSegmentedViewAutomaticDimension
     /// 指示器的颜色
     open var indicatorColor: UIColor = .red
-    /// 指示器的位置，top或者bottom
+    /// 指示器的位置，top、bottom、center
     open var indicatorPosition: JXSegmentedIndicatorPosition = .bottom
     /// 垂直方向偏移，指示器默认贴着底部或者顶部，verticalOffset越大越靠近中心。
     open var verticalOffset: CGFloat = 0
@@ -35,6 +36,8 @@ open class JXSegmentedIndicatorBaseView: UIView, JXSegmentedIndicatorProtocol {
     open var isIndicatorConvertToItemFrameEnabled: Bool = true
     /// 点击选中时的滚动动画时长
     open var scrollAnimationDuration: TimeInterval = 0.25
+    ///  指示器的宽度是否跟随item的内容变化（而不是跟着cell的宽度变化）。indicatorWidth=JXSegmentedViewAutomaticDimension才能生效
+    open var isIndicatorWidthSameAsItemContent = false
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,9 +61,13 @@ open class JXSegmentedIndicatorBaseView: UIView, JXSegmentedIndicatorProtocol {
         return indicatorCornerRadius
     }
 
-    public func getIndicatorWidth(itemFrame: CGRect) -> CGFloat {
+    public func getIndicatorWidth(itemFrame: CGRect, itemContentWidth: CGFloat) -> CGFloat {
         if indicatorWidth == JXSegmentedViewAutomaticDimension {
-            return itemFrame.size.width + indicatorWidthIncrement
+            if isIndicatorWidthSameAsItemContent {
+                return itemContentWidth + indicatorWidthIncrement
+            }else {
+                return itemFrame.size.width + indicatorWidthIncrement
+            }
         }
         return indicatorWidth + indicatorWidthIncrement
     }
@@ -72,13 +79,30 @@ open class JXSegmentedIndicatorBaseView: UIView, JXSegmentedIndicatorProtocol {
         return indicatorHeight
     }
 
+    public func canHandleTransition(model: JXSegmentedIndicatorTransitionParams) -> Bool {
+        if model.percent == 0 || !isScrollEnabled {
+            //model.percent等于0时不需要处理，会调用selectItem(model: JXSegmentedIndicatorParamsModel)方法处理
+            //isScrollEnabled为false不需要处理
+            return false
+        }
+        return true
+    }
+
+    public func canSelectedWithAnimation(model: JXSegmentedIndicatorSelectedParams) -> Bool {
+        if isScrollEnabled && (model.selectedType == .click || model.selectedType == .code) {
+            //允许滚动且选中类型是点击或代码选中，才进行动画过渡
+            return true
+        }
+        return false
+    }
+
     //MARK: - JXSegmentedIndicatorProtocol
-    open func refreshIndicatorState(model: JXSegmentedIndicatorParamsModel) {
+    open func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
     }
 
-    open func contentScrollViewDidScroll(model: JXSegmentedIndicatorParamsModel) {
+    open func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
     }
 
-    open func selectItem(model: JXSegmentedIndicatorParamsModel) {
+    open func selectItem(model: JXSegmentedIndicatorSelectedParams) {
     }
 }

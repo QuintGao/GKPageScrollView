@@ -3,8 +3,8 @@
 ![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;&nbsp;
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
 ![](https://img.shields.io/badge/language-Objective--C%2FSwift%205.x-orange.svg)&nbsp;&nbsp;
-[![cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollView) &nbsp;&nbsp;
-[![cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollViewSwift.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollViewSwift) &nbsp;&nbsp;
+[![objc cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollView) &nbsp;&nbsp;
+[![swift cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollViewSwift.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollViewSwift) &nbsp;&nbsp;
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
 iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
@@ -34,6 +34,9 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 
 如果发现pod search GKPageScrollView/GKPageScrollViewSwift 不是最新版本，在终端执行pod setup命令更新本地spec镜像缓存，重新搜索即可。
 
+### 3、Swift Package Manager 安装
+依次点击 Xcode 的菜单 File > Swift Packages > Add Package Dependency，填入 `https://github.com/QuintGao/GKPageScrollView.git`
+
 ## 效果图
 
 | 说明 | 效果图 |
@@ -55,6 +58,10 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 1、尽量不要在代理方法里创建视图，如headerView，pageView等
 
 ## 版本更新
+
+* 2020.12.01   1.4.0 - 修复延续滑动可能出现header不能滑动的bug #57
+* 2020.08.07   1.3.8 - 修复列表刷新快速滑动时的bug
+* 2020.07.22   1.3.7 - 滑动延续代码优化
 * 2020.05.19   1.3.6 - 增加列表延续滑动功能，需使用GKPageSmoothView类
 * 2020.04.18   1.3.5 - 优化代码，支持Swift 5.x
 * 2019.11.11   1.3.3 - 修复GKPageScrollView与返回手势的滑动冲突
