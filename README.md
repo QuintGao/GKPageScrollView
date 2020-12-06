@@ -18,9 +18,9 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 - 支持如UITableView的sectionView的悬停效果
 - 支持多种分页控件，如[JXCategoryView](https://github.com/pujiaxin33/JXCategoryView),[WMPageController](https://github.com/wangmchn/WMPageController),[VTMagic](https://github.com/tianzhuo112/VTMagic)等
 - 可实现导航栏颜色渐变、头图下拉放大等效果
-- 支持主页、列表页下拉刷新，上拉加载
-- 支持列表懒加载功能
-- 支持列表延续滑动（只支持懒加载形式）
+- 支持主页、列表页下拉刷新，列表页上拉加载
+- 支持列表懒加载创建
+- 支持列表延续滑动（GKPageSmoothView只支持懒加载形式）
 
 ## 使用方法
 ### 1、手动安装
@@ -37,6 +37,10 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 ### 3、Swift Package Manager 安装
 依次点击 Xcode 的菜单 File > Swift Packages > Add Package Dependency，填入 `https://github.com/QuintGao/GKPageScrollView.git`
 
+## 常见问题
+1、headerView出现多个，不要在headerView代理方法中做视图创建、添加等操作  
+2、[手势处理](https://github.com/QuintGao/GKPageScrollView/blob/master/Document/%E6%89%8B%E5%8A%BF%E5%A4%84%E7%90%86.md)
+
 ## 效果图
 
 | 说明 | 效果图 |
@@ -52,11 +56,9 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 | **嵌套滑动2** | ![dy](https://github.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/nest2.gif) |
 
 ## 说明
-简书：[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)
-
-## 注意
-1、尽量不要在代理方法里创建视图，如headerView，pageView等
-2、[手势处理]()
+[iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)   
+[iOS用GKPageScrollView实现微博发现页滑动效果](https://www.jianshu.com/p/f9846c46fca7)   
+[iOS用GKPageScrollView实现多层分类嵌套滑动](https://www.jianshu.com/p/5de1bcd3ecad)  
 
 ## 版本更新
 
