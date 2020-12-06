@@ -75,9 +75,9 @@
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
-        _pageScrollView.isLazyLoadList = YES;
+        _pageScrollView.lazyLoadList = YES;
         _pageScrollView.ceilPointHeight = 0;
-        _pageScrollView.listContainerView.collectionView.isNestEnabled = YES;
+        _pageScrollView.listContainerView.collectionView.nestEnabled = YES;
         _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;

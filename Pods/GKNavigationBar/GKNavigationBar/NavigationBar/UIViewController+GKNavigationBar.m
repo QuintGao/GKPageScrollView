@@ -8,9 +8,6 @@
 
 #import "UIViewController+GKNavigationBar.h"
 #import "GKNavigationBarDefine.h"
-#import "UINavigationController+GKNavigationBar.h"
-#import "UIBarButtonItem+GKCategory.h"
-#import "UIImage+GKCategory.h"
 
 @implementation UIViewController (GKNavigationBar)
 

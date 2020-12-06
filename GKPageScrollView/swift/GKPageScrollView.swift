@@ -113,7 +113,21 @@ open class GKPageScrollView: UIView {
     // 当前滑动的子列表
     open var currentListScrollView = UIScrollView()
     // 懒加载时使用的容器
-    open var listContainerView: GKPageListContainerView!
+    open lazy var listContainerView: GKPageListContainerView = {
+        let containerView = GKPageListContainerView(delegate: self)
+        return containerView
+    }()
+    
+    // 需要处理滑动冲突的UIScrollView列表
+    open var horizontalScrollViewList: [UIScrollView]? {
+        didSet {
+            var list = horizontalScrollViewList
+            if self.shouldLazyLoadListView() {
+                list?.append(self.listContainerView.collectionView)
+            }
+            mainTableView.horizontalScrollViewList = list
+        }
+    }
     // 当前已经加载过可用的列表字典，key是index值，value是对应的列表
     public var validListDict = [Int: GKPageListViewDelegate]()
     
@@ -127,7 +141,16 @@ open class GKPageScrollView: UIView {
     public var isDisableMainScrollInCeil: Bool = false
     
     // 是否懒加载列表
-    public var isLazyLoadList: Bool = false
+    public var isLazyLoadList: Bool = false {
+        didSet {
+            if self.shouldLazyLoadListView() {
+                self.mainTableView.horizontalScrollViewList = [self.listContainerView.collectionView]
+            }else {
+                // 处理listView滑动
+                self.configListViewScroll()
+            }
+        }
+    }
     
     // 是否内部控制指示器的显示与隐藏（默认为NO）
     public var isControlVerticalIndicator: Bool = false
@@ -149,22 +172,11 @@ open class GKPageScrollView: UIView {
     var isScrollToCritical: Bool = false
     
     // 是否加载
-    var isLoaded: Bool = false {
-        didSet {
-            if self.shouldLazyLoadListView() {
-                self.listContainerView = GKPageListContainerView(delegate: self)
-                self.listContainerView.mainTableView = self.mainTableView
-            }else {
-                // 处理listView滑动
-                self.configListViewScroll()
-            }
-        }
-    }
+    var isLoaded: Bool = false
     
     public init(delegate: GKPageScrollViewDelegate) {
         self.delegate = delegate
         super.init(frame: .zero)
-        
         self.initSubviews()
     }
     
@@ -192,8 +204,7 @@ open class GKPageScrollView: UIView {
         self.addSubview(mainTableView)
         
         if self.shouldLazyLoadListView() {
-            self.listContainerView = GKPageListContainerView(delegate: self)
-            self.listContainerView.mainTableView = self.mainTableView
+            self.mainTableView.horizontalScrollViewList = [self.listContainerView.collectionView]
         }
     }
     

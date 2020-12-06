@@ -63,7 +63,11 @@ static char kAssociatedObjectKey_openGestureHandle;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        gk_gestureHandle_swizzled_instanceMethod(@"gkNav", self, @"viewDidLoad", self);
+        NSArray <NSString *> *oriSels = @[@"viewDidLoad",
+                                          @"dealloc"];
+        [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
+            gk_gestureHandle_swizzled_instanceMethod(@"gkNav", self, oriSel, self);
+        }];
     });
 }
 
@@ -86,8 +90,11 @@ static char kAssociatedObjectKey_openGestureHandle;
     [self gkNav_viewDidLoad];
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:GKViewControllerPropertyChangedNotification object:nil];
+- (void)gkNav_dealloc {
+    if (self.gk_openGestureHandle) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:GKViewControllerPropertyChangedNotification object:nil];
+    }
+    [self gkNav_dealloc];
 }
 
 - (UIViewController *)childViewControllerForStatusBarHidden {
@@ -133,11 +140,19 @@ static char kAssociatedObjectKey_openGestureHandle;
     }else if (vc.gk_fullScreenPopDisabled) {
         [self.view removeGestureRecognizer:self.panGesture];
         [self.view addGestureRecognizer:self.screenPanGesture];
-        [self.screenPanGesture addTarget:self.systemTarget action:self.systemAction];
+        if (vc.gk_systemGestureHandleDisabled) {
+            [self.screenPanGesture removeTarget:self.systemTarget action:self.systemAction];
+        }else {
+            [self.screenPanGesture addTarget:self.systemTarget action:self.systemAction];
+        }
     }else {
         [self.view removeGestureRecognizer:self.screenPanGesture];
         [self.view addGestureRecognizer:self.panGesture];
-        [self.panGesture addTarget:self.systemTarget action:self.systemAction];
+        if (vc.gk_systemGestureHandleDisabled) {
+            [self.panGesture removeTarget:self.systemTarget action:self.systemAction];
+        }else {
+            [self.panGesture addTarget:self.systemTarget action:self.systemAction];
+        }
     }
 }
 

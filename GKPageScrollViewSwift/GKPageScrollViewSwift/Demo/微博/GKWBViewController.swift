@@ -120,6 +120,10 @@ class GKWBViewController: GKDemoBaseViewController {
         
         self.pageVC.reloadData()
         self.pageVC.scrollView?.gk_openGestureHandle = true
+        
+        if let scrollView = self.pageVC.scrollView {
+            self.pageScrollView.horizontalScrollViewList = [scrollView]
+        }
     }
     
     @objc func backAction() {

@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<GKPageTableViewGestureDelegate> gestureDelegate;
 
+@property (nonatomic, strong) NSArray *horizontalScrollViewList;
+
 @end
 
 NS_ASSUME_NONNULL_END

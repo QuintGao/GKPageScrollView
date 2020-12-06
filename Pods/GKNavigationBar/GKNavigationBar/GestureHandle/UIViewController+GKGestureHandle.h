@@ -54,8 +54,6 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 // 返回拦截
 @protocol GKGesturePopHandlerProtocol <NSObject>
 
-@optional
-
 - (BOOL)navigationShouldPopOnGesture;
 
 @end
@@ -67,6 +65,10 @@ UIKIT_EXTERN NSString *const GKViewControllerPropertyChangedNotification;
 
 /// 是否禁止当前控制器的全屏滑动返回
 @property (nonatomic, assign) BOOL gk_fullScreenPopDisabled;
+
+/// 是否禁用系统手势处理，默认NO
+/// 如果设置为YES，则可以更好的回调gk_popDelegate代理方法
+@property (nonatomic, assign) BOOL gk_systemGestureHandleDisabled;
 
 /// 全屏滑动时，滑动区域距离屏幕左侧的最大位置，默认是0：表示全屏可滑动
 @property (nonatomic, assign) CGFloat gk_maxPopDistance;

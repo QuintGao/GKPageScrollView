@@ -56,6 +56,7 @@ extension UIViewController: GKAwakeProtocol {
     fileprivate struct AssociatedKeys {
         static var gkInteractivePopDisabled: Bool = false
         static var gkFullScreenPopDisabled: Bool = false
+        static var gkSystemGestureHandleDisabled: Bool = false
         static var gkMaxPopDistance: CGFloat = 0
         static var gkNavBarAlpha: CGFloat = 1
         static var gkPushDelegate: GKViewControllerPushDelegate?
@@ -95,7 +96,6 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkInteractivePopDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
             postPropertyChangeNotification()
         }
     }
@@ -107,7 +107,17 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkFullScreenPopDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
+            postPropertyChangeNotification()
+        }
+    }
+    
+    public var gk_systemGestureHandleDisabled: Bool {
+        get {
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkSystemGestureHandleDisabled) as? Bool else { return false }
+            return obj
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkSystemGestureHandleDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             postPropertyChangeNotification()
         }
     }
@@ -142,8 +152,6 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkPushDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            postPropertyChangeNotification()
         }
     }
     
@@ -153,8 +161,6 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkPopDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            postPropertyChangeNotification()
         }
     }
     
@@ -747,6 +753,12 @@ extension UIViewController: GKAwakeProtocol {
             print("找不到可见的控制器，viewController.self=\(self)，self.view.window=\(String(describing: self.view.window))")
             return nil
         }
+    }
+}
+
+extension UIViewController: GKGesturePopHandlerProtocol {
+    open func navigationShouldPopOnGesture() -> Bool {
+        return true
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  UINavigationItem+GKCategory.h
+//  UINavigationItem+GKNavigationBar.h
 //  GKNavigationBar
 //
 //  Created by QuintGao on 2019/10/29.
@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UINavigationItem (GKCategory)
+@interface UINavigationItem (GKNavigationBar)
 
 @end
 
-@interface NSObject (GKCategory)
+@interface NSObject (GKNavigationBar)
 
 @end
 

@@ -197,16 +197,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCell" forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"第%zd行", indexPath.row + 1];
-    
-//    NSMutableArray *images = [NSMutableArray new];
-//    for (NSInteger i = 0; i < 4; i++) {
-//        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"cm2_list_icn_loading%zd", i+ 1]]];
-//    }
-//    cell.imageView.image = [UIImage imageNamed:@"cm2_list_icn_loading1"];
-//    cell.imageView.animationImages = images;
-//    cell.imageView.animationDuration = 1.0f;
-//    [cell.imageView startAnimating];
-    
     return cell;
 }
 

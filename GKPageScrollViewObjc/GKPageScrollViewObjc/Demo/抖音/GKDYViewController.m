@@ -172,7 +172,6 @@
             vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
         }];
         _scrollView.contentSize = CGSizeMake(self.childVCs.count * scrollW, 0);
-        
     }
     return _scrollView;
 }

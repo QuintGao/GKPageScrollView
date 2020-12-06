@@ -17,6 +17,10 @@ class GKDemoBaseViewController: UIViewController {
         view.backgroundColor = UIColor.white
     }
     
+    deinit {
+        print(NSStringFromClass(self.classForCoder) + "deinit")
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return self.gk_statusBarHidden
     }

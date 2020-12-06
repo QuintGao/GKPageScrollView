@@ -33,7 +33,6 @@
 		60A09FCD2239F420004AE07A /* GKListLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A09FCC2239F420004AE07A /* GKListLoadViewController.swift */; };
 		60A20C2B221E77A700DB2193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C2A221E77A700DB2193 /* AppDelegate.swift */; };
 		60A20C2D221E77A700DB2193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20C2C221E77A700DB2193 /* ViewController.swift */; };
-		60A20C30221E77A700DB2193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C2E221E77A700DB2193 /* Main.storyboard */; };
 		60A20C32221E77A800DB2193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C31221E77A800DB2193 /* Assets.xcassets */; };
 		60A20C35221E77A800DB2193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A20C33221E77A800DB2193 /* LaunchScreen.storyboard */; };
 		60A20D0D221E813300DB2193 /* GKDemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D0C221E813300DB2193 /* GKDemoBaseViewController.swift */; };
@@ -56,7 +55,6 @@
 		60A20D582226612C00DB2193 /* GKListRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A20D572226612C00DB2193 /* GKListRefreshViewController.swift */; };
 		792D97B0246AE7C800AB7304 /* GKSmoothListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792D97AF246AE7C800AB7304 /* GKSmoothListView.swift */; };
 		79410C91246ADE4800073657 /* GKSmoothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79410C90246ADE4800073657 /* GKSmoothViewController.swift */; };
-		796AB5FA2443326F00C724D4 /* GKPageScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796AB5F12443326F00C724D4 /* GKPageScrollView.framework */; };
 		796AB6032443326F00C724D4 /* GKPageScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 796AB5F32443326F00C724D4 /* GKPageScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		796AB6062443326F00C724D4 /* GKPageScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796AB5F12443326F00C724D4 /* GKPageScrollView.framework */; };
 		796AB6072443326F00C724D4 /* GKPageScrollView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 796AB5F12443326F00C724D4 /* GKPageScrollView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -64,34 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		60A20C3C221E77A800DB2193 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 60A20C1F221E77A700DB2193 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 60A20C26221E77A700DB2193;
-			remoteInfo = GKPageScrollViewSwift;
-		};
-		60A20C47221E77A800DB2193 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 60A20C1F221E77A700DB2193 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 60A20C26221E77A700DB2193;
-			remoteInfo = GKPageScrollViewSwift;
-		};
-		796AB5FB2443326F00C724D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 60A20C1F221E77A700DB2193 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 796AB5F02443326F00C724D4;
-			remoteInfo = GKPageScrollView;
-		};
-		796AB5FD2443326F00C724D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 60A20C1F221E77A700DB2193 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 60A20C26221E77A700DB2193;
-			remoteInfo = GKPageScrollViewSwift;
-		};
 		796AB6042443326F00C724D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 60A20C1F221E77A700DB2193 /* Project object */;
@@ -139,12 +109,9 @@
 		60A20C27221E77A700DB2193 /* GKPageScrollViewSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKPageScrollViewSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20C2A221E77A700DB2193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60A20C2C221E77A700DB2193 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		60A20C2F221E77A700DB2193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60A20C31221E77A800DB2193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60A20C34221E77A800DB2193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60A20C36221E77A800DB2193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60A20C3B221E77A800DB2193 /* GKPageScrollViewSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		60A20C46221E77A800DB2193 /* GKPageScrollViewSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20CBA221E78D300DB2193 /* libGKNavigationBarViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGKNavigationBarViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20CBC221E78D300DB2193 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A20CBE221E78D300DB2193 /* libSnapKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSnapKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +142,6 @@
 		796AB5F12443326F00C724D4 /* GKPageScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GKPageScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		796AB5F32443326F00C724D4 /* GKPageScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPageScrollView.h; sourceTree = "<group>"; };
 		796AB5F42443326F00C724D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		796AB5F92443326F00C724D4 /* GKPageScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKPageScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C48BB8243AF94D000B0815 /* GKPageScrollViewSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GKPageScrollViewSwift.podspec; path = ../../GKPageScrollViewSwift.podspec; sourceTree = "<group>"; };
 		D7A91B6B250E2AC1006BB154 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		F94C926241763436B8AA17A8 /* Pods-GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKPageScrollViewSwift.debug.xcconfig"; path = "Target Support Files/Pods-GKPageScrollViewSwift/Pods-GKPageScrollViewSwift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -191,32 +157,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60A20C38221E77A800DB2193 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		60A20C43221E77A800DB2193 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		796AB5EE2443326F00C724D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		796AB5F62443326F00C724D4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				796AB5FA2443326F00C724D4 /* GKPageScrollView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,10 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				60A20C27221E77A700DB2193 /* GKPageScrollViewSwift.app */,
-				60A20C3B221E77A800DB2193 /* GKPageScrollViewSwiftTests.xctest */,
-				60A20C46221E77A800DB2193 /* GKPageScrollViewSwiftUITests.xctest */,
 				796AB5F12443326F00C724D4 /* GKPageScrollView.framework */,
-				796AB5F92443326F00C724D4 /* GKPageScrollViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,7 +273,6 @@
 				60A20D04221E80AA00DB2193 /* Demo */,
 				60A20C2A221E77A700DB2193 /* AppDelegate.swift */,
 				60A20C2C221E77A700DB2193 /* ViewController.swift */,
-				60A20C2E221E77A700DB2193 /* Main.storyboard */,
 				60A20C31221E77A800DB2193 /* Assets.xcassets */,
 				60A20C33221E77A800DB2193 /* LaunchScreen.storyboard */,
 				60A20C36221E77A800DB2193 /* Info.plist */,
@@ -497,42 +437,6 @@
 			productReference = 60A20C27221E77A700DB2193 /* GKPageScrollViewSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
-		60A20C3A221E77A800DB2193 /* GKPageScrollViewSwiftTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 60A20C52221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwiftTests" */;
-			buildPhases = (
-				60A20C37221E77A800DB2193 /* Sources */,
-				60A20C38221E77A800DB2193 /* Frameworks */,
-				60A20C39221E77A800DB2193 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				60A20C3D221E77A800DB2193 /* PBXTargetDependency */,
-			);
-			name = GKPageScrollViewSwiftTests;
-			productName = GKPageScrollViewSwiftTests;
-			productReference = 60A20C3B221E77A800DB2193 /* GKPageScrollViewSwiftTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		60A20C45221E77A800DB2193 /* GKPageScrollViewSwiftUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 60A20C55221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwiftUITests" */;
-			buildPhases = (
-				60A20C42221E77A800DB2193 /* Sources */,
-				60A20C43221E77A800DB2193 /* Frameworks */,
-				60A20C44221E77A800DB2193 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				60A20C48221E77A800DB2193 /* PBXTargetDependency */,
-			);
-			name = GKPageScrollViewSwiftUITests;
-			productName = GKPageScrollViewSwiftUITests;
-			productReference = 60A20C46221E77A800DB2193 /* GKPageScrollViewSwiftUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		796AB5F02443326F00C724D4 /* GKPageScrollView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 796AB6082443326F00C724D4 /* Build configuration list for PBXNativeTarget "GKPageScrollView" */;
@@ -551,25 +455,6 @@
 			productReference = 796AB5F12443326F00C724D4 /* GKPageScrollView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		796AB5F82443326F00C724D4 /* GKPageScrollViewTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 796AB60C2443326F00C724D4 /* Build configuration list for PBXNativeTarget "GKPageScrollViewTests" */;
-			buildPhases = (
-				796AB5F52443326F00C724D4 /* Sources */,
-				796AB5F62443326F00C724D4 /* Frameworks */,
-				796AB5F72443326F00C724D4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				796AB5FC2443326F00C724D4 /* PBXTargetDependency */,
-				796AB5FE2443326F00C724D4 /* PBXTargetDependency */,
-			);
-			name = GKPageScrollViewTests;
-			productName = GKPageScrollViewTests;
-			productReference = 796AB5F92443326F00C724D4 /* GKPageScrollViewTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -585,23 +470,9 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
 					};
-					60A20C3A221E77A800DB2193 = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
-						TestTargetID = 60A20C26221E77A700DB2193;
-					};
-					60A20C45221E77A800DB2193 = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
-						TestTargetID = 60A20C26221E77A700DB2193;
-					};
 					796AB5F02443326F00C724D4 = {
 						CreatedOnToolsVersion = 11.4;
 						LastSwiftMigration = 1140;
-					};
-					796AB5F82443326F00C724D4 = {
-						CreatedOnToolsVersion = 11.4;
-						TestTargetID = 60A20C26221E77A700DB2193;
 					};
 				};
 			};
@@ -619,10 +490,7 @@
 			projectRoot = "";
 			targets = (
 				60A20C26221E77A700DB2193 /* GKPageScrollViewSwift */,
-				60A20C3A221E77A800DB2193 /* GKPageScrollViewSwiftTests */,
-				60A20C45221E77A800DB2193 /* GKPageScrollViewSwiftUITests */,
 				796AB5F02443326F00C724D4 /* GKPageScrollView */,
-				796AB5F82443326F00C724D4 /* GKPageScrollViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -634,33 +502,11 @@
 			files = (
 				60A20C35221E77A800DB2193 /* LaunchScreen.storyboard in Resources */,
 				60A20C32221E77A800DB2193 /* Assets.xcassets in Resources */,
-				60A20C30221E77A700DB2193 /* Main.storyboard in Resources */,
 				79C48BB9243AF94D000B0815 /* GKPageScrollViewSwift.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60A20C39221E77A800DB2193 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		60A20C44221E77A800DB2193 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		796AB5EF2443326F00C724D4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		796AB5F72443326F00C724D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -759,20 +605,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60A20C37221E77A800DB2193 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		60A20C42221E77A800DB2193 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		796AB5ED2443326F00C724D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -785,36 +617,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		796AB5F52443326F00C724D4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		60A20C3D221E77A800DB2193 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 60A20C26221E77A700DB2193 /* GKPageScrollViewSwift */;
-			targetProxy = 60A20C3C221E77A800DB2193 /* PBXContainerItemProxy */;
-		};
-		60A20C48221E77A800DB2193 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 60A20C26221E77A700DB2193 /* GKPageScrollViewSwift */;
-			targetProxy = 60A20C47221E77A800DB2193 /* PBXContainerItemProxy */;
-		};
-		796AB5FC2443326F00C724D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 796AB5F02443326F00C724D4 /* GKPageScrollView */;
-			targetProxy = 796AB5FB2443326F00C724D4 /* PBXContainerItemProxy */;
-		};
-		796AB5FE2443326F00C724D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 60A20C26221E77A700DB2193 /* GKPageScrollViewSwift */;
-			targetProxy = 796AB5FD2443326F00C724D4 /* PBXContainerItemProxy */;
-		};
 		796AB6052443326F00C724D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 796AB5F02443326F00C724D4 /* GKPageScrollView */;
@@ -823,14 +628,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		60A20C2E221E77A700DB2193 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				60A20C2F221E77A700DB2193 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		60A20C33221E77A800DB2193 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1015,84 +812,6 @@
 			};
 			name = Release;
 		};
-		60A20C53221E77A800DB2193 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKPageScrollViewSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKPageScrollViewSwift.app/GKPageScrollViewSwift";
-			};
-			name = Debug;
-		};
-		60A20C54221E77A800DB2193 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKPageScrollViewSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKPageScrollViewSwift.app/GKPageScrollViewSwift";
-			};
-			name = Release;
-		};
-		60A20C56221E77A800DB2193 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKPageScrollViewSwiftUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GKPageScrollViewSwift;
-			};
-			name = Debug;
-		};
-		60A20C57221E77A800DB2193 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKPageScrollViewSwiftUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyinsitanfm.GKPageScrollViewSwiftUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GKPageScrollViewSwift;
-			};
-			name = Release;
-		};
 		796AB6092443326F00C724D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1154,46 +873,6 @@
 			};
 			name = Release;
 		};
-		796AB60D2443326F00C724D4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKPageScrollViewTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.gknavigationbarswift.GKPageScrollViewTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKPageScrollViewSwift.app/GKPageScrollViewSwift";
-			};
-			name = Debug;
-		};
-		796AB60E2443326F00C724D4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GKPageScrollViewTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.gknavigationbarswift.GKPageScrollViewTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKPageScrollViewSwift.app/GKPageScrollViewSwift";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1215,38 +894,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60A20C52221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwiftTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				60A20C53221E77A800DB2193 /* Debug */,
-				60A20C54221E77A800DB2193 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		60A20C55221E77A800DB2193 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwiftUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				60A20C56221E77A800DB2193 /* Debug */,
-				60A20C57221E77A800DB2193 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		796AB6082443326F00C724D4 /* Build configuration list for PBXNativeTarget "GKPageScrollView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				796AB6092443326F00C724D4 /* Debug */,
 				796AB60A2443326F00C724D4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		796AB60C2443326F00C724D4 /* Build configuration list for PBXNativeTarget "GKPageScrollViewTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				796AB60D2443326F00C724D4 /* Debug */,
-				796AB60E2443326F00C724D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

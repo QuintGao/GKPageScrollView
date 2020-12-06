@@ -63,7 +63,7 @@
 @property (nonatomic, assign) CGFloat ceilPointHeight;
 
 /// 是否内部控制指示器的显示与隐藏（默认为NO）
-@property (nonatomic, assign) BOOL    isControlVerticalIndicator;
+@property (nonatomic, assign, getter=isControlVerticalIndicator) BOOL    controlVerticalIndicator;
 
 - (instancetype)initWithDelegate:(id<GKPageSmoothViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;

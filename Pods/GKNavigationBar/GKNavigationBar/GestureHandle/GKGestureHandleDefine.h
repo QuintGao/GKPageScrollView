@@ -11,8 +11,6 @@
 
 #import <objc/runtime.h>
 #import "GKGestureHandleConfigure.h"
-#import "UIViewController+GKGestureHandle.h"
-#import "UINavigationController+GKGestureHandle.h"
 
 #define GKGestureConfigure [GKGestureHandleConfigure sharedInstance]
 

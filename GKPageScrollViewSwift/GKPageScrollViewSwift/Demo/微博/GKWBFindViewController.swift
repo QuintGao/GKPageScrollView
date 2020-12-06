@@ -18,6 +18,8 @@ class GKWBFindViewController: GKDemoBaseViewController {
     lazy var topView: UIView = {
         let topView = UIView()
         topView.backgroundColor = UIColor.white
+        topView.alpha = 0
+        topView.isUserInteractionEnabled = false
         return topView
     }()
     
@@ -32,9 +34,9 @@ class GKWBFindViewController: GKDemoBaseViewController {
     lazy var headerView: UIView = {
         let headerImg = UIImage(named: "wb_find")
         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: (kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!) + CGFloat(kStatusBar_Height)))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: (kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!) + GK_STATUSBAR_HEIGHT))
         
-        let imgView = UIImageView(frame: CGRect(x: 0, y: CGFloat(kStatusBar_Height), width: kScreenW, height: kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!))
+        let imgView = UIImageView(frame: CGRect(x: 0, y: GK_STATUSBAR_HEIGHT, width: kScreenW, height: kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!))
         imgView.image = headerImg
         headerView.addSubview(imgView)
         return headerView
@@ -136,7 +138,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
         }
         
         for (idx, vc) in self.childVCs.enumerated() {
-            self.addChild(vc)
+//            self.addChild(vc)
             scrollView.addSubview(vc.view)
             
             vc.view.frame = CGRect(x: CGFloat(idx) * scrollW, y: 0, width: scrollW, height: scrollH)
@@ -147,11 +149,16 @@ class GKWBFindViewController: GKDemoBaseViewController {
     }()
     
     var isMainCanScroll = false
+    var shouldPop = true
     
     var backItem: UIBarButtonItem? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.gk_statusBarStyle = .default
+        self.gk_systemGestureHandleDisabled = true
+        self.gk_popDelegate = self
         
         self.view.addSubview(self.pageScrollView)
         self.view.addSubview(self.topView)
@@ -165,15 +172,13 @@ class GKWBFindViewController: GKDemoBaseViewController {
             make.height.equalTo(kStatusBar_Height)
         }
         
-        self.pageScrollView.mainTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+        self.pageScrollView.mainTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.pageScrollView.mainTableView.mj_header?.endRefreshing()
+                self?.pageScrollView.mainTableView.mj_header?.endRefreshing()
             })
         })
         
         self.pageScrollView.reloadData()
-        
-        self.gk_statusBarStyle = .default
     }
     
     @objc func backAction() {
@@ -205,12 +210,11 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
         
         if self.isMainCanScroll {
             self.backBtn.isHidden = true
-            self.gk_popDelegate = nil
+            self.shouldPop = true
         }else {
             self.backBtn.isHidden = false
-            self.gk_popDelegate = self
+            self.shouldPop = false
         }
-        
         
         // topView透明度渐变
         // contentOffsetY GK_STATUSBAR_HEIGHT-64  topView的alpha 0-1
@@ -218,12 +222,14 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
         
         var alpha: CGFloat = 0;
         
-        if (offsetY <= kStatusBar_Height) { // alpha: 0
+        let statusBarH = GK_STATUSBAR_HEIGHT
+        
+        if (offsetY <= statusBarH) { // alpha: 0
             alpha = 0;
         }else if (offsetY >= 64) { // alpha: 1
             alpha = 1;
         }else { // alpha: 0-1
-            alpha = (offsetY - kStatusBar_Height) / (64 - kStatusBar_Height);
+            alpha = (offsetY - statusBarH) / (64 - statusBarH);
         }
         
         self.topView.alpha = alpha;
@@ -241,7 +247,13 @@ extension GKWBFindViewController: UIScrollViewDelegate {
 }
 
 extension GKWBFindViewController: GKViewControllerPopDelegate {
-    func viewControllerPopScrollEnded() {
-        self.backAction()
+    func viewControllerPopScrollEnded(finished: Bool) {
+        if (!self.shouldPop) {
+            backAction()
+        }
+    }
+    
+    override func navigationShouldPopOnGesture() -> Bool {
+        return self.shouldPop
     }
 }

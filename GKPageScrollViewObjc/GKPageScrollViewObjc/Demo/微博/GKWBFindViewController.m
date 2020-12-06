@@ -11,8 +11,6 @@
 #import "GKWBListViewController.h"
 #import "JXCategoryView.h"
 #import <MJRefresh/MJRefresh.h>
-#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
-#import <GKNavigationBar/UIImage+GKCategory.h>
 
 @interface GKWBFindViewController ()<GKPageScrollViewDelegate, JXCategoryViewDelegate, UIScrollViewDelegate, GKViewControllerPopDelegate, GKPageTableViewGestureDelegate>
 
@@ -34,12 +32,18 @@
 
 @property (nonatomic, assign) BOOL                      isMainCanScroll;
 
+@property (nonatomic, assign) BOOL                      shouldPop;
+
 @end
 
 @implementation GKWBFindViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.gk_systemGestureHandleDisabled = YES;
+    self.gk_popDelegate = self;
+    self.shouldPop = YES;
     
     [self.view addSubview:self.pageScrollView];
     [self.view addSubview:self.topView];
@@ -53,7 +57,9 @@
         make.height.mas_equalTo(GK_STATUSBAR_HEIGHT);
     }];
     
+    __weak __typeof(self) weakSelf = self;
     self.pageScrollView.mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        __strong __typeof(weakSelf) self = weakSelf;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.pageScrollView.mainTableView.mj_header endRefreshing];
         });
@@ -88,10 +94,10 @@
     self.isMainCanScroll = isMainCanScroll;
     
     if (!isMainCanScroll) {
-        self.gk_popDelegate = self;
+        self.shouldPop = NO;
         self.backBtn.hidden = NO;
     }else {
-        self.gk_popDelegate = nil;
+        self.shouldPop = YES;
         self.backBtn.hidden = YES;
     }
     
@@ -118,14 +124,21 @@
     if (otherGestureRecognizer == self.contentScrollView.panGestureRecognizer) {
         return NO;
     }
-    return [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]];
+    return [gestureRecognizer.view isKindOfClass:[UIScrollView class]] && [otherGestureRecognizer.view isKindOfClass:[UIScrollView class]];
 }
 
 #pragma mark - GKViewControllerPopDelegate
-- (void)viewControllerPopScrollEnded {
+- (void)viewControllerPopScrollEnded:(BOOL)finished {
     NSLog(@"滑动结束");
     
-    [self backAction];
+    if (!self.shouldPop) {
+        [self backAction];
+    }
+}
+
+#pragma mark - GKGesturePopHandlerProtocol
+- (BOOL)navigationShouldPopOnGesture {
+    return self.shouldPop;
 }
 
 #pragma mark - 懒加载
@@ -143,8 +156,8 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.ceilPointHeight = GK_STATUSBAR_HEIGHT;
-//        _pageScrollView.isAllowListRefresh = YES;
-        _pageScrollView.isDisableMainScrollInCeil = YES;
+        _pageScrollView.allowListRefresh = YES;
+        _pageScrollView.disableMainScrollInCeil = YES;
         _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
@@ -153,9 +166,8 @@
 - (UIView *)headerView {
     if (!_headerView) {
         UIImage *headerImg = [UIImage imageNamed:@"wb_find"];
-        
+    
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width + GK_STATUSBAR_HEIGHT)];
-//        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 1400)];
         
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, GK_STATUSBAR_HEIGHT, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width)];
         imgView.image = headerImg;
@@ -237,12 +249,11 @@
         }
         
         [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [self addChildViewController:obj];
+//            [self addChildViewController:obj];
             [self->_contentScrollView addSubview:obj.view];
-            
             obj.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
         }];
-        
+
         self.contentScrollView.contentSize = CGSizeMake(self.childVCs.count * scrollW, 0);
     }
     return _contentScrollView;

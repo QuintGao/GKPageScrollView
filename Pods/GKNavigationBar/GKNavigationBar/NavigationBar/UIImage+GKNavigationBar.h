@@ -1,5 +1,5 @@
 //
-//  UIImage+GKCategory.h
+//  UIImage+GKNavigationBar.h
 //  GKNavigationBar
 //
 //  Created by gaokun on 2019/11/1.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIImage (GKCategory)
+@interface UIImage (GKNavigationBar)
 
 /// 获取NSBundle或Framework里面的图片
 /// @param name 图片名称

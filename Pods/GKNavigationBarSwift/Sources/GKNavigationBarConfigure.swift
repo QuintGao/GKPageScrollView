@@ -171,7 +171,13 @@ open class GKNavigationBarConfigure : NSObject {
     /// 获取当前item修复间距
     open func gk_fixedSpace() -> CGFloat {
         let screenSize = UIScreen.main.bounds.size
-        return min(screenSize.width, screenSize.height) > 375.0 ? 20.0 : 16.0
+        // 经测试发现iPhone 12，iPhone 12，默认导航栏间距是16，需要单独处理
+        let deviceWidth = min(screenSize.width, screenSize.height)
+        let deviceHeight = max(screenSize.width, screenSize.height)
+        if deviceWidth == 390.0 && deviceHeight == 844.0 {
+            return 16.0
+        }
+        return deviceWidth > 375.0 ? 20.0 : 16.0
     }
     
     fileprivate func getKeyWindow() -> UIWindow? {

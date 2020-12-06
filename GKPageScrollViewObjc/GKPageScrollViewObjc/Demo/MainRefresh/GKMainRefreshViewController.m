@@ -22,7 +22,9 @@
     self.gk_navLineHidden = YES;
     self.gk_navTitleColor = [UIColor whiteColor];
     
+    __weak __typeof(self) weakSelf = self;
     self.pageScrollView.mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        __strong __typeof(weakSelf) self = weakSelf;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kRefreshDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.pageScrollView.mainTableView.mj_header endRefreshing];
             

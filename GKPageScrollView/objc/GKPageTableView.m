@@ -24,6 +24,21 @@
         return [self.gestureDelegate pageTableView:self gestureRecognizer:gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:otherGestureRecognizer];
     }
     
+    if (self.horizontalScrollViewList) {
+        __block BOOL exist = NO;
+        [self.horizontalScrollViewList enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([gestureRecognizer.view isEqual:obj]) {
+                exist = YES;
+                *stop = YES;
+            }
+            if ([otherGestureRecognizer.view isEqual:obj]) {
+                exist = YES;
+                *stop = YES;
+            }
+        }];
+        if (exist) return NO;
+    }
+    
     return [gestureRecognizer.view isKindOfClass:[UIScrollView class]] && [otherGestureRecognizer.view isKindOfClass:[UIScrollView class]];
 }
 

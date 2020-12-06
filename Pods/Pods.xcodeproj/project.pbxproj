@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		0096B5A8BA8E4F2BFD8839D0FE7CD696 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FD08DCA1BC721295B3398E2094B028 /* MASLayoutConstraint.m */; };
 		013FB481056C447A5ADADF531121A391 /* VTMenuBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99F067662378B2B3E41C19E8ABFF65CF /* VTMenuBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		015F70DA24604C046DFFCE2D5589100C /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C5BDFEA9591D386265C51B0C31DF8C /* GKNavigationBarConfigure.m */; };
 		03595F3C5D00ACA30ECC58BCE9C7D100 /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB8A64CBC30B0164FC81985215C6D00 /* WMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03E4C1FCC0520D9DB03E3634824D5D55 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FBEFD7390FB70F578017F422142FFD9 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		04A09FCC42A91987A811755BBCABAD74 /* JXSegmentedIndicatorBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA3B8738A6CCD61D8A3B9C37784AAC /* JXSegmentedIndicatorBackgroundView.swift */; };
-		04C2B316CD86A1C28C81F20D0A7A2F42 /* UINavigationItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC640154EA94FD429C30859EA77577B /* UINavigationItem+GKCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		059CAFE5DC6BA046A6078D25687D4058 /* JXCategoryIndicatorCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B143FE7BC270334EA67AC5D0B31C2 /* JXCategoryIndicatorCellModel.m */; };
 		0684C6DBDF4D31A08D9314931509BE5A /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CB2BEED94532AE13E6CEC3850F6A18 /* MJRefreshConfig.m */; };
 		080215BBF78C59C20A7ABBB3FD141D2C /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 942BA6FB134866953945AB6450293190 /* MJRefreshNormalHeader.m */; };
@@ -29,8 +27,9 @@
 		0D4690D6147BD081C2C2D211BC951FCD /* JXSegmentedIndicatorParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAA10F2C17DF8AB96DFC3ECCB7C11C /* JXSegmentedIndicatorParams.swift */; };
 		0D7A7F3919AE48736753181756DE8AE8 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B169FB853AF60DC63B17B7A9B9484C /* Typealiases.swift */; };
 		0DAE43C39F69C552043977A0B1D91154 /* JXCategoryIndicatorParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F2E99D97B083965E0F14B165479B6 /* JXCategoryIndicatorParamsModel.m */; };
+		0DEF01650A4705B380C14538EB5FC5C4 /* GKPopAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 32EA2E3FCB7D70E3AC4F19153632DD1D /* GKPopAnimatedTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0ECDB907AC4745D050A991403420FD3F /* JXCategoryNumberCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = DB1B8EB18A75A0C81074B5E67F7C4200 /* JXCategoryNumberCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0EF405BCE608A863CED15A78D93E18F3 /* UINavigationController+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 465A6ED34E232CBA5D1B959C21CC4AB7 /* UINavigationController+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0ECF9269C209EAA78E99FCC11F748713 /* GKNavigationBarDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 34B43C762354329C5F6C428A46E9BC3D /* GKNavigationBarDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0F64F8A6324333D7C23CAC66E1E73CDE /* JXSegmentedIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A461CDB44620BEDC756310D5A4333 /* JXSegmentedIndicatorProtocol.swift */; };
 		0FA8E62C7A4A6DA9BB841007B5E16CD4 /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33591A03FA8D32F002F8780DDEE086 /* ConstraintMakerFinalizable.swift */; };
 		0FD54DD1B1D1196D973708CD5433A09E /* JXCategoryImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E09126FBA3036C1CA4FE36C19553F /* JXCategoryImageView.m */; };
@@ -55,7 +54,6 @@
 		1632F451F57BE015AAA711C3DB2528EC /* JXCategoryDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFCDA850460FDE5A41661B6EB695321 /* JXCategoryDotView.m */; };
 		164240B0D217BFAFDDB0D7FA6BF5D2FF /* UIImage+GKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F566903A030869A285ADA6B7B230D /* UIImage+GKExtension.swift */; };
 		171C1602356A51CB12225A27651E0EEF /* JXCategoryTitleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C51CFF0965C177EF4F36334604D009F /* JXCategoryTitleImageView.m */; };
-		177A7336D4BE0615780063D751B6245B /* UIViewController+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F21B78537EABADBC4CB11AFFEAB207FC /* UIViewController+GKGestureHandle.m */; };
 		177BE4DFCE4E5BC845DF4393F2F22D83 /* JXSegmentedTitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A19AF00B9921B8F54911446A88E4A /* JXSegmentedTitleImageCell.swift */; };
 		17AC0DD01A99D3BD6BADC025AD0879C9 /* JXSegmentedTitleGradientDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D78C365DF93228CBA1ECD199483E5 /* JXSegmentedTitleGradientDataSource.swift */; };
 		17C5F480B24C438D7F63CB49AF8B1A6E /* UIColor+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1810B1390B9FD9523D04B2F889E07 /* UIColor+VTMagic.m */; };
@@ -63,31 +61,30 @@
 		1872FC950D0891DD32F9397714B65C6D /* JXCategoryBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E6E4FD7852FDFDA97A92D45E2FE0AD /* JXCategoryBaseView.m */; };
 		18F3CC07F7B14ECE1EF9AB7EF97C4BEF /* JXCategoryDotCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 055C01636E114FBF1E998233F6C1D1D7 /* JXCategoryDotCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1AEFAF26D7F51184278BD57FF3B14D83 /* JXCategoryIndicatorRainbowLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA3AE54EAF74E0841DA4BCC2293EA /* JXCategoryIndicatorRainbowLineView.m */; };
-		1B2F15DF8714007E995192A5A49C3532 /* UIViewController+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C3F058F3D6E9938E609612CF91360735 /* UIViewController+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1C024E996F64C68CFAD2E5DEBADCCDD6 /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CFFA8A7AAC2C92BD75D1297F12F6653 /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1CB17BFD0846FCD2F1CFDE86C000D8CD /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = F71CE8B3B70AFCB020CD2F5C6B2CF96C /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1D49C395568CAEF21C404E6F52E50F3D /* JXCategoryTitleVerticalZoomCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF70C19190C2D5FBA9364347C5F48B4 /* JXCategoryTitleVerticalZoomCellModel.m */; };
 		1DC62D003BC0A73F8E4C89CCF3C47D87 /* JXSegmentedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E654D6DDAA45BAC41963F2435625A8C8 /* JXSegmentedCollectionView.swift */; };
-		1E53DBFAB3BAE61D63638D043EA26F78 /* GKPushAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 358AAAD8ED6643777E21C913756F050A /* GKPushAnimatedTransition.m */; };
 		1E5D56FF58658F9F45723CA2940489EE /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 961FD6C34A2786BC26C1D39CC558B1FE /* MASConstraintMaker.m */; };
 		1EE70FF9E58884A080B1B5FDF6DDF439 /* JXSegmentedView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 59BE67DFB173CA72ECBBA7502AD17F93 /* JXSegmentedView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F35401F52FAAF37ABF7FA07B19E2BB0 /* MJRefresh-framework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E3CB32D5EE2257AF23D6B9D2E698BBC /* MJRefresh-framework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F4CE0C2D9E500DA1AD6A4777153F7C1 /* MJRefreshStateTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE44542E4EC39BA06BA15684D66874A1 /* MJRefreshStateTrailer.m */; };
 		1F602A04EBF91D9F0E7BB255D1FBA7AC /* JXSegmentedNumberDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DB431AFD35E10ED952920126C27CA /* JXSegmentedNumberDataSource.swift */; };
 		1F86AFCE00D40EC14FC50C0899112488 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D0F2D0724832026DF0951B9E555D81 /* MJRefreshHeader.m */; };
+		209692519C62DB872BAA57C1921310FB /* UIImage+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BCB10772F444209DE1F04693A448A18 /* UIImage+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		217F6F93C6F0D1E1CC7BBE298DC358D3 /* JXSegmentedIndicatorTriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D55005D59A281059697DB4B16F349 /* JXSegmentedIndicatorTriangleView.swift */; };
 		21A2CE1A94E9F0D74495D64745E71A21 /* JXSegmentedIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED319C91EBABBC3879510D1D273CBA1 /* JXSegmentedIndicatorImageView.swift */; };
 		22A635BE37F24D172C32ECF5BC80C7FC /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB8A64CBC30B0164FC81985215C6D00 /* WMMenuItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		22F82C8A9136BA4885504C39031B29F5 /* JXCategoryIndicatorBallView.h in Headers */ = {isa = PBXBuildFile; fileRef = EFE8D1FC60B9DF48F6E68D9BE27F6FC2 /* JXCategoryIndicatorBallView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		23ADE504833B8933CC9B9ADF323C2948 /* JXCategoryIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA7F18113E30AF228047EDDCF938B8 /* JXCategoryIndicatorView.m */; };
 		23D2081ED324F3E72D742C0FD4FB4A83 /* JXSegmentedTitleImageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0FFB7E96E43FD831523CAC14631C1 /* JXSegmentedTitleImageItemModel.swift */; };
+		24EE79752EDA040089CF1EF629CCCA36 /* GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F9E538676FA5EA46F2B819BDAD76949 /* GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		26209D262578D7F540DEC3568978CC3A /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FBEFD7390FB70F578017F422142FFD9 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		265B1C373B07A4E00C1031F74BF2E7B6 /* JXSegmentedBaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D6E860F3494526C50BBA8B57B16C0 /* JXSegmentedBaseDataSource.swift */; };
 		2693977C8568BDCB1A5E8DF1DA5DAD1B /* JXSegmentedBaseItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FC298CF5030B983A209A6E2AFE920 /* JXSegmentedBaseItemModel.swift */; };
 		276EE563D9B688173DBBF47DB80D72D8 /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95210EED85DD0F034F285C45ADEF86D3 /* ConstraintLayoutGuideDSL.swift */; };
 		282F3D7C9242D215B02FA9FE0DC14AD4 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7249BBDB40B12B77443CC914652451 /* WMProgressView.m */; };
 		28400157B63F40AA135BF16780AB4B96 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B9C11E834CF5ACBF202BA65254643190 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		28E38696D0DE45CB1ADC2BCAE904954A /* GKGestureHandleDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = A31E9AFE9017CD6F52723C661F60FACB /* GKGestureHandleDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		293E1D3B02EE1304E81FEE2B74060599 /* UIViewController+GKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3776935D02C827E63074D7FC85DABD3 /* UIViewController+GKExtension.swift */; };
 		29DB3CF2D99F7495DF7E585D712C00D1 /* VTMagicProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 225AB4FD81F81E2C94E210391618DC09 /* VTMagicProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2A6B4EFF4FFA4EA4BD27C5E15201B29E /* JXSegmentedTitleAttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7272C200564A1CD2EFF3E0E32E25653 /* JXSegmentedTitleAttributeCell.swift */; };
@@ -96,7 +93,6 @@
 		2B20C49FE8E6BB9E20D68D26A7EC0720 /* WMMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9190F456615330D8A8BA1AB4D2ABE526 /* WMMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B3B17A0EA4A9EC201E86081D0C012E4 /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = EEC2F9E115FA24C5D1002959B4FE9532 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2C11A3A0C483F0447B60961AC484B47C /* JXSegmentedIndicatorLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A093B9EF65619CB7FAE3BCDF3DD441 /* JXSegmentedIndicatorLineView.swift */; };
-		2D6FBE7587044F908B533A587F4E9D85 /* UIScrollView+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E24E1B544F4A758036EA9D9813934D6 /* UIScrollView+GKGestureHandle.m */; };
 		2D99F36667E6CB07C28DB2AAC8D8318F /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4871790CABFAB01D1DB6383EB55BD45D /* UIScrollView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3002B1F703C9C1EB3F75244A9F7DE730 /* MJRefreshStateTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A10306F9831ADFE32ECDECBC34F8E /* MJRefreshStateTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3020DF587CB6063A7D9C386AAC63FD9D /* MJRefreshStateTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE44542E4EC39BA06BA15684D66874A1 /* MJRefreshStateTrailer.m */; };
@@ -108,16 +104,20 @@
 		31BE957D0E216B0DE23ECC8FF855F441 /* JXCategoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FDEE3D19AD77A3528A25382F799961 /* JXCategoryFactory.m */; };
 		334BD20730BB7DAD1A27AB5A0885ABE7 /* JXSegmentedTitleGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80904B9AE89BE539B86631CD360C2C1B /* JXSegmentedTitleGradientCell.swift */; };
 		3370B4CAB7B85154140B2F5C2CF5B14D /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B988651FA409DB3293707F1779ED91B4 /* NSBundle+MJRefresh.m */; };
+		33FF44B7D93295BEE19C6C949105CF15 /* GKNavigationInteractiveTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = F4809559800FA2F556E3A79E0DD9262F /* GKNavigationInteractiveTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		346D12D06485D1194F2C7DFCA2A92F48 /* GKPushAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 358AAAD8ED6643777E21C913756F050A /* GKPushAnimatedTransition.m */; };
 		35CDFA197D8219EB8DEFC227259A5C03 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEE401E6010562253436A932CF20433 /* ConstraintMakerRelatable.swift */; };
 		367F16DDE4BC3A613C50122902415C43 /* JXSegmentedDotItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13167ECD598321E0FC3172B7A787E117 /* JXSegmentedDotItemModel.swift */; };
 		36E309D51BE271015AB95EDF5867CDE6 /* JXCategoryIndicatorComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB21AF1E7C2077BBC344158E685BE2 /* JXCategoryIndicatorComponentView.m */; };
+		3725D3C0E0D42242035AF7653A8EEC43 /* UIViewController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 006030F0D1B613AE9F2286B6982DE3DF /* UIViewController+GKNavigationBar.m */; };
 		3732383FF24D77222D5AD649C9EB2E05 /* UIViewController+WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E9A27E93C557D0CB205A7E6B961DE7C /* UIViewController+WMPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37485663B38032B5D48CDAAAE3B66CDE /* UINavigationItem+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D998382F86255CC5C8CAE6CE54564D4D /* UINavigationItem+GKNavigationBar.m */; };
 		378E7736B4D7B69F0539A201C51B4115 /* VTMagicController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CAD9F8FA61497730AC3B858A92009CF /* VTMagicController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		38A67D0EF28AD598A84C45916C304502 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CF6CAC2C0827781ACE626A6DFB9386 /* MJRefreshAutoGifFooter.m */; };
+		39086A022E44EC0F2E2E5A2A81D62F35 /* UINavigationController+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CC62C76D05B42A8B298E6B86F67DC7 /* UINavigationController+GKGestureHandle.m */; };
 		3A6A672F3E6EFA112F71E4F8200E42D4 /* JXCategoryIndicatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AED21448FE3C545AE8F109130060955 /* JXCategoryIndicatorLineView.m */; };
 		3AAACC37D2E2894ADFDC5E588AC3788B /* JXCategoryListContainerRTLCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 383E9926C6A80FBAA63249FBE57D3716 /* JXCategoryListContainerRTLCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3ABF6D94F18D4B5F6C77CC9798EF478A /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B7B8A5AF1AAE077864617C7516B80A /* MJRefreshBackFooter.m */; };
-		3B5B4BC127CCFD3780A022B0F5266373 /* GKBaseAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5844A65AB8BC516341708E894AB09B53 /* GKBaseAnimatedTransition.m */; };
 		3C1007DA284A52CFA0E04268FC27A8C5 /* JXCategoryDotCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 153A6EB3791EB7CB03788ABE8A6A8DC2 /* JXCategoryDotCellModel.m */; };
 		3C93F45E9214AB8FF546A79E335B712F /* JXCategoryImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2800C22DA0EC3AE8BDEC9E8D0E4690AA /* JXCategoryImageCell.m */; };
 		3D5F17CA09254A77823C2A11C95DF11E /* JXCategoryBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B5309401B6B5FD9D508A50D3DA6AA4 /* JXCategoryBaseCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -132,7 +132,6 @@
 		41304DC14F798756DE6A94DF843E83B8 /* JXSegmentedDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B9FEE2128013BA405CF10F80BBFD54 /* JXSegmentedDotCell.swift */; };
 		4189F01C2EA5507A06C6735538CB72AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAC17E35C4C855B7DD30B7CFD8A28A0 /* UIKit.framework */; };
 		41F78640D6165F9B3AA9B835742C2B96 /* JXCategoryDotCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA31E8AED714CEA249AC7E3D7CABC0F /* JXCategoryDotCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		4236434E4DF22E5AEE5B30F4E0792567 /* GKNavigationBarDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 940AB6F752ACA0387E20F93C183D9A15 /* GKNavigationBarDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4268E348E6D5E9037A640ADC8E065009 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24934FD6FB2408B6E988B63A138F6F /* ConstraintMakerEditable.swift */; };
 		42947699890A199B08A896144A878D80 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B1B6C78856A9E5C6EE9E062E233A1C6 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		42FD9C7829015C4EEAF4AEFE4EE9077D /* VTMagicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BE3700ADAB3B34947ACA6FD080A6CC /* VTMagicController.m */; };
@@ -147,6 +146,7 @@
 		4CE091F886EC6324673EFE0AEBBEA0FE /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D563C90956E0AE0DF85D338EEE94CA5 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4CE7ACB109DF2C497CBC496B3F037929 /* UIScrollView+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B6181E1E030585B69D8A764FAC645EA /* UIScrollView+VTMagic.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4E66B7E9918BDB6FADC2A100E1EDE707 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AFF10D3F3BB50AE88F1D7ABF07428CD /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4F73E02BDC700E71F910684FB29A6F98 /* GKPopAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6B5A88A15794375C8F8B45C07FCC7E /* GKPopAnimatedTransition.m */; };
 		4FE01747B38216FF6ADDE6B62E318E7D /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5BD2F73513F5BF70E1045545975C6 /* MJRefreshGifHeader.m */; };
 		4FF29D62B584C0EFB58E82A275EA9EC1 /* JXSegmentedDotDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFB4218D0202032664DF0257AA9186 /* JXSegmentedDotDataSource.swift */; };
 		503EDBAA0EDA6000323BFB9066052592 /* MJRefreshNormalTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A20F1992409AAFF642C66C780D56FB6 /* MJRefreshNormalTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -154,9 +154,11 @@
 		50FBAA4E664988D1A8BE0193380463F6 /* JXSegmentedTitleAttributeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C16C8F3384C5DFEEFB1D137644074 /* JXSegmentedTitleAttributeDataSource.swift */; };
 		510E148118C3AC21D68C6FEE1525AA47 /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B4435D19134FD4DAC25CD54F5D3703DB /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		51D43642F396C9BE7B0CF25E52A3A7B3 /* JXCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6D7EFC81950E763631BB44C2CEF0B8 /* JXCategoryBaseCellModel.m */; };
+		521BA12285F075621A05315F8CC02388 /* UIBarButtonItem+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDBB3C9E752CB44C4FF9214E88FCE00 /* UIBarButtonItem+GKNavigationBar.m */; };
 		5278AF8E01155CA611036CB332959E97 /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = E759A447B9DB034CE7D5E35B36C8C68A /* WMScrollView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		536518CDDE0EB066D43CC2CA273C9E3C /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 50709B1711A262481A365A3309E38C8C /* MJRefreshBackStateFooter.m */; };
 		53F1C88E914FE97D0126F71520F6966A /* MJRefreshTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E152CEDDB8AE06356013D330163D808 /* MJRefreshTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54980FC147BFFA1B3D83DC014DA4AF4D /* UIImage+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 074B050BF42709A19BC3BAE37A45317B /* UIImage+GKNavigationBar.m */; };
 		54D1686EFA926E23C4BED5EEE7A19C08 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E682100311463551CD929BB99541AA /* ConstraintInsets.swift */; };
 		55367C0B539CDDDD5A2154AC9AD9D130 /* JXCategoryIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 63447545D86659EBF8018986441D0390 /* JXCategoryIndicatorView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		553D242721E9927D85EA16B78BED99FB /* JXCategoryNumberCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BED7762BF6218AB5F8DD4667237912EE /* JXCategoryNumberCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -169,9 +171,6 @@
 		5786F2FCAACB504B79EF1C18B5F897F3 /* UINavigationItem+GKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08177DFDB4AA1DC6E211A158705D2F9 /* UINavigationItem+GKExtension.swift */; };
 		586E06AA2C41EAC2E0B46FD7624ED85B /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F90E898F2BADA8EBF1F07935D62CB /* MJRefreshBackGifFooter.m */; };
 		593A97079F40108FC7E0E314A0A61521 /* JXCategoryNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = A57625FCEF7D8DC822C88E7A7680D0A3 /* JXCategoryNumberView.m */; };
-		599B4F0BDCEAE2EBB3B665DB5FB62AC2 /* UIBarButtonItem+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D03CB5558909EDA97F627B76DE8CC /* UIBarButtonItem+GKCategory.m */; };
-		59A39663B744A976AC3BCC9603A92B98 /* UIBarButtonItem+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = FEF0E97A6F2AED7EE13623E85DE76583 /* UIBarButtonItem+GKCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		59A95F330DC2D41B50D1BAABABB974F6 /* UIViewController+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D84AAFACB895CA4BE2D702DCCF8739A /* UIViewController+GKGestureHandle.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		59EA578EED8BAC126FDC60C32AE11521 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A211FE5E0D8E6EE0A7B552ADDDB747A /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		5A33CDB198E97D610E75C411A5C7BE9A /* JXSegmentedNumberItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64FDD68DAAEE97ABFA449A27CAF28 /* JXSegmentedNumberItemModel.swift */; };
 		5AB77AD1CC064A779B429E79B0EAB56D /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B988651FA409DB3293707F1779ED91B4 /* NSBundle+MJRefresh.m */; };
@@ -183,16 +182,17 @@
 		5DBFB9A0499F04CBE806486211A4ABD0 /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE3D574BA3D68B634EC71C4F0C2D55 /* SnapKit-dummy.m */; };
 		5DCDBCA5717DB2039C0C388272F37B1C /* VTMagic-framework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5BD4DCE84699786D496CAFED1BF37A /* VTMagic-framework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DDA7A25C4D61DDA5E387C6D7BEFCF51 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 20E517059A7B79563BEB0D1496944269 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E22A6A77BC8B723539A10B369B46776 /* UIScrollView+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A9156A88912C22026F67DE8F5B0ABE7 /* UIScrollView+GKGestureHandle.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5E5C596B2210ADD333663FC7C5DE3F7D /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD84280F1D59E18A9E95550A2C346A /* MJRefreshComponent.m */; };
 		5E8BB6D1B92F499467F10E6D8AA089B3 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A28C3E0360F407DD4C512C8BAEB6D24F /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5EF4B968A8FA8C8998F41B5EA57FF1CC /* MJRefreshStateTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A10306F9831ADFE32ECDECBC34F8E /* MJRefreshStateTrailer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5FD07032F65FBE86F530B6D46F5205C6 /* WMPageController-framework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C6502406CB93C84AF48BB2DB7CB86E /* WMPageController-framework-dummy.m */; };
 		5FFFA76FE071D2821368FACF6532F536 /* JXSegmentedViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD27D0380609E58F342A87AF30670D48 /* JXSegmentedViewTool.swift */; };
+		605F2300548203F72C650BE7416227FB /* GKNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5472A32B997C61C349179D32A631AC /* GKNavigationBar-dummy.m */; };
 		60E9424827FFD73AADBBB3FCB322824C /* MJRefresh-library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26209008724EC6BEA4495104732B5254 /* MJRefresh-library-dummy.m */; };
 		61D5D2FDADA946CB045A0823CF566367 /* JXCategoryIndicatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 423AB3DB3901474F4F9E8F44240FF086 /* JXCategoryIndicatorProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		631C935EDE60A17221BCA97F79FA5707 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CB2BEED94532AE13E6CEC3850F6A18 /* MJRefreshConfig.m */; };
 		639F248267CAF4CE257870F74336F295 /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE4ADC748B0D74489F1806D75F3ADD /* MJRefreshAutoFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63A6118675299577117F6E9501ADE8D7 /* UINavigationItem+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D29685B8BC88451CE5B53EDF4D6D7DC /* UINavigationItem+GKCategory.m */; };
 		63E0283E74256A4A0D00CB19EA2BDC82 /* JXCategoryCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B095C08D882BE1BF1D30ED7700A74 /* JXCategoryCollectionView.m */; };
 		63EAA78E21793912CDF0B83C0F57ED35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
 		63F87C318437740E8202E4D3DD0826FA /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B12C6998F3B9AB1C404CD3734A73CA /* MASCompositeConstraint.m */; };
@@ -200,12 +200,10 @@
 		64C9AFAE337310D37638D1ECDB2AAD27 /* VTMagic-library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1695861F736695A56AAB53474776261F /* VTMagic-library-dummy.m */; };
 		65E88072A2BDC576BFC85E67EF9FBBC6 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B8B0F4BFB1E74B17D693F3509807E07 /* MASUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6652515B10E8D703040438B8CCC4F87C /* JXCategoryIndicatorRainbowLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EBE30868124DA2FCA04EC09E3E088E9 /* JXCategoryIndicatorRainbowLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		67076BD25D0E7043CBCE4D49D24D33BA /* GKNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5472A32B997C61C349179D32A631AC /* GKNavigationBar-dummy.m */; };
 		67939071BB6319FA32FA0571DF0D4653 /* VTMagicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BE3700ADAB3B34947ACA6FD080A6CC /* VTMagicController.m */; };
 		69CB46A87CE30E5F5F1967757EDE74E8 /* JXCategoryTitleImageCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FF3838F8038A942FAB4BFA56D9ED81B7 /* JXCategoryTitleImageCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6A6DE95DA112778C758F4FB954230CCE /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F246C26E7B48F94775F27DBEFCE4C639 /* WMMenuView.m */; };
 		6B43F2F53DD6C161CF414A9BF67550C5 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3559E625E1790FDC973B5F0F176F2 /* ConstraintDSL.swift */; };
-		6BCF4C98C1CC321455D00E12447E7A49 /* GKPopAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 32EA2E3FCB7D70E3AC4F19153632DD1D /* GKPopAnimatedTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6D37D0248876BC83F012BFEBDA6D48D0 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F90E898F2BADA8EBF1F07935D62CB /* MJRefreshBackGifFooter.m */; };
 		6DF9DBDD41DD7562D5B5D5AE6747DED5 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C14E27ECF83721522D417C59EB638 /* MJRefreshFooter.m */; };
 		6F26FC610135C7E461012CC3E6867FDC /* VTContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 681544FE9C1CB6B10808F6FD91D649D7 /* VTContentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -213,24 +211,23 @@
 		7183596104101B15A41FB01B158F12D3 /* GKBaseAnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C10EBD07B718C3ED0AF60015351D90 /* GKBaseAnimatedTransition.swift */; };
 		728B4FBF4E6CE5CE04462D1A877D4E33 /* JXCategoryIndicatorBallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B34A3B49253B96B65CAF93E04FEA000 /* JXCategoryIndicatorBallView.m */; };
 		72C2B5D60A24B4B663C8994276A962B6 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26393C86A0A548BB518FADE5E21DC5CC /* ConstraintOffsetTarget.swift */; };
-		7503398F23B4DCBFD396374068BC81E9 /* GKNavigationInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC46C19C0DADE99DC673CC728AA0 /* GKNavigationInteractiveTransition.m */; };
-		751945B1E34FA815A33907C3FBD12F68 /* UIImage+GKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 76AA55ACF9D91D0384EB432FA3F30059 /* UIImage+GKCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7538968B16608FF0306C2AD95E2B6195 /* UIViewController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04149FF5208B4CEC530B2B1B301D54D9 /* UIViewController+GKNavigationBar.m */; };
+		74764BC2128D48921AA976B5AC128F7B /* GKGestureHandleConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 150028EA304A32F1BCD673832585AF4F /* GKGestureHandleConfigure.m */; };
 		75581F9CEC14364D38A6ABB4EB0EAD2A /* Pods-GKPageScrollViewSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C84E0FF3D9882F3D38DA12A2376B37FB /* Pods-GKPageScrollViewSwift-dummy.m */; };
 		75A0986AB6F720FBEBEE14076A5FFDC3 /* JXCategoryIndicatorImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FE94BF29F56C41834A876A782F61D /* JXCategoryIndicatorImageView.m */; };
 		7780680CA64FC85150DB36E74760CFF1 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C5F6451E10732991F042C9A5939EAE8 /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		77A618FE4FF299682F776C974300EBA1 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDF02596F94DBEDD578773AFE7E193 /* ConstraintView+Extensions.swift */; };
+		786E2481C03396DEE3D1272DE3E91631 /* GKPushAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = F4DCE80A792482D73931245F5777CC44 /* GKPushAnimatedTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7A020E671065CD432918484C4238A7BF /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = E759A447B9DB034CE7D5E35B36C8C68A /* WMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7AA58C9236A1C7360CCA9BDDBDAA48DD /* JXSegmentedTitleOrImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A8C24CF727191CDDDA3D9D1D804AEC /* JXSegmentedTitleOrImageDataSource.swift */; };
 		7ADFA989008C8B269C1792AF455BE6EC /* VTContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF946529516BA30926617699AF5EB3D3 /* VTContentView.m */; };
 		7AE60B89C6AAC6453B7C3EF6A9419C98 /* MJRefreshNormalTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB17B129822AA0BA0FB0A9BEA5590D12 /* MJRefreshNormalTrailer.m */; };
 		7B8DAE71B891AA9DAA6D51CAAE8E87A1 /* JXCategoryIndicatorDotLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = C97F88D76C3D5DA07AC8A46B2408092F /* JXCategoryIndicatorDotLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7CF2AC7A3B3ED03B30C1E4ED662B0551 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = F9ACEBA77C5E1B927F581CFD8E61DB9B /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7D74A629E86449EDB8982C13DCFE5A18 /* GKNavigationInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC46C19C0DADE99DC673CC728AA0 /* GKNavigationInteractiveTransition.m */; };
 		7E91776D0372EACAA87F73BF33EC558E /* JXCategoryImageCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5327C4069394FFD7ADF3A2D1DB27E472 /* JXCategoryImageCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7ED12926E82C9D1DE457504DA75B80A9 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FE1B224F32EA24EA4D84D9ED13C0E /* LayoutConstraintItem.swift */; };
 		7EF7E49DEB23F21D261FD63299520400 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CE7C5081580D0439C1993BF9E4452 /* MJRefreshAutoNormalFooter.m */; };
 		7F397230AABF875B7859752EC561F17D /* GKPushAnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B4960E490E05AE9B2CD67B22E1B596 /* GKPushAnimatedTransition.swift */; };
-		809C09B100D0F27566621A89EE331690 /* GKCustomNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 03B114B8C631F04ACE05F60CE6E72959 /* GKCustomNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8124A2B6E3B8BB15D0250E18B701579B /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 118BF58CEA3DFF4F1E9A63D0598CDB4F /* UIScrollView+MJExtension.m */; };
 		81F811A56B6724F7E8E2D25364E595E3 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A9DD2EA1A7C2CBCEC2C0A518AF0C1BA /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		822813922FC51EC8A9AE586C2BDECC27 /* JXCategoryBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818D6B2FDAD82C9DD44F1115FD1DA0C6 /* JXCategoryBaseCell.m */; };
@@ -239,29 +236,34 @@
 		84F9FC2C514133A9CB7D8C2088C419E5 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F35F0820CA82BB4E4819AB9F344FD /* MJRefreshAutoFooter.m */; };
 		85439A94749DD654C21221A7C821ADB3 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 20E517059A7B79563BEB0D1496944269 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8A45BBB8DC8ED0DDA1CA36EDFD859C90 /* JXSegmentedIndicatorDotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE54F388EC8841423F5D99A9A45D579 /* JXSegmentedIndicatorDotLineView.swift */; };
+		8B0B08936D2723BB6A80B854FAEA6ED7 /* UINavigationController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A83979E2F098114665B2F1E0A678401 /* UINavigationController+GKNavigationBar.m */; };
 		8B366D305A4A9EC152384725505FCA4B /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F188D70A00C9D81EF86BB795D1F44BB2 /* WMMenuItem.m */; };
 		8B8BE709B46663F60DB6A661A3B2A28A /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828F0E48F154630440AB84A9CAB798B9 /* ConstraintMakerPriortizable.swift */; };
+		8C3CCD8AD35B6A2FC328A1A9394A94BB /* UINavigationController+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E79E70BD5E298B26CED8CC7EF3215A /* UINavigationController+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8C869D139796B8608F9C8C5DE5568D17 /* VTMagicView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C813F7E74A3BA7B3F2F9A73D9C23D26 /* VTMagicView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8D8C83202D07D17843C203249D2D57C0 /* GKNavigationBarConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB9E30F1D31632490D18F5345B69CB6 /* GKNavigationBarConfigure.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8E323E8D44DB79B15E47B372ED10B0E2 /* JXSegmentedTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFF1C880428FB00546833B324CCC0D9 /* JXSegmentedTitleCell.swift */; };
 		8E4183395435F17CC7A72F5ADC5B340E /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB167895B82C4642B03D3CEBDCAA70 /* VTMenuBar.m */; };
+		904C50A58FE2FDD8E917C7ACDB780CA7 /* GKCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4CC66FBA249E6167EC33493FEBF28 /* GKCustomNavigationBar.m */; };
 		90E3FB7D907BE85A6E2B8C7689B04D5C /* VTMagicController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CAD9F8FA61497730AC3B858A92009CF /* VTMagicController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9194B58ACE900ED6BAE6AD92E24A2CFF /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 893507D0E7F5D04DABA866018B5F91D4 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		91E4CDEBCD0D226643B118FCFBFFBCB6 /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C810CA9DC5F9528AC44CE5BF3C68B1 /* GKNavigationBarConfigure.m */; };
+		925D3C3F72BE599CC1CA024A3D735057 /* UINavigationController+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E6D9CC271BACEDDCD39AC63C823FCA /* UINavigationController+GKGestureHandle.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		92895F1EAA86890B24B498A6823DDB43 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 490D02DCDAFC2E479260A66BD27E4B20 /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		92ACA5F873741BFA3ACD6346E31F8DBD /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD84280F1D59E18A9E95550A2C346A /* MJRefreshComponent.m */; };
 		92BF70E9D3285561EB404A7C4A4A6DEE /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F3EE7525385E3E919D11D15C62AE7B2 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		93D573EF4D80A77A170B33A9EFC9E403 /* UIViewController+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = C4432A68816AEA4AEA115732AB011288 /* UIViewController+VTMagic.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9432185152350A4A90F6DD19C33AC057 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637782D5FE90BC5555F9A9CA1A46D517 /* Debugging.swift */; };
+		95565074D6487703712B2DA4366F9A14 /* UIViewController+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D98A61AA5388298182FCBD2A9BE5E0 /* UIViewController+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		97529DB90593DCA7802405DA934D9754 /* UIViewController+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = C4432A68816AEA4AEA115732AB011288 /* UIViewController+VTMagic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9758B8600647E1FC290B599EB731BA75 /* JXCategoryIndicatorBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A16B4F6FD996189AC08012C586B0D1 /* JXCategoryIndicatorBackgroundView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		978048D44D86BF2D6AD50DA4F4F4A8DC /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = EEC2F9E115FA24C5D1002959B4FE9532 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9786A7A1E0A3FBCC31A361E47E4AE045 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
-		982A3724DD1EACF62E25122EFF1231C1 /* GKNavigationInteractiveTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = F4809559800FA2F556E3A79E0DD9262F /* GKNavigationInteractiveTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		98AE4E2F24A858A47B5A1B405CEAD8FD /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134875554A4CB606082D642727955F64 /* UILayoutSupport+Extensions.swift */; };
 		99314E3CAE5BC43A99063E9032A95024 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = F71CE8B3B70AFCB020CD2F5C6B2CF96C /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99C9AF7BC57EF6E79ED37898470511E0 /* JXCategoryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FF0E043E319DFF93EAD1B9D07579D2 /* JXCategoryFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9A1D4F3C2B25C91439CD1166CFB94B76 /* JXCategoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FD1FCB6F934820F616FE0F4E310BD67 /* JXCategoryView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9B92966D994E2903FB4E186F9CC0E541 /* GKNavigationBarDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DB661BECA4A1E63FB05AF75A1CCB1 /* GKNavigationBarDefine.swift */; };
+		9CC5F5439B65B66AE4750E0F7CCAD1FA /* UIBarButtonItem+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8401659CC4F6C2DF11EF220503636D /* UIBarButtonItem+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9E490EE1D0725EBE6E85F2125BDE824F /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 55E5F610F79DFF8F7E93DD9A591846AA /* MJRefreshHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9E6184458532BFF2E3E3F804C54BD0E7 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8B540D646CDF77EA18DB3C7BF6AFF /* ConstraintDescription.swift */; };
 		9EE2D363A721ACFA89B5B899E1987633 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39D969FD26380E1DD1EE7EA831A000 /* ConstraintConstantTarget.swift */; };
@@ -278,13 +280,12 @@
 		A3DEA82F229FDF7C9444CEFEE3D9AB84 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7FFC51FB55FAB757D4AEA1B6095876 /* ConstraintMultiplierTarget.swift */; };
 		A4070B8C9BD30965648B2876CD3C1C43 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A815A176393A1FFD2630614CBE011D /* ConstraintAttributes.swift */; };
 		A482F623A133B7E947C01456C779622A /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F4D14EDDD4644B9C3BBABE0B710221 /* ConstraintPriority.swift */; };
+		A5008EF34418B9283ADEC840C26B8972 /* UIViewController+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F21B78537EABADBC4CB11AFFEAB207FC /* UIViewController+GKGestureHandle.m */; };
 		A72650C1BE882813A3E486CEF80921AF /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F188D70A00C9D81EF86BB795D1F44BB2 /* WMMenuItem.m */; };
 		A76525D1A2F1D2AE6760F748CAA6610C /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B4435D19134FD4DAC25CD54F5D3703DB /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A8382533A9A3AAB27CB5CD0E3FC869B4 /* GKGestureHandleConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = AC280F2B2EF3459AB11F4ED3B611C455 /* GKGestureHandleConfigure.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A893FFB0F9137E298D6752729850D1D6 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABBF7AFE6A789B343DBEF34CF8BB34F /* MASViewAttribute.m */; };
 		A95AAAE4E02DD3AC9A8BC4BA6237A6DC /* JXCategoryListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224B589C0F504C1176CBB6013AFF4DA /* JXCategoryListContainerView.m */; };
 		AAEED2158A46670E65F2325710E07C04 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FED265C1ACF3943266DC791D4A0762C3 /* MJRefresh.bundle */; };
-		AB275670626CEF111BC70AD90C27F957 /* UINavigationController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2829A48D96B84D8109838CFA9353F1 /* UINavigationController+GKNavigationBar.m */; };
 		AB6242EC42B3E1BA51B0694D6C3EE4A4 /* JXSegmentedTitleGradientItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C24BFBADC85EC61EC795C0B139042 /* JXSegmentedTitleGradientItemModel.swift */; };
 		ABCAAB6CB2A5BCEACEC505C3DDA38ED7 /* JXCategoryDotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E5F2EE0FCD8168F74BACA32C9103AB /* JXCategoryDotCell.m */; };
 		ADFE3B84AAA73E69CCBEE675217FF356 /* MJRefreshConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 84C5F146AEFB26F18E51459B7930D548 /* MJRefreshConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -298,6 +299,8 @@
 		B20A0E5D8F9BCED1A82793C4BE9E7258 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC467C2183418FAC6C064DA636086B0 /* Masonry.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B264CC681D43B7B1C3081CDB2558521F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
 		B28F54D7200EBD26AB590ABEA6BE2C4F /* JXCategoryViewDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = D2358AA7493DBD3B1C29E5D5CFCC8EB1 /* JXCategoryViewDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B2DB5449F3945DD6E909A9982962DAB0 /* GKCustomNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9360D81C57AE469D12C6D845D6F966 /* GKCustomNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B35869890494BC12781CDBF785DAAB53 /* GKBaseAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 953375B6D292E8974B2EAF49CCAA6867 /* GKBaseAnimatedTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B518657D92427C77A7FB9D6B7F13C9C2 /* JXSegmentedIndicatorBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91752E4F62A8C7FCAEE7FA7AC2BED525 /* JXSegmentedIndicatorBaseView.swift */; };
 		B692D74B6CD0209F2388A03C94ECCA8F /* VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = B3A7F0556B842AF6305C3291F63BA7FB /* VTMagic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6EA35BA235373B30994CBE08F4D366D /* GKNavigationInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F920DA89654FC9709D38F3F058D231 /* GKNavigationInteractiveTransition.swift */; };
@@ -315,16 +318,14 @@
 		BDDD3087D2D63F695362CE0A0267B703 /* VTContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF946529516BA30926617699AF5EB3D3 /* VTContentView.m */; };
 		BE8C34FDF954A2EED46C49A3FC86F60B /* WMPageController-framework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 339BD939C263F13FB3FAC732706FFC6F /* WMPageController-framework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEDE0314FAB7EFE2ED1C7CE4C5DFF45C /* UIBarButtonItem+GKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95519A4C4965DA04FB2B3F8C8BF2E981 /* UIBarButtonItem+GKExtension.swift */; };
-		BF6CE2702F47173983326ED4A6751BC6 /* GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F9E538676FA5EA46F2B819BDAD76949 /* GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BF7413848F30B222902E25EC32C1F92F /* UINavigationController+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E6D9CC271BACEDDCD39AC63C823FCA /* UINavigationController+GKGestureHandle.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BF7843175A0FB0180B6F4C0249B8874A /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC503A0C86EEC80D5D4BD1C6D01E4217 /* LayoutConstraint.swift */; };
 		BFBF573C06AF79B2F579637564AB75A7 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D0F2D0724832026DF0951B9E555D81 /* MJRefreshHeader.m */; };
 		BFFD6A889918DA5F82DE5D8BC25465BE /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A28C3E0360F407DD4C512C8BAEB6D24F /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C05FC6699632FE712174ED875A605410 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC96A60C19EE835CDFD2A623EB89AB2 /* ViewController+MASAdditions.m */; };
 		C1C2B61E08DAD3B59BA5D82964D39C3C /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B301E1080D13515CB5EE58A0AB240F5 /* ConstraintRelation.swift */; };
 		C21266E9A7CC0D3EC86C0159A0B10338 /* JXCategoryIndicatorCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F84A22F80677CA9BB2C94B173BFE15BD /* JXCategoryIndicatorCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C3006A09BEBA399E7EA29F0F7799A139 /* UIScrollView+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A9156A88912C22026F67DE8F5B0ABE7 /* UIScrollView+GKGestureHandle.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C459D2C8729C2865DDCB476800A95EBE /* UIImage+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D293E0BEC3F0859701839297B271D59 /* UIImage+GKCategory.m */; };
+		C234EEABCAAD2D92FAE3D673A2363F2B /* GKGestureHandleDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = A31E9AFE9017CD6F52723C661F60FACB /* GKGestureHandleDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C4EE9F451D443C4BF093ECE517C7A445 /* UINavigationItem+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = EA75D5007F0A3BF5E44BCD80432492D6 /* UINavigationItem+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C517C53B5493063AEFF288C9A34291AC /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = DF6811D7CC54D74E7D6B3C9C7B458111 /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C53939D8C7980307DB09BEECDAF9664E /* GKNavigationBarSwift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 75D46799F2A4C4FDD66385C2274E2E29 /* GKNavigationBarSwift.bundle */; };
 		C5642F169D332879327C20D87E577E25 /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB167895B82C4642B03D3CEBDCAA70 /* VTMenuBar.m */; };
@@ -333,14 +334,12 @@
 		C74D2E856ADC8139CD00DBD184061B23 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C6D6A40FF39289714C241B3C461507 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C7920681F0164686C56327ED3C6AAC58 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 480C61A700D9436EE25583FFA4F7AFC7 /* View+MASAdditions.m */; };
 		C7A2CDD9214BBFED8266BF6AEF27CD92 /* JXSegmentedTitleItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B53278F8C53E15F604AB78544AFA52 /* JXSegmentedTitleItemModel.swift */; };
-		C7ED554B49D4E974E4AC2DD1D5A4CA5D /* GKCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C25925273661CDE2B835668CFC67FC /* GKCustomNavigationBar.m */; };
 		C89096F27EB7CAE5D2E2ADB1755A9E22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
 		C99006DFE8EB4C1C29E533320FED056E /* WMMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9190F456615330D8A8BA1AB4D2ABE526 /* WMMenuView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CA0FAE669FAB7067D09F7007AD838E19 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE07C3802FCD9F0B60EEAD00C11B3B4 /* ConstraintItem.swift */; };
 		CBC4BE77612930F75C69AAF7EBB13F2B /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CE7C5081580D0439C1993BF9E4452 /* MJRefreshAutoNormalFooter.m */; };
 		CC35FA4BDF8FCF3E2673479C55630DF4 /* JXSegmentedAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE36BC1FC94F253CBC5C47BC8A352F9D /* JXSegmentedAnimator.swift */; };
 		CC7ED2CB2A3BD4443ED0CFFA3F55CF36 /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE070D0ED3EFC4B36E97B17215B5CDD /* MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CD3A0E430560E1D1E9340DE21A7670CF /* GKPushAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = F4DCE80A792482D73931245F5777CC44 /* GKPushAnimatedTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CD73A64C38512FADCD70ED28523CC932 /* JXCategoryCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 09087C97295A90999E0A618AAA41E2B3 /* JXCategoryCollectionView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CDC1EA228D1BBA8E95CBE53641E7076D /* UIScrollView+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B6181E1E030585B69D8A764FAC645EA /* UIScrollView+VTMagic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D053A9587C94FFEE22732AE18484B560 /* GKNavigationBarConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A7CD41CEB4ACEE9E8891524B8357F /* GKNavigationBarConfigure.swift */; };
@@ -349,10 +348,10 @@
 		D22BF4AA3E4F5114D63834E347F4B632 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFDAAC5C9C30E37773732B34A7EB6B /* UIViewController+WMPageController.m */; };
 		D2884180D365F5E4BC7B7465B86906E2 /* UIViewController+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D825167A9166D408174B3FB1B30562 /* UIViewController+VTMagic.m */; };
 		D2AC2684D8C34BF30EADC02F9E7006C7 /* JXCategoryTitleVerticalZoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E6CFC5EA57DB2392CD920F56AD78D3 /* JXCategoryTitleVerticalZoomCell.m */; };
+		D2FCD009DB87BFE01EBD321A9C9DC1D0 /* GKGestureHandleConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = AC280F2B2EF3459AB11F4ED3B611C455 /* GKGestureHandleConfigure.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D47C80A17618C28EA8F28FEF3C05127F /* JXCategoryNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7DB42C4EE541A59B5DC6AB1B3B6A7 /* JXCategoryNumberCell.m */; };
 		D5A0FAB195D1D35CED58CA5965B7272E /* JXSegmentedTitleImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38D8D2D949C4A65D6C8C224AF50A7B4 /* JXSegmentedTitleImageDataSource.swift */; };
 		D5C122FE1453B693FECFC2EB4C963424 /* JXSegmentedTitleOrImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9691BD3A5E716E4090F4B9C917230B5 /* JXSegmentedTitleOrImageCell.swift */; };
-		D6A0B43CAF2FB7C3FCC09DA29E5D001D /* GKBaseAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 953375B6D292E8974B2EAF49CCAA6867 /* GKBaseAnimatedTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D6A3E479FC5F198F0A0391E4E48CE57B /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE4ADC748B0D74489F1806D75F3ADD /* MJRefreshAutoFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D6AEF1F1A51E2DA51FB9B652601E2AD7 /* JXCategoryTitleImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AF4DE8D6DC11E3A2502EFF1B5A64C0D /* JXCategoryTitleImageCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D72EE0E749232B2C899702FC1C9402BB /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE050BD61256650F5531A45FC0440C45 /* Masonry-dummy.m */; };
@@ -370,11 +369,9 @@
 		DE2C89DC197D778A29055D462D59A3A1 /* JXSegmentedListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A827691C45B555AF6B30CBB90C7931 /* JXSegmentedListContainerView.swift */; };
 		DE64BA795A7B8E50C88B27C17A212465 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9DE86E72CB022C753572B55C849027 /* MJRefreshBackNormalFooter.m */; };
 		DEC3E541DB551729EC407FA6566CEE54 /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610C6B1BA63D1588AFA6A06C931268F /* ConstraintViewDSL.swift */; };
-		E04DEAC5613E80595AD9A51EC6610DBE /* GKPopAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6B5A88A15794375C8F8B45C07FCC7E /* GKPopAnimatedTransition.m */; };
 		E08AD3BFC06AF563E9E0903FEC1F3DE7 /* JXCategoryIndicatorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA7284C42626C3B429C69CD1FC88518 /* JXCategoryIndicatorBackgroundView.m */; };
 		E1EA76C5D0968C86E50AB630B726D1C5 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7249BBDB40B12B77443CC914652451 /* WMProgressView.m */; };
 		E2F66C468C00FA678392DCE18E481B3E /* JXCategoryIndicatorCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8430EF71250EF0744CA2C951D720C9CE /* JXCategoryIndicatorCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E4058CB847CA19F2A1AFD2C0CBAE10B5 /* UINavigationController+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CC62C76D05B42A8B298E6B86F67DC7 /* UINavigationController+GKGestureHandle.m */; };
 		E51CD87BD11814EEF5C8F26756280EF9 /* GKPopAnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5040FD9D5FF312902CF30618CAB57E8 /* GKPopAnimatedTransition.swift */; };
 		E62400BF01BBC72D7E12B18E42125B68 /* JXSegmentedRTLLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F101DE69DB8ADEC64A3A824D5403A /* JXSegmentedRTLLayout.swift */; };
 		E76935CFF4AF327F8D9A7C1935F7D900 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9429D4B69DF432FD9C529FD0B9AAF509 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -388,6 +385,7 @@
 		EAFA8E58BD2DD792552891A2C71FE148 /* JXSegmentedNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A139EA14D65A2558E4AEB94A20112E28 /* JXSegmentedNumberCell.swift */; };
 		EB2EF3BEA273348D338E368E62EC6B55 /* VTContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 681544FE9C1CB6B10808F6FD91D649D7 /* VTContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB663E3E1EB4BB670DC29B77DB330135 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B95A143EA18C16628A991D6D0D1EA35 /* MASConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EB7D7F4C14005F18908EA174DC7DD26A /* UIScrollView+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E24E1B544F4A758036EA9D9813934D6 /* UIScrollView+GKGestureHandle.m */; };
 		EBCAD76B2AD78E072E139B0EDADC3D19 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF58EF2DE067C136C41D5B1455D95CE /* WMScrollView.m */; };
 		EC72978A4C56D4FE098B8C53434C5F35 /* JXCategoryIndicatorTriangleView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8F2228D968D4BD38D53F04AF73577F /* JXCategoryIndicatorTriangleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		ED4296A6F60C7317DA4F9C3E89AE6F17 /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DF808BD2CDFA4069C2F65512AB2149 /* VTMagicView.m */; };
@@ -397,11 +395,13 @@
 		EE936A6838005A5ED1BC5F74BE37B7BD /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E779BAC541C8197F3C9DC94EC958830 /* MASConstraint.m */; };
 		EF17AF92B6C4EC23AFCF93B104A6C089 /* GKNavigationBarSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C491372AD583FDAF34D89E286F636 /* GKNavigationBarSwift-dummy.m */; };
 		EF309D1101B5FA9E89642D62639AEF80 /* JXCategoryTitleImageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC0A941F0CA45F2227AD495FF4FB728 /* JXCategoryTitleImageCellModel.m */; };
+		EF7393D65CC9D710A254D51A577C704C /* GKBaseAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5844A65AB8BC516341708E894AB09B53 /* GKBaseAnimatedTransition.m */; };
 		EFEA154644022907EC4EA0AC5FBE275E /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2C5CCB2687D465C2938D76E6BB7C0C /* MJRefreshStateHeader.m */; };
 		F10F19D8C120E81EB6D5A145F0C3A0F2 /* MJRefreshTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = CA08856550AA81A0D30338D1AB9F31FA /* MJRefreshTrailer.m */; };
 		F17124769C65BD701028A0CA737B3182 /* UIColor+JXAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = AD6F9F4A0831028C41FFF955DEA82E7D /* UIColor+JXAdd.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F1B1D3E03573AD0CDB88C11DBF6288B1 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073CC88A3191FCC719D9853E7AA84F7D /* WMPageController.m */; };
 		F1B75048874B8773E5568E6D3ACA12E4 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C8260D403E28EB51A4BF601EC494B9A /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F255826860B3A71D21299465166760C3 /* UIViewController+GKGestureHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D84AAFACB895CA4BE2D702DCCF8739A /* UIViewController+GKGestureHandle.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F26B07921F128B685DEF74696CA14887 /* MJRefreshBackFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 105F8C347183651828C2AA8FD47C5829 /* MJRefreshBackFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F30CDF09EEBB0EA136C389B70294A593 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAC17E35C4C855B7DD30B7CFD8A28A0 /* UIKit.framework */; };
 		F35505A6EB90C066B4EA7240B10FA15B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553F02396820467C46BFBDBFD5A82BB7 /* CoreGraphics.framework */; };
@@ -413,7 +413,6 @@
 		F6C7F81AA5BBC4042A3A78D5EA8E62A4 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A961674FE3A010F4E44ACD205191ADF /* ConstraintLayoutSupportDSL.swift */; };
 		F7A5ED175DBA44B51EE44942FB576A04 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C5F6451E10732991F042C9A5939EAE8 /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F917D0781909E1C3683FADD07B2668F8 /* JXCategoryIndicatorComponentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E80B151C952B026BA1753FF2ED6CD6 /* JXCategoryIndicatorComponentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F929AE2AC78ABFC4D05E929216B7C571 /* GKGestureHandleConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 150028EA304A32F1BCD673832585AF4F /* GKGestureHandleConfigure.m */; };
 		F9DC49C86179B872691E1D445E990E8D /* WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2774B47698989B4A381DCF1C6E0ECF14 /* WMPageController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F9F84C159B0ABDB5914C50A334F9C76A /* JXCategoryTitleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E560013FFA1DB4DA32347D3D99986CBF /* JXCategoryTitleImageCell.m */; };
 		FAA5DCE26F2D03AE853373FE5FDACC95 /* JXSegmentedIndicatorRainbowLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A03C41C289948D2C5F619F55EFB07 /* JXSegmentedIndicatorRainbowLineView.swift */; };
@@ -425,6 +424,7 @@
 		FEAC66B7E9655E3B35B9634473DA0F9C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAC17E35C4C855B7DD30B7CFD8A28A0 /* UIKit.framework */; };
 		FF0E3F8B3FB568ACBB1BC433D67ED093 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF00A953923B6FDD2EF79B128BF2FC /* ConstraintMakerExtendable.swift */; };
 		FF2B97D2EA9FADA7B68E913B18DF4E62 /* VTMagic-framework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CABAF51B6A8B54EA5D1080AC0C71990C /* VTMagic-framework-dummy.m */; };
+		FFBD304B7BDED59853826071E42110C2 /* GKNavigationBarConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C304FA7ABC7767FC4045F9BF610FD3 /* GKNavigationBarConfigure.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FFE7A02118B5288BC94F7422D6CFEB3F /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7FAA1A82A1D402D2F7BD2C7FA52D83 /* ConstraintLayoutGuide.swift */; };
 /* End PBXBuildFile section */
 
@@ -516,21 +516,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		006030F0D1B613AE9F2286B6982DE3DF /* UIViewController+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UIViewController+GKNavigationBar.m"; sourceTree = "<group>"; };
 		0071244E812E33E69E26C57AAF71E549 /* JXSegmentedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedView.swift; path = Sources/Core/JXSegmentedView.swift; sourceTree = "<group>"; };
 		009520EE0919C1A8452AC97EA505CCEF /* Pods-GKPageScrollViewSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GKPageScrollViewSwift.release.xcconfig"; sourceTree = "<group>"; };
 		01E6E4FD7852FDFDA97A92D45E2FE0AD /* JXCategoryBaseView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryBaseView.m; path = Sources/Base/JXCategoryBaseView.m; sourceTree = "<group>"; };
 		028B44DBF2A21B9D4C20EE77B47650B5 /* Pods-GKPageScrollViewSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GKPageScrollViewSwift-Info.plist"; sourceTree = "<group>"; };
 		0295C3FF35DEB077071B9698E50E52AC /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
-		03B114B8C631F04ACE05F60CE6E72959 /* GKCustomNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKCustomNavigationBar.h; path = GKNavigationBar/NavigationBar/GKCustomNavigationBar.h; sourceTree = "<group>"; };
 		03CB2BEED94532AE13E6CEC3850F6A18 /* MJRefreshConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConfig.m; path = MJRefresh/MJRefreshConfig.m; sourceTree = "<group>"; };
 		03CC62C76D05B42A8B298E6B86F67DC7 /* UINavigationController+GKGestureHandle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+GKGestureHandle.m"; path = "GKNavigationBar/GestureHandle/UINavigationController+GKGestureHandle.m"; sourceTree = "<group>"; };
-		04149FF5208B4CEC530B2B1B301D54D9 /* UIViewController+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UIViewController+GKNavigationBar.m"; sourceTree = "<group>"; };
 		0419A079C7F049A7C714564393A06A62 /* Pods-GKPageScrollViewObjc-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GKPageScrollViewObjc-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0507AF2D822E33724875DE3CBEB66FF1 /* JXSegmentedBaseCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedBaseCell.swift; path = Sources/Core/JXSegmentedBaseCell.swift; sourceTree = "<group>"; };
 		055C01636E114FBF1E998233F6C1D1D7 /* JXCategoryDotCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryDotCellModel.h; path = Sources/Dot/JXCategoryDotCellModel.h; sourceTree = "<group>"; };
 		05697EBE8B4E26F073E3D4955D1E4B65 /* Pods-GKPageScrollViewObjc-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GKPageScrollViewObjc-resources.sh"; sourceTree = "<group>"; };
 		05A7DB42C4EE541A59B5DC6AB1B3B6A7 /* JXCategoryNumberCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryNumberCell.m; path = Sources/Number/JXCategoryNumberCell.m; sourceTree = "<group>"; };
 		073CC88A3191FCC719D9853E7AA84F7D /* WMPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMPageController.m; path = WMPageController/WMPageController.m; sourceTree = "<group>"; };
+		074B050BF42709A19BC3BAE37A45317B /* UIImage+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UIImage+GKNavigationBar.m"; sourceTree = "<group>"; };
 		07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JXSegmentedView.framework; path = JXSegmentedView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0870D4C4D97DF5173D2FE782147D8BA8 /* JXCategoryTitleVerticalZoomCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleVerticalZoomCell.h; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomCell.h; sourceTree = "<group>"; };
 		09087C97295A90999E0A618AAA41E2B3 /* JXCategoryCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryCollectionView.h; path = Sources/Common/JXCategoryCollectionView.h; sourceTree = "<group>"; };
@@ -555,6 +555,7 @@
 		1633F7C1374F1D6ED12DF9A5DDAC24FA /* UIView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
 		1695861F736695A56AAB53474776261F /* VTMagic-library-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "VTMagic-library-dummy.m"; path = "../VTMagic-library/VTMagic-library-dummy.m"; sourceTree = "<group>"; };
 		17555DFABA929E760407806376C07990 /* RTLManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RTLManager.h; path = Sources/RLTManager/RTLManager.h; sourceTree = "<group>"; };
+		18035894A832077AD36AE9ACE5589F62 /* GKNavigationBar.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GKNavigationBar.bundle; path = GKNavigationBar/NavigationBar/GKNavigationBar.bundle; sourceTree = "<group>"; };
 		192F1F5BE41C20F983EE8C53A29C3C52 /* WMPageController-library-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WMPageController-library-prefix.pch"; path = "../WMPageController-library/WMPageController-library-prefix.pch"; sourceTree = "<group>"; };
 		19B7B8A5AF1AAE077864617C7516B80A /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
 		1A9DD2EA1A7C2CBCEC2C0A518AF0C1BA /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
@@ -585,7 +586,7 @@
 		2800C22DA0EC3AE8BDEC9E8D0E4690AA /* JXCategoryImageCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryImageCell.m; path = Sources/Image/JXCategoryImageCell.m; sourceTree = "<group>"; };
 		29362246B5D4CF864A1614C1B849F498 /* Pods_GKPageScrollViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GKPageScrollViewSwift.framework; path = "Pods-GKPageScrollViewSwift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A7897A6F5509FF27499C258182813DC /* MJRefresh-framework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MJRefresh-framework.debug.xcconfig"; sourceTree = "<group>"; };
-		2BC640154EA94FD429C30859EA77577B /* UINavigationItem+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationItem+GKCategory.h"; path = "GKNavigationBar/NavigationBar/UINavigationItem+GKCategory.h"; sourceTree = "<group>"; };
+		2A83979E2F098114665B2F1E0A678401 /* UINavigationController+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UINavigationController+GKNavigationBar.m"; sourceTree = "<group>"; };
 		2C8949421ADCA16A3E476313E6C16A6D /* JXCategoryNumberView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryNumberView.h; path = Sources/Number/JXCategoryNumberView.h; sourceTree = "<group>"; };
 		2C9957E3D0C3E21AB105C7614D013506 /* JXCategoryTitleVerticalZoomView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleVerticalZoomView.h; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomView.h; sourceTree = "<group>"; };
 		2D8C837BB5BCC3D99A279F8CC8D0B6A0 /* JXCategoryIndicatorDotLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorDotLineView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorDotLineView.m; sourceTree = "<group>"; };
@@ -597,12 +598,12 @@
 		329F35F0820CA82BB4E4819AB9F344FD /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		32EA2E3FCB7D70E3AC4F19153632DD1D /* GKPopAnimatedTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPopAnimatedTransition.h; path = GKNavigationBar/GestureHandle/GKPopAnimatedTransition.h; sourceTree = "<group>"; };
 		339BD939C263F13FB3FAC732706FFC6F /* WMPageController-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-framework-umbrella.h"; sourceTree = "<group>"; };
+		34B43C762354329C5F6C428A46E9BC3D /* GKNavigationBarDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarDefine.h; path = GKNavigationBar/NavigationBar/GKNavigationBarDefine.h; sourceTree = "<group>"; };
 		358AAAD8ED6643777E21C913756F050A /* GKPushAnimatedTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPushAnimatedTransition.m; path = GKNavigationBar/GestureHandle/GKPushAnimatedTransition.m; sourceTree = "<group>"; };
 		37E682100311463551CD929BB99541AA /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		38332D74D387661E6B7E05F32F49B03F /* JXCategoryImageCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryImageCellModel.m; path = Sources/Image/JXCategoryImageCellModel.m; sourceTree = "<group>"; };
 		383E9926C6A80FBAA63249FBE57D3716 /* JXCategoryListContainerRTLCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryListContainerRTLCell.h; path = Sources/Common/JXCategoryListContainerRTLCell.h; sourceTree = "<group>"; };
 		390D78C365DF93228CBA1ECD199483E5 /* JXSegmentedTitleGradientDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleGradientDataSource.swift; path = Sources/TitleGradient/JXSegmentedTitleGradientDataSource.swift; sourceTree = "<group>"; };
-		3AB9E30F1D31632490D18F5345B69CB6 /* GKNavigationBarConfigure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarConfigure.h; path = GKNavigationBar/NavigationBar/GKNavigationBarConfigure.h; sourceTree = "<group>"; };
 		3ACDF02596F94DBEDD578773AFE7E193 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		3AED21448FE3C545AE8F109130060955 /* JXCategoryIndicatorLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorLineView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorLineView.m; sourceTree = "<group>"; };
 		3AFF10D3F3BB50AE88F1D7ABF07428CD /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
@@ -614,7 +615,6 @@
 		3C65C01F5BC86F618C27A7B1CEF5B11D /* JXSegmentedView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JXSegmentedView-Info.plist"; sourceTree = "<group>"; };
 		3C813F7E74A3BA7B3F2F9A73D9C23D26 /* VTMagicView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMagicView.h; path = VTMagic/VTMagicView.h; sourceTree = "<group>"; };
 		3C92CF240C1BE90A4A683E2640E0CD4A /* VTMagic-framework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "VTMagic-framework.modulemap"; sourceTree = "<group>"; };
-		3D293E0BEC3F0859701839297B271D59 /* UIImage+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GKCategory.m"; path = "GKNavigationBar/NavigationBar/UIImage+GKCategory.m"; sourceTree = "<group>"; };
 		3D6D7EFC81950E763631BB44C2CEF0B8 /* JXCategoryBaseCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryBaseCellModel.m; path = Sources/Base/JXCategoryBaseCellModel.m; sourceTree = "<group>"; };
 		3E1675AADB76E0C6929E044E4D7DDB9A /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
 		3F5BD4DCE84699786D496CAFED1BF37A /* VTMagic-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VTMagic-framework-umbrella.h"; sourceTree = "<group>"; };
@@ -629,7 +629,6 @@
 		42F920DA89654FC9709D38F3F058D231 /* GKNavigationInteractiveTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKNavigationInteractiveTransition.swift; path = Sources/GKNavigationInteractiveTransition.swift; sourceTree = "<group>"; };
 		43EE17DD450894E31F9DCAE44812B192 /* JXSegmentedTitleAttributeItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleAttributeItemModel.swift; path = Sources/AttributeTitle/JXSegmentedTitleAttributeItemModel.swift; sourceTree = "<group>"; };
 		45D4ED1452FB56389F31A48DBD25750F /* VTMagic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = VTMagic.framework; path = "VTMagic-framework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		465A6ED34E232CBA5D1B959C21CC4AB7 /* UINavigationController+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UINavigationController+GKNavigationBar.h"; sourceTree = "<group>"; };
 		47968548A9BC9669F882B8DA249C8D60 /* Pods-GKPageScrollViewSwift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GKPageScrollViewSwift-acknowledgements.markdown"; sourceTree = "<group>"; };
 		47D0F2D0724832026DF0951B9E555D81 /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
 		480C61A700D9436EE25583FFA4F7AFC7 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
@@ -673,6 +672,7 @@
 		5F1F7B0A789A3555CE90E26CF3CEA3B9 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		5F4D5009E89A55D9F558007700D861A5 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
 		5F654BF5B7A26F03C0D7CCA9C953FCD2 /* Pods-GKPageScrollViewSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GKPageScrollViewSwift.modulemap"; sourceTree = "<group>"; };
+		5FE4CC66FBA249E6167EC33493FEBF28 /* GKCustomNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKCustomNavigationBar.m; path = GKNavigationBar/NavigationBar/GKCustomNavigationBar.m; sourceTree = "<group>"; };
 		604C5B4D132787C691FF731C78CA653E /* Pods-GKPageScrollViewObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GKPageScrollViewObjc.release.xcconfig"; sourceTree = "<group>"; };
 		60D825167A9166D408174B3FB1B30562 /* UIViewController+VTMagic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+VTMagic.m"; path = "VTMagic/UIViewController+VTMagic.m"; sourceTree = "<group>"; };
 		63447545D86659EBF8018986441D0390 /* JXCategoryIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorView.h; path = Sources/Indicator/JXCategoryIndicatorView.h; sourceTree = "<group>"; };
@@ -686,6 +686,7 @@
 		6A961674FE3A010F4E44ACD205191ADF /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		6ABBF7AFE6A789B343DBEF34CF8BB34F /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		6B301E1080D13515CB5EE58A0AB240F5 /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
+		6BCB10772F444209DE1F04693A448A18 /* UIImage+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UIImage+GKNavigationBar.h"; sourceTree = "<group>"; };
 		6D21AA508E931E0B3B3C424551680CCB /* JXCategoryViewAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryViewAnimator.m; path = Sources/Common/JXCategoryViewAnimator.m; sourceTree = "<group>"; };
 		6F3EE7525385E3E919D11D15C62AE7B2 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		6F8D2D998BB497ACCB73171A9DDB7578 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
@@ -694,10 +695,9 @@
 		72BE3700ADAB3B34947ACA6FD080A6CC /* VTMagicController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VTMagicController.m; path = VTMagic/VTMagicController.m; sourceTree = "<group>"; };
 		730D6D0FCEB68EC53BA006E895188C77 /* JXCategoryIndicatorCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorCell.m; path = Sources/Indicator/JXCategoryIndicatorCell.m; sourceTree = "<group>"; };
 		738FE18A510FF8E924736401C401AFE7 /* JXCategoryView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JXCategoryView-dummy.m"; sourceTree = "<group>"; };
+		73C810CA9DC5F9528AC44CE5BF3C68B1 /* GKNavigationBarConfigure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarConfigure.m; path = GKNavigationBar/NavigationBar/GKNavigationBarConfigure.m; sourceTree = "<group>"; };
 		746DB661BECA4A1E63FB05AF75A1CCB1 /* GKNavigationBarDefine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKNavigationBarDefine.swift; path = Sources/GKNavigationBarDefine.swift; sourceTree = "<group>"; };
-		748E0EB2611D9C6B2AA02DFF2B470AA7 /* GKNavigationBar.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GKNavigationBar.bundle; path = GKNavigationBar/NavigationBar/GKNavigationBar.bundle; sourceTree = "<group>"; };
 		75D46799F2A4C4FDD66385C2274E2E29 /* GKNavigationBarSwift.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GKNavigationBarSwift.bundle; path = Sources/GKNavigationBarSwift.bundle; sourceTree = "<group>"; };
-		76AA55ACF9D91D0384EB432FA3F30059 /* UIImage+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GKCategory.h"; path = "GKNavigationBar/NavigationBar/UIImage+GKCategory.h"; sourceTree = "<group>"; };
 		76EE4ADC748B0D74489F1806D75F3ADD /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		7720970BC9E206EB48C786899518FAEB /* VTMagic-library.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "VTMagic-library.release.xcconfig"; path = "../VTMagic-library/VTMagic-library.release.xcconfig"; sourceTree = "<group>"; };
 		779D55005D59A281059697DB4B16F349 /* JXSegmentedIndicatorTriangleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorTriangleView.swift; path = Sources/Indicator/JXSegmentedIndicatorTriangleView.swift; sourceTree = "<group>"; };
@@ -726,7 +726,6 @@
 		84C5F146AEFB26F18E51459B7930D548 /* MJRefreshConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConfig.h; path = MJRefresh/MJRefreshConfig.h; sourceTree = "<group>"; };
 		8610C6B1BA63D1588AFA6A06C931268F /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		87AFAE8FD950D41A616BB3C382FB0A40 /* VTMagic-framework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VTMagic-framework-Info.plist"; sourceTree = "<group>"; };
-		87C25925273661CDE2B835668CFC67FC /* GKCustomNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKCustomNavigationBar.m; path = GKNavigationBar/NavigationBar/GKCustomNavigationBar.m; sourceTree = "<group>"; };
 		881BEA56CE04AA9E8F43B6C611507356 /* GKNavigationBarSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKNavigationBarSwift.swift; path = Sources/GKNavigationBarSwift.swift; sourceTree = "<group>"; };
 		893507D0E7F5D04DABA866018B5F91D4 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		89B5309401B6B5FD9D508A50D3DA6AA4 /* JXCategoryBaseCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryBaseCell.h; path = Sources/Base/JXCategoryBaseCell.h; sourceTree = "<group>"; };
@@ -738,10 +737,10 @@
 		8B6181E1E030585B69D8A764FAC645EA /* UIScrollView+VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+VTMagic.h"; path = "VTMagic/UIScrollView+VTMagic.h"; sourceTree = "<group>"; };
 		8B8B0F4BFB1E74B17D693F3509807E07 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
 		8C5F6451E10732991F042C9A5939EAE8 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
-		8D29685B8BC88451CE5B53EDF4D6D7DC /* UINavigationItem+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationItem+GKCategory.m"; path = "GKNavigationBar/NavigationBar/UINavigationItem+GKCategory.m"; sourceTree = "<group>"; };
 		8E14A6532F4965E8FBE092D4FFB41E29 /* Pods-GKPageScrollViewSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GKPageScrollViewSwift-umbrella.h"; sourceTree = "<group>"; };
 		8E3CB32D5EE2257AF23D6B9D2E698BBC /* MJRefresh-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-framework-umbrella.h"; sourceTree = "<group>"; };
 		8F2586DB1C8585AFD23503A0FF961C2B /* JXCategoryTitleCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleCell.m; path = Sources/Title/JXCategoryTitleCell.m; sourceTree = "<group>"; };
+		8FDBB3C9E752CB44C4FF9214E88FCE00 /* UIBarButtonItem+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UIBarButtonItem+GKNavigationBar.m"; sourceTree = "<group>"; };
 		905C6F7CB2EAE7F084618BF308DFC818 /* MJRefresh-library-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MJRefresh-library-prefix.pch"; path = "../MJRefresh-library/MJRefresh-library-prefix.pch"; sourceTree = "<group>"; };
 		908C14E27ECF83721522D417C59EB638 /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
 		90CE360985A079A5FE71F6E17E792DDE /* Masonry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.debug.xcconfig; sourceTree = "<group>"; };
@@ -755,7 +754,6 @@
 		93A16B4F6FD996189AC08012C586B0D1 /* JXCategoryIndicatorBackgroundView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorBackgroundView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorBackgroundView.h; sourceTree = "<group>"; };
 		93B169FB853AF60DC63B17B7A9B9484C /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Source/Typealiases.swift; sourceTree = "<group>"; };
 		93CCBCC5CABA8E07B6B7C5CAD2F1D8FC /* MJRefresh-library.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MJRefresh-library.debug.xcconfig"; path = "../MJRefresh-library/MJRefresh-library.debug.xcconfig"; sourceTree = "<group>"; };
-		940AB6F752ACA0387E20F93C183D9A15 /* GKNavigationBarDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarDefine.h; path = GKNavigationBar/NavigationBar/GKNavigationBarDefine.h; sourceTree = "<group>"; };
 		9429D4B69DF432FD9C529FD0B9AAF509 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		942BA6FB134866953945AB6450293190 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
 		94423811DF8513565E53AD4B20A47D67 /* JXCategoryTitleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleView.m; path = Sources/Title/JXCategoryTitleView.m; sourceTree = "<group>"; };
@@ -766,7 +764,6 @@
 		961FD6C34A2786BC26C1D39CC558B1FE /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 		962904048CAAFBAA04E49FAE391E2607 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		969008CEFDCC3FCF310415EE52A8EE4A /* GKNavigationBarSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKNavigationBarSwift.release.xcconfig; sourceTree = "<group>"; };
-		96C5BDFEA9591D386265C51B0C31DF8C /* GKNavigationBarConfigure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarConfigure.m; path = GKNavigationBar/NavigationBar/GKNavigationBarConfigure.m; sourceTree = "<group>"; };
 		9724D920EB58FE7CF30C042B3EB2545D /* GKNavigationBarSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GKNavigationBarSwift.modulemap; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D6ECF2065BCEB3932C6AB0CDBED669 /* VTMagic-framework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "VTMagic-framework.release.xcconfig"; sourceTree = "<group>"; };
@@ -775,6 +772,7 @@
 		98DF808BD2CDFA4069C2F65512AB2149 /* VTMagicView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VTMagicView.m; path = VTMagic/VTMagicView.m; sourceTree = "<group>"; };
 		99BAA10F2C17DF8AB96DFC3ECCB7C11C /* JXSegmentedIndicatorParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorParams.swift; path = Sources/Indicator/JXSegmentedIndicatorParams.swift; sourceTree = "<group>"; };
 		99D28E159C6A8E9AF5BC0FFF52E7E369 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
+		99D98A61AA5388298182FCBD2A9BE5E0 /* UIViewController+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UIViewController+GKNavigationBar.h"; sourceTree = "<group>"; };
 		99F067662378B2B3E41C19E8ABFF65CF /* VTMenuBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMenuBar.h; path = VTMagic/VTMenuBar.h; sourceTree = "<group>"; };
 		99F3440FFEB8E213F18B081B1CCF755D /* SnapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.release.xcconfig; sourceTree = "<group>"; };
 		9AF4DE8D6DC11E3A2502EFF1B5A64C0D /* JXCategoryTitleImageCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleImageCell.h; path = Sources/TitleImage/JXCategoryTitleImageCell.h; sourceTree = "<group>"; };
@@ -797,6 +795,7 @@
 		A81576DF212944055DBEC331A059C5DC /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		A8A74913AC777B947A32B920EFF4C88F /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
 		A95730C200F28DBD8CFA02CF9F0DC9CB /* JXSegmentedComponetGradientView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedComponetGradientView.swift; path = Sources/Indicator/JXSegmentedComponetGradientView.swift; sourceTree = "<group>"; };
+		A9C304FA7ABC7767FC4045F9BF610FD3 /* GKNavigationBarConfigure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarConfigure.h; path = GKNavigationBar/NavigationBar/GKNavigationBarConfigure.h; sourceTree = "<group>"; };
 		A9D6A6E6A9759D5B147EE9BEBDAE6375 /* UIColor+VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+VTMagic.h"; path = "VTMagic/UIColor+VTMagic.h"; sourceTree = "<group>"; };
 		AA5F86772D70CB18DBC8FB24A654228D /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
 		AA9875960B2EEE66FD5DE0873206524D /* WMPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WMPageController.framework; path = "WMPageController-framework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -819,7 +818,6 @@
 		B9B9FEE2128013BA405CF10F80BBFD54 /* JXSegmentedDotCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedDotCell.swift; path = Sources/Dot/JXSegmentedDotCell.swift; sourceTree = "<group>"; };
 		B9C11E834CF5ACBF202BA65254643190 /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
 		BAC4AA62D2141EE45E9A7674F6D83F47 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
-		BC2829A48D96B84D8109838CFA9353F1 /* UINavigationController+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UINavigationController+GKNavigationBar.m"; sourceTree = "<group>"; };
 		BC75708083BD7E0821AC5C9E5D35833F /* JXCategoryView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXCategoryView-prefix.pch"; sourceTree = "<group>"; };
 		BD5032767982B48D5744A5B672CC11C6 /* GKNavigationBarSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKNavigationBarSwift-prefix.pch"; sourceTree = "<group>"; };
 		BE24934FD6FB2408B6E988B63A138F6F /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Source/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
@@ -833,7 +831,6 @@
 		C1FF0D7E700994E5567A9DF3EE58126D /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		C23F87CF278F6A25D5B3E971B32165DE /* Pods-GKPageScrollViewObjc-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GKPageScrollViewObjc-acknowledgements.plist"; sourceTree = "<group>"; };
 		C3A46B03C308EEEB11F2A62BA5D2E8BE /* libJXCategoryView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJXCategoryView.a; path = libJXCategoryView.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3F058F3D6E9938E609612CF91360735 /* UIViewController+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UIViewController+GKNavigationBar.h"; sourceTree = "<group>"; };
 		C43D21B7FF221D6723ACD85F663A3F05 /* MJRefresh-framework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MJRefresh-framework-Info.plist"; sourceTree = "<group>"; };
 		C4432A68816AEA4AEA115732AB011288 /* UIViewController+VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+VTMagic.h"; path = "VTMagic/UIViewController+VTMagic.h"; sourceTree = "<group>"; };
 		C5040FD9D5FF312902CF30618CAB57E8 /* GKPopAnimatedTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKPopAnimatedTransition.swift; path = Sources/GKPopAnimatedTransition.swift; sourceTree = "<group>"; };
@@ -846,6 +843,7 @@
 		CA08856550AA81A0D30338D1AB9F31FA /* MJRefreshTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshTrailer.m; path = MJRefresh/Base/MJRefreshTrailer.m; sourceTree = "<group>"; };
 		CABAF51B6A8B54EA5D1080AC0C71990C /* VTMagic-framework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VTMagic-framework-dummy.m"; sourceTree = "<group>"; };
 		CC6E2EDAD0D824D3276EC65C748B87AA /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
+		CD9360D81C57AE469D12C6D845D6F966 /* GKCustomNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKCustomNavigationBar.h; path = GKNavigationBar/NavigationBar/GKCustomNavigationBar.h; sourceTree = "<group>"; };
 		CE8FE1B224F32EA24EA4D84D9ED13C0E /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
 		CEFCDA850460FDE5A41661B6EB695321 /* JXCategoryDotView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryDotView.m; path = Sources/Dot/JXCategoryDotView.m; sourceTree = "<group>"; };
 		CF2C5CCB2687D465C2938D76E6BB7C0C /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
@@ -853,21 +851,23 @@
 		D0FB21AF1E7C2077BBC344158E685BE2 /* JXCategoryIndicatorComponentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorComponentView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorComponentView.m; sourceTree = "<group>"; };
 		D12B6445DA5BED5A771624F38A2978D4 /* JXCategoryBaseCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryBaseCellModel.h; path = Sources/Base/JXCategoryBaseCellModel.h; sourceTree = "<group>"; };
 		D1C6D6A40FF39289714C241B3C461507 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		D1E79E70BD5E298B26CED8CC7EF3215A /* UINavigationController+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UINavigationController+GKNavigationBar.h"; sourceTree = "<group>"; };
 		D1F0363D7371DCD341A6109E9CEDADE2 /* JXCategoryImageCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryImageCell.h; path = Sources/Image/JXCategoryImageCell.h; sourceTree = "<group>"; };
 		D217C47EC4BE212725067E58190A053C /* JXCategoryTitleCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleCellModel.h; path = Sources/Title/JXCategoryTitleCellModel.h; sourceTree = "<group>"; };
 		D2358AA7493DBD3B1C29E5D5CFCC8EB1 /* JXCategoryViewDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryViewDefines.h; path = Sources/Common/JXCategoryViewDefines.h; sourceTree = "<group>"; };
 		D2CFA3AE54EAF74E0841DA4BCC2293EA /* JXCategoryIndicatorRainbowLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorRainbowLineView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorRainbowLineView.m; sourceTree = "<group>"; };
-		D32D03CB5558909EDA97F627B76DE8CC /* UIBarButtonItem+GKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+GKCategory.m"; path = "GKNavigationBar/NavigationBar/UIBarButtonItem+GKCategory.m"; sourceTree = "<group>"; };
 		D7272C200564A1CD2EFF3E0E32E25653 /* JXSegmentedTitleAttributeCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleAttributeCell.swift; path = Sources/AttributeTitle/JXSegmentedTitleAttributeCell.swift; sourceTree = "<group>"; };
 		D72A52520365FBA6199FF3A55F054D9E /* Pods-GKPageScrollViewSwift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GKPageScrollViewSwift-acknowledgements.plist"; sourceTree = "<group>"; };
 		D79FE94BF29F56C41834A876A782F61D /* JXCategoryIndicatorImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorImageView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorImageView.m; sourceTree = "<group>"; };
 		D7DBBFD443C074D563F863FC2A85AA63 /* GKNavigationBarSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKNavigationBarSwift.debug.xcconfig; sourceTree = "<group>"; };
 		D8A827691C45B555AF6B30CBB90C7931 /* JXSegmentedListContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedListContainerView.swift; path = Sources/Common/JXSegmentedListContainerView.swift; sourceTree = "<group>"; };
+		D998382F86255CC5C8CAE6CE54564D4D /* UINavigationItem+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationItem+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UINavigationItem+GKNavigationBar.m"; sourceTree = "<group>"; };
 		DA8F2228D968D4BD38D53F04AF73577F /* JXCategoryIndicatorTriangleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorTriangleView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorTriangleView.h; sourceTree = "<group>"; };
 		DAF58EF2DE067C136C41D5B1455D95CE /* WMScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMScrollView.m; path = WMPageController/WMMenuView/WMScrollView.m; sourceTree = "<group>"; };
 		DB17B129822AA0BA0FB0A9BEA5590D12 /* MJRefreshNormalTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.m; sourceTree = "<group>"; };
 		DB1B8EB18A75A0C81074B5E67F7C4200 /* JXCategoryNumberCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryNumberCellModel.h; path = Sources/Number/JXCategoryNumberCellModel.h; sourceTree = "<group>"; };
 		DC7FFC51FB55FAB757D4AEA1B6095876 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		DC8401659CC4F6C2DF11EF220503636D /* UIBarButtonItem+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UIBarButtonItem+GKNavigationBar.h"; sourceTree = "<group>"; };
 		DD27D0380609E58F342A87AF30670D48 /* JXSegmentedViewTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedViewTool.swift; path = Sources/Common/JXSegmentedViewTool.swift; sourceTree = "<group>"; };
 		DD79386655DC598CE946EAFEFB8DB6A4 /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
 		DE36BC1FC94F253CBC5C47BC8A352F9D /* JXSegmentedAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedAnimator.swift; path = Sources/Common/JXSegmentedAnimator.swift; sourceTree = "<group>"; };
@@ -887,6 +887,7 @@
 		E7273E548CC37F847E5E0FCF2D3C3CA3 /* GKNavigationBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKNavigationBar.release.xcconfig; sourceTree = "<group>"; };
 		E759A447B9DB034CE7D5E35B36C8C68A /* WMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMScrollView.h; path = WMPageController/WMMenuView/WMScrollView.h; sourceTree = "<group>"; };
 		E77F4AFCC71480332CF76A1D150E9D9B /* Pods-GKPageScrollViewObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GKPageScrollViewObjc.debug.xcconfig"; sourceTree = "<group>"; };
+		EA75D5007F0A3BF5E44BCD80432492D6 /* UINavigationItem+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationItem+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UINavigationItem+GKNavigationBar.h"; sourceTree = "<group>"; };
 		EC190A767BFEB9CBF76C59857CD04C15 /* JXCategoryTitleCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleCellModel.m; path = Sources/Title/JXCategoryTitleCellModel.m; sourceTree = "<group>"; };
 		ECC467C2183418FAC6C064DA636086B0 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		EDA7284C42626C3B429C69CD1FC88518 /* JXCategoryIndicatorBackgroundView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorBackgroundView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorBackgroundView.m; sourceTree = "<group>"; };
@@ -921,7 +922,6 @@
 		FD9606FD94E8D6DF7BA2B8C49C92E24F /* VTMagic-framework-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VTMagic-framework-prefix.pch"; sourceTree = "<group>"; };
 		FE44542E4EC39BA06BA15684D66874A1 /* MJRefreshStateTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.m; sourceTree = "<group>"; };
 		FED265C1ACF3943266DC791D4A0762C3 /* MJRefresh.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
-		FEF0E97A6F2AED7EE13623E85DE76583 /* UIBarButtonItem+GKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+GKCategory.h"; path = "GKNavigationBar/NavigationBar/UIBarButtonItem+GKCategory.h"; sourceTree = "<group>"; };
 		FF3838F8038A942FAB4BFA56D9ED81B7 /* JXCategoryTitleImageCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleImageCellModel.h; path = Sources/TitleImage/JXCategoryTitleImageCellModel.h; sourceTree = "<group>"; };
 		FF8A10306F9831ADFE32ECDECBC34F8E /* MJRefreshStateTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.h; sourceTree = "<group>"; };
 		FF9DE86E72CB022C753572B55C849027 /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
@@ -1085,14 +1085,6 @@
 			path = "../Target Support Files/JXSegmentedView";
 			sourceTree = "<group>";
 		};
-		0720762D80C8D819CA8F5B541DD5FE23 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				748E0EB2611D9C6B2AA02DFF2B470AA7 /* GKNavigationBar.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		0CD272E15E3493643B4AE9CFAF962C05 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1107,29 +1099,6 @@
 				00B291C9E327F1C08845C44B9D4A3D4E /* WMPageController */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		1191A8A1E11763993C252C025309DB46 /* NavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				03B114B8C631F04ACE05F60CE6E72959 /* GKCustomNavigationBar.h */,
-				87C25925273661CDE2B835668CFC67FC /* GKCustomNavigationBar.m */,
-				3AB9E30F1D31632490D18F5345B69CB6 /* GKNavigationBarConfigure.h */,
-				96C5BDFEA9591D386265C51B0C31DF8C /* GKNavigationBarConfigure.m */,
-				940AB6F752ACA0387E20F93C183D9A15 /* GKNavigationBarDefine.h */,
-				FEF0E97A6F2AED7EE13623E85DE76583 /* UIBarButtonItem+GKCategory.h */,
-				D32D03CB5558909EDA97F627B76DE8CC /* UIBarButtonItem+GKCategory.m */,
-				76AA55ACF9D91D0384EB432FA3F30059 /* UIImage+GKCategory.h */,
-				3D293E0BEC3F0859701839297B271D59 /* UIImage+GKCategory.m */,
-				465A6ED34E232CBA5D1B959C21CC4AB7 /* UINavigationController+GKNavigationBar.h */,
-				BC2829A48D96B84D8109838CFA9353F1 /* UINavigationController+GKNavigationBar.m */,
-				2BC640154EA94FD429C30859EA77577B /* UINavigationItem+GKCategory.h */,
-				8D29685B8BC88451CE5B53EDF4D6D7DC /* UINavigationItem+GKCategory.m */,
-				C3F058F3D6E9938E609612CF91360735 /* UIViewController+GKNavigationBar.h */,
-				04149FF5208B4CEC530B2B1B301D54D9 /* UIViewController+GKNavigationBar.m */,
-				0720762D80C8D819CA8F5B541DD5FE23 /* Resources */,
-			);
-			name = NavigationBar;
 			sourceTree = "<group>";
 		};
 		20D8528256A7AF28D53631225E57465A /* iOS */ = {
@@ -1161,7 +1130,7 @@
 			children = (
 				2F9E538676FA5EA46F2B819BDAD76949 /* GKNavigationBar.h */,
 				4D6610AA311FBA0D778EBE4FDB26A201 /* GestureHandle */,
-				1191A8A1E11763993C252C025309DB46 /* NavigationBar */,
+				ACA78AD623EE825217194CDBEC3F913E /* NavigationBar */,
 				B9D9F69E53004DD5E996301CA3A3C205 /* Support Files */,
 			);
 			name = GKNavigationBar;
@@ -1337,6 +1306,14 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/GKNavigationBarSwift";
+			sourceTree = "<group>";
+		};
+		65FA5E7900387B913631C82060A3A1BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18035894A832077AD36AE9ACE5589F62 /* GKNavigationBar.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		794EF471B486E7FBFC7AE745A23C7CC9 /* Support Files */ = {
@@ -1543,6 +1520,29 @@
 			);
 			name = SnapKit;
 			path = SnapKit;
+			sourceTree = "<group>";
+		};
+		ACA78AD623EE825217194CDBEC3F913E /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				CD9360D81C57AE469D12C6D845D6F966 /* GKCustomNavigationBar.h */,
+				5FE4CC66FBA249E6167EC33493FEBF28 /* GKCustomNavigationBar.m */,
+				A9C304FA7ABC7767FC4045F9BF610FD3 /* GKNavigationBarConfigure.h */,
+				73C810CA9DC5F9528AC44CE5BF3C68B1 /* GKNavigationBarConfigure.m */,
+				34B43C762354329C5F6C428A46E9BC3D /* GKNavigationBarDefine.h */,
+				DC8401659CC4F6C2DF11EF220503636D /* UIBarButtonItem+GKNavigationBar.h */,
+				8FDBB3C9E752CB44C4FF9214E88FCE00 /* UIBarButtonItem+GKNavigationBar.m */,
+				6BCB10772F444209DE1F04693A448A18 /* UIImage+GKNavigationBar.h */,
+				074B050BF42709A19BC3BAE37A45317B /* UIImage+GKNavigationBar.m */,
+				D1E79E70BD5E298B26CED8CC7EF3215A /* UINavigationController+GKNavigationBar.h */,
+				2A83979E2F098114665B2F1E0A678401 /* UINavigationController+GKNavigationBar.m */,
+				EA75D5007F0A3BF5E44BCD80432492D6 /* UINavigationItem+GKNavigationBar.h */,
+				D998382F86255CC5C8CAE6CE54564D4D /* UINavigationItem+GKNavigationBar.m */,
+				99D98A61AA5388298182FCBD2A9BE5E0 /* UIViewController+GKNavigationBar.h */,
+				006030F0D1B613AE9F2286B6982DE3DF /* UIViewController+GKNavigationBar.m */,
+				65FA5E7900387B913631C82060A3A1BE /* Resources */,
+			);
+			name = NavigationBar;
 			sourceTree = "<group>";
 		};
 		B0BA934855EC2B17A1778A9ED094E9C5 /* MJRefresh */ = {
@@ -1772,6 +1772,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2271E4E4D4CA9317AE97D44F48F8A587 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B35869890494BC12781CDBF785DAAB53 /* GKBaseAnimatedTransition.h in Headers */,
+				B2DB5449F3945DD6E909A9982962DAB0 /* GKCustomNavigationBar.h in Headers */,
+				D2FCD009DB87BFE01EBD321A9C9DC1D0 /* GKGestureHandleConfigure.h in Headers */,
+				C234EEABCAAD2D92FAE3D673A2363F2B /* GKGestureHandleDefine.h in Headers */,
+				24EE79752EDA040089CF1EF629CCCA36 /* GKNavigationBar.h in Headers */,
+				FFBD304B7BDED59853826071E42110C2 /* GKNavigationBarConfigure.h in Headers */,
+				0ECF9269C209EAA78E99FCC11F748713 /* GKNavigationBarDefine.h in Headers */,
+				33FF44B7D93295BEE19C6C949105CF15 /* GKNavigationInteractiveTransition.h in Headers */,
+				0DEF01650A4705B380C14538EB5FC5C4 /* GKPopAnimatedTransition.h in Headers */,
+				786E2481C03396DEE3D1272DE3E91631 /* GKPushAnimatedTransition.h in Headers */,
+				9CC5F5439B65B66AE4750E0F7CCAD1FA /* UIBarButtonItem+GKNavigationBar.h in Headers */,
+				209692519C62DB872BAA57C1921310FB /* UIImage+GKNavigationBar.h in Headers */,
+				925D3C3F72BE599CC1CA024A3D735057 /* UINavigationController+GKGestureHandle.h in Headers */,
+				8C3CCD8AD35B6A2FC328A1A9394A94BB /* UINavigationController+GKNavigationBar.h in Headers */,
+				C4EE9F451D443C4BF093ECE517C7A445 /* UINavigationItem+GKNavigationBar.h in Headers */,
+				5E22A6A77BC8B723539A10B369B46776 /* UIScrollView+GKGestureHandle.h in Headers */,
+				F255826860B3A71D21299465166760C3 /* UIViewController+GKGestureHandle.h in Headers */,
+				95565074D6487703712B2DA4366F9A14 /* UIViewController+GKNavigationBar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2697A8D6B2989B073B236F7B4BF67F30 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1871,31 +1896,6 @@
 				A2560BE7A8CE736956DD4D36360070CC /* WMPageController.h in Headers */,
 				F3F047AF39237F1AC6C712BDBCA2D85C /* WMProgressView.h in Headers */,
 				7A020E671065CD432918484C4238A7BF /* WMScrollView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		741C170CD27CEEF3F1F4668230D87149 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D6A0B43CAF2FB7C3FCC09DA29E5D001D /* GKBaseAnimatedTransition.h in Headers */,
-				809C09B100D0F27566621A89EE331690 /* GKCustomNavigationBar.h in Headers */,
-				A8382533A9A3AAB27CB5CD0E3FC869B4 /* GKGestureHandleConfigure.h in Headers */,
-				28E38696D0DE45CB1ADC2BCAE904954A /* GKGestureHandleDefine.h in Headers */,
-				BF6CE2702F47173983326ED4A6751BC6 /* GKNavigationBar.h in Headers */,
-				8D8C83202D07D17843C203249D2D57C0 /* GKNavigationBarConfigure.h in Headers */,
-				4236434E4DF22E5AEE5B30F4E0792567 /* GKNavigationBarDefine.h in Headers */,
-				982A3724DD1EACF62E25122EFF1231C1 /* GKNavigationInteractiveTransition.h in Headers */,
-				6BCF4C98C1CC321455D00E12447E7A49 /* GKPopAnimatedTransition.h in Headers */,
-				CD3A0E430560E1D1E9340DE21A7670CF /* GKPushAnimatedTransition.h in Headers */,
-				59A39663B744A976AC3BCC9603A92B98 /* UIBarButtonItem+GKCategory.h in Headers */,
-				751945B1E34FA815A33907C3FBD12F68 /* UIImage+GKCategory.h in Headers */,
-				BF7413848F30B222902E25EC32C1F92F /* UINavigationController+GKGestureHandle.h in Headers */,
-				0EF405BCE608A863CED15A78D93E18F3 /* UINavigationController+GKNavigationBar.h in Headers */,
-				04C2B316CD86A1C28C81F20D0A7A2F42 /* UINavigationItem+GKCategory.h in Headers */,
-				C3006A09BEBA399E7EA29F0F7799A139 /* UIScrollView+GKGestureHandle.h in Headers */,
-				59A95F330DC2D41B50D1BAABABB974F6 /* UIViewController+GKGestureHandle.h in Headers */,
-				1B2F15DF8714007E995192A5A49C3532 /* UIViewController+GKNavigationBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2220,8 +2220,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E3FA546FDC5644B1F4E3240C1B8E4DC /* Build configuration list for PBXNativeTarget "GKNavigationBar" */;
 			buildPhases = (
-				741C170CD27CEEF3F1F4668230D87149 /* Headers */,
-				41302C1CC8089178B680EB6FE372F260 /* Sources */,
+				2271E4E4D4CA9317AE97D44F48F8A587 /* Headers */,
+				F002ACF66DD959AFFFDBC20EAE6697BA /* Sources */,
 				0612795A800ACFD3E6492EC036D0C2E8 /* Frameworks */,
 			);
 			buildRules = (
@@ -2364,29 +2364,6 @@
 				5786F2FCAACB504B79EF1C18B5F897F3 /* UINavigationItem+GKExtension.swift in Sources */,
 				40A08D53B38CE444DE0B35EA0D77200C /* UIScrollView+GKExtension.swift in Sources */,
 				293E1D3B02EE1304E81FEE2B74060599 /* UIViewController+GKExtension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		41302C1CC8089178B680EB6FE372F260 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B5B4BC127CCFD3780A022B0F5266373 /* GKBaseAnimatedTransition.m in Sources */,
-				C7ED554B49D4E974E4AC2DD1D5A4CA5D /* GKCustomNavigationBar.m in Sources */,
-				F929AE2AC78ABFC4D05E929216B7C571 /* GKGestureHandleConfigure.m in Sources */,
-				67076BD25D0E7043CBCE4D49D24D33BA /* GKNavigationBar-dummy.m in Sources */,
-				015F70DA24604C046DFFCE2D5589100C /* GKNavigationBarConfigure.m in Sources */,
-				7503398F23B4DCBFD396374068BC81E9 /* GKNavigationInteractiveTransition.m in Sources */,
-				E04DEAC5613E80595AD9A51EC6610DBE /* GKPopAnimatedTransition.m in Sources */,
-				1E53DBFAB3BAE61D63638D043EA26F78 /* GKPushAnimatedTransition.m in Sources */,
-				599B4F0BDCEAE2EBB3B665DB5FB62AC2 /* UIBarButtonItem+GKCategory.m in Sources */,
-				C459D2C8729C2865DDCB476800A95EBE /* UIImage+GKCategory.m in Sources */,
-				E4058CB847CA19F2A1AFD2C0CBAE10B5 /* UINavigationController+GKGestureHandle.m in Sources */,
-				AB275670626CEF111BC70AD90C27F957 /* UINavigationController+GKNavigationBar.m in Sources */,
-				63A6118675299577117F6E9501ADE8D7 /* UINavigationItem+GKCategory.m in Sources */,
-				2D6FBE7587044F908B533A587F4E9D85 /* UIScrollView+GKGestureHandle.m in Sources */,
-				177A7336D4BE0615780063D751B6245B /* UIViewController+GKGestureHandle.m in Sources */,
-				7538968B16608FF0306C2AD95E2B6195 /* UIViewController+GKNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2660,6 +2637,29 @@
 				3F91E00A5DCA2CFBB2F53F6A37DCE838 /* JXCategoryViewAnimator.m in Sources */,
 				846FD8EB0AE3548A6121A12908A37C64 /* RTLManager.m in Sources */,
 				30851A25AC868CC7DA9209897FF40FC8 /* UIColor+JXAdd.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F002ACF66DD959AFFFDBC20EAE6697BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF7393D65CC9D710A254D51A577C704C /* GKBaseAnimatedTransition.m in Sources */,
+				904C50A58FE2FDD8E917C7ACDB780CA7 /* GKCustomNavigationBar.m in Sources */,
+				74764BC2128D48921AA976B5AC128F7B /* GKGestureHandleConfigure.m in Sources */,
+				605F2300548203F72C650BE7416227FB /* GKNavigationBar-dummy.m in Sources */,
+				91E4CDEBCD0D226643B118FCFBFFBCB6 /* GKNavigationBarConfigure.m in Sources */,
+				7D74A629E86449EDB8982C13DCFE5A18 /* GKNavigationInteractiveTransition.m in Sources */,
+				4F73E02BDC700E71F910684FB29A6F98 /* GKPopAnimatedTransition.m in Sources */,
+				346D12D06485D1194F2C7DFCA2A92F48 /* GKPushAnimatedTransition.m in Sources */,
+				521BA12285F075621A05315F8CC02388 /* UIBarButtonItem+GKNavigationBar.m in Sources */,
+				54980FC147BFFA1B3D83DC014DA4AF4D /* UIImage+GKNavigationBar.m in Sources */,
+				39086A022E44EC0F2E2E5A2A81D62F35 /* UINavigationController+GKGestureHandle.m in Sources */,
+				8B0B08936D2723BB6A80B854FAEA6ED7 /* UINavigationController+GKNavigationBar.m in Sources */,
+				37485663B38032B5D48CDAAAE3B66CDE /* UINavigationItem+GKNavigationBar.m in Sources */,
+				EB7D7F4C14005F18908EA174DC7DD26A /* UIScrollView+GKGestureHandle.m in Sources */,
+				A5008EF34418B9283ADEC840C26B8972 /* UIViewController+GKGestureHandle.m in Sources */,
+				3725D3C0E0D42242035AF7653A8EEC43 /* UIViewController+GKNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

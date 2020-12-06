@@ -21,7 +21,7 @@
     self.gk_navLineHidden = YES;
     self.gk_navTitleColor = [UIColor whiteColor];
     
-    self.pageScrollView.isAllowListRefresh = YES;
+    self.pageScrollView.allowListRefresh = YES;
     
     // 列表添加下拉刷新
     [self.childVCs enumerateObjectsUsingBlock:^(GKBaseListViewController *listVC, NSUInteger idx, BOOL * _Nonnull stop) {

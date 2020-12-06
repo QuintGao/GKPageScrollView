@@ -56,6 +56,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 
 ## 注意
 1、尽量不要在代理方法里创建视图，如headerView，pageView等
+2、[手势处理]()
 
 ## 版本更新
 

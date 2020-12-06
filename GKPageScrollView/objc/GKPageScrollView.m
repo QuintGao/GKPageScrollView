@@ -79,19 +79,27 @@
     [self addSubview:self.mainTableView];
     
     if ([self shouldLazyLoadListView]) {
-        self.listContainerView = [[GKPageListContainerView alloc] initWithDelegate:self];
-        self.listContainerView.mainTableView = self.mainTableView;
+        self.mainTableView.horizontalScrollViewList = @[self.listContainerView.collectionView];
     }
 }
 
-- (void)setIsLazyLoadList:(BOOL)isLazyLoadList {
-    _isLazyLoadList = isLazyLoadList;
+- (void)setHorizontalScrollViewList:(NSArray *)horizontalScrollViewList {
+    _horizontalScrollViewList = horizontalScrollViewList;
+    
+    NSMutableArray *list = [NSMutableArray arrayWithArray:horizontalScrollViewList];
+    if ([self shouldLazyLoadListView]) {
+        [list addObject:self.listContainerView.collectionView];
+    }
+    self.mainTableView.horizontalScrollViewList = list;
+}
+
+- (void)setLazyLoadList:(BOOL)lazyLoadList {
+    _lazyLoadList = lazyLoadList;
     
     if ([self shouldLazyLoadListView]) {
-        self.listContainerView = [[GKPageListContainerView alloc] initWithDelegate:self];
-        self.listContainerView.mainTableView = self.mainTableView;
+        self.mainTableView.horizontalScrollViewList = @[self.listContainerView.collectionView];
     }else {
-        // listScrollview滑动处理
+        // listScrollView滑动处理
         [self configListViewScroll];
     }
 }
@@ -362,7 +370,7 @@
     if ([self.delegate respondsToSelector:@selector(shouldLazyLoadListInPageScrollView:)]) {
         return [self.delegate shouldLazyLoadListInPageScrollView:self];
     }else {
-        return self.isLazyLoadList;
+        return _isLazyLoadList;
     }
 }
 
@@ -476,6 +484,14 @@
     }
 
     [self mainTableViewCanScrollUpdate];
+}
+
+#pragma mark - 懒加载
+- (GKPageListContainerView *)listContainerView {
+    if (!_listContainerView) {
+        _listContainerView = [[GKPageListContainerView alloc] initWithDelegate:self];
+    }
+    return _listContainerView;
 }
 
 @end

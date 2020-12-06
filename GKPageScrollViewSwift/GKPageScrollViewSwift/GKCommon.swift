@@ -7,18 +7,15 @@
 //
 
 import UIKit
+import GKNavigationBarSwift
 
-let isIPhoneX: Bool = (
-        (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 375, height:812), UIScreen.main.bounds.size) : false) ||
-        (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 812, height:375), UIScreen.main.bounds.size) : false) ||
-        (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), UIScreen.main.bounds.size) : false) ||
-        (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), UIScreen.main.bounds.size) : false))
+let isIPhoneX: Bool = GKConfigure.gk_isNotchedScreen()
 
 let kScreenW = UIScreen.main.bounds.size.width
 let kScreenH = UIScreen.main.bounds.size.height
 
-let kNavBar_Height: CGFloat = isIPhoneX ? 88.0 : 64.0
-let kStatusBar_Height: CGFloat = isIPhoneX ? 44.0 : 20.0
+let kStatusBar_Height: CGFloat = GKConfigure.gk_statusBarFrame().size.height
+let kNavBar_Height: CGFloat = kStatusBar_Height + 44.0
 
 let ADAPTATIONRATIO = kScreenW / 750.0
 

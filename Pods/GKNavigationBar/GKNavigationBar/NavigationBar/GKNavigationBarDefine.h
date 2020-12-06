@@ -11,8 +11,6 @@
 
 #import <objc/runtime.h>
 #import "GKNavigationBarConfigure.h"
-#import "UIViewController+GKNavigationBar.h"
-#import "UIBarButtonItem+GKCategory.h"
 
 // 配置类宏定义
 #define GKConfigure                 [GKNavigationBarConfigure sharedInstance]

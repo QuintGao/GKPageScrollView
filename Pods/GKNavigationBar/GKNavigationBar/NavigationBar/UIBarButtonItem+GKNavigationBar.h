@@ -1,5 +1,5 @@
 //
-//  UIBarButtonItem+GKCategory.h
+//  UIBarButtonItem+GKNavigationBar.h
 //  GKNavigationBar
 //
 //  Created by QuintGao on 2019/10/28.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIBarButtonItem (GKCategory)
+@interface UIBarButtonItem (GKNavigationBar)
 
 + (instancetype)gk_itemWithTitle:(NSString *)title target:(id)target action:(SEL)action;
 

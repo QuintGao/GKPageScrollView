@@ -12,8 +12,6 @@
 
 #import "GKPageScrollView.h"
 #import "GKWBHeaderView.h"
-#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
-#import <GKNavigationBar/UIImage+GKCategory.h>
 
 @interface GKWBViewController ()<GKPageScrollViewDelegate, WMPageControllerDataSource, WMPageControllerDelegate, GKWBPageViewControllDelegate>
 
@@ -176,11 +174,11 @@
 
 #pragma mark - GKWBPageViewControllDelegate
 - (void)pageScrollViewWillBeginScroll {
-    [self.pageScrollView horizonScrollViewWillBeginScroll];
+//    [self.pageScrollView horizonScrollViewWillBeginScroll];
 }
 
 - (void)pageScrollViewDidEndedScroll {
-    [self.pageScrollView horizonScrollViewDidEndedScroll];
+//    [self.pageScrollView horizonScrollViewDidEndedScroll];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -195,6 +193,7 @@
     }
     [self.pageVC reloadData];
     self.pageVC.scrollView.gk_openGestureHandle = YES;
+    self.pageScrollView.horizontalScrollViewList = @[self.pageVC.scrollView];
 }
 
 #pragma mark - 懒加载
@@ -202,7 +201,8 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = GKColorGray(232);
-        _pageScrollView.isControlVerticalIndicator = YES;
+        _pageScrollView.controlVerticalIndicator = YES;
+//        _pageScrollView.contentScrollView = self.pageVC.scrollView;
     }
     return _pageScrollView;
 }

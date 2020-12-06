@@ -16,6 +16,7 @@ class GKItemLoadViewController: GKDemoBaseViewController {
     
     lazy var pageScrollView: GKPageScrollView! = {
         let pageScrollView = GKPageScrollView(delegate: self)
+        pageScrollView.horizontalScrollViewList = [self.scrollView]
         return pageScrollView
     }()
     
@@ -93,8 +94,10 @@ class GKItemLoadViewController: GKDemoBaseViewController {
             make.edges.equalTo(self.view)
         }
         
-        pageScrollView.mainTableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+        pageScrollView.mainTableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: { [weak self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                guard let self = self else { return }
+                
                 self.pageScrollView.mainTableView.mj_header?.endRefreshing()
                 
                 // 此时标题获取成功

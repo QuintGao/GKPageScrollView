@@ -8,10 +8,13 @@
 
 import UIKit
 
-class GKPushAnimatedTransition: GKBaseAnimatedTransition {
+open class GKPushAnimatedTransition: GKBaseAnimatedTransition {
     public override func animateTransition() {
         // 解决UITabBarController左滑push时的显示问题
         self.isHideTabBar = (self.fromViewController.tabBarController != nil) && (self.toViewController.hidesBottomBarWhenPushed == true)
+        
+        let screenW = self.containerView.bounds.size.width
+        let screenH = self.containerView.bounds.size.height
         
         var fromView = self.fromViewController.view
         if self.isHideTabBar {
@@ -26,7 +29,7 @@ class GKPushAnimatedTransition: GKBaseAnimatedTransition {
             if view != nil {
                 let captureImage = getCapture(with: view!)
                 let captureView = UIImageView(image: captureImage)
-                captureView.frame = CGRect(x: 0, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
+                captureView.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
                 containerView.addSubview(captureView)
                 fromView = captureView
                 self.fromViewController.gk_captureImage = captureImage
@@ -36,22 +39,21 @@ class GKPushAnimatedTransition: GKBaseAnimatedTransition {
         }
         self.contentView = fromView
         
-        self.containerView.addSubview(self.toViewController.view)
-        
         if self.isScale {
-            self.shadowView = UIView(frame: CGRect(x: 0, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT))
+            self.shadowView = UIView(frame: CGRect(x: 0, y: 0, width: screenW, height: screenH))
             self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0)
             fromView?.addSubview(self.shadowView)
         }
         
         // 设置toViewController
-        self.toViewController.view.frame = CGRect(x: GK_SCREEN_WIDTH, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
+        self.toViewController.view.frame = CGRect(x: screenW, y: 0, width: screenW, height: screenH)
         self.toViewController.view.layer.shadowColor = UIColor.black.cgColor
-        self.toViewController.view.layer.shadowOpacity = 0.2
-        self.toViewController.view.layer.shadowRadius = 4.0
+        self.toViewController.view.layer.shadowOpacity = 0.15
+        self.toViewController.view.layer.shadowRadius = 3.0
+        self.containerView.addSubview(self.toViewController.view)
         
         UIView.animate(withDuration: animationDuration(), animations: {
-            let fromRect = CGRect(x: -(0.3 * GK_SCREEN_WIDTH), y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
+            let fromRect = CGRect(x: -(0.3 * screenW), y: 0, width: screenW, height: screenH)
             if self.isScale {
                 self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
                 if #available(iOS 11.0, *) {
@@ -67,7 +69,7 @@ class GKPushAnimatedTransition: GKBaseAnimatedTransition {
                 fromView?.frame = fromRect
             }
             
-            self.toViewController.view.frame = CGRect(x: 0, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
+            self.toViewController.view.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
         }) { (finished) in
             self.completeTransition()
             if self.isHideTabBar {

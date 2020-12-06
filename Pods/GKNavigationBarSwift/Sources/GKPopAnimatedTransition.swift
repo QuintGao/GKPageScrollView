@@ -8,18 +8,21 @@
 
 import UIKit
 
-class GKPopAnimatedTransition: GKBaseAnimatedTransition {
+open class GKPopAnimatedTransition: GKBaseAnimatedTransition {
     public override func animateTransition() {
         self.containerView.insertSubview(self.toViewController.view, belowSubview: self.fromViewController.view)
         
         // 是否隐藏tabBar
         self.isHideTabBar = (self.toViewController.tabBarController != nil) && (self.fromViewController.hidesBottomBarWhenPushed == true) && (self.toViewController.gk_captureImage != nil)
         
+        let screenW = self.containerView.bounds.size.width
+        let screenH = self.containerView.bounds.size.height
+        
         var toView = self.toViewController.view
         
         if self.isHideTabBar {
             let captureView = UIImageView(image: self.toViewController.gk_captureImage!)
-            captureView.frame = CGRect(x: 0, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
+            captureView.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
             self.containerView.insertSubview(captureView, belowSubview: self.fromViewController.view)
             toView = captureView
             self.toViewController.view.isHidden = true
@@ -27,10 +30,9 @@ class GKPopAnimatedTransition: GKBaseAnimatedTransition {
         }
         self.contentView = toView
         
-        let toRect = CGRect(x: -(0.3 * GK_SCREEN_WIDTH), y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
-        
+        let toRect = CGRect(x: -(0.3 * screenW), y: 0, width: screenW, height: screenH)
         if self.isScale {
-            self.shadowView = UIView(frame: CGRect(x: 0, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT))
+            self.shadowView = UIView(frame: CGRect(x: 0, y: 0, width: screenW, height: screenH))
             self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
             toView?.addSubview(self.shadowView)
             
@@ -44,21 +46,21 @@ class GKPopAnimatedTransition: GKBaseAnimatedTransition {
                 toView?.transform = CGAffineTransform(scaleX: GKConfigure.gk_scaleX, y: GKConfigure.gk_scaleY)
             }
         }else {
-            self.fromViewController.view.frame = toRect
+            toView!.frame = toRect
         }
         
         self.fromViewController.view.layer.shadowColor = UIColor.black.cgColor
-        self.fromViewController.view.layer.shadowOpacity = 0.2
-        self.fromViewController.view.layer.shadowRadius = 4.0
+        self.fromViewController.view.layer.shadowOpacity = 0.15
+        self.fromViewController.view.layer.shadowRadius = 3.0
         
         UIView.animate(withDuration: animationDuration(), animations: {
-            self.fromViewController.view.frame = CGRect(x: GK_SCREEN_WIDTH, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
+            self.fromViewController.view.frame = CGRect(x: screenW, y: 0, width: screenW, height: screenH)
             if self.isScale {
                 self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0)
             }
             
             if #available(iOS 11.0, *) {
-                toView?.frame = CGRect(x: 0, y: 0, width: GK_SCREEN_WIDTH, height: GK_SCREEN_HEIGHT)
+                toView?.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
             }else {
                 toView?.transform = .identity
             }

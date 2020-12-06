@@ -47,45 +47,41 @@ class GKNavigationInteractiveTransition: NSObject {
                             self.pushTransition = UIPercentDrivenInteractiveTransition()
                             visibleVC.gk_pushDelegate?.pushToNextViewController?()
                         }
-                        if visibleVC.gk_pushDelegate != nil {
-                            visibleVC.gk_pushDelegate?.viewControllerPushScrollBegan?()
-                        }
                     }
                 }
+                pushScrollBegan()
             }else { // pop
                 if self.navigationController.gk_transitionScale {
                     self.popTransition = UIPercentDrivenInteractiveTransition()
                     self.navigationController.popViewController(animated: true)
-                }
-                if let visibleVC = self.visibleVC {
-                    if visibleVC.gk_popDelegate != nil {
-                        visibleVC.gk_popDelegate?.viewControllerPopScrollBegan?()
+                }else {
+                    if let visibleVC = self.visibleVC {
+                        if visibleVC.gk_systemGestureHandleDisabled {
+                            let shouldPop = visibleVC.navigationShouldPopOnGesture()
+                            if shouldPop {
+                                self.popTransition = UIPercentDrivenInteractiveTransition()
+                                self.navigationController.popViewController(animated: true)
+                            }
+                        }
                     }
                 }
+                popScrollBegan()
             }
         }else if gesture.state == .changed {
             if self.isGesturePush {
                 if self.pushTransition != nil {
                     self.pushTransition?.update(progress)
                 }
-                if let visibleVC = self.visibleVC {
-                    if visibleVC.gk_pushDelegate != nil {
-                        visibleVC.gk_pushDelegate?.viewControllerPushScrollUpdate?(progress: progress)
-                    }
-                }
+                pushScrollUpdate(progress: progress)
             }else {
-                if self.navigationController.gk_transitionScale {
+                if self.popTransition != nil {
                     self.popTransition?.update(progress)
                 }
-                if let visibleVC = self.visibleVC {
-                    if visibleVC.gk_popDelegate != nil {
-                        visibleVC.gk_popDelegate?.viewControllerPopScrollUpdate?(progress: progress)
-                    }
-                }
+                popScrollUpdate(progress: progress)
             }
         }else if gesture.state == .ended || gesture.state == .cancelled {
             if self.isGesturePush {
-                var pushFinished: Bool = false
+                var pushFinished: Bool = progress > 0.5
                 if self.pushTransition != nil {
                     if progress > GKConfigure.gk_pushTransitionCriticalValue {
                         pushFinished = true
@@ -95,14 +91,10 @@ class GKNavigationInteractiveTransition: NSObject {
                         self.pushTransition?.cancel()
                     }
                 }
-                if let visibleVC = self.visibleVC {
-                    if visibleVC.gk_pushDelegate != nil {
-                        visibleVC.gk_pushDelegate?.viewControllerPushScrollEnded?(finished: pushFinished)
-                    }
-                }
+                pushScrollEnded(finished: pushFinished)
             }else {
-                var popFinished: Bool = false
-                if self.navigationController.gk_transitionScale {
+                var popFinished: Bool = progress > 0.5
+                if self.popTransition != nil {
                     if progress > GKConfigure.gk_popTransitionCriticalValue {
                         popFinished = true
                         self.popTransition?.finish()
@@ -110,19 +102,49 @@ class GKNavigationInteractiveTransition: NSObject {
                         popFinished = false
                         self.popTransition?.cancel()
                     }
-                }else {
-                    popFinished = progress > 0.5
                 }
-                if let visibleVC = self.visibleVC {
-                    if visibleVC.gk_popDelegate != nil {
-                        visibleVC.gk_popDelegate?.viewControllerPopScrollEnded?(finished: popFinished)
-                    }
-                }
+                popScrollEnded(finished: popFinished)
             }
             self.pushTransition = nil
             self.popTransition  = nil
             self.visibleVC      = nil
             self.isGesturePush  = false
+        }
+    }
+    
+    func pushScrollBegan() {
+        if let visibleVC = self.visibleVC {
+            visibleVC.gk_pushDelegate?.viewControllerPushScrollBegan?()
+        }
+    }
+    
+    func pushScrollUpdate(progress: CGFloat) {
+        if let visibleVC = self.visibleVC {
+            visibleVC.gk_pushDelegate?.viewControllerPushScrollUpdate?(progress: progress)
+        }
+    }
+    
+    func pushScrollEnded(finished: Bool) {
+        if let visibleVC = self.visibleVC {
+            visibleVC.gk_pushDelegate?.viewControllerPushScrollEnded?(finished: finished)
+        }
+    }
+    
+    func popScrollBegan() {
+        if let visibleVC = self.visibleVC {
+            visibleVC.gk_popDelegate?.viewControllerPopScrollBegan?()
+        }
+    }
+    
+    func popScrollUpdate(progress: CGFloat) {
+        if let visibleVC = self.visibleVC {
+            visibleVC.gk_popDelegate?.viewControllerPopScrollUpdate?(progress: progress)
+        }
+    }
+    
+    func popScrollEnded(finished: Bool) {
+        if let visibleVC = self.visibleVC {
+            visibleVC.gk_popDelegate?.viewControllerPopScrollEnded?(finished: finished)
         }
     }
 }
@@ -191,29 +213,17 @@ extension GKNavigationInteractiveTransition: UIGestureRecognizerDelegate {
             }else {
                 return false
             }
-        }else { // 右滑
+        }else if (transition.x > 0) { // 右滑
+            if !visibleVC.gk_systemGestureHandleDisabled {
+                let shouldPop = visibleVC.navigationShouldPopOnGesture()
+                if shouldPop == false { return false }
+            }
+            
             // 解决跟控制器右滑时出现的卡死情况
-            var shouldPop = true
-            if visibleVC.responds(to: #selector(GKGesturePopHandlerProtocol.navigationShouldPopOnGesture)) {
-                shouldPop = (visibleVC.perform(#selector(GKGesturePopHandlerProtocol.navigationShouldPopOnGesture)) != nil)
-            }
-            
-            if shouldPop == false {
-                return false
-            }
-            
             if visibleVC.gk_popDelegate != nil {
                 // 实现了gk_popDelegate，不作处理
             }else {
                 if self.navigationController.viewControllers.count <= 1 {
-                    return false
-                }
-            }
-            
-            // 全屏滑动时起作用
-            if !visibleVC.gk_fullScreenPopDisabled {
-                // 上下滑动
-                if transition.x == 0 {
                     return false
                 }
             }

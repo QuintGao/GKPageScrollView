@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GKPageListContainerCollectionView : UICollectionView<UIGestureRecognizerDelegate>
 
-@property (nonatomic, assign) BOOL isNestEnabled;
+@property (nonatomic, assign, getter=isNestEnabled) BOOL nestEnabled;
 @property (nonatomic, weak) id<GKPageListContainerCollectionViewGestureDelegate> gestureDelegate;
 
 @end
@@ -39,8 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) GKPageListContainerCollectionView  *collectionView;
 
 @property (nonatomic, weak) id<GKPageListContainerViewDelegate> delegate;
-
-@property (nonatomic, weak) GKPageTableView *mainTableView;
 
 - (instancetype)initWithDelegate:(id<GKPageListContainerViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 

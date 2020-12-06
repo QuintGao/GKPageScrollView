@@ -208,11 +208,19 @@ extension UINavigationController: GKChildAwakeProtocol {
         }else if vc.gk_fullScreenPopDisabled { // 禁止全屏滑动，支持边缘滑动
             self.view.removeGestureRecognizer(self.panGesture)
             self.view.addGestureRecognizer(self.screenPanGesture)
-            self.screenPanGesture .addTarget(self.systemTarget!, action: self.systemAction)
+            if vc.gk_systemGestureHandleDisabled {
+                self.screenPanGesture.removeTarget(self.systemTarget, action: self.systemAction)
+            }else {
+                self.screenPanGesture.addTarget(self.systemTarget!, action: self.systemAction)
+            }
         }else { // 支持全屏滑动
             self.view.removeGestureRecognizer(self.screenPanGesture)
             self.view.addGestureRecognizer(self.panGesture)
-            self.panGesture.addTarget(self.systemTarget!, action: self.systemAction)
+            if vc.gk_systemGestureHandleDisabled {
+                self.panGesture.removeTarget(self.systemTarget, action: self.systemAction)
+            }else {
+                self.panGesture.addTarget(self.systemTarget!, action: self.systemAction)
+            }
         }
     }
 }

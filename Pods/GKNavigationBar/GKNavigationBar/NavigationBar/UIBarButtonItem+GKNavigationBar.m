@@ -1,14 +1,14 @@
 //
-//  UIBarButtonItem+GKCategory.m
+//  UIBarButtonItem+GKNavigationBar.m
 //  GKNavigationBar
 //
 //  Created by QuintGao on 2019/10/28.
 //  Copyright © 2019 QuintGao. All rights reserved.
 //
 
-#import "UIBarButtonItem+GKCategory.h"
+#import "UIBarButtonItem+GKNavigationBar.h"
 
-@implementation UIBarButtonItem (GKCategory)
+@implementation UIBarButtonItem (GKNavigationBar)
 
 + (instancetype)gk_itemWithTitle:(NSString *)title target:(id)target action:(SEL)action {
     return [self gk_itemWithTitle:title image:nil target:target action:action];

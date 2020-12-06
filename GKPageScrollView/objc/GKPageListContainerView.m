@@ -136,20 +136,6 @@
     return NO;
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    self.mainTableView.scrollEnabled = NO;
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.mainTableView.scrollEnabled = YES;
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (!decelerate) {
-        self.mainTableView.scrollEnabled = YES;
-    }
-}
-
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.bounds.size;

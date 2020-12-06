@@ -297,7 +297,6 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
         guard let delegate = delegate else { return 0 }
         
         let count = delegate.numberOfLists(in: self)
-        
         return self.isLoaded ? count : 0
     }
     

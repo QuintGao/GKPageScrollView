@@ -1,16 +1,16 @@
 //
-//  UINavigationItem+GKCategory.m
+//  UINavigationItem+GKNavigationBar.m
 //  GKNavigationBar
 //
 //  Created by QuintGao on 2019/10/29.
 //  Copyright © 2019 QuintGao. All rights reserved.
 //
 
-#import "UINavigationItem+GKCategory.h"
+#import "UINavigationItem+GKNavigationBar.h"
 #import "GKNavigationBarDefine.h"
 #import "GKNavigationBarConfigure.h"
 
-@implementation UINavigationItem (GKCategory)
+@implementation UINavigationItem (GKNavigationBar)
 
 // iOS 11之前，通过添加空UIBarButtonItem调整间距
 + (void)load{
@@ -107,7 +107,7 @@
 
 @end
 
-@implementation NSObject (GKCategory)
+@implementation NSObject (GKNavigationBar)
 
 // iOS11之后，通过修改约束跳转导航栏item的间距
 + (void)load {

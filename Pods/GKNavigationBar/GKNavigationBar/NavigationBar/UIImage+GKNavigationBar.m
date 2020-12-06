@@ -1,14 +1,14 @@
 //
-//  UIImage+GKCategory.m
+//  UIImage+GKNavigationBar.m
 //  GKNavigationBar
 //
 //  Created by gaokun on 2019/11/1.
 //  Copyright © 2019 QuintGao. All rights reserved.
 //
 
-#import "UIImage+GKCategory.h"
+#import "UIImage+GKNavigationBar.h"
 
-@implementation UIImage (GKCategory)
+@implementation UIImage (GKNavigationBar)
 
 + (UIImage *)gk_imageNamed:(NSString *)name {
     NSString *bundleName = [@"GKNavigationBar.bundle" stringByAppendingPathComponent:name];

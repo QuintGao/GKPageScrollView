@@ -28,4 +28,8 @@
     return self.gk_statusBarStyle;
 }
 
+- (void)dealloc {
+    NSLog(@"%@ dealloc", NSStringFromClass(self.class));
+}
+
 @end

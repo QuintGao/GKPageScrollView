@@ -60,16 +60,16 @@
     return self.childVCs;
 }
 
-#pragma mark - GKPageTableViewGestureDelegate
-- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    // 禁止UIScrollView左右滑动时，上下左右都可以滑动
-    UIScrollView *scrollView = [self.magicController.magicView valueForKey:@"contentView"];
-    
-    if (otherGestureRecognizer == scrollView.panGestureRecognizer) {
-        return NO;
-    }
-    return [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]];
-}
+//#pragma mark - GKPageTableViewGestureDelegate
+//- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+//    // 禁止UIScrollView左右滑动时，上下左右都可以滑动
+//    UIScrollView *scrollView = [self.magicController.magicView valueForKey:@"contentView"];
+//
+//    if (otherGestureRecognizer == scrollView.panGestureRecognizer) {
+//        return NO;
+//    }
+//    return [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]];
+//}
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
@@ -98,7 +98,10 @@
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
-        _pageScrollView.mainTableView.gestureDelegate = self;
+//        _pageScrollView.mainTableView.gestureDelegate = self;
+        
+        UIScrollView *scrollView = [self.magicController.magicView valueForKey:@"contentView"];
+        _pageScrollView.horizontalScrollViewList = @[scrollView];
     }
     return _pageScrollView;
 }

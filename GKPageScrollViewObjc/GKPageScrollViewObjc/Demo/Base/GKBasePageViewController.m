@@ -107,7 +107,7 @@
         btmLineView.backgroundColor = GKColorRGB(110, 110, 110);
         [_segmentView addSubview:btmLineView];
         [btmLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(self.segmentView);
+            make.left.right.bottom.equalTo(self->_segmentView);
             make.height.mas_equalTo(ADAPTATIONRATIO * 2.0f);
         }];
     }
@@ -131,13 +131,10 @@
             
             vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
             
+            __weak __typeof(self) weakSelf = self;
             vc.scrollToTop = ^(GKBaseListViewController * _Nonnull listVC, NSIndexPath * _Nonnull indexPath) {
+                __strong __typeof(weakSelf) self = weakSelf;
                 [self.pageScrollView scrollToCriticalPoint];
-                
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    
-//                    [listVC.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-                });
             };
         }];
         _contentScrollView.contentSize = CGSizeMake(scrollW * self.childVCs.count, 0);

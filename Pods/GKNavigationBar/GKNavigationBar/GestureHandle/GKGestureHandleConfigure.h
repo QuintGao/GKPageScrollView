@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "UIViewController+GKGestureHandle.h"
 #import "UINavigationController+GKGestureHandle.h"
+#import "UIScrollView+GKGestureHandle.h"
+#import "GKBaseAnimatedTransition.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
