@@ -41,7 +41,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.gk_systemGestureHandleDisabled = YES;
     self.gk_popDelegate = self;
     self.shouldPop = YES;
     
@@ -96,9 +95,11 @@
     if (!isMainCanScroll) {
         self.shouldPop = NO;
         self.backBtn.hidden = NO;
+        self.gk_systemGestureHandleDisabled = YES;
     }else {
         self.shouldPop = YES;
         self.backBtn.hidden = YES;
+        self.gk_systemGestureHandleDisabled = NO;
     }
     
     // topView透明度渐变

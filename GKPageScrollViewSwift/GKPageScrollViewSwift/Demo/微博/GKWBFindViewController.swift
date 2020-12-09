@@ -157,7 +157,6 @@ class GKWBFindViewController: GKDemoBaseViewController {
         super.viewDidLoad()
         
         self.gk_statusBarStyle = .default
-        self.gk_systemGestureHandleDisabled = true
         self.gk_popDelegate = self
         
         self.view.addSubview(self.pageScrollView)
@@ -211,9 +210,11 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
         if self.isMainCanScroll {
             self.backBtn.isHidden = true
             self.shouldPop = true
+            self.gk_systemGestureHandleDisabled = false
         }else {
             self.backBtn.isHidden = false
             self.shouldPop = false
+            self.gk_systemGestureHandleDisabled = true
         }
         
         // topView透明度渐变

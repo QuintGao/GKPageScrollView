@@ -370,7 +370,7 @@
     if ([self.delegate respondsToSelector:@selector(shouldLazyLoadListInPageScrollView:)]) {
         return [self.delegate shouldLazyLoadListInPageScrollView:self];
     }else {
-        return _isLazyLoadList;
+        return _lazyLoadList;
     }
 }
 
