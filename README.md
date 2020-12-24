@@ -61,6 +61,7 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 | **微博发现页** |![wb_find](https://upload-images.jianshu.io/upload_images/1598505-a5f087ed3b5e93d4.gif?imageMogr2/auto-orient/strip)|
 | **网易云歌手页** | ![wy](https://upload-images.jianshu.io/upload_images/1598505-5c55692e236b9f82.gif?imageMogr2/auto-orient/strip) |
 | **抖音个人主页** | ![dy](https://upload-images.jianshu.io/upload_images/1598505-8c0450b2032bc18c.gif?imageMogr2/auto-orient/strip) |
+| **豆瓣电影详情** |![db](https://upload-images.jianshu.io/upload_images/1598505-9958ad3c0c89451f.gif?imageMogr2/auto-orient/strip)|
 | **主页下拉刷新** | ![mainRefresh](https://upload-images.jianshu.io/upload_images/1598505-5209661b7169f611.gif?imageMogr2/auto-orient/strip) |
 | **列表下拉刷新** | ![listRefresh](https://upload-images.jianshu.io/upload_images/1598505-4bd5353e7471cb52.gif?imageMogr2/auto-orient/strip) |
 | **列表懒加载** | ![lazyload](https://upload-images.jianshu.io/upload_images/1598505-7917c1f0f1749c7e.gif?imageMogr2/auto-orient/strip) |
@@ -71,6 +72,7 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 [iOS-多个UIScrollView滑动嵌套(仿微博、抖音、网易云个人详情页)](https://www.jianshu.com/p/5ce57fccdc03)   
 [iOS用GKPageScrollView实现微博发现页滑动效果](https://www.jianshu.com/p/f9846c46fca7)   
 [iOS用GKPageScrollView实现多层分类嵌套滑动](https://www.jianshu.com/p/5de1bcd3ecad)  
+[【iOS】仿豆瓣电影详情页嵌套滑动效果](https://www.jianshu.com/p/75b979177ebe)  
 
 ## 版本更新
 
