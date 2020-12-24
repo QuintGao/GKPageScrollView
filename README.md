@@ -31,7 +31,7 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 - 支持顶部悬停、底部悬停
 - 支持底部悬停拖拽，可实现豆瓣电影详情页效果
 - 支持如[JXCategoryView](https://github.com/pujiaxin33/JXCategoryView),[JXSegmentedView](https://github.com/pujiaxin33/JXSegmentedView)等的分段控件
-- 可实现导航栏颜色嘉宾、头图下拉放大等效果
+- 可实现导航栏颜色渐变、头图下拉放大等效果
 - 支持主页下拉刷新、列表页上拉加载
 
 ## 使用方法
@@ -74,7 +74,7 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 
 ## 版本更新
 
-* 2020.12.10   1.4.2 - 拆分GKPageScrollView和GKPageSmoothView，GKPageSmoothView支持底部悬浮、底部拖拽等
+* 2020.12.10   1.4.2 - 拆分GKPageScrollView和GKPageSmoothView，GKPageSmoothView支持底部悬浮、底部拖拽
 * 2020.12.09   1.4.1 - 增加属性可传入横向滑动的scrollView，更加方便处理手势冲突
 * 2020.12.01   1.4.0 - 修复延续滑动可能出现header不能滑动的bug #57
 * 2020.08.07   1.3.8 - 修复列表刷新快速滑动时的bug
