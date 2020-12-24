@@ -27,6 +27,7 @@ class ViewController: GKDemoBaseViewController {
                       ["title": "微博发现页", "class": "GKWBFindViewController"],
                       ["title": "网易云歌手页", "class": "GKWYViewController"],
                       ["title": "抖音个人主页", "class": "GKDYViewController"],
+                      ["title": "豆瓣电影主页", "class": "GKDBViewController"],
                       ["title": "主页刷新", "class": "GKMainRefreshViewController"],
                       ["title": "列表刷新", "class": "GKListRefreshViewController"],
                       ["title": "列表懒加载", "class": "GKListLoadViewController"],

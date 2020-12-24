@@ -165,13 +165,6 @@
     return cell;
 }
 
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([self.delegate respondsToSelector:@selector(listViewDidScrollView:)]) {
-        [self.delegate listViewDidScrollView:scrollView];
-    }
-}
-
 #pragma mark - 懒加载
 - (UIScrollView *)scrollView {
     if (!_scrollView) {

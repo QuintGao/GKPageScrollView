@@ -10,9 +10,13 @@
 iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
 ==========
 
-GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingView](https://github.com/pujiaxin33/JXPagingView)，在他的基础上做了修改，实现了自己想要的效果。
+GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingView](https://github.com/pujiaxin33/JXPagingView)，在他的基础上做了修改，实现了自己想要的效果。  
+
+GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 
 ## 主要功能
+
+### GKPageScrollView
 
 - 支持上下滑动、左右滑动，手势返回等
 - 支持如UITableView的sectionView的悬停效果
@@ -20,7 +24,15 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 - 可实现导航栏颜色渐变、头图下拉放大等效果
 - 支持主页、列表页下拉刷新，列表页上拉加载
 - 支持列表懒加载创建
-- 支持列表延续滑动（GKPageSmoothView只支持懒加载形式）
+
+### GKPageSmoothView
+
+- 支持上下滑动、左右滑动、手势返回等
+- 支持顶部悬停、底部悬停
+- 支持底部悬停拖拽，可实现豆瓣电影详情页效果
+- 支持如[JXCategoryView](https://github.com/pujiaxin33/JXCategoryView),[JXSegmentedView](https://github.com/pujiaxin33/JXSegmentedView)等的分段控件
+- 可实现导航栏颜色嘉宾、头图下拉放大等效果
+- 支持主页下拉刷新、列表页上拉加载
 
 ## 使用方法
 ### 1、手动安装
@@ -62,6 +74,7 @@ GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingV
 
 ## 版本更新
 
+* 2020.12.10   1.4.2 - 拆分GKPageScrollView和GKPageSmoothView，GKPageSmoothView支持底部悬浮、底部拖拽等
 * 2020.12.09   1.4.1 - 增加属性可传入横向滑动的scrollView，更加方便处理手势冲突
 * 2020.12.01   1.4.0 - 修复延续滑动可能出现header不能滑动的bug #57
 * 2020.08.07   1.3.8 - 修复列表刷新快速滑动时的bug

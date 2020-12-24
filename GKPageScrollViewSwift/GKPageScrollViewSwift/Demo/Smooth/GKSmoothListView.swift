@@ -26,13 +26,8 @@ class GKSmoothListLayout: UICollectionViewFlowLayout {
     }
 }
 
-protocol GKSmoothListViewDelegate: NSObjectProtocol {
-    func listViewDidScroll(scrollView: UIScrollView)
-}
-
 class GKSmoothListView: UIView {
     var smoothScrollView: UIScrollView?
-    weak var delegate: GKSmoothListViewDelegate?
 
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -180,12 +175,6 @@ extension GKSmoothListView: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         cell.textLabel?.text = "第\(indexPath.row+1)行"
         return cell
-    }
-}
-
-extension GKSmoothListView {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.delegate?.listViewDidScroll(scrollView: scrollView)
     }
 }
 

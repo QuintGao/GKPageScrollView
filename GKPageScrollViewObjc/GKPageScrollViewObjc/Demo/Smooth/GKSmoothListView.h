@@ -18,15 +18,7 @@ typedef NS_ENUM(NSUInteger, GKSmoothListType) {
     GKSmoothListType_WebView
 };
 
-@protocol GKSmoothListViewDelegate <NSObject>
-
-- (void)listViewDidScrollView:(UIScrollView *)scrollView;
-
-@end
-
 @interface GKSmoothListView : UIView<GKPageSmoothListViewDelegate>
-
-@property (nonatomic, weak) id<GKSmoothListViewDelegate> delegate;
 
 - (instancetype)initWithListType:(GKSmoothListType)listType;
 

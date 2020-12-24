@@ -8,11 +8,14 @@
 
 import UIKit
 import JXSegmentedView
+import GKNavigationBarSwift
 
 class GKSmoothViewController: GKDemoBaseViewController {
 
     lazy var smoothView: GKPageSmoothView = {
-        let smoothView = GKPageSmoothView(delegate: self)
+        let smoothView = GKPageSmoothView(dataSource: self)
+        smoothView.delegate = self
+        smoothView.ceilPointHeight = GK_STATUSBAR_NAVBAR_HEIGHT
         smoothView.isControlVerticalIndicator = true
         smoothView.listCollectionView.gk_openGestureHandle = true
         return smoothView
@@ -71,7 +74,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
     }
 }
 
-extension GKSmoothViewController: GKPageSmoothViewDelegate {
+extension GKSmoothViewController: GKPageSmoothViewDataSource, GKPageSmoothViewDelegate {
     func headerView(in smoothView: GKPageSmoothView) -> UIView {
         return self.headerView
     }
@@ -86,17 +89,13 @@ extension GKSmoothViewController: GKPageSmoothViewDelegate {
     
     func smoothView(_ smoothView: GKPageSmoothView, initListAtIndex index: Int) -> GKPageSmoothListViewDelegate {
         let listView = GKSmoothListView(listType: GKSmoothListType(rawValue: index)!)
-        listView.delegate = self
         listView.requestData()
-        
         return listView
     }
-}
-
-extension GKSmoothViewController: GKSmoothListViewDelegate {
-    func listViewDidScroll(scrollView: UIScrollView) {
+    
+    func smoothViewListScrollViewDidScroll(_ smoothView: GKPageSmoothView, scrollView: UIScrollView, contentOffset: CGPoint) {
         // 导航栏显隐
-        let offsetY = scrollView.contentOffset.y + kDYHeaderHeight + kBaseSegmentHeight;
+        let offsetY = contentOffset.y
         // 0-200 0
         // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
         // > KDYHeaderHeigh - kNavBarheight 1

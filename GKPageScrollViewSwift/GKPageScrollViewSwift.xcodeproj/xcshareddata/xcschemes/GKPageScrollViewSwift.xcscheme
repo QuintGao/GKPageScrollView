@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1220"
+   LastUpgradeVersion = "1230"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5588360FF43B8281CA7E3F2325A23292"
-               BuildableName = "VTMagic.framework"
-               BlueprintName = "VTMagic-framework"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "60A20C26221E77A700DB2193"
+               BuildableName = "GKPageScrollViewSwift.app"
+               BlueprintName = "GKPageScrollViewSwift"
+               ReferencedContainer = "container:GKPageScrollViewSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "60559F4A25947F820088B516"
+               BuildableName = "GKPageSmoothViewTests.xctest"
+               BlueprintName = "GKPageSmoothViewTests"
+               ReferencedContainer = "container:GKPageScrollViewSwift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -40,6 +50,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "60A20C26221E77A700DB2193"
+            BuildableName = "GKPageScrollViewSwift.app"
+            BlueprintName = "GKPageScrollViewSwift"
+            ReferencedContainer = "container:GKPageScrollViewSwift.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,15 +67,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5588360FF43B8281CA7E3F2325A23292"
-            BuildableName = "VTMagic.framework"
-            BlueprintName = "VTMagic-framework"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "60A20C26221E77A700DB2193"
+            BuildableName = "GKPageScrollViewSwift.app"
+            BlueprintName = "GKPageScrollViewSwift"
+            ReferencedContainer = "container:GKPageScrollViewSwift.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

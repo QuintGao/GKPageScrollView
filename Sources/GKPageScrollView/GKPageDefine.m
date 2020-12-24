@@ -30,6 +30,24 @@
             CGSizeEqualToSize(screenSize, CGSizeMake(926, 428)));
 }
 
++ (CGRect)gk_statusBarFrame {
+    CGRect statusBarFrame = CGRectZero;
+    if (@available(iOS 13.0, *)) {
+        statusBarFrame = [GKPageDefine getKeyWindow].windowScene.statusBarManager.statusBarFrame;
+    }
+    
+    if (CGRectEqualToRect(statusBarFrame, CGRectZero)) {
+        statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    }
+    
+    if (CGRectEqualToRect(statusBarFrame, CGRectZero)) {
+        CGFloat statusBarH = [GKPageDefine gk_isNotchedScreen] ? 44 : 20;
+        statusBarFrame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, statusBarH);
+    }
+    
+    return statusBarFrame;
+}
+
 + (UIWindow *)getKeyWindow {
     UIWindow *window = nil;
     if (@available(iOS 13.0, *)) {

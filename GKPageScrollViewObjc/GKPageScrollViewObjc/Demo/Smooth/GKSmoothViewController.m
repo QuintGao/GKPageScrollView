@@ -12,9 +12,8 @@
 #import "GKSmoothListView.h"
 #import "GKDYHeaderView.h"
 #import "GKBaseListViewController.h"
-#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
 
-@interface GKSmoothViewController ()<GKPageSmoothViewDelegate, GKSmoothListViewDelegate>
+@interface GKSmoothViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate>
 
 @property (nonatomic, strong) GKPageSmoothView  *smoothView;
 
@@ -55,7 +54,7 @@
     });
 }
 
-#pragma mark - GKPageSmoothViewDelegate
+#pragma mark - GKPageSmoothViewDataSource
 - (UIView *)headerViewInSmoothView:(GKPageSmoothView *)smoothView {
     return self.headerView;
 }
@@ -70,17 +69,13 @@
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
     GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:index];
-    listView.delegate = self;
-    
     [listView requestData];
-    
     return listView;
 }
 
-#pragma mark - GKSmoothListViewDelegate
-- (void)listViewDidScrollView:(UIScrollView *)scrollView {
-    // 导航栏显隐
-    CGFloat offsetY = scrollView.contentOffset.y + kDYHeaderHeight + kBaseSegmentHeight;
+#pragma mark - GKPageSmoothViewDelegate
+- (void)smoothView:(GKPageSmoothView *)smoothView listScrollViewDidScroll:(UIScrollView *)scrollView contentOffset:(CGPoint)contentOffset {
+    CGFloat offsetY = contentOffset.y;
     // 0-200 0
     // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
     // > KDYHeaderHeigh - kNavBarheight 1
@@ -100,7 +95,8 @@
 #pragma mark - 懒加载
 - (GKPageSmoothView *)smoothView {
     if (!_smoothView) {
-        _smoothView = [[GKPageSmoothView alloc] initWithDelegate:self];
+        _smoothView = [[GKPageSmoothView alloc] initWithDataSource:self];
+        _smoothView.delegate = self;
         _smoothView.listCollectionView.gk_openGestureHandle = YES;
     }
     return _smoothView;

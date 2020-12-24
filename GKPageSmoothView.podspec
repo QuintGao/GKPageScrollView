@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name                = 'GKPageScrollViewSwift'
+  s.name                = 'GKPageSmoothView'
   s.version             = '1.4.2'
   s.summary             = 'iOS UIScrollView嵌套滑动分页视图'
   s.homepage            = 'https://github.com/QuintGao/GKPageScrollView'
@@ -7,8 +7,6 @@ Pod::Spec.new do |s|
   s.author              = { '高坤' => '1094887059@qq.com' }
   s.social_media_url    = 'https://github.com/QuintGao'
   s.ios.deployment_target = '9.0'
-  s.source              = { :git => "https://github.com/QuintGao/GKPageScrollView.git", :tag => s.version }
-  s.source_files        = 'Sources/GKPageScrollViewSwift/*.{swift}'
-  s.swift_version 	    = '5.0'
-  s.requires_arc 	    = true
+  s.source              = { :git => "https://github.com/QuintGao/GKPageScrollView.git", :tag => s.version.to_s }
+  s.source_files        = 'Sources/GKPageSmoothView/*.{h,m}'
 end

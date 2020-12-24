@@ -5,7 +5,7 @@
       location = "group:GKPageScrollViewObjc/GKPageScrollViewObjc.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:GKPageScrollViewSwift/GKPageScrollViewSwift.xcodeproj">
+      location = "group:Pods/../GKPageScrollViewSwift/GKPageScrollViewSwift.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
