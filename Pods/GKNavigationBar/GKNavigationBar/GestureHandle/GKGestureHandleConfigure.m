@@ -31,6 +31,8 @@
 }
 
 - (void)setupDefaultConfigure {
+    self.gk_snapMovementSensitivity = 0.7f;
+    
     self.gk_pushTransitionCriticalValue = 0.3f;
     self.gk_popTransitionCriticalValue = 0.5f;
     
@@ -44,6 +46,14 @@
     [self setupDefaultConfigure];
     
     !block ? : block(self);
+}
+
+- (void)updateConfigure:(void (^)(GKGestureHandleConfigure * _Nonnull))block {
+    !block ? : block(self);
+}
+
+- (BOOL)isVelocityInSensitivity:(CGFloat)velocity {
+    return (fabs(velocity) - (1000.0f * (1 - self.gk_snapMovementSensitivity))) > 0;
 }
 
 @end

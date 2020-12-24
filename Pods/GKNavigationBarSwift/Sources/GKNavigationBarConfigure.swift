@@ -43,11 +43,14 @@ open class GKNavigationBarConfigure : NSObject {
     /// 状态栏类型，默认UIStatusBarStyleDefault
     open var statusBarStyle: UIStatusBarStyle = .default
     
+    /// 快速滑动时的灵敏度，默认0.7
+    open var gk_snapMovementSensitivity: CGFloat = 0.7
+    
     /// 左滑push过渡临界值，默认0.3，大于此值完成push操作
-    open var gk_pushTransitionCriticalValue: CGFloat = 0.0
+    open var gk_pushTransitionCriticalValue: CGFloat = 0.3
     
     /// 右滑pop过渡临界值，默认0.5，大于此值完成pop操作
-    open var gk_popTransitionCriticalValue: CGFloat = 0.0
+    open var gk_popTransitionCriticalValue: CGFloat = 0.5
     
     // 以下属性需要设置导航栏转场缩放为YES
     /// 手机系统大于11.0，使用下面的值控制x、y轴的位移距离，默认（5，5）
@@ -92,6 +95,7 @@ open class GKNavigationBarConfigure : NSObject {
         navItemRightSpace = 0
         statusBarHidden = false
         statusBarStyle = .default
+        gk_snapMovementSensitivity = 0.7
         gk_pushTransitionCriticalValue = 0.3
         gk_popTransitionCriticalValue = 0.5
         gk_translationX = 5.0
@@ -178,6 +182,11 @@ open class GKNavigationBarConfigure : NSObject {
             return 16.0
         }
         return deviceWidth > 375.0 ? 20.0 : 16.0
+    }
+    
+    // 内部方法
+    open func isVelocityInsensitivity(_ velocity: CGFloat) -> Bool {
+        return (abs(velocity) - (1000.0 * (1 - self.gk_snapMovementSensitivity))) > 0;
     }
     
     fileprivate func getKeyWindow() -> UIWindow? {

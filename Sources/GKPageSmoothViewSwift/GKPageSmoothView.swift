@@ -93,7 +93,19 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     public weak var delegate: GKPageSmoothViewDelegate?
     public var isBottomHover: Bool = false {
         didSet {
-            self.refreshHeaderView()
+            if (isBottomHover) {
+                self.refreshWidth { [self] (size) in
+                    self.bottomContainerView.frame = CGRect(x: 0, y: size.height - self.segmentedHeight, width: size.width, height: size.height - self.ceilPointHeight)
+                    self.addSubview(self.bottomContainerView)
+                    
+                    if self.headerHeight > size.height {
+                        self.segmentedView?.frame = CGRect(x: 0, y: 0, width: size.width, height: self.segmentedHeight)
+                        self.bottomContainerView.addSubview(self.segmentedView!)
+                    }
+                }
+            }else {
+                self.bottomContainerView.removeFromSuperview()
+            }
         }
     }
     public var isAllowDragBottom: Bool = false {
@@ -198,36 +210,31 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     }
     
     public func refreshHeaderView() {
-        // 重新设置headerView及segmentedView的frame
-        self.headerView = dataSource!.headerView(in: self)
-        self.segmentedView = dataSource!.segmentedView(in: self)
-        headerContainerView.addSubview(headerView!)
-        headerContainerView.addSubview(segmentedView!)
+        self.loadHeaderAndSegmentedView()
         
-        headerHeight = headerView!.bounds.size.height
-        segmentedHeight = segmentedView!.bounds.size.height
-        headerContainerHeight = self.headerHeight + self.segmentedHeight
-        
-        self.refreshWidth { [self] (size)  in
-            self.headerContainerView.frame = CGRect(x: 0, y: 0, width: size.width, height: self.headerContainerHeight)
+        self.refreshWidth { [self] (size) in
+            var frame = self.headerContainerView.frame;
+            if __CGSizeEqualToSize(frame.size, .zero) {
+                frame = CGRect(x: 0, y: 0, width: size.width, height: self.headerContainerHeight)
+            }else {
+                frame.size.height = self.headerContainerHeight
+            }
+            self.headerContainerView.frame = frame
+            
             self.headerView?.frame = CGRect(x: 0, y: 0, width: size.width, height: self.headerHeight)
-            if self.isBottomHover {
-                self.bottomContainerView.frame = CGRect(x: 0, y: size.height - self.segmentedHeight, width: size.width, height: size.height - self.ceilPointHeight)
-                self.addSubview(self.bottomContainerView)
-                
-                if self.isAllowDragBottom {
-                    self.bottomContainerView.addGestureRecognizer(self.panGesture)
-                }else {
-                    self.bottomContainerView.removeGestureRecognizer(self.panGesture)
-                }
-                if self.headerHeight > size.height {
-                    self.segmentedView?.frame = CGRect(x: 0, y: 0, width: size.width, height: self.segmentedHeight)
-                    self.bottomContainerView.addSubview(self.segmentedView!)
-                }
+            self.segmentedView?.frame = CGRect(x: 0, y: self.headerHeight, width: size.width, height: self.segmentedHeight)
+            
+            self.listDict.values.forEach {
+                $0.listScrollView().contentInset = UIEdgeInsets(top: self.headerContainerHeight, left: 0, bottom: 0, right: 0)
             }
             
-            if self.segmentedView?.superview == self.headerContainerView {
-                self.segmentedView?.frame = CGRect(x: 0, y: self.headerHeight, width: size.width, height: self.segmentedHeight)
+            if self.isBottomHover {
+                self.bottomContainerView.frame = CGRect(x: 0, y: size.height - self.segmentedHeight, width: size.width, height: size.height - self.ceilPointHeight)
+                
+                if self.headerHeight > size.height {
+                    self.segmentedView?.frame = CGRect(x: 0, y: 0, width: size.height, height: self.segmentedHeight)
+                    self.bottomContainerView.addSubview(self.segmentedView!)
+                }
             }
         }
     }
@@ -476,6 +483,17 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             let contentOffset = CGPoint(x: scrollView.contentOffset.x, y: contentOffsetY)
             self.delegate?.smoothViewListScrollViewDidScroll?(self, scrollView: scrollView, contentOffset: contentOffset)
         }
+    }
+    
+    func loadHeaderAndSegmentedView() {
+        self.headerView = self.dataSource?.headerView(in: self)
+        self.segmentedView = self.dataSource?.segmentedView(in: self)
+        self.headerContainerView.addSubview(self.headerView!)
+        self.headerContainerView.addSubview(self.segmentedView!)
+        
+        self.headerHeight = self.headerView!.bounds.size.height
+        self.segmentedHeight = self.segmentedView!.bounds.size.height
+        self.headerContainerHeight = self.headerHeight + self.segmentedHeight
     }
     
     func refreshWidth(completion: @escaping (_ size: CGSize)->()) {

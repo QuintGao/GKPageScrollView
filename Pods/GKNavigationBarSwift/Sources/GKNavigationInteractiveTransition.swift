@@ -83,24 +83,34 @@ class GKNavigationInteractiveTransition: NSObject {
             if self.isGesturePush {
                 var pushFinished: Bool = progress > 0.5
                 if self.pushTransition != nil {
-                    if progress > GKConfigure.gk_pushTransitionCriticalValue {
+                    if GKConfigure.isVelocityInsensitivity(velocity.x) && velocity.x < 0 {
                         pushFinished = true
                         self.pushTransition?.finish()
                     }else {
-                        pushFinished = false
-                        self.pushTransition?.cancel()
+                        if progress > GKConfigure.gk_pushTransitionCriticalValue {
+                            pushFinished = true
+                            self.pushTransition?.finish()
+                        }else {
+                            pushFinished = false
+                            self.pushTransition?.cancel()
+                        }
                     }
                 }
                 pushScrollEnded(finished: pushFinished)
             }else {
                 var popFinished: Bool = progress > 0.5
                 if self.popTransition != nil {
-                    if progress > GKConfigure.gk_popTransitionCriticalValue {
+                    if GKConfigure.isVelocityInsensitivity(velocity.x) && velocity.x > 0 {
                         popFinished = true
                         self.popTransition?.finish()
                     }else {
-                        popFinished = false
-                        self.popTransition?.cancel()
+                        if progress > GKConfigure.gk_popTransitionCriticalValue {
+                            popFinished = true
+                            self.popTransition?.finish()
+                        }else {
+                            popFinished = false
+                            self.popTransition?.cancel()
+                        }
                     }
                 }
                 popScrollEnded(finished: popFinished)
@@ -146,6 +156,10 @@ class GKNavigationInteractiveTransition: NSObject {
         if let visibleVC = self.visibleVC {
             visibleVC.gk_popDelegate?.viewControllerPopScrollEnded?(finished: finished)
         }
+    }
+    
+    func isVelocityWithinSensitivityRange(_ velocity: CGFloat) -> Bool {
+        return abs(velocity) - (1000.0 * (1 - 0.7)) > 0
     }
 }
 
@@ -219,28 +233,20 @@ extension GKNavigationInteractiveTransition: UIGestureRecognizerDelegate {
                 if shouldPop == false { return false }
             }
             
-            // 解决跟控制器右滑时出现的卡死情况
-            if visibleVC.gk_popDelegate != nil {
-                // 实现了gk_popDelegate，不作处理
-            }else {
-                if self.navigationController.viewControllers.count <= 1 {
-                    return false
-                }
-            }
+            // 解决根控制器右滑时出现的卡死情况
+            if self.navigationController.viewControllers.count <= 1 { return false }
             
             // 忽略超出手势区域
             let beginningLocation = gestureRecognizer.location(in: gestureRecognizer.view)
             let maxAllowDistance = visibleVC.gk_maxPopDistance
             
-            if maxAllowDistance > 0 && beginningLocation.x > maxAllowDistance {
-                return false
-            }
+            if maxAllowDistance > 0 && beginningLocation.x > maxAllowDistance { return false }
+        }else {
+            return false
         }
         
         // 忽略导航控制器正在做转场动画
-        if self.navigationController.value(forKey: "_isTransitioning") as? Bool == true {
-            return false
-        }
+        if self.navigationController.value(forKey: "_isTransitioning") as? Bool == true { return false }
         
         return true
     }

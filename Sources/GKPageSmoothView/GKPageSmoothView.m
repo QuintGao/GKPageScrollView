@@ -105,41 +105,33 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (void)refreshHeaderView {
-    // 重新设置headerView及segmentedView的frame
-    self.headerView = [self.dataSource headerViewInSmoothView:self];
-    self.segmentedView = [self.dataSource segmentedViewInSmoothView:self];
-    [self.headerContainerView addSubview:self.headerView];
-    [self.headerContainerView addSubview:self.segmentedView];
-    
-    self.headerHeight = self.headerView.bounds.size.height;
-    self.segmentedHeight = self.segmentedView.bounds.size.height;
-    self.headerContainerHeight = self.headerHeight + self.segmentedHeight;
+    [self loadHeaderAndSegmentedView];
     
     __weak __typeof(self) weakSelf = self;
     [self refreshWidthCompletion:^(CGSize size) {
         __strong __typeof(weakSelf) self = weakSelf;
-        self.headerContainerView.frame = CGRectMake(0, 0, size.width, self.headerContainerHeight);
+        CGRect frame = self.headerContainerView.frame;
+        if (CGRectEqualToRect(frame, CGRectZero)) {
+            frame = CGRectMake(0, 0, size.width, self.headerContainerHeight);
+        }else {
+            frame.size.height = self.headerContainerHeight;
+        }
+        self.headerContainerView.frame = frame;
+        
         self.headerView.frame = CGRectMake(0, 0, size.width, self.headerHeight);
+        self.segmentedView.frame =  CGRectMake(0, self.headerHeight, size.width, self.segmentedHeight);
+        
+        for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
+            list.listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
+        }
+        
         if (self.isBottomHover) {
             self.bottomContainerView.frame = CGRectMake(0, size.height - self.segmentedHeight, size.width, size.height - self.ceilPointHeight);
-            [self addSubview:self.bottomContainerView];
-            
-            if (self.isAllowDragBottom) {
-                [self.bottomContainerView addGestureRecognizer:self.panGesture];
-            }else {
-                if ([self.bottomContainerView.gestureRecognizers containsObject:self.panGesture]) {
-                    [self.bottomContainerView removeGestureRecognizer:self.panGesture];
-                }
-            }
             
             if (self.headerHeight > size.height) {
                 self.segmentedView.frame = CGRectMake(0, 0, size.width, self.segmentedHeight);
                 [self.bottomContainerView addSubview:self.segmentedView];
             }
-        }
-        
-        if (self.segmentedView.superview == self.headerContainerView) {
-            self.segmentedView.frame = CGRectMake(0, self.headerHeight, size.width, self.segmentedHeight);
         }
     }];
 }
@@ -181,7 +173,21 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 - (void)setBottomHover:(BOOL)bottomHover {
     _bottomHover = bottomHover;
     
-    [self refreshHeaderView];
+    if (bottomHover) {
+        __weak __typeof(self) weakSelf = self;
+        [self refreshWidthCompletion:^(CGSize size) {
+            __strong __typeof(weakSelf) self = weakSelf;
+            self.bottomContainerView.frame = CGRectMake(0, size.height - self.segmentedHeight, size.width, size.height - self.ceilPointHeight);
+            [self addSubview:self.bottomContainerView];
+            
+            if (self.headerHeight > size.height) {
+                self.segmentedView.frame = CGRectMake(0, 0, size.width, self.segmentedHeight);
+                [self.bottomContainerView addSubview:self.segmentedView];
+            }
+        }];
+    }else {
+        [self.bottomContainerView removeFromSuperview];
+    }
 }
 
 - (void)setAllowDragBottom:(BOOL)allowDragBottom {
@@ -191,9 +197,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         if (allowDragBottom) {
             [self.bottomContainerView addGestureRecognizer:self.panGesture];
         }else {
-            if ([self.bottomContainerView.gestureRecognizers containsObject:self.panGesture]) {
-                [self.bottomContainerView removeGestureRecognizer:self.panGesture];
-            }
+            [self.bottomContainerView removeGestureRecognizer:self.panGesture];
         }
     }
 }
@@ -555,6 +559,17 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
             [self.delegate smoothView:self listScrollViewDidScroll:scrollView contentOffset:contentOffset];
         }
     }
+}
+
+- (void)loadHeaderAndSegmentedView {
+    self.headerView = [self.dataSource headerViewInSmoothView:self];
+    self.segmentedView = [self.dataSource segmentedViewInSmoothView:self];
+    [self.headerContainerView addSubview:self.headerView];
+    [self.headerContainerView addSubview:self.segmentedView];
+    
+    self.headerHeight = self.headerView.bounds.size.height;
+    self.segmentedHeight = self.segmentedView.bounds.size.height;
+    self.headerContainerHeight = self.headerHeight + self.segmentedHeight;
 }
 
 - (void)refreshWidthCompletion:(void(^)(CGSize size))completion {

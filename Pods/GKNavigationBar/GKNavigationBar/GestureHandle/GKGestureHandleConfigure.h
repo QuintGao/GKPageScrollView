@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
+/// 快速滑动时的敏感度，默认0.7
+@property (nonatomic, assign) CGFloat gk_snapMovementSensitivity;
+
 /// 左滑push过渡临界值，默认0.3，大于此值完成push操作
 @property (nonatomic, assign) CGFloat gk_pushTransitionCriticalValue;
 
@@ -41,6 +44,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置自定义配置，此方法只需调用一次
 /// @param block 配置回调
 - (void)setupCustomConfigure:(void (^)(GKGestureHandleConfigure *configure))block;
+
+/// 更新配置
+/// @param block 配置回调
+- (void)updateConfigure:(void (^)(GKGestureHandleConfigure *configure))block;
+
+// 内部方法
+- (BOOL)isVelocityInSensitivity:(CGFloat)velocity;
 
 @end
 

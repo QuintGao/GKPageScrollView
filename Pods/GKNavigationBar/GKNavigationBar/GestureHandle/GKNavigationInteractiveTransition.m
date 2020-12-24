@@ -89,24 +89,34 @@
         if (self.isGesturePush) {
             BOOL pushFinished = progress > 0.5;
             if (self.pushTransition) {
-                if (progress > GKGestureConfigure.gk_pushTransitionCriticalValue) {
+                if ([GKGestureConfigure isVelocityInSensitivity:velocity.x] && velocity.x < 0) {
                     pushFinished = YES;
                     [self.pushTransition finishInteractiveTransition];
                 }else {
-                    pushFinished = NO;
-                    [self.pushTransition cancelInteractiveTransition];
+                    if (progress > GKGestureConfigure.gk_pushTransitionCriticalValue) {
+                        pushFinished = YES;
+                        [self.pushTransition finishInteractiveTransition];
+                    }else {
+                        pushFinished = NO;
+                        [self.pushTransition cancelInteractiveTransition];
+                    }
                 }
             }
             [self pushScrollEnded:pushFinished];
         }else {
             BOOL popFinished = progress > 0.5;
             if (self.popTransition) {
-                if (progress > GKGestureConfigure.gk_popTransitionCriticalValue) {
+                if ([GKGestureConfigure isVelocityInSensitivity:velocity.x] && velocity.x > 0) {
                     popFinished = YES;
                     [self.popTransition finishInteractiveTransition];
                 }else {
-                    popFinished = NO;
-                    [self.popTransition cancelInteractiveTransition];
+                    if (progress > GKGestureConfigure.gk_popTransitionCriticalValue) {
+                        popFinished = YES;
+                        [self.popTransition finishInteractiveTransition];
+                    }else {
+                        popFinished = NO;
+                        [self.popTransition cancelInteractiveTransition];
+                    }
                 }
             }
             [self popScrollEnded:popFinished];
@@ -220,20 +230,15 @@
         }
         
         // 解决根控制器右滑时出现的卡死情况
-        if (visibleVC.gk_popDelegate) {
-            // 不作处理
-        }else {
-            // 忽略根控制器
-            if (self.navigationController.viewControllers.count <= 1) return NO;
-        }
+        if (self.navigationController.viewControllers.count <= 1) return NO;
         
         // 忽略超出手势区域
         CGPoint beginningLocation = [gestureRecognizer locationInView:gestureRecognizer.view];
         CGFloat maxAllowDistance  = visibleVC.gk_maxPopDistance;
         
-        if (maxAllowDistance > 0 && beginningLocation.x > maxAllowDistance) {
-            return NO;
-        }
+        if (maxAllowDistance > 0 && beginningLocation.x > maxAllowDistance) return NO;
+    }else {
+        return NO;
     }
     
     // 忽略导航控制器正在做转场动画
