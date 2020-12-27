@@ -57,10 +57,10 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 
 |说明|效果图|
 |-------|-------|
-| **微博个人主页** | ![wb](https://upload-images.jianshu.io/upload_images/1598505-53da65a9a8f3229c.gif?imageMogr2/auto-orient/strip)|
-| **微博发现页** |![wb_find](https://upload-images.jianshu.io/upload_images/1598505-a5f087ed3b5e93d4.gif?imageMogr2/auto-orient/strip)|
-| **网易云歌手页** | ![wy](https://upload-images.jianshu.io/upload_images/1598505-5c55692e236b9f82.gif?imageMogr2/auto-orient/strip) |
-| **抖音个人主页** | ![dy](https://upload-images.jianshu.io/upload_images/1598505-8c0450b2032bc18c.gif?imageMogr2/auto-orient/strip) |
+| **微博个人主页** | ![wb](https://gitee.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/wb.gif)|
+| **微博发现页** |![wb_find](https://gitee.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/wb_find.gif)|
+| **网易云歌手页** | ![wy](https://gitee.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/wy.gif) |
+| **抖音个人主页** | ![dy](https://gitee.com/QuintGao/GKExampleImages/blob/master/GKPageScrollView/dy.gif) |
 | **豆瓣电影详情** |![db](https://upload-images.jianshu.io/upload_images/1598505-9958ad3c0c89451f.gif?imageMogr2/auto-orient/strip)|
 | **主页下拉刷新** | ![mainRefresh](https://upload-images.jianshu.io/upload_images/1598505-5209661b7169f611.gif?imageMogr2/auto-orient/strip) |
 | **列表下拉刷新** | ![listRefresh](https://upload-images.jianshu.io/upload_images/1598505-4bd5353e7471cb52.gif?imageMogr2/auto-orient/strip) |
