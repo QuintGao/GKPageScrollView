@@ -1,11 +1,12 @@
-<div align=center><img src="/Pictures/GKPageScrollView.png" width="405" height="63" /></div>
+<div align=center><img src="https://upload-images.jianshu.io/upload_images/1598505-e2dbef3c2d9e3fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="405" height="63" /></div>
 
-![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;&nbsp;
-[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKPageScrollView/master/LICENSE)&nbsp;&nbsp;
-![](https://img.shields.io/badge/language-Objective--C%2FSwift%205.x-orange.svg)&nbsp;&nbsp;
-[![objc cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollView) &nbsp;&nbsp;
-[![swift cocoapods](http://img.shields.io/cocoapods/v/GKPageScrollViewSwift.svg?style=flat)](https://cocoapods.org/pods/GKPageScrollViewSwift) &nbsp;&nbsp;
-[![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
+<p align="center">
+<a href="https://github.com/QuintGao/GKPageScrollView"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
+<a href="" ><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
+<a href="https://github.com/QuintGao/GKPageScrollView"><img src="https://img.shields.io/badge/language-Objective--C%2FSwift%205.x-orange.svg"></a>
+<a href="https://cocoapods.org/pods/GKPageScrollViewSwift"><img src="http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat"></a>
+<a href=""><img src="https://img.shields.io/badge/support-ios%208%2B-orange.svg"></a>
+</p>
 
 iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
 ==========

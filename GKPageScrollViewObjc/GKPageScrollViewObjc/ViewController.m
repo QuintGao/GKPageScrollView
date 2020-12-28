@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.gk_navTitle = @"Demo";
+    self.gk_navTitle = @"ObjcDemo";
     
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -29,42 +29,69 @@
         make.left.right.bottom.equalTo(self.view);
     }];
     
-    self.dataSource = @[@{@"title": @"微博个人主页", @"class": @"GKWBViewController"},
-                        @{@"title": @"微博发现页", @"class": @"GKWBFindViewController"},
-                        @{@"title": @"网易云歌手页", @"class": @"GKWYViewController"},
-                        @{@"title": @"抖音个人主页", @"class": @"GKDYViewController"},
-                        @{@"title": @"豆瓣电影主页", @"class": @"GKDBViewController"},
-                        @{@"title": @"主页刷新", @"class": @"GKMainRefreshViewController"},
-                        @{@"title": @"列表刷新", @"class": @"GKListRefreshViewController"},
-                        @{@"title": @"列表懒加载", @"class": @"GKListLoadViewController"},
-                        @{@"title": @"item加载", @"class": @"GKItemLoadViewController"},
-                        @{@"title": @"Header左右滑动", @"class": @"GKHeaderScrollViewController"},
-                        @{@"title": @"VTMagic使用", @"class": @"GKVTMagicViewController"},
-//                        @{@"title": @"测试", @"class": @"GKTestViewController"},
-                        @{@"title": @"嵌套使用1", @"class": @"GKNest1ViewController"},
-                        @{@"title": @"嵌套使用2", @"class": @"GKNest2ViewController"},
-                        @{@"title": @"滑动延续", @"class": @"GKSmoothViewController"}];
+    self.dataSource = @[@{@"group": @"GKPageScrollView", @"list": @[@{@"title": @"微博个人主页", @"class": @"GKWBViewController"},
+                                                                    @{@"title": @"微博发现页", @"class": @"GKWBFindViewController"},
+                                                                    @{@"title": @"网易云歌手页", @"class": @"GKWYViewController"},
+                                                                    @{@"title": @"抖音个人主页", @"class": @"GKDYViewController"},
+                                                                    @{@"title": @"主页刷新", @"class": @"GKMainRefreshViewController"},
+                                                                    @{@"title": @"列表刷新", @"class": @"GKListRefreshViewController"},
+                                                                    @{@"title": @"列表懒加载", @"class": @"GKListLoadViewController"},
+                                                                    @{@"title": @"item加载", @"class": @"GKItemLoadViewController"},
+                                                                    @{@"title": @"Header左右滑动", @"class": @"GKHeaderScrollViewController"},
+                                                                    @{@"title": @"VTMagic使用", @"class": @"GKVTMagicViewController"},
+                                                                    @{@"title": @"嵌套使用1", @"class": @"GKNest1ViewController"},
+                                                                    @{@"title": @"嵌套使用2", @"class": @"GKNest2ViewController"}]},
+                        @{@"group": @"GKPageSmoothView", @"list": @[@{@"title": @"豆瓣电影主页", @"class": @"GKDBViewController"},
+                                                                    @{@"title": @"滑动延续", @"class": @"GKSmoothViewController"}]}];
     
     [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataSource.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSDictionary *dic = self.dataSource[section];
+    return [dic[@"list"] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = self.dataSource[indexPath.row][@"title"];
+    NSDictionary *dic = self.dataSource[indexPath.section];
     
+    cell.textLabel.text = dic[@"list"][indexPath.row][@"title"];
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [UIView new];
+    headerView.backgroundColor = UIColor.lightGrayColor;
+    UILabel *title = [UILabel new];
+    title.font = [UIFont systemFontOfSize:16];
+    title.textColor = UIColor.blackColor;
+    NSDictionary *dic = self.dataSource[section];
+    title.text = dic[@"group"];
+    [headerView addSubview:title];
+    [title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(headerView).offset(10);
+        make.centerY.equalTo(headerView);
+    }];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dic = self.dataSource[indexPath.row];
+    NSDictionary *dic = self.dataSource[indexPath.section];
     
-    NSString *className = dic[@"class"];
+    NSDictionary *dict = dic[@"list"][indexPath.row];
+    
+    NSString *className = dict[@"class"];
     
     UIViewController *vc = [[NSClassFromString(className) alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
