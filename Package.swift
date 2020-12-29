@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "GKPageScrollView",
+    name: "GKPageScrollViewSwift",
     platforms: [.iOS(.v10)],
     products: [
         .library(
-            name: "GKPageScrollView",
+            name: "GKPageScrollViewSwift",
             type: .static,
-            targets: ["GKPageScrollView"])
+            targets: ["GKPageScrollViewSwift"])
     ],
     targets: [
         .target(
-            name: "GKPageScrollView",
-            path: "Sources/GKPageScrollView"
+            name: "GKPageScrollViewSwift",
+            path: "Sources/GKPageScrollViewSwift"
         )
     ]
 )

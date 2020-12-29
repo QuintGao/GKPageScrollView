@@ -1,8 +1,8 @@
 workspace 'GKPageScrollView.xcworkspace'
 
-target 'GKPageScrollViewObjc' do
+target 'ObjcExample' do
   platform :ios, '9.0'
-  project 'GKPageScrollViewObjc/GKPageScrollViewObjc.xcodeproj'
+  project 'ObjcExample/ObjcExample.xcodeproj'
 
   pod 'GKNavigationBar'
   pod 'Masonry'
@@ -12,9 +12,9 @@ target 'GKPageScrollViewObjc' do
   pod 'VTMagic'
 end
 
-target 'GKPageScrollViewSwift' do
+target 'SwiftExample' do
   platform :ios, '9.0'
-  project 'GKPageScrollViewSwift/GKPageScrollViewSwift.xcodeproj'
+  project 'SwiftExample/SwiftExample.xcodeproj'
   
   use_frameworks!
   

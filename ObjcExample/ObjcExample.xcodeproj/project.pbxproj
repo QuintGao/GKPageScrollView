@@ -1,0 +1,859 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		609B8DE9259AFC6E000F1EB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8DE8259AFC6E000F1EB9 /* AppDelegate.m */; };
+		609B8DEF259AFC6E000F1EB9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8DEE259AFC6E000F1EB9 /* ViewController.m */; };
+		609B8DF4259AFC71000F1EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 609B8DF3259AFC71000F1EB9 /* Assets.xcassets */; };
+		609B8DF7259AFC71000F1EB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609B8DF5259AFC71000F1EB9 /* LaunchScreen.storyboard */; };
+		609B8DFA259AFC71000F1EB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8DF9259AFC71000F1EB9 /* main.m */; };
+		609B8E8E259AFD81000F1EB9 /* GKBallLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E2A259AFD80000F1EB9 /* GKBallLoadingView.m */; };
+		609B8E8F259AFD81000F1EB9 /* GKTestListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E2D259AFD80000F1EB9 /* GKTestListViewController.m */; };
+		609B8E90259AFD81000F1EB9 /* GKTestListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E2F259AFD80000F1EB9 /* GKTestListView.m */; };
+		609B8E91259AFD81000F1EB9 /* GKTestScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E30259AFD80000F1EB9 /* GKTestScrollView.m */; };
+		609B8E92259AFD81000F1EB9 /* GKTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E33259AFD80000F1EB9 /* GKTestViewController.m */; };
+		609B8E93259AFD81000F1EB9 /* GKTestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E34259AFD80000F1EB9 /* GKTestHeaderView.m */; };
+		609B8E94259AFD81000F1EB9 /* GKTestListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E38259AFD80000F1EB9 /* GKTestListCollectionView.m */; };
+		609B8E95259AFD81000F1EB9 /* GKTestListScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E39259AFD80000F1EB9 /* GKTestListScrollView.m */; };
+		609B8E96259AFD81000F1EB9 /* GKDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E40259AFD80000F1EB9 /* GKDBViewController.m */; };
+		609B8E97259AFD81000F1EB9 /* GKDBListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E41259AFD80000F1EB9 /* GKDBListView.m */; };
+		609B8E98259AFD81000F1EB9 /* JXCategoryTitleAttributeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E42259AFD80000F1EB9 /* JXCategoryTitleAttributeView.m */; };
+		609B8E99259AFD81000F1EB9 /* JXCategoryTitleAttributeCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E43259AFD80000F1EB9 /* JXCategoryTitleAttributeCellModel.m */; };
+		609B8E9A259AFD81000F1EB9 /* JXCategoryTitleAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E45259AFD80000F1EB9 /* JXCategoryTitleAttributeCell.m */; };
+		609B8E9B259AFD81000F1EB9 /* GKSmoothListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E49259AFD80000F1EB9 /* GKSmoothListView.m */; };
+		609B8E9C259AFD81000F1EB9 /* GKSmoothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E4A259AFD80000F1EB9 /* GKSmoothViewController.m */; };
+		609B8E9D259AFD81000F1EB9 /* GKItemLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E4C259AFD80000F1EB9 /* GKItemLoadViewController.m */; };
+		609B8E9E259AFD81000F1EB9 /* GKWYListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E50259AFD80000F1EB9 /* GKWYListViewController.m */; };
+		609B8E9F259AFD81000F1EB9 /* GKWYHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E52259AFD80000F1EB9 /* GKWYHeaderView.m */; };
+		609B8EA0259AFD81000F1EB9 /* GKWYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E54259AFD80000F1EB9 /* GKWYViewController.m */; };
+		609B8EA1259AFD81000F1EB9 /* GKVTMagicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E56259AFD80000F1EB9 /* GKVTMagicViewController.m */; };
+		609B8EA2259AFD81000F1EB9 /* GKWBListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E5A259AFD80000F1EB9 /* GKWBListViewController.m */; };
+		609B8EA3259AFD81000F1EB9 /* GKWBHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E5B259AFD80000F1EB9 /* GKWBHeaderView.m */; };
+		609B8EA4259AFD81000F1EB9 /* GKWBPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E5C259AFD80000F1EB9 /* GKWBPageViewController.m */; };
+		609B8EA5259AFD81000F1EB9 /* GKWBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E5F259AFD80000F1EB9 /* GKWBViewController.m */; };
+		609B8EA6259AFD81000F1EB9 /* GKWBFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E62259AFD80000F1EB9 /* GKWBFindViewController.m */; };
+		609B8EA7259AFD81000F1EB9 /* GKListRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E64259AFD80000F1EB9 /* GKListRefreshViewController.m */; };
+		609B8EA8259AFD81000F1EB9 /* GKListLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E68259AFD81000F1EB9 /* GKListLoadViewController.m */; };
+		609B8EA9259AFD81000F1EB9 /* GKMainRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E6A259AFD81000F1EB9 /* GKMainRefreshViewController.m */; };
+		609B8EAA259AFD81000F1EB9 /* GKHeaderScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E6D259AFD81000F1EB9 /* GKHeaderScrollViewController.m */; };
+		609B8EAB259AFD81000F1EB9 /* GKHeaderScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E70259AFD81000F1EB9 /* GKHeaderScrollView.m */; };
+		609B8EAC259AFD81000F1EB9 /* GKNest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E74259AFD81000F1EB9 /* GKNest2ViewController.m */; };
+		609B8EAD259AFD81000F1EB9 /* GKNestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E77259AFD81000F1EB9 /* GKNestView.m */; };
+		609B8EAE259AFD81000F1EB9 /* GKNest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E78259AFD81000F1EB9 /* GKNest1ViewController.m */; };
+		609B8EAF259AFD81000F1EB9 /* GKNest2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E7A259AFD81000F1EB9 /* GKNest2View.m */; };
+		609B8EB0259AFD81000F1EB9 /* GKNestListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E7B259AFD81000F1EB9 /* GKNestListView.m */; };
+		609B8EB1259AFD81000F1EB9 /* GKNestScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E7D259AFD81000F1EB9 /* GKNestScrollView.m */; };
+		609B8EB2259AFD81000F1EB9 /* GKBasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E83259AFD81000F1EB9 /* GKBasePageViewController.m */; };
+		609B8EB3259AFD81000F1EB9 /* GKDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E84259AFD81000F1EB9 /* GKDemoBaseViewController.m */; };
+		609B8EB4259AFD81000F1EB9 /* GKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E85259AFD81000F1EB9 /* GKBaseTableViewController.m */; };
+		609B8EB5259AFD81000F1EB9 /* GKBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E86259AFD81000F1EB9 /* GKBaseListViewController.m */; };
+		609B8EB6259AFD81000F1EB9 /* GKDYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E88259AFD81000F1EB9 /* GKDYViewController.m */; };
+		609B8EB7259AFD81000F1EB9 /* GKDYListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E8C259AFD81000F1EB9 /* GKDYListViewController.m */; };
+		609B8EB8259AFD81000F1EB9 /* GKDYHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */; };
+		609B8EC5259AFEDA000F1EB9 /* GKPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8EBD259AFED9000F1EB9 /* GKPageScrollView.m */; };
+		609B8EC6259AFEDA000F1EB9 /* GKPageDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8EBE259AFED9000F1EB9 /* GKPageDefine.m */; };
+		609B8EC7259AFEDA000F1EB9 /* GKPageListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8EBF259AFED9000F1EB9 /* GKPageListContainerView.m */; };
+		609B8EC8259AFEDA000F1EB9 /* GKPageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8EC2259AFEDA000F1EB9 /* GKPageTableView.m */; };
+		609B8ECC259AFEE5000F1EB9 /* GKPageSmoothView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8ECB259AFEE5000F1EB9 /* GKPageSmoothView.m */; };
+		B927B5B5BAC834684BC6753C /* libPods-ObjcExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		609B903D259B060D000F1EB9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		609B8DE4259AFC6E000F1EB9 /* ObjcExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		609B8DE7259AFC6E000F1EB9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		609B8DE8259AFC6E000F1EB9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		609B8DED259AFC6E000F1EB9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		609B8DEE259AFC6E000F1EB9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		609B8DF3259AFC71000F1EB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		609B8DF6259AFC71000F1EB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		609B8DF8259AFC71000F1EB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		609B8DF9259AFC71000F1EB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		609B8E2A259AFD80000F1EB9 /* GKBallLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBallLoadingView.m; sourceTree = "<group>"; };
+		609B8E2B259AFD80000F1EB9 /* GKBallLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBallLoadingView.h; sourceTree = "<group>"; };
+		609B8E2D259AFD80000F1EB9 /* GKTestListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestListViewController.m; sourceTree = "<group>"; };
+		609B8E2E259AFD80000F1EB9 /* GKTestHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestHeaderView.h; sourceTree = "<group>"; };
+		609B8E2F259AFD80000F1EB9 /* GKTestListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestListView.m; sourceTree = "<group>"; };
+		609B8E30259AFD80000F1EB9 /* GKTestScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestScrollView.m; sourceTree = "<group>"; };
+		609B8E31259AFD80000F1EB9 /* GKTestListScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestListScrollView.h; sourceTree = "<group>"; };
+		609B8E32259AFD80000F1EB9 /* GKTestListCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestListCollectionView.h; sourceTree = "<group>"; };
+		609B8E33259AFD80000F1EB9 /* GKTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestViewController.m; sourceTree = "<group>"; };
+		609B8E34259AFD80000F1EB9 /* GKTestHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestHeaderView.m; sourceTree = "<group>"; };
+		609B8E35259AFD80000F1EB9 /* GKTestListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestListViewController.h; sourceTree = "<group>"; };
+		609B8E36259AFD80000F1EB9 /* GKTestScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestScrollView.h; sourceTree = "<group>"; };
+		609B8E37259AFD80000F1EB9 /* GKTestListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestListView.h; sourceTree = "<group>"; };
+		609B8E38259AFD80000F1EB9 /* GKTestListCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestListCollectionView.m; sourceTree = "<group>"; };
+		609B8E39259AFD80000F1EB9 /* GKTestListScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTestListScrollView.m; sourceTree = "<group>"; };
+		609B8E3A259AFD80000F1EB9 /* GKTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTestViewController.h; sourceTree = "<group>"; };
+		609B8E3C259AFD80000F1EB9 /* GKDBListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDBListView.h; sourceTree = "<group>"; };
+		609B8E3D259AFD80000F1EB9 /* JXCategoryTitleAttributeCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXCategoryTitleAttributeCellModel.h; sourceTree = "<group>"; };
+		609B8E3E259AFD80000F1EB9 /* JXCategoryTitleAttributeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXCategoryTitleAttributeView.h; sourceTree = "<group>"; };
+		609B8E3F259AFD80000F1EB9 /* JXCategoryTitleAttributeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXCategoryTitleAttributeCell.h; sourceTree = "<group>"; };
+		609B8E40259AFD80000F1EB9 /* GKDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDBViewController.m; sourceTree = "<group>"; };
+		609B8E41259AFD80000F1EB9 /* GKDBListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDBListView.m; sourceTree = "<group>"; };
+		609B8E42259AFD80000F1EB9 /* JXCategoryTitleAttributeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryTitleAttributeView.m; sourceTree = "<group>"; };
+		609B8E43259AFD80000F1EB9 /* JXCategoryTitleAttributeCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryTitleAttributeCellModel.m; sourceTree = "<group>"; };
+		609B8E44259AFD80000F1EB9 /* GKDBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDBViewController.h; sourceTree = "<group>"; };
+		609B8E45259AFD80000F1EB9 /* JXCategoryTitleAttributeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryTitleAttributeCell.m; sourceTree = "<group>"; };
+		609B8E47259AFD80000F1EB9 /* GKSmoothListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKSmoothListView.h; sourceTree = "<group>"; };
+		609B8E48259AFD80000F1EB9 /* GKSmoothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKSmoothViewController.h; sourceTree = "<group>"; };
+		609B8E49259AFD80000F1EB9 /* GKSmoothListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKSmoothListView.m; sourceTree = "<group>"; };
+		609B8E4A259AFD80000F1EB9 /* GKSmoothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKSmoothViewController.m; sourceTree = "<group>"; };
+		609B8E4C259AFD80000F1EB9 /* GKItemLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKItemLoadViewController.m; sourceTree = "<group>"; };
+		609B8E4D259AFD80000F1EB9 /* GKItemLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKItemLoadViewController.h; sourceTree = "<group>"; };
+		609B8E4F259AFD80000F1EB9 /* GKWYHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYHeaderView.h; sourceTree = "<group>"; };
+		609B8E50259AFD80000F1EB9 /* GKWYListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYListViewController.m; sourceTree = "<group>"; };
+		609B8E51259AFD80000F1EB9 /* GKWYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYViewController.h; sourceTree = "<group>"; };
+		609B8E52259AFD80000F1EB9 /* GKWYHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYHeaderView.m; sourceTree = "<group>"; };
+		609B8E53259AFD80000F1EB9 /* GKWYListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYListViewController.h; sourceTree = "<group>"; };
+		609B8E54259AFD80000F1EB9 /* GKWYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYViewController.m; sourceTree = "<group>"; };
+		609B8E56259AFD80000F1EB9 /* GKVTMagicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKVTMagicViewController.m; sourceTree = "<group>"; };
+		609B8E57259AFD80000F1EB9 /* GKVTMagicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKVTMagicViewController.h; sourceTree = "<group>"; };
+		609B8E59259AFD80000F1EB9 /* GKWBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWBViewController.h; sourceTree = "<group>"; };
+		609B8E5A259AFD80000F1EB9 /* GKWBListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWBListViewController.m; sourceTree = "<group>"; };
+		609B8E5B259AFD80000F1EB9 /* GKWBHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWBHeaderView.m; sourceTree = "<group>"; };
+		609B8E5C259AFD80000F1EB9 /* GKWBPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWBPageViewController.m; sourceTree = "<group>"; };
+		609B8E5D259AFD80000F1EB9 /* GKWBFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWBFindViewController.h; sourceTree = "<group>"; };
+		609B8E5E259AFD80000F1EB9 /* GKWBListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWBListViewController.h; sourceTree = "<group>"; };
+		609B8E5F259AFD80000F1EB9 /* GKWBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWBViewController.m; sourceTree = "<group>"; };
+		609B8E60259AFD80000F1EB9 /* GKWBPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWBPageViewController.h; sourceTree = "<group>"; };
+		609B8E61259AFD80000F1EB9 /* GKWBHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWBHeaderView.h; sourceTree = "<group>"; };
+		609B8E62259AFD80000F1EB9 /* GKWBFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWBFindViewController.m; sourceTree = "<group>"; };
+		609B8E64259AFD80000F1EB9 /* GKListRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKListRefreshViewController.m; sourceTree = "<group>"; };
+		609B8E65259AFD81000F1EB9 /* GKListRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKListRefreshViewController.h; sourceTree = "<group>"; };
+		609B8E67259AFD81000F1EB9 /* GKListLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKListLoadViewController.h; sourceTree = "<group>"; };
+		609B8E68259AFD81000F1EB9 /* GKListLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKListLoadViewController.m; sourceTree = "<group>"; };
+		609B8E6A259AFD81000F1EB9 /* GKMainRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKMainRefreshViewController.m; sourceTree = "<group>"; };
+		609B8E6B259AFD81000F1EB9 /* GKMainRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKMainRefreshViewController.h; sourceTree = "<group>"; };
+		609B8E6D259AFD81000F1EB9 /* GKHeaderScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKHeaderScrollViewController.m; sourceTree = "<group>"; };
+		609B8E6E259AFD81000F1EB9 /* GKHeaderScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKHeaderScrollView.h; sourceTree = "<group>"; };
+		609B8E6F259AFD81000F1EB9 /* GKHeaderScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKHeaderScrollViewController.h; sourceTree = "<group>"; };
+		609B8E70259AFD81000F1EB9 /* GKHeaderScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKHeaderScrollView.m; sourceTree = "<group>"; };
+		609B8E72259AFD81000F1EB9 /* GKNest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNest1ViewController.h; sourceTree = "<group>"; };
+		609B8E73259AFD81000F1EB9 /* GKNest2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNest2View.h; sourceTree = "<group>"; };
+		609B8E74259AFD81000F1EB9 /* GKNest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNest2ViewController.m; sourceTree = "<group>"; };
+		609B8E75259AFD81000F1EB9 /* GKNestListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNestListView.h; sourceTree = "<group>"; };
+		609B8E76259AFD81000F1EB9 /* GKNestScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNestScrollView.h; sourceTree = "<group>"; };
+		609B8E77259AFD81000F1EB9 /* GKNestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNestView.m; sourceTree = "<group>"; };
+		609B8E78259AFD81000F1EB9 /* GKNest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNest1ViewController.m; sourceTree = "<group>"; };
+		609B8E79259AFD81000F1EB9 /* GKNest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNest2ViewController.h; sourceTree = "<group>"; };
+		609B8E7A259AFD81000F1EB9 /* GKNest2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNest2View.m; sourceTree = "<group>"; };
+		609B8E7B259AFD81000F1EB9 /* GKNestListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNestListView.m; sourceTree = "<group>"; };
+		609B8E7C259AFD81000F1EB9 /* GKNestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNestView.h; sourceTree = "<group>"; };
+		609B8E7D259AFD81000F1EB9 /* GKNestScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNestScrollView.m; sourceTree = "<group>"; };
+		609B8E7F259AFD81000F1EB9 /* GKBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBaseTableViewController.h; sourceTree = "<group>"; };
+		609B8E80259AFD81000F1EB9 /* GKDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDemoBaseViewController.h; sourceTree = "<group>"; };
+		609B8E81259AFD81000F1EB9 /* GKBasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBasePageViewController.h; sourceTree = "<group>"; };
+		609B8E82259AFD81000F1EB9 /* GKBaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBaseListViewController.h; sourceTree = "<group>"; };
+		609B8E83259AFD81000F1EB9 /* GKBasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBasePageViewController.m; sourceTree = "<group>"; };
+		609B8E84259AFD81000F1EB9 /* GKDemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDemoBaseViewController.m; sourceTree = "<group>"; };
+		609B8E85259AFD81000F1EB9 /* GKBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBaseTableViewController.m; sourceTree = "<group>"; };
+		609B8E86259AFD81000F1EB9 /* GKBaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBaseListViewController.m; sourceTree = "<group>"; };
+		609B8E88259AFD81000F1EB9 /* GKDYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYViewController.m; sourceTree = "<group>"; };
+		609B8E89259AFD81000F1EB9 /* GKDYListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYListViewController.h; sourceTree = "<group>"; };
+		609B8E8A259AFD81000F1EB9 /* GKDYHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYHeaderView.h; sourceTree = "<group>"; };
+		609B8E8B259AFD81000F1EB9 /* GKDYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYViewController.h; sourceTree = "<group>"; };
+		609B8E8C259AFD81000F1EB9 /* GKDYListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYListViewController.m; sourceTree = "<group>"; };
+		609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYHeaderView.m; sourceTree = "<group>"; };
+		609B8EBA259AFD96000F1EB9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		609B8EBD259AFED9000F1EB9 /* GKPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageScrollView.m; path = ../../../Sources/GKPageScrollView/GKPageScrollView.m; sourceTree = "<group>"; };
+		609B8EBE259AFED9000F1EB9 /* GKPageDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageDefine.m; path = ../../../Sources/GKPageScrollView/GKPageDefine.m; sourceTree = "<group>"; };
+		609B8EBF259AFED9000F1EB9 /* GKPageListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageListContainerView.m; path = ../../../Sources/GKPageScrollView/GKPageListContainerView.m; sourceTree = "<group>"; };
+		609B8EC0259AFED9000F1EB9 /* GKPageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageTableView.h; path = ../../../Sources/GKPageScrollView/GKPageTableView.h; sourceTree = "<group>"; };
+		609B8EC1259AFED9000F1EB9 /* GKPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageScrollView.h; path = ../../../Sources/GKPageScrollView/GKPageScrollView.h; sourceTree = "<group>"; };
+		609B8EC2259AFEDA000F1EB9 /* GKPageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageTableView.m; path = ../../../Sources/GKPageScrollView/GKPageTableView.m; sourceTree = "<group>"; };
+		609B8EC3259AFEDA000F1EB9 /* GKPageListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageListContainerView.h; path = ../../../Sources/GKPageScrollView/GKPageListContainerView.h; sourceTree = "<group>"; };
+		609B8EC4259AFEDA000F1EB9 /* GKPageDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageDefine.h; path = ../../../Sources/GKPageScrollView/GKPageDefine.h; sourceTree = "<group>"; };
+		609B8ECA259AFEE5000F1EB9 /* GKPageSmoothView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPageSmoothView.h; path = ../../../Sources/GKPageSmoothView/GKPageSmoothView.h; sourceTree = "<group>"; };
+		609B8ECB259AFEE5000F1EB9 /* GKPageSmoothView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPageSmoothView.m; path = ../../../Sources/GKPageSmoothView/GKPageSmoothView.m; sourceTree = "<group>"; };
+		7F61CAFA991F0A136AA42888 /* Pods-ObjcExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.release.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.release.xcconfig"; sourceTree = "<group>"; };
+		B75B8F2B490CE810F2D7F56D /* Pods-ObjcExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.debug.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		609B8DE1259AFC6E000F1EB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B927B5B5BAC834684BC6753C /* libPods-ObjcExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03F61B9CFF01D93442899D0D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		609B8DDB259AFC6E000F1EB9 = {
+			isa = PBXGroup;
+			children = (
+				609B8DE6259AFC6E000F1EB9 /* ObjcExample */,
+				609B8DE5259AFC6E000F1EB9 /* Products */,
+				C690DA035B9A8F444744CEE3 /* Pods */,
+				03F61B9CFF01D93442899D0D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		609B8DE5259AFC6E000F1EB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				609B8DE4259AFC6E000F1EB9 /* ObjcExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		609B8DE6259AFC6E000F1EB9 /* ObjcExample */ = {
+			isa = PBXGroup;
+			children = (
+				609B8EBB259AFE05000F1EB9 /* GKPageScrollView */,
+				609B8EBC259AFE05000F1EB9 /* GKPageSmoothView */,
+				609B8E27259AFD80000F1EB9 /* Demo */,
+				609B8DE7259AFC6E000F1EB9 /* AppDelegate.h */,
+				609B8DE8259AFC6E000F1EB9 /* AppDelegate.m */,
+				609B8DED259AFC6E000F1EB9 /* ViewController.h */,
+				609B8DEE259AFC6E000F1EB9 /* ViewController.m */,
+				609B8DF3259AFC71000F1EB9 /* Assets.xcassets */,
+				609B8DF5259AFC71000F1EB9 /* LaunchScreen.storyboard */,
+				609B8DF8259AFC71000F1EB9 /* Info.plist */,
+				609B8DF9259AFC71000F1EB9 /* main.m */,
+				609B8EBA259AFD96000F1EB9 /* PrefixHeader.pch */,
+			);
+			path = ObjcExample;
+			sourceTree = "<group>";
+		};
+		609B8E27259AFD80000F1EB9 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E7E259AFD81000F1EB9 /* Base */,
+				609B8E58259AFD80000F1EB9 /* 微博 */,
+				609B8E4E259AFD80000F1EB9 /* 网易云音乐 */,
+				609B8E87259AFD81000F1EB9 /* 抖音 */,
+				609B8E3B259AFD80000F1EB9 /* 豆瓣 */,
+				609B8E69259AFD81000F1EB9 /* MainRefresh */,
+				609B8E63259AFD80000F1EB9 /* ListRefresh */,
+				609B8E66259AFD81000F1EB9 /* ListLoad */,
+				609B8E4B259AFD80000F1EB9 /* ItemLoad */,
+				609B8E6C259AFD81000F1EB9 /* HeaderScroll */,
+				609B8E55259AFD80000F1EB9 /* VTMagic */,
+				609B8E71259AFD81000F1EB9 /* Nest */,
+				609B8E46259AFD80000F1EB9 /* Smooth */,
+				609B8E29259AFD80000F1EB9 /* Tools */,
+				609B8E2C259AFD80000F1EB9 /* Test */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		609B8E29259AFD80000F1EB9 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E2B259AFD80000F1EB9 /* GKBallLoadingView.h */,
+				609B8E2A259AFD80000F1EB9 /* GKBallLoadingView.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		609B8E2C259AFD80000F1EB9 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E2D259AFD80000F1EB9 /* GKTestListViewController.m */,
+				609B8E2E259AFD80000F1EB9 /* GKTestHeaderView.h */,
+				609B8E2F259AFD80000F1EB9 /* GKTestListView.m */,
+				609B8E30259AFD80000F1EB9 /* GKTestScrollView.m */,
+				609B8E31259AFD80000F1EB9 /* GKTestListScrollView.h */,
+				609B8E32259AFD80000F1EB9 /* GKTestListCollectionView.h */,
+				609B8E33259AFD80000F1EB9 /* GKTestViewController.m */,
+				609B8E34259AFD80000F1EB9 /* GKTestHeaderView.m */,
+				609B8E35259AFD80000F1EB9 /* GKTestListViewController.h */,
+				609B8E36259AFD80000F1EB9 /* GKTestScrollView.h */,
+				609B8E37259AFD80000F1EB9 /* GKTestListView.h */,
+				609B8E38259AFD80000F1EB9 /* GKTestListCollectionView.m */,
+				609B8E39259AFD80000F1EB9 /* GKTestListScrollView.m */,
+				609B8E3A259AFD80000F1EB9 /* GKTestViewController.h */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		609B8E3B259AFD80000F1EB9 /* 豆瓣 */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E44259AFD80000F1EB9 /* GKDBViewController.h */,
+				609B8E40259AFD80000F1EB9 /* GKDBViewController.m */,
+				609B8E3C259AFD80000F1EB9 /* GKDBListView.h */,
+				609B8E41259AFD80000F1EB9 /* GKDBListView.m */,
+				609B8E3F259AFD80000F1EB9 /* JXCategoryTitleAttributeCell.h */,
+				609B8E45259AFD80000F1EB9 /* JXCategoryTitleAttributeCell.m */,
+				609B8E3E259AFD80000F1EB9 /* JXCategoryTitleAttributeView.h */,
+				609B8E42259AFD80000F1EB9 /* JXCategoryTitleAttributeView.m */,
+				609B8E3D259AFD80000F1EB9 /* JXCategoryTitleAttributeCellModel.h */,
+				609B8E43259AFD80000F1EB9 /* JXCategoryTitleAttributeCellModel.m */,
+			);
+			path = "豆瓣";
+			sourceTree = "<group>";
+		};
+		609B8E46259AFD80000F1EB9 /* Smooth */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E48259AFD80000F1EB9 /* GKSmoothViewController.h */,
+				609B8E4A259AFD80000F1EB9 /* GKSmoothViewController.m */,
+				609B8E47259AFD80000F1EB9 /* GKSmoothListView.h */,
+				609B8E49259AFD80000F1EB9 /* GKSmoothListView.m */,
+			);
+			path = Smooth;
+			sourceTree = "<group>";
+		};
+		609B8E4B259AFD80000F1EB9 /* ItemLoad */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E4D259AFD80000F1EB9 /* GKItemLoadViewController.h */,
+				609B8E4C259AFD80000F1EB9 /* GKItemLoadViewController.m */,
+			);
+			path = ItemLoad;
+			sourceTree = "<group>";
+		};
+		609B8E4E259AFD80000F1EB9 /* 网易云音乐 */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E51259AFD80000F1EB9 /* GKWYViewController.h */,
+				609B8E54259AFD80000F1EB9 /* GKWYViewController.m */,
+				609B8E53259AFD80000F1EB9 /* GKWYListViewController.h */,
+				609B8E50259AFD80000F1EB9 /* GKWYListViewController.m */,
+				609B8E4F259AFD80000F1EB9 /* GKWYHeaderView.h */,
+				609B8E52259AFD80000F1EB9 /* GKWYHeaderView.m */,
+			);
+			path = "网易云音乐";
+			sourceTree = "<group>";
+		};
+		609B8E55259AFD80000F1EB9 /* VTMagic */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E57259AFD80000F1EB9 /* GKVTMagicViewController.h */,
+				609B8E56259AFD80000F1EB9 /* GKVTMagicViewController.m */,
+			);
+			path = VTMagic;
+			sourceTree = "<group>";
+		};
+		609B8E58259AFD80000F1EB9 /* 微博 */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E59259AFD80000F1EB9 /* GKWBViewController.h */,
+				609B8E5F259AFD80000F1EB9 /* GKWBViewController.m */,
+				609B8E62259AFD80000F1EB9 /* GKWBFindViewController.m */,
+				609B8E5D259AFD80000F1EB9 /* GKWBFindViewController.h */,
+				609B8E60259AFD80000F1EB9 /* GKWBPageViewController.h */,
+				609B8E5C259AFD80000F1EB9 /* GKWBPageViewController.m */,
+				609B8E5E259AFD80000F1EB9 /* GKWBListViewController.h */,
+				609B8E5A259AFD80000F1EB9 /* GKWBListViewController.m */,
+				609B8E61259AFD80000F1EB9 /* GKWBHeaderView.h */,
+				609B8E5B259AFD80000F1EB9 /* GKWBHeaderView.m */,
+			);
+			path = "微博";
+			sourceTree = "<group>";
+		};
+		609B8E63259AFD80000F1EB9 /* ListRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E65259AFD81000F1EB9 /* GKListRefreshViewController.h */,
+				609B8E64259AFD80000F1EB9 /* GKListRefreshViewController.m */,
+			);
+			path = ListRefresh;
+			sourceTree = "<group>";
+		};
+		609B8E66259AFD81000F1EB9 /* ListLoad */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E67259AFD81000F1EB9 /* GKListLoadViewController.h */,
+				609B8E68259AFD81000F1EB9 /* GKListLoadViewController.m */,
+			);
+			path = ListLoad;
+			sourceTree = "<group>";
+		};
+		609B8E69259AFD81000F1EB9 /* MainRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E6B259AFD81000F1EB9 /* GKMainRefreshViewController.h */,
+				609B8E6A259AFD81000F1EB9 /* GKMainRefreshViewController.m */,
+			);
+			path = MainRefresh;
+			sourceTree = "<group>";
+		};
+		609B8E6C259AFD81000F1EB9 /* HeaderScroll */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E6F259AFD81000F1EB9 /* GKHeaderScrollViewController.h */,
+				609B8E6D259AFD81000F1EB9 /* GKHeaderScrollViewController.m */,
+				609B8E6E259AFD81000F1EB9 /* GKHeaderScrollView.h */,
+				609B8E70259AFD81000F1EB9 /* GKHeaderScrollView.m */,
+			);
+			path = HeaderScroll;
+			sourceTree = "<group>";
+		};
+		609B8E71259AFD81000F1EB9 /* Nest */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E72259AFD81000F1EB9 /* GKNest1ViewController.h */,
+				609B8E78259AFD81000F1EB9 /* GKNest1ViewController.m */,
+				609B8E79259AFD81000F1EB9 /* GKNest2ViewController.h */,
+				609B8E74259AFD81000F1EB9 /* GKNest2ViewController.m */,
+				609B8E7C259AFD81000F1EB9 /* GKNestView.h */,
+				609B8E77259AFD81000F1EB9 /* GKNestView.m */,
+				609B8E75259AFD81000F1EB9 /* GKNestListView.h */,
+				609B8E7B259AFD81000F1EB9 /* GKNestListView.m */,
+				609B8E76259AFD81000F1EB9 /* GKNestScrollView.h */,
+				609B8E7D259AFD81000F1EB9 /* GKNestScrollView.m */,
+				609B8E73259AFD81000F1EB9 /* GKNest2View.h */,
+				609B8E7A259AFD81000F1EB9 /* GKNest2View.m */,
+			);
+			path = Nest;
+			sourceTree = "<group>";
+		};
+		609B8E7E259AFD81000F1EB9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E80259AFD81000F1EB9 /* GKDemoBaseViewController.h */,
+				609B8E84259AFD81000F1EB9 /* GKDemoBaseViewController.m */,
+				609B8E7F259AFD81000F1EB9 /* GKBaseTableViewController.h */,
+				609B8E85259AFD81000F1EB9 /* GKBaseTableViewController.m */,
+				609B8E83259AFD81000F1EB9 /* GKBasePageViewController.m */,
+				609B8E81259AFD81000F1EB9 /* GKBasePageViewController.h */,
+				609B8E82259AFD81000F1EB9 /* GKBaseListViewController.h */,
+				609B8E86259AFD81000F1EB9 /* GKBaseListViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		609B8E87259AFD81000F1EB9 /* 抖音 */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E8B259AFD81000F1EB9 /* GKDYViewController.h */,
+				609B8E88259AFD81000F1EB9 /* GKDYViewController.m */,
+				609B8E89259AFD81000F1EB9 /* GKDYListViewController.h */,
+				609B8E8C259AFD81000F1EB9 /* GKDYListViewController.m */,
+				609B8E8A259AFD81000F1EB9 /* GKDYHeaderView.h */,
+				609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */,
+			);
+			path = "抖音";
+			sourceTree = "<group>";
+		};
+		609B8EBB259AFE05000F1EB9 /* GKPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				609B8EC1259AFED9000F1EB9 /* GKPageScrollView.h */,
+				609B8EBD259AFED9000F1EB9 /* GKPageScrollView.m */,
+				609B8EC0259AFED9000F1EB9 /* GKPageTableView.h */,
+				609B8EC2259AFEDA000F1EB9 /* GKPageTableView.m */,
+				609B8EC3259AFEDA000F1EB9 /* GKPageListContainerView.h */,
+				609B8EBF259AFED9000F1EB9 /* GKPageListContainerView.m */,
+				609B8EC4259AFEDA000F1EB9 /* GKPageDefine.h */,
+				609B8EBE259AFED9000F1EB9 /* GKPageDefine.m */,
+			);
+			path = GKPageScrollView;
+			sourceTree = "<group>";
+		};
+		609B8EBC259AFE05000F1EB9 /* GKPageSmoothView */ = {
+			isa = PBXGroup;
+			children = (
+				609B8ECA259AFEE5000F1EB9 /* GKPageSmoothView.h */,
+				609B8ECB259AFEE5000F1EB9 /* GKPageSmoothView.m */,
+			);
+			path = GKPageSmoothView;
+			sourceTree = "<group>";
+		};
+		C690DA035B9A8F444744CEE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B75B8F2B490CE810F2D7F56D /* Pods-ObjcExample.debug.xcconfig */,
+				7F61CAFA991F0A136AA42888 /* Pods-ObjcExample.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		609B8DE3259AFC6E000F1EB9 /* ObjcExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 609B8E13259AFC71000F1EB9 /* Build configuration list for PBXNativeTarget "ObjcExample" */;
+			buildPhases = (
+				A61323FDDFACF93D37E6CE05 /* [CP] Check Pods Manifest.lock */,
+				609B8DE0259AFC6E000F1EB9 /* Sources */,
+				609B8DE1259AFC6E000F1EB9 /* Frameworks */,
+				609B8DE2259AFC6E000F1EB9 /* Resources */,
+				19C090AD592D1070F48F69B4 /* [CP] Copy Pods Resources */,
+				609B903D259B060D000F1EB9 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjcExample;
+			productName = ObjcExample;
+			productReference = 609B8DE4259AFC6E000F1EB9 /* ObjcExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		609B8DDC259AFC6E000F1EB9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Latest;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					609B8DE3259AFC6E000F1EB9 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = 609B8DDF259AFC6E000F1EB9 /* Build configuration list for PBXProject "ObjcExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 609B8DDB259AFC6E000F1EB9;
+			productRefGroup = 609B8DE5259AFC6E000F1EB9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				609B8DE3259AFC6E000F1EB9 /* ObjcExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		609B8DE2259AFC6E000F1EB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				609B8DF7259AFC71000F1EB9 /* LaunchScreen.storyboard in Resources */,
+				609B8DF4259AFC71000F1EB9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19C090AD592D1070F48F69B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ObjcExample/Pods-ObjcExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ObjcExample/Pods-ObjcExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ObjcExample/Pods-ObjcExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A61323FDDFACF93D37E6CE05 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ObjcExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		609B8DE0259AFC6E000F1EB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				609B8E9E259AFD81000F1EB9 /* GKWYListViewController.m in Sources */,
+				609B8EA2259AFD81000F1EB9 /* GKWBListViewController.m in Sources */,
+				609B8EAA259AFD81000F1EB9 /* GKHeaderScrollViewController.m in Sources */,
+				609B8EA4259AFD81000F1EB9 /* GKWBPageViewController.m in Sources */,
+				609B8E8E259AFD81000F1EB9 /* GKBallLoadingView.m in Sources */,
+				609B8E8F259AFD81000F1EB9 /* GKTestListViewController.m in Sources */,
+				609B8EAE259AFD81000F1EB9 /* GKNest1ViewController.m in Sources */,
+				609B8EC7259AFEDA000F1EB9 /* GKPageListContainerView.m in Sources */,
+				609B8EC8259AFEDA000F1EB9 /* GKPageTableView.m in Sources */,
+				609B8E96259AFD81000F1EB9 /* GKDBViewController.m in Sources */,
+				609B8E9B259AFD81000F1EB9 /* GKSmoothListView.m in Sources */,
+				609B8E9F259AFD81000F1EB9 /* GKWYHeaderView.m in Sources */,
+				609B8EA5259AFD81000F1EB9 /* GKWBViewController.m in Sources */,
+				609B8EA0259AFD81000F1EB9 /* GKWYViewController.m in Sources */,
+				609B8EB1259AFD81000F1EB9 /* GKNestScrollView.m in Sources */,
+				609B8E9C259AFD81000F1EB9 /* GKSmoothViewController.m in Sources */,
+				609B8EAF259AFD81000F1EB9 /* GKNest2View.m in Sources */,
+				609B8EB7259AFD81000F1EB9 /* GKDYListViewController.m in Sources */,
+				609B8EA1259AFD81000F1EB9 /* GKVTMagicViewController.m in Sources */,
+				609B8E9D259AFD81000F1EB9 /* GKItemLoadViewController.m in Sources */,
+				609B8E99259AFD81000F1EB9 /* JXCategoryTitleAttributeCellModel.m in Sources */,
+				609B8EC6259AFEDA000F1EB9 /* GKPageDefine.m in Sources */,
+				609B8E92259AFD81000F1EB9 /* GKTestViewController.m in Sources */,
+				609B8E90259AFD81000F1EB9 /* GKTestListView.m in Sources */,
+				609B8DEF259AFC6E000F1EB9 /* ViewController.m in Sources */,
+				609B8EB8259AFD81000F1EB9 /* GKDYHeaderView.m in Sources */,
+				609B8EB6259AFD81000F1EB9 /* GKDYViewController.m in Sources */,
+				609B8EB5259AFD81000F1EB9 /* GKBaseListViewController.m in Sources */,
+				609B8EC5259AFEDA000F1EB9 /* GKPageScrollView.m in Sources */,
+				609B8E97259AFD81000F1EB9 /* GKDBListView.m in Sources */,
+				609B8EB2259AFD81000F1EB9 /* GKBasePageViewController.m in Sources */,
+				609B8EAC259AFD81000F1EB9 /* GKNest2ViewController.m in Sources */,
+				609B8EA7259AFD81000F1EB9 /* GKListRefreshViewController.m in Sources */,
+				609B8DE9259AFC6E000F1EB9 /* AppDelegate.m in Sources */,
+				609B8EA3259AFD81000F1EB9 /* GKWBHeaderView.m in Sources */,
+				609B8E98259AFD81000F1EB9 /* JXCategoryTitleAttributeView.m in Sources */,
+				609B8EAD259AFD81000F1EB9 /* GKNestView.m in Sources */,
+				609B8EA9259AFD81000F1EB9 /* GKMainRefreshViewController.m in Sources */,
+				609B8EA8259AFD81000F1EB9 /* GKListLoadViewController.m in Sources */,
+				609B8E94259AFD81000F1EB9 /* GKTestListCollectionView.m in Sources */,
+				609B8EB0259AFD81000F1EB9 /* GKNestListView.m in Sources */,
+				609B8EA6259AFD81000F1EB9 /* GKWBFindViewController.m in Sources */,
+				609B8EB3259AFD81000F1EB9 /* GKDemoBaseViewController.m in Sources */,
+				609B8DFA259AFC71000F1EB9 /* main.m in Sources */,
+				609B8E91259AFD81000F1EB9 /* GKTestScrollView.m in Sources */,
+				609B8E95259AFD81000F1EB9 /* GKTestListScrollView.m in Sources */,
+				609B8EB4259AFD81000F1EB9 /* GKBaseTableViewController.m in Sources */,
+				609B8ECC259AFEE5000F1EB9 /* GKPageSmoothView.m in Sources */,
+				609B8E93259AFD81000F1EB9 /* GKTestHeaderView.m in Sources */,
+				609B8EAB259AFD81000F1EB9 /* GKHeaderScrollView.m in Sources */,
+				609B8E9A259AFD81000F1EB9 /* JXCategoryTitleAttributeCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		609B8DF5259AFC71000F1EB9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				609B8DF6259AFC71000F1EB9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		609B8E11259AFC71000F1EB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		609B8E12259AFC71000F1EB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		609B8E14259AFC71000F1EB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B75B8F2B490CE810F2D7F56D /* Pods-ObjcExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X52753HQNM;
+				GCC_PREFIX_HEADER = ObjcExample/PrefixHeader.pch;
+				INFOPLIST_FILE = ObjcExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.ObjcExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		609B8E15259AFC71000F1EB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F61CAFA991F0A136AA42888 /* Pods-ObjcExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X52753HQNM;
+				GCC_PREFIX_HEADER = ObjcExample/PrefixHeader.pch;
+				INFOPLIST_FILE = ObjcExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.ObjcExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = aystfm_dev_test;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		609B8DDF259AFC6E000F1EB9 /* Build configuration list for PBXProject "ObjcExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				609B8E11259AFC71000F1EB9 /* Debug */,
+				609B8E12259AFC71000F1EB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		609B8E13259AFC71000F1EB9 /* Build configuration list for PBXNativeTarget "ObjcExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				609B8E14259AFC71000F1EB9 /* Debug */,
+				609B8E15259AFC71000F1EB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 609B8DDC259AFC6E000F1EB9 /* Project object */;
+}
