@@ -8,7 +8,7 @@
 
 import UIKit
 import JXSegmentedView
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 public let kRefreshDuration  = 0.5
 public let kBaseHeaderHeight = kScreenW * 385.0 / 704.0

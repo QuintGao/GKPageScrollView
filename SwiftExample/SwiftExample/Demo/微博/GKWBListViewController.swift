@@ -8,7 +8,7 @@
 
 import UIKit
 import MJRefresh
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 class GKWBListViewController: GKDemoBaseViewController {
 

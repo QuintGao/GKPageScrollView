@@ -9,14 +9,17 @@
 import UIKit
 
 // 是否是iPhone X系列
-let GKPage_IS_iPhoneX: Bool = GKPageDefine.gk_isNotchedScreen()
+public let GKPage_IS_iPhoneX: Bool = GKPageDefine.gk_isNotchedScreen()
+
+// 状态栏高度
+public let GKPage_StatusBar_Height: CGFloat = GKPageDefine.gk_statusBarFrame().size.height
 
 // 导航栏+状态栏高度
-let GKPage_NavBar_Height: CGFloat = GKPage_IS_iPhoneX ? 88.0 : 64.0
+public let GKPage_NavBar_Height: CGFloat = (GKPage_StatusBar_Height + 44.0)
 
 // 屏幕宽高
-let GKPage_Screen_Width = UIScreen.main.bounds.size.width
-let GKPage_Screen_Height = UIScreen.main.bounds.size.height
+public let GKPage_Screen_Width = UIScreen.main.bounds.size.width
+public let GKPage_Screen_Height = UIScreen.main.bounds.size.height
 
 open class GKPageDefine {
     open class func gk_isNotchedScreen() -> Bool {
@@ -36,6 +39,23 @@ open class GKPageDefine {
                     (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 844, height:390), screenSize) : false) ||
                     (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 428, height:926), screenSize) : false) ||
                     (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 926, height:428), screenSize) : false))
+    }
+    
+    open class func gk_statusBarFrame() -> CGRect {
+        var statusBarFrame = CGRect.zero
+        if #available(iOS 13.0, *) {
+            statusBarFrame = GKPageDefine.getKeyWindow()?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+        }
+        
+        if statusBarFrame == .zero {
+            statusBarFrame = UIApplication.shared.statusBarFrame
+        }
+        
+        if statusBarFrame == .zero {
+            let statusBarH: CGFloat = GKPageDefine.gk_isNotchedScreen() ? 44.0 : 20.0
+            statusBarFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: statusBarH)
+        }
+        return statusBarFrame
     }
     
     fileprivate class func getKeyWindow() -> UIWindow? {

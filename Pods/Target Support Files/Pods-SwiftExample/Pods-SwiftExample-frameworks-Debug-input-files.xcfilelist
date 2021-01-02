@@ -1,9 +1,9 @@
 ${PODS_ROOT}/Target Support Files/Pods-SwiftExample/Pods-SwiftExample-frameworks.sh
+${BUILT_PRODUCTS_DIR}/GKPageScrollView-Swift/GKPageScrollView.framework
+${BUILT_PRODUCTS_DIR}/GKPageSmoothView-Swift/GKPageSmoothView.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework
 ${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework
 ${BUILT_PRODUCTS_DIR}/GKNavigationBarSwift/GKNavigationBarSwift.framework
-${BUILT_PRODUCTS_DIR}/GKPageScrollViewSwift/GKPageScrollViewSwift.framework
-${BUILT_PRODUCTS_DIR}/GKPageSmoothViewSwift/GKPageSmoothViewSwift.framework
 ${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

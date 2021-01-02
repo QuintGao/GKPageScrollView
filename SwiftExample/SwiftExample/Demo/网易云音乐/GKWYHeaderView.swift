@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 public let kWYHeaderHeight = (kScreenW * 500.0 / 750.0 - kNavBar_Height)
 

@@ -14,13 +14,7 @@
          location = "group:GKPageScrollView.podspec">
       </FileRef>
       <FileRef
-         location = "group:GKPageScrollViewSwift.podspec">
-      </FileRef>
-      <FileRef
          location = "group:GKPageSmoothView.podspec">
-      </FileRef>
-      <FileRef
-         location = "group:GKPageSmoothViewSwift.podspec">
       </FileRef>
    </Group>
    <FileRef

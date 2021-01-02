@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 class GKDYListViewController: GKBaseTableViewController {
 

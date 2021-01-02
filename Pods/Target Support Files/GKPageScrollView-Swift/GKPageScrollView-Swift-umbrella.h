@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double GKPageSmoothViewSwiftVersionNumber;
-FOUNDATION_EXPORT const unsigned char GKPageSmoothViewSwiftVersionString[];
+FOUNDATION_EXPORT double GKPageScrollViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char GKPageScrollViewVersionString[];
 

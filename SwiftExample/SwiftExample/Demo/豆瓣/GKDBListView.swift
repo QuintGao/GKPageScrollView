@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GKPageSmoothViewSwift
+import GKPageSmoothView
 
 class GKDBListView: UIView {
     lazy var tableView: UITableView = {

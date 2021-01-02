@@ -9,7 +9,7 @@
 import UIKit
 import JXSegmentedView
 import MJRefresh
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 class GKHeaderScrollViewController: GKDemoBaseViewController {
     

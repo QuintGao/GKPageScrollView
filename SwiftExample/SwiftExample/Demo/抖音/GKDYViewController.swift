@@ -8,7 +8,7 @@
 
 import UIKit
 import JXSegmentedView
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 class GKDYViewController: GKDemoBaseViewController {
 

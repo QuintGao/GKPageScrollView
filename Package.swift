@@ -4,18 +4,52 @@
 import PackageDescription
 
 let package = Package(
-    name: "GKPageScrollViewSwift",
-    platforms: [.iOS(.v10)],
+    name: "GKPageScrollView",
+    platforms: [
+        .iOS(.v9)
+    ],
     products: [
         .library(
+            name: "GKPageScrollView",
+            targets: ["GKPageScrollView"]
+        ),
+        .library(
             name: "GKPageScrollViewSwift",
-            type: .static,
-            targets: ["GKPageScrollViewSwift"])
+            targets: ["GKPageScrollViewSwift"]
+        ),
+        .library(
+            name: "GKPageSmoothView",
+            targets: ["GKPageSmoothView"]
+        ),
+        .library(
+            name: "GKPageSmoothViewSwift",
+            targets: ["GKPageSmoothViewSwift"]
+        )
     ],
     targets: [
         .target(
+            name: "GKPageScrollView",
+            dependencies: [],
+            path: "Sources",
+            sources: ["GKPageScrollView"]
+        ),
+        .target(
             name: "GKPageScrollViewSwift",
-            path: "Sources/GKPageScrollViewSwift"
+            dependencies: [],
+            path: "Sources",
+            sources: ["GKPageScrollViewSwift"]
+        ),
+        .target(
+            name: "GKPageSmoothView",
+            dependencies: [],
+            path: "Sources",
+            sources: ["GKPageSmoothView"]
+        ),
+        .target(
+            name: "GKPageSmoothViewSwift",
+            dependencies: [],
+            path: "Sources",
+            sources: ["GKPageSmoothViewSwift"]
         )
     ]
 )

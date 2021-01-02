@@ -9,7 +9,7 @@
 import UIKit
 import WMPageController
 import GKNavigationBarSwift
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 class GKWBViewController: GKDemoBaseViewController {
 

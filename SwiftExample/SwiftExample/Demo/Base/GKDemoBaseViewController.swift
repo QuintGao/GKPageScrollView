@@ -8,7 +8,7 @@
 
 import UIKit
 import GKNavigationBarSwift
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 class GKDemoBaseViewController: UIViewController {
 

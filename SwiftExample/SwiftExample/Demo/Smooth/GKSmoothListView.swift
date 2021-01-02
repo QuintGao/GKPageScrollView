@@ -8,7 +8,7 @@
 
 import UIKit
 import GKNavigationBarSwift
-import GKPageSmoothViewSwift
+import GKPageSmoothView
 
 enum GKSmoothListType: Int {
     case tableView

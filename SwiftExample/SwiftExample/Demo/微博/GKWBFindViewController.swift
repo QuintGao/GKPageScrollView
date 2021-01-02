@@ -10,7 +10,7 @@ import UIKit
 import MJRefresh
 import JXSegmentedView
 import GKNavigationBarSwift
-import GKPageScrollViewSwift
+import GKPageScrollView
 
 class GKWBFindViewController: GKDemoBaseViewController {
 

@@ -1,6 +1,0 @@
-framework module GKPageSmoothViewSwift {
-  umbrella header "GKPageSmoothViewSwift-umbrella.h"
-
-  export *
-  module * { export * }
-}

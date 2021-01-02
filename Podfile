@@ -20,8 +20,8 @@ target 'SwiftExample' do
   
   use_frameworks!
   
-  pod 'GKPageScrollViewSwift', :path => '../GKPageScrollView'
-  pod 'GKPageSmoothViewSwift', :path => '../GKPageScrollView'
+  pod 'GKPageScrollView/Swift', :path => '../GKPageScrollView'
+  pod 'GKPageSmoothView/Swift', :path => '../GKPageScrollView'
   pod 'GKNavigationBarSwift'
   pod 'SnapKit'
   pod 'MJRefresh'

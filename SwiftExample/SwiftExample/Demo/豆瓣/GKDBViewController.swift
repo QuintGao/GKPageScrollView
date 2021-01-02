@@ -9,7 +9,7 @@
 import UIKit
 import JXSegmentedView
 import GKNavigationBarSwift
-import GKPageSmoothViewSwift
+import GKPageSmoothView
 
 class GKDBViewController: GKDemoBaseViewController {
 
