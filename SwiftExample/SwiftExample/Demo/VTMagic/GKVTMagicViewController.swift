@@ -8,6 +8,7 @@
 
 import UIKit
 import VTMagic
+import GKPageScrollViewSwift
 
 class GKVTMagicController: VTMagicController {
     override func viewDidLoad() {

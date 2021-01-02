@@ -8,6 +8,7 @@
 
 import UIKit
 import VTMagic
+import GKPageScrollViewSwift
 
 class GKNestListView: UIView {
 

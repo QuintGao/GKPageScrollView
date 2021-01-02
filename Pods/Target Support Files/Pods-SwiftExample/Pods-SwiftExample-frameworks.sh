@@ -179,6 +179,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GKNavigationBarSwift/GKNavigationBarSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GKPageScrollViewSwift/GKPageScrollViewSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GKPageSmoothViewSwift/GKPageSmoothViewSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi
@@ -187,6 +189,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GKNavigationBarSwift/GKNavigationBarSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GKPageScrollViewSwift/GKPageScrollViewSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GKPageSmoothViewSwift/GKPageSmoothViewSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi

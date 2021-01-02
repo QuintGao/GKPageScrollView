@@ -8,6 +8,7 @@
 
 import UIKit
 import JXSegmentedView
+import GKPageScrollViewSwift
 
 public let kRefreshDuration  = 0.5
 public let kBaseHeaderHeight = kScreenW * 385.0 / 704.0
@@ -79,7 +80,7 @@ class GKBasePageViewController: GKDemoBaseViewController {
    
     lazy var contentScrollView: UIScrollView = {
         let scrollW = kScreenW
-        let scrollH = kScreenH - GKPage_NavBar_Height - kBaseSegmentHeight
+        let scrollH = kScreenH - kNavBar_Height - kBaseSegmentHeight
         
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: kBaseSegmentHeight, width: scrollW, height: scrollH))
         scrollView.delegate = self

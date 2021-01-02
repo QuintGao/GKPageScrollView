@@ -9,6 +9,7 @@
 import UIKit
 import JXSegmentedView
 import MJRefresh
+import GKPageScrollViewSwift
 
 class GKItemLoadViewController: GKDemoBaseViewController {
 

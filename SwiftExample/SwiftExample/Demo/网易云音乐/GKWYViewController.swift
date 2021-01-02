@@ -8,6 +8,7 @@
 
 import UIKit
 import JXSegmentedView
+import GKPageScrollViewSwift
 
 let kCriticalPoint = -ADAPTATIONRATIO * 50.0
 
@@ -78,7 +79,7 @@ class GKWYViewController: GKDemoBaseViewController {
     
     lazy var scrollView: UIScrollView = {
         let scrollW = kScreenW
-        let scrollH = kScreenH - GKPage_NavBar_Height - 40.0
+        let scrollH = kScreenH - kNavBar_Height - 40.0
         
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: 40, width: scrollW, height: scrollH))
         scrollView.isPagingEnabled = true
@@ -129,7 +130,7 @@ class GKWYViewController: GKDemoBaseViewController {
         self.view.addSubview(self.pageScrollView)
         
         self.pageScrollView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: GKPage_NavBar_Height, left: 0, bottom: 0, right: 0))
+            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: kNavBar_Height, left: 0, bottom: 0, right: 0))
         }
         
         self.headerView.snp.makeConstraints { (make) in
@@ -142,14 +143,14 @@ class GKWYViewController: GKDemoBaseViewController {
             make.top.equalTo(self.view).offset(kCriticalPoint)
             make.left.right.equalTo(self.view)
             make.bottom.equalTo(self.headerView.snp.top).offset(kWYHeaderHeight - kCriticalPoint)
-            make.height.greaterThanOrEqualTo(GKPage_NavBar_Height)
+            make.height.greaterThanOrEqualTo(kNavBar_Height)
         }
         
         self.effectView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view).offset(kCriticalPoint)
             make.left.right.equalTo(self.view)
             make.bottom.equalTo(self.headerView.snp.top).offset(kWYHeaderHeight - kCriticalPoint)
-            make.height.greaterThanOrEqualTo(GKPage_NavBar_Height)
+            make.height.greaterThanOrEqualTo(kNavBar_Height)
         }
         
         self.pageScrollView.reloadData()
@@ -182,7 +183,7 @@ extension GKWYViewController: GKPageScrollViewDelegate {
             self.effectView.snp.remakeConstraints { (make) in
                 make.top.equalTo(self.view)
                 make.left.right.equalTo(self.view)
-                make.height.equalTo(GKPage_NavBar_Height)
+                make.height.equalTo(kNavBar_Height)
             }
             self.effectView.alpha = 1.0
         }else {
@@ -242,7 +243,7 @@ extension GKWYViewController: GKPageScrollViewDelegate {
         
         // 获取titleLabel在视图上的位置
         var showFrame = self.view.convert((view?.frame)!, from: view?.superview)
-        showFrame.origin.y -= GKPage_NavBar_Height
+        showFrame.origin.y -= kNavBar_Height
         
         // 判断是否有重叠部分
         let intersects = self.view.bounds.intersects(showFrame)

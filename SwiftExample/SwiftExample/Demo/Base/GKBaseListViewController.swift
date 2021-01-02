@@ -9,6 +9,7 @@
 import UIKit
 import MJRefresh
 import WebKit
+import GKPageScrollViewSwift
 
 enum GKBaseListType: Int {
     case UITableView

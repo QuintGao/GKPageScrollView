@@ -1,0 +1,6 @@
+framework module GKPageScrollViewSwift {
+  umbrella header "GKPageScrollViewSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -4,6 +4,8 @@ target 'ObjcExample' do
   platform :ios, '9.0'
   project 'ObjcExample/ObjcExample.xcodeproj'
 
+  pod 'GKPageScrollView', :path => '../GKPageScrollView'
+  pod 'GKPageSmoothView', :path => '../GKPageScrollView'
   pod 'GKNavigationBar'
   pod 'Masonry'
   pod 'WMPageController'
@@ -18,6 +20,8 @@ target 'SwiftExample' do
   
   use_frameworks!
   
+  pod 'GKPageScrollViewSwift', :path => '../GKPageScrollView'
+  pod 'GKPageSmoothViewSwift', :path => '../GKPageScrollView'
   pod 'GKNavigationBarSwift'
   pod 'SnapKit'
   pod 'MJRefresh'

@@ -8,6 +8,7 @@
 
 import UIKit
 import JXSegmentedView
+import GKPageScrollViewSwift
 
 class GKListLoadViewController: GKDemoBaseViewController {
     var titleDataSource = JXSegmentedTitleDataSource()

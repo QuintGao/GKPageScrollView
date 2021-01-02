@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GKPageScrollViewSwift
 
-public let kWYHeaderHeight = (kScreenW * 500.0 / 750.0 - GKPage_NavBar_Height)
+public let kWYHeaderHeight = (kScreenW * 500.0 / 750.0 - kNavBar_Height)
 
 class GKWYHeaderView: UIView {
     lazy var nameLabel: UILabel! = {

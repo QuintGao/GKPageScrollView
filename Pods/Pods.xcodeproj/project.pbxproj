@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0096B5A8BA8E4F2BFD8839D0FE7CD696 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FD08DCA1BC721295B3398E2094B028 /* MASLayoutConstraint.m */; };
+		00DC91B001FC5B9DD3F9BD4CAE938A4A /* GKPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C11FD783CBD1639A141BDD218F77EA /* GKPageTableView.swift */; };
 		013FB481056C447A5ADADF531121A391 /* VTMenuBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99F067662378B2B3E41C19E8ABFF65CF /* VTMenuBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		022E7D092B86B7ECF0370BECB4828020 /* GKPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9D03694290CF57ECEF5094224A1DD /* GKPageScrollView.m */; };
 		03595F3C5D00ACA30ECC58BCE9C7D100 /* WMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB8A64CBC30B0164FC81985215C6D00 /* WMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03E4C1FCC0520D9DB03E3634824D5D55 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FBEFD7390FB70F578017F422142FFD9 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		04A09FCC42A91987A811755BBCABAD74 /* JXSegmentedIndicatorBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA3B8738A6CCD61D8A3B9C37784AAC /* JXSegmentedIndicatorBackgroundView.swift */; };
@@ -22,6 +24,7 @@
 		0A228875342913FE1A380507AF45320C /* MJRefreshConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 84C5F146AEFB26F18E51459B7930D548 /* MJRefreshConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0B104119BBEE89C29186FC9AFCB5DABB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
 		0C3E00744E0A12FE61C29C95BA1D98A8 /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE070D0ED3EFC4B36E97B17215B5CDD /* MJRefresh.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0C702204B3F997616437789157B8CA2B /* GKPageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C975AF4F598530DB076B5FFD8EB5A27F /* GKPageTableView.m */; };
 		0CC847FF468723F9001F31027B618881 /* GKNavigationBarSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0A58E9AC84DB2DAB8776349ECDE4487 /* GKNavigationBarSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D307BB20E12F1249CB32915D6FDBCF2 /* JXCategoryListContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC7F8FB21236A82E3F4FC90DBBA8D89 /* JXCategoryListContainerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0D4690D6147BD081C2C2D211BC951FCD /* JXSegmentedIndicatorParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAA10F2C17DF8AB96DFC3ECCB7C11C /* JXSegmentedIndicatorParams.swift */; };
@@ -60,6 +63,7 @@
 		180F136DBC396CE6FBFE53B004EF2C81 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = DD79386655DC598CE946EAFEFB8DB6A4 /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1872FC950D0891DD32F9397714B65C6D /* JXCategoryBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E6E4FD7852FDFDA97A92D45E2FE0AD /* JXCategoryBaseView.m */; };
 		18F3CC07F7B14ECE1EF9AB7EF97C4BEF /* JXCategoryDotCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 055C01636E114FBF1E998233F6C1D1D7 /* JXCategoryDotCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		199088C067A9258B1CCA6E955A1E6BD2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
 		1AEFAF26D7F51184278BD57FF3B14D83 /* JXCategoryIndicatorRainbowLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CFA3AE54EAF74E0841DA4BCC2293EA /* JXCategoryIndicatorRainbowLineView.m */; };
 		1C024E996F64C68CFAD2E5DEBADCCDD6 /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CFFA8A7AAC2C92BD75D1297F12F6653 /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1CB17BFD0846FCD2F1CFDE86C000D8CD /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = F71CE8B3B70AFCB020CD2F5C6B2CF96C /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -71,7 +75,6 @@
 		1F4CE0C2D9E500DA1AD6A4777153F7C1 /* MJRefreshStateTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE44542E4EC39BA06BA15684D66874A1 /* MJRefreshStateTrailer.m */; };
 		1F602A04EBF91D9F0E7BB255D1FBA7AC /* JXSegmentedNumberDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DB431AFD35E10ED952920126C27CA /* JXSegmentedNumberDataSource.swift */; };
 		1F86AFCE00D40EC14FC50C0899112488 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D0F2D0724832026DF0951B9E555D81 /* MJRefreshHeader.m */; };
-		2066FF096019F5763A2EA19EEBB06DF1 /* Pods-ObjcExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224DFAE2F4D21B2B35684A825897BFF /* Pods-ObjcExample-dummy.m */; };
 		209692519C62DB872BAA57C1921310FB /* UIImage+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BCB10772F444209DE1F04693A448A18 /* UIImage+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		217F6F93C6F0D1E1CC7BBE298DC358D3 /* JXSegmentedIndicatorTriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D55005D59A281059697DB4B16F349 /* JXSegmentedIndicatorTriangleView.swift */; };
 		21A2CE1A94E9F0D74495D64745E71A21 /* JXSegmentedIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED319C91EBABBC3879510D1D273CBA1 /* JXSegmentedIndicatorImageView.swift */; };
@@ -82,6 +85,7 @@
 		24EE79752EDA040089CF1EF629CCCA36 /* GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F9E538676FA5EA46F2B819BDAD76949 /* GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		26209D262578D7F540DEC3568978CC3A /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FBEFD7390FB70F578017F422142FFD9 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		265B1C373B07A4E00C1031F74BF2E7B6 /* JXSegmentedBaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D6E860F3494526C50BBA8B57B16C0 /* JXSegmentedBaseDataSource.swift */; };
+		26645E33025C9C62FC1616E390EC6D1F /* GKPageTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 14CAD7F7D2647EBE1FECFFE61DB8353A /* GKPageTableView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2693977C8568BDCB1A5E8DF1DA5DAD1B /* JXSegmentedBaseItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FC298CF5030B983A209A6E2AFE920 /* JXSegmentedBaseItemModel.swift */; };
 		276EE563D9B688173DBBF47DB80D72D8 /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95210EED85DD0F034F285C45ADEF86D3 /* ConstraintLayoutGuideDSL.swift */; };
 		282F3D7C9242D215B02FA9FE0DC14AD4 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7249BBDB40B12B77443CC914652451 /* WMProgressView.m */; };
@@ -125,6 +129,8 @@
 		3DFE43E7D3C4D3F082687D57A2EB4923 /* JXCategoryNumberView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8949421ADCA16A3E476313E6C16A6D /* JXCategoryNumberView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3E312324BD4B28B9C9548065F6F47719 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F35F0820CA82BB4E4819AB9F344FD /* MJRefreshAutoFooter.m */; };
 		3E7DB872EC5D887D718438323F6ADB0B /* UIScrollView+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2B3B364074D0F4E6E4D83DF28945A6 /* UIScrollView+VTMagic.m */; };
+		3E8D39285BA0D2CA2D5F4E898A0CA8DC /* GKPageDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48246CC895AD7DE790EFAD6AD17A62D7 /* GKPageDefine.swift */; };
+		3ED4A0B859EED81B05A144B1CC26BDFA /* GKPageSmoothView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3426585B915271CBC374CCB75551AE /* GKPageSmoothView-dummy.m */; };
 		3F1E442C6EED5544C0D7512487F88839 /* UIColor+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = A9D6A6E6A9759D5B147EE9BEBDAE6375 /* UIColor+VTMagic.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3F91E00A5DCA2CFBB2F53F6A37DCE838 /* JXCategoryViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D21AA508E931E0B3B3C424551680CCB /* JXCategoryViewAnimator.m */; };
 		3FD2F8376EF179817274BDADE412B4AF /* WMPageController-library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA74B981595F142269C5A263B01DE1 /* WMPageController-library-dummy.m */; };
@@ -142,10 +148,14 @@
 		46692A2E77157B00827182C8DC686F72 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD03561A46DD6CE9F7AB7B9E2C4CD5D /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		47537592D024836670A1B28F2E996199 /* VTMagicProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 225AB4FD81F81E2C94E210391618DC09 /* VTMagicProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4782DE76237E09EEFFCA143370F98949 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C371CB15C122940A8FC2CF1CE7CC7C4 /* MJRefreshConst.m */; };
+		47B024E5726BA7AE6DADFAC21FBC3DA8 /* Pods-SwiftExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A75DB32474B094D0A7CDCEBD806F72FC /* Pods-SwiftExample-dummy.m */; };
 		494CA165F75CB618390B484D94F91144 /* JXCategoryTitleVerticalZoomCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 89FFCF191853E9C2A319A96475BF3DB5 /* JXCategoryTitleVerticalZoomCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		49A861DAE2D7A3A62026EB056969F253 /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4871790CABFAB01D1DB6383EB55BD45D /* UIScrollView+MJExtension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4A08EE243CB23A1C70A6F1D8273E4EC9 /* GKPageScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A580B984AAF6A251AA49A019A38700B8 /* GKPageScrollView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4C5D4E7CB7885F67533B71BE48D4F20E /* GKPageDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4D69EDB8D3C245698188E37A3E36C /* GKPageDefine.m */; };
 		4CE091F886EC6324673EFE0AEBBEA0FE /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D563C90956E0AE0DF85D338EEE94CA5 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4CE7ACB109DF2C497CBC496B3F037929 /* UIScrollView+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B6181E1E030585B69D8A764FAC645EA /* UIScrollView+VTMagic.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4DC491F4819096571757B88A3E2B3ED1 /* GKPageDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BAC442E116AEE8E1D360EEDC2301137 /* GKPageDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4E66B7E9918BDB6FADC2A100E1EDE707 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AFF10D3F3BB50AE88F1D7ABF07428CD /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4F73E02BDC700E71F910684FB29A6F98 /* GKPopAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6B5A88A15794375C8F8B45C07FCC7E /* GKPopAnimatedTransition.m */; };
 		4FE01747B38216FF6ADDE6B62E318E7D /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5BD2F73513F5BF70E1045545975C6 /* MJRefreshGifHeader.m */; };
@@ -159,6 +169,7 @@
 		5278AF8E01155CA611036CB332959E97 /* WMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = E759A447B9DB034CE7D5E35B36C8C68A /* WMScrollView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		536518CDDE0EB066D43CC2CA273C9E3C /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 50709B1711A262481A365A3309E38C8C /* MJRefreshBackStateFooter.m */; };
 		53F1C88E914FE97D0126F71520F6966A /* MJRefreshTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E152CEDDB8AE06356013D330163D808 /* MJRefreshTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53FCEEE39D4640695F3C8CBB7206FBCC /* Pods-ObjcExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224DFAE2F4D21B2B35684A825897BFF /* Pods-ObjcExample-dummy.m */; };
 		54980FC147BFFA1B3D83DC014DA4AF4D /* UIImage+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 074B050BF42709A19BC3BAE37A45317B /* UIImage+GKNavigationBar.m */; };
 		54D1686EFA926E23C4BED5EEE7A19C08 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E682100311463551CD929BB99541AA /* ConstraintInsets.swift */; };
 		55367C0B539CDDDD5A2154AC9AD9D130 /* JXCategoryIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 63447545D86659EBF8018986441D0390 /* JXCategoryIndicatorView.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -171,7 +182,9 @@
 		5758B17256005E85AC39644081E2A3FD /* JXSegmentedIndicatorGradientLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293B519D32DB9EBC7F79E9A8B051CB4 /* JXSegmentedIndicatorGradientLineView.swift */; };
 		5786F2FCAACB504B79EF1C18B5F897F3 /* UINavigationItem+GKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08177DFDB4AA1DC6E211A158705D2F9 /* UINavigationItem+GKExtension.swift */; };
 		586E06AA2C41EAC2E0B46FD7624ED85B /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F90E898F2BADA8EBF1F07935D62CB /* MJRefreshBackGifFooter.m */; };
+		58FECE06BFAB20F742C78AA5733F205C /* GKPageSmoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29AA49C8A458BBD50CF651C8A28DD1B /* GKPageSmoothView.swift */; };
 		593A97079F40108FC7E0E314A0A61521 /* JXCategoryNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = A57625FCEF7D8DC822C88E7A7680D0A3 /* JXCategoryNumberView.m */; };
+		5956A15B9F6982B3A8B30756618A37C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
 		59EA578EED8BAC126FDC60C32AE11521 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A211FE5E0D8E6EE0A7B552ADDDB747A /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		5A33CDB198E97D610E75C411A5C7BE9A /* JXSegmentedNumberItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64FDD68DAAEE97ABFA449A27CAF28 /* JXSegmentedNumberItemModel.swift */; };
 		5AB77AD1CC064A779B429E79B0EAB56D /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B988651FA409DB3293707F1779ED91B4 /* NSBundle+MJRefresh.m */; };
@@ -187,7 +200,6 @@
 		5E5C596B2210ADD333663FC7C5DE3F7D /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD84280F1D59E18A9E95550A2C346A /* MJRefreshComponent.m */; };
 		5E8BB6D1B92F499467F10E6D8AA089B3 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A28C3E0360F407DD4C512C8BAEB6D24F /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5EF4B968A8FA8C8998F41B5EA57FF1CC /* MJRefreshStateTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A10306F9831ADFE32ECDECBC34F8E /* MJRefreshStateTrailer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5F91773F9DAECA4EE98F39AD471B4E0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
 		5FD07032F65FBE86F530B6D46F5205C6 /* WMPageController-framework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C6502406CB93C84AF48BB2DB7CB86E /* WMPageController-framework-dummy.m */; };
 		5FFFA76FE071D2821368FACF6532F536 /* JXSegmentedViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD27D0380609E58F342A87AF30670D48 /* JXSegmentedViewTool.swift */; };
 		605F2300548203F72C650BE7416227FB /* GKNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5472A32B997C61C349179D32A631AC /* GKNavigationBar-dummy.m */; };
@@ -223,6 +235,7 @@
 		7AE60B89C6AAC6453B7C3EF6A9419C98 /* MJRefreshNormalTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB17B129822AA0BA0FB0A9BEA5590D12 /* MJRefreshNormalTrailer.m */; };
 		7B8DAE71B891AA9DAA6D51CAAE8E87A1 /* JXCategoryIndicatorDotLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = C97F88D76C3D5DA07AC8A46B2408092F /* JXCategoryIndicatorDotLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7CF2AC7A3B3ED03B30C1E4ED662B0551 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = F9ACEBA77C5E1B927F581CFD8E61DB9B /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7D2C621975A166DB76726E93F55A33EE /* GKPageSmoothView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8238C0EEA0877D533B0EAFC396E74 /* GKPageSmoothView.m */; };
 		7D74A629E86449EDB8982C13DCFE5A18 /* GKNavigationInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC46C19C0DADE99DC673CC728AA0 /* GKNavigationInteractiveTransition.m */; };
 		7E91776D0372EACAA87F73BF33EC558E /* JXCategoryImageCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5327C4069394FFD7ADF3A2D1DB27E472 /* JXCategoryImageCellModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7ED12926E82C9D1DE457504DA75B80A9 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FE1B224F32EA24EA4D84D9ED13C0E /* LayoutConstraintItem.swift */; };
@@ -235,12 +248,14 @@
 		84AEEB4C47B15497D18256F3C43CA40D /* JXSegmentedComponetGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95730C200F28DBD8CFA02CF9F0DC9CB /* JXSegmentedComponetGradientView.swift */; };
 		84F9FC2C514133A9CB7D8C2088C419E5 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F35F0820CA82BB4E4819AB9F344FD /* MJRefreshAutoFooter.m */; };
 		85439A94749DD654C21221A7C821ADB3 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 20E517059A7B79563BEB0D1496944269 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		89311B9B01854B6B874D75519192C723 /* GKPageListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7BEF1F2C29C40CD9E52540E0C5DDD7 /* GKPageListContainerView.m */; };
 		8A45BBB8DC8ED0DDA1CA36EDFD859C90 /* JXSegmentedIndicatorDotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE54F388EC8841423F5D99A9A45D579 /* JXSegmentedIndicatorDotLineView.swift */; };
 		8B0B08936D2723BB6A80B854FAEA6ED7 /* UINavigationController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A83979E2F098114665B2F1E0A678401 /* UINavigationController+GKNavigationBar.m */; };
 		8B366D305A4A9EC152384725505FCA4B /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F188D70A00C9D81EF86BB795D1F44BB2 /* WMMenuItem.m */; };
 		8B8BE709B46663F60DB6A661A3B2A28A /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828F0E48F154630440AB84A9CAB798B9 /* ConstraintMakerPriortizable.swift */; };
 		8C3CCD8AD35B6A2FC328A1A9394A94BB /* UINavigationController+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E79E70BD5E298B26CED8CC7EF3215A /* UINavigationController+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8C869D139796B8608F9C8C5DE5568D17 /* VTMagicView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C813F7E74A3BA7B3F2F9A73D9C23D26 /* VTMagicView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8E2DEF66BDC1A0C4B92ADA187BA8F669 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0BCC50A12B61F847D207DBB8CFF0AF /* Foundation.framework */; };
 		8E323E8D44DB79B15E47B372ED10B0E2 /* JXSegmentedTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFF1C880428FB00546833B324CCC0D9 /* JXSegmentedTitleCell.swift */; };
 		8E4183395435F17CC7A72F5ADC5B340E /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB167895B82C4642B03D3CEBDCAA70 /* VTMenuBar.m */; };
 		904C50A58FE2FDD8E917C7ACDB780CA7 /* GKCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4CC66FBA249E6167EC33493FEBF28 /* GKCustomNavigationBar.m */; };
@@ -253,7 +268,6 @@
 		92BF70E9D3285561EB404A7C4A4A6DEE /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F3EE7525385E3E919D11D15C62AE7B2 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		93D573EF4D80A77A170B33A9EFC9E403 /* UIViewController+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = C4432A68816AEA4AEA115732AB011288 /* UIViewController+VTMagic.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9432185152350A4A90F6DD19C33AC057 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637782D5FE90BC5555F9A9CA1A46D517 /* Debugging.swift */; };
-		9503F3EB5B9D79AFC238CDD4A70131E1 /* Pods-SwiftExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A75DB32474B094D0A7CDCEBD806F72FC /* Pods-SwiftExample-dummy.m */; };
 		95565074D6487703712B2DA4366F9A14 /* UIViewController+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D98A61AA5388298182FCBD2A9BE5E0 /* UIViewController+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		97529DB90593DCA7802405DA934D9754 /* UIViewController+VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = C4432A68816AEA4AEA115732AB011288 /* UIViewController+VTMagic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9758B8600647E1FC290B599EB731BA75 /* JXCategoryIndicatorBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A16B4F6FD996189AC08012C586B0D1 /* JXCategoryIndicatorBackgroundView.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -300,6 +314,7 @@
 		B28F54D7200EBD26AB590ABEA6BE2C4F /* JXCategoryViewDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = D2358AA7493DBD3B1C29E5D5CFCC8EB1 /* JXCategoryViewDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B2DB5449F3945DD6E909A9982962DAB0 /* GKCustomNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9360D81C57AE469D12C6D845D6F966 /* GKCustomNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B35869890494BC12781CDBF785DAAB53 /* GKBaseAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 953375B6D292E8974B2EAF49CCAA6867 /* GKBaseAnimatedTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B4FDFB0A276A4BB98CED9FEC175EF10D /* GKPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EF8C08CE6314C8C2A21A0E2DDAA51 /* GKPageScrollView.swift */; };
 		B518657D92427C77A7FB9D6B7F13C9C2 /* JXSegmentedIndicatorBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91752E4F62A8C7FCAEE7FA7AC2BED525 /* JXSegmentedIndicatorBaseView.swift */; };
 		B692D74B6CD0209F2388A03C94ECCA8F /* VTMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = B3A7F0556B842AF6305C3291F63BA7FB /* VTMagic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6EA35BA235373B30994CBE08F4D366D /* GKNavigationInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F920DA89654FC9709D38F3F058D231 /* GKNavigationInteractiveTransition.swift */; };
@@ -307,6 +322,7 @@
 		B946AFB1A725D85E07F645A7EF086383 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FF0D7E700994E5567A9DF3EE58126D /* NSArray+MASAdditions.m */; };
 		B95BB858C93BC665250CCFC7D9648303 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFDAAC5C9C30E37773732B34A7EB6B /* UIViewController+WMPageController.m */; };
 		B97F8E43224C953DE02C2B5E8FA785E5 /* JXCategoryView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 738FE18A510FF8E924736401C401AFE7 /* JXCategoryView-dummy.m */; };
+		B98F5777E03AFD31FCB78F42CD45471A /* GKPageScrollViewSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 80D0694CD94713D0294A0ACE39D1B431 /* GKPageScrollViewSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA01ED07613D38E1A01EA6B6856523A7 /* JXSegmentedIndicatorGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD8EAFB168060B97C5CF263FEC1170E /* JXSegmentedIndicatorGradientView.swift */; };
 		BA25B921A0C1BF288B9DEFF65988CBC7 /* JXCategoryTitleImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 14D1FAF510381B1C4FAB4CFFB661131F /* JXCategoryTitleImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BA2D4B58581354B2609FA50A0D496920 /* JXCategoryListContainerRTLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC77AEA7C952368A7FDB4789BFFFE5B /* JXCategoryListContainerRTLCell.m */; };
@@ -324,11 +340,14 @@
 		C1C2B61E08DAD3B59BA5D82964D39C3C /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B301E1080D13515CB5EE58A0AB240F5 /* ConstraintRelation.swift */; };
 		C21266E9A7CC0D3EC86C0159A0B10338 /* JXCategoryIndicatorCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F84A22F80677CA9BB2C94B173BFE15BD /* JXCategoryIndicatorCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C234EEABCAAD2D92FAE3D673A2363F2B /* GKGestureHandleDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = A31E9AFE9017CD6F52723C661F60FACB /* GKGestureHandleDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C313C6F07F5AA3B785D76DA44F073939 /* Pods-SwiftExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F37DE8DF25F784D3DF97730D36BE4E8F /* Pods-SwiftExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4AD7493973AD5EBD44F2AD144970155 /* GKPageListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB4DD58B159EC418BC05EC31E533ADB /* GKPageListContainerView.swift */; };
 		C4EE9F451D443C4BF093ECE517C7A445 /* UINavigationItem+GKNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = EA75D5007F0A3BF5E44BCD80432492D6 /* UINavigationItem+GKNavigationBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C517C53B5493063AEFF288C9A34291AC /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = DF6811D7CC54D74E7D6B3C9C7B458111 /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C53939D8C7980307DB09BEECDAF9664E /* GKNavigationBarSwift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 75D46799F2A4C4FDD66385C2274E2E29 /* GKNavigationBarSwift.bundle */; };
 		C5642F169D332879327C20D87E577E25 /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB167895B82C4642B03D3CEBDCAA70 /* VTMenuBar.m */; };
 		C659B02D22131049F67B6E01AF737CE9 /* JXCategoryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94423811DF8513565E53AD4B20A47D67 /* JXCategoryTitleView.m */; };
+		C6A4F4586C9434C28F1AB7D5A4D7C8D3 /* GKPageScrollViewSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F67646B50D6858DA00486F6F7E207B0A /* GKPageScrollViewSwift-dummy.m */; };
 		C6C0022014FD59CE3139CA2880C1EFE1 /* JXCategoryImageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38332D74D387661E6B7E05F32F49B03F /* JXCategoryImageCellModel.m */; };
 		C74D2E856ADC8139CD00DBD184061B23 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C6D6A40FF39289714C241B3C461507 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C7920681F0164686C56327ED3C6AAC58 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 480C61A700D9436EE25583FFA4F7AFC7 /* View+MASAdditions.m */; };
@@ -407,16 +426,19 @@
 		F3F047AF39237F1AC6C712BDBCA2D85C /* WMProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F992B9383B1ABF41DEFB0E2733806E /* WMProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F41CA723E31884664B9C032D90EAEF1A /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FCEC5E9BA33D521E73DE6E8B15BB99 /* ConstraintInsetTarget.swift */; };
 		F55A806F0EF6CAE4844E679E1342F2FA /* VTEnumType.h in Headers */ = {isa = PBXBuildFile; fileRef = 68064067BEEDB00D01BA36CBB4013121 /* VTEnumType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F5CC80DB583977585E76CA8DFBF86F20 /* GKPageListContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 371E106D9DB6F84C7398AB916B01B9C1 /* GKPageListContainerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F6406379281CCD1DDC9AB52F5BDA1EDC /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CF6CAC2C0827781ACE626A6DFB9386 /* MJRefreshAutoGifFooter.m */; };
 		F660ABE5B238A827CBDB0DC48F1B17AD /* JXCategoryIndicatorLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = DF1CCDEC8C76C509E0F59DC590FB1414 /* JXCategoryIndicatorLineView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F6C7F81AA5BBC4042A3A78D5EA8E62A4 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A961674FE3A010F4E44ACD205191ADF /* ConstraintLayoutSupportDSL.swift */; };
 		F7A5ED175DBA44B51EE44942FB576A04 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C5F6451E10732991F042C9A5939EAE8 /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8E8FF6DF4BDFD7414F08DDAF7C5D150 /* Pods-SwiftExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F37DE8DF25F784D3DF97730D36BE4E8F /* Pods-SwiftExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F85D5B3E9FF1ABD0A821367FCC836E34 /* GKPageSmoothViewSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA90F9A539493F1987B5FDD9A3883F19 /* GKPageSmoothViewSwift-dummy.m */; };
+		F90F71C30BFBA36A87713B5271E84986 /* GKPageSmoothView.h in Headers */ = {isa = PBXBuildFile; fileRef = A2BD1F345A50AFAF1582D55E2E2DDC6F /* GKPageSmoothView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F917D0781909E1C3683FADD07B2668F8 /* JXCategoryIndicatorComponentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E80B151C952B026BA1753FF2ED6CD6 /* JXCategoryIndicatorComponentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F9DC49C86179B872691E1D445E990E8D /* WMPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2774B47698989B4A381DCF1C6E0ECF14 /* WMPageController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F9F84C159B0ABDB5914C50A334F9C76A /* JXCategoryTitleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E560013FFA1DB4DA32347D3D99986CBF /* JXCategoryTitleImageCell.m */; };
 		FAA5DCE26F2D03AE853373FE5FDACC95 /* JXSegmentedIndicatorRainbowLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A03C41C289948D2C5F619F55EFB07 /* JXSegmentedIndicatorRainbowLineView.swift */; };
 		FAFA9FE806A0ADE1A2041671B173CCDA /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DF808BD2CDFA4069C2F65512AB2149 /* VTMagicView.m */; };
+		FB0BA0FBBBF66C61488D62A59680738F /* GKPageSmoothViewSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6DE9D91D40BF50A7E031C83F879B8DB /* GKPageSmoothViewSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB51DCD7D19F5B9217A67F9D902AF30A /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C14E27ECF83721522D417C59EB638 /* MJRefreshFooter.m */; };
 		FB9C5F7E5B573BCC9E341D720381FF90 /* VTMagicMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = AFFBE292A576DA54FD473F2BE2061FCE /* VTMagicMacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FD77A43D086B69FC3FA03D0446F5F175 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A81576DF212944055DBEC331A059C5DC /* UIScrollView+MJRefresh.m */; };
@@ -425,99 +447,129 @@
 		FF0E3F8B3FB568ACBB1BC433D67ED093 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF00A953923B6FDD2EF79B128BF2FC /* ConstraintMakerExtendable.swift */; };
 		FF2B97D2EA9FADA7B68E913B18DF4E62 /* VTMagic-framework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CABAF51B6A8B54EA5D1080AC0C71990C /* VTMagic-framework-dummy.m */; };
 		FFBD304B7BDED59853826071E42110C2 /* GKNavigationBarConfigure.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C304FA7ABC7767FC4045F9BF610FD3 /* GKNavigationBarConfigure.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FFDE669D3B229F2442C18979E9974E1B /* GKPageScrollView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E819D742A3F523181D761EFBDBF3652 /* GKPageScrollView-dummy.m */; };
 		FFE7A02118B5288BC94F7422D6CFEB3F /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7FAA1A82A1D402D2F7BD2C7FA52D83 /* ConstraintLayoutGuide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		02C725B246CA34B5194D05E5F68A68DB /* PBXContainerItemProxy */ = {
+		09886B9EDB61A3D6DF8CDA29295C62A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5588360FF43B8281CA7E3F2325A23292;
-			remoteInfo = "VTMagic-framework";
+			remoteGlobalIDString = E01879C074553EDD15108A3322A82C09;
+			remoteInfo = GKPageSmoothViewSwift;
 		};
-		1763725DE2473B925AC7C4381B0772D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 655EF5CFBAD96F453A34298DA599B451;
-			remoteInfo = "WMPageController-framework";
-		};
-		293F6816B96BD31E78C4645EBB621C2D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
-			remoteInfo = SnapKit;
-		};
-		74B78B3D8F992D0E07135CE74549008D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 55AF53E6C77A10ED4985E04D74A8878E;
-			remoteInfo = Masonry;
-		};
-		82DA73999505F3AD84BDC6BFD35558C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5F0DD7F63EAD7CD8C9B1EF5399FF4A2D;
-			remoteInfo = "MJRefresh-framework";
-		};
-		9F1081964C517583A805305236984225 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 95566350DF2AFBD4C8FEB49A27CA62A3;
-			remoteInfo = GKNavigationBar;
-		};
-		BEAC900EBCB7A1AA986D3B65C5C16DBB /* PBXContainerItemProxy */ = {
+		10A366D635FA9616D44AEB54E4F34D5B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E863A9A96F52A35F47491E7B41ECEF9A;
 			remoteInfo = JXSegmentedView;
 		};
-		C0B91509BEDC3C7630B56DD4E1B6CC10 /* PBXContainerItemProxy */ = {
+		25DFE1D2D236D6805287C289211743D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 361390C6DB5DA1436844D8393ABE85CB;
-			remoteInfo = "WMPageController-library";
+			remoteGlobalIDString = 5588360FF43B8281CA7E3F2325A23292;
+			remoteInfo = "VTMagic-framework";
 		};
-		C528E93FF01C8F7D4C01E2CBFC495897 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4C27A49A311B0BA0FC773E1CE87E4251;
-			remoteInfo = GKNavigationBarSwift;
-		};
-		C9C1D413ACB7E7677B64D6ACF7FDA651 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 61A3503BEDF7C001CA7654D5485C4E63;
-			remoteInfo = "MJRefresh-library";
-		};
-		DB1D8E716EB1EB02938C7F94D1F6299B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D6FFB9FFC5A595FB2C4DC112C8F5981;
-			remoteInfo = "VTMagic-library";
-		};
-		E3BC95EBE78FB1D8E5D40CA255760A01 /* PBXContainerItemProxy */ = {
+		456702D3C3B6F7502B3D313C4F674F10 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8BEAFAA726C1965864B79B4B441AA513;
 			remoteInfo = JXCategoryView;
 		};
+		46E130AA141F29604519249421587C98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 655EF5CFBAD96F453A34298DA599B451;
+			remoteInfo = "WMPageController-framework";
+		};
+		5D8AB09F4AB4382BA88CFF9C77C81530 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F0DD7F63EAD7CD8C9B1EF5399FF4A2D;
+			remoteInfo = "MJRefresh-framework";
+		};
+		6CDB6284667ADB28A2B8DDC341BCCB65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EE1946FD34AC2DA0F1D5DC84C581372;
+			remoteInfo = GKPageScrollView;
+		};
+		736A4E0999A4F85C94B76B3EB45AC61A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28D89198400430CBC887127C75EFE455;
+			remoteInfo = GKPageScrollViewSwift;
+		};
+		A1A0F5750EAAC14597D0E1D7F961662A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C27A49A311B0BA0FC773E1CE87E4251;
+			remoteInfo = GKNavigationBarSwift;
+		};
+		A1AF66683AEEBD97B9ACDEE93DCB25EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EACE50361ECD044239EB5FFC94B46E7C;
+			remoteInfo = GKPageSmoothView;
+		};
+		BD94344D03D6AAD5064B6422E2D8F063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61A3503BEDF7C001CA7654D5485C4E63;
+			remoteInfo = "MJRefresh-library";
+		};
+		D1B37383E70114C23B4DF39E42EB8A96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
+			remoteInfo = SnapKit;
+		};
+		DBFF99B1BB7DD5AA786FF14ACDDCE3A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95566350DF2AFBD4C8FEB49A27CA62A3;
+			remoteInfo = GKNavigationBar;
+		};
+		E1A6B23ACA4DA45A98F5B108BA466EB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55AF53E6C77A10ED4985E04D74A8878E;
+			remoteInfo = Masonry;
+		};
+		E26052C728B7A2DC782F273C304F1411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D6FFB9FFC5A595FB2C4DC112C8F5981;
+			remoteInfo = "VTMagic-library";
+		};
+		FB9904AF1045737B8105EF6AA360DEEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 361390C6DB5DA1436844D8393ABE85CB;
+			remoteInfo = "WMPageController-library";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		006030F0D1B613AE9F2286B6982DE3DF /* UIViewController+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UIViewController+GKNavigationBar.m"; sourceTree = "<group>"; };
 		0071244E812E33E69E26C57AAF71E549 /* JXSegmentedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedView.swift; path = Sources/Core/JXSegmentedView.swift; sourceTree = "<group>"; };
+		01C8238C0EEA0877D533B0EAFC396E74 /* GKPageSmoothView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPageSmoothView.m; path = Sources/GKPageSmoothView/GKPageSmoothView.m; sourceTree = "<group>"; };
 		01E6E4FD7852FDFDA97A92D45E2FE0AD /* JXCategoryBaseView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryBaseView.m; path = Sources/Base/JXCategoryBaseView.m; sourceTree = "<group>"; };
 		0295C3FF35DEB077071B9698E50E52AC /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
 		03CB2BEED94532AE13E6CEC3850F6A18 /* MJRefreshConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConfig.m; path = MJRefresh/MJRefreshConfig.m; sourceTree = "<group>"; };
@@ -529,22 +581,27 @@
 		074B050BF42709A19BC3BAE37A45317B /* UIImage+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UIImage+GKNavigationBar.m"; sourceTree = "<group>"; };
 		07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JXSegmentedView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0870D4C4D97DF5173D2FE782147D8BA8 /* JXCategoryTitleVerticalZoomCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleVerticalZoomCell.h; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomCell.h; sourceTree = "<group>"; };
+		088BA61F5BB374B920AA32C0D39FBACF /* GKPageSmoothView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKPageSmoothView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		09087C97295A90999E0A618AAA41E2B3 /* JXCategoryCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryCollectionView.h; path = Sources/Common/JXCategoryCollectionView.h; sourceTree = "<group>"; };
 		09F23D08D09BE73FE3CB4A91908DF31B /* UIScrollView+GKExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+GKExtension.swift"; path = "Sources/UIScrollView+GKExtension.swift"; sourceTree = "<group>"; };
+		0AAE1178A298915ED86EF0D9367F9518 /* GKPageScrollViewSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GKPageScrollViewSwift-Info.plist"; sourceTree = "<group>"; };
 		0AC64FDD68DAAEE97ABFA449A27CAF28 /* JXSegmentedNumberItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedNumberItemModel.swift; path = Sources/Number/JXSegmentedNumberItemModel.swift; sourceTree = "<group>"; };
 		0CCB167895B82C4642B03D3CEBDCAA70 /* VTMenuBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VTMenuBar.m; path = VTMagic/VTMenuBar.m; sourceTree = "<group>"; };
 		0D1F2E99D97B083965E0F14B165479B6 /* JXCategoryIndicatorParamsModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorParamsModel.m; path = Sources/Common/JXCategoryIndicatorParamsModel.m; sourceTree = "<group>"; };
+		0E9287585E03CA1399A7E85ADD26157D /* GKPageSmoothView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageSmoothView.debug.xcconfig; sourceTree = "<group>"; };
 		0EAB81F83A7498AD99D10DCBABBCAA45 /* Pods-SwiftExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftExample.modulemap"; sourceTree = "<group>"; };
 		0F4C491372AD583FDAF34D89E286F636 /* GKNavigationBarSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKNavigationBarSwift-dummy.m"; sourceTree = "<group>"; };
 		105F8C347183651828C2AA8FD47C5829 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		118BF58CEA3DFF4F1E9A63D0598CDB4F /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
 		124B43A6A117464DE5B421232D995F07 /* JXCategoryIndicatorImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorImageView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorImageView.h; sourceTree = "<group>"; };
+		1274A9AFAE6C8CC328A24F6CD0F172DD /* GKPageScrollViewSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKPageScrollViewSwift-prefix.pch"; sourceTree = "<group>"; };
 		12B12C6998F3B9AB1C404CD3734A73CA /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
 		13167ECD598321E0FC3172B7A787E117 /* JXSegmentedDotItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedDotItemModel.swift; path = Sources/Dot/JXSegmentedDotItemModel.swift; sourceTree = "<group>"; };
 		134875554A4CB606082D642727955F64 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		1348EC46C19C0DADE99DC673CC728AA0 /* GKNavigationInteractiveTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationInteractiveTransition.m; path = GKNavigationBar/GestureHandle/GKNavigationInteractiveTransition.m; sourceTree = "<group>"; };
 		137DBD00B1EF1342E14DED27A12B7A34 /* JXCategoryIndicatorParamsModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorParamsModel.h; path = Sources/Common/JXCategoryIndicatorParamsModel.h; sourceTree = "<group>"; };
 		13DAE26CBB61D5C8B325B8457A89BA7B /* JXSegmentedView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JXSegmentedView.release.xcconfig; sourceTree = "<group>"; };
+		14CAD7F7D2647EBE1FECFFE61DB8353A /* GKPageTableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPageTableView.h; path = Sources/GKPageScrollView/GKPageTableView.h; sourceTree = "<group>"; };
 		14D1FAF510381B1C4FAB4CFFB661131F /* JXCategoryTitleImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleImageView.h; path = Sources/TitleImage/JXCategoryTitleImageView.h; sourceTree = "<group>"; };
 		150028EA304A32F1BCD673832585AF4F /* GKGestureHandleConfigure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKGestureHandleConfigure.m; path = GKNavigationBar/GestureHandle/GKGestureHandleConfigure.m; sourceTree = "<group>"; };
 		152EBEF122AADE0667D59866F51E2D99 /* JXSegmentedTitleOrImageItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleOrImageItemModel.swift; path = Sources/TitleOrImage/JXSegmentedTitleOrImageItemModel.swift; sourceTree = "<group>"; };
@@ -598,6 +655,7 @@
 		339BD939C263F13FB3FAC732706FFC6F /* WMPageController-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMPageController-framework-umbrella.h"; sourceTree = "<group>"; };
 		34B43C762354329C5F6C428A46E9BC3D /* GKNavigationBarDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationBarDefine.h; path = GKNavigationBar/NavigationBar/GKNavigationBarDefine.h; sourceTree = "<group>"; };
 		358AAAD8ED6643777E21C913756F050A /* GKPushAnimatedTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPushAnimatedTransition.m; path = GKNavigationBar/GestureHandle/GKPushAnimatedTransition.m; sourceTree = "<group>"; };
+		371E106D9DB6F84C7398AB916B01B9C1 /* GKPageListContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPageListContainerView.h; path = Sources/GKPageScrollView/GKPageListContainerView.h; sourceTree = "<group>"; };
 		37E682100311463551CD929BB99541AA /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		38332D74D387661E6B7E05F32F49B03F /* JXCategoryImageCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryImageCellModel.m; path = Sources/Image/JXCategoryImageCellModel.m; sourceTree = "<group>"; };
 		383E9926C6A80FBAA63249FBE57D3716 /* JXCategoryListContainerRTLCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryListContainerRTLCell.h; path = Sources/Common/JXCategoryListContainerRTLCell.h; sourceTree = "<group>"; };
@@ -605,9 +663,11 @@
 		3ACDF02596F94DBEDD578773AFE7E193 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		3AED21448FE3C545AE8F109130060955 /* JXCategoryIndicatorLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorLineView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorLineView.m; sourceTree = "<group>"; };
 		3AFF10D3F3BB50AE88F1D7ABF07428CD /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
+		3B01D815947BE5DAE9487599C27824CB /* GKPageSmoothViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GKPageSmoothViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3F332A1E0087BC671F0E037F3AFF8C /* JXSegmentedView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXSegmentedView-prefix.pch"; sourceTree = "<group>"; };
 		3B456D910B15EF6E1F42A85549099D55 /* JXCategoryView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JXCategoryView.debug.xcconfig; sourceTree = "<group>"; };
 		3B7B095C08D882BE1BF1D30ED7700A74 /* JXCategoryCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryCollectionView.m; path = Sources/Common/JXCategoryCollectionView.m; sourceTree = "<group>"; };
+		3BAC442E116AEE8E1D360EEDC2301137 /* GKPageDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPageDefine.h; path = Sources/GKPageScrollView/GKPageDefine.h; sourceTree = "<group>"; };
 		3BE07C3802FCD9F0B60EEAD00C11B3B4 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		3C0F101DE69DB8ADEC64A3A824D5403A /* JXSegmentedRTLLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedRTLLayout.swift; path = Sources/Common/JXSegmentedRTLLayout.swift; sourceTree = "<group>"; };
 		3C65C01F5BC86F618C27A7B1CEF5B11D /* JXSegmentedView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JXSegmentedView-Info.plist"; sourceTree = "<group>"; };
@@ -615,6 +675,7 @@
 		3C92CF240C1BE90A4A683E2640E0CD4A /* VTMagic-framework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "VTMagic-framework.modulemap"; sourceTree = "<group>"; };
 		3D6D7EFC81950E763631BB44C2CEF0B8 /* JXCategoryBaseCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryBaseCellModel.m; path = Sources/Base/JXCategoryBaseCellModel.m; sourceTree = "<group>"; };
 		3E1675AADB76E0C6929E044E4D7DDB9A /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
+		3F0EF8C08CE6314C8C2A21A0E2DDAA51 /* GKPageScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKPageScrollView.swift; path = Sources/GKPageScrollViewSwift/GKPageScrollView.swift; sourceTree = "<group>"; };
 		3F5BD4DCE84699786D496CAFED1BF37A /* VTMagic-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VTMagic-framework-umbrella.h"; sourceTree = "<group>"; };
 		3F5DA3271296DD5A8FF09724B4DBC27B /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC77AEA7C952368A7FDB4789BFFFE5B /* JXCategoryListContainerRTLCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryListContainerRTLCell.m; path = Sources/Common/JXCategoryListContainerRTLCell.m; sourceTree = "<group>"; };
@@ -630,6 +691,7 @@
 		45D4ED1452FB56389F31A48DBD25750F /* VTMagic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VTMagic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D0F2D0724832026DF0951B9E555D81 /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
 		480C61A700D9436EE25583FFA4F7AFC7 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		48246CC895AD7DE790EFAD6AD17A62D7 /* GKPageDefine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKPageDefine.swift; path = Sources/GKPageScrollViewSwift/GKPageDefine.swift; sourceTree = "<group>"; };
 		4844459869D2835E5A3E9016417C64AD /* MJRefresh-framework-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-framework-prefix.pch"; sourceTree = "<group>"; };
 		484E0D08AA8ABC6E9998212AC2F77941 /* Pods-ObjcExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ObjcExample-resources.sh"; sourceTree = "<group>"; };
 		4871790CABFAB01D1DB6383EB55BD45D /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
@@ -645,6 +707,7 @@
 		4FBEFD7390FB70F578017F422142FFD9 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
 		505A461CDB44620BEDC756310D5A4333 /* JXSegmentedIndicatorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorProtocol.swift; path = Sources/Indicator/JXSegmentedIndicatorProtocol.swift; sourceTree = "<group>"; };
 		50709B1711A262481A365A3309E38C8C /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
+		5190F72CE1330EC84467C88FB38E2353 /* GKPageSmoothViewSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GKPageSmoothViewSwift-Info.plist"; sourceTree = "<group>"; };
 		51E5F2EE0FCD8168F74BACA32C9103AB /* JXCategoryDotCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryDotCell.m; path = Sources/Dot/JXCategoryDotCell.m; sourceTree = "<group>"; };
 		52E80B151C952B026BA1753FF2ED6CD6 /* JXCategoryIndicatorComponentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorComponentView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorComponentView.h; sourceTree = "<group>"; };
 		5327C4069394FFD7ADF3A2D1DB27E472 /* JXCategoryImageCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryImageCellModel.h; path = Sources/Image/JXCategoryImageCellModel.h; sourceTree = "<group>"; };
@@ -667,12 +730,16 @@
 		5CFFA8A7AAC2C92BD75D1297F12F6653 /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
 		5DA0ECFFDFACBCD6861F57A182C85F90 /* WMPageController-framework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WMPageController-framework-Info.plist"; sourceTree = "<group>"; };
 		5E7FAA1A82A1D402D2F7BD2C7FA52D83 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
+		5E819D742A3F523181D761EFBDBF3652 /* GKPageScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKPageScrollView-dummy.m"; sourceTree = "<group>"; };
 		5F1F7B0A789A3555CE90E26CF3CEA3B9 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		5F4D5009E89A55D9F558007700D861A5 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		5F7C00552C204773F1D4B8D59DF979D3 /* GKPageScrollViewSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GKPageScrollViewSwift.modulemap; sourceTree = "<group>"; };
 		5FE4CC66FBA249E6167EC33493FEBF28 /* GKCustomNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKCustomNavigationBar.m; path = GKNavigationBar/NavigationBar/GKCustomNavigationBar.m; sourceTree = "<group>"; };
 		60D825167A9166D408174B3FB1B30562 /* UIViewController+VTMagic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+VTMagic.m"; path = "VTMagic/UIViewController+VTMagic.m"; sourceTree = "<group>"; };
 		63447545D86659EBF8018986441D0390 /* JXCategoryIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorView.h; path = Sources/Indicator/JXCategoryIndicatorView.h; sourceTree = "<group>"; };
 		637782D5FE90BC5555F9A9CA1A46D517 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
+		63A4D69EDB8D3C245698188E37A3E36C /* GKPageDefine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPageDefine.m; path = Sources/GKPageScrollView/GKPageDefine.m; sourceTree = "<group>"; };
+		63B9D03694290CF57ECEF5094224A1DD /* GKPageScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPageScrollView.m; path = Sources/GKPageScrollView/GKPageScrollView.m; sourceTree = "<group>"; };
 		63F1348EB30C3CA04EADBEF9FFA4CEEA /* GKNavigationBarSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GKNavigationBarSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6419CE65F1722D09F2E9598DF81E9C2F /* JXSegmentedIndicatorDoubleLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorDoubleLineView.swift; path = Sources/Indicator/JXSegmentedIndicatorDoubleLineView.swift; sourceTree = "<group>"; };
 		66A8C24CF727191CDDDA3D9D1D804AEC /* JXSegmentedTitleOrImageDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleOrImageDataSource.swift; path = Sources/TitleOrImage/JXSegmentedTitleOrImageDataSource.swift; sourceTree = "<group>"; };
@@ -684,6 +751,7 @@
 		6B301E1080D13515CB5EE58A0AB240F5 /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
 		6BCB10772F444209DE1F04693A448A18 /* UIImage+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UIImage+GKNavigationBar.h"; sourceTree = "<group>"; };
 		6D21AA508E931E0B3B3C424551680CCB /* JXCategoryViewAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryViewAnimator.m; path = Sources/Common/JXCategoryViewAnimator.m; sourceTree = "<group>"; };
+		6DB4DD58B159EC418BC05EC31E533ADB /* GKPageListContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKPageListContainerView.swift; path = Sources/GKPageScrollViewSwift/GKPageListContainerView.swift; sourceTree = "<group>"; };
 		6F3EE7525385E3E919D11D15C62AE7B2 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		6F8D2D998BB497ACCB73171A9DDB7578 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		6FD64BC6FDEC3F706ACC23B8C60025E2 /* libVTMagic-library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libVTMagic-library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -693,12 +761,14 @@
 		738FE18A510FF8E924736401C401AFE7 /* JXCategoryView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JXCategoryView-dummy.m"; sourceTree = "<group>"; };
 		73C810CA9DC5F9528AC44CE5BF3C68B1 /* GKNavigationBarConfigure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKNavigationBarConfigure.m; path = GKNavigationBar/NavigationBar/GKNavigationBarConfigure.m; sourceTree = "<group>"; };
 		746DB661BECA4A1E63FB05AF75A1CCB1 /* GKNavigationBarDefine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKNavigationBarDefine.swift; path = Sources/GKNavigationBarDefine.swift; sourceTree = "<group>"; };
+		756FD353207ADEDB13AF7F9E16F09BA8 /* GKPageSmoothViewSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GKPageSmoothViewSwift.modulemap; sourceTree = "<group>"; };
 		75D46799F2A4C4FDD66385C2274E2E29 /* GKNavigationBarSwift.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GKNavigationBarSwift.bundle; path = Sources/GKNavigationBarSwift.bundle; sourceTree = "<group>"; };
 		76EE4ADC748B0D74489F1806D75F3ADD /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		7720970BC9E206EB48C786899518FAEB /* VTMagic-library.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "VTMagic-library.release.xcconfig"; path = "../VTMagic-library/VTMagic-library.release.xcconfig"; sourceTree = "<group>"; };
 		779D55005D59A281059697DB4B16F349 /* JXSegmentedIndicatorTriangleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorTriangleView.swift; path = Sources/Indicator/JXSegmentedIndicatorTriangleView.swift; sourceTree = "<group>"; };
 		77DA3B8738A6CCD61D8A3B9C37784AAC /* JXSegmentedIndicatorBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorBackgroundView.swift; path = Sources/Indicator/JXSegmentedIndicatorBackgroundView.swift; sourceTree = "<group>"; };
 		77E6D9CC271BACEDDCD39AC63C823FCA /* UINavigationController+GKGestureHandle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+GKGestureHandle.h"; path = "GKNavigationBar/GestureHandle/UINavigationController+GKGestureHandle.h"; sourceTree = "<group>"; };
+		787CFDBA38463EF497DD1CEA17E7349D /* GKPageSmoothViewSwift.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKPageSmoothViewSwift.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		79214B7217A5555C62428EF47DD1FB92 /* JXSegmentedTitleDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleDataSource.swift; path = Sources/Title/JXSegmentedTitleDataSource.swift; sourceTree = "<group>"; };
 		794CE7C5081580D0439C1993BF9E4452 /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoNormalFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
 		7A211FE5E0D8E6EE0A7B552ADDDB747A /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
@@ -712,6 +782,7 @@
 		7FE25C1CB6ED299D9B1C72C0AFCFC119 /* JXCategoryViewAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryViewAnimator.h; path = Sources/Common/JXCategoryViewAnimator.h; sourceTree = "<group>"; };
 		808F90E898F2BADA8EBF1F07935D62CB /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
 		80904B9AE89BE539B86631CD360C2C1B /* JXSegmentedTitleGradientCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleGradientCell.swift; path = Sources/TitleGradient/JXSegmentedTitleGradientCell.swift; sourceTree = "<group>"; };
+		80D0694CD94713D0294A0ACE39D1B431 /* GKPageScrollViewSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKPageScrollViewSwift-umbrella.h"; sourceTree = "<group>"; };
 		8129A0D46AF775D54AE67D9EF4B23150 /* libPods-ObjcExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		818D6B2FDAD82C9DD44F1115FD1DA0C6 /* JXCategoryBaseCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryBaseCell.m; path = Sources/Base/JXCategoryBaseCell.m; sourceTree = "<group>"; };
 		8224B589C0F504C1176CBB6013AFF4DA /* JXCategoryListContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryListContainerView.m; path = Sources/Common/JXCategoryListContainerView.m; sourceTree = "<group>"; };
@@ -734,6 +805,7 @@
 		8B6181E1E030585B69D8A764FAC645EA /* UIScrollView+VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+VTMagic.h"; path = "VTMagic/UIScrollView+VTMagic.h"; sourceTree = "<group>"; };
 		8B8B0F4BFB1E74B17D693F3509807E07 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
 		8C5F6451E10732991F042C9A5939EAE8 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		8DE485B723FE81F6B97DAF3455DEE009 /* GKPageSmoothView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageSmoothView.release.xcconfig; sourceTree = "<group>"; };
 		8E3CB32D5EE2257AF23D6B9D2E698BBC /* MJRefresh-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-framework-umbrella.h"; sourceTree = "<group>"; };
 		8F2586DB1C8585AFD23503A0FF961C2B /* JXCategoryTitleCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleCell.m; path = Sources/Title/JXCategoryTitleCell.m; sourceTree = "<group>"; };
 		8FDBB3C9E752CB44C4FF9214E88FCE00 /* UIBarButtonItem+GKNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+GKNavigationBar.m"; path = "GKNavigationBar/NavigationBar/UIBarButtonItem+GKNavigationBar.m"; sourceTree = "<group>"; };
@@ -752,14 +824,17 @@
 		9429D4B69DF432FD9C529FD0B9AAF509 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		942BA6FB134866953945AB6450293190 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
 		94423811DF8513565E53AD4B20A47D67 /* JXCategoryTitleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleView.m; path = Sources/Title/JXCategoryTitleView.m; sourceTree = "<group>"; };
+		949B5FD533B6FC9B18C1C7C495B1C606 /* GKPageSmoothViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageSmoothViewSwift.debug.xcconfig; sourceTree = "<group>"; };
 		95210EED85DD0F034F285C45ADEF86D3 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
 		953375B6D292E8974B2EAF49CCAA6867 /* GKBaseAnimatedTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKBaseAnimatedTransition.h; path = GKNavigationBar/GestureHandle/GKBaseAnimatedTransition.h; sourceTree = "<group>"; };
 		95519A4C4965DA04FB2B3F8C8BF2E981 /* UIBarButtonItem+GKExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+GKExtension.swift"; path = "Sources/UIBarButtonItem+GKExtension.swift"; sourceTree = "<group>"; };
 		95FD08DCA1BC721295B3398E2094B028 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		961E0127EA1AA8A58033E2ACBC94B429 /* GKPageScrollViewSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageScrollViewSwift.release.xcconfig; sourceTree = "<group>"; };
 		961FD6C34A2786BC26C1D39CC558B1FE /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 		962904048CAAFBAA04E49FAE391E2607 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		969008CEFDCC3FCF310415EE52A8EE4A /* GKNavigationBarSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKNavigationBarSwift.release.xcconfig; sourceTree = "<group>"; };
 		96FE396B8AB96C1EB0B20DB13F0E6773 /* Pods-ObjcExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ObjcExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		971A441045B8EB46E2A185169B805A9C /* GKPageScrollView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKPageScrollView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9724D920EB58FE7CF30C042B3EB2545D /* GKNavigationBarSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GKNavigationBarSwift.modulemap; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D6ECF2065BCEB3932C6AB0CDBED669 /* VTMagic-framework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "VTMagic-framework.release.xcconfig"; sourceTree = "<group>"; };
@@ -784,10 +859,13 @@
 		A1C10EBD07B718C3ED0AF60015351D90 /* GKBaseAnimatedTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKBaseAnimatedTransition.swift; path = Sources/GKBaseAnimatedTransition.swift; sourceTree = "<group>"; };
 		A24679453B5D65E1CB11AB71BE4409F8 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
 		A28C3E0360F407DD4C512C8BAEB6D24F /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
+		A29AA49C8A458BBD50CF651C8A28DD1B /* GKPageSmoothView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKPageSmoothView.swift; path = Sources/GKPageSmoothViewSwift/GKPageSmoothView.swift; sourceTree = "<group>"; };
+		A2BD1F345A50AFAF1582D55E2E2DDC6F /* GKPageSmoothView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPageSmoothView.h; path = Sources/GKPageSmoothView/GKPageSmoothView.h; sourceTree = "<group>"; };
 		A31A03C41C289948D2C5F619F55EFB07 /* JXSegmentedIndicatorRainbowLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorRainbowLineView.swift; path = Sources/Indicator/JXSegmentedIndicatorRainbowLineView.swift; sourceTree = "<group>"; };
 		A31E9AFE9017CD6F52723C661F60FACB /* GKGestureHandleDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKGestureHandleDefine.h; path = GKNavigationBar/GestureHandle/GKGestureHandleDefine.h; sourceTree = "<group>"; };
 		A38D8D2D949C4A65D6C8C224AF50A7B4 /* JXSegmentedTitleImageDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleImageDataSource.swift; path = Sources/TitleImage/JXSegmentedTitleImageDataSource.swift; sourceTree = "<group>"; };
 		A57625FCEF7D8DC822C88E7A7680D0A3 /* JXCategoryNumberView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryNumberView.m; path = Sources/Number/JXCategoryNumberView.m; sourceTree = "<group>"; };
+		A580B984AAF6A251AA49A019A38700B8 /* GKPageScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPageScrollView.h; path = Sources/GKPageScrollView/GKPageScrollView.h; sourceTree = "<group>"; };
 		A75DB32474B094D0A7CDCEBD806F72FC /* Pods-SwiftExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftExample-dummy.m"; sourceTree = "<group>"; };
 		A81576DF212944055DBEC331A059C5DC /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		A8A74913AC777B947A32B920EFF4C88F /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
@@ -799,14 +877,19 @@
 		AB973E0F7B6C36D81B92057717B26752 /* JXCategoryView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JXCategoryView.release.xcconfig; sourceTree = "<group>"; };
 		ABF5BD2F73513F5BF70E1045545975C6 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
 		AC280F2B2EF3459AB11F4ED3B611C455 /* GKGestureHandleConfigure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKGestureHandleConfigure.h; path = GKNavigationBar/GestureHandle/GKGestureHandleConfigure.h; sourceTree = "<group>"; };
+		ACFBDB14F27A75E96B6FCACD3278320B /* libGKPageSmoothView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGKPageSmoothView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD6F9F4A0831028C41FFF955DEA82E7D /* UIColor+JXAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+JXAdd.h"; path = "Sources/Common/UIColor+JXAdd.h"; sourceTree = "<group>"; };
 		AE050BD61256650F5531A45FC0440C45 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		AED319C91EBABBC3879510D1D273CBA1 /* JXSegmentedIndicatorImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorImageView.swift; path = Sources/Indicator/JXSegmentedIndicatorImageView.swift; sourceTree = "<group>"; };
+		AF0C1F612752BA1CB56C491E56188104 /* libGKPageScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGKPageScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF1734C19AED44907A8808AF39786C13 /* GKPageScrollView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageScrollView.debug.xcconfig; sourceTree = "<group>"; };
 		AF946529516BA30926617699AF5EB3D3 /* VTContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VTContentView.m; path = VTMagic/VTContentView.m; sourceTree = "<group>"; };
 		AFA31E8AED714CEA249AC7E3D7CABC0F /* JXCategoryDotCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryDotCell.h; path = Sources/Dot/JXCategoryDotCell.h; sourceTree = "<group>"; };
 		AFD4EADE207E8DBA6277E86CF7DDFAA2 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
 		AFFBE292A576DA54FD473F2BE2061FCE /* VTMagicMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMagicMacros.h; path = VTMagic/VTMagicMacros.h; sourceTree = "<group>"; };
+		B043FE14D797FB6BB339D2A311117EE9 /* GKPageScrollView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageScrollView.release.xcconfig; sourceTree = "<group>"; };
 		B0F4D14EDDD4644B9C3BBABE0B710221 /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Source/ConstraintPriority.swift; sourceTree = "<group>"; };
+		B23E7245715080A987D7EA91B425BAF7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B3A7F0556B842AF6305C3291F63BA7FB /* VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMagic.h; path = VTMagic/VTMagic.h; sourceTree = "<group>"; };
 		B4435D19134FD4DAC25CD54F5D3703DB /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
 		B9691BD3A5E716E4090F4B9C917230B5 /* JXSegmentedTitleOrImageCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleOrImageCell.swift; path = Sources/TitleOrImage/JXSegmentedTitleOrImageCell.swift; sourceTree = "<group>"; };
@@ -822,6 +905,8 @@
 		BED7762BF6218AB5F8DD4667237912EE /* JXCategoryNumberCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryNumberCell.h; path = Sources/Number/JXCategoryNumberCell.h; sourceTree = "<group>"; };
 		BF1C98993D740226E70CA3C3D678D579 /* VTMagic-framework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "VTMagic-framework.debug.xcconfig"; sourceTree = "<group>"; };
 		C054905F7FBE8D2D00D233EC24A24561 /* JXCategoryDotView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryDotView.h; path = Sources/Dot/JXCategoryDotView.h; sourceTree = "<group>"; };
+		C079C8E397F8F539A879A626596495A3 /* GKPageSmoothViewSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKPageSmoothViewSwift-prefix.pch"; sourceTree = "<group>"; };
+		C0D6674DC49DD45B461C3DD5C2813D54 /* GKPageScrollViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GKPageScrollViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FCEC5E9BA33D521E73DE6E8B15BB99 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Source/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
 		C12D86521A828040B40C944EE1B83BC8 /* GKNavigationBarSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GKNavigationBarSwift-Info.plist"; sourceTree = "<group>"; };
 		C1C602DAB53BB99F766845069859CF0C /* WMPageController-framework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "WMPageController-framework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -833,10 +918,14 @@
 		C639925829CF55C1C5753C3E0C78A5F7 /* WMPageController-library.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "WMPageController-library.release.xcconfig"; path = "../WMPageController-library/WMPageController-library.release.xcconfig"; sourceTree = "<group>"; };
 		C6A15D6C5BDA11E4A79AC40A2948E930 /* JXCategoryTitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleView.h; path = Sources/Title/JXCategoryTitleView.h; sourceTree = "<group>"; };
 		C88B4B3C0C7486168F09C86113C1021B /* MJRefresh-framework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MJRefresh-framework.release.xcconfig"; sourceTree = "<group>"; };
+		C975AF4F598530DB076B5FFD8EB5A27F /* GKPageTableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPageTableView.m; path = Sources/GKPageScrollView/GKPageTableView.m; sourceTree = "<group>"; };
 		C97F88D76C3D5DA07AC8A46B2408092F /* JXCategoryIndicatorDotLineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorDotLineView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorDotLineView.h; sourceTree = "<group>"; };
+		C9C11FD783CBD1639A141BDD218F77EA /* GKPageTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GKPageTableView.swift; path = Sources/GKPageScrollViewSwift/GKPageTableView.swift; sourceTree = "<group>"; };
 		CA0628502C80A3221B31086B6FA4D020 /* JXCategoryTitleVerticalZoomView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleVerticalZoomView.m; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomView.m; sourceTree = "<group>"; };
 		CA08856550AA81A0D30338D1AB9F31FA /* MJRefreshTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshTrailer.m; path = MJRefresh/Base/MJRefreshTrailer.m; sourceTree = "<group>"; };
 		CABAF51B6A8B54EA5D1080AC0C71990C /* VTMagic-framework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VTMagic-framework-dummy.m"; sourceTree = "<group>"; };
+		CB7BEF1F2C29C40CD9E52540E0C5DDD7 /* GKPageListContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPageListContainerView.m; path = Sources/GKPageScrollView/GKPageListContainerView.m; sourceTree = "<group>"; };
+		CC3426585B915271CBC374CCB75551AE /* GKPageSmoothView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKPageSmoothView-dummy.m"; sourceTree = "<group>"; };
 		CC6E2EDAD0D824D3276EC65C748B87AA /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
 		CD9360D81C57AE469D12C6D845D6F966 /* GKCustomNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKCustomNavigationBar.h; path = GKNavigationBar/NavigationBar/GKCustomNavigationBar.h; sourceTree = "<group>"; };
 		CE8FE1B224F32EA24EA4D84D9ED13C0E /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
@@ -852,6 +941,7 @@
 		D1F0363D7371DCD341A6109E9CEDADE2 /* JXCategoryImageCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryImageCell.h; path = Sources/Image/JXCategoryImageCell.h; sourceTree = "<group>"; };
 		D217C47EC4BE212725067E58190A053C /* JXCategoryTitleCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryTitleCellModel.h; path = Sources/Title/JXCategoryTitleCellModel.h; sourceTree = "<group>"; };
 		D2358AA7493DBD3B1C29E5D5CFCC8EB1 /* JXCategoryViewDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryViewDefines.h; path = Sources/Common/JXCategoryViewDefines.h; sourceTree = "<group>"; };
+		D2A4D8C3FB0FC9265B11C06C0D4A5021 /* GKPageScrollView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKPageScrollView-prefix.pch"; sourceTree = "<group>"; };
 		D2CFA3AE54EAF74E0841DA4BCC2293EA /* JXCategoryIndicatorRainbowLineView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryIndicatorRainbowLineView.m; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorRainbowLineView.m; sourceTree = "<group>"; };
 		D40BFCE08EAE668C27F488C380730B3F /* Pods-SwiftExample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftExample-Info.plist"; sourceTree = "<group>"; };
 		D65874B6BA2DAA24305B6B62AD31C9C4 /* Pods-SwiftExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftExample-frameworks.sh"; sourceTree = "<group>"; };
@@ -871,20 +961,26 @@
 		DE36BC1FC94F253CBC5C47BC8A352F9D /* JXSegmentedAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedAnimator.swift; path = Sources/Common/JXSegmentedAnimator.swift; sourceTree = "<group>"; };
 		DEF70C19190C2D5FBA9364347C5F48B4 /* JXCategoryTitleVerticalZoomCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleVerticalZoomCellModel.m; path = Sources/VerticalZoomTitle/JXCategoryTitleVerticalZoomCellModel.m; sourceTree = "<group>"; };
 		DF1CCDEC8C76C509E0F59DC590FB1414 /* JXCategoryIndicatorLineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryIndicatorLineView.h; path = Sources/Indicator/IndicatorViews/JXCategoryIndicatorLineView.h; sourceTree = "<group>"; };
+		DF5C971C95D927E687527DA7424306A4 /* GKPageSmoothViewSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageSmoothViewSwift.release.xcconfig; sourceTree = "<group>"; };
 		DF6811D7CC54D74E7D6B3C9C7B458111 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
 		DFAC17E35C4C855B7DD30B7CFD8A28A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		E032BCB62CBEBEC524AB1E38EF077A6E /* RTLManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RTLManager.m; path = Sources/RLTManager/RTLManager.m; sourceTree = "<group>"; };
 		E066842622FBB4A07FECA93DBD4546F4 /* Masonry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.release.xcconfig; sourceTree = "<group>"; };
 		E0A58E9AC84DB2DAB8776349ECDE4487 /* GKNavigationBarSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKNavigationBarSwift-umbrella.h"; sourceTree = "<group>"; };
+		E2BEF69C1F2492EF53099015D31FA173 /* GKPageScrollViewSwift.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKPageScrollViewSwift.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E2DF935A1F0F50AE22046A102505AEC1 /* GKNavigationBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKNavigationBar.debug.xcconfig; sourceTree = "<group>"; };
 		E3A815A176393A1FFD2630614CBE011D /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		E4B53278F8C53E15F604AB78544AFA52 /* JXSegmentedTitleItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleItemModel.swift; path = Sources/Title/JXSegmentedTitleItemModel.swift; sourceTree = "<group>"; };
 		E560013FFA1DB4DA32347D3D99986CBF /* JXCategoryTitleImageCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleImageCell.m; path = Sources/TitleImage/JXCategoryTitleImageCell.m; sourceTree = "<group>"; };
 		E5F992B9383B1ABF41DEFB0E2733806E /* WMProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMProgressView.h; path = WMPageController/WMMenuView/WMProgressView.h; sourceTree = "<group>"; };
 		E654D6DDAA45BAC41963F2435625A8C8 /* JXSegmentedCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedCollectionView.swift; path = Sources/Core/JXSegmentedCollectionView.swift; sourceTree = "<group>"; };
+		E674B17FE2A5A6D733DDFC2CB7463336 /* GKPageSmoothView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKPageSmoothView-prefix.pch"; sourceTree = "<group>"; };
+		E6DE9D91D40BF50A7E031C83F879B8DB /* GKPageSmoothViewSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKPageSmoothViewSwift-umbrella.h"; sourceTree = "<group>"; };
 		E7273E548CC37F847E5E0FCF2D3C3CA3 /* GKNavigationBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKNavigationBar.release.xcconfig; sourceTree = "<group>"; };
 		E759A447B9DB034CE7D5E35B36C8C68A /* WMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMScrollView.h; path = WMPageController/WMMenuView/WMScrollView.h; sourceTree = "<group>"; };
+		E8A8A0C2E58FB9DEDCA5CAA778537299 /* GKPageScrollViewSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageScrollViewSwift.debug.xcconfig; sourceTree = "<group>"; };
 		EA75D5007F0A3BF5E44BCD80432492D6 /* UINavigationItem+GKNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationItem+GKNavigationBar.h"; path = "GKNavigationBar/NavigationBar/UINavigationItem+GKNavigationBar.h"; sourceTree = "<group>"; };
+		EA90F9A539493F1987B5FDD9A3883F19 /* GKPageSmoothViewSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKPageSmoothViewSwift-dummy.m"; sourceTree = "<group>"; };
 		EC190A767BFEB9CBF76C59857CD04C15 /* JXCategoryTitleCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleCellModel.m; path = Sources/Title/JXCategoryTitleCellModel.m; sourceTree = "<group>"; };
 		ECC467C2183418FAC6C064DA636086B0 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		ED03B5502AFA8AC37BC5CC51B39DED7E /* Pods-SwiftExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftExample-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -906,6 +1002,7 @@
 		F4809559800FA2F556E3A79E0DD9262F /* GKNavigationInteractiveTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKNavigationInteractiveTransition.h; path = GKNavigationBar/GestureHandle/GKNavigationInteractiveTransition.h; sourceTree = "<group>"; };
 		F4DCE80A792482D73931245F5777CC44 /* GKPushAnimatedTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPushAnimatedTransition.h; path = GKNavigationBar/GestureHandle/GKPushAnimatedTransition.h; sourceTree = "<group>"; };
 		F5A093B9EF65619CB7FAE3BCDF3DD441 /* JXSegmentedIndicatorLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorLineView.swift; path = Sources/Indicator/JXSegmentedIndicatorLineView.swift; sourceTree = "<group>"; };
+		F67646B50D6858DA00486F6F7E207B0A /* GKPageScrollViewSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKPageScrollViewSwift-dummy.m"; sourceTree = "<group>"; };
 		F69A19AF00B9921B8F54911446A88E4A /* JXSegmentedTitleImageCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleImageCell.swift; path = Sources/TitleImage/JXSegmentedTitleImageCell.swift; sourceTree = "<group>"; };
 		F6CFB4218D0202032664DF0257AA9186 /* JXSegmentedDotDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedDotDataSource.swift; path = Sources/Dot/JXSegmentedDotDataSource.swift; sourceTree = "<group>"; };
 		F71CE8B3B70AFCB020CD2F5C6B2CF96C /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
@@ -950,6 +1047,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4EC11E1A4CB8C7E592D7BB9077A9E8CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		57E6A3C18D67C49606F97AAD87E8902E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -967,11 +1071,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7265859EA5F4927304A5CA5EC1AC364E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73A173863657894A01CB54BA862DDBBA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C89096F27EB7CAE5D2E2ADB1755A9E22 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A8C301546866915BC8581B58589369A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5956A15B9F6982B3A8B30756618A37C8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -991,13 +1110,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		931D653B472EAF6861DCD4D8B2A64022 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		96AD7F83DB80D44A4E21255AC1219570 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1014,6 +1126,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B71A3484D8B3C781BD00F36BD40B291F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E2DEF66BDC1A0C4B92ADA187BA8F669 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA86547EA74866420B2AA49087F46B4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1022,19 +1142,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E4B45AB7AA57C36EC4851001206CCF52 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F91773F9DAECA4EE98F39AD471B4E0C /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F26A5F35215C0EBECC6ADEE00B4503E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0B104119BBEE89C29186FC9AFCB5DABB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8F85AB5EA5DBEE1D2D4FDE6C853D69C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA39E23942F48B1A86DAC63528662E43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				199088C067A9258B1CCA6E955A1E6BD2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,6 +1209,32 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/JXSegmentedView";
+			sourceTree = "<group>";
+		};
+		0A36C4FFB5EB318C8D1CA512645FBD11 /* GKPageScrollViewSwift */ = {
+			isa = PBXGroup;
+			children = (
+				48246CC895AD7DE790EFAD6AD17A62D7 /* GKPageDefine.swift */,
+				6DB4DD58B159EC418BC05EC31E533ADB /* GKPageListContainerView.swift */,
+				3F0EF8C08CE6314C8C2A21A0E2DDAA51 /* GKPageScrollView.swift */,
+				C9C11FD783CBD1639A141BDD218F77EA /* GKPageTableView.swift */,
+				74676FF6D644585D281FBCE728DD28D8 /* Pod */,
+				EB27C41BE51E4135AB9E7BF6A5CADE16 /* Support Files */,
+			);
+			name = GKPageScrollViewSwift;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		0CB803C1CCFC744F657A8491A6861E7A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E819D742A3F523181D761EFBDBF3652 /* GKPageScrollView-dummy.m */,
+				D2A4D8C3FB0FC9265B11C06C0D4A5021 /* GKPageScrollView-prefix.pch */,
+				AF1734C19AED44907A8808AF39786C13 /* GKPageScrollView.debug.xcconfig */,
+				B043FE14D797FB6BB339D2A311117EE9 /* GKPageScrollView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/GKPageScrollView";
 			sourceTree = "<group>";
 		};
 		0CD272E15E3493643B4AE9CFAF962C05 /* Pods */ = {
@@ -1163,6 +1316,14 @@
 			path = "../Target Support Files/MJRefresh-framework";
 			sourceTree = "<group>";
 		};
+		44803DB04563A180BBC2CA00C9EDB40A /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				787CFDBA38463EF497DD1CEA17E7349D /* GKPageSmoothViewSwift.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		46376648CB8472C62A230825CF01F5DE /* JXSegmentedView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1214,6 +1375,14 @@
 			path = JXSegmentedView;
 			sourceTree = "<group>";
 		};
+		48D9972295FA9D2987AC37A7FEC7F490 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				088BA61F5BB374B920AA32C0D39FBACF /* GKPageSmoothView.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		4D6610AA311FBA0D778EBE4FDB26A201 /* GestureHandle */ = {
 			isa = PBXGroup;
 			children = (
@@ -1246,6 +1415,17 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		56A380D460A886031305EBCA94989CF6 /* GKPageSmoothViewSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A29AA49C8A458BBD50CF651C8A28DD1B /* GKPageSmoothView.swift */,
+				44803DB04563A180BBC2CA00C9EDB40A /* Pod */,
+				7B53A2E0804A9BD43FAE32366625B227 /* Support Files */,
+			);
+			name = GKPageSmoothViewSwift;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		6403E182A214788EF3AF991AA10DB271 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1269,6 +1449,18 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		660C6E59A753900623FD57720A3A2736 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC3426585B915271CBC374CCB75551AE /* GKPageSmoothView-dummy.m */,
+				E674B17FE2A5A6D733DDFC2CB7463336 /* GKPageSmoothView-prefix.pch */,
+				0E9287585E03CA1399A7E85ADD26157D /* GKPageSmoothView.debug.xcconfig */,
+				8DE485B723FE81F6B97DAF3455DEE009 /* GKPageSmoothView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/GKPageSmoothView";
+			sourceTree = "<group>";
+		};
 		6E0210D2E97E436C6A5C07A0213C14A6 /* Pods-ObjcExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -1283,6 +1475,25 @@
 			path = "Target Support Files/Pods-ObjcExample";
 			sourceTree = "<group>";
 		};
+		718D12BAED073F4F702120E4F2866AC5 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8036C31CB4DEFCC736194B0BBB0B3397 /* GKPageScrollView */,
+				0A36C4FFB5EB318C8D1CA512645FBD11 /* GKPageScrollViewSwift */,
+				C1B7E20A00124E7643448B43DAC01AAE /* GKPageSmoothView */,
+				56A380D460A886031305EBCA94989CF6 /* GKPageSmoothViewSwift */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		74676FF6D644585D281FBCE728DD28D8 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				E2BEF69C1F2492EF53099015D31FA173 /* GKPageScrollViewSwift.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		794EF471B486E7FBFC7AE745A23C7CC9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1293,6 +1504,39 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Masonry";
+			sourceTree = "<group>";
+		};
+		7B53A2E0804A9BD43FAE32366625B227 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				756FD353207ADEDB13AF7F9E16F09BA8 /* GKPageSmoothViewSwift.modulemap */,
+				EA90F9A539493F1987B5FDD9A3883F19 /* GKPageSmoothViewSwift-dummy.m */,
+				5190F72CE1330EC84467C88FB38E2353 /* GKPageSmoothViewSwift-Info.plist */,
+				C079C8E397F8F539A879A626596495A3 /* GKPageSmoothViewSwift-prefix.pch */,
+				E6DE9D91D40BF50A7E031C83F879B8DB /* GKPageSmoothViewSwift-umbrella.h */,
+				949B5FD533B6FC9B18C1C7C495B1C606 /* GKPageSmoothViewSwift.debug.xcconfig */,
+				DF5C971C95D927E687527DA7424306A4 /* GKPageSmoothViewSwift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/GKPageSmoothViewSwift";
+			sourceTree = "<group>";
+		};
+		8036C31CB4DEFCC736194B0BBB0B3397 /* GKPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				3BAC442E116AEE8E1D360EEDC2301137 /* GKPageDefine.h */,
+				63A4D69EDB8D3C245698188E37A3E36C /* GKPageDefine.m */,
+				371E106D9DB6F84C7398AB916B01B9C1 /* GKPageListContainerView.h */,
+				CB7BEF1F2C29C40CD9E52540E0C5DDD7 /* GKPageListContainerView.m */,
+				A580B984AAF6A251AA49A019A38700B8 /* GKPageScrollView.h */,
+				63B9D03694290CF57ECEF5094224A1DD /* GKPageScrollView.m */,
+				14CAD7F7D2647EBE1FECFFE61DB8353A /* GKPageTableView.h */,
+				C975AF4F598530DB076B5FFD8EB5A27F /* GKPageTableView.m */,
+				C7BDF50B1BC7FD0070F16D1ED44C512F /* Pod */,
+				0CB803C1CCFC744F657A8491A6861E7A /* Support Files */,
+			);
+			name = GKPageScrollView;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		86CB3743A32882C17F12193AB8B0640D /* JXCategoryView */ = {
@@ -1384,27 +1628,6 @@
 				EF732335D02145BD6204EA261DFE26F3 /* Support Files */,
 			);
 			path = JXCategoryView;
-			sourceTree = "<group>";
-		};
-		8B752D39A122F08508E888D81A8EFE29 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				63F1348EB30C3CA04EADBEF9FFA4CEEA /* GKNavigationBarSwift.framework */,
-				07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */,
-				984A8C6E4E5DC18D2C37110AB740F064 /* libGKNavigationBar.a */,
-				C3A46B03C308EEEB11F2A62BA5D2E8BE /* libJXCategoryView.a */,
-				1FFED36A657123030ABB700256D73F15 /* libMasonry.a */,
-				9C7F166CC810DCBA0B98A55275DA6CF6 /* libMJRefresh-library.a */,
-				8129A0D46AF775D54AE67D9EF4B23150 /* libPods-ObjcExample.a */,
-				6FD64BC6FDEC3F706ACC23B8C60025E2 /* libVTMagic-library.a */,
-				FD38CD190844C73447144FEAD7764891 /* libWMPageController-library.a */,
-				3F5DA3271296DD5A8FF09724B4DBC27B /* MJRefresh.framework */,
-				413F7067A30C24FA2D9857542C919DBA /* Pods_SwiftExample.framework */,
-				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
-				45D4ED1452FB56389F31A48DBD25750F /* VTMagic.framework */,
-				AA9875960B2EEE66FD5DE0873206524D /* WMPageController.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		90CBF3214D9B5A2D1BECF2B1684B4C19 /* GKNavigationBarSwift */ = {
@@ -1609,6 +1832,18 @@
 			path = "../Target Support Files/WMPageController-framework";
 			sourceTree = "<group>";
 		};
+		C1B7E20A00124E7643448B43DAC01AAE /* GKPageSmoothView */ = {
+			isa = PBXGroup;
+			children = (
+				A2BD1F345A50AFAF1582D55E2E2DDC6F /* GKPageSmoothView.h */,
+				01C8238C0EEA0877D533B0EAFC396E74 /* GKPageSmoothView.m */,
+				48D9972295FA9D2987AC37A7FEC7F490 /* Pod */,
+				660C6E59A753900623FD57720A3A2736 /* Support Files */,
+			);
+			name = GKPageSmoothView;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		C4C84832560C760F9BD9578A79C10DBB /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -1666,15 +1901,50 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		C7BDF50B1BC7FD0070F16D1ED44C512F /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				971A441045B8EB46E2A185169B805A9C /* GKPageScrollView.podspec */,
+				B23E7245715080A987D7EA91B425BAF7 /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				718D12BAED073F4F702120E4F2866AC5 /* Development Pods */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				0CD272E15E3493643B4AE9CFAF962C05 /* Pods */,
-				8B752D39A122F08508E888D81A8EFE29 /* Products */,
+				D11D52342280330CDCA27C291178993A /* Products */,
 				A217F84E4E510F672E6C206F65998E1A /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		D11D52342280330CDCA27C291178993A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63F1348EB30C3CA04EADBEF9FFA4CEEA /* GKNavigationBarSwift.framework */,
+				C0D6674DC49DD45B461C3DD5C2813D54 /* GKPageScrollViewSwift.framework */,
+				3B01D815947BE5DAE9487599C27824CB /* GKPageSmoothViewSwift.framework */,
+				07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */,
+				984A8C6E4E5DC18D2C37110AB740F064 /* libGKNavigationBar.a */,
+				AF0C1F612752BA1CB56C491E56188104 /* libGKPageScrollView.a */,
+				ACFBDB14F27A75E96B6FCACD3278320B /* libGKPageSmoothView.a */,
+				C3A46B03C308EEEB11F2A62BA5D2E8BE /* libJXCategoryView.a */,
+				1FFED36A657123030ABB700256D73F15 /* libMasonry.a */,
+				9C7F166CC810DCBA0B98A55275DA6CF6 /* libMJRefresh-library.a */,
+				8129A0D46AF775D54AE67D9EF4B23150 /* libPods-ObjcExample.a */,
+				6FD64BC6FDEC3F706ACC23B8C60025E2 /* libVTMagic-library.a */,
+				FD38CD190844C73447144FEAD7764891 /* libWMPageController-library.a */,
+				3F5DA3271296DD5A8FF09724B4DBC27B /* MJRefresh.framework */,
+				413F7067A30C24FA2D9857542C919DBA /* Pods_SwiftExample.framework */,
+				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
+				45D4ED1452FB56389F31A48DBD25750F /* VTMagic.framework */,
+				AA9875960B2EEE66FD5DE0873206524D /* WMPageController.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		DEEBD13931CA390D382941DF3FC00959 /* VTMagic */ = {
@@ -1704,6 +1974,21 @@
 			path = "Target Support Files/Pods-SwiftExample";
 			sourceTree = "<group>";
 		};
+		EB27C41BE51E4135AB9E7BF6A5CADE16 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C00552C204773F1D4B8D59DF979D3 /* GKPageScrollViewSwift.modulemap */,
+				F67646B50D6858DA00486F6F7E207B0A /* GKPageScrollViewSwift-dummy.m */,
+				0AAE1178A298915ED86EF0D9367F9518 /* GKPageScrollViewSwift-Info.plist */,
+				1274A9AFAE6C8CC328A24F6CD0F172DD /* GKPageScrollViewSwift-prefix.pch */,
+				80D0694CD94713D0294A0ACE39D1B431 /* GKPageScrollViewSwift-umbrella.h */,
+				E8A8A0C2E58FB9DEDCA5CAA778537299 /* GKPageScrollViewSwift.debug.xcconfig */,
+				961E0127EA1AA8A58033E2ACBC94B429 /* GKPageScrollViewSwift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/GKPageScrollViewSwift";
+			sourceTree = "<group>";
+		};
 		EF732335D02145BD6204EA261DFE26F3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1719,6 +2004,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		07D822F3FD524EAEDFC375A8F81ACAA9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13D2F9653E5D36859B3EE3E1B4784281 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1760,6 +2052,14 @@
 				49A861DAE2D7A3A62026EB056969F253 /* UIScrollView+MJExtension.h in Headers */,
 				7780680CA64FC85150DB36E74760CFF1 /* UIScrollView+MJRefresh.h in Headers */,
 				1CB17BFD0846FCD2F1CFDE86C000D8CD /* UIView+MJExtension.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D99348FA601EEDA36290E8A2ED3136A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B98F5777E03AFD31FCB78F42CD45471A /* GKPageScrollViewSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1826,6 +2126,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		38D6DFCCD34B380CC0A5D35053DD753B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DC491F4819096571757B88A3E2B3ED1 /* GKPageDefine.h in Headers */,
+				F5CC80DB583977585E76CA8DFBF86F20 /* GKPageListContainerView.h in Headers */,
+				4A08EE243CB23A1C70A6F1D8273E4EC9 /* GKPageScrollView.h in Headers */,
+				26645E33025C9C62FC1616E390EC6D1F /* GKPageTableView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F680257BA12489B789E62561A341A63 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1876,13 +2187,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		622F46B57516478626DF5EE50630D278 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6F50150F35791CF7B6AC30247FF02B55 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1897,11 +2201,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80A6F0C91F64D8114CC75183458D81E5 /* Headers */ = {
+		78C998568720A4AFF0DFF68144DF91B4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E8FF6DF4BDFD7414F08DDAF7C5D150 /* Pods-SwiftExample-umbrella.h in Headers */,
+				FB0BA0FBBBF66C61488D62A59680738F /* GKPageSmoothViewSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1920,6 +2224,22 @@
 				29DB3CF2D99F7495DF7E585D712C00D1 /* VTMagicProtocol.h in Headers */,
 				8C869D139796B8608F9C8C5DE5568D17 /* VTMagicView.h in Headers */,
 				08D29B78ECD77AE36B17595BC8056E74 /* VTMenuBar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0ECD8C0C832C551F308438F32653C0F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C313C6F07F5AA3B785D76DA44F073939 /* Pods-SwiftExample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B264E7A75CA80C42A731A33F64275C38 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F90F71C30BFBA36A87713B5271E84986 /* GKPageSmoothView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2005,26 +2325,46 @@
 		};
 		28AA56C18906ED8AE1E845B610765685 /* Pods-SwiftExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E3BBD1BDEE376FD01907191A8DBDCC1C /* Build configuration list for PBXNativeTarget "Pods-SwiftExample" */;
+			buildConfigurationList = 36F463B9D5E6B4F9A89A35BC722DBA17 /* Build configuration list for PBXNativeTarget "Pods-SwiftExample" */;
 			buildPhases = (
-				80A6F0C91F64D8114CC75183458D81E5 /* Headers */,
-				62F88288BA4EFCCAFB10D3A7A2C690BC /* Sources */,
-				E4B45AB7AA57C36EC4851001206CCF52 /* Frameworks */,
-				F6E6D9747846FD41330F11E61B17E8D7 /* Resources */,
+				B0ECD8C0C832C551F308438F32653C0F /* Headers */,
+				14B5C440FFB032447B3E5E95275A6979 /* Sources */,
+				FA39E23942F48B1A86DAC63528662E43 /* Frameworks */,
+				30020CF5A23961E7BDCD101C9D857DDD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8F5EE89F3FF2957C20789F4D8AE463A4 /* PBXTargetDependency */,
-				A25AC7D2256B8DA1873AF5C64470EEFE /* PBXTargetDependency */,
-				16C895E5263E76D9CBBA02AF8BCC3972 /* PBXTargetDependency */,
-				F7FCD9FB3E1B3643A4F3E067A2DD1410 /* PBXTargetDependency */,
-				61AC4ACACF08BDCCCC1B3AB537449DDA /* PBXTargetDependency */,
-				C5BAD23DDBB89DE305AD5EA88FC9AAFD /* PBXTargetDependency */,
+				23D5126E2BB4F144B4D3C52B47203C49 /* PBXTargetDependency */,
+				D941CB7DBCE8C5C5155C382B7CD45BD6 /* PBXTargetDependency */,
+				551990BF88820FCC8AF2C18CAAFBFA9D /* PBXTargetDependency */,
+				BC1F30688231E13B5A9464C98B9391B0 /* PBXTargetDependency */,
+				CDEE7F694206C24FB3A84D4CF36E273A /* PBXTargetDependency */,
+				9B3B25B77E7A6202B0ABFCC3B839883D /* PBXTargetDependency */,
+				4B1BA277AEB027381FE7C8467EF97949 /* PBXTargetDependency */,
+				C861F31277819C33B8C9A2591BD2D871 /* PBXTargetDependency */,
 			);
 			name = "Pods-SwiftExample";
 			productName = "Pods-SwiftExample";
 			productReference = 413F7067A30C24FA2D9857542C919DBA /* Pods_SwiftExample.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		28D89198400430CBC887127C75EFE455 /* GKPageScrollViewSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CF1566CA6EB81102E129DBCEFBBF375 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwift" */;
+			buildPhases = (
+				1D99348FA601EEDA36290E8A2ED3136A /* Headers */,
+				38FE429FB05805BFEBC0B17D8107EEDA /* Sources */,
+				7A8C301546866915BC8581B58589369A /* Frameworks */,
+				54AC977340C427EC0ACC53856C6DD78F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GKPageScrollViewSwift;
+			productName = GKPageScrollViewSwift;
+			productReference = C0D6674DC49DD45B461C3DD5C2813D54 /* GKPageScrollViewSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		361390C6DB5DA1436844D8393ABE85CB /* WMPageController-library */ = {
@@ -2152,25 +2492,44 @@
 		};
 		6F7F069AE95D15EF3AA1457D470FBA84 /* Pods-ObjcExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CF716041D06425ADE6289A47B8E0E35 /* Build configuration list for PBXNativeTarget "Pods-ObjcExample" */;
+			buildConfigurationList = 8298D7866A1217ED1BE0B7B9F454F377 /* Build configuration list for PBXNativeTarget "Pods-ObjcExample" */;
 			buildPhases = (
-				622F46B57516478626DF5EE50630D278 /* Headers */,
-				1045DD38D7ECB7840B06182320D7D0CF /* Sources */,
-				931D653B472EAF6861DCD4D8B2A64022 /* Frameworks */,
+				07D822F3FD524EAEDFC375A8F81ACAA9 /* Headers */,
+				2E118F23A6EC8B681E0F2613AB51FC3C /* Sources */,
+				4EC11E1A4CB8C7E592D7BB9077A9E8CC /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6AD7A20EEBF9E7EB9D7822FC7F51732F /* PBXTargetDependency */,
-				61F02FEB6D8A95031EA9CB29A7F3CA5A /* PBXTargetDependency */,
-				847D39767F80F771C950645CE9AA8006 /* PBXTargetDependency */,
-				B4B665A0C18B8848490C469EE981C6BA /* PBXTargetDependency */,
-				AB3FD84ED93CFBD7D7F74E33084DB1FE /* PBXTargetDependency */,
-				8C7B7E48F7C9C068FA7E28D5E0EFDAD7 /* PBXTargetDependency */,
+				B3C1C14DF0DCB842AFDD5476D667218C /* PBXTargetDependency */,
+				CBE7335D70D13E50201F97B70872E07E /* PBXTargetDependency */,
+				C17C8812A73D5485D1488EC681A95A1D /* PBXTargetDependency */,
+				C47513DB11341F17D066493F98785EDB /* PBXTargetDependency */,
+				7196D39703308E0B2214B19066DC345C /* PBXTargetDependency */,
+				C40332A94495DD3459A8B206957F8FED /* PBXTargetDependency */,
+				F0877D626057E998FCD8ED44095E4DEC /* PBXTargetDependency */,
+				E877E7B36073500FFBB52C48DD72A289 /* PBXTargetDependency */,
 			);
 			name = "Pods-ObjcExample";
 			productName = "Pods-ObjcExample";
 			productReference = 8129A0D46AF775D54AE67D9EF4B23150 /* libPods-ObjcExample.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7EE1946FD34AC2DA0F1D5DC84C581372 /* GKPageScrollView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B383FEF3E15BF672E917AAEB3003E50 /* Build configuration list for PBXNativeTarget "GKPageScrollView" */;
+			buildPhases = (
+				38D6DFCCD34B380CC0A5D35053DD753B /* Headers */,
+				10729BA13EB15A7D1F5C48CE2855F384 /* Sources */,
+				7265859EA5F4927304A5CA5EC1AC364E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GKPageScrollView;
+			productName = GKPageScrollView;
+			productReference = AF0C1F612752BA1CB56C491E56188104 /* libGKPageScrollView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		8BEAFAA726C1965864B79B4B441AA513 /* JXCategoryView */ = {
@@ -2224,6 +2583,24 @@
 			productReference = 984A8C6E4E5DC18D2C37110AB740F064 /* libGKNavigationBar.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		E01879C074553EDD15108A3322A82C09 /* GKPageSmoothViewSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 175A8C310EDBE1C16C787993FAD2BA78 /* Build configuration list for PBXNativeTarget "GKPageSmoothViewSwift" */;
+			buildPhases = (
+				78C998568720A4AFF0DFF68144DF91B4 /* Headers */,
+				EBD2BA0C17600440C415AA674693CD61 /* Sources */,
+				B71A3484D8B3C781BD00F36BD40B291F /* Frameworks */,
+				48D3E3D9963D0E74383B85482C7F5FFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GKPageSmoothViewSwift;
+			productName = GKPageSmoothViewSwift;
+			productReference = 3B01D815947BE5DAE9487599C27824CB /* GKPageSmoothViewSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		E863A9A96F52A35F47491E7B41ECEF9A /* JXSegmentedView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91BDD18F1BA82D21A276BBA092BF52BC /* Build configuration list for PBXNativeTarget "JXSegmentedView" */;
@@ -2242,6 +2619,23 @@
 			productReference = 07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		EACE50361ECD044239EB5FFC94B46E7C /* GKPageSmoothView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 927CEAC572BD68C94EF71D856F0241D2 /* Build configuration list for PBXNativeTarget "GKPageSmoothView" */;
+			buildPhases = (
+				B264E7A75CA80C42A731A33F64275C38 /* Headers */,
+				892E160BAA751FDE4C73A3F0EDE50390 /* Sources */,
+				F8F85AB5EA5DBEE1D2D4FDE6C853D69C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GKPageSmoothView;
+			productName = GKPageSmoothView;
+			productReference = ACFBDB14F27A75E96B6FCACD3278320B /* libGKPageSmoothView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2252,7 +2646,7 @@
 				LastUpgradeCheck = 1230;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -2260,12 +2654,16 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 8B752D39A122F08508E888D81A8EFE29 /* Products */;
+			productRefGroup = D11D52342280330CDCA27C291178993A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				95566350DF2AFBD4C8FEB49A27CA62A3 /* GKNavigationBar */,
 				4C27A49A311B0BA0FC773E1CE87E4251 /* GKNavigationBarSwift */,
+				7EE1946FD34AC2DA0F1D5DC84C581372 /* GKPageScrollView */,
+				28D89198400430CBC887127C75EFE455 /* GKPageScrollViewSwift */,
+				EACE50361ECD044239EB5FFC94B46E7C /* GKPageSmoothView */,
+				E01879C074553EDD15108A3322A82C09 /* GKPageSmoothViewSwift */,
 				8BEAFAA726C1965864B79B4B441AA513 /* JXCategoryView */,
 				E863A9A96F52A35F47491E7B41ECEF9A /* JXSegmentedView */,
 				55AF53E6C77A10ED4985E04D74A8878E /* Masonry */,
@@ -2297,6 +2695,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30020CF5A23961E7BDCD101C9D857DDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48D3E3D9963D0E74383B85482C7F5FFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54AC977340C427EC0ACC53856C6DD78F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9738EAD4D2F0E7EFD92C0D69E7EA251F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2320,13 +2739,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F6E6D9747846FD41330F11E61B17E8D7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F875E0BDD85DBD62081C2DABD0FA5CC1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2337,11 +2749,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1045DD38D7ECB7840B06182320D7D0CF /* Sources */ = {
+		10729BA13EB15A7D1F5C48CE2855F384 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2066FF096019F5763A2EA19EEBB06DF1 /* Pods-ObjcExample-dummy.m in Sources */,
+				4C5D4E7CB7885F67533B71BE48D4F20E /* GKPageDefine.m in Sources */,
+				89311B9B01854B6B874D75519192C723 /* GKPageListContainerView.m in Sources */,
+				FFDE669D3B229F2442C18979E9974E1B /* GKPageScrollView-dummy.m in Sources */,
+				022E7D092B86B7ECF0370BECB4828020 /* GKPageScrollView.m in Sources */,
+				0C702204B3F997616437789157B8CA2B /* GKPageTableView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14B5C440FFB032447B3E5E95275A6979 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47B024E5726BA7AE6DADFAC21FBC3DA8 /* Pods-SwiftExample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E118F23A6EC8B681E0F2613AB51FC3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53FCEEE39D4640695F3C8CBB7206FBCC /* Pods-ObjcExample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38FE429FB05805BFEBC0B17D8107EEDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8D39285BA0D2CA2D5F4E898A0CA8DC /* GKPageDefine.swift in Sources */,
+				C4AD7493973AD5EBD44F2AD144970155 /* GKPageListContainerView.swift in Sources */,
+				B4FDFB0A276A4BB98CED9FEC175EF10D /* GKPageScrollView.swift in Sources */,
+				C6A4F4586C9434C28F1AB7D5A4D7C8D3 /* GKPageScrollViewSwift-dummy.m in Sources */,
+				00DC91B001FC5B9DD3F9BD4CAE938A4A /* GKPageTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2378,14 +2822,6 @@
 				67939071BB6319FA32FA0571DF0D4653 /* VTMagicController.m in Sources */,
 				FAFA9FE806A0ADE1A2041671B173CCDA /* VTMagicView.m in Sources */,
 				8E4183395435F17CC7A72F5ADC5B340E /* VTMenuBar.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		62F88288BA4EFCCAFB10D3A7A2C690BC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9503F3EB5B9D79AFC238CDD4A70131E1 /* Pods-SwiftExample-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2452,6 +2888,15 @@
 				42FD9C7829015C4EEAF4AEFE4EE9077D /* VTMagicController.m in Sources */,
 				ED4296A6F60C7317DA4F9C3E89AE6F17 /* VTMagicView.m in Sources */,
 				C5642F169D332879327C20D87E577E25 /* VTMenuBar.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		892E160BAA751FDE4C73A3F0EDE50390 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ED4A0B859EED81B05A144B1CC26BDFA /* GKPageSmoothView-dummy.m in Sources */,
+				7D2C621975A166DB76726E93F55A33EE /* GKPageSmoothView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2639,6 +3084,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EBD2BA0C17600440C415AA674693CD61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58FECE06BFAB20F742C78AA5733F205C /* GKPageSmoothView.swift in Sources */,
+				F85D5B3E9FF1ABD0A821367FCC836E34 /* GKPageSmoothViewSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F002ACF66DD959AFFFDBC20EAE6697BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2679,77 +3133,101 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		16C895E5263E76D9CBBA02AF8BCC3972 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "MJRefresh-framework";
-			target = 5F0DD7F63EAD7CD8C9B1EF5399FF4A2D /* MJRefresh-framework */;
-			targetProxy = 82DA73999505F3AD84BDC6BFD35558C7 /* PBXContainerItemProxy */;
-		};
-		61AC4ACACF08BDCCCC1B3AB537449DDA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "VTMagic-framework";
-			target = 5588360FF43B8281CA7E3F2325A23292 /* VTMagic-framework */;
-			targetProxy = 02C725B246CA34B5194D05E5F68A68DB /* PBXContainerItemProxy */;
-		};
-		61F02FEB6D8A95031EA9CB29A7F3CA5A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JXCategoryView;
-			target = 8BEAFAA726C1965864B79B4B441AA513 /* JXCategoryView */;
-			targetProxy = E3BC95EBE78FB1D8E5D40CA255760A01 /* PBXContainerItemProxy */;
-		};
-		6AD7A20EEBF9E7EB9D7822FC7F51732F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GKNavigationBar;
-			target = 95566350DF2AFBD4C8FEB49A27CA62A3 /* GKNavigationBar */;
-			targetProxy = 9F1081964C517583A805305236984225 /* PBXContainerItemProxy */;
-		};
-		847D39767F80F771C950645CE9AA8006 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "MJRefresh-library";
-			target = 61A3503BEDF7C001CA7654D5485C4E63 /* MJRefresh-library */;
-			targetProxy = C9C1D413ACB7E7677B64D6ACF7FDA651 /* PBXContainerItemProxy */;
-		};
-		8C7B7E48F7C9C068FA7E28D5E0EFDAD7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "WMPageController-library";
-			target = 361390C6DB5DA1436844D8393ABE85CB /* WMPageController-library */;
-			targetProxy = C0B91509BEDC3C7630B56DD4E1B6CC10 /* PBXContainerItemProxy */;
-		};
-		8F5EE89F3FF2957C20789F4D8AE463A4 /* PBXTargetDependency */ = {
+		23D5126E2BB4F144B4D3C52B47203C49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GKNavigationBarSwift;
 			target = 4C27A49A311B0BA0FC773E1CE87E4251 /* GKNavigationBarSwift */;
-			targetProxy = C528E93FF01C8F7D4C01E2CBFC495897 /* PBXContainerItemProxy */;
+			targetProxy = A1A0F5750EAAC14597D0E1D7F961662A /* PBXContainerItemProxy */;
 		};
-		A25AC7D2256B8DA1873AF5C64470EEFE /* PBXTargetDependency */ = {
+		4B1BA277AEB027381FE7C8467EF97949 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = JXSegmentedView;
-			target = E863A9A96F52A35F47491E7B41ECEF9A /* JXSegmentedView */;
-			targetProxy = BEAC900EBCB7A1AA986D3B65C5C16DBB /* PBXContainerItemProxy */;
+			name = "VTMagic-framework";
+			target = 5588360FF43B8281CA7E3F2325A23292 /* VTMagic-framework */;
+			targetProxy = 25DFE1D2D236D6805287C289211743D8 /* PBXContainerItemProxy */;
 		};
-		AB3FD84ED93CFBD7D7F74E33084DB1FE /* PBXTargetDependency */ = {
+		551990BF88820FCC8AF2C18CAAFBFA9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "VTMagic-library";
-			target = 8D6FFB9FFC5A595FB2C4DC112C8F5981 /* VTMagic-library */;
-			targetProxy = DB1D8E716EB1EB02938C7F94D1F6299B /* PBXContainerItemProxy */;
+			name = GKPageSmoothViewSwift;
+			target = E01879C074553EDD15108A3322A82C09 /* GKPageSmoothViewSwift */;
+			targetProxy = 09886B9EDB61A3D6DF8CDA29295C62A6 /* PBXContainerItemProxy */;
 		};
-		B4B665A0C18B8848490C469EE981C6BA /* PBXTargetDependency */ = {
+		7196D39703308E0B2214B19066DC345C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Masonry;
-			target = 55AF53E6C77A10ED4985E04D74A8878E /* Masonry */;
-			targetProxy = 74B78B3D8F992D0E07135CE74549008D /* PBXContainerItemProxy */;
+			name = "MJRefresh-library";
+			target = 61A3503BEDF7C001CA7654D5485C4E63 /* MJRefresh-library */;
+			targetProxy = BD94344D03D6AAD5064B6422E2D8F063 /* PBXContainerItemProxy */;
 		};
-		C5BAD23DDBB89DE305AD5EA88FC9AAFD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "WMPageController-framework";
-			target = 655EF5CFBAD96F453A34298DA599B451 /* WMPageController-framework */;
-			targetProxy = 1763725DE2473B925AC7C4381B0772D1 /* PBXContainerItemProxy */;
-		};
-		F7FCD9FB3E1B3643A4F3E067A2DD1410 /* PBXTargetDependency */ = {
+		9B3B25B77E7A6202B0ABFCC3B839883D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SnapKit;
 			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
-			targetProxy = 293F6816B96BD31E78C4645EBB621C2D /* PBXContainerItemProxy */;
+			targetProxy = D1B37383E70114C23B4DF39E42EB8A96 /* PBXContainerItemProxy */;
+		};
+		B3C1C14DF0DCB842AFDD5476D667218C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GKNavigationBar;
+			target = 95566350DF2AFBD4C8FEB49A27CA62A3 /* GKNavigationBar */;
+			targetProxy = DBFF99B1BB7DD5AA786FF14ACDDCE3A3 /* PBXContainerItemProxy */;
+		};
+		BC1F30688231E13B5A9464C98B9391B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JXSegmentedView;
+			target = E863A9A96F52A35F47491E7B41ECEF9A /* JXSegmentedView */;
+			targetProxy = 10A366D635FA9616D44AEB54E4F34D5B /* PBXContainerItemProxy */;
+		};
+		C17C8812A73D5485D1488EC681A95A1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GKPageSmoothView;
+			target = EACE50361ECD044239EB5FFC94B46E7C /* GKPageSmoothView */;
+			targetProxy = A1AF66683AEEBD97B9ACDEE93DCB25EF /* PBXContainerItemProxy */;
+		};
+		C40332A94495DD3459A8B206957F8FED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Masonry;
+			target = 55AF53E6C77A10ED4985E04D74A8878E /* Masonry */;
+			targetProxy = E1A6B23ACA4DA45A98F5B108BA466EB2 /* PBXContainerItemProxy */;
+		};
+		C47513DB11341F17D066493F98785EDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JXCategoryView;
+			target = 8BEAFAA726C1965864B79B4B441AA513 /* JXCategoryView */;
+			targetProxy = 456702D3C3B6F7502B3D313C4F674F10 /* PBXContainerItemProxy */;
+		};
+		C861F31277819C33B8C9A2591BD2D871 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "WMPageController-framework";
+			target = 655EF5CFBAD96F453A34298DA599B451 /* WMPageController-framework */;
+			targetProxy = 46E130AA141F29604519249421587C98 /* PBXContainerItemProxy */;
+		};
+		CBE7335D70D13E50201F97B70872E07E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GKPageScrollView;
+			target = 7EE1946FD34AC2DA0F1D5DC84C581372 /* GKPageScrollView */;
+			targetProxy = 6CDB6284667ADB28A2B8DDC341BCCB65 /* PBXContainerItemProxy */;
+		};
+		CDEE7F694206C24FB3A84D4CF36E273A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MJRefresh-framework";
+			target = 5F0DD7F63EAD7CD8C9B1EF5399FF4A2D /* MJRefresh-framework */;
+			targetProxy = 5D8AB09F4AB4382BA88CFF9C77C81530 /* PBXContainerItemProxy */;
+		};
+		D941CB7DBCE8C5C5155C382B7CD45BD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GKPageScrollViewSwift;
+			target = 28D89198400430CBC887127C75EFE455 /* GKPageScrollViewSwift */;
+			targetProxy = 736A4E0999A4F85C94B76B3EB45AC61A /* PBXContainerItemProxy */;
+		};
+		E877E7B36073500FFBB52C48DD72A289 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "WMPageController-library";
+			target = 361390C6DB5DA1436844D8393ABE85CB /* WMPageController-library */;
+			targetProxy = FB9904AF1045737B8105EF6AA360DEEF /* PBXContainerItemProxy */;
+		};
+		F0877D626057E998FCD8ED44095E4DEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "VTMagic-library";
+			target = 8D6FFB9FFC5A595FB2C4DC112C8F5981 /* VTMagic-library */;
+			targetProxy = E26052C728B7A2DC782F273C304F1411 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2799,6 +3277,27 @@
 			};
 			name = Release;
 		};
+		14296D704B5B211C4B060F545AC8131A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF01347AA5678D89D56E82578AD8C044 /* Pods-ObjcExample.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		1500F426E5BDF2461DE12DA9D56CD1D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13DAE26CBB61D5C8B325B8457A89BA7B /* JXSegmentedView.release.xcconfig */;
@@ -2833,6 +3332,42 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		16E6E5078003FE8968B19966F8058BC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBCAA28C494FEDCCCABA67513A2E2340 /* Pods-SwiftExample.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		17F89897E2F42B4EBCECEE4796912A22 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2892,6 +3427,29 @@
 			};
 			name = Release;
 		};
+		1C726E7087D7552910A0E0CB51A44CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B043FE14D797FB6BB339D2A311117EE9 /* GKPageScrollView.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/GKPageScrollView/GKPageScrollView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = GKPageScrollView;
+				PRODUCT_NAME = GKPageScrollView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		1D4C9689D5E0AA1AE99B6C40EA884A6F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EEA333045A511BD56B97F419E3DB2639 /* WMPageController-framework.release.xcconfig */;
@@ -2927,26 +3485,39 @@
 			};
 			name = Release;
 		};
-		22194F92ADF36F7FDB6715F247F9C584 /* Release */ = {
+		2140EC7C638FB0FC8F7A8C31480B2BE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF01347AA5678D89D56E82578AD8C044 /* Pods-ObjcExample.release.xcconfig */;
+			baseConfigurationReference = E8A8A0C2E58FB9DEDCA5CAA778537299 /* GKPageScrollViewSwift.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GKPageScrollViewSwift/GKPageScrollViewSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GKPageScrollViewSwift/GKPageScrollViewSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GKPageScrollViewSwift/GKPageScrollViewSwift.modulemap";
+				PRODUCT_MODULE_NAME = GKPageScrollViewSwift;
+				PRODUCT_NAME = GKPageScrollViewSwift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3014,6 +3585,62 @@
 			};
 			name = Debug;
 		};
+		263D3CE7DA61D8BC7F2CE0ECA3901BFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF1734C19AED44907A8808AF39786C13 /* GKPageScrollView.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/GKPageScrollView/GKPageScrollView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = GKPageScrollView;
+				PRODUCT_NAME = GKPageScrollView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30197C6A54E954791E39B6FB92D481CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 949B5FD533B6FC9B18C1C7C495B1C606 /* GKPageSmoothViewSwift.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GKPageSmoothViewSwift/GKPageSmoothViewSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GKPageSmoothViewSwift/GKPageSmoothViewSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GKPageSmoothViewSwift/GKPageSmoothViewSwift.modulemap";
+				PRODUCT_MODULE_NAME = GKPageSmoothViewSwift;
+				PRODUCT_NAME = GKPageSmoothViewSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		36E53C0D29D9ECB9FF9035A96A5E13AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93CCBCC5CABA8E07B6B7C5CAD2F1D8FC /* MJRefresh-library.debug.xcconfig */;
@@ -3058,6 +3685,41 @@
 			};
 			name = Debug;
 		};
+		3D4A7262BD408ADE21A229FB33424B04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 961E0127EA1AA8A58033E2ACBC94B429 /* GKPageScrollViewSwift.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GKPageScrollViewSwift/GKPageScrollViewSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GKPageScrollViewSwift/GKPageScrollViewSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GKPageScrollViewSwift/GKPageScrollViewSwift.modulemap";
+				PRODUCT_MODULE_NAME = GKPageScrollViewSwift;
+				PRODUCT_NAME = GKPageScrollViewSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		46CF3C31DA1EC7CDEFF1585EFF3184D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CC6E2EDAD0D824D3276EC65C748B87AA /* SnapKit.debug.xcconfig */;
@@ -3092,6 +3754,41 @@
 			};
 			name = Debug;
 		};
+		47165DFCE3ADEB09BF103FD69E8AE136 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF5C971C95D927E687527DA7424306A4 /* GKPageSmoothViewSwift.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GKPageSmoothViewSwift/GKPageSmoothViewSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GKPageSmoothViewSwift/GKPageSmoothViewSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/GKPageSmoothViewSwift/GKPageSmoothViewSwift.modulemap";
+				PRODUCT_MODULE_NAME = GKPageSmoothViewSwift;
+				PRODUCT_NAME = GKPageSmoothViewSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		497F21B553C8EC1CA644C23C25C9D9A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1C602DAB53BB99F766845069859CF0C /* WMPageController-framework.debug.xcconfig */;
@@ -3125,6 +3822,65 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		55CE19C36CBC0D9EF0262E0EF739C96D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E9287585E03CA1399A7E85ADD26157D /* GKPageSmoothView.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/GKPageSmoothView/GKPageSmoothView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = GKPageSmoothView;
+				PRODUCT_NAME = GKPageSmoothView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A37A2BE750DBEF619BE2F212E929CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9275CB3CC54C55982A038230E7EDD7E /* Pods-SwiftExample.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		5A50E7A4B7C8B4FB44226B77A7476329 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3239,25 +3995,28 @@
 			};
 			name = Debug;
 		};
-		89B25CF1897CDBEB3DABE12C16D7D2D0 /* Debug */ = {
+		87C3D4C6C682DB82EF1D6C2904943B5E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F7EEC8064E13BE3466C1DAB1925B3D4 /* Pods-ObjcExample.debug.xcconfig */;
+			baseConfigurationReference = 8DE485B723FE81F6B97DAF3455DEE009 /* GKPageSmoothView.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/GKPageSmoothView/GKPageSmoothView-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = GKPageSmoothView;
+				PRODUCT_NAME = GKPageSmoothView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		937CD5770B62251ECBB9E16721169FBD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3278,42 +4037,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		973BCAC568B15A156B5D51799B940238 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBCAA28C494FEDCCCABA67513A2E2340 /* Pods-SwiftExample.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -3374,42 +4097,25 @@
 			};
 			name = Debug;
 		};
-		A6D662B9A5EB6860D39FDB8FB8DE4C30 /* Release */ = {
+		A3B015D4CBE250D98F58526C4D482EEE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9275CB3CC54C55982A038230E7EDD7E /* Pods-SwiftExample.release.xcconfig */;
+			baseConfigurationReference = 1F7EEC8064E13BE3466C1DAB1925B3D4 /* Pods-ObjcExample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		AB1FA7C79A5390BE00F2DFF24DBB3272 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3701,6 +4407,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		175A8C310EDBE1C16C787993FAD2BA78 /* Build configuration list for PBXNativeTarget "GKPageSmoothViewSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30197C6A54E954791E39B6FB92D481CA /* Debug */,
+				47165DFCE3ADEB09BF103FD69E8AE136 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1A90C0FA306AA4374587CBB3AE32A282 /* Build configuration list for PBXNativeTarget "WMPageController-framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3719,11 +4434,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		2CF1566CA6EB81102E129DBCEFBBF375 /* Build configuration list for PBXNativeTarget "GKPageScrollViewSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2140EC7C638FB0FC8F7A8C31480B2BE4 /* Debug */,
+				3D4A7262BD408ADE21A229FB33424B04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		31C2F67A24EFF2D5F6410E6A9D00BB2A /* Build configuration list for PBXNativeTarget "SnapKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46CF3C31DA1EC7CDEFF1585EFF3184D8 /* Debug */,
 				AB1FA7C79A5390BE00F2DFF24DBB3272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36F463B9D5E6B4F9A89A35BC722DBA17 /* Build configuration list for PBXNativeTarget "Pods-SwiftExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16E6E5078003FE8968B19966F8058BC3 /* Debug */,
+				5A37A2BE750DBEF619BE2F212E929CDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3764,15 +4497,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CF716041D06425ADE6289A47B8E0E35 /* Build configuration list for PBXNativeTarget "Pods-ObjcExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				89B25CF1897CDBEB3DABE12C16D7D2D0 /* Debug */,
-				22194F92ADF36F7FDB6715F247F9C584 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		797B380DEC6A6214DB1C38EC3603E4B4 /* Build configuration list for PBXNativeTarget "GKNavigationBarSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3782,11 +4506,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		8298D7866A1217ED1BE0B7B9F454F377 /* Build configuration list for PBXNativeTarget "Pods-ObjcExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3B015D4CBE250D98F58526C4D482EEE /* Debug */,
+				14296D704B5B211C4B060F545AC8131A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		91BDD18F1BA82D21A276BBA092BF52BC /* Build configuration list for PBXNativeTarget "JXSegmentedView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9BCCCC6AAD454733B0EACEACF2A0E296 /* Debug */,
 				1500F426E5BDF2461DE12DA9D56CD1D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		927CEAC572BD68C94EF71D856F0241D2 /* Build configuration list for PBXNativeTarget "GKPageSmoothView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55CE19C36CBC0D9EF0262E0EF739C96D /* Debug */,
+				87C3D4C6C682DB82EF1D6C2904943B5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B383FEF3E15BF672E917AAEB3003E50 /* Build configuration list for PBXNativeTarget "GKPageScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				263D3CE7DA61D8BC7F2CE0ECA3901BFA /* Debug */,
+				1C726E7087D7552910A0E0CB51A44CFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3805,15 +4556,6 @@
 			buildConfigurations = (
 				FC4A6AB69D37DAB975334A411814181A /* Debug */,
 				BAF9783427369B4BC80DD8C7AAB32429 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E3BBD1BDEE376FD01907191A8DBDCC1C /* Build configuration list for PBXNativeTarget "Pods-SwiftExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				973BCAC568B15A156B5D51799B940238 /* Debug */,
-				A6D662B9A5EB6860D39FDB8FB8DE4C30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

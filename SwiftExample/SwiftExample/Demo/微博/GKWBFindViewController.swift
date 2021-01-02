@@ -10,6 +10,7 @@ import UIKit
 import MJRefresh
 import JXSegmentedView
 import GKNavigationBarSwift
+import GKPageScrollViewSwift
 
 class GKWBFindViewController: GKDemoBaseViewController {
 
@@ -124,7 +125,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
     
     lazy var contentScrollView: UIScrollView = {
         let scrollW = kScreenW
-        let scrollH = kScreenH - GKPage_NavBar_Height
+        let scrollH = kScreenH - kNavBar_Height
         
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: 44.0, width: scrollW, height: scrollH))
         scrollView.isPagingEnabled = true

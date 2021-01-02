@@ -46,11 +46,6 @@
 		609B901D259B0558000F1EB9 /* GKDYListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B8FFB259B0558000F1EB9 /* GKDYListViewController.swift */; };
 		609B901E259B0558000F1EB9 /* GKDYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B8FFC259B0558000F1EB9 /* GKDYViewController.swift */; };
 		609B901F259B0558000F1EB9 /* GKDYHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B8FFD259B0558000F1EB9 /* GKDYHeaderView.swift */; };
-		609B9025259B0594000F1EB9 /* GKPageListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B9021259B0594000F1EB9 /* GKPageListContainerView.swift */; };
-		609B9026259B0594000F1EB9 /* GKPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B9022259B0594000F1EB9 /* GKPageTableView.swift */; };
-		609B9027259B0594000F1EB9 /* GKPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B9023259B0594000F1EB9 /* GKPageScrollView.swift */; };
-		609B9028259B0594000F1EB9 /* GKPageDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B9024259B0594000F1EB9 /* GKPageDefine.swift */; };
-		609B902C259B05A1000F1EB9 /* GKPageSmoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B902B259B05A1000F1EB9 /* GKPageSmoothView.swift */; };
 		DEBFAA40B2824C54A1A9666D /* Pods_SwiftExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0809C38C56EF56CF08BC46F2 /* Pods_SwiftExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,11 +108,6 @@
 		609B8FFB259B0558000F1EB9 /* GKDYListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKDYListViewController.swift; sourceTree = "<group>"; };
 		609B8FFC259B0558000F1EB9 /* GKDYViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKDYViewController.swift; sourceTree = "<group>"; };
 		609B8FFD259B0558000F1EB9 /* GKDYHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKDYHeaderView.swift; sourceTree = "<group>"; };
-		609B9021259B0594000F1EB9 /* GKPageListContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageListContainerView.swift; path = ../../../Sources/GKPageScrollViewSwift/GKPageListContainerView.swift; sourceTree = "<group>"; };
-		609B9022259B0594000F1EB9 /* GKPageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageTableView.swift; path = ../../../Sources/GKPageScrollViewSwift/GKPageTableView.swift; sourceTree = "<group>"; };
-		609B9023259B0594000F1EB9 /* GKPageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageScrollView.swift; path = ../../../Sources/GKPageScrollViewSwift/GKPageScrollView.swift; sourceTree = "<group>"; };
-		609B9024259B0594000F1EB9 /* GKPageDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageDefine.swift; path = ../../../Sources/GKPageScrollViewSwift/GKPageDefine.swift; sourceTree = "<group>"; };
-		609B902B259B05A1000F1EB9 /* GKPageSmoothView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKPageSmoothView.swift; path = ../../../Sources/GKPageSmoothViewSwift/GKPageSmoothView.swift; sourceTree = "<group>"; };
 		BE88FC091A7007FCD41DAE8E /* Pods-SwiftExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftExample.debug.xcconfig"; path = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,8 +152,6 @@
 		609B8DA7259AFC5B000F1EB9 /* SwiftExample */ = {
 			isa = PBXGroup;
 			children = (
-				609B8FC9259B0551000F1EB9 /* GKPageScrollView */,
-				609B8FCA259B0551000F1EB9 /* GKPageSmoothView */,
 				609B8FCB259B0558000F1EB9 /* Demo */,
 				609B8DA8259AFC5B000F1EB9 /* AppDelegate.swift */,
 				609B8DAC259AFC5B000F1EB9 /* ViewController.swift */,
@@ -174,25 +162,6 @@
 				609B8F59259B02A8000F1EB9 /* SwiftExample-Bridging-Header.h */,
 			);
 			path = SwiftExample;
-			sourceTree = "<group>";
-		};
-		609B8FC9259B0551000F1EB9 /* GKPageScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				609B9023259B0594000F1EB9 /* GKPageScrollView.swift */,
-				609B9022259B0594000F1EB9 /* GKPageTableView.swift */,
-				609B9021259B0594000F1EB9 /* GKPageListContainerView.swift */,
-				609B9024259B0594000F1EB9 /* GKPageDefine.swift */,
-			);
-			path = GKPageScrollView;
-			sourceTree = "<group>";
-		};
-		609B8FCA259B0551000F1EB9 /* GKPageSmoothView */ = {
-			isa = PBXGroup;
-			children = (
-				609B902B259B05A1000F1EB9 /* GKPageSmoothView.swift */,
-			);
-			path = GKPageSmoothView;
 			sourceTree = "<group>";
 		};
 		609B8FCB259B0558000F1EB9 /* Demo */ = {
@@ -484,15 +453,11 @@
 			files = (
 				609B901B259B0558000F1EB9 /* GKBaseListViewController.swift in Sources */,
 				609B9012259B0558000F1EB9 /* GKHeaderScrollView.swift in Sources */,
-				609B9028259B0594000F1EB9 /* GKPageDefine.swift in Sources */,
-				609B9027259B0594000F1EB9 /* GKPageScrollView.swift in Sources */,
 				609B900F259B0558000F1EB9 /* GKListLoadViewController.swift in Sources */,
-				609B902C259B05A1000F1EB9 /* GKPageSmoothView.swift in Sources */,
 				609B901A259B0558000F1EB9 /* GKBasePageViewController.swift in Sources */,
 				609B9006259B0558000F1EB9 /* GKWYListViewController.swift in Sources */,
 				609B900B259B0558000F1EB9 /* GKWBViewController.swift in Sources */,
 				609B9000259B0558000F1EB9 /* GKDBViewController.swift in Sources */,
-				609B9026259B0594000F1EB9 /* GKPageTableView.swift in Sources */,
 				609B9017259B0558000F1EB9 /* GKNestView.swift in Sources */,
 				609B9018259B0558000F1EB9 /* GKNestListView.swift in Sources */,
 				609B9011259B0558000F1EB9 /* GKHeaderScrollViewController.swift in Sources */,
@@ -513,7 +478,6 @@
 				609B9007259B0558000F1EB9 /* GKWYViewController.swift in Sources */,
 				609B901E259B0558000F1EB9 /* GKDYViewController.swift in Sources */,
 				609B8DAD259AFC5B000F1EB9 /* ViewController.swift in Sources */,
-				609B9025259B0594000F1EB9 /* GKPageListContainerView.swift in Sources */,
 				609B901F259B0558000F1EB9 /* GKDYHeaderView.swift in Sources */,
 				609B9008259B0558000F1EB9 /* GKVTMagicViewController.swift in Sources */,
 				609B901D259B0558000F1EB9 /* GKDYListViewController.swift in Sources */,

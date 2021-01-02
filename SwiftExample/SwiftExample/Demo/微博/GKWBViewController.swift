@@ -9,6 +9,7 @@
 import UIKit
 import WMPageController
 import GKNavigationBarSwift
+import GKPageScrollViewSwift
 
 class GKWBViewController: GKDemoBaseViewController {
 
@@ -208,7 +209,7 @@ extension GKWBViewController: WMPageControllerDataSource, WMPageControllerDelega
         }
         
         let maxY = self.pageController(pageController, preferredFrameFor: menuView).maxY
-        return CGRect(x: 0, y: maxY, width: kScreenW, height: kScreenH - maxY - GKPage_NavBar_Height)
+        return CGRect(x: 0, y: maxY, width: kScreenW, height: kScreenH - maxY - kNavBar_Height)
     }
     
     func pageController(_ pageController: WMPageController, preferredFrameFor menuView: WMMenuView) -> CGRect {

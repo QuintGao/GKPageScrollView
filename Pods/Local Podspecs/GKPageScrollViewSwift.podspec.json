@@ -1,6 +1,6 @@
 {
   "name": "GKPageScrollViewSwift",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "summary": "iOS UIScrollView嵌套滑动分页视图",
   "homepage": "https://github.com/QuintGao/GKPageScrollView",
   "license": {
@@ -12,13 +12,13 @@
   },
   "social_media_url": "https://github.com/QuintGao",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source": {
     "git": "https://github.com/QuintGao/GKPageScrollView.git",
-    "tag": "1.4.1"
+    "tag": "1.4.2"
   },
-  "source_files": "GKPageScrollView/swift/*.{swift}",
+  "source_files": "Sources/GKPageScrollViewSwift/*.{swift}",
   "swift_versions": "5.0",
   "requires_arc": true,
   "swift_version": "5.0"

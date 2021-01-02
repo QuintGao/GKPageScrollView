@@ -8,6 +8,7 @@
 
 import UIKit
 import JXSegmentedView
+import GKPageScrollViewSwift
 
 class GKDYViewController: GKDemoBaseViewController {
 
@@ -65,7 +66,7 @@ class GKDYViewController: GKDemoBaseViewController {
     
     lazy var scrollView: UIScrollView = {
         let scrollW = kScreenW
-        let scrollH = kScreenH - GKPage_NavBar_Height - 40.0
+        let scrollH = kScreenH - kNavBar_Height - 40.0
         
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: 40, width: scrollW, height: scrollH))
         scrollView.isPagingEnabled = true
@@ -149,10 +150,10 @@ extension GKDYViewController: GKPageScrollViewDelegate {
         var alpha: CGFloat = 0
         if offsetY < 200 {
             alpha = 0
-        }else if offsetY > (kDYHeaderHeight - GKPage_NavBar_Height) {
+        }else if offsetY > (kDYHeaderHeight - kNavBar_Height) {
             alpha = 1
         }else {
-            alpha = (offsetY - 200) / (kDYHeaderHeight - GKPage_NavBar_Height - 200)
+            alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBar_Height - 200)
         }
         self.gk_navBarAlpha = alpha
         self.titleView.alpha = alpha
