@@ -4,7 +4,7 @@
 <a href="https://github.com/QuintGao/GKPageScrollView"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
 <a href="" ><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 <a href="https://github.com/QuintGao/GKPageScrollView"><img src="https://img.shields.io/badge/language-Objective--C%2FSwift%205.x-orange.svg"></a>
-<a href="https://cocoapods.org/pods/GKPageScrollViewSwift"><img src="http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat"></a>
+<a href="https://cocoapods.org/pods/GKPageScrollView"><img src="http://img.shields.io/cocoapods/v/GKPageScrollView.svg?style=flat"></a>
 <a href=""><img src="https://img.shields.io/badge/support-ios%208%2B-orange.svg"></a>
 </p>
 
