@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode12.1
+xcode_sdk: iphonesimulator12.0
+script:
+    - set -o pipefail
+    
+    - echo Build as dynamic frameworks
+    - xcodebuild build -project GKPageScrollView.xcodeproj -scheme 'GKPageScrollView' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator
+    - xcodebuild build -project GKPageScrollView.xcodeproj -scheme 'GKPageScrollViewSwift' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator
+    - xcodebuild build -project GKPageScrollView.xcodeproj -scheme 'GKPageSmoothView' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator
+    - xcodebuild build -project GKPageScrollView.xcodeproj -scheme 'GKPageSmoothViewSwift' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator
+    
+    - echo Build the Demo apps
+    - pod install
+    - xcodebuild -workspace GKPageScrollView.xcworkspace -scheme "ObjcExample" -destination "platform=iOS Simulator,name=iPhone 12"
+    - xcodebuild -workspace GKPageScrollView.xcworkspace -scheme "SwiftExample" -destination "platform=iOS Simulator,name=iPhone 12"

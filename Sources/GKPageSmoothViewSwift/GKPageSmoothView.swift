@@ -279,6 +279,11 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                 self.originBounces = scrollView.bounces
                 self.originShowsVerticalScrollIndicator = scrollView.showsVerticalScrollIndicator
             }
+            
+            // 修复bug，当UIScrollView向下滚动的时候，向下拖拽完成手势操作导致的错乱问题
+            if let scrollView = self.currentListScrollView {
+                scrollView.setContentOffset(scrollView.contentOffset, animated: false)
+            }
         }
         let translation = panGesture.translation(in: self.bottomContainerView)
         if self.isDragScrollView {

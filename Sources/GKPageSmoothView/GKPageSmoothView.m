@@ -350,6 +350,11 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         // 记录scrollView的某些属性
         self.originBounces = self.scrollView.bounces;
         self.originShowsVerticalScrollIndicator = self.scrollView.showsVerticalScrollIndicator;
+        
+        // 修复bug，当UIScrollView向下滚动的时候，向下拖拽完成手势操作导致的错乱问题
+        if (self.currentListScrollView.isDecelerating) {
+            [self.currentListScrollView setContentOffset:self.currentListScrollView.contentOffset animated:NO];
+        }
     }
     
     CGPoint translation = [panGesture translationInView:self.bottomContainerView];
