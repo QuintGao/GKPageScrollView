@@ -1,7 +1,7 @@
 <div align=center><img src="https://upload-images.jianshu.io/upload_images/1598505-e2dbef3c2d9e3fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="405" height="63" /></div>
 
 <p align="center">
-<a href="https://travis-ci.org/QuintGao/GKPageScrollView"><img src="http://img.shields/io/travis/QuintGao/GKPageScrollView/master.svg?style=flat"></a>
+<a href="https://travis-ci.org/QuintGao/GKPageScrollView"><img src="https://img.shields.io/travis/QuintGao/GKPageScrollView/master.svg?style=flat"></a>
 <a href="https://github.com/QuintGao/GKPageScrollView"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
 <a href="" ><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 <a href="https://github.com/QuintGao/GKPageScrollView"><img src="https://img.shields.io/badge/language-Objective--C%2FSwift%205.x-orange.svg"></a>
