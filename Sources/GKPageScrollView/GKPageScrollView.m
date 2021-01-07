@@ -16,28 +16,30 @@
 
 @property (nonatomic, weak) id<GKPageScrollViewDelegate> delegate;
 
-// 当前滑动的listView
-@property (nonatomic, weak) UIScrollView                *currentListScrollView;
+// 列表存储
 @property (nonatomic, strong) NSMutableDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
 
+// 当前滑动的listView
+@property (nonatomic, weak) UIScrollView                *currentListScrollView;
+
 // 是否滑动到临界点，可有偏差
-@property (nonatomic, assign) BOOL                      isCriticalPoint;
+@property (nonatomic, assign) BOOL isCriticalPoint;
 // 是否到达临界点，无偏差
-@property (nonatomic, assign) BOOL                      isCeilPoint;
+@property (nonatomic, assign) BOOL isCeilPoint;
 // mainTableView是否可滑动
-@property (nonatomic, assign) BOOL                      isMainCanScroll;
+@property (nonatomic, assign) BOOL isMainCanScroll;
 // listScrollView是否可滑动
-@property (nonatomic, assign) BOOL                      isListCanScroll;
+@property (nonatomic, assign) BOOL isListCanScroll;
 
 // 是否开始拖拽，只有在拖拽中才去处理滑动，解决使用mj_header可能出现的bug
-@property (nonatomic, assign) BOOL                      isBeginDragging;
+@property (nonatomic, assign) BOOL isBeginDragging;
 
 // 快速切换原点和临界点
-@property (nonatomic, assign) BOOL                      isScrollToOriginal;
-@property (nonatomic, assign) BOOL                      isScrollToCritical;
+@property (nonatomic, assign) BOOL isScrollToOriginal;
+@property (nonatomic, assign) BOOL isScrollToCritical;
 
 // 是否加载
-@property (nonatomic, assign) BOOL                      isLoaded;
+@property (nonatomic, assign) BOOL isLoaded;
 
 @end
 
@@ -470,6 +472,10 @@
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(mainTableViewDidEndScrollingAnimation:)]) {
+        [self.delegate mainTableViewDidEndScrollingAnimation:scrollView];
+    }
+    
     if (self.isScrollToOriginal) {
         self.isScrollToOriginal = NO;
         self.isCeilPoint = NO;

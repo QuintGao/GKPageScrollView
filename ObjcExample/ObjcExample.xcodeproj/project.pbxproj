@@ -344,8 +344,8 @@
 			children = (
 				609B8E59259AFD80000F1EB9 /* GKWBViewController.h */,
 				609B8E5F259AFD80000F1EB9 /* GKWBViewController.m */,
-				609B8E62259AFD80000F1EB9 /* GKWBFindViewController.m */,
 				609B8E5D259AFD80000F1EB9 /* GKWBFindViewController.h */,
+				609B8E62259AFD80000F1EB9 /* GKWBFindViewController.m */,
 				609B8E60259AFD80000F1EB9 /* GKWBPageViewController.h */,
 				609B8E5C259AFD80000F1EB9 /* GKWBPageViewController.m */,
 				609B8E5E259AFD80000F1EB9 /* GKWBListViewController.h */,

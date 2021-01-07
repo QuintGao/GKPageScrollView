@@ -110,42 +110,34 @@
 
 #pragma mark - mainTableView滚动相关方法
 
-/**
- mainTableView开始滑动
-
- @param scrollView mainTableView
- */
+/// mainTableView开始滑动
+/// @param scrollView mainTableView
 - (void)mainTableViewWillBeginDragging:(UIScrollView *)scrollView;
 
-/**
- mainTableView滑动，用于实现导航栏渐变、头图缩放等
-
- @param scrollView mainTableView
- @param isMainCanScroll mainTableView是否可滑动，YES表示可滑动，没有到达临界点，NO表示不可滑动，已到达临界点
- */
+/// mainTableView滑动，用于实现导航栏渐变、头图缩放等功能
+/// @param scrollView mainTableView
+/// @param isMainCanScroll mainTableView是否可以滑动，YES表示可滑动，没有到达临界点，NO表示不可滑动，已到达临界点
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll;
 
-/**
- mainTableView结束滑动
-
- @param scrollView mainTableView
- @param decelerate 是否将要减速
- */
+/// mainTableView结束滚动
+/// @param scrollView mainTableView
+/// @param decelerate 是否将要减速
 - (void)mainTableViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 
-/**
- mainTableView结束滑动
-
- @param scrollView mainTableView
- */
+/// mainTableView结束滚动
+/// @param scrollView mainTableView
 - (void)mainTableViewDidEndDecelerating:(UIScrollView *)scrollView;
+
+/// mainTableView结束动画
+/// @param scrollView mainTableView
+- (void)mainTableViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
 
 @end
 
 @interface GKPageScrollView : UIView
 
 /// 主列表
-@property (nonatomic, strong, readonly) GKPageTableView   *mainTableView;
+@property (nonatomic, strong, readonly) GKPageTableView *mainTableView;
 
 /// 当前滑动的子列表
 @property (nonatomic, weak, readonly) UIScrollView *currentListScrollView;
@@ -156,22 +148,22 @@
 // 当前已经加载过的可用的列表字典，key是index值，value是对应列表
 @property (nonatomic, strong, readonly) NSDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
 
-@property (nonatomic, strong) NSArray           *horizontalScrollViewList;
+@property (nonatomic, strong) NSArray *horizontalScrollViewList;
 
 // 吸顶临界点高度（默认值：状态栏+导航栏）
-@property (nonatomic, assign) CGFloat           ceilPointHeight;
+@property (nonatomic, assign) CGFloat ceilPointHeight;
 
 // 是否允许子列表下拉刷新
-@property (nonatomic, assign, getter=isAllowListRefresh) BOOL              allowListRefresh;
+@property (nonatomic, assign, getter=isAllowListRefresh) BOOL allowListRefresh;
 
 // 是否在吸顶状态下禁止mainScroll滑动
-@property (nonatomic, assign, getter=isDisableMainScrollInCeil) BOOL              disableMainScrollInCeil;
+@property (nonatomic, assign, getter=isDisableMainScrollInCeil) BOOL disableMainScrollInCeil;
 
 // 是否懒加载列表（默认为NO）
-@property (nonatomic, assign, getter=isLazyLoadList) BOOL              lazyLoadList;
+@property (nonatomic, assign, getter=isLazyLoadList) BOOL lazyLoadList;
 
 // 是否内部控制指示器的显示与隐藏（默认为NO）
-@property (nonatomic, assign, getter=isControlVerticalIndicator) BOOL              controlVerticalIndicator;
+@property (nonatomic, assign, getter=isControlVerticalIndicator) BOOL controlVerticalIndicator;
 
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;

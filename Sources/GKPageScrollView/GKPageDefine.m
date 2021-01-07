@@ -17,7 +17,6 @@
             return keyWindow.safeAreaInsets.bottom > 0;
         }
     }
-    
     // 当iOS11以下或获取不到keyWindow时用以下方案
     CGSize screenSize = UIScreen.mainScreen.bounds.size;
     return (CGSizeEqualToSize(screenSize, CGSizeMake(375, 812)) ||

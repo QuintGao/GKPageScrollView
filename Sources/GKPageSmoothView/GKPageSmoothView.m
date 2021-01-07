@@ -351,7 +351,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         self.originBounces = self.scrollView.bounces;
         self.originShowsVerticalScrollIndicator = self.scrollView.showsVerticalScrollIndicator;
         
-        // 修复bug，当UIScrollView向下滚动的时候，向下拖拽完成手势操作导致的错乱问题
+        // bug fix #47，当UIScrollView向下滚动的时候，向下拖拽完成手势操作导致的错乱问题
         if (self.currentListScrollView.isDecelerating) {
             [self.currentListScrollView setContentOffset:self.currentListScrollView.contentOffset animated:NO];
         }
@@ -480,7 +480,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     
     if (self.isOnTop) { // 在顶部时无需处理headerView
         // 取消scrollView下滑时的弹性效果
-        if (self.isAllowDragScroll && (scrollView.isDragging || scrollView.isDecelerating)) {
+        // buf fix #47，iOS12及以下系统isDragging会出现不准确的情况，所以这里改为用isTracking判断
+        if (self.isAllowDragScroll && (scrollView.isTracking || scrollView.isDecelerating)) {
             if (scrollView.contentOffset.y < 0) {
                 scrollView.contentOffset = CGPointZero;
             }

@@ -104,6 +104,10 @@ import UIKit
     ///
     /// - Parameter scrollView: mainTableView
     @objc optional func mainTableViewDidEndDecelerating(_ scrollView: UIScrollView)
+    
+    /// mainTableView结束滑动动画
+    /// - Parameter scrollView: mainTableView
+    @objc optional func mainTableViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
 }
 
 open class GKPageScrollView: UIView {
@@ -407,7 +411,6 @@ open class GKPageScrollView: UIView {
                 }
             }
         }
-        
         self.mainTableViewCanScrollUpdate()
     }
     
@@ -555,6 +558,7 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.delegate!.mainTableViewDidEndScrollingAnimation?(scrollView)
         if self.isScrollToOriginal {
             self.isScrollToOriginal = false
             self.isCeilPoint = false
