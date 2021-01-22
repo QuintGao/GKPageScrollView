@@ -175,6 +175,9 @@
  */
 - (void)refreshHeaderView;
 
+/// 刷新segmentedView，segmentedView高度变化时调用
+- (void)refreshSegmentedView;
+
 /**
  刷新数据，刷新后pageView才能显示出来
  */

@@ -1,1 +1,0 @@
-../../../JXCategoryView/Sources/Image/JXCategoryImageView.h

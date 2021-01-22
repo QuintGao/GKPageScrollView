@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "GKPageScrollView.h"
-#import <JXCategoryView/JXCategoryView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

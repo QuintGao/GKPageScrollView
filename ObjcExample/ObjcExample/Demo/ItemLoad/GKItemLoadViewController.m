@@ -8,7 +8,7 @@
 
 #import "GKItemLoadViewController.h"
 #import "GKPageScrollView.h"
-#import <JXCategoryView/JXCategoryView.h>
+#import <JXCategoryViewExt/JXCategoryView.h>
 #import "GKBaseListViewController.h"
 #import <MJRefresh/MJRefresh.h>
 
@@ -90,6 +90,7 @@
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
+        _pageScrollView.horizontalScrollViewList = @[self.categoryView.collectionView, self.scrollView];
     }
     return _pageScrollView;
 }

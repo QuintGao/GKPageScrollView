@@ -5,15 +5,23 @@ PODS:
   - GKNavigationBar/GestureHandle (1.3.9)
   - GKNavigationBar/NavigationBar (1.3.9)
   - GKNavigationBarSwift (1.3.0)
-  - GKPageScrollView (1.5.0):
-    - GKPageScrollView/Objc (= 1.5.0)
-  - GKPageScrollView/Objc (1.5.0)
-  - GKPageScrollView/Swift (1.5.0)
-  - GKPageSmoothView (1.5.0):
-    - GKPageSmoothView/Objc (= 1.5.0)
-  - GKPageSmoothView/Objc (1.5.0)
-  - GKPageSmoothView/Swift (1.5.0)
-  - JXCategoryView (1.5.8)
+  - GKPageScrollView (1.5.2):
+    - GKPageScrollView/Objc (= 1.5.2)
+  - GKPageScrollView/Objc (1.5.2)
+  - GKPageScrollView/Swift (1.5.2)
+  - GKPageSmoothView (1.5.2):
+    - GKPageSmoothView/Objc (= 1.5.2)
+  - GKPageSmoothView/Objc (1.5.2)
+  - GKPageSmoothView/Swift (1.5.2)
+  - JXCategoryViewExt/Core (1.0.2)
+  - JXCategoryViewExt/Indicator/Line (1.0.2):
+    - JXCategoryViewExt/Core
+  - JXCategoryViewExt/Number (1.0.2):
+    - JXCategoryViewExt/Title
+  - JXCategoryViewExt/Title (1.0.2):
+    - JXCategoryViewExt/Core
+  - JXCategoryViewExt/TitleAttribute (1.0.2):
+    - JXCategoryViewExt/Title
   - JXSegmentedView (1.2.7)
   - Masonry (1.1.0)
   - MJRefresh (3.5.0)
@@ -30,7 +38,9 @@ DEPENDENCIES:
   - GKPageScrollView/Swift (from `../GKPageScrollView`)
   - GKPageSmoothView (from `../GKPageScrollView`)
   - GKPageSmoothView/Swift (from `../GKPageScrollView`)
-  - JXCategoryView
+  - JXCategoryViewExt/Indicator/Line
+  - JXCategoryViewExt/Number
+  - JXCategoryViewExt/TitleAttribute
   - JXSegmentedView
   - Masonry
   - MJRefresh
@@ -42,7 +52,7 @@ SPEC REPOS:
   trunk:
     - GKNavigationBar
     - GKNavigationBarSwift
-    - JXCategoryView
+    - JXCategoryViewExt
     - JXSegmentedView
     - Masonry
     - MJRefresh
@@ -59,9 +69,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GKNavigationBar: 768a197744a3283f1d247f0cf19cdb75baf0186f
   GKNavigationBarSwift: 9ac74f78eb0b348666bde00b06f80ea22697efba
-  GKPageScrollView: 0dc922e95d8f0932e02327b3e33f7ee4811b1d65
-  GKPageSmoothView: 1dbf0a42c971e5bc8c8900c9c5c3c85cf3309a6d
-  JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
+  GKPageScrollView: 95cdae06705e1c7cf388411c915987a64fec003c
+  GKPageSmoothView: ebc9c6332770342540b2c22ab133dbea012167a7
+  JXCategoryViewExt: c0b9f23d5b0ded64c8f1ac7b84d682c6ac76af1b
   JXSegmentedView: eb1cad21f57c2543c00c3e08b8fd3c7ca54f5acd
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
@@ -69,6 +79,6 @@ SPEC CHECKSUMS:
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: 751ced6479ccb095c13ebf87888a3a63cfd1cf43
+PODFILE CHECKSUM: 7156da808fcb9228409bb28da921ae74cfd5ae0c
 
 COCOAPODS: 1.10.0

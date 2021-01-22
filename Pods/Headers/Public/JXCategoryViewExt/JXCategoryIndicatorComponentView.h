@@ -1,0 +1,1 @@
+../../../JXCategoryViewExt/JXCategoryView/Core/Component/JXCategoryIndicatorComponentView.h

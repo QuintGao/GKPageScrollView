@@ -9,7 +9,6 @@
 #import "GKHeaderScrollViewController.h"
 #import "GKHeaderScrollView.h"
 #import "GKPageScrollView.h"
-#import <JXCategoryView/JXCategoryView.h>
 #import <MJRefresh/MJRefresh.h>
 #import "GKBaseListViewController.h"
 

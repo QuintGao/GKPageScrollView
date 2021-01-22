@@ -10,7 +10,9 @@ target 'ObjcExample' do
   pod 'Masonry'
   pod 'WMPageController'
   pod 'MJRefresh'
-  pod 'JXCategoryView'
+  pod 'JXCategoryViewExt/Number'
+  pod 'JXCategoryViewExt/TitleAttribute'
+  pod 'JXCategoryViewExt/Indicator/Line'
   pod 'VTMagic'
 end
 

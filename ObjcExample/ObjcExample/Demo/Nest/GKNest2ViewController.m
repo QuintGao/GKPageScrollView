@@ -9,7 +9,6 @@
 #import "GKNest2ViewController.h"
 #import "GKNestScrollView.h"
 #import "GKNest2View.h"
-#import <JXCategoryView/JXCategoryView.h>
 
 @interface GKNest2ViewController ()<JXCategoryViewDelegate, UIScrollViewDelegate, GKNestScrollViewGestureDelegate, JXCategoryCollectionViewGestureDelegate>
 

@@ -7,7 +7,6 @@
 //
 
 #import "GKDemoBaseViewController.h"
-#import <JXCategoryView/JXCategoryView.h>
 #import "GKPageScrollView.h"
 
 NS_ASSUME_NONNULL_BEGIN

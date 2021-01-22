@@ -8,7 +8,6 @@
 
 #import "GKSmoothViewController.h"
 #import "GKPageSmoothView.h"
-#import <JXCategoryView/JXCategoryView.h>
 #import "GKSmoothListView.h"
 #import "GKDYHeaderView.h"
 #import "GKBaseListViewController.h"

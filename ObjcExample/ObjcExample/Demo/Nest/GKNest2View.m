@@ -7,7 +7,6 @@
 //
 
 #import "GKNest2View.h"
-#import <JXCategoryView/JXCategoryView.h>
 #import "GKNestListView.h"
 
 @interface GKNest2View()<GKPageScrollViewDelegate, GKPageTableViewGestureDelegate>

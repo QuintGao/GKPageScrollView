@@ -8,7 +8,6 @@
 
 #import "GKListLoadViewController.h"
 #import "GKPageScrollView.h"
-#import <JXCategoryView/JXCategoryView.h>
 #import "GKBaseListViewController.h"
 
 @interface GKListLoadViewController ()<GKPageScrollViewDelegate>

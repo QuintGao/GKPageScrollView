@@ -9,6 +9,7 @@
 #import "GKSmoothListView.h"
 #import "GKBallLoadingView.h"
 #import "GKDYHeaderView.h"
+#import "GKDemoBaseViewController.h"
 
 @interface GKSmoothListLayout : UICollectionViewFlowLayout
 

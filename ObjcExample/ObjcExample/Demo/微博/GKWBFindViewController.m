@@ -11,28 +11,37 @@
 #import "GKWBListViewController.h"
 #import "JXCategoryView.h"
 #import <MJRefresh/MJRefresh.h>
+#import "JXCategorySubTitleView.h"
+
+#define kThemeColor GKColorRGB(243, 136, 68)
 
 @interface GKWBFindViewController ()<GKPageScrollViewDelegate, JXCategoryViewDelegate, UIScrollViewDelegate, GKViewControllerPopDelegate, GKPageTableViewGestureDelegate>
 
-@property (nonatomic, strong) UIView                    *topView;
+@property (nonatomic, strong) UIView                        *topView;
 
-@property (nonatomic, strong) GKPageScrollView          *pageScrollView;
+@property (nonatomic, strong) GKPageScrollView              *pageScrollView;
 
-@property (nonatomic, strong) UIView                    *headerView;
+@property (nonatomic, strong) UIView                        *headerView;
 
-@property (nonatomic, strong) UIView                    *pageView;
-@property (nonatomic, strong) UIButton                  *backBtn;
-@property (nonatomic, strong) UIView                    *segmentedView;
-@property (nonatomic, strong) UIScrollView              *contentScrollView;
+@property (nonatomic, strong) UIView                        *pageView;
+@property (nonatomic, strong) UIButton                      *backBtn;
+@property (nonatomic, strong) UIView                        *segmentedView;
+@property (nonatomic, strong) JXCategorySubTitleView        *categoryView;
 
-@property (nonatomic, strong) NSArray                   *titles;
-@property (nonatomic, strong) NSArray                   *childVCs;
+@property (nonatomic, strong) JXCategoryIndicatorLineView   *lineView;
 
-@property (nonatomic, strong) UIBarButtonItem           *backItem;
+@property (nonatomic, strong) UIScrollView                  *contentScrollView;
 
-@property (nonatomic, assign) BOOL                      isMainCanScroll;
+@property (nonatomic, strong) NSArray                       *titles;
+@property (nonatomic, strong) NSArray                       *subtitles;
 
-@property (nonatomic, assign) BOOL                      shouldPop;
+@property (nonatomic, strong) NSArray                       *childVCs;
+
+@property (nonatomic, strong) UIBarButtonItem               *backItem;
+
+@property (nonatomic, assign) BOOL                          isMainCanScroll;
+
+@property (nonatomic, assign) BOOL                          shouldPop;
 
 @end
 
@@ -96,10 +105,34 @@
         self.shouldPop = NO;
         self.backBtn.hidden = NO;
         self.gk_systemGestureHandleDisabled = YES;
+        
+        // 到达顶部
+        if (self.categoryView.subTitles == nil) return;
+        
+        self.categoryView.subTitles = nil;
+        self.categoryView.titleLabelVerticalOffset = 0;
+        self.categoryView.titleFont = [UIFont boldSystemFontOfSize:16];
+        self.categoryView.titleSelectedFont = [UIFont boldSystemFontOfSize:18];
+        self.lineView.indicatorHeight = 3;
+        self.lineView.verticalMargin = 4;
+        self.lineView.indicatorWidthIncrement = -8;
+        self.categoryView.indicators = @[self.lineView];
+        [self reloadCategoryWithHeight:44];
     }else {
         self.shouldPop = YES;
         self.backBtn.hidden = YES;
         self.gk_systemGestureHandleDisabled = NO;
+        
+        if (self.categoryView.subTitles != nil) return;
+        self.categoryView.subTitles = self.subtitles;
+        self.categoryView.titleLabelVerticalOffset = -10;
+        self.categoryView.titleFont = [UIFont boldSystemFontOfSize:15];
+        self.categoryView.titleSelectedFont = [UIFont boldSystemFontOfSize:15];
+        self.lineView.indicatorHeight = 16;
+        self.lineView.verticalMargin = 8.5;
+        self.lineView.indicatorWidthIncrement = 0;
+        self.categoryView.indicators = @[self.lineView];
+        [self reloadCategoryWithHeight:54];
     }
     
     // topView透明度渐变
@@ -117,6 +150,26 @@
     }
     
     self.topView.alpha = alpha;
+}
+
+- (void)reloadCategoryWithHeight:(CGFloat)height {
+    [UIView animateWithDuration:0.15 animations:^{
+        CGRect frame = self.segmentedView.frame;
+        frame.size.height = height;
+        self.segmentedView.frame = frame;
+        
+        frame = self.contentScrollView.frame;
+        frame.origin.y = height;
+        self.contentScrollView.frame = frame;
+        
+        frame = self.categoryView.frame;
+        frame.size.height = height;
+        self.categoryView.frame = frame;
+        
+        [self.categoryView reloadData];
+        [self.categoryView layoutSubviews];
+        [self.categoryView gk_refreshIndicatorState];
+    }];
 }
 
 #pragma mark - GKPageTableViewGestureDelegate
@@ -190,25 +243,9 @@
 
 - (UIView *)segmentedView {
     if (!_segmentedView) {
-        _segmentedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 44.0f)];
+        _segmentedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 54.0f)];
         
-        JXCategoryTitleView *titleView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(ADAPTATIONRATIO * 100.0f, 0, kScreenW - ADAPTATIONRATIO * 200.0f, 44.0f)];
-        titleView.titles = self.titles;
-        titleView.titleColor = GKColorGray(157);
-        titleView.titleSelectedColor = [UIColor blackColor];
-        titleView.titleFont = [UIFont systemFontOfSize:17.0f];
-        titleView.titleSelectedFont = [UIFont boldSystemFontOfSize:18.0f];
-        [_segmentedView addSubview:titleView];
-        
-        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
-        lineView.indicatorWidth = ADAPTATIONRATIO * 60.0f;
-        lineView.indicatorHeight = ADAPTATIONRATIO * 6.0f;
-        lineView.verticalMargin = ADAPTATIONRATIO * 4.0f;
-        lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
-        titleView.indicators = @[lineView];
-        
-        titleView.contentScrollView = self.contentScrollView;
-        
+        [_segmentedView addSubview:self.categoryView];
         [_segmentedView addSubview:self.backBtn];
         
         UIView *btmLineView = [UIView new];
@@ -222,11 +259,47 @@
     return _segmentedView;
 }
 
+- (JXCategorySubTitleView *)categoryView {
+    if (!_categoryView) {
+        _categoryView = [[JXCategorySubTitleView alloc] initWithFrame:CGRectMake(ADAPTATIONRATIO * 60.0f, 0, kScreenW - ADAPTATIONRATIO * 120.0f, 54.0f)];
+        _categoryView.titles = self.titles;
+        _categoryView.subTitles = self.subtitles;
+        _categoryView.titleFont = [UIFont boldSystemFontOfSize:15];
+        _categoryView.titleSelectedFont = [UIFont boldSystemFontOfSize:15];
+        _categoryView.titleColor = UIColor.blackColor;
+        _categoryView.titleSelectedColor = kThemeColor;
+        _categoryView.titleLabelVerticalOffset = -10;
+        _categoryView.subTitleFont = [UIFont systemFontOfSize:11];
+        _categoryView.subTitleSelectedFont = [UIFont systemFontOfSize:11];
+        _categoryView.subTitleColor = [UIColor grayColor];
+        _categoryView.subTitleSelectedColor = [UIColor whiteColor];
+        _categoryView.subTitleWithTitlePositionMargin = 5;
+        _categoryView.cellSpacing = 0;
+        _categoryView.cellWidthIncrement = 10;
+        _categoryView.indicators = @[self.lineView];
+        _categoryView.contentScrollView = self.contentScrollView;
+    }
+    return _categoryView;
+}
+
+- (JXCategoryIndicatorLineView *)lineView {
+    if (!_lineView) {
+        _lineView = [[JXCategoryIndicatorLineView alloc] init];
+        _lineView.indicatorHeight = 16;
+        _lineView.verticalMargin = 8.5;
+        _lineView.indicatorWidthIncrement = 0;
+        _lineView.lineScrollOffsetX = 0;
+        _lineView.indicatorColor = kThemeColor;
+        _lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
+    }
+    return _lineView;
+}
+
 - (UIButton *)backBtn {
     if (!_backBtn) {
         _backBtn = [UIButton new];
         [_backBtn setImage:[UIImage gk_imageNamed:@"btn_back_black"] forState:UIControlStateNormal];
-        _backBtn.frame = CGRectMake(12, 0, 44, 44);
+        _backBtn.frame = CGRectMake(0, 0, 44, 44);
         _backBtn.hidden = YES;
         [_backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -238,7 +311,7 @@
         CGFloat scrollW = kScreenW;
         CGFloat scrollH = kScreenH - kNavBarHeight;
         
-        _contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44.0f, scrollW, scrollH)];
+        _contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 54.0f, scrollW, scrollH)];
         _contentScrollView.pagingEnabled = YES;
         _contentScrollView.bounces = NO;
         _contentScrollView.delegate = self;
@@ -262,9 +335,16 @@
 
 - (NSArray *)titles {
     if (!_titles) {
-        _titles = @[@"话题", @"榜单", @"北京", @"超话"];
+        _titles = @[@"热点", @"潮流", @"话题", @"本地", @"直播"];
     }
     return _titles;
+}
+
+- (NSArray *)subtitles {
+    if (!_subtitles) {
+        _subtitles = @[@"热门资讯", @"潮人好物", @"深度讨论", @"同城关注", @"大V在线"];
+    }
+    return _subtitles;
 }
 
 - (NSArray *)childVCs {
@@ -281,7 +361,10 @@
         GKWBListViewController *storyVC = [GKWBListViewController new];
         storyVC.isCanScroll = YES;
         
-        _childVCs = @[homeVC, wbVC, videoVC, storyVC];
+        GKWBListViewController *liveVC = [GKWBListViewController new];
+        liveVC.isCanScroll = YES;
+        
+        _childVCs = @[homeVC, wbVC, videoVC, storyVC, liveVC];
     }
     return _childVCs;
 }

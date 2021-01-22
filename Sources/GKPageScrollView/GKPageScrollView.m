@@ -111,6 +111,16 @@
     self.mainTableView.tableHeaderView = [self.delegate headerViewInPageScrollView:self];
 }
 
+- (void)refreshSegmentedView {
+    if ([self shouldLazyLoadListView]) {
+        UIView *segmentedView = [self.delegate segmentedViewInPageScrollView:self];
+        
+        CGRect frame = self.listContainerView.frame;
+        frame.origin.y = segmentedView.frame.size.height;
+        self.listContainerView.frame = frame;
+    }
+}
+
 - (void)reloadData {
     self.isLoaded = YES;
     

@@ -7,6 +7,7 @@
 //
 
 #import "GKHeaderScrollView.h"
+#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
 
 @interface GKHeaderScrollView()<UICollectionViewDataSource, UICollectionViewDelegate>
 

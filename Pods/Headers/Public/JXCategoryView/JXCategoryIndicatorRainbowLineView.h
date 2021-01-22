@@ -1,1 +1,0 @@
-../../../JXCategoryView/Sources/Indicator/IndicatorViews/JXCategoryIndicatorRainbowLineView.h

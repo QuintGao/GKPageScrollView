@@ -10,7 +10,7 @@
 #define PrefixHeader_pch
 
 #import <Masonry/Masonry.h>
-#import <GKNavigationBar/UIScrollView+GKGestureHandle.h>
+#import <JXCategoryViewExt/JXCategoryView.h>
 
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height

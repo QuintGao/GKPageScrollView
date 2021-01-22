@@ -8,7 +8,6 @@
 
 #import "GKNestView.h"
 #import "GKNestListView.h"
-#import <JXCategoryView/JXCategoryView.h>
 
 @interface GKNestView()<JXCategoryViewDelegate, UIScrollViewDelegate>
 

@@ -76,11 +76,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-## JXCategoryView
+## JXCategoryViewExt
 
 MIT License
 
-Copyright (c) 2018 暴走的鑫鑫
+Copyright (c) 2021 QuintGao
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

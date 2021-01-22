@@ -8,7 +8,6 @@
 
 #import "GKNest1ViewController.h"
 #import "GKPageScrollView.h"
-#import <JXCategoryView/JXCategoryView.h>
 #import "GKNestView.h"
 
 @interface GKNest1ViewController()<GKPageScrollViewDelegate, JXCategoryViewDelegate, GKPageTableViewGestureDelegate, JXCategoryCollectionViewGestureDelegate>

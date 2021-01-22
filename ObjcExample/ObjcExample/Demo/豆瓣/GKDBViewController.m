@@ -8,9 +8,9 @@
 
 #import "GKDBViewController.h"
 #import "GKPageSmoothView.h"
-#import <JXCategoryView/JXCategoryView.h>
-#import "JXCategoryTitleAttributeView.h"
 #import "GKDBListView.h"
+#import "JXCategorySubTitleView.h"
+#import "JXCategoryIndicatorAlignmentLineView.h"
 
 @interface GKDBViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, JXCategoryViewDelegate>
 
@@ -22,10 +22,15 @@
 
 @property (nonatomic, strong) UIView    *segmentedView;
 
-@property (nonatomic, strong) JXCategoryTitleAttributeView *categoryView;
+//@property (nonatomic, strong) JXCategoryNumberView *categoryView;
+@property (nonatomic, strong) JXCategorySubTitleView *categoryView;
+
+@property (nonatomic, strong) JXCategoryIndicatorAlignmentLineView *lineView;
 
 @property (nonatomic, assign) BOOL isTitleViewShow;
 @property (nonatomic, assign) CGFloat originAlpha;
+
+@property (nonatomic, assign) CGFloat lastRatio;
 
 @end
 
@@ -176,39 +181,73 @@
             make.width.mas_equalTo(60);
             make.height.mas_equalTo(6);
         }];
-        
     }
     return _segmentedView;
 }
 
-- (JXCategoryTitleAttributeView *)categoryView {
+- (JXCategorySubTitleView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategoryTitleAttributeView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 40)];
-        _categoryView.backgroundColor = [UIColor whiteColor];
+        _categoryView = [[JXCategorySubTitleView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 40)];
+        _categoryView.backgroundColor = UIColor.whiteColor;
         _categoryView.averageCellSpacingEnabled = NO;
-        _categoryView.contentEdgeInsetLeft = 36;
+        _categoryView.contentEdgeInsetLeft = 16;
         _categoryView.delegate = self;
+        _categoryView.titles = @[@"影评", @"讨论一下"];
+        _categoryView.titleFont = [UIFont systemFontOfSize:16];
+        _categoryView.titleColor = UIColor.grayColor;
+        _categoryView.titleSelectedColor = UIColor.blackColor;
+        _categoryView.subTitles = @[@"342", @"2004"];
+        _categoryView.subTitleFont = [UIFont systemFontOfSize:11];
+        _categoryView.subTitleColor = UIColor.grayColor;
+        _categoryView.subTitleSelectedColor = UIColor.grayColor;
+        _categoryView.positionStyle = JXCategorySubTitlePositionStyle_Right;
+        _categoryView.alignStyle = JXCategorySubTitleAlignStyle_Top;
+        _categoryView.cellSpacing = 30;
+        _categoryView.cellWidthIncrement = 0;
+        _categoryView.ignoreSubTitleWidth = YES;
         
-        NSArray *titles = @[@"影评", @"讨论"];
-        _categoryView.titles = titles;
-        
-        NSArray <NSNumber *> *counts = @[@(342), @(200)];
-        NSMutableArray <NSAttributedString *> *attributedStringArray = [NSMutableArray array];
-        NSMutableArray <NSAttributedString *> *selectedAttributedStringArray = [NSMutableArray array];
-        for (NSInteger i = 0; i < titles.count; i++) {
-            [attributedStringArray addObject:[self attributedText:titles[i] count:counts[i] isSelected:NO]];
-            [selectedAttributedStringArray addObject:[self attributedText:titles[i] count:counts[i] isSelected:YES]];
-        }
-        _categoryView.attributeTitles = attributedStringArray;
-        _categoryView.selectedAttributeTitles = selectedAttributedStringArray;
-        
-        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
-        lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
-        lineView.indicatorColor = [UIColor blackColor];
-        _categoryView.indicators = @[lineView];
+//        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
+//        lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
+//        lineView.indicatorColor = [UIColor blackColor];
+//        _categoryView.indicators = @[lineView];
+        _categoryView.indicators = @[self.lineView];
     }
     return _categoryView;
 }
+
+-  (JXCategoryIndicatorAlignmentLineView *)lineView {
+    if (!_lineView) {
+        _lineView = [JXCategoryIndicatorAlignmentLineView new];
+        _lineView.indicatorColor = UIColor.blackColor;
+    }
+    return _lineView;
+}
+
+//- (JXCategoryNumberView *)categoryView {
+//    if (!_categoryView) {
+//        _categoryView = [[JXCategoryNumberView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 40)];
+//        _categoryView.backgroundColor = [UIColor whiteColor];
+//        _categoryView.averageCellSpacingEnabled = NO;
+//        _categoryView.contentEdgeInsetLeft = 36;
+//        _categoryView.delegate = self;
+//        _categoryView.titles = @[@"影评", @"讨论"];
+//        _categoryView.titleFont = [UIFont systemFontOfSize:16];
+//        _categoryView.titleSelectedFont = [UIFont systemFontOfSize:16];
+//        _categoryView.titleColor = UIColor.grayColor;
+//        _categoryView.titleSelectedColor = UIColor.blackColor;
+//        _categoryView.counts = @[@(342), @(200)];
+//        _categoryView.numberBackgroundColor = UIColor.clearColor;
+//        _categoryView.numberTitleColor = UIColor.grayColor;
+//        _categoryView.numberLabelOffset = CGPointMake(12, 6);
+//        _categoryView.cellSpacing = 50;
+//
+//        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
+//        lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
+//        lineView.indicatorColor = [UIColor blackColor];
+//        _categoryView.indicators = @[lineView];
+//    }
+//    return _categoryView;
+//}
 
 - (NSAttributedString *)attributedText:(NSString *)title count:(NSNumber *)count isSelected:(BOOL)isSelected {
     NSString *countString = [NSString stringWithFormat:@"%@", count];
