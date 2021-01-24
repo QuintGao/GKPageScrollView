@@ -207,8 +207,9 @@
         _categoryView.ignoreSubTitleWidth = YES;
         
 //        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
-//        lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
+//        lineView.lineStyle = JXCategoryIndicatorLineStyle_LengthenOffset;
 //        lineView.indicatorColor = [UIColor blackColor];
+//        lineView.indicatorWidth = 20;
 //        _categoryView.indicators = @[lineView];
         _categoryView.indicators = @[self.lineView];
     }
