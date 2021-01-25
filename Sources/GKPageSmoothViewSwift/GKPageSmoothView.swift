@@ -767,4 +767,9 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
         horizontalScrollDidEnd(at: index)
         self.panGesture.isEnabled = true
     }
+    
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
+        horizontalScrollDidEnd(at: index)
+    }
 }

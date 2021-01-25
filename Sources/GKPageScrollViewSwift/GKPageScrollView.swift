@@ -217,6 +217,16 @@ open class GKPageScrollView: UIView {
         self.mainTableView.tableHeaderView = self.delegate?.headerView(in: self)
     }
     
+    public func refreshSegmentedView() {
+        if self.shouldLazyLoadListView() {
+            let segmentedView = self.delegate?.segmentedView?(in: self)
+            
+            var frame = self.listContainerView.frame
+            frame.origin.y = segmentedView!.frame.size.height
+            self.listContainerView.frame = frame;
+        }
+    }
+    
     public func reloadData() {
         self.isLoaded = true
         

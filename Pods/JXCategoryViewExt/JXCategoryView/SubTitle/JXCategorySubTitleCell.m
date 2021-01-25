@@ -8,13 +8,6 @@
 #import "JXCategorySubTitleCell.h"
 #import "JXCategorySubTitleCellModel.h"
 
-@interface JXCategorySubTitleCell()
-
-@property (nonatomic, strong) NSLayoutConstraint *subTitleLabelCenterX;
-@property (nonatomic, strong) NSLayoutConstraint *subTitleLabelCenterY;
-
-@end
-
 @implementation JXCategorySubTitleCell
 
 - (void)initializeViews {
@@ -42,7 +35,6 @@
         case JXCategorySubTitlePositionStyle_Left: {
             self.titleLabelCenterX.active = NO;
             [self.titleLabel.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:0].active = YES;
-            
             [self.subTitleLabel.rightAnchor constraintEqualToAnchor:self.titleLabel.leftAnchor constant:positionMargin].active = YES;
             [self subTitleTopBottomConstraint:myCellModel];
             break;

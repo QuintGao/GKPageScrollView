@@ -40,7 +40,7 @@
 // 子标题选中字体 //文字被选中的字体。默认：与titleFont一样
 @property (nonatomic, strong) UIFont *subTitleSelectedFont;
 
-// 是否忽略subTitle宽度，默认NO
+// 是否忽略subTitle宽度，默认NO，此属性只在positionStyle为左右时有效
 @property (nonatomic, assign, getter=isIgnoreSubTitleWidth) BOOL ignoreSubTitleWidth;
 
 @end

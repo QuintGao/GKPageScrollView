@@ -8,6 +8,7 @@
 
 #import "JXCategoryIndicatorAlignmentLineView.h"
 #import "JXCategoryFactory.h"
+#import "JXCategoryViewAnimator.h"
 
 @interface JXCategoryIndicatorAlignmentLineView()
 @property (nonatomic, strong) JXCategoryViewAnimator *animator;

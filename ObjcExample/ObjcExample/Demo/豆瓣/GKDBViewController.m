@@ -9,8 +9,6 @@
 #import "GKDBViewController.h"
 #import "GKPageSmoothView.h"
 #import "GKDBListView.h"
-#import "JXCategorySubTitleView.h"
-#import "JXCategoryIndicatorAlignmentLineView.h"
 
 @interface GKDBViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, JXCategoryViewDelegate>
 
@@ -22,7 +20,6 @@
 
 @property (nonatomic, strong) UIView    *segmentedView;
 
-//@property (nonatomic, strong) JXCategoryNumberView *categoryView;
 @property (nonatomic, strong) JXCategorySubTitleView *categoryView;
 
 @property (nonatomic, strong) JXCategoryIndicatorAlignmentLineView *lineView;
@@ -192,7 +189,7 @@
         _categoryView.averageCellSpacingEnabled = NO;
         _categoryView.contentEdgeInsetLeft = 16;
         _categoryView.delegate = self;
-        _categoryView.titles = @[@"影评", @"讨论一下"];
+        _categoryView.titles = @[@"影评", @"讨论"];
         _categoryView.titleFont = [UIFont systemFontOfSize:16];
         _categoryView.titleColor = UIColor.grayColor;
         _categoryView.titleSelectedColor = UIColor.blackColor;
@@ -206,12 +203,11 @@
         _categoryView.cellWidthIncrement = 0;
         _categoryView.ignoreSubTitleWidth = YES;
         
-//        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
-//        lineView.lineStyle = JXCategoryIndicatorLineStyle_LengthenOffset;
-//        lineView.indicatorColor = [UIColor blackColor];
-//        lineView.indicatorWidth = 20;
-//        _categoryView.indicators = @[lineView];
+        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
+        lineView.indicatorColor = UIColor.blackColor;
         _categoryView.indicators = @[self.lineView];
+        
+        _categoryView.contentScrollView = self.smoothView.listCollectionView;
     }
     return _categoryView;
 }
@@ -222,53 +218,6 @@
         _lineView.indicatorColor = UIColor.blackColor;
     }
     return _lineView;
-}
-
-//- (JXCategoryNumberView *)categoryView {
-//    if (!_categoryView) {
-//        _categoryView = [[JXCategoryNumberView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 40)];
-//        _categoryView.backgroundColor = [UIColor whiteColor];
-//        _categoryView.averageCellSpacingEnabled = NO;
-//        _categoryView.contentEdgeInsetLeft = 36;
-//        _categoryView.delegate = self;
-//        _categoryView.titles = @[@"影评", @"讨论"];
-//        _categoryView.titleFont = [UIFont systemFontOfSize:16];
-//        _categoryView.titleSelectedFont = [UIFont systemFontOfSize:16];
-//        _categoryView.titleColor = UIColor.grayColor;
-//        _categoryView.titleSelectedColor = UIColor.blackColor;
-//        _categoryView.counts = @[@(342), @(200)];
-//        _categoryView.numberBackgroundColor = UIColor.clearColor;
-//        _categoryView.numberTitleColor = UIColor.grayColor;
-//        _categoryView.numberLabelOffset = CGPointMake(12, 6);
-//        _categoryView.cellSpacing = 50;
-//
-//        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
-//        lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
-//        lineView.indicatorColor = [UIColor blackColor];
-//        _categoryView.indicators = @[lineView];
-//    }
-//    return _categoryView;
-//}
-
-- (NSAttributedString *)attributedText:(NSString *)title count:(NSNumber *)count isSelected:(BOOL)isSelected {
-    NSString *countString = [NSString stringWithFormat:@"%@", count];
-    NSString *allString = [NSString stringWithFormat:@"%@%@", title, countString];
-    UIColor *tintColor = nil;
-    if (isSelected) {
-        tintColor = [UIColor blackColor];
-    }else {
-        tintColor = [UIColor grayColor];
-    }
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:allString attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16], NSForegroundColorAttributeName: tintColor}];
-    [attributedText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:[allString rangeOfString:countString]];
-    [attributedText addAttribute:NSForegroundColorAttributeName value:UIColor.grayColor range:[allString rangeOfString:countString]];
-    
-    CGFloat fontRatio = 0.96;
-    //让数量对齐
-    [attributedText addAttribute:NSBaselineOffsetAttributeName value:@(0) range:[allString rangeOfString:title]];
-    [attributedText addAttribute:NSBaselineOffsetAttributeName value:@(fontRatio * (16 - 12)) range:[allString rangeOfString:countString]];
-    
-    return attributedText;
 }
 
 @end

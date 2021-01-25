@@ -238,7 +238,13 @@
         
         if (maxAllowDistance > 0 && beginningLocation.x > maxAllowDistance) return NO;
     }else {
-        return NO;
+        if (visibleVC.gk_fullScreenPopDisabled) {
+            // 修复边缘侧滑返回失效的bug
+            if (self.navigationController.viewControllers.count <= 1) return NO;
+        }else {
+            // 修复全屏返回手势上下滑动时可能导致的卡死情况
+            return NO;
+        }
     }
     
     // 忽略导航控制器正在做转场动画

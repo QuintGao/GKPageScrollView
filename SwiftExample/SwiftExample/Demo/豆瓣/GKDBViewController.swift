@@ -60,25 +60,25 @@ class GKDBViewController: GKDemoBaseViewController {
         return view
     }()
     
-    var dataSource = JXSegmentedTitleAttributeDataSource()
+    var dataSource = JXSegmentedNumberDataSource()
     
     lazy var titleSegmentedView: JXSegmentedView = {
-        let titles = ["影评", "讨论"]
-        let counts = [NSNumber(342), NSNumber(200)]
-        var attributeTitles = [NSAttributedString]()
-        var selectedAttributeTitles = [NSAttributedString]()
-        for i in 0..<titles.count {
-            attributeTitles.append(self.attributedTextFrom(title: titles[i], count: counts[i], isSelected: false))
-            selectedAttributeTitles.append(self.attributedTextFrom(title: titles[i], count: counts[i], isSelected: true))
-        }
-        dataSource.attributedTitles = attributeTitles
-        dataSource.selectedAttributedTitles = selectedAttributeTitles
+        dataSource.titles = ["影评", "讨论"]
+        dataSource.numbers = [342, 200]
         dataSource.isItemSpacingAverageEnabled = false
+        dataSource.numberBackgroundColor = UIColor.clear
+        dataSource.numberTextColor = UIColor.gray
+        dataSource.numberFont = UIFont.systemFont(ofSize: 11)
+        dataSource.numberOffset = CGPoint(x: 10, y: 6)
+        dataSource.titleNormalFont = UIFont.systemFont(ofSize: 16)
+        dataSource.titleNormalColor = UIColor.gray
+        dataSource.titleSelectedColor = UIColor.black
+        dataSource.itemSpacing = 50
         
         var segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 10, width: kScreenW, height: 40))
         segmentedView.delegate = self
         segmentedView.dataSource = dataSource
-        segmentedView.contentEdgeInsetLeft = 36
+        segmentedView.contentEdgeInsetLeft = 16
         segmentedView.backgroundColor = .white
         
         let lineView = JXSegmentedIndicatorLineView()
@@ -153,7 +153,7 @@ extension GKDBViewController: GKPageSmoothViewDataSource {
     }
     
     func numberOfLists(in smoothView: GKPageSmoothView) -> Int {
-        return dataSource.attributedTitles.count
+        return dataSource.titles.count
     }
     
     func smoothView(_ smoothView: GKPageSmoothView, initListAtIndex index: Int) -> GKPageSmoothListViewDelegate {

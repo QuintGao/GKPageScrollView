@@ -19,7 +19,7 @@ class GKDemoBaseViewController: UIViewController {
     }
     
     deinit {
-        print(NSStringFromClass(self.classForCoder) + "deinit")
+        print(NSStringFromClass(self.classForCoder) + " deinit")
     }
     
     override var prefersStatusBarHidden: Bool {

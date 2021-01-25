@@ -43,6 +43,9 @@ pod 'JXCategoryViewExt' 或 pod 'JXCategoryViewExt/Core'
 // 文字
 pod 'JXCategoryViewExt/Title'
 
+// 文字+副标题
+pod 'JXCategoryViewExt/SubTitle'
+
 // 图片
 pod 'JXCategoryViewExt/Image'
 
@@ -67,8 +70,14 @@ pod 'JXCategoryViewExt/VerticalZoomTitle'
 
 #### 指示器
 ```
+// 背景
+pod 'JXCategoryViewExt/Background'
+
 // 线
 pod 'JXCategoryViewExt/Indicator/Line'
+
+// 线+对齐
+pod 'JXCategoryViewExt/Indicator/AlignmentLine'
 
 // 线+彩虹效果
 pod 'JXCategoryViewExt/Indicator/RainbowLine'
@@ -86,7 +95,13 @@ pod 'JXCategoryViewExt/Indicator/Triangle'
 pod 'JXCategoryViewExt/Indicator/DotLine'
 ```
 
+#### RTL
+```
+pod 'JXCategoryViewExt/RTL'
+```
+
 ## 更新记录
+* 1.0.3 2021.01.25 增加subTitle分类样式和alignmentLine指示器样式
 * 1.0.2 2021.01.21 将IndicatorBackgroundView和RTL移除基类，单独pod
 * 1.0.1 2021.01.19 新增标题圆点缩放样式，可实现网易新闻效果
 * 1.0.0 2021.01.15 优化及bug修改，将pod拆分为多个

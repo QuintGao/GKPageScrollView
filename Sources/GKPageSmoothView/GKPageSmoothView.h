@@ -99,7 +99,7 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 /// 是否允许底部拖拽，默认NO，当bottomHover为YES时才生效
 @property (nonatomic, assign, getter=isAllowDragBottom) BOOL allowDragBottom;
 
-/// 是否允许底部拖拽时滑动scrollView，默认NO
+/// 是否允许底部拖拽到临界位置时可滑动scrollView，默认NO
 @property (nonatomic, assign, getter=isAllowDragScroll) BOOL allowDragScroll;
 
 /// smoothView悬停类型

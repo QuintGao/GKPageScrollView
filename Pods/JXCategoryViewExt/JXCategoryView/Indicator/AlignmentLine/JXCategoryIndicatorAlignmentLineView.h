@@ -6,7 +6,7 @@
 //  Copyright © 2019 jiaxin. All rights reserved.
 //
 
-#import <JXCategoryViewExt/JXCategoryIndicatorLineView.h>
+#import "JXCategoryIndicatorLineView.h"
 
 typedef NS_ENUM(NSUInteger, JXCategoryIndicatorAlignmentStyle) {
     JXCategoryIndicatorAlignmentStyleLeading,

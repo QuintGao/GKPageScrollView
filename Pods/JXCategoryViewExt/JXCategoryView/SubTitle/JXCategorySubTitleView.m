@@ -61,9 +61,10 @@
         if (self.titleDataSource && [self.titleDataSource respondsToSelector:@selector(categoryTitleView:widthForTitle:)]) {
             return [self.titleDataSource categoryTitleView:self widthForTitle:self.titles[index]];
         } else {
-            CGFloat titleW = ceilf([self.titles[index] boundingRectWithSize:CGSizeMake(MAXFLOAT, self.bounds.size.width) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.titleFont} context:nil].size.width);
-            CGFloat subTitleW = ceilf([self.subTitles[index] boundingRectWithSize:CGSizeMake(MAXFLOAT, self.bounds.size.width) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.subTitleFont} context:nil].size.width);
-            if (self.positionStyle == JXCategorySubTitlePositionStyle_Top || self.positionStyle == JXCategoryComponentPosition_Bottom) {
+            CGFloat titleW = ceilf([self widthWithTitle:self.titles[index] font:self.titleFont]);
+            CGFloat subTitleW = ceilf([self widthWithTitle:self.subTitles[index] font:self.subTitleFont]);
+            
+            if (self.positionStyle == JXCategorySubTitlePositionStyle_Top || self.positionStyle == JXCategorySubTitlePositionStyle_Bottom) {
                 return MAX(titleW, subTitleW);
             }else {
                 return titleW + subTitleW;
@@ -122,6 +123,11 @@
         }
     }
     return frame;
+}
+
+#pragma mark - Private
+- (CGFloat)widthWithTitle:(NSString *)title font:(UIFont *)font {
+    return [title boundingRectWithSize:CGSizeMake(MAXFLOAT, self.bounds.size.width) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: font} context:nil].size.width;
 }
 
 @end

@@ -40,6 +40,10 @@
 }
 
 #pragma mark - GKPageListViewDelegate
+- (UIView *)listView {
+    return self.view;
+}
+
 - (UIScrollView *)listScrollView {
     return self.tableView;
 }

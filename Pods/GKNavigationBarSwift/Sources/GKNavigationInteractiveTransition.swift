@@ -157,10 +157,6 @@ class GKNavigationInteractiveTransition: NSObject {
             visibleVC.gk_popDelegate?.viewControllerPopScrollEnded?(finished: finished)
         }
     }
-    
-    func isVelocityWithinSensitivityRange(_ velocity: CGFloat) -> Bool {
-        return abs(velocity) - (1000.0 * (1 - 0.7)) > 0
-    }
 }
 
 extension GKNavigationInteractiveTransition: UINavigationControllerDelegate {
@@ -242,7 +238,15 @@ extension GKNavigationInteractiveTransition: UIGestureRecognizerDelegate {
             
             if maxAllowDistance > 0 && beginningLocation.x > maxAllowDistance { return false }
         }else {
-            return false
+            if visibleVC.gk_fullScreenPopDisabled {
+                // 修复边缘侧滑返回失效的bug
+                if self.navigationController.viewControllers.count <= 1 {
+                    return false
+                }
+            }else {
+                // 修复全屏返回手势上下滑动时可能导致的卡死情况
+                return false
+            }
         }
         
         // 忽略导航控制器正在做转场动画

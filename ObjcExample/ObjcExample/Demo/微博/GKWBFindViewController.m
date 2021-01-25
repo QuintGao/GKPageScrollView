@@ -9,9 +9,7 @@
 #import "GKWBFindViewController.h"
 #import "GKPageScrollView.h"
 #import "GKWBListViewController.h"
-#import "JXCategoryView.h"
 #import <MJRefresh/MJRefresh.h>
-#import "JXCategorySubTitleView.h"
 
 #define kThemeColor GKColorRGB(243, 136, 68)
 
@@ -23,19 +21,13 @@
 
 @property (nonatomic, strong) UIView                        *headerView;
 
-@property (nonatomic, strong) UIView                        *pageView;
-@property (nonatomic, strong) UIButton                      *backBtn;
 @property (nonatomic, strong) UIView                        *segmentedView;
+@property (nonatomic, strong) UIButton                      *backBtn;
 @property (nonatomic, strong) JXCategorySubTitleView        *categoryView;
-
 @property (nonatomic, strong) JXCategoryIndicatorLineView   *lineView;
-
-@property (nonatomic, strong) UIScrollView                  *contentScrollView;
 
 @property (nonatomic, strong) NSArray                       *titles;
 @property (nonatomic, strong) NSArray                       *subtitles;
-
-@property (nonatomic, strong) NSArray                       *childVCs;
 
 @property (nonatomic, strong) UIBarButtonItem               *backItem;
 
@@ -86,16 +78,26 @@
 }
 
 #pragma mark - GKPageScrollViewDelegate
+- (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return YES;
+}
+
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
 }
 
-- (UIView *)pageViewInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return self.pageView;
+- (UIView *)segmentedViewInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.segmentedView;
 }
 
-- (NSArray<id<GKPageListViewDelegate>> *)listViewsInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return self.childVCs;
+- (NSInteger)numberOfListsInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.categoryView.titles.count;
+}
+
+- (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index {
+    GKWBListViewController *listVC = [GKWBListViewController new];
+    listVC.isCanScroll = YES;
+    return listVC;
 }
 
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {
@@ -157,28 +159,15 @@
         CGRect frame = self.segmentedView.frame;
         frame.size.height = height;
         self.segmentedView.frame = frame;
-        
-        frame = self.contentScrollView.frame;
-        frame.origin.y = height;
-        self.contentScrollView.frame = frame;
+        [self.pageScrollView refreshSegmentedView];
         
         frame = self.categoryView.frame;
         frame.size.height = height;
         self.categoryView.frame = frame;
-        
         [self.categoryView reloadData];
         [self.categoryView layoutSubviews];
         [self.categoryView gk_refreshIndicatorState];
     }];
-}
-
-#pragma mark - GKPageTableViewGestureDelegate
-- (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    // 禁止UIScrollView左右滑动时，上下左右都可以滑动
-    if (otherGestureRecognizer == self.contentScrollView.panGestureRecognizer) {
-        return NO;
-    }
-    return [gestureRecognizer.view isKindOfClass:[UIScrollView class]] && [otherGestureRecognizer.view isKindOfClass:[UIScrollView class]];
 }
 
 #pragma mark - GKViewControllerPopDelegate
@@ -212,7 +201,6 @@
         _pageScrollView.ceilPointHeight = GK_STATUSBAR_HEIGHT;
         _pageScrollView.allowListRefresh = YES;
         _pageScrollView.disableMainScrollInCeil = YES;
-        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
 }
@@ -228,17 +216,6 @@
         [_headerView addSubview:imgView];
     }
     return _headerView;
-}
-
-- (UIView *)pageView {
-    if (!_pageView) {
-        _pageView = [UIView new];
-        _pageView.backgroundColor = [UIColor clearColor];
-        
-        [_pageView addSubview:self.segmentedView];
-        [_pageView addSubview:self.contentScrollView];
-    }
-    return _pageView;
 }
 
 - (UIView *)segmentedView {
@@ -275,9 +252,9 @@
         _categoryView.subTitleSelectedColor = [UIColor whiteColor];
         _categoryView.subTitleWithTitlePositionMargin = 5;
         _categoryView.cellSpacing = 0;
-        _categoryView.cellWidthIncrement = 10;
+        _categoryView.cellWidthIncrement = 16;
         _categoryView.indicators = @[self.lineView];
-        _categoryView.contentScrollView = self.contentScrollView;
+        _categoryView.contentScrollView = self.pageScrollView.listContainerView.collectionView;
     }
     return _categoryView;
 }
@@ -306,33 +283,6 @@
     return _backBtn;
 }
 
-- (UIScrollView *)contentScrollView {
-    if (!_contentScrollView) {
-        CGFloat scrollW = kScreenW;
-        CGFloat scrollH = kScreenH - kNavBarHeight;
-        
-        _contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 54.0f, scrollW, scrollH)];
-        _contentScrollView.pagingEnabled = YES;
-        _contentScrollView.bounces = NO;
-        _contentScrollView.delegate = self;
-        _contentScrollView.gk_openGestureHandle = YES;
-        if (@available(iOS 11.0, *)) {
-            _contentScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            [self addChildViewController:obj];
-            [self->_contentScrollView addSubview:obj.view];
-            obj.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
-        }];
-
-        self.contentScrollView.contentSize = CGSizeMake(self.childVCs.count * scrollW, 0);
-    }
-    return _contentScrollView;
-}
-
 - (NSArray *)titles {
     if (!_titles) {
         _titles = @[@"热点", @"潮流", @"话题", @"本地", @"直播"];
@@ -345,28 +295,6 @@
         _subtitles = @[@"热门资讯", @"潮人好物", @"深度讨论", @"同城关注", @"大V在线"];
     }
     return _subtitles;
-}
-
-- (NSArray *)childVCs {
-    if (!_childVCs) {
-        GKWBListViewController *homeVC = [GKWBListViewController new];
-        homeVC.isCanScroll = YES;
-        
-        GKWBListViewController *wbVC = [GKWBListViewController new];
-        wbVC.isCanScroll = YES;
-        
-        GKWBListViewController *videoVC = [GKWBListViewController new];
-        videoVC.isCanScroll = YES;
-        
-        GKWBListViewController *storyVC = [GKWBListViewController new];
-        storyVC.isCanScroll = YES;
-        
-        GKWBListViewController *liveVC = [GKWBListViewController new];
-        liveVC.isCanScroll = YES;
-        
-        _childVCs = @[homeVC, wbVC, videoVC, storyVC, liveVC];
-    }
-    return _childVCs;
 }
 
 @end
