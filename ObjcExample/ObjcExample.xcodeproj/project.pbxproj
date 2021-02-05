@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60225D3025CD1A0800B77B1F /* JXCategoryPinTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D2F25CD1A0800B77B1F /* JXCategoryPinTitleCell.m */; };
+		60225D3325CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D3225CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m */; };
+		60225D3625CD1A2C00B77B1F /* JXCategoryPinTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D3525CD1A2C00B77B1F /* JXCategoryPinTitleView.m */; };
+		60225D3A25CD20FC00B77B1F /* GKPinLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D3925CD20FC00B77B1F /* GKPinLocationViewController.m */; };
+		60225D3D25CD377700B77B1F /* GKPinLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D3C25CD377700B77B1F /* GKPinLocationView.m */; };
 		609B8DE9259AFC6E000F1EB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8DE8259AFC6E000F1EB9 /* AppDelegate.m */; };
 		609B8DEF259AFC6E000F1EB9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8DEE259AFC6E000F1EB9 /* ViewController.m */; };
 		609B8DF4259AFC71000F1EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 609B8DF3259AFC71000F1EB9 /* Assets.xcassets */; };
@@ -70,6 +75,16 @@
 
 /* Begin PBXFileReference section */
 		070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60225D2E25CD1A0800B77B1F /* JXCategoryPinTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPinTitleCell.h; sourceTree = "<group>"; };
+		60225D2F25CD1A0800B77B1F /* JXCategoryPinTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPinTitleCell.m; sourceTree = "<group>"; };
+		60225D3125CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPinTitleCellModel.h; sourceTree = "<group>"; };
+		60225D3225CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPinTitleCellModel.m; sourceTree = "<group>"; };
+		60225D3425CD1A2C00B77B1F /* JXCategoryPinTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPinTitleView.h; sourceTree = "<group>"; };
+		60225D3525CD1A2C00B77B1F /* JXCategoryPinTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPinTitleView.m; sourceTree = "<group>"; };
+		60225D3825CD20FC00B77B1F /* GKPinLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPinLocationViewController.h; sourceTree = "<group>"; };
+		60225D3925CD20FC00B77B1F /* GKPinLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPinLocationViewController.m; sourceTree = "<group>"; };
+		60225D3B25CD377700B77B1F /* GKPinLocationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPinLocationView.h; sourceTree = "<group>"; };
+		60225D3C25CD377700B77B1F /* GKPinLocationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPinLocationView.m; sourceTree = "<group>"; };
 		609B8DE4259AFC6E000F1EB9 /* ObjcExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609B8DE7259AFC6E000F1EB9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		609B8DE8259AFC6E000F1EB9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -184,6 +199,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		60225D3725CD20BB00B77B1F /* PinLocation */ = {
+			isa = PBXGroup;
+			children = (
+				60225D3825CD20FC00B77B1F /* GKPinLocationViewController.h */,
+				60225D3925CD20FC00B77B1F /* GKPinLocationViewController.m */,
+				60225D3B25CD377700B77B1F /* GKPinLocationView.h */,
+				60225D3C25CD377700B77B1F /* GKPinLocationView.m */,
+			);
+			path = PinLocation;
+			sourceTree = "<group>";
+		};
 		609B8DDB259AFC6E000F1EB9 = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +261,7 @@
 				609B8E55259AFD80000F1EB9 /* VTMagic */,
 				609B8E71259AFD81000F1EB9 /* Nest */,
 				609B8E46259AFD80000F1EB9 /* Smooth */,
+				60225D3725CD20BB00B77B1F /* PinLocation */,
 				609B8E29259AFD80000F1EB9 /* Tools */,
 				609B8E2C259AFD80000F1EB9 /* Test */,
 			);
@@ -246,6 +273,12 @@
 			children = (
 				609B8E2B259AFD80000F1EB9 /* GKBallLoadingView.h */,
 				609B8E2A259AFD80000F1EB9 /* GKBallLoadingView.m */,
+				60225D2E25CD1A0800B77B1F /* JXCategoryPinTitleCell.h */,
+				60225D2F25CD1A0800B77B1F /* JXCategoryPinTitleCell.m */,
+				60225D3125CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.h */,
+				60225D3225CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m */,
+				60225D3425CD1A2C00B77B1F /* JXCategoryPinTitleView.h */,
+				60225D3525CD1A2C00B77B1F /* JXCategoryPinTitleView.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -550,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60225D3025CD1A0800B77B1F /* JXCategoryPinTitleCell.m in Sources */,
 				609B8E9E259AFD81000F1EB9 /* GKWYListViewController.m in Sources */,
 				609B8EA2259AFD81000F1EB9 /* GKWBListViewController.m in Sources */,
 				609B8EAA259AFD81000F1EB9 /* GKHeaderScrollViewController.m in Sources */,
@@ -560,19 +594,23 @@
 				609B8E96259AFD81000F1EB9 /* GKDBViewController.m in Sources */,
 				609B8E9B259AFD81000F1EB9 /* GKSmoothListView.m in Sources */,
 				609B8E9F259AFD81000F1EB9 /* GKWYHeaderView.m in Sources */,
+				60225D3D25CD377700B77B1F /* GKPinLocationView.m in Sources */,
 				609B8EA5259AFD81000F1EB9 /* GKWBViewController.m in Sources */,
 				609B8EA0259AFD81000F1EB9 /* GKWYViewController.m in Sources */,
 				609B8EB1259AFD81000F1EB9 /* GKNestScrollView.m in Sources */,
 				609B8E9C259AFD81000F1EB9 /* GKSmoothViewController.m in Sources */,
 				609B8EAF259AFD81000F1EB9 /* GKNest2View.m in Sources */,
 				609B8EB7259AFD81000F1EB9 /* GKDYListViewController.m in Sources */,
+				60225D3625CD1A2C00B77B1F /* JXCategoryPinTitleView.m in Sources */,
 				609B8EA1259AFD81000F1EB9 /* GKVTMagicViewController.m in Sources */,
+				60225D3325CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m in Sources */,
 				609B8E9D259AFD81000F1EB9 /* GKItemLoadViewController.m in Sources */,
 				609B8E92259AFD81000F1EB9 /* GKTestViewController.m in Sources */,
 				609B8E90259AFD81000F1EB9 /* GKTestListView.m in Sources */,
 				609B8DEF259AFC6E000F1EB9 /* ViewController.m in Sources */,
 				609B8EB8259AFD81000F1EB9 /* GKDYHeaderView.m in Sources */,
 				609B8EB6259AFD81000F1EB9 /* GKDYViewController.m in Sources */,
+				60225D3A25CD20FC00B77B1F /* GKPinLocationViewController.m in Sources */,
 				609B8EB5259AFD81000F1EB9 /* GKBaseListViewController.m in Sources */,
 				609B8E97259AFD81000F1EB9 /* GKDBListView.m in Sources */,
 				609B8EB2259AFD81000F1EB9 /* GKBasePageViewController.m in Sources */,
