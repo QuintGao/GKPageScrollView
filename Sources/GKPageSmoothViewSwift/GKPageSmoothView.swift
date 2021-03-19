@@ -267,7 +267,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     }
     
     /// 滑动到悬停点
-    public func scrollToCriticalPoint {
+    public func scrollToCriticalPoint() {
         self.currentListScrollView?.setContentOffset(CGPoint(x: 0, y: -(self.segmentedHeight + self.ceilPointHeight)), animated: true)
     }
     
