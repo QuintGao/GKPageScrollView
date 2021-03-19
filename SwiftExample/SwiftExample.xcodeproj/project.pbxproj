@@ -46,6 +46,11 @@
 		609B901D259B0558000F1EB9 /* GKDYListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B8FFB259B0558000F1EB9 /* GKDYListViewController.swift */; };
 		609B901E259B0558000F1EB9 /* GKDYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B8FFC259B0558000F1EB9 /* GKDYViewController.swift */; };
 		609B901F259B0558000F1EB9 /* GKDYHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B8FFD259B0558000F1EB9 /* GKDYHeaderView.swift */; };
+		60B296022603330F006FDBB4 /* JXSegmentedPinTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B296012603330F006FDBB4 /* JXSegmentedPinTitleCell.swift */; };
+		60B2960426033361006FDBB4 /* JXSegmentedPinTitleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B2960326033361006FDBB4 /* JXSegmentedPinTitleDataSource.swift */; };
+		60B2960626033394006FDBB4 /* JXSegmentedPinTitleItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B2960526033393006FDBB4 /* JXSegmentedPinTitleItemModel.swift */; };
+		60B296092603391F006FDBB4 /* GKPinLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B296082603391F006FDBB4 /* GKPinLocationViewController.swift */; };
+		60B2960B26033928006FDBB4 /* GKPinLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B2960A26033928006FDBB4 /* GKPinLocationView.swift */; };
 		DEBFAA40B2824C54A1A9666D /* Pods_SwiftExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0809C38C56EF56CF08BC46F2 /* Pods_SwiftExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +113,11 @@
 		609B8FFB259B0558000F1EB9 /* GKDYListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKDYListViewController.swift; sourceTree = "<group>"; };
 		609B8FFC259B0558000F1EB9 /* GKDYViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKDYViewController.swift; sourceTree = "<group>"; };
 		609B8FFD259B0558000F1EB9 /* GKDYHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKDYHeaderView.swift; sourceTree = "<group>"; };
+		60B296012603330F006FDBB4 /* JXSegmentedPinTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXSegmentedPinTitleCell.swift; sourceTree = "<group>"; };
+		60B2960326033361006FDBB4 /* JXSegmentedPinTitleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXSegmentedPinTitleDataSource.swift; sourceTree = "<group>"; };
+		60B2960526033393006FDBB4 /* JXSegmentedPinTitleItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXSegmentedPinTitleItemModel.swift; sourceTree = "<group>"; };
+		60B296082603391F006FDBB4 /* GKPinLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPinLocationViewController.swift; sourceTree = "<group>"; };
+		60B2960A26033928006FDBB4 /* GKPinLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPinLocationView.swift; sourceTree = "<group>"; };
 		BE88FC091A7007FCD41DAE8E /* Pods-SwiftExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftExample.debug.xcconfig"; path = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +190,7 @@
 				609B8FDD259B0558000F1EB9 /* VTMagic */,
 				609B8FEE259B0558000F1EB9 /* Nest */,
 				609B8FD4259B0558000F1EB9 /* Smooth */,
+				60B29607260338FD006FDBB4 /* PinLocation */,
 				609B8FCC259B0558000F1EB9 /* Tools */,
 				609B8FCF259B0558000F1EB9 /* Test */,
 			);
@@ -189,8 +200,11 @@
 		609B8FCC259B0558000F1EB9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				609B8FCD259B0558000F1EB9 /* GKBallLoadingView.m */,
 				609B8FCE259B0558000F1EB9 /* GKBallLoadingView.h */,
+				609B8FCD259B0558000F1EB9 /* GKBallLoadingView.m */,
+				60B296012603330F006FDBB4 /* JXSegmentedPinTitleCell.swift */,
+				60B2960326033361006FDBB4 /* JXSegmentedPinTitleDataSource.swift */,
+				60B2960526033393006FDBB4 /* JXSegmentedPinTitleItemModel.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -326,6 +340,15 @@
 			path = "抖音";
 			sourceTree = "<group>";
 		};
+		60B29607260338FD006FDBB4 /* PinLocation */ = {
+			isa = PBXGroup;
+			children = (
+				60B296082603391F006FDBB4 /* GKPinLocationViewController.swift */,
+				60B2960A26033928006FDBB4 /* GKPinLocationView.swift */,
+			);
+			path = PinLocation;
+			sourceTree = "<group>";
+		};
 		F09EBDB46D33230E3DCC8EDA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,20 +479,25 @@
 				609B900F259B0558000F1EB9 /* GKListLoadViewController.swift in Sources */,
 				609B901A259B0558000F1EB9 /* GKBasePageViewController.swift in Sources */,
 				609B9006259B0558000F1EB9 /* GKWYListViewController.swift in Sources */,
+				60B296092603391F006FDBB4 /* GKPinLocationViewController.swift in Sources */,
 				609B900B259B0558000F1EB9 /* GKWBViewController.swift in Sources */,
+				60B2960426033361006FDBB4 /* JXSegmentedPinTitleDataSource.swift in Sources */,
 				609B9000259B0558000F1EB9 /* GKDBViewController.swift in Sources */,
 				609B9017259B0558000F1EB9 /* GKNestView.swift in Sources */,
 				609B9018259B0558000F1EB9 /* GKNestListView.swift in Sources */,
 				609B9011259B0558000F1EB9 /* GKHeaderScrollViewController.swift in Sources */,
 				609B9019259B0558000F1EB9 /* GKDemoBaseViewController.swift in Sources */,
+				60B2960626033394006FDBB4 /* JXSegmentedPinTitleItemModel.swift in Sources */,
 				609B900A259B0558000F1EB9 /* GKWBFindViewController.swift in Sources */,
 				609B8FFE259B0558000F1EB9 /* GKBallLoadingView.m in Sources */,
+				60B296022603330F006FDBB4 /* JXSegmentedPinTitleCell.swift in Sources */,
 				609B9001259B0558000F1EB9 /* GKDBListView.swift in Sources */,
 				609B8F5B259B02A8000F1EB9 /* GKCommon.swift in Sources */,
 				609B9002259B0558000F1EB9 /* GKSmoothListView.swift in Sources */,
 				609B9015259B0558000F1EB9 /* GKNestScrollView.swift in Sources */,
 				609B9010259B0558000F1EB9 /* GKMainRefreshViewController.swift in Sources */,
 				609B900C259B0558000F1EB9 /* GKWBHeaderView.swift in Sources */,
+				60B2960B26033928006FDBB4 /* GKPinLocationView.swift in Sources */,
 				609B9013259B0558000F1EB9 /* GKNest1ViewController.swift in Sources */,
 				609B9003259B0558000F1EB9 /* GKSmoothViewController.swift in Sources */,
 				609B900D259B0558000F1EB9 /* GKWBListViewController.swift in Sources */,

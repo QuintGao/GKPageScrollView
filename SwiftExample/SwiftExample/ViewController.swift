@@ -35,7 +35,8 @@ class ViewController: GKDemoBaseViewController {
                                                              ["title": "嵌套使用1", "class": "GKNest1ViewController"],
                                                              ["title": "嵌套使用2", "class": "GKNest2ViewController"]]],
                       ["group": "GKPageSmoothView", "list": [["title": "豆瓣电影主页", "class": "GKDBViewController"],
-                                                             ["title": "滑动延续", "class": "GKSmoothViewController"]]]]
+                                                             ["title": "滑动延续", "class": "GKSmoothViewController"],
+                                                             ["title": "上下滑动切换tab", "class": "GKPinLocationViewController"]]]]
     
     override func viewDidLoad() {
         super.viewDidLoad()

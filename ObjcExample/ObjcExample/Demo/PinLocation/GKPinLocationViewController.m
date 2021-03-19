@@ -10,7 +10,7 @@
 #import <GKPageSmoothView/GKPageSmoothView.h>
 #import "GKPinLocationView.h"
 
-@interface GKPinLocationViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate>
+@interface GKPinLocationViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, JXCategoryViewDelegate>
 
 @property (nonatomic, strong) GKPageSmoothView *smoothView;
 
@@ -31,6 +31,9 @@
     self.gk_navTitleFont = [UIFont boldSystemFontOfSize:18.0f];
     self.gk_navBackgroundColor = [UIColor clearColor];
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    UIBarButtonItem *oriItem = [UIBarButtonItem gk_itemWithTitle:@"原点" target:self action:@selector(oriAction)];
+    UIBarButtonItem *criItem = [UIBarButtonItem gk_itemWithTitle:@"临界点" target:self action:@selector(criAction)];
+    self.gk_navRightBarButtonItems = @[oriItem, criItem];
     
     [self.view addSubview:self.smoothView];
     [self.smoothView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -38,6 +41,14 @@
     }];
     
     [self.smoothView reloadData];
+}
+
+- (void)oriAction {
+    [self.smoothView scrollToOriginalPoint];
+}
+
+- (void)criAction {
+    [self.smoothView scrollToCriticalPoint];
 }
 
 #pragma mark - GKPageSmoothViewDataSource
@@ -88,6 +99,13 @@
     }
 }
 
+#pragma mark - JXCategoryViewDelegate
+- (void)categoryView:(JXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index {
+    UITableView *tableView = (UITableView *)self.smoothView.currentListScrollView;
+    CGRect frame = [tableView rectForHeaderInSection:index];
+    [tableView setContentOffset:CGPointMake(0, frame.origin.y - kBaseHeaderHeight + kBaseSegmentHeight + 40) animated:YES];
+}
+
 #pragma mark - 懒加载
 - (GKPageSmoothView *)smoothView {
     if (!_smoothView) {
@@ -118,6 +136,7 @@
         _titleView.titleColor = UIColor.grayColor;
         _titleView.titleSelectedColor = UIColor.redColor;
         _titleView.titleFont = [UIFont systemFontOfSize:15];
+        _titleView.delegate = self;
     }
     return _titleView;
 }

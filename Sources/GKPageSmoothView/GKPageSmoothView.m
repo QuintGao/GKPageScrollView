@@ -159,6 +159,14 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     }];
 }
 
+- (void)scrollToOriginalPoint {
+    [self.currentListScrollView setContentOffset:CGPointMake(0, -self.headerContainerHeight) animated:YES];
+}
+
+- (void)scrollToCriticalPoint {
+    [self.currentListScrollView setContentOffset:CGPointMake(0, -(self.segmentedHeight+self.ceilPointHeight)) animated:YES];
+}
+
 - (void)showingOnTop {
     if (self.bottomContainerView.isHidden) return;
     [self dragBegan];
@@ -476,6 +484,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 
 #pragma mark - Private Methods
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%f", scrollView.contentOffset.y);
     if (self.listCollectionView.isDragging || self.listCollectionView.isDecelerating) return;
     
     if (self.isOnTop) { // 在顶部时无需处理headerView

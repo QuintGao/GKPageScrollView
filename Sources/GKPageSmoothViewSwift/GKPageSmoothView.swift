@@ -138,7 +138,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var headerView: UIView?
     var segmentedView: UIView?
     
-    var currentListScrollView: UIScrollView?
+    public private(set) var currentListScrollView: UIScrollView?
     var isSyncListContentOffsetEnabled: Bool = false
     var currentHeaderContainerViewY: CGFloat = 0
     
@@ -209,6 +209,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    /// 刷新headerView和segmentedView
     public func refreshHeaderView() {
         self.loadHeaderAndSegmentedView()
         
@@ -239,6 +240,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    /// 刷新列表
     public func reloadData() {
         currentListScrollView = nil
         currentIndex = defaultSelectedIndex
@@ -259,12 +261,24 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    /// 滑动到原点
+    public func scrollToOriginalPoint() {
+        self.currentListScrollView?.setContentOffset(CGPoint(x: 0, y: -self.headerContainerHeight), animated: true)
+    }
+    
+    /// 滑动到悬停点
+    public func scrollToCriticalPoint {
+        self.currentListScrollView?.setContentOffset(CGPoint(x: 0, y: -(self.segmentedHeight + self.ceilPointHeight)), animated: true)
+    }
+    
+    /// 显示在顶部，允许底部拖拽时生效
     public func showingOnTop() {
         if (self.bottomContainerView.isHidden) { return }
         self.dragBegan()
         self.dragShowing()
     }
     
+    /// 显示在底部，允许底部拖拽时生效
     public func showingOnBottom() {
         if (self.bottomContainerView.isHidden) { return }
         self.dragDismiss()
