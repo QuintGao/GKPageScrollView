@@ -142,7 +142,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var isSyncListContentOffsetEnabled: Bool = false
     var currentHeaderContainerViewY: CGFloat = 0
     
-    var headerContainerHeight: CGFloat = 0
+    public private(set) var headerContainerHeight: CGFloat = 0
     var headerHeight: CGFloat = 0
     var segmentedHeight: CGFloat = 0
     var currentListInitailzeContentOffsetY: CGFloat = 0

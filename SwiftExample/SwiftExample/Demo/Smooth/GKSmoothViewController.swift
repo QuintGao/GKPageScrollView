@@ -75,7 +75,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
     }
 }
 
-extension GKSmoothViewController: GKPageSmoothViewDataSource, GKPageSmoothViewDelegate {
+extension GKSmoothViewController: GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, GKSmoothListViewDelegate {
     func headerView(in smoothView: GKPageSmoothView) -> UIView {
         return self.headerView
     }
@@ -89,27 +89,31 @@ extension GKSmoothViewController: GKPageSmoothViewDataSource, GKPageSmoothViewDe
     }
     
     func smoothView(_ smoothView: GKPageSmoothView, initListAtIndex index: Int) -> GKPageSmoothListViewDelegate {
-        let listView = GKSmoothListView(listType: GKSmoothListType(rawValue: index)!)
+        let listView = GKSmoothListView(listType: GKSmoothListType(rawValue: index)!, delegate: self)
         listView.requestData()
         return listView
     }
     
     func smoothViewListScrollViewDidScroll(_ smoothView: GKPageSmoothView, scrollView: UIScrollView, contentOffset: CGPoint) {
-        // 导航栏显隐
-        let offsetY = contentOffset.y
-        // 0-200 0
-        // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
-        // > KDYHeaderHeigh - kNavBarheight 1
-        var alpha: CGFloat = 0;
-        if (offsetY < 200) {
-            alpha = 0;
-        }else if (offsetY > (kDYHeaderHeight - kNavBar_Height)) {
-            alpha = 1;
-        }else {
-            alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBar_Height - 200);
-        }
-        self.gk_navBarAlpha = alpha;
-        
-        self.headerView.scrollViewDidScroll(offsetY: offsetY);
+//        // 导航栏显隐
+//        let offsetY = contentOffset.y
+//        // 0-200 0
+//        // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
+//        // > KDYHeaderHeigh - kNavBarheight 1
+//        var alpha: CGFloat = 0;
+//        if (offsetY < 200) {
+//            alpha = 0;
+//        }else if (offsetY > (kDYHeaderHeight - kNavBar_Height)) {
+//            alpha = 1;
+//        }else {
+//            alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBar_Height - 200);
+//        }
+//        self.gk_navBarAlpha = alpha;
+//        
+//        self.headerView.scrollViewDidScroll(offsetY: offsetY);
+    }
+    
+    func smoothViewHeaderContainerHeight() -> CGFloat {
+        return self.smoothView.headerContainerHeight
     }
 }

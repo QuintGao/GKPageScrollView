@@ -10,6 +10,7 @@
 #import "GKBallLoadingView.h"
 #import "GKDYHeaderView.h"
 #import "GKDemoBaseViewController.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface GKSmoothListLayout : UICollectionViewFlowLayout
 
@@ -50,9 +51,10 @@
 
 @implementation GKSmoothListView
 
-- (instancetype)initWithListType:(GKSmoothListType)listType {
+- (instancetype)initWithListType:(GKSmoothListType)listType deleagte:(nonnull id<GKSmoothListViewDelegate>)delegate {
     if (self = [super init]) {
         self.listType = listType;
+        self.delegate = delegate;
         
         if (listType == GKSmoothListType_ScrollView) {
             self.smoothScrollView = self.scrollView;
@@ -65,6 +67,23 @@
         
         [self.smoothScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
+        }];
+        
+        self.smoothScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.count = 30;
+                [self reloadData];
+                [self.smoothScrollView.mj_header endRefreshing];
+            });
+        }];
+        self.smoothScrollView.mj_header.ignoredScrollViewContentInsetTop = [self.delegate smoothViewHeaderContainerHeight];
+        
+        self.smoothScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.count+= 5;
+                [self reloadData];
+                [self.smoothScrollView.mj_footer endRefreshing];
+            });
         }];
         
 //        self.count = 100;
@@ -86,7 +105,7 @@
         [loadingView stopLoading];
         self.loadingBgView.hidden = YES;
         
-        self.count = 100;
+        self.count = 30;
         
         [self reloadData];
     });
@@ -151,12 +170,12 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor whiteColor];
+    cell.contentView.backgroundColor = [UIColor blackColor];
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     UILabel *textLabel = [UILabel new];
     textLabel.font = [UIFont systemFontOfSize:16.0f];
-    textLabel.textColor = [UIColor blackColor];
+    textLabel.textColor = [UIColor whiteColor];
     textLabel.text = [NSString stringWithFormat:@"第%zd", indexPath.item + 1];
     [cell.contentView addSubview:textLabel];
     [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -184,7 +203,7 @@
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"tableViewCell"];
         _tableView.rowHeight = 50.0f;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor blackColor];
+        _tableView.backgroundColor = [UIColor whiteColor];
     }
     return _tableView;
 }
@@ -201,7 +220,7 @@
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"collectionViewCell"];
-//        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.backgroundColor = [UIColor whiteColor];
     }
     return _collectionView;
 }

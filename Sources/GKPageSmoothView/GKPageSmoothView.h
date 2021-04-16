@@ -54,7 +54,6 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 @protocol GKPageSmoothViewDelegate <NSObject>
 
 @optional
-
 /// 列表容器滑动代理
 /// @param smoothView smoothView
 /// @param scrollView containerScrollView
@@ -108,6 +107,9 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 
 /// 是否通过拖拽滑动到顶部
 @property (nonatomic, assign, readonly) BOOL isOnTop;
+
+/// header容器的高度
+@property (nonatomic, assign, readonly) CGFloat headerContainerHeight;
 
 - (instancetype)initWithDataSource:(id<GKPageSmoothViewDataSource>)dataSource NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;

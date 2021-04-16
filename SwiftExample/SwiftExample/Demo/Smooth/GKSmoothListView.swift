@@ -9,6 +9,7 @@
 import UIKit
 import GKNavigationBarSwift
 import GKPageSmoothView
+import MJRefresh
 
 enum GKSmoothListType: Int {
     case tableView
@@ -27,8 +28,13 @@ class GKSmoothListLayout: UICollectionViewFlowLayout {
     }
 }
 
+protocol GKSmoothListViewDelegate: NSObjectProtocol {
+    func smoothViewHeaderContainerHeight() -> CGFloat
+}
+
 class GKSmoothListView: UIView {
     var smoothScrollView: UIScrollView?
+    weak var delegate: GKSmoothListViewDelegate?
 
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -42,7 +48,7 @@ class GKSmoothListView: UIView {
         tableView.delegate = self
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "tableViewCell")
         tableView.rowHeight = 50.0
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = .white
         return tableView
     }()
 
@@ -57,13 +63,13 @@ class GKSmoothListView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "collectionViewCell")
-//        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .white
 
         return collectionView
     }()
     
     lazy var loadingBgView: UIView = {
-        let view = UIView();
+        let view = UIView()
         return view
     }()
     
@@ -71,10 +77,12 @@ class GKSmoothListView: UIView {
     var isRequest: Bool = false
     var listType: GKSmoothListType = .scrollView
 
-    init(listType: GKSmoothListType) {
+    init(listType: GKSmoothListType, delegate: GKSmoothListViewDelegate) {
         super.init(frame: .zero)
 
         self.listType = listType
+        self.delegate = delegate
+        
         if listType == .scrollView {
             smoothScrollView = self.scrollView
         }else if listType == .tableView {
@@ -85,6 +93,23 @@ class GKSmoothListView: UIView {
         self.addSubview(self.smoothScrollView!)
         self.smoothScrollView?.snp.makeConstraints({ (make) in
             make.edges.equalTo(self)
+        })
+        
+        self.smoothScrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.count = 30
+                self.reloadData()
+                self.smoothScrollView?.mj_header?.endRefreshing()
+            }
+        })
+        self.smoothScrollView?.mj_header?.ignoredScrollViewContentInsetTop = self.delegate!.smoothViewHeaderContainerHeight()
+        
+        self.smoothScrollView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.count += 5
+                self.reloadData()
+                self.smoothScrollView?.mj_footer?.endRefreshing()
+            }
         })
         
         self.smoothScrollView?.addSubview(self.loadingBgView)
@@ -186,7 +211,7 @@ extension GKSmoothListView: UICollectionViewDataSource, UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath)
-        cell.contentView.backgroundColor = .white
+        cell.contentView.backgroundColor = .black
         for subview in cell.contentView.subviews {
             subview.removeFromSuperview()
         }
@@ -194,7 +219,7 @@ extension GKSmoothListView: UICollectionViewDataSource, UICollectionViewDelegate
         let textLabel = UILabel()
         textLabel.font = UIFont.systemFont(ofSize: 16.0)
         textLabel.text = "第\(indexPath.item+1)行"
-        textLabel.textColor = .black
+        textLabel.textColor = .white
         cell.contentView.addSubview(textLabel)
         textLabel.snp.makeConstraints { (make) in
             make.center.equalTo(cell.contentView)

@@ -18,9 +18,17 @@ typedef NS_ENUM(NSUInteger, GKSmoothListType) {
     GKSmoothListType_WebView
 };
 
+@protocol GKSmoothListViewDelegate <NSObject>
+
+- (CGFloat)smoothViewHeaderContainerHeight;
+
+@end
+
 @interface GKSmoothListView : UIView<GKPageSmoothListViewDelegate>
 
-- (instancetype)initWithListType:(GKSmoothListType)listType;
+@property (nonatomic, weak) id<GKSmoothListViewDelegate> delegate;
+
+- (instancetype)initWithListType:(GKSmoothListType)listType deleagte:(id<GKSmoothListViewDelegate>)delegate;
 
 - (void)requestData;
 

@@ -11,8 +11,9 @@
 #import "GKSmoothListView.h"
 #import "GKDYHeaderView.h"
 #import "GKBaseListViewController.h"
+#import <MJRefresh/MJRefresh.h>
 
-@interface GKSmoothViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate>
+@interface GKSmoothViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, GKSmoothListViewDelegate>
 
 @property (nonatomic, strong) GKPageSmoothView  *smoothView;
 
@@ -66,28 +67,41 @@
 }
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
-    GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:index];
+    GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:index deleagte:self];
     [listView requestData];
     return listView;
 }
 
 #pragma mark - GKPageSmoothViewDelegate
+- (void)smoothView:(GKPageSmoothView *)smoothView headerContainerHeight:(CGFloat)height {
+    [smoothView.listDict enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, id<GKPageSmoothListViewDelegate>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if (obj.listScrollView.mj_header) {
+            obj.listScrollView.mj_header.ignoredScrollViewContentInsetTop = height;
+        }
+    }];
+}
+
 - (void)smoothView:(GKPageSmoothView *)smoothView listScrollViewDidScroll:(UIScrollView *)scrollView contentOffset:(CGPoint)contentOffset {
-    CGFloat offsetY = contentOffset.y;
-    // 0-200 0
-    // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
-    // > KDYHeaderHeigh - kNavBarheight 1
-    CGFloat alpha = 0;
-    if (offsetY < 200) {
-        alpha = 0;
-    }else if (offsetY > (kDYHeaderHeight - kNavBarHeight)) {
-        alpha = 1;
-    }else {
-        alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBarHeight - 200);
-    }
-    self.gk_navBarAlpha = alpha;
-    
-    [self.headerView scrollViewDidScroll:offsetY];
+//    CGFloat offsetY = contentOffset.y;
+//    // 0-200 0
+//    // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
+//    // > KDYHeaderHeigh - kNavBarheight 1
+//    CGFloat alpha = 0;
+//    if (offsetY < 200) {
+//        alpha = 0;
+//    }else if (offsetY > (kDYHeaderHeight - kNavBarHeight)) {
+//        alpha = 1;
+//    }else {
+//        alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBarHeight - 200);
+//    }
+//    self.gk_navBarAlpha = alpha;
+//    
+//    [self.headerView scrollViewDidScroll:offsetY];
+}
+
+#pragma mark - GKSmoothListViewDelegate
+- (CGFloat)smoothViewHeaderContainerHeight {
+    return self.smoothView.headerContainerHeight;
 }
 
 #pragma mark - 懒加载
