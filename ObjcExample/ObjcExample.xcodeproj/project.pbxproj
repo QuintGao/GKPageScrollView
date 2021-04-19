@@ -57,6 +57,7 @@
 		609B8EB6259AFD81000F1EB9 /* GKDYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E88259AFD81000F1EB9 /* GKDYViewController.m */; };
 		609B8EB7259AFD81000F1EB9 /* GKDYListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E8C259AFD81000F1EB9 /* GKDYListViewController.m */; };
 		609B8EB8259AFD81000F1EB9 /* GKDYHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */; };
+		60A14E6A262D19A500279CC1 /* GKSmoothListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */; };
 		B927B5B5BAC834684BC6753C /* libPods-ObjcExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +176,8 @@
 		609B8E8C259AFD81000F1EB9 /* GKDYListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYListViewController.m; sourceTree = "<group>"; };
 		609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYHeaderView.m; sourceTree = "<group>"; };
 		609B8EBA259AFD96000F1EB9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		60A14E68262D19A500279CC1 /* GKSmoothListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSmoothListViewController.h; sourceTree = "<group>"; };
+		60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSmoothListViewController.m; sourceTree = "<group>"; };
 		7F61CAFA991F0A136AA42888 /* Pods-ObjcExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.release.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.release.xcconfig"; sourceTree = "<group>"; };
 		B75B8F2B490CE810F2D7F56D /* Pods-ObjcExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.debug.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,6 +323,8 @@
 			children = (
 				609B8E48259AFD80000F1EB9 /* GKSmoothViewController.h */,
 				609B8E4A259AFD80000F1EB9 /* GKSmoothViewController.m */,
+				60A14E68262D19A500279CC1 /* GKSmoothListViewController.h */,
+				60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */,
 				609B8E47259AFD80000F1EB9 /* GKSmoothListView.h */,
 				609B8E49259AFD80000F1EB9 /* GKSmoothListView.m */,
 			);
@@ -602,6 +607,7 @@
 				609B8EAF259AFD81000F1EB9 /* GKNest2View.m in Sources */,
 				609B8EB7259AFD81000F1EB9 /* GKDYListViewController.m in Sources */,
 				60225D3625CD1A2C00B77B1F /* JXCategoryPinTitleView.m in Sources */,
+				60A14E6A262D19A500279CC1 /* GKSmoothListViewController.m in Sources */,
 				609B8EA1259AFD81000F1EB9 /* GKVTMagicViewController.m in Sources */,
 				60225D3325CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m in Sources */,
 				609B8E9D259AFD81000F1EB9 /* GKItemLoadViewController.m in Sources */,

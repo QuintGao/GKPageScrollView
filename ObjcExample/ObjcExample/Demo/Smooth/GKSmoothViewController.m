@@ -12,8 +12,9 @@
 #import "GKDYHeaderView.h"
 #import "GKBaseListViewController.h"
 #import <MJRefresh/MJRefresh.h>
+#import "GKSmoothListViewController.h"
 
-@interface GKSmoothViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, GKSmoothListViewDelegate>
+@interface GKSmoothViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, GKSmoothListViewDelegate, GKSmoothListViewControllerDelegate>
 
 @property (nonatomic, strong) GKPageSmoothView  *smoothView;
 
@@ -70,31 +71,26 @@
     GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:index deleagte:self];
     [listView requestData];
     return listView;
+//    GKSmoothListViewController *listVC = [GKSmoothListViewController new];
+//    listVC.delegate = self;
+//    return listVC;
 }
 
 #pragma mark - GKPageSmoothViewDelegate
-- (void)smoothView:(GKPageSmoothView *)smoothView headerContainerHeight:(CGFloat)height {
-    [smoothView.listDict enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, id<GKPageSmoothListViewDelegate>  _Nonnull obj, BOOL * _Nonnull stop) {
-        if (obj.listScrollView.mj_header) {
-            obj.listScrollView.mj_header.ignoredScrollViewContentInsetTop = height;
-        }
-    }];
-}
-
 - (void)smoothView:(GKPageSmoothView *)smoothView listScrollViewDidScroll:(UIScrollView *)scrollView contentOffset:(CGPoint)contentOffset {
-//    CGFloat offsetY = contentOffset.y;
-//    // 0-200 0
-//    // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
-//    // > KDYHeaderHeigh - kNavBarheight 1
-//    CGFloat alpha = 0;
-//    if (offsetY < 200) {
-//        alpha = 0;
-//    }else if (offsetY > (kDYHeaderHeight - kNavBarHeight)) {
-//        alpha = 1;
-//    }else {
-//        alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBarHeight - 200);
-//    }
-//    self.gk_navBarAlpha = alpha;
+    CGFloat offsetY = contentOffset.y;
+    // 0-200 0
+    // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
+    // > KDYHeaderHeigh - kNavBarheight 1
+    CGFloat alpha = 0;
+    if (offsetY < 200) {
+        alpha = 0;
+    }else if (offsetY > (kDYHeaderHeight - kNavBarHeight)) {
+        alpha = 1;
+    }else {
+        alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBarHeight - 200);
+    }
+    self.gk_navBarAlpha = alpha;
 //    
 //    [self.headerView scrollViewDidScroll:offsetY];
 }
@@ -142,6 +138,7 @@
         _categoryView.titleColor = [UIColor blackColor];
         _categoryView.titleSelectedColor = [UIColor blackColor];
         _categoryView.titleLabelZoomEnabled = YES;
+        _categoryView.contentScrollViewClickTransitionAnimationEnabled = NO;
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;

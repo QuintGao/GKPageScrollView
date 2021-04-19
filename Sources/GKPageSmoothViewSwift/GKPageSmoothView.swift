@@ -719,6 +719,8 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             }
             listHeaderDict[indexPath.item] = listHeader
             list?.listScrollView().addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
+            // bug fix #69 修复首次进入时可能出现的headerView无法下拉的问题
+            listScrollView?.contentOffset = listScrollView!.contentOffset
         }
         listDict.values.forEach {
             $0.listScrollView().scrollsToTop = ($0 === list)
@@ -783,7 +785,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
-        horizontalScrollDidEnd(at: index)
+        currentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
+        currentListScrollView = self.listDict[currentIndex]?.listScrollView()
     }
 }
