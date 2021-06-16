@@ -15,7 +15,15 @@ typedef NS_ENUM(NSUInteger, GKPinLocationViewType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol GKPinLocationViewDelegate <NSObject>
+
+- (void)locationViewDidEndAnimation:(UIScrollView *)scrollView;
+
+@end
+
 @interface GKPinLocationView : UIView<GKPageSmoothListViewDelegate>
+
+@property (nonatomic, weak) id<GKPinLocationViewDelegate> delegate;
 
 @property (nonatomic, strong) NSArray *data;
 

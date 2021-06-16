@@ -178,6 +178,13 @@ open class GKPageScrollView: UIView {
     // 是否加载
     var isLoaded: Bool = false
     
+    // headerView的高度
+    var headerHeight: CGFloat = 0
+    
+    // 临界点
+    var criticalPoint: CGFloat = 0
+    var criticalOffset: CGPoint = .zero
+    
     public init(delegate: GKPageScrollViewDelegate) {
         self.delegate = delegate
         super.init(frame: .zero)
@@ -200,12 +207,12 @@ open class GKPageScrollView: UIView {
         self.mainTableView.separatorStyle = .none
         self.mainTableView.showsVerticalScrollIndicator = false
         self.mainTableView.showsHorizontalScrollIndicator = false
-        self.mainTableView.tableHeaderView = self.delegate?.headerView(in: self)
         self.mainTableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
         if #available(iOS 11.0, *) {
             self.mainTableView.contentInsetAdjustmentBehavior = .never
         }
         self.addSubview(mainTableView)
+        self.refreshHeaderView()
         
         if self.shouldLazyLoadListView() {
             self.mainTableView.horizontalScrollViewList = [self.listContainerView.collectionView]
@@ -214,7 +221,9 @@ open class GKPageScrollView: UIView {
     
     // MARK: - Public Methods
     public func refreshHeaderView() {
-        self.mainTableView.tableHeaderView = self.delegate?.headerView(in: self)
+        let headerView = self.delegate?.headerView(in: self)
+        self.mainTableView.tableHeaderView = headerView
+        self.headerHeight = headerView?.frame.size.height ?? 0
     }
     
     public func refreshSegmentedView() {
@@ -243,6 +252,8 @@ open class GKPageScrollView: UIView {
         }
         
         self.mainTableView.reloadData()
+        self.criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
+        self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
     }
     
     public func horizonScrollViewWillBeginScroll() {
@@ -272,9 +283,7 @@ open class GKPageScrollView: UIView {
         
         self.isScrollToCritical = true
         
-        let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
-        
-        self.mainTableView.setContentOffset(CGPoint(x: 0, y: criticalPoint), animated: true)
+        self.mainTableView.setContentOffset(self.criticalOffset, animated: true)
         
         self.isMainCanScroll = false
         self.isListCanScroll = true
@@ -300,7 +309,7 @@ open class GKPageScrollView: UIView {
                     self.isMainCanScroll = true
                     self.isListCanScroll = false
 
-                    scrollView.contentOffset = .zero
+                    self.set(scrollView: scrollView, offset: .zero)
                     if self.isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
                     }
@@ -314,7 +323,7 @@ open class GKPageScrollView: UIView {
                     self.isListCanScroll = false
 
                     if (scrollView.isDecelerating) { return }
-                    scrollView.contentOffset = .zero
+                    self.set(scrollView: scrollView, offset: .zero)
                     if self.isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
                     }
@@ -326,30 +335,28 @@ open class GKPageScrollView: UIView {
                     scrollView.showsVerticalScrollIndicator = true
                 }
                 
-                let headerHeight = self.delegate?.headerView(in: self).frame.size.height
+                let headerHeight = self.headerHeight
                 
-                if floor(headerHeight ?? 0) == 0 {
-                    let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
-                    self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+                if floor(headerHeight) == 0 {
+                    self.set(scrollView: self.mainTableView, offset: self.criticalOffset)
                 }else {
                     // 如果此时mainTableView并没有滑动，则禁止listView滑动
-                    if self.mainTableView.contentOffset.y == 0 && floor(headerHeight ?? 0) != 0 {
+                    if self.mainTableView.contentOffset.y == 0 && floor(headerHeight) != 0 {
                         self.isMainCanScroll = true
                         self.isListCanScroll = false
 
                         if (scrollView.isDecelerating) { return }
-                        scrollView.contentOffset = .zero
+                        self.set(scrollView: scrollView, offset: .zero)
                         if self.isControlVerticalIndicator {
                             scrollView.showsVerticalScrollIndicator = false
                         }
                     }else { // 矫正mainTableView的位置
-                        let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
-                        self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+                        self.set(scrollView: self.mainTableView, offset: self.criticalOffset)
                     }
                 }
             }else {
                 if (scrollView.isDecelerating) { return }
-                scrollView.contentOffset = .zero
+                self.set(scrollView: scrollView, offset: .zero)
             }
         }
     }
@@ -366,13 +373,11 @@ open class GKPageScrollView: UIView {
         
         // 获取mainScrollView偏移量
         let offsetY = scrollView.contentOffset.y
-        // 临界点
-        let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
         
         if self.isScrollToOriginal || self.isScrollToCritical {return}
         
         // 根据偏移量判断是否上滑到临界点
-        if offsetY >= criticalPoint {
+        if offsetY >= self.criticalPoint {
             self.isCriticalPoint = true
         }else {
             self.isCriticalPoint = false
@@ -380,14 +385,14 @@ open class GKPageScrollView: UIView {
         
         // 无偏差临界点，对float值取整判断
         if !self.isCeilPoint {
-            if floor(offsetY) == floor(criticalPoint) {
+            if floor(offsetY) == floor(self.criticalPoint) {
                 self.isCeilPoint = true
             }
         }
         
         if self.isCriticalPoint {
             // 上滑到临界点后，固定其位置
-            scrollView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+            self.set(scrollView: scrollView, offset: self.criticalOffset)
             self.isMainCanScroll = false
             self.isListCanScroll = true
         }else {
@@ -395,7 +400,7 @@ open class GKPageScrollView: UIView {
             if self.isCeilPoint && self.isDisableMainScrollInCeil {
                 self.isMainCanScroll = false
                 self.isListCanScroll = true
-                scrollView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+                self.set(scrollView: scrollView, offset: self.criticalOffset)
             }else {
                 if self.isDisableMainScrollInCeil {
                     if self.isMainCanScroll {
@@ -408,7 +413,7 @@ open class GKPageScrollView: UIView {
                 }else {
                     // 如果允许列表刷新，且mainTableView的offsetY小于0 或者 当前列表的offsetY小于0，mainTableView不可滑动
                     if self.isAllowListRefresh && ((offsetY <= 0 && self.isMainCanScroll) || (self.currentListScrollView.contentOffset.y < 0 && self.isListCanScroll)) {
-                        scrollView.contentOffset = .zero
+                        self.set(scrollView: scrollView, offset: .zero)
                     }else {
                         if self.isMainCanScroll {
                             // 未达到临界点，mainTableView可滑动，需要重置所有listScrollView的位置
@@ -437,14 +442,11 @@ open class GKPageScrollView: UIView {
     
     // 修正mainTableView的位置
     fileprivate func mainScrollViewOffsetFixed() {
-        // 获取临界点位置
-        let criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
-        
         if self.shouldLazyLoadListView() {
             for listItem in self.validListDict.values {
                 let listScrollView = listItem.listScrollView()
                 if listScrollView.contentOffset.y != 0 {
-                    self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+                    self.set(scrollView: self.mainTableView, offset: self.criticalOffset)
                 }
             }
         }else {
@@ -453,7 +455,7 @@ open class GKPageScrollView: UIView {
                     let listScrollView = value.listScrollView()
                     
                     if listScrollView.contentOffset.y != 0 {
-                        self.mainTableView.contentOffset = CGPoint(x: 0, y: criticalPoint)
+                        self.set(scrollView: self.mainTableView, offset: self.criticalOffset)
                     }
                 }
             }
@@ -464,7 +466,7 @@ open class GKPageScrollView: UIView {
         if self.shouldLazyLoadListView() {
             for listItem in self.validListDict.values {
                 let listScrollView = listItem.listScrollView()
-                listScrollView.contentOffset = .zero
+                self.set(scrollView: listScrollView, offset: .zero)
                 if self.isControlVerticalIndicator {
                     listScrollView.showsVerticalScrollIndicator = false
                 }
@@ -473,7 +475,7 @@ open class GKPageScrollView: UIView {
             if self.delegate!.listView?(in: self).count ?? 0 > 0 {
                 for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
                     let listScrollView = value.listScrollView()
-                    listScrollView.contentOffset = .zero
+                    self.set(scrollView: listScrollView, offset: .zero)
                     if self.isControlVerticalIndicator {
                         listScrollView.showsVerticalScrollIndicator = false
                     }
@@ -491,6 +493,12 @@ open class GKPageScrollView: UIView {
             return self.delegate!.shouldLazyLoadList!(in: self)
         }else {
             return self.isLazyLoadList
+        }
+    }
+    
+    fileprivate func set(scrollView: UIScrollView, offset: CGPoint) {
+        if !__CGPointEqualToPoint(scrollView.contentOffset, offset) {
+            scrollView.contentOffset = offset
         }
     }
 }

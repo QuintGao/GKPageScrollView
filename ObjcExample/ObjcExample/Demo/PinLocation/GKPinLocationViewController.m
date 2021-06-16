@@ -10,13 +10,15 @@
 #import <GKPageSmoothView/GKPageSmoothView.h>
 #import "GKPinLocationView.h"
 
-@interface GKPinLocationViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, JXCategoryViewDelegate>
+@interface GKPinLocationViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, JXCategoryViewDelegate, GKPinLocationViewDelegate>
 
 @property (nonatomic, strong) GKPageSmoothView *smoothView;
 
 @property (nonatomic, strong) UIImageView *headerView;
 
 @property (nonatomic, strong) JXCategoryPinTitleView *titleView;
+
+@property (nonatomic, assign) BOOL isAnimation;
 
 @end
 
@@ -45,10 +47,12 @@
 
 - (void)oriAction {
     [self.smoothView scrollToOriginalPoint];
+    self.isAnimation = YES;
 }
 
 - (void)criAction {
     [self.smoothView scrollToCriticalPoint];
+    self.isAnimation = YES;
 }
 
 #pragma mark - GKPageSmoothViewDataSource
@@ -81,7 +85,9 @@
 
 #pragma mark - GKPageSmoothViewDelegate
 - (void)smoothView:(GKPageSmoothView *)smoothView listScrollViewDidScroll:(UIScrollView *)scrollView contentOffset:(CGPoint)contentOffset {
-    if (!(scrollView.isTracking || scrollView.isDecelerating)) return;
+    if (!self.isAnimation) {
+        if (!(scrollView.isTracking || scrollView.isDecelerating)) return;
+    }
     
     //用户滚动的才处理
     //获取categoryView下面一点的所有布局信息，用于知道，当前最上方是显示的哪个section
@@ -104,6 +110,11 @@
     UITableView *tableView = (UITableView *)self.smoothView.currentListScrollView;
     CGRect frame = [tableView rectForHeaderInSection:index];
     [tableView setContentOffset:CGPointMake(0, frame.origin.y - kBaseHeaderHeight + kBaseSegmentHeight + 40) animated:YES];
+}
+
+#pragma mark - GKPinLocationViewDelegate
+- (void)locationViewDidEndAnimation:(UIScrollView *)scrollView {
+    self.isAnimation = NO;
 }
 
 #pragma mark - 懒加载

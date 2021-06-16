@@ -41,6 +41,13 @@
 // 是否加载
 @property (nonatomic, assign) BOOL isLoaded;
 
+// headerView的高度
+@property (nonatomic, assign) CGFloat headerHeight;
+
+// 临界点
+@property (nonatomic, assign) CGFloat criticalPoint;
+@property (nonatomic, assign) CGPoint criticalOffset;
+
 @end
 
 @implementation GKPageScrollView
@@ -73,12 +80,12 @@
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.mainTableView.showsVerticalScrollIndicator = NO;
     self.mainTableView.showsHorizontalScrollIndicator = NO;
-    self.mainTableView.tableHeaderView = [self.delegate headerViewInPageScrollView:self];
     [self.mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     if (@available(iOS 11.0, *)) {
         self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self addSubview:self.mainTableView];
+    [self refreshHeaderView];
     
     if ([self shouldLazyLoadListView]) {
         self.mainTableView.horizontalScrollViewList = @[self.listContainerView.collectionView];
@@ -108,7 +115,9 @@
 
 #pragma mark - Public Methods
 - (void)refreshHeaderView {
-    self.mainTableView.tableHeaderView = [self.delegate headerViewInPageScrollView:self];
+    UIView *headerView = [self.delegate headerViewInPageScrollView:self];
+    self.mainTableView.tableHeaderView = headerView;
+    self.headerHeight = headerView.frame.size.height;
 }
 
 - (void)refreshSegmentedView {
@@ -137,6 +146,9 @@
     }
     
     [self.mainTableView reloadData];
+    
+    self.criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
+    self.criticalOffset = CGPointMake(0, self.criticalPoint);
 }
 
 - (void)horizonScrollViewWillBeginScroll {
@@ -167,9 +179,7 @@
     
     self.isScrollToCritical = YES;
     
-    CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
-    
-    [self.mainTableView setContentOffset:CGPointMake(0, criticalPoint) animated:YES];
+    [self.mainTableView setContentOffset:self.criticalOffset animated:YES];
     
     self.isMainCanScroll = NO;
     self.isListCanScroll = YES;
@@ -204,8 +214,8 @@
             }else {
                 self.isMainCanScroll = YES;
                 self.isListCanScroll = NO;
-
-                scrollView.contentOffset = CGPointZero;
+                
+                [self setScrollView:scrollView offset:CGPointZero];
                 if (self.isControlVerticalIndicator) {
                     scrollView.showsVerticalScrollIndicator = NO;
                 }
@@ -219,7 +229,7 @@
                 self.isListCanScroll = NO;
 
                 if (scrollView.isDecelerating) return;
-                scrollView.contentOffset = CGPointZero;
+                [self setScrollView:scrollView offset:CGPointZero];
                 if (self.isControlVerticalIndicator) {
                     scrollView.showsVerticalScrollIndicator = NO;
                 }
@@ -231,11 +241,10 @@
                 scrollView.showsVerticalScrollIndicator = YES;
             }
             
-            CGFloat headerHeight = CGRectGetHeight([self.delegate headerViewInPageScrollView:self].frame);
+            CGFloat headerHeight = self.headerHeight;
             
             if (floor(headerHeight) == 0) {
-                CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
-                self.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
+                [self setScrollView:self.mainTableView offset:self.criticalOffset];
             }else {
                 // 如果此时mianTableView并没有滑动，则禁止listView滑动
                 if (self.mainTableView.contentOffset.y == 0 && floor(headerHeight) != 0) {
@@ -243,18 +252,17 @@
                     self.isListCanScroll = NO;
 
                     if (scrollView.isDecelerating) return;
-                    scrollView.contentOffset = CGPointZero;
+                    [self setScrollView:scrollView offset:CGPointZero];
                     if (self.isControlVerticalIndicator) {
                         scrollView.showsVerticalScrollIndicator = NO;
                     }
                 }else { // 矫正mainTableView的位置
-                    CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
-                    self.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
+                    [self setScrollView:self.mainTableView offset:self.criticalOffset];
                 }
             }
         }else {
             if (scrollView.isDecelerating) return;
-            scrollView.contentOffset = CGPointZero;
+            [self setScrollView:scrollView offset:CGPointZero];
         }
     }
 }
@@ -270,13 +278,11 @@
     }
     // 获取mainScrollview偏移量
     CGFloat offsetY = scrollView.contentOffset.y;
-    // 临界点
-    CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
     
     if (self.isScrollToOriginal || self.isScrollToCritical) return;
     
     // 根据偏移量判断是否上滑到临界点
-    if (offsetY >= criticalPoint) {
+    if (offsetY >= self.criticalPoint) {
         self.isCriticalPoint = YES;
     }else {
         self.isCriticalPoint = NO;
@@ -284,14 +290,14 @@
     
     // 无偏差临界点，对float值取整判断
     if (!self.isCeilPoint ) {
-        if (floor(offsetY) == floor(criticalPoint)) {
+        if (floor(offsetY) == floor(self.criticalPoint)) {
             self.isCeilPoint = YES;
         }
     }
     
     if (self.isCriticalPoint) {
         // 上滑到临界点后，固定其位置
-        scrollView.contentOffset = CGPointMake(0, criticalPoint);
+        [self setScrollView:scrollView offset:self.criticalOffset];
         self.isMainCanScroll = NO;
         self.isListCanScroll = YES;
     }else {
@@ -299,7 +305,7 @@
         if (self.isCeilPoint && self.isDisableMainScrollInCeil) {
             self.isMainCanScroll = NO;
             self.isListCanScroll = YES;
-            scrollView.contentOffset = CGPointMake(0, criticalPoint);
+            [self setScrollView:scrollView offset:self.criticalOffset];
         }else {
             if (self.isDisableMainScrollInCeil) {
                 if (self.isMainCanScroll) {
@@ -312,7 +318,7 @@
             }else {
                 // 如果允许列表刷新，并且mainTableView的offsetY小于0 或者 当前列表的offsetY小于0,mainScrollView不可滑动
                 if (self.isAllowListRefresh && ((offsetY <= 0 && self.isMainCanScroll) || (self.currentListScrollView.contentOffset.y < 0 && self.isListCanScroll))) {
-                    scrollView.contentOffset = CGPointZero;
+                    [self setScrollView:scrollView offset:CGPointZero];
                 }else {
                     if (self.isMainCanScroll) {
                         // 未达到临界点，mainScrollview可滑动，需要重置所有listScrollView的位置
@@ -331,21 +337,18 @@
 
 // 修正mainTableView的位置
 - (void)mainScrollViewOffsetFixed {
-    // 获取临界点位置
-    CGFloat criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
-    
     if ([self shouldLazyLoadListView]) {
         for (id<GKPageListViewDelegate> listItem in self.validListDict.allValues) {
             UIScrollView *listScrollView = [listItem listScrollView];
             if (listScrollView.contentOffset.y != 0) {
-                self.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
+                [self setScrollView:self.mainTableView offset:self.criticalOffset];
             }
         }
     }else {
         [[self.delegate listViewsInPageScrollView:self] enumerateObjectsUsingBlock:^(id<GKPageListViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIScrollView *listScrollView = [obj listScrollView];
             if (listScrollView.contentOffset.y != 0) {
-                self.mainTableView.contentOffset = CGPointMake(0, criticalPoint);
+                [self setScrollView:self.mainTableView offset:self.criticalOffset];
             }
         }];
     }
@@ -356,7 +359,7 @@
     if ([self shouldLazyLoadListView]) {
         for (id<GKPageListViewDelegate> listItem in self.validListDict.allValues) {
             UIScrollView *listScrollView = [listItem listScrollView];
-            listScrollView.contentOffset = CGPointZero;
+            [self setScrollView:listScrollView offset:CGPointZero];
             if (self.isControlVerticalIndicator) {
                 listScrollView.showsVerticalScrollIndicator = NO;
             }
@@ -364,7 +367,7 @@
     }else {
         [[self.delegate listViewsInPageScrollView:self] enumerateObjectsUsingBlock:^(id<GKPageListViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIScrollView *listScrollView = [obj listScrollView];
-            listScrollView.contentOffset = CGPointZero;
+            [self setScrollView:listScrollView offset:CGPointZero];
             if (self.isControlVerticalIndicator) {
                 listScrollView.showsVerticalScrollIndicator = NO;
             }
@@ -383,6 +386,12 @@
         return [self.delegate shouldLazyLoadListInPageScrollView:self];
     }else {
         return _lazyLoadList;
+    }
+}
+
+- (void)setScrollView:(UIScrollView *)scrollView offset:(CGPoint)offset {
+    if (!CGPointEqualToPoint(scrollView.contentOffset, offset)) {
+        scrollView.contentOffset = offset;
     }
 }
 

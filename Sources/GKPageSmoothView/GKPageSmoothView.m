@@ -245,7 +245,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         if (!self.isOnTop) {
             listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
             self.currentListInitializeContentOffsetY = -listScrollView.contentInset.top + MIN(-self.currentHeaderContainerViewY, (self.headerHeight - self.ceilPointHeight));
-            listScrollView.contentOffset = CGPointMake(0, self.currentListInitializeContentOffsetY);
+            [self setScrollView:listScrollView offset:CGPointMake(0, self.currentListInitializeContentOffsetY)];
         }
         UIView *listHeader = [[UIView alloc] initWithFrame:CGRectMake(0, -self.headerContainerHeight, self.bounds.size.width, self.headerContainerHeight)];
         [listScrollView addSubview:listHeader];
@@ -494,7 +494,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         // buf fix #47，iOS12及以下系统isDragging会出现不准确的情况，所以这里改为用isTracking判断
         if (self.isAllowDragScroll && (scrollView.isTracking || scrollView.isDecelerating)) {
             if (scrollView.contentOffset.y < 0) {
-                scrollView.contentOffset = CGPointZero;
+                [self setScrollView:scrollView offset:CGPointZero];
             }
         }
         
@@ -662,7 +662,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (void)forbidScrolling:(UIScrollView *)scrollView {
-    scrollView.contentOffset = CGPointZero;
+    [self setScrollView:scrollView offset:CGPointZero];
     scrollView.bounces = NO;
     scrollView.showsVerticalScrollIndicator = NO;
 }
@@ -722,7 +722,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         
         for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
             list.listScrollView.contentInset = UIEdgeInsetsZero;
-            list.listScrollView.contentOffset = CGPointZero;
+            [self setScrollView:list.listScrollView offset:CGPointZero];
             
             CGRect frame = list.listView.frame;
             frame.size = self.listCollectionView.bounds.size;
@@ -747,13 +747,19 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         
         for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
             list.listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
-            list.listScrollView.contentOffset = CGPointZero;
+            [self setScrollView:list.listScrollView offset:CGPointZero];
             
             CGRect frame = list.listView.frame;
             frame.size = self.listCollectionView.bounds.size;
             list.listView.frame = frame;
         }
-        self.currentListScrollView.contentOffset = CGPointMake(0, self.currentListPanBeganContentOffsetY);
+        [self setScrollView:self.currentListScrollView offset:CGPointMake(0, self.currentListPanBeganContentOffsetY)];
+    }
+}
+
+- (void)setScrollView:(UIScrollView *)scrollView offset:(CGPoint)offset {
+    if (!CGPointEqualToPoint(scrollView.contentOffset, offset)) {
+        scrollView.contentOffset = offset;
     }
 }
 

@@ -434,7 +434,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             // buf fix #47，iOS12及以下系统isDragging会出现不准确的情况，所以这里改为用isTracking判断
             if self.isAllowDragScroll && (scrollView.isTracking || scrollView.isDecelerating) {
                 if scrollView.contentOffset.y < 0 {
-                    scrollView.contentOffset = .zero
+                    self.set(scrollView: scrollView, offset: .zero)
                 }
             }
             self.delegate?.smoothViewListScrollViewDidScroll?(self, scrollView: scrollView, contentOffset: scrollView.contentOffset)
@@ -582,7 +582,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     }
     
     func forbidScrolling(scrollView: UIScrollView?) {
-        scrollView?.contentOffset = .zero
+        self.set(scrollView: scrollView, offset: .zero)
         scrollView?.bounces = false
         scrollView?.showsVerticalScrollIndicator = false
     }
@@ -637,7 +637,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             
             self.listDict.values.forEach {
                 $0.listScrollView().contentInset = .zero
-                $0.listScrollView().contentOffset = .zero
+                self.set(scrollView: $0.listScrollView(), offset: .zero)
                 
                 var frame = $0.listView().frame
                 frame.size = self.listCollectionView.bounds.size
@@ -663,13 +663,19 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             
             self.listDict.values.forEach {
                 $0.listScrollView().contentInset = UIEdgeInsets(top: self.headerContainerHeight, left: 0, bottom: 0, right: 0)
-                $0.listScrollView().contentOffset = .zero
+                self.set(scrollView: $0.listScrollView(), offset: .zero)
                 
                 var frame = $0.listView().frame
                 frame.size = self.listCollectionView.bounds.size
                 $0.listView().frame = frame
             }
-            self.currentListScrollView?.contentOffset = CGPoint(x: 0, y: self.currentListPanBeganContentOffsetY)
+            self.set(scrollView: self.currentListScrollView, offset: CGPoint(x: 0, y: self.currentListPanBeganContentOffsetY))
+        }
+    }
+    
+    fileprivate func set(scrollView: UIScrollView?, offset: CGPoint) {
+        if !__CGPointEqualToPoint(scrollView?.contentOffset ?? .zero, offset) {
+            scrollView?.contentOffset = offset
         }
     }
 }
@@ -709,7 +715,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             if !self.isOnTop {
                 list?.listScrollView().contentInset = UIEdgeInsets(top: headerContainerHeight, left: 0, bottom: 0, right: 0)
                 currentListInitailzeContentOffsetY = -headerContainerHeight + min(-currentHeaderContainerViewY, (headerHeight - ceilPointHeight))
-                list?.listScrollView().contentOffset = CGPoint(x: 0, y: currentListInitailzeContentOffsetY)
+                self.set(scrollView: list?.listScrollView(), offset: CGPoint(x: 0, y: currentListInitailzeContentOffsetY))
             }
             let listHeader = UIView(frame: CGRect(x: 0, y: -headerContainerHeight, width: bounds.size.width, height: headerContainerHeight))
             listScrollView?.addSubview(listHeader)

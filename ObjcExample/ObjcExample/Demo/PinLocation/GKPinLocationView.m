@@ -87,6 +87,12 @@
     return header;
 }
 
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(locationViewDidEndAnimation:)]) {
+        [self.delegate locationViewDidEndAnimation:scrollView];
+    }
+}
+
 #pragma mark - 懒加载
 - (UITableView *)tableView {
     if (!_tableView) {

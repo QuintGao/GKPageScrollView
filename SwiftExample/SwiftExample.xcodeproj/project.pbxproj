@@ -229,8 +229,8 @@
 		609B8FD4259B0558000F1EB9 /* Smooth */ = {
 			isa = PBXGroup;
 			children = (
-				609B8FD5259B0558000F1EB9 /* GKSmoothListView.swift */,
 				609B8FD6259B0558000F1EB9 /* GKSmoothViewController.swift */,
+				609B8FD5259B0558000F1EB9 /* GKSmoothListView.swift */,
 			);
 			path = Smooth;
 			sourceTree = "<group>";

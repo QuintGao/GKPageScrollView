@@ -95,22 +95,22 @@ extension GKSmoothViewController: GKPageSmoothViewDataSource, GKPageSmoothViewDe
     }
     
     func smoothViewListScrollViewDidScroll(_ smoothView: GKPageSmoothView, scrollView: UIScrollView, contentOffset: CGPoint) {
-//        // 导航栏显隐
-//        let offsetY = contentOffset.y
-//        // 0-200 0
-//        // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
-//        // > KDYHeaderHeigh - kNavBarheight 1
-//        var alpha: CGFloat = 0;
-//        if (offsetY < 200) {
-//            alpha = 0;
-//        }else if (offsetY > (kDYHeaderHeight - kNavBar_Height)) {
-//            alpha = 1;
-//        }else {
-//            alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBar_Height - 200);
-//        }
-//        self.gk_navBarAlpha = alpha;
-//        
-//        self.headerView.scrollViewDidScroll(offsetY: offsetY);
+        // 导航栏显隐
+        let offsetY = contentOffset.y
+        // 0-200 0
+        // 200 - KDYHeaderHeigh - kNavBarheight 渐变从0-1
+        // > KDYHeaderHeigh - kNavBarheight 1
+        var alpha: CGFloat = 0;
+        if (offsetY < 200) {
+            alpha = 0;
+        }else if (offsetY > (kDYHeaderHeight - kNavBar_Height)) {
+            alpha = 1;
+        }else {
+            alpha = (offsetY - 200) / (kDYHeaderHeight - kNavBar_Height - 200);
+        }
+        self.gk_navBarAlpha = alpha;
+        
+        self.headerView.scrollViewDidScroll(offsetY: offsetY);
     }
     
     func smoothViewHeaderContainerHeight() -> CGFloat {

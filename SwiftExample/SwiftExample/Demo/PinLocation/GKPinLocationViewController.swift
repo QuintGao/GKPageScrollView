@@ -51,12 +51,23 @@ class GKPinLocationViewController: GKDemoBaseViewController {
         self.gk_navTitleFont = UIFont.boldSystemFont(ofSize: 18)
         self.gk_navBackgroundColor = .clear
         self.gk_statusBarStyle = .lightContent
+//        let oriItem = UIBarButtonItem.gk_item(title:"原点", target: self, action: #selector(criAction))
+//        let criItem = UIBarButtonItem.gk_item(title: "临界点", target: self, action: #selector(oriAction))
+//        self.gk_navRightBarButtonItems = [oriItem, criItem]
         
         view.addSubview(smoothView)
         smoothView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
         smoothView.reloadData()
+    }
+    
+    @objc func oriAction() {
+        self.smoothView.scrollToOriginalPoint()
+    }
+    
+    @objc func criAction() {
+        self.smoothView.scrollToCriticalPoint()
     }
     
     func changeImage(image: UIImage, color: UIColor) -> UIImage {
