@@ -118,6 +118,9 @@
     UIView *headerView = [self.delegate headerViewInPageScrollView:self];
     self.mainTableView.tableHeaderView = headerView;
     self.headerHeight = headerView.frame.size.height;
+    
+    self.criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
+    self.criticalOffset = CGPointMake(0, self.criticalPoint);
 }
 
 - (void)refreshSegmentedView {

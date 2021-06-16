@@ -224,6 +224,9 @@ open class GKPageScrollView: UIView {
         let headerView = self.delegate?.headerView(in: self)
         self.mainTableView.tableHeaderView = headerView
         self.headerHeight = headerView?.frame.size.height ?? 0
+        
+        self.criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
+        self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
     }
     
     public func refreshSegmentedView() {
