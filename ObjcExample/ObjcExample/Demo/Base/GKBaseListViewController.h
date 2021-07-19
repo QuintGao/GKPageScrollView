@@ -7,7 +7,8 @@
 //
 
 #import "GKBaseTableViewController.h"
-#import "GKPageScrollView.h"
+#import <GKPageScrollView/GKPageScrollView.h>
+#import <GKPageSmoothView/GKPageSmoothView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,7 @@ typedef NS_ENUM(NSUInteger, GKBaseListType) {
     GKBaseListType_WKWebView            = 3
 };
 
-@interface GKBaseListViewController : UIViewController<GKPageListViewDelegate>
+@interface GKBaseListViewController : UIViewController<GKPageListViewDelegate, GKPageSmoothListViewDelegate>
 
 - (instancetype)initWithListType:(GKBaseListType)listType;
 

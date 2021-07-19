@@ -87,6 +87,9 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 @property (nonatomic, assign) NSInteger defaultSelectedIndex;
 @property (nonatomic, weak, readonly) UIScrollView *currentListScrollView;
 
+/// 是否禁止主页滑动，默认NO
+@property (nonatomic, assign, getter=isMainScrollDisabled) BOOL mainScrollDisabled;
+
 /// 吸顶临界高度（默认为0）
 @property (nonatomic, assign) CGFloat ceilPointHeight;
 

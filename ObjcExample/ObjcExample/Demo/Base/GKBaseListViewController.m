@@ -243,7 +243,7 @@
     !self.listScrollViewScrollCallback ? : self.listScrollViewScrollCallback(scrollView);
 }
 
-#pragma mark - GKPageListViewDelegate
+#pragma mark - GKPageListViewDelegate or GKPageSmoothListViewDelegate
 - (UIView *)listView {
     return self.view;
 }

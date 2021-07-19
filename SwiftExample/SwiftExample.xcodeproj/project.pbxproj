@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600408A426A18B22001788E5 /* GKSmoothMainDisabledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600408A326A18B22001788E5 /* GKSmoothMainDisabledViewController.swift */; };
+		600408AB26A51DAC001788E5 /* GKPageMainDisabledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600408AA26A51DAC001788E5 /* GKPageMainDisabledViewController.swift */; };
 		609B8DA9259AFC5B000F1EB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B8DA8259AFC5B000F1EB9 /* AppDelegate.swift */; };
 		609B8DAD259AFC5B000F1EB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B8DAC259AFC5B000F1EB9 /* ViewController.swift */; };
 		609B8DB2259AFC5E000F1EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 609B8DB1259AFC5E000F1EB9 /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 /* Begin PBXFileReference section */
 		0809C38C56EF56CF08BC46F2 /* Pods_SwiftExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560885CEED35AE4E11005FEF /* Pods-SwiftExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftExample.release.xcconfig"; path = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.release.xcconfig"; sourceTree = "<group>"; };
+		600408A326A18B22001788E5 /* GKSmoothMainDisabledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSmoothMainDisabledViewController.swift; sourceTree = "<group>"; };
+		600408AA26A51DAC001788E5 /* GKPageMainDisabledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPageMainDisabledViewController.swift; sourceTree = "<group>"; };
 		609B8DA5259AFC5B000F1EB9 /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609B8DA8259AFC5B000F1EB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609B8DAC259AFC5B000F1EB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		600408A026A18AA6001788E5 /* GKPageSmoothView */ = {
+			isa = PBXGroup;
+			children = (
+				600408A226A18AED001788E5 /* MainScrollDisabled */,
+				609B8FD1259B0558000F1EB9 /* 豆瓣 */,
+				609B8FD4259B0558000F1EB9 /* Smooth */,
+				60B29607260338FD006FDBB4 /* PinLocation */,
+			);
+			path = GKPageSmoothView;
+			sourceTree = "<group>";
+		};
+		600408A126A18AAE001788E5 /* GKPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				609B8FDF259B0558000F1EB9 /* 微博 */,
+				609B8FD9259B0558000F1EB9 /* 网易云音乐 */,
+				609B8FFA259B0558000F1EB9 /* 抖音 */,
+				609B8FE9259B0558000F1EB9 /* MainRefresh */,
+				609B8FE5259B0558000F1EB9 /* ListRefresh */,
+				609B8FE7259B0558000F1EB9 /* ListLoad */,
+				609B8FD7259B0558000F1EB9 /* ItemLoad */,
+				609B8FEB259B0558000F1EB9 /* HeaderScroll */,
+				609B8FDD259B0558000F1EB9 /* VTMagic */,
+				609B8FEE259B0558000F1EB9 /* Nest */,
+				600408A926A51D8D001788E5 /* MainScrollDisabled */,
+			);
+			path = GKPageScrollView;
+			sourceTree = "<group>";
+		};
+		600408A226A18AED001788E5 /* MainScrollDisabled */ = {
+			isa = PBXGroup;
+			children = (
+				600408A326A18B22001788E5 /* GKSmoothMainDisabledViewController.swift */,
+			);
+			path = MainScrollDisabled;
+			sourceTree = "<group>";
+		};
+		600408A926A51D8D001788E5 /* MainScrollDisabled */ = {
+			isa = PBXGroup;
+			children = (
+				600408AA26A51DAC001788E5 /* GKPageMainDisabledViewController.swift */,
+			);
+			path = MainScrollDisabled;
+			sourceTree = "<group>";
+		};
 		609B8D9C259AFC5B000F1EB9 = {
 			isa = PBXGroup;
 			children = (
@@ -178,19 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				609B8FF5259B0558000F1EB9 /* Base */,
-				609B8FDF259B0558000F1EB9 /* 微博 */,
-				609B8FD9259B0558000F1EB9 /* 网易云音乐 */,
-				609B8FFA259B0558000F1EB9 /* 抖音 */,
-				609B8FD1259B0558000F1EB9 /* 豆瓣 */,
-				609B8FE9259B0558000F1EB9 /* MainRefresh */,
-				609B8FE5259B0558000F1EB9 /* ListRefresh */,
-				609B8FE7259B0558000F1EB9 /* ListLoad */,
-				609B8FD7259B0558000F1EB9 /* ItemLoad */,
-				609B8FEB259B0558000F1EB9 /* HeaderScroll */,
-				609B8FDD259B0558000F1EB9 /* VTMagic */,
-				609B8FEE259B0558000F1EB9 /* Nest */,
-				609B8FD4259B0558000F1EB9 /* Smooth */,
-				60B29607260338FD006FDBB4 /* PinLocation */,
+				600408A126A18AAE001788E5 /* GKPageScrollView */,
+				600408A026A18AA6001788E5 /* GKPageSmoothView */,
 				609B8FCC259B0558000F1EB9 /* Tools */,
 				609B8FCF259B0558000F1EB9 /* Test */,
 			);
@@ -478,6 +516,7 @@
 				609B9012259B0558000F1EB9 /* GKHeaderScrollView.swift in Sources */,
 				609B900F259B0558000F1EB9 /* GKListLoadViewController.swift in Sources */,
 				609B901A259B0558000F1EB9 /* GKBasePageViewController.swift in Sources */,
+				600408AB26A51DAC001788E5 /* GKPageMainDisabledViewController.swift in Sources */,
 				609B9006259B0558000F1EB9 /* GKWYListViewController.swift in Sources */,
 				60B296092603391F006FDBB4 /* GKPinLocationViewController.swift in Sources */,
 				609B900B259B0558000F1EB9 /* GKWBViewController.swift in Sources */,
@@ -499,6 +538,7 @@
 				609B900C259B0558000F1EB9 /* GKWBHeaderView.swift in Sources */,
 				60B2960B26033928006FDBB4 /* GKPinLocationView.swift in Sources */,
 				609B9013259B0558000F1EB9 /* GKNest1ViewController.swift in Sources */,
+				600408A426A18B22001788E5 /* GKSmoothMainDisabledViewController.swift in Sources */,
 				609B9003259B0558000F1EB9 /* GKSmoothViewController.swift in Sources */,
 				609B900D259B0558000F1EB9 /* GKWBListViewController.swift in Sources */,
 				609B9005259B0558000F1EB9 /* GKWYHeaderView.swift in Sources */,

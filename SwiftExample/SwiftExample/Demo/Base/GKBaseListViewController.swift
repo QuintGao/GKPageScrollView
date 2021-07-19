@@ -10,6 +10,7 @@ import UIKit
 import MJRefresh
 import WebKit
 import GKPageScrollView
+import GKPageSmoothView
 
 enum GKBaseListType: Int {
     case UITableView
@@ -319,7 +320,9 @@ extension GKBaseListViewController: UICollectionViewDataSource, UICollectionView
 
 extension GKBaseListViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollCallBack!(scrollView)
+        if let callBack = scrollCallBack {
+            callBack(scrollView)
+        }
     }
 }
 
@@ -335,7 +338,7 @@ extension GKBaseListViewController: WKNavigationDelegate {
     }
 }
 
-extension GKBaseListViewController: GKPageListViewDelegate {
+extension GKBaseListViewController: GKPageListViewDelegate, GKPageSmoothListViewDelegate {
     func listView() -> UIView {
         return self.view
     }

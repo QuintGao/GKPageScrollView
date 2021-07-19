@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600408A826A51086001788E5 /* GKPageMainDisabledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600408A726A51086001788E5 /* GKPageMainDisabledViewController.m */; };
 		60225D3025CD1A0800B77B1F /* JXCategoryPinTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D2F25CD1A0800B77B1F /* JXCategoryPinTitleCell.m */; };
 		60225D3325CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D3225CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m */; };
 		60225D3625CD1A2C00B77B1F /* JXCategoryPinTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D3525CD1A2C00B77B1F /* JXCategoryPinTitleView.m */; };
@@ -57,6 +58,7 @@
 		609B8EB6259AFD81000F1EB9 /* GKDYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E88259AFD81000F1EB9 /* GKDYViewController.m */; };
 		609B8EB7259AFD81000F1EB9 /* GKDYListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E8C259AFD81000F1EB9 /* GKDYListViewController.m */; };
 		609B8EB8259AFD81000F1EB9 /* GKDYHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */; };
+		609E45EA268D563A004FC127 /* GKSmoothMainDisabledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */; };
 		60A14E6A262D19A500279CC1 /* GKSmoothListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */; };
 		B927B5B5BAC834684BC6753C /* libPods-ObjcExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,8 @@
 
 /* Begin PBXFileReference section */
 		070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		600408A626A51086001788E5 /* GKPageMainDisabledViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPageMainDisabledViewController.h; sourceTree = "<group>"; };
+		600408A726A51086001788E5 /* GKPageMainDisabledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPageMainDisabledViewController.m; sourceTree = "<group>"; };
 		60225D2E25CD1A0800B77B1F /* JXCategoryPinTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPinTitleCell.h; sourceTree = "<group>"; };
 		60225D2F25CD1A0800B77B1F /* JXCategoryPinTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPinTitleCell.m; sourceTree = "<group>"; };
 		60225D3125CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPinTitleCellModel.h; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 		609B8E8C259AFD81000F1EB9 /* GKDYListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYListViewController.m; sourceTree = "<group>"; };
 		609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYHeaderView.m; sourceTree = "<group>"; };
 		609B8EBA259AFD96000F1EB9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		609E45E8268D563A004FC127 /* GKSmoothMainDisabledViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSmoothMainDisabledViewController.h; sourceTree = "<group>"; };
+		609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSmoothMainDisabledViewController.m; sourceTree = "<group>"; };
 		60A14E68262D19A500279CC1 /* GKSmoothListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSmoothListViewController.h; sourceTree = "<group>"; };
 		60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSmoothListViewController.m; sourceTree = "<group>"; };
 		7F61CAFA991F0A136AA42888 /* Pods-ObjcExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.release.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +206,15 @@
 				070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		600408A526A5105D001788E5 /* MainScrollDisabled */ = {
+			isa = PBXGroup;
+			children = (
+				600408A626A51086001788E5 /* GKPageMainDisabledViewController.h */,
+				600408A726A51086001788E5 /* GKPageMainDisabledViewController.m */,
+			);
+			path = MainScrollDisabled;
 			sourceTree = "<group>";
 		};
 		60225D3725CD20BB00B77B1F /* PinLocation */ = {
@@ -252,19 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				609B8E7E259AFD81000F1EB9 /* Base */,
-				609B8E58259AFD80000F1EB9 /* 微博 */,
-				609B8E4E259AFD80000F1EB9 /* 网易云音乐 */,
-				609B8E87259AFD81000F1EB9 /* 抖音 */,
-				609B8E3B259AFD80000F1EB9 /* 豆瓣 */,
-				609B8E69259AFD81000F1EB9 /* MainRefresh */,
-				609B8E63259AFD80000F1EB9 /* ListRefresh */,
-				609B8E66259AFD81000F1EB9 /* ListLoad */,
-				609B8E4B259AFD80000F1EB9 /* ItemLoad */,
-				609B8E6C259AFD81000F1EB9 /* HeaderScroll */,
-				609B8E55259AFD80000F1EB9 /* VTMagic */,
-				609B8E71259AFD81000F1EB9 /* Nest */,
-				609B8E46259AFD80000F1EB9 /* Smooth */,
-				60225D3725CD20BB00B77B1F /* PinLocation */,
+				609E45E6268C4E5F004FC127 /* GKPageScrollView */,
+				609E45E5268C4E56004FC127 /* GKPageSmoothView */,
 				609B8E29259AFD80000F1EB9 /* Tools */,
 				609B8E2C259AFD80000F1EB9 /* Test */,
 			);
@@ -464,6 +468,44 @@
 			path = "抖音";
 			sourceTree = "<group>";
 		};
+		609E45E5268C4E56004FC127 /* GKPageSmoothView */ = {
+			isa = PBXGroup;
+			children = (
+				609E45E7268D55FB004FC127 /* MainScrollDisabled */,
+				609B8E3B259AFD80000F1EB9 /* 豆瓣 */,
+				609B8E46259AFD80000F1EB9 /* Smooth */,
+				60225D3725CD20BB00B77B1F /* PinLocation */,
+			);
+			path = GKPageSmoothView;
+			sourceTree = "<group>";
+		};
+		609E45E6268C4E5F004FC127 /* GKPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				609B8E58259AFD80000F1EB9 /* 微博 */,
+				609B8E4E259AFD80000F1EB9 /* 网易云音乐 */,
+				609B8E87259AFD81000F1EB9 /* 抖音 */,
+				609B8E69259AFD81000F1EB9 /* MainRefresh */,
+				609B8E63259AFD80000F1EB9 /* ListRefresh */,
+				609B8E66259AFD81000F1EB9 /* ListLoad */,
+				609B8E4B259AFD80000F1EB9 /* ItemLoad */,
+				609B8E6C259AFD81000F1EB9 /* HeaderScroll */,
+				609B8E55259AFD80000F1EB9 /* VTMagic */,
+				609B8E71259AFD81000F1EB9 /* Nest */,
+				600408A526A5105D001788E5 /* MainScrollDisabled */,
+			);
+			path = GKPageScrollView;
+			sourceTree = "<group>";
+		};
+		609E45E7268D55FB004FC127 /* MainScrollDisabled */ = {
+			isa = PBXGroup;
+			children = (
+				609E45E8268D563A004FC127 /* GKSmoothMainDisabledViewController.h */,
+				609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */,
+			);
+			path = MainScrollDisabled;
+			sourceTree = "<group>";
+		};
 		C690DA035B9A8F444744CEE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,6 +637,7 @@
 				609B8EA4259AFD81000F1EB9 /* GKWBPageViewController.m in Sources */,
 				609B8E8E259AFD81000F1EB9 /* GKBallLoadingView.m in Sources */,
 				609B8E8F259AFD81000F1EB9 /* GKTestListViewController.m in Sources */,
+				609E45EA268D563A004FC127 /* GKSmoothMainDisabledViewController.m in Sources */,
 				609B8EAE259AFD81000F1EB9 /* GKNest1ViewController.m in Sources */,
 				609B8E96259AFD81000F1EB9 /* GKDBViewController.m in Sources */,
 				609B8E9B259AFD81000F1EB9 /* GKSmoothListView.m in Sources */,
@@ -608,6 +651,7 @@
 				609B8EB7259AFD81000F1EB9 /* GKDYListViewController.m in Sources */,
 				60225D3625CD1A2C00B77B1F /* JXCategoryPinTitleView.m in Sources */,
 				60A14E6A262D19A500279CC1 /* GKSmoothListViewController.m in Sources */,
+				600408A826A51086001788E5 /* GKPageMainDisabledViewController.m in Sources */,
 				609B8EA1259AFD81000F1EB9 /* GKVTMagicViewController.m in Sources */,
 				60225D3325CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m in Sources */,
 				609B8E9D259AFD81000F1EB9 /* GKItemLoadViewController.m in Sources */,

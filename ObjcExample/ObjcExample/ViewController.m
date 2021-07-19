@@ -40,10 +40,12 @@
                                                                     @{@"title": @"Header左右滑动", @"class": @"GKHeaderScrollViewController"},
                                                                     @{@"title": @"VTMagic使用", @"class": @"GKVTMagicViewController"},
                                                                     @{@"title": @"嵌套使用1", @"class": @"GKNest1ViewController"},
-                                                                    @{@"title": @"嵌套使用2", @"class": @"GKNest2ViewController"}]},
+                                                                    @{@"title": @"嵌套使用2", @"class": @"GKNest2ViewController"},
+                                                                    @{@"title": @"禁止主页滑动", @"class": @"GKPageMainDisabledViewController"}]},
                         @{@"group": @"GKPageSmoothView", @"list": @[@{@"title": @"豆瓣电影主页", @"class": @"GKDBViewController"},
                                                                     @{@"title": @"滑动延续", @"class": @"GKSmoothViewController"},
-                                                                    @{@"title": @"上下滑动切换tab", @"class": @"GKPinLocationViewController"}]}];
+                                                                    @{@"title": @"上下滑动切换tab", @"class": @"GKPinLocationViewController"},
+                                                                    @{@"title": @"禁止主页滑动", @"class": @"GKSmoothMainDisabledViewController"}]}];
     
     [self.tableView reloadData];
 }

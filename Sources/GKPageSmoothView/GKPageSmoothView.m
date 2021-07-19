@@ -94,13 +94,20 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    if (self.listCollectionView.superview == self) {
-        self.listCollectionView.frame = self.bounds;
-    }else {
-        CGRect frame = self.listCollectionView.frame;
-        frame.origin.y = self.segmentedHeight;
-        frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight;
+    if (self.isMainScrollDisabled) {
+        CGRect frame = self.frame;
+        frame.origin.y = self.headerContainerHeight;
+        frame.size.height -= self.headerContainerHeight;
         self.listCollectionView.frame = frame;
+    }else {
+        if (self.listCollectionView.superview == self) {
+            self.listCollectionView.frame = self.bounds;
+        }else {
+            CGRect frame = self.listCollectionView.frame;
+            frame.origin.y = self.segmentedHeight;
+            frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight;
+            self.listCollectionView.frame = frame;
+        }
     }
 }
 
@@ -121,8 +128,10 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         self.headerView.frame = CGRectMake(0, 0, size.width, self.headerHeight);
         self.segmentedView.frame =  CGRectMake(0, self.headerHeight, size.width, self.segmentedHeight);
         
-        for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
-            list.listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
+        if (!self.isMainScrollDisabled) {
+            for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
+                list.listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
+            }
         }
         
         if (self.isBottomHover) {
@@ -226,7 +235,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         list = [self.dataSource smoothView:self initListAtIndex:indexPath.item];
         _listDict[@(indexPath.item)] = list;
         [list.listView setNeedsLayout];
-        [list.listView layoutIfNeeded];
         
         UIScrollView *listScrollView = list.listScrollView;
         if ([listScrollView isKindOfClass:[UITableView class]]) {
@@ -238,22 +246,25 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
             listScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
         
-        if (CGSizeEqualToSize(listScrollView.contentSize, CGSizeZero)) {
-            listScrollView.contentSize = CGSizeMake(listScrollView.contentSize.width, self.bounds.size.height);
+        if (!self.isMainScrollDisabled) {
+            if (CGSizeEqualToSize(listScrollView.contentSize, CGSizeZero)) {
+                listScrollView.contentSize = CGSizeMake(listScrollView.contentSize.width, self.bounds.size.height);
+            }
+            
+            if (!self.isOnTop) {
+                listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
+                self.currentListInitializeContentOffsetY = -listScrollView.contentInset.top + MIN(-self.currentHeaderContainerViewY, (self.headerHeight - self.ceilPointHeight));
+                [self setScrollView:listScrollView offset:CGPointMake(0, self.currentListInitializeContentOffsetY)];
+            }
+            UIView *listHeader = [[UIView alloc] initWithFrame:CGRectMake(0, -self.headerContainerHeight, self.bounds.size.width, self.headerContainerHeight)];
+            [listScrollView addSubview:listHeader];
+            
+            if (!self.isOnTop && self.headerContainerView.superview == nil) {
+                [listHeader addSubview:self.headerContainerView];
+            }
+            self.listHeaderDict[@(indexPath.item)] = listHeader;
         }
         
-        if (!self.isOnTop) {
-            listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
-            self.currentListInitializeContentOffsetY = -listScrollView.contentInset.top + MIN(-self.currentHeaderContainerViewY, (self.headerHeight - self.ceilPointHeight));
-            [self setScrollView:listScrollView offset:CGPointMake(0, self.currentListInitializeContentOffsetY)];
-        }
-        UIView *listHeader = [[UIView alloc] initWithFrame:CGRectMake(0, -self.headerContainerHeight, self.bounds.size.width, self.headerContainerHeight)];
-        [listScrollView addSubview:listHeader];
-        
-        if (!self.isOnTop && self.headerContainerView.superview == nil) {
-            [listHeader addSubview:self.headerContainerView];
-        }
-        self.listHeaderDict[@(indexPath.item)] = listHeader;
         [listScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
         // bug fix #69 修复首次进入时可能出现的headerView无法下拉的问题
         [listScrollView setContentOffset:listScrollView.contentOffset];
@@ -298,17 +309,19 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     
     NSInteger ratio = (int)scrollView.contentOffset.x % (int)scrollView.bounds.size.width;
     
-    if (!self.isOnTop) {
-        UIScrollView *listScrollView = self.listDict[@(index)].listScrollView;
-        if (index != self.currentIndex && ratio == 0 && !(scrollView.isDragging || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
-            [self horizontalScrollDidEndAtIndex:index];
-        }else {
-            // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
-            if (self.headerContainerView.superview != self) {
-                CGRect frame = self.headerContainerView.frame;
-                frame.origin.y = self.currentHeaderContainerViewY;
-                self.headerContainerView.frame = frame;
-                [self addSubview:self.headerContainerView];
+    if (!self.isMainScrollDisabled) {
+        if (!self.isOnTop) {
+            UIScrollView *listScrollView = self.listDict[@(index)].listScrollView;
+            if (index != self.currentIndex && ratio == 0 && !(scrollView.isDragging || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
+                [self horizontalScrollDidEndAtIndex:index];
+            }else {
+                // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
+                if (self.headerContainerView.superview != self) {
+                    CGRect frame = self.headerContainerView.frame;
+                    frame.origin.y = self.currentHeaderContainerViewY;
+                    self.headerContainerView.frame = frame;
+                    [self addSubview:self.headerContainerView];
+                }
             }
         }
     }
@@ -319,6 +332,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (self.isMainScrollDisabled) return;
     if (!decelerate) {
         NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
         [self horizontalScrollDidEndAtIndex:index];
@@ -327,6 +341,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (self.isMainScrollDisabled) return;
     NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
     [self horizontalScrollDidEndAtIndex:index];
     self.panGesture.enabled = YES;
@@ -487,6 +502,13 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 
 #pragma mark - Private Methods
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.isMainScrollDisabled) {
+        if ([self.delegate respondsToSelector:@selector(smoothView:listScrollViewDidScroll:contentOffset:)]) {
+            [self.delegate smoothView:self listScrollViewDidScroll:scrollView contentOffset:scrollView.contentOffset];
+        }
+        return;
+    }
+    
     if (self.listCollectionView.isDragging || self.listCollectionView.isDecelerating) return;
     
     if (self.isOnTop) { // 在顶部时无需处理headerView

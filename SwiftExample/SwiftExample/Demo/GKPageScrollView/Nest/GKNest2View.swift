@@ -61,6 +61,7 @@ class GKNest2View: UIView {
         
         self.pageScrollView.reloadData()
         self.pageScrollView.listContainerView.collectionView.isNestEnabled = true;
+        print(ADAPTATIONRATIO * 400.0)
     }
     
     required init?(coder: NSCoder) {

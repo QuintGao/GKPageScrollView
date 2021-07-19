@@ -68,12 +68,12 @@
 }
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
-    GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:index deleagte:self];
-    [listView requestData];
-    return listView;
-//    GKSmoothListViewController *listVC = [GKSmoothListViewController new];
-//    listVC.delegate = self;
-//    return listVC;
+//    GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:index deleagte:self];
+//    [listView requestData];
+//    return listView;
+    GKSmoothListViewController *listVC = [GKSmoothListViewController new];
+    listVC.delegate = self;
+    return listVC;
 }
 
 #pragma mark - GKPageSmoothViewDelegate
@@ -107,6 +107,7 @@
         _smoothView.ceilPointHeight = GK_STATUSBAR_NAVBAR_HEIGHT;
         _smoothView.delegate = self;
         _smoothView.listCollectionView.gk_openGestureHandle = YES;
+//        _smoothView.mainScrollDisabled = YES;
     }
     return _smoothView;
 }

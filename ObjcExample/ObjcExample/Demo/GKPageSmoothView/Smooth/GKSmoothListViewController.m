@@ -38,8 +38,12 @@
     
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         __strong __typeof(weakSelf) self = weakSelf;
-        self.count += 5;
-        [self.tableView.mj_footer endRefreshing];
+        self.count += 10;
+        if (self.count >= 100) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }else {
+            [self.tableView.mj_footer endRefreshing];            
+        }
         [self.tableView reloadData];
     }];
 }

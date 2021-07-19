@@ -80,9 +80,13 @@
         
         self.smoothScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.count+= 5;
+                self.count+= 10;
                 [self reloadData];
-                [self.smoothScrollView.mj_footer endRefreshing];
+                if (self.count >= 100) {
+                    [self.smoothScrollView.mj_footer endRefreshingWithNoMoreData];
+                }else {
+                    [self.smoothScrollView.mj_footer endRefreshing];                    
+                }
             });
         }];
         

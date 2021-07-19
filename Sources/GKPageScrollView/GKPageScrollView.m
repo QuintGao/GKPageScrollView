@@ -113,6 +113,12 @@
     }
 }
 
+- (void)setMainScrollDisabled:(BOOL)mainScrollDisabled {
+    _mainScrollDisabled = mainScrollDisabled;
+    
+    self.mainTableView.scrollEnabled = !self.mainScrollDisabled;
+}
+
 #pragma mark - Public Methods
 - (void)refreshHeaderView {
     UIView *headerView = [self.delegate headerViewInPageScrollView:self];
@@ -202,6 +208,8 @@
 
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
     self.currentListScrollView = scrollView;
+    
+    if (self.isMainScrollDisabled) return;
     
     if (self.isScrollToOriginal || self.isScrollToCritical) return;
     
@@ -418,22 +426,24 @@
         CGFloat x = 0;
         CGFloat y = segmentedView.frame.size.height;
         CGFloat w = width;
-        CGFloat h = height - self.ceilPointHeight - y;
-        
+        CGFloat h = height - y;
+        h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
         self.listContainerView.frame = CGRectMake(x, y, w, h);
         [pageView addSubview:segmentedView];
         [pageView addSubview:self.listContainerView];
     }else {
         pageView = [self.delegate pageViewInPageScrollView:self];
     }
-    pageView.frame = CGRectMake(0, 0, width, height - self.ceilPointHeight);
+    height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
+    pageView.frame = CGRectMake(0, 0, width, height);
     [cell.contentView addSubview:pageView];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
-    return height - self.ceilPointHeight;
+    height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
+    return height;
 }
 
 #pragma mark - GKPageListContainerViewDelegate
