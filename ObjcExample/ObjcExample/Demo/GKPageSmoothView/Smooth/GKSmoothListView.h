@@ -30,6 +30,8 @@ typedef NS_ENUM(NSUInteger, GKSmoothListType) {
 
 - (instancetype)initWithListType:(GKSmoothListType)listType deleagte:(id<GKSmoothListViewDelegate>)delegate;
 
+- (instancetype)initWithListType:(GKSmoothListType)listType deleagte:(id<GKSmoothListViewDelegate>)delegate index:(NSInteger)index;
+
 - (void)requestData;
 
 @end

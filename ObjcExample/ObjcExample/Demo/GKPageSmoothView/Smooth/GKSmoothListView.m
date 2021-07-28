@@ -47,6 +47,8 @@
 
 @property (nonatomic, assign) GKSmoothListType listType;
 
+@property (nonatomic, assign) NSInteger index;
+
 @end
 
 @implementation GKSmoothListView
@@ -99,6 +101,55 @@
     return self;
 }
 
+- (instancetype)initWithListType:(GKSmoothListType)listType deleagte:(id<GKSmoothListViewDelegate>)delegate index:(NSInteger)index {
+    if (self = [super init]) {
+        self.listType = listType;
+        self.delegate = delegate;
+        self.index = index;
+        
+        if (listType == GKSmoothListType_ScrollView) {
+            self.smoothScrollView = self.scrollView;
+        }else if (listType == GKSmoothListType_TableView) {
+            self.smoothScrollView = self.tableView;
+        }else if (listType == GKSmoothListType_CollectionView) {
+            self.smoothScrollView = self.collectionView;
+        }
+        [self addSubview:self.smoothScrollView];
+        
+        [self.smoothScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
+        
+//        self.smoothScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                self.count = 30;
+//                [self reloadData];
+//                [self.smoothScrollView.mj_header endRefreshing];
+//            });
+//        }];
+        self.smoothScrollView.mj_header.ignoredScrollViewContentInsetTop = [self.delegate smoothViewHeaderContainerHeight];
+        
+        self.smoothScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.count+= 10;
+                [self reloadData];
+                if (self.count >= 100) {
+                    [self.smoothScrollView.mj_footer endRefreshingWithNoMoreData];
+                }else {
+                    [self.smoothScrollView.mj_footer endRefreshing];
+                }
+            });
+        }];
+        
+//        self.count = 100;
+//        [self reloadData];
+        
+        [self.smoothScrollView addSubview:self.loadingBgView];
+        self.loadingBgView.frame = CGRectMake(0, 20, kScreenW, 100);
+    }
+    return self;
+}
+
 - (void)requestData {
     if (self.isRequest) return;
     
@@ -110,6 +161,13 @@
         self.loadingBgView.hidden = YES;
         
         self.count = 30;
+        if (self.index == 0) {
+            self.count = 30;
+        }else if (self.count == 1) {
+            self.count = 3;
+        }else {
+            self.count = 5;
+        }
         
         [self reloadData];
     });

@@ -18,14 +18,14 @@ enum GKSmoothListType: Int {
 }
 
 class GKSmoothListLayout: UICollectionViewFlowLayout {
-    override var collectionViewContentSize: CGSize {
-        let minContentSizeHeight = self.collectionView?.bounds.size.height ?? 0
-        let size = super.collectionViewContentSize
-        if size.height < minContentSizeHeight {
-            return CGSize(width: size.width, height: minContentSizeHeight)
-        }
-        return size
-    }
+//    override var collectionViewContentSize: CGSize {
+//        let minContentSizeHeight = self.collectionView?.bounds.size.height ?? 0
+//        let size = super.collectionViewContentSize
+//        if size.height < minContentSizeHeight {
+//            return CGSize(width: size.width, height: minContentSizeHeight)
+//        }
+//        return size
+//    }
 }
 
 protocol GKSmoothListViewDelegate: NSObjectProtocol {
@@ -64,6 +64,7 @@ class GKSmoothListView: UIView {
         collectionView.delegate = self
         collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "collectionViewCell")
         collectionView.backgroundColor = .white
+        collectionView.alwaysBounceVertical = true
 
         return collectionView
     }()
@@ -76,7 +77,57 @@ class GKSmoothListView: UIView {
     var count: Int = 0
     var isRequest: Bool = false
     var listType: GKSmoothListType = .scrollView
+    var index: Int = 0
 
+    init(listType: GKSmoothListType, delegate: GKSmoothListViewDelegate, index: Int) {
+        super.init(frame: .zero)
+        
+        self.listType = listType
+        self.delegate = delegate
+        self.index = index
+        
+        if listType == .scrollView {
+            smoothScrollView = self.scrollView
+        }else if listType == .tableView {
+            smoothScrollView = self.tableView
+        }else if listType == .collectionView {
+            smoothScrollView = self.collectionView
+        }
+        self.addSubview(self.smoothScrollView!)
+        self.smoothScrollView?.snp.makeConstraints({ (make) in
+            make.edges.equalTo(self)
+        })
+        
+//        self.smoothScrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                self.count = 30
+//                self.reloadData()
+//                self.smoothScrollView?.mj_header?.endRefreshing()
+//            }
+//        })
+        self.smoothScrollView?.mj_header?.ignoredScrollViewContentInsetTop = self.delegate!.smoothViewHeaderContainerHeight()
+        
+//        self.smoothScrollView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                self.count += 5
+//                self.reloadData()
+//                self.smoothScrollView?.mj_footer?.endRefreshing()
+//            }
+//        })
+        
+        self.smoothScrollView?.addSubview(self.loadingBgView)
+        self.loadingBgView.frame = CGRect(x: 0, y: 20, width: kScreenW, height: 100)
+        
+        if listType == GKSmoothListType.scrollView {
+            
+        }else if listType == .tableView {
+            self.tableView.reloadData()
+        }else if listType == .collectionView {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    
     init(listType: GKSmoothListType, delegate: GKSmoothListViewDelegate) {
         super.init(frame: .zero)
 
@@ -95,13 +146,13 @@ class GKSmoothListView: UIView {
             make.edges.equalTo(self)
         })
         
-        self.smoothScrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.count = 30
-                self.reloadData()
-                self.smoothScrollView?.mj_header?.endRefreshing()
-            }
-        })
+//        self.smoothScrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                self.count = 30
+//                self.reloadData()
+//                self.smoothScrollView?.mj_header?.endRefreshing()
+//            }
+//        })
         self.smoothScrollView?.mj_header?.ignoredScrollViewContentInsetTop = self.delegate!.smoothViewHeaderContainerHeight()
         
         self.smoothScrollView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
@@ -141,6 +192,16 @@ class GKSmoothListView: UIView {
             self.loadingBgView.isHidden = true
             
             self.count = 100
+            if self.index == 1 {
+                self.count = 5;
+            }else if self.index == 2 {
+                self.count = 10
+            }
+//            if self.listType == .collectionView {
+//                self.count = 2
+//            }else if self.listType == .scrollView {
+//                self.count = 3;
+//            }
             self.reloadData()
         }
     }

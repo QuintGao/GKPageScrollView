@@ -3,7 +3,7 @@
 //  GKPageScrollViewObjc
 //
 //  Created by QuintGao on 2020/5/4.
-//  Copyright © 2020 gaokun. All rights reserved.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -104,6 +104,10 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 
 /// 是否允许底部拖拽到临界位置时可滑动scrollView，默认NO
 @property (nonatomic, assign, getter=isAllowDragScroll) BOOL allowDragScroll;
+
+/// 是否撑起scrollView，默认NO
+/// 如果设置为YES则当scrollView的contentSize不足时会修改scrollView的contentSize使其能够滑动到悬浮状态
+@property (nonatomic, assign, getter=isHoldUpScrollView) BOOL holdUpScrollView;
 
 /// smoothView悬停类型
 @property (nonatomic, assign, readonly) GKPageSmoothHoverType hoverType;

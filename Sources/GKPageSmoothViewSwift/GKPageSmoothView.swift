@@ -3,7 +3,7 @@
 //  GKPageScrollViewSwift
 //
 //  Created by QuintGao on 2020/5/10.
-//  Copyright © 2020 gaokun. All rights reserved.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
 import UIKit
@@ -124,6 +124,10 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     public private(set) var hoverType: GKPageSmoothHoverType = .none
     public private(set) var isOnTop: Bool = false
     
+    /// 是否撑起scrollView，默认false
+    /// 如果设置为YES则当scrollView的contentSize不足时会修改scrollView的contentSize使其能够滑动到悬浮状态
+    public var isHoldUpScrollView: Bool = false
+    
     weak var dataSource: GKPageSmoothViewDataSource?
     var listHeaderDict = [Int: UIView]()
     
@@ -195,6 +199,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     deinit {
         listDict.values.forEach {
             $0.listScrollView().removeObserver(self, forKeyPath: "contentOffset")
+            $0.listScrollView().removeObserver(self, forKeyPath: "contentSize")
         }
     }
     
@@ -261,6 +266,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         listHeaderDict.removeAll()
         listDict.values.forEach {
             $0.listScrollView().removeObserver(self, forKeyPath: "contentOffset")
+            $0.listScrollView().removeObserver(self, forKeyPath: "contentSize")
             $0.listView().removeFromSuperview()
         }
         listDict.removeAll()
@@ -430,6 +436,30 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             if let scrollView = object as? UIScrollView {
                 listDidScroll(scrollView: scrollView)
             }
+        } else if keyPath == "contentSize" {
+            let minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight
+            if let scrollView = object as? UIScrollView {
+                if minContentSizeHeight > scrollView.contentSize.height && self.isHoldUpScrollView {
+                    scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: minContentSizeHeight)
+                    //新的scrollView第一次加载的时候重置contentOffset
+                    if let listScrollView = self.currentListScrollView {
+                        if scrollView != listScrollView {
+                            scrollView.contentOffset = CGPoint(x: 0, y: self.currentListInitailzeContentOffsetY)
+                        }
+                    }
+                }else {
+                    let contentH = scrollView.contentSize.height
+                    
+                    if contentH == 0 {
+                        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: self.bounds.size.height)
+                    }else {
+                        if minContentSizeHeight > contentH {
+                            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
+                            listDidScroll(scrollView: scrollView)
+                        }
+                    }
+                }
+            }
         }else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
@@ -547,6 +577,12 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         if listScrollView.contentOffset.y <= -(segmentedHeight + ceilPointHeight) {
             headerContainerView.frame.origin.y = 0
             listHeader.addSubview(headerContainerView)
+        }
+        
+        let minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight
+        if (minContentSizeHeight > listScrollView.contentSize.height && !self.isHoldUpScrollView) {
+            listScrollView.setContentOffset(CGPoint(x: listScrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
+            listDidScroll(scrollView: listScrollView)
         }
     }
     
@@ -718,10 +754,6 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             }
             
             if !self.isMainScrollDisabled {
-                if __CGSizeEqualToSize(listScrollView?.contentSize ?? .zero, .zero) {
-                    list?.listScrollView().contentSize = CGSize(width: list?.listScrollView().contentSize.width ?? 0, height: self.bounds.size.height)
-                }
-                
                 if !self.isOnTop {
                     list?.listScrollView().contentInset = UIEdgeInsets(top: headerContainerHeight, left: 0, bottom: 0, right: 0)
                     currentListInitailzeContentOffsetY = -headerContainerHeight + min(-currentHeaderContainerViewY, (headerHeight - ceilPointHeight))
@@ -736,6 +768,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
                 listHeaderDict[indexPath.item] = listHeader
             }
             list?.listScrollView().addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
+            list?.listScrollView().addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
             // bug fix #69 修复首次进入时可能出现的headerView无法下拉的问题
             listScrollView?.contentOffset = listScrollView!.contentOffset
         }

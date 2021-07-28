@@ -3,7 +3,7 @@
 //  GKPageScrollViewObjc
 //
 //  Created by QuintGao on 2020/5/4.
-//  Copyright © 2020 gaokun. All rights reserved.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
 #import "GKPageSmoothView.h"
@@ -88,6 +88,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 - (void)dealloc {
     for (id<GKPageSmoothListViewDelegate> listItem in self.listDict.allValues) {
         [listItem.listScrollView removeObserver:self forKeyPath:@"contentOffset"];
+        [listItem.listScrollView removeObserver:self forKeyPath:@"contentSize"];
     }
 }
 
@@ -156,6 +157,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     
     for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
         [list.listScrollView removeObserver:self forKeyPath:@"contentOffset"];
+        [list.listScrollView removeObserver:self forKeyPath:@"contentSize"];
         [list.listView removeFromSuperview];
     }
     [_listDict removeAllObjects];
@@ -247,10 +249,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
         
         if (!self.isMainScrollDisabled) {
-            if (CGSizeEqualToSize(listScrollView.contentSize, CGSizeZero)) {
-                listScrollView.contentSize = CGSizeMake(listScrollView.contentSize.width, self.bounds.size.height);
-            }
-            
             if (!self.isOnTop) {
                 listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
                 self.currentListInitializeContentOffsetY = -listScrollView.contentInset.top + MIN(-self.currentHeaderContainerViewY, (self.headerHeight - self.ceilPointHeight));
@@ -266,6 +264,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
         
         [listScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+        [listScrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
         // bug fix #69 修复首次进入时可能出现的headerView无法下拉的问题
         [listScrollView setContentOffset:listScrollView.contentOffset];
     }
@@ -359,6 +358,28 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         UIScrollView *scrollView = (UIScrollView *)object;
         if (scrollView != nil) {
             [self listScrollViewDidScroll:scrollView];
+        }
+    }else if ([keyPath isEqualToString:@"contentSize"]) {
+        UIScrollView *scrollView = (UIScrollView *)object;
+        if (scrollView != nil) {
+            CGFloat minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight;
+            if (minContentSizeHeight > scrollView.contentSize.height && self.isHoldUpScrollView) {
+                scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, minContentSizeHeight);
+                // 新的scrollView第一次加载的时候重置contentOffset
+                if (self.currentListScrollView != nil && scrollView != self.currentListScrollView) {
+                    scrollView.contentOffset = CGPointMake(0, self.currentListInitializeContentOffsetY);
+                }
+            }else {
+                CGFloat contentH = scrollView.contentSize.height;
+                if (contentH == 0) {
+                    scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, self.bounds.size.height);
+                }else {
+                    if (minContentSizeHeight > contentH) {
+                        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -self.headerContainerHeight) animated:NO];
+                        [self listScrollViewDidScroll:scrollView];
+                    }
+                }
+            }
         }
     }else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -636,6 +657,12 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         self.headerContainerView.frame = frame;
         if (self.headerContainerView.superview != listHeader) {
             [listHeader addSubview:self.headerContainerView];
+        }
+        
+        CGFloat minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight;
+        if (minContentSizeHeight > listScrollView.contentSize.height && !self.isHoldUpScrollView) {
+            [listScrollView setContentOffset:CGPointMake(listScrollView.contentOffset.x, -self.headerContainerHeight) animated:NO];
+            [self listScrollViewDidScroll:listScrollView];
         }
     }
 }

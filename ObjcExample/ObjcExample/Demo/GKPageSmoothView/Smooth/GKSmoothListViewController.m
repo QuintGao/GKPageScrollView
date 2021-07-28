@@ -26,6 +26,14 @@
         make.edges.equalTo(self.view);
     }];
     
+    if (self.index == 0) {
+        self.count = 30;
+    }else if (self.index == 1) {
+        self.count = 3;
+    }else {
+        self.count = 5;
+    }
+    
     __weak __typeof(self) weakSelf = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         __strong __typeof(weakSelf) self = weakSelf;
@@ -50,7 +58,7 @@
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 30;
+    return self.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -89,7 +89,8 @@ extension GKSmoothViewController: GKPageSmoothViewDataSource, GKPageSmoothViewDe
     }
     
     func smoothView(_ smoothView: GKPageSmoothView, initListAtIndex index: Int) -> GKPageSmoothListViewDelegate {
-        let listView = GKSmoothListView(listType: GKSmoothListType(rawValue: index)!, delegate: self)
+//        let listView = GKSmoothListView(listType: GKSmoothListType(rawValue: index)!, delegate: self)
+        let listView = GKSmoothListView(listType: .tableView, delegate: self, index: index)
         listView.requestData()
         return listView
     }

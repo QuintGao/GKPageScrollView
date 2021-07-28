@@ -3,7 +3,7 @@
 //  GKPageScrollViewSwift
 //
 //  Created by QuintGao on 2020/5/10.
-//  Copyright © 2020 gaokun. All rights reserved.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
 import UIKit

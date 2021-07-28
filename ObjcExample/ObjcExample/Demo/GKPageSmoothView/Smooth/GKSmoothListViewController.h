@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GKSmoothListViewController : GKDemoBaseViewController<GKPageSmoothListViewDelegate>
 
 @property (nonatomic, weak) id<GKSmoothListViewControllerDelegate> delegate;
+@property (nonatomic, assign) NSInteger index;
 
 @end
 
