@@ -214,6 +214,10 @@
     return self.smoothScrollView;
 }
 
+- (BOOL)listScrollViewShouldReset {
+    return NO;
+}
+
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.count;

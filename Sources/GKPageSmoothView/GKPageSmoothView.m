@@ -374,7 +374,14 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
                 if (contentH == 0) {
                     scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, self.bounds.size.height);
                 }else {
-                    if (minContentSizeHeight > contentH) {
+                    BOOL shouldReset = YES;
+                    for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
+                        if (list.listScrollView == scrollView && [list respondsToSelector:@selector(listScrollViewShouldReset)]) {
+                            shouldReset = [list listScrollViewShouldReset];
+                        }
+                    }
+                    
+                    if (minContentSizeHeight > contentH && shouldReset) {
                         [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -self.headerContainerHeight) animated:NO];
                         [self listScrollViewDidScroll:scrollView];
                     }

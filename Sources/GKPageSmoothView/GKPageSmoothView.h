@@ -28,6 +28,9 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 - (void)listViewDidAppear;
 - (void)listViewDidDisappear;
 
+/// 当contentSize改变且不足一屏时，是否重置scrollView的位置，默认YES
+- (BOOL)listScrollViewShouldReset;
+
 @end
 
 @protocol GKPageSmoothViewDataSource <NSObject>

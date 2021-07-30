@@ -24,6 +24,9 @@ public enum GKPageSmoothHoverType {
     
     @objc optional func listViewDidAppear()
     @objc optional func listViewDidDisappear()
+    
+    /// 当contentSize改变且不足一屏时，是否重置scrollView的位置，默认YES
+    @objc optional func listScrollViewShouldReset() -> Bool
 }
 
 @objc public protocol GKPageSmoothViewDataSource : NSObjectProtocol {
@@ -453,7 +456,14 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                     if contentH == 0 {
                         scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: self.bounds.size.height)
                     }else {
-                        if minContentSizeHeight > contentH {
+                        var shoudReset = true
+                        for list in listDict.values {
+                            if list.listScrollView() == scrollView && list.listScrollViewShouldReset?() != nil {
+                                shoudReset = list.listScrollViewShouldReset!()
+                            }
+                        }
+                        
+                        if minContentSizeHeight > contentH && shoudReset {
                             scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
                             listDidScroll(scrollView: scrollView)
                         }

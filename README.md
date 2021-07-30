@@ -94,6 +94,7 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 
 ## 版本更新
 
+* 2021.07.30   1.6.2 - GKSmoothView增加代理方法，是否允许重置listScrollView的位置
 * 2021.07.28   1.6.1 - GKSmoothView内部优化，修改内容不足一屏时的逻辑
 * 2021.07.19   1.6.0 - 新增禁止主页滑动属性，设置后只有列表可以滑动
 * 2021.06.16   1.5.8 - GKPageScrollView内部优化，修复某些情况下快速滑动导致CPU升高的问题
