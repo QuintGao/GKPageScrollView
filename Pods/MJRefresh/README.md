@@ -7,6 +7,12 @@
 [📜✍🏻**Release Notes**: more details](https://github.com/CoderMJLee/MJRefresh/releases)
 
 ## Contents
+
+- New Features
+    - [Dynamic i18n Switching](#dynamic_i18n_switching)
+    - [SPM Supported](#spm_supported)
+    - [Swift Chaining Grammar Supported](#swift_chaining_grammar_supported)
+
 * Getting Started
     * [Features【Support what kinds of controls to refresh】](#Support_what_kinds_of_controls_to_refresh)
     * [Installation【How to use MJRefresh】](#How_to_use_MJRefresh)
@@ -17,6 +23,7 @@
 	* [MJRefreshHeader.h](#MJRefreshHeader.h)
 	* [MJRefreshFooter.h](#MJRefreshFooter.h)
 	* [MJRefreshAutoFooter.h](#MJRefreshAutoFooter.h)
+	* [MJRefreshTrailer.h](#MJRefreshTrailer.h)
 * Examples
     * [Reference](#Reference)
     * [The drop-down refresh 01-Default](#The_drop-down_refresh_01-Default)
@@ -36,10 +43,75 @@
     * [The pull to refresh 09-DIY the control of refresh(Automatic refresh)](#The_pull_to_refresh_09-DIY_the_control_of_refresh(Automatic_refresh))
     * [The pull to refresh 10-DIY the control of refresh(Automatic back)](#The_pull_to_refresh_10-DIY_the_control_of_refresh(Automatic_back))
     * [UICollectionView01-The pull and drop-down refresh](#UICollectionView01-The_pull_and_drop-down_refresh)
+    * [UICollectionView02-The trailer refresh](#UICollectionView02-The_trailer_refresh)
     * [WKWebView01-The drop-down refresh](#WKWebView01-The_drop-down_refresh)
 * [Hope](#Hope)
 
+## New Features
+### <a id="dynamic_i18n_switching"></a>Dynamic i18n Switching
+
+Now `MJRefresh components` will be rerendered automatically with `MJRefreshConfig.default.language` setting.
+
+#### Example
+
+Go `i18n` folder and see lots of cases. Simulator example is behind `i18n tab` in right-top corner.
+
+#### Setting language
+
+```swift
+MJRefreshConfig.default.language = "zh-hans"
+```
+
+#### Setting i18n file name
+
+```swift
+MJRefreshConfig.default.i18nFilename = "i18n File Name(not include type<.strings>)"
+```
+
+#### Setting i18n language bundle
+
+```swift
+MJRefreshConfig.default.i18nBundle = <i18n Bundle>
+```
+
+#### Adopting the feature in your DIY component
+
+1. Just override `i18nDidChange` function and reset texts.
+
+```swift
+// must use this localization methods
+Bundle.mj_localizedString(forKey: "")
+// or
+Bundle.mj_localizedString(forKey: "", value:"")
+
+override func i18nDidChange() {
+    // Reset texts function
+    setupTexts()
+    // Make sure to call super after resetting texts. It will call placeSubViews for applying new layout.
+    super.i18nDidChange()
+}
+```
+
+2. Receiving `MJRefreshDidChangeLanguageNotification` notification.
+
+### <a id="spm_supported"></a>SPM Supported
+
+Released from [`3.7.1`](https://github.com/CoderMJLee/MJRefresh/releases/tag/3.7.1)
+
+### <a id="swift_chaining_grammar_supported"></a>Swift Chaining Grammar Supported
+
+```swift
+  // Example as MJRefreshNormalHeader
+  func addRefreshHeader() {
+      MJRefreshNormalHeader { [weak self] in
+  	  // load some data
+      }.autoChangeTransparency(true)
+      .link(to: tableView)
+  }
+```
+
 ## <a id="Support_what_kinds_of_controls_to_refresh"></a>Support what kinds of controls to refresh
+
 * `UIScrollView`、`UITableView`、`UICollectionView`、`WKWebView`
 
 ## <a id="How_to_use_MJRefresh"></a>How to use MJRefresh
@@ -75,9 +147,12 @@ UIView+MJExtension.h        UIView+MJExtension.m
         - Auto Back
             - Normal：`MJRefreshBackNormalFooter`
             - Gif：`MJRefreshBackGifFooter`
+    
 - `The class of non-red text` in the chart：For inheritance，to use DIY the control of refresh
+
 - About how to DIY the control of refresh，You can refer the Class in below Chart<br>
-<img src="http://images0.cnblogs.com/blog2015/497279/201506/141358159107893.png" width="30%" height="30%">
+
+  <img src="http://images0.cnblogs.com/blog2015/497279/201506/141358159107893.png" width="30%" height="30%">
 
 ## <a id="MJRefreshComponent.h"></a>MJRefreshComponent.h
 ```objc
@@ -142,6 +217,21 @@ UIView+MJExtension.h        UIView+MJExtension.m
 
 /** When there is much at the bottom of the control is automatically refresh(Default is 1.0，Is at the bottom of the control appears in full, will refresh automatically) */
 @property (assign, nonatomic) CGFloat triggerAutomaticallyRefreshPercent;
+@end
+```
+
+## <a id="MJRefreshTrailer.h"></a> MJRefreshTrailer.h
+```objc
+@interface MJRefreshTrailer : MJRefreshComponent
+
+/** 创建trailer */
++ (instancetype)trailerWithRefreshingBlock:(MJRefreshComponentAction)refreshingBlock;
+/** 创建trailer */
++ (instancetype)trailerWithRefreshingTarget:(id)target refreshingAction:(SEL)action;
+
+/** 忽略多少scrollView的contentInset的right */
+@property (assign, nonatomic) CGFloat ignoredScrollViewContentInsetRight;
+
 @end
 ```
 
@@ -334,6 +424,16 @@ self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingB
 ```
 ![(UICollectionView01-上下拉刷新)](http://images0.cnblogs.com/blog2015/497279/201506/141206021603758.gif)
 
+## <a id="UICollectionView02-The_trailer_refresh"></a>UICollectionView02-The trailer refresh
+```objc
+// The trailer refresh
+self.collectionView.mj_trailer = [MJRefreshNormalTrailer trailerWithRefreshingBlock:^{
+   //Call this Block When enter the refresh status automatically 
+}];
+
+```
+![(UICollectionView02-左拉刷新)](Gif/trailer_refresh.gif)
+
 ## <a id="WKWebView01-The_drop-down_refresh"></a>WKWebView01-The drop-down refresh
 ```objc
 //Add the control of The drop-down refresh
@@ -345,7 +445,7 @@ self.webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingB
 
 ## Remind
 * ARC
-* iOS>=8.0
+* iOS>=9.0
 * iPhone \ iPad screen anyway
 
 ## 寻求志同道合的小伙伴

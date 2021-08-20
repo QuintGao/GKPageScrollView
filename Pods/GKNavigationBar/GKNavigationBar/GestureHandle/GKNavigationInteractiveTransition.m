@@ -61,11 +61,10 @@
                 self.popTransition = [UIPercentDrivenInteractiveTransition new];
                 [self.navigationController popViewControllerAnimated:YES];
             }else if (self.visibleVC.gk_systemGestureHandleDisabled) {
-                BOOL shouldPop = YES;
+                BOOL shouldPop = [self.visibleVC navigationShouldPop];
                 if ([self.visibleVC respondsToSelector:@selector(navigationShouldPopOnGesture)]) {
                     shouldPop = [self.visibleVC navigationShouldPopOnGesture];
                 }
-
                 if (shouldPop) {
                     self.popTransition = [UIPercentDrivenInteractiveTransition new];
                     [self.navigationController popViewControllerAnimated:YES];
@@ -118,6 +117,8 @@
                         [self.popTransition cancelInteractiveTransition];
                     }
                 }
+            }else if ([GKGestureConfigure isVelocityInSensitivity:velocity.x] && velocity.x > 0) {
+                popFinished = YES;
             }
             [self popScrollEnded:popFinished];
         }
@@ -225,7 +226,10 @@
         }
     }else if (transition.x > 0) { // 右滑
         if (!visibleVC.gk_systemGestureHandleDisabled) {
-            BOOL shouldPop = [visibleVC navigationShouldPopOnGesture];
+            BOOL shouldPop = [visibleVC navigationShouldPop];
+            if ([visibleVC respondsToSelector:@selector(navigationShouldPopOnGesture)]) {
+                shouldPop = [visibleVC navigationShouldPopOnGesture];
+            }
             if (!shouldPop) return NO;
         }
         
@@ -251,6 +255,17 @@
     if ([[self.navigationController valueForKey:@"_isTransitioning"] boolValue]) return NO;
     
     return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // 获取当前显示的VC
+    UIViewController *visibleVC = self.navigationController.visibleViewController;
+    
+    if ([visibleVC respondsToSelector:@selector(popGestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:)]) {
+        return [visibleVC popGestureRecognizer:gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:otherGestureRecognizer];
+    }
+    
+    return NO;
 }
 
 @end

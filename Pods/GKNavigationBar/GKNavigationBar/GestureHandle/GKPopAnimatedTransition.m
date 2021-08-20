@@ -59,11 +59,13 @@
         self.fromViewController.view.frame = CGRectMake(screenW, 0, screenW, screenH);
         if (self.isScale) {
             self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
-        }
-        if (@available(iOS 11.0, *)) {
-            toView.frame = CGRectMake(0, 0, screenW, screenH);
+            if (@available(iOS 11.0, *)) {
+                toView.frame = CGRectMake(0, 0, screenW, screenH);
+            }else {
+                toView.transform = CGAffineTransformIdentity;
+            }
         }else {
-            toView.transform = CGAffineTransformIdentity;
+            toView.frame = CGRectMake(0, 0, screenW, screenH);
         }
     } completion:^(BOOL finished) {
         [self completeTransition];

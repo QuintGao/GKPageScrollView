@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UINavigationController (GKGestureHandle)
+@interface UINavigationController (GKGestureHandle)<UINavigationBarDelegate>
 
 /// 创建导航控制器并开启手势控制（无缩放）
 /// @param rootVC 根控制器

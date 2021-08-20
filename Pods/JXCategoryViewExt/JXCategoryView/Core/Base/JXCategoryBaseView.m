@@ -120,6 +120,7 @@ struct DelegateFlags {
     }else {
         if (!CGRectEqualToRect(self.collectionView.frame, targetFrame)) {
             self.collectionView.frame = targetFrame;
+            [self refreshState];
             [self.collectionView.collectionViewLayout invalidateLayout];
             [self.collectionView reloadData];
         }
@@ -609,6 +610,9 @@ struct DelegateFlags {
 }
 
 - (void)contentOffsetOfContentScrollViewDidChanged:(CGPoint)contentOffset {
+    if (self.dataSource.count == 0) {
+        return;
+    }
     CGFloat ratio = contentOffset.x/self.contentScrollView.bounds.size.width;
     if (ratio > self.dataSource.count - 1 || ratio < 0) {
         //超过了边界，不需要处理
@@ -681,7 +685,7 @@ struct DelegateFlags {
                 index = baseIndex + 1;
             }
             if (self.selectedIndex == index) return;
-            [self selectCellAtIndex:index selectedType:JXCategoryCellSelectedTypeScroll animated:NO];
+            [self selectCellAtIndex:index selectedType:JXCategoryCellSelectedTypeScroll animated:YES];
         }
 
         if (self.delegateFlags.scrollingFromLeftIndexToRightIndexFlag) {

@@ -8,8 +8,27 @@
 
 #import "UIScrollView+GKGestureHandle.h"
 #import <objc/runtime.h>
+#import "GKGestureHandleDefine.h"
 
 @implementation UIScrollView (GKGestureHandle)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSArray <NSString *> *oriSels = @[@"willMoveToSuperview:"];
+        
+        [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
+            gk_gestureHandle_swizzled_instanceMethod(@"gkGesture", self, oriSel, self);
+        }];
+    });
+}
+
+- (void)gkGesture_willMoveToSuperview:(UIView *)newSuperview {
+    if (newSuperview && GKGestureConfigure.gk_openScrollViewGestureHandle) {
+        self.gk_openGestureHandle = YES;
+    }
+    [self gkGesture_willMoveToSuperview:newSuperview];
+}
 
 static char kAssociatedObjectKey_openGestureHandle;
 - (void)setGk_openGestureHandle:(BOOL)gk_openGestureHandle {

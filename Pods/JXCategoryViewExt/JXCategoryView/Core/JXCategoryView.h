@@ -30,6 +30,10 @@ FOUNDATION_EXPORT const unsigned char JXCategoryViewExtVersionString[];
 #import <JXCategoryViewExt/JXCategorySubTitleView.h>
 #endif
 
+#if __has_include(<JXCategoryViewExt/JXCategorySubTitleImageView.h>)
+#import <JXCategoryViewExt/JXCategorySubTitleImageView.h>
+#endif
+
 #if __has_include(<JXCategoryViewExt/JXCategoryImageView.h>)
 #import <JXCategoryViewExt/JXCategoryImageView.h>
 #endif

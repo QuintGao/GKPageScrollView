@@ -7,7 +7,7 @@
 <a href=""><img src="https://img.shields.io/badge/support-ios%208%2B-orange.svg"></a>
 </p>
 
-该库是对[JXCategoryView](https://github.com/pujiaxin33/JXCategoryView/)的扩展及优化，目前的JXCategoryView版本1.5.8，JXCategoryViewExt版本1.0.0
+该库是对[JXCategoryView](https://github.com/pujiaxin33/JXCategoryView/)的扩展及优化，目前的JXCategoryView版本1.5.9，JXCategoryViewExt版本1.0.5
 
 ## 优化及bug修改
 
@@ -28,7 +28,8 @@
 2、增加属性selectItemOnScrollHalf，可控制在滑动到一半的时候选中下一个item
 
 #### bug修改
-1、修复某些情况下将listView的frame设置为CGRectZero导致使用Masonry布局时出现报错
+1、修复某些情况下将listView的frame设置为CGRectZero导致使用Masonry布局时出现报错  
+2、修复某些情况下导致的Unbalanced calls to begin/end appearance transitions for XXXX
 
 ## pod扩展
 JXCategoryViewExt优化了JXCategoryView的pod方式，将不同组件进行拆分，可按需pod
@@ -101,6 +102,13 @@ pod 'JXCategoryViewExt/RTL'
 ```
 
 ## 更新记录
+* 1.1.2 2021.08.20 新增JXCategorySubTitleImageView类型
+* 1.1.0 2021.08.19 JXCategoryTitleImageView支持忽略image宽度
+* 1.0.8 2021.07.21 JXCategoryTitleView支持动态设置标题
+* 1.0.7 2021.06.23 JXCategoryTitleView文字缩放优化
+* 1.0.6 2021.04.30 JXCategoryView更新到1.5.9版本
+* 1.0.5 2021.03.10 优化滑动到一半选中时的动画效果
+* 1.0.4 2021.03.08 修复某些情况下导致的Unbalanced calls to begin/end appearance transitions for xxx
 * 1.0.3 2021.01.25 增加subTitle分类样式和alignmentLine指示器样式
 * 1.0.2 2021.01.21 将IndicatorBackgroundView和RTL移除基类，单独pod
 * 1.0.1 2021.01.19 新增标题圆点缩放样式，可实现网易新闻效果

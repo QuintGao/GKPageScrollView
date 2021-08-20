@@ -1,30 +1,32 @@
 PODS:
-  - GKNavigationBar (1.4.0):
-    - GKNavigationBar/GestureHandle (= 1.4.0)
-    - GKNavigationBar/NavigationBar (= 1.4.0)
-  - GKNavigationBar/GestureHandle (1.4.0)
-  - GKNavigationBar/NavigationBar (1.4.0)
+  - GKNavigationBar (1.5.9):
+    - GKNavigationBar/GestureHandle (= 1.5.9)
+    - GKNavigationBar/NavigationBar (= 1.5.9)
+  - GKNavigationBar/GestureHandle (1.5.9)
+  - GKNavigationBar/NavigationBar (1.5.9)
   - GKNavigationBarSwift (1.3.1)
-  - GKPageScrollView (1.5.3):
-    - GKPageScrollView/Objc (= 1.5.3)
-  - GKPageScrollView/Objc (1.5.3)
-  - GKPageScrollView/Swift (1.5.3)
-  - GKPageSmoothView (1.5.3):
-    - GKPageSmoothView/Objc (= 1.5.3)
-  - GKPageSmoothView/Objc (1.5.3)
-  - GKPageSmoothView/Swift (1.5.3)
-  - JXCategoryViewExt/Core (1.0.3)
-  - JXCategoryViewExt/Indicator/AlignmentLine (1.0.3):
+  - GKPageScrollView (1.6.2):
+    - GKPageScrollView/Objc (= 1.6.2)
+  - GKPageScrollView/Objc (1.6.2)
+  - GKPageScrollView/Swift (1.6.2)
+  - GKPageSmoothView (1.6.2):
+    - GKPageSmoothView/Objc (= 1.6.2)
+  - GKPageSmoothView/Objc (1.6.2)
+  - GKPageSmoothView/Swift (1.6.2)
+  - JXCategoryViewExt/Core (1.1.2)
+  - JXCategoryViewExt/Indicator/AlignmentLine (1.1.2):
     - JXCategoryViewExt/Indicator/Line
-  - JXCategoryViewExt/Indicator/Line (1.0.3):
+  - JXCategoryViewExt/Indicator/Line (1.1.2):
     - JXCategoryViewExt/Core
-  - JXCategoryViewExt/SubTitle (1.0.3):
+  - JXCategoryViewExt/SubTitle (1.1.2):
     - JXCategoryViewExt/Title
-  - JXCategoryViewExt/Title (1.0.3):
+  - JXCategoryViewExt/SubTitleImage (1.1.2):
+    - JXCategoryViewExt/SubTitle
+  - JXCategoryViewExt/Title (1.1.2):
     - JXCategoryViewExt/Core
   - JXSegmentedView (1.2.7)
   - Masonry (1.1.0)
-  - MJRefresh (3.5.0)
+  - MJRefresh (3.7.2)
   - SnapKit (4.2.0)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
@@ -39,7 +41,7 @@ DEPENDENCIES:
   - GKPageSmoothView (from `../GKPageScrollView`)
   - GKPageSmoothView/Swift (from `../GKPageScrollView`)
   - JXCategoryViewExt/Indicator/AlignmentLine
-  - JXCategoryViewExt/SubTitle
+  - JXCategoryViewExt/SubTitleImage
   - JXSegmentedView
   - Masonry
   - MJRefresh
@@ -66,18 +68,18 @@ EXTERNAL SOURCES:
     :path: "../GKPageScrollView"
 
 SPEC CHECKSUMS:
-  GKNavigationBar: fe87990bde3fb2b7ece3f81014c6d4bc654bef06
+  GKNavigationBar: 9947fa55e2f1d803c9a0d5bb16473e2d66102b6c
   GKNavigationBarSwift: f3d1a977b4397f43bb7e5769c92609795090edb2
-  GKPageScrollView: e842e1e9e9d3355aa0393c0dbfd242742d845cba
-  GKPageSmoothView: aca71e90c457d1b33df2d67a5bffe3b0f4d93e46
-  JXCategoryViewExt: b587d982a33b94fb629afccbffff18047a2e2a80
+  GKPageScrollView: 55fbcaf83707081f1ee8fb8c6c5f7614874295c5
+  GKPageSmoothView: 17c42ba8e5c74528ef2687e56fc1cc0008af8e4f
+  JXCategoryViewExt: 2e26045165762deec7371fb1b9cd623ff7bb03a7
   JXSegmentedView: eb1cad21f57c2543c00c3e08b8fd3c7ca54f5acd
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: dfedbe4503cf5787b7a848bb0610a346db2945df
+PODFILE CHECKSUM: 63cc7ca9e86dcc4bc13f804459ea32c085266932
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.0.beta.2
