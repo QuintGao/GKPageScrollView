@@ -794,6 +794,9 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        listDict.values.forEach {
+            $0.listView().frame = self.listCollectionView.bounds
+        }
         return self.listCollectionView.bounds.size
     }
     

@@ -70,6 +70,20 @@
     }];
     
     [self.pageScrollView reloadData];
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(GK_STATUSBAR_NAVBAR_HEIGHT, 0, ADAPTATIONRATIO * 100, 0));
+//        }];
+//        
+//        CGFloat scrollW = kScreenW;
+//        CGFloat scrollH = kScreenH - kNavBarHeight - 40.0f - ADAPTATIONRATIO * 100.0f;
+//        self.scrollView.frame = CGRectMake(0, 40, scrollW, scrollH);
+//
+//        [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
+//            vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
+//        }];
+//    });
 }
 
 #pragma mark - GKPageScrollViewDelegate

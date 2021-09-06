@@ -66,6 +66,13 @@
     }];
     
     [self.pageScrollView reloadData];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.equalTo(self.view);
+            make.bottom.equalTo(self.view).offset(-ADAPTATIONRATIO * 100);
+        }];
+    });
 }
 
 - (void)backAction {
@@ -98,6 +105,10 @@
     GKWBListViewController *listVC = [GKWBListViewController new];
     listVC.isCanScroll = YES;
     return listVC;
+}
+
+- (void)pageScrollViewReloadCell:(GKPageScrollView *)pageScrollView {
+    [self.categoryView reloadData];
 }
 
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {

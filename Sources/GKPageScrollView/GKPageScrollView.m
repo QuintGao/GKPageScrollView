@@ -66,7 +66,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+    if (CGRectEqualToRect(self.mainTableView.frame, self.bounds)) return;
     self.mainTableView.frame = self.bounds;
+    if (!self.isLoaded) return;
+    [self.mainTableView reloadData];
 }
 
 - (void)initSubviews {
@@ -437,6 +440,9 @@
     height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
     pageView.frame = CGRectMake(0, 0, width, height);
     [cell.contentView addSubview:pageView];
+    if ([self.delegate respondsToSelector:@selector(pageScrollViewReloadCell:)]) {
+        [self.delegate pageScrollViewReloadCell:self];
+    }
     return cell;
 }
 
@@ -444,6 +450,10 @@
     CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
     height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
     return height;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
 #pragma mark - GKPageListContainerViewDelegate

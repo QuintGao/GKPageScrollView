@@ -179,6 +179,13 @@ class GKWBFindViewController: GKDemoBaseViewController {
         })
         
         self.pageScrollView.reloadData()
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+//            self.pageScrollView.snp.remakeConstraints { (make) in
+//                make.left.right.top.equalTo(self.view)
+//                make.bottom.equalTo(self.view).offset(-ADAPTATIONRATIO * 100)
+//            }
+//        }
     }
     
     @objc func backAction() {
