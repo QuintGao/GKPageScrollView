@@ -16,11 +16,17 @@ class GKNest2View: UIView {
         let pageScrollView = GKPageScrollView(delegate: self)
         pageScrollView.isLazyLoadList = true
         pageScrollView.ceilPointHeight = 0
-        pageScrollView.mainTableView.gestureDelegate = self
+//        pageScrollView.mainTableView.gestureDelegate = self
         return pageScrollView
     }()
     
-    public weak var mainScrollView: UIScrollView?
+    public weak var mainScrollView: UIScrollView? {
+        didSet {
+            if let scrollView = self.mainScrollView {
+                self.pageScrollView.horizontalScrollViewList = [scrollView]
+            }
+        }
+    }
     
     lazy var headerView: UIImageView = {
         let headerView = UIImageView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: ADAPTATIONRATIO * 400.0))
@@ -61,7 +67,6 @@ class GKNest2View: UIView {
         
         self.pageScrollView.reloadData()
         self.pageScrollView.listContainerView.collectionView.isNestEnabled = true;
-        print(ADAPTATIONRATIO * 400.0)
     }
     
     required init?(coder: NSCoder) {

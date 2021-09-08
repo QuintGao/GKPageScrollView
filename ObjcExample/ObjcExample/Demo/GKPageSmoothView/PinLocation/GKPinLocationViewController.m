@@ -70,6 +70,7 @@
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
     GKPinLocationView *listView = [[GKPinLocationView alloc] init];
+    listView.delegate = self;
     
     NSMutableArray *data = [NSMutableArray new];
     NSArray *counts = @[@(6), @(8), @(9), @(5), @(7), @(10), @(13), @(6), @(8)];
@@ -109,7 +110,14 @@
 - (void)categoryView:(JXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index {
     UITableView *tableView = (UITableView *)self.smoothView.currentListScrollView;
     CGRect frame = [tableView rectForHeaderInSection:index];
-    [tableView setContentOffset:CGPointMake(0, frame.origin.y - kBaseHeaderHeight + kBaseSegmentHeight + 40) animated:YES];
+    
+    CGFloat offsetY = frame.origin.y - kBaseHeaderHeight + kBaseSegmentHeight + 40;
+    CGFloat maxOffsetY = tableView.contentSize.height - tableView.frame.size.height;
+    if (offsetY > maxOffsetY) {
+        offsetY = maxOffsetY;
+    }
+    
+    [tableView setContentOffset:CGPointMake(0, offsetY) animated:YES];
 }
 
 #pragma mark - GKPinLocationViewDelegate

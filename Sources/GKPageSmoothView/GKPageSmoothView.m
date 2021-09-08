@@ -285,7 +285,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
-        list.listView.frame = self.listCollectionView.bounds;
+        list.listView.frame = (CGRect){{0, 0}, self.listCollectionView.bounds.size};
     }
     return self.listCollectionView.bounds.size;
 }

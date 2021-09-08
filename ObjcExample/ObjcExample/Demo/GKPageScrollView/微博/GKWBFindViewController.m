@@ -265,7 +265,7 @@
 
 - (JXCategorySubTitleImageView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategorySubTitleImageView alloc] initWithFrame:CGRectMake(ADAPTATIONRATIO * 30.0f, 0, kScreenW - ADAPTATIONRATIO * 60.0f, 54.0f)];
+        _categoryView = [[JXCategorySubTitleImageView alloc] initWithFrame:CGRectMake(ADAPTATIONRATIO * 60.0f, 0, kScreenW - ADAPTATIONRATIO * 80.0f, 54.0f)];
         _categoryView.titles = self.titles;
         _categoryView.subTitles = self.subtitles;
         _categoryView.titleFont = [UIFont boldSystemFontOfSize:15];

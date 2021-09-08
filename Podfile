@@ -28,6 +28,8 @@ target 'SwiftExample' do
   pod 'MJRefresh'
   pod 'WMPageController'
   pod 'JXSegmentedView'
+  pod 'JXCategoryViewExt/SubTitleImage'
+  pod 'JXCategoryViewExt/Indicator/AlignmentLine'
   pod 'VTMagic'
 end
 

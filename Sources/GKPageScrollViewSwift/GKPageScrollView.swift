@@ -108,6 +108,10 @@ import UIKit
     /// mainTableView结束滑动动画
     /// - Parameter scrollView: mainTableView
     @objc optional func mainTableViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
+    
+    /// pageScrollView刷新回调
+    /// - Parameter pageScrollView: pageScrollView
+    @objc optional func pageScrollViewReloadCell(_ pageScrollView: GKPageScrollView)
 }
 
 open class GKPageScrollView: UIView {
@@ -554,6 +558,7 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
         height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
         pageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         cell.contentView.addSubview(pageView)
+        self.delegate.pageScrollViewReloadCell?(self)
         return cell
     }
     
