@@ -226,6 +226,9 @@ open class GKPageScrollView: UIView {
         if #available(iOS 11.0, *) {
             self.mainTableView.contentInsetAdjustmentBehavior = .never
         }
+        if #available(iOS 15.0, *) {
+            self.mainTableView.sectionHeaderTopPadding = 0
+        }
         self.addSubview(mainTableView)
         self.refreshHeaderView()
         

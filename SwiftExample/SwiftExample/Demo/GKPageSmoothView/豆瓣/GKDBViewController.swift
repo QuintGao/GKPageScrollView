@@ -31,6 +31,7 @@ class GKDBViewController: GKDemoBaseViewController {
         smoothView.isAllowDragBottom = true
         smoothView.isAllowDragScroll = true
         smoothView.listCollectionView.gk_openGestureHandle = true
+        smoothView.isHoldUpScrollView = true
         return smoothView
     }()
     

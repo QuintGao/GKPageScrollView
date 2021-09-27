@@ -67,6 +67,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 @property (nonatomic, assign) BOOL       originBounces;
 @property (nonatomic, assign) BOOL       originShowsVerticalScrollIndicator;
 
+@property (nonatomic, assign) BOOL       isScroll;
+
 @end
 
 @implementation GKPageSmoothView
@@ -308,17 +310,17 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     }
     
     NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    
     NSInteger ratio = (int)scrollView.contentOffset.x % (int)scrollView.bounds.size.width;
+    self.isScroll = YES;
     
     if (!self.isMainScrollDisabled) {
         if (!self.isOnTop) {
             UIScrollView *listScrollView = self.listDict[@(index)].listScrollView;
-            if (index != self.currentIndex && ratio == 0 && !(scrollView.isDragging || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
+            if (index != self.currentIndex && ratio == 0 && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
                 [self horizontalScrollDidEndAtIndex:index];
             }else {
                 // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
-                if (self.headerContainerView.superview != self) {
+                if (self.headerContainerView.superview != self && ratio != 0) {
                     CGRect frame = self.headerContainerView.frame;
                     frame.origin.y = self.currentHeaderContainerViewY;
                     self.headerContainerView.frame = frame;
@@ -351,8 +353,15 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     // 修复快速闪烁问题
-    self.currentIndex = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    self.currentListScrollView = self.listDict[@(self.currentIndex)].listScrollView;
+    NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
+    self.currentIndex = index;
+    self.currentListScrollView = self.listDict[@(index)].listScrollView;
+    self.isScroll = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (!self.isScroll && self.headerContainerView.superview == self) {
+            [self horizontalScrollDidEndAtIndex:index];
+        }
+    });
 }
 
 #pragma mark - KVO

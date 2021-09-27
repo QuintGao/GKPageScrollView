@@ -39,19 +39,6 @@
         if (exist) return NO;
     }
     
-//    // 特殊处理，解决GKPageTableView上下滑动与返回手势左右滑动冲突
-//    NSArray *internalTargets = [otherGestureRecognizer valueForKey:@"targets"];
-//    id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
-//    if ([internalTargets isKindOfClass:[NSClassFromString(@"_UINavigationInteractiveTransition")]]) {
-//        return NO;
-//    }
-    
-    
-//    // 特殊处理，解决返回手势与GKPageTableView手势的冲突
-//    NSArray *internalTargets = [otherGestureRecognizer valueForKey:@"targets"];
-//    id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
-//    if ([internalTarget isKindOfClass:NSClassFromString(@"_UINavigationInteractiveTransition")]) return NO;
-    
     return [gestureRecognizer.view isKindOfClass:[UIScrollView class]] && [otherGestureRecognizer.view isKindOfClass:[UIScrollView class]];
 }
 

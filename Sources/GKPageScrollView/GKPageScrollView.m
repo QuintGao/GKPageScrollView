@@ -87,6 +87,9 @@
     if (@available(iOS 11.0, *)) {
         self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
+    if (@available(iOS 15.0, *)) {
+        self.mainTableView.sectionHeaderTopPadding = 0;
+    }
     [self addSubview:self.mainTableView];
     [self refreshHeaderView];
     

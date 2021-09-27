@@ -9,6 +9,8 @@
 #import "GKDBViewController.h"
 #import "GKPageSmoothView.h"
 #import "GKDBListView.h"
+#import "GKBaseListViewController.h"
+#import "GKSmoothListViewController.h"
 
 @interface GKDBViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, JXCategoryViewDelegate>
 
@@ -148,6 +150,7 @@
         _smoothView.allowDragScroll = YES;
         // 解决与返回手势滑动冲突
         _smoothView.listCollectionView.gk_openGestureHandle = YES;
+        _smoothView.holdUpScrollView = YES;
     }
     return _smoothView;
 }

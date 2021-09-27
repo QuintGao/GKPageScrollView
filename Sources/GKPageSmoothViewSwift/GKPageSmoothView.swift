@@ -165,6 +165,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var originBounces = false
     var originShowsVerticalScrollIndicator = false
     
+    var isScroll = false
+    
     public init(dataSource: GKPageSmoothViewDataSource) {
         self.dataSource = dataSource
         
@@ -820,10 +822,11 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
         if !self.isMainScrollDisabled {
             if !self.isOnTop {
                 let listScrollView = self.listDict[index]?.listScrollView()
-                if index != currentIndex && ratio == 0 && !(scrollView.isDragging || scrollView.isDecelerating) && listScrollView?.contentOffset.y ?? 0 <= -(segmentedHeight + ceilPointHeight) {
+                if index != currentIndex && ratio == 0 && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView?.contentOffset.y ?? 0 <= -(segmentedHeight + ceilPointHeight) {
                     horizontalScrollDidEnd(at: index)
                 }else {
-                    if headerContainerView.superview != self {
+                    // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
+                    if headerContainerView.superview != self && ratio != 0 {
                         headerContainerView.frame.origin.y = currentHeaderContainerViewY
                         addSubview(headerContainerView)
                     }
@@ -852,7 +855,14 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        currentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
-        currentListScrollView = self.listDict[currentIndex]?.listScrollView()
+        let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
+        self.currentIndex = index
+        self.currentListScrollView = self.listDict[index]?.listScrollView()
+        self.isScroll = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            if !self.isScroll && self.headerContainerView.superview == self {
+                self.horizontalScrollDidEnd(at: index)
+            }
+        }
     }
 }

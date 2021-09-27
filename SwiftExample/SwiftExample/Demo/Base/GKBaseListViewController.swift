@@ -344,7 +344,7 @@ extension GKBaseListViewController: GKPageListViewDelegate, GKPageSmoothListView
     }
     
     func listScrollView() -> UIScrollView {
-        return self.tableView
+        return self.currentScrollView!
     }
     
     func listViewDidScroll(callBack: @escaping (UIScrollView) -> ()) {
