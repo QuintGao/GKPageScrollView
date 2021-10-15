@@ -444,7 +444,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         } else if keyPath == "contentSize" {
             let minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight
             if let scrollView = object as? UIScrollView {
-                if minContentSizeHeight > scrollView.contentSize.height && self.isHoldUpScrollView {
+                let contentH = scrollView.contentSize.height
+                if minContentSizeHeight > contentH && self.isHoldUpScrollView {
                     scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: minContentSizeHeight)
                     //新的scrollView第一次加载的时候重置contentOffset
                     if let listScrollView = self.currentListScrollView {
@@ -453,22 +454,16 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                         }
                     }
                 }else {
-                    let contentH = scrollView.contentSize.height
+                    var shoudReset = true
+                    for list in listDict.values {
+                        if list.listScrollView() == scrollView && list.listScrollViewShouldReset?() != nil {
+                            shoudReset = list.listScrollViewShouldReset!()
+                        }
+                    }
                     
-                    if contentH == 0 {
-                        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: self.bounds.size.height)
-                    }else {
-                        var shoudReset = true
-                        for list in listDict.values {
-                            if list.listScrollView() == scrollView && list.listScrollViewShouldReset?() != nil {
-                                shoudReset = list.listScrollViewShouldReset!()
-                            }
-                        }
-                        
-                        if minContentSizeHeight > contentH && shoudReset {
-                            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
-                            listDidScroll(scrollView: scrollView)
-                        }
+                    if minContentSizeHeight > contentH && shoudReset {
+                        scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
+                        listDidScroll(scrollView: scrollView)
                     }
                 }
             }

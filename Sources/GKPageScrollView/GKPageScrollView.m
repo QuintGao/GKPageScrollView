@@ -420,6 +420,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if ([self.delegate respondsToSelector:@selector(pageScrollView:updateCell:)]) {
+        [self.delegate pageScrollView:self updateCell:cell];
+    }
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     CGFloat width  = self.frame.size.width == 0 ? GKPAGE_SCREEN_WIDTH : self.frame.size.width;
     CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;

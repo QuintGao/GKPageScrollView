@@ -375,28 +375,24 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         UIScrollView *scrollView = (UIScrollView *)object;
         if (scrollView != nil) {
             CGFloat minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight;
-            if (minContentSizeHeight > scrollView.contentSize.height && self.isHoldUpScrollView) {
+            CGFloat contentH = scrollView.contentSize.height;
+            if (minContentSizeHeight > contentH && self.isHoldUpScrollView) {
                 scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, minContentSizeHeight);
                 // 新的scrollView第一次加载的时候重置contentOffset
                 if (self.currentListScrollView != nil && scrollView != self.currentListScrollView) {
                     scrollView.contentOffset = CGPointMake(0, self.currentListInitializeContentOffsetY);
                 }
             }else {
-                CGFloat contentH = scrollView.contentSize.height;
-                if (contentH == 0) {
-                    scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, self.bounds.size.height);
-                }else {
-                    BOOL shouldReset = YES;
-                    for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
-                        if (list.listScrollView == scrollView && [list respondsToSelector:@selector(listScrollViewShouldReset)]) {
-                            shouldReset = [list listScrollViewShouldReset];
-                        }
+                BOOL shouldReset = YES;
+                for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
+                    if (list.listScrollView == scrollView && [list respondsToSelector:@selector(listScrollViewShouldReset)]) {
+                        shouldReset = [list listScrollViewShouldReset];
                     }
-                    
-                    if (minContentSizeHeight > contentH && shouldReset) {
-                        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -self.headerContainerHeight) animated:NO];
-                        [self listScrollViewDidScroll:scrollView];
-                    }
+                }
+                
+                if (minContentSizeHeight > contentH && shouldReset) {
+                    [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -self.headerContainerHeight) animated:NO];
+                    [self listScrollViewDidScroll:scrollView];
                 }
             }
         }

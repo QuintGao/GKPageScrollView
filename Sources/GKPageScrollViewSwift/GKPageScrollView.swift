@@ -112,6 +112,10 @@ import UIKit
     /// pageScrollView刷新回调
     /// - Parameter pageScrollView: pageScrollView
     @objc optional func pageScrollViewReloadCell(_ pageScrollView: GKPageScrollView)
+    
+    /// 更新pageScrollView的cell属性
+    /// 可需要cell的背景色等
+    @objc optional func pageScrollViewUpdateCell(_ pageScrollView: GKPageScrollView, cell: UITableViewCell)
 }
 
 open class GKPageScrollView: UIView {
@@ -534,6 +538,7 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.selectionStyle = .none
+        self.delegate.pageScrollViewUpdateCell?(self, cell: cell)
         for view in cell.contentView.subviews {
             view.removeFromSuperview()
         }
