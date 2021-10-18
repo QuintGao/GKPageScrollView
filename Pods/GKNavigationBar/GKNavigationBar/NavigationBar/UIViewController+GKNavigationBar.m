@@ -512,7 +512,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
         return [[(UITabBarController *)self selectedViewController] gk_findCurrentViewControllerIsRoot:NO];;
     }
     if ([self isKindOfClass:[UINavigationController class]]) {
-        [[(UINavigationController *)self topViewController] gk_findCurrentViewControllerIsRoot:NO];
+        return [[(UINavigationController *)self topViewController] gk_findCurrentViewControllerIsRoot:NO];
     }
     if (self.childViewControllers.count > 0) {
         if (self.childViewControllers.count == 1 && isRoot) {

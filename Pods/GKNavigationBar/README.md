@@ -206,6 +206,7 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.6.0 - 2021.09.09 修复visibleViewController方法返回错误问题
 1.5.9 - 2021.06.25 配置类增加backgroundImage，可设置全局导航图片
 1.5.8 - 2021.06.09 增加恢复系统导航栏显示的逻辑及方法 #86
 1.5.7 - 2021.05.20 修复bug #78，创建导航栏item方法优化

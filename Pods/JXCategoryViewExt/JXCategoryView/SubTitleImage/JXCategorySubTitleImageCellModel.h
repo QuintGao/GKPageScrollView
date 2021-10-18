@@ -28,4 +28,6 @@ typedef NS_ENUM(NSUInteger, JXCategorySubTitleImageType) {
 @property (nonatomic, assign, getter=isImageZoomEnabled) BOOL imageZoomEnabled;
 @property (nonatomic, assign) CGFloat imageZoomScale;
 
+@property (nonatomic, assign, getter=isSubTitleInCenterX) BOOL subTitleInCenterX;
+
 @end

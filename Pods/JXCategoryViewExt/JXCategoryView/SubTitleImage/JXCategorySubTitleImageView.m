@@ -61,6 +61,7 @@
     }
     myCellModel.imageZoomEnabled = self.imageZoomEnabled;
     myCellModel.imageZoomScale = ((index == self.selectedIndex) ? self.imageZoomScale : 1.0);
+    myCellModel.subTitleInCenterX = self.subTitleInCenterX;
 }
 
 - (void)refreshSelectedCellModel:(JXCategoryBaseCellModel *)selectedCellModel unselectedCellModel:(JXCategoryBaseCellModel *)unselectedCellModel {

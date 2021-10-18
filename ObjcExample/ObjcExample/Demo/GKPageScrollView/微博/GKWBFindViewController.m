@@ -67,12 +67,12 @@
     
     [self.pageScrollView reloadData];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.equalTo(self.view);
-            make.bottom.equalTo(self.view).offset(-ADAPTATIONRATIO * 100);
-        }];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.left.right.top.equalTo(self.view);
+//            make.bottom.equalTo(self.view).offset(-ADAPTATIONRATIO * 100);
+//        }];
+//    });
 }
 
 - (void)backAction {
@@ -142,7 +142,7 @@
         self.categoryView.titleFont = [UIFont boldSystemFontOfSize:15];
         self.categoryView.titleSelectedFont = [UIFont boldSystemFontOfSize:15];
         self.lineView.indicatorHeight = 16;
-        self.lineView.verticalMargin = 0;
+        self.lineView.verticalMargin = 10;
         self.lineView.indicatorWidthIncrement = 0;
         self.categoryView.indicators = @[self.lineView];
         [self reloadCategoryWithHeight:54];
@@ -327,7 +327,7 @@
     if (!_lineView) {
         _lineView = [[JXCategoryIndicatorLineView alloc] init];
         _lineView.indicatorHeight = 16;
-        _lineView.verticalMargin = 0;
+        _lineView.verticalMargin = 10;
         _lineView.indicatorWidthIncrement = 0;
         _lineView.lineScrollOffsetX = 0;
         _lineView.indicatorColor = kThemeColor;

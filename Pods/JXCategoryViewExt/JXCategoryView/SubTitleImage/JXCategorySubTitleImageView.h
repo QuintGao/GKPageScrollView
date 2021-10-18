@@ -32,4 +32,7 @@
 // 计算指示器位置时是否忽略图片的宽度
 @property (nonatomic, assign, getter=isIgnoreImageWidth) BOOL ignoreImageWidth;
 
+// 子标题是否相对于cell居中，只支持上下结构且对齐方式将失效
+@property (nonatomic, assign, getter=isSubTitleInCenterX) BOOL subTitleInCenterX;
+
 @end
