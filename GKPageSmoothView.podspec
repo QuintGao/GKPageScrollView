@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'GKPageSmoothView'
-  s.version             = '1.6.6'
+  s.version             = '1.6.7'
   s.summary             = 'iOS UIScrollView嵌套滑动分页视图'
   s.homepage            = 'https://github.com/QuintGao/GKPageScrollView'
   s.license             = { :type => "MIT", :file => "LICENSE" }

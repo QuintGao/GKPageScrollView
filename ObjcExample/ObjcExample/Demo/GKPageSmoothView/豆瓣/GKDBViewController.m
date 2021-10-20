@@ -67,8 +67,11 @@
 }
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
-    GKDBListView *listView = [GKDBListView new];
-    return listView;
+//    GKDBListView *listView = [GKDBListView new];
+//    return listView;
+    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
+    listVC.shouldLoadData = YES;
+    return listVC;
 }
 
 #pragma mark - GKPageSmoothViewDelegate

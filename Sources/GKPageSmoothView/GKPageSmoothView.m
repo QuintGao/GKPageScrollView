@@ -101,15 +101,29 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         CGRect frame = self.frame;
         frame.origin.y = self.headerContainerHeight;
         frame.size.height -= self.headerContainerHeight;
+        [self refreshListFrame:frame];
         self.listCollectionView.frame = frame;
     }else {
         if (self.listCollectionView.superview == self) {
+            [self refreshListFrame:self.bounds];
             self.listCollectionView.frame = self.bounds;
         }else {
             CGRect frame = self.listCollectionView.frame;
             frame.origin.y = self.segmentedHeight;
             frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight;
+            [self refreshListFrame:frame];
             self.listCollectionView.frame = frame;
+        }
+    }
+}
+
+- (void)refreshListFrame:(CGRect)frame {
+    for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
+        CGRect f = list.listView.frame;
+        if (f.size.height != frame.size.height) {
+            f.size.height = frame.size.height;
+            list.listView.frame = f;
+            [self.listCollectionView reloadData];
         }
     }
 }

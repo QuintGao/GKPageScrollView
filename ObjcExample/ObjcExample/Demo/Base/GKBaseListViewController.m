@@ -112,6 +112,12 @@
     }
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    self.view.frame = self.view.superview.bounds;
+}
+
 - (void)loadData {
     self.count = 30;
     
