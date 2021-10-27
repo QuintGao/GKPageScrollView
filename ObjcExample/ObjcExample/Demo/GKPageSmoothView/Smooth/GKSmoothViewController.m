@@ -47,7 +47,7 @@
     // 模拟网络请求
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         CGRect frame = self.headerView.frame;
-        frame.size.height = kDYHeaderHeight;
+        frame.size.height = kScreenH + 200;
         self.headerView.frame = frame;
         [self.smoothView refreshHeaderView];
     
@@ -76,7 +76,7 @@
 //    listVC.delegate = self;
 //    listVC.index = index;
 //    return listVC;
-    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
+    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:0];
     listVC.shouldLoadData = YES;
     return listVC;
 }
