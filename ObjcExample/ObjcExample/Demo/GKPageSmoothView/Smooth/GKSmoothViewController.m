@@ -47,7 +47,7 @@
     // 模拟网络请求
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         CGRect frame = self.headerView.frame;
-        frame.size.height = kScreenH + 200;
+        frame.size.height = kDYHeaderHeight;
         self.headerView.frame = frame;
         [self.smoothView refreshHeaderView];
     
