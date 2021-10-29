@@ -811,24 +811,24 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.smoothViewDidScroll?(self, scrollView: scrollView)
+        let indexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width
         let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
-        let ratio = Int(scrollView.contentOffset.x)%Int(scrollView.bounds.size.width)
         
         if !self.isMainScrollDisabled {
             if !self.isOnTop {
                 let listScrollView = self.listDict[index]?.listScrollView()
-                if index != currentIndex && ratio == 0 && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView?.contentOffset.y ?? 0 <= -(segmentedHeight + ceilPointHeight) {
+                if index != currentIndex && (indexPercent - CGFloat(index) == 0) && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView?.contentOffset.y ?? 0 <= -(segmentedHeight + ceilPointHeight) {
                     horizontalScrollDidEnd(at: index)
                 }else {
                     // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
-                    if headerContainerView.superview != self && ratio != 0 {
+                    if headerContainerView.superview != self {
                         headerContainerView.frame.origin.y = currentHeaderContainerViewY
                         addSubview(headerContainerView)
                     }
                 }
             }
         }
-        if currentIndex != index && ratio == 0 {
+        if currentIndex != index {
             currentIndex = index
         }
     }

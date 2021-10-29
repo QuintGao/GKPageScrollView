@@ -323,18 +323,18 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         [self.delegate smoothView:self scrollViewDidScroll:scrollView];
     }
     
-    NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    NSInteger ratio = (int)scrollView.contentOffset.x % (int)scrollView.bounds.size.width;
+    CGFloat indexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width;
+    NSInteger index = floor(indexPercent);
     self.isScroll = YES;
     
     if (!self.isMainScrollDisabled) {
         if (!self.isOnTop) {
             UIScrollView *listScrollView = self.listDict[@(index)].listScrollView;
-            if (index != self.currentIndex && ratio == 0 && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
+            if (index != self.currentIndex && indexPercent - index == 0 && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
                 [self horizontalScrollDidEndAtIndex:index];
             }else {
                 // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
-                if (self.headerContainerView.superview != self && ratio != 0) {
+                if (self.headerContainerView.superview != self) {
                     CGRect frame = self.headerContainerView.frame;
                     frame.origin.y = self.currentHeaderContainerViewY;
                     self.headerContainerView.frame = frame;
@@ -344,7 +344,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
     }
     
-    if (index != self.currentIndex && ratio == 0) {
+    if (index != self.currentIndex) {
         self.currentIndex = index;
     }
 }
