@@ -15,6 +15,11 @@
 
 @protocol JXCategoryTitleViewDataSource <NSObject>
 @optional
+// 返回title的个数，如果实现此代理，则titles属性无效
+- (NSInteger)numberOfTitleView:(JXCategoryTitleView *)titleView;
+
+// 返回index对应的标题
+- (NSString *)titleView:(JXCategoryTitleView *)titleView titleForIndex:(NSInteger)index;
 // 如果将JXCategoryTitleView嵌套进UITableView的cell，每次重用的时候，JXCategoryTitleView进行reloadData时，会重新计算所有的title宽度。所以该应用场景，需要UITableView的cellModel缓存titles的文字宽度，再通过该代理方法返回给JXCategoryTitleView。
 // 如果实现了该方法就以该方法返回的宽度为准，不触发内部默认的文字宽度计算。
 - (CGFloat)categoryTitleView:(JXCategoryTitleView *)titleView widthForTitle:(NSString *)title;
@@ -43,6 +48,9 @@
 
 //----------------------titleLabelZoomEnabled-----------------------//
 @property (nonatomic, assign, getter=isTitleLabelZoomEnabled) BOOL titleLabelZoomEnabled;     //默认为NO。为YES时titleSelectedFont失效，以titleFont为准。
+
+// 当缩放结束的时候，是否直接使用selectedFont，默认NO
+@property (nonatomic, assign, getter=isTitleLabelZoomEndUseSelectedFontEnabled) BOOL titleLabelZoomEndUseSelectedFontEnabled;
 
 @property (nonatomic, assign, getter=isTitleLabelZoomScrollGradientEnabled) BOOL titleLabelZoomScrollGradientEnabled;     //手势滚动中，是否需要更新状态。默认为YES
 

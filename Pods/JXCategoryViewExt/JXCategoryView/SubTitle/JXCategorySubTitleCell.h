@@ -11,4 +11,6 @@
 
 @property (nonatomic, strong) UILabel *subTitleLabel;
 
+@property (nonatomic, strong) NSLayoutConstraint *subTitleLabelCenterX;
+
 @end

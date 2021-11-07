@@ -8,7 +8,13 @@
 import UIKit
 import GKPageSmoothView
 
+protocol GKPinLoactionViewDelegate: NSObjectProtocol {
+    func locationViewDidEndAnimation(scrollView: UIScrollView)
+}
+
 class GKPinLocationView: UIView {
+    weak var delegate: GKPinLoactionViewDelegate?
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
@@ -78,6 +84,10 @@ extension GKPinLocationView: UITableViewDataSource, UITableViewDelegate {
         let dic = self.datas[section]
         titleLabel.text = dic["title"]!
         return header
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.delegate?.locationViewDidEndAnimation(scrollView: scrollView)
     }
 }
 

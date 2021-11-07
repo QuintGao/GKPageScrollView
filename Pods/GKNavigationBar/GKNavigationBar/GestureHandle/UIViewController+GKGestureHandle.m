@@ -165,7 +165,7 @@ static char kAssociatedObjectKey_hasPopDelegate;
 }
 
 #pragma mark - GKGesturePopHandlerProtocol
-- (BOOL)navigationShouldPopOnGesture {
+- (BOOL)navigationShouldPop {
     return YES;
 }
 

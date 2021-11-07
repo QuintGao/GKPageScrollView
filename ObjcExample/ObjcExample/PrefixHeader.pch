@@ -15,19 +15,7 @@
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 
-#define IS_iPhoneX  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?\
-(\
-CGSizeEqualToSize(CGSizeMake(375, 812),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(812, 375),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(414, 896),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(896, 414),[UIScreen mainScreen].bounds.size))\
-:\
-NO)
-
-#define kNavBarHeight       (IS_iPhoneX ? 88.0f : 64.0f)
+#define kNavBarHeight       GK_STATUSBAR_NAVBAR_HEIGHT
 
 //  适配比例
 #define ADAPTATIONRATIO     kScreenW / 750.0f

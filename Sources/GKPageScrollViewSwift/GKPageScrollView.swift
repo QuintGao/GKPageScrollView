@@ -108,10 +108,18 @@ import UIKit
     /// mainTableView结束滑动动画
     /// - Parameter scrollView: mainTableView
     @objc optional func mainTableViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
+    
+    /// pageScrollView刷新回调
+    /// - Parameter pageScrollView: pageScrollView
+    @objc optional func pageScrollViewReloadCell(_ pageScrollView: GKPageScrollView)
+    
+    /// 更新pageScrollView的cell属性
+    /// 可需要cell的背景色等
+    @objc optional func pageScrollViewUpdateCell(_ pageScrollView: GKPageScrollView, cell: UITableViewCell)
 }
 
 open class GKPageScrollView: UIView {
-    open weak var delegate: GKPageScrollViewDelegate?
+    open weak var delegate: GKPageScrollViewDelegate!
     // 主列表
     open var mainTableView: GKPageTableView!
     // 当前滑动的子列表
@@ -204,7 +212,11 @@ open class GKPageScrollView: UIView {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
+        
+        if self.mainTableView.frame.equalTo(self.bounds) { return }
         self.mainTableView.frame = self.bounds
+        if !self.isLoaded { return }
+        self.mainTableView.reloadData()
     }
     
     fileprivate func initSubviews() {
@@ -218,6 +230,9 @@ open class GKPageScrollView: UIView {
         if #available(iOS 11.0, *) {
             self.mainTableView.contentInsetAdjustmentBehavior = .never
         }
+        if #available(iOS 15.0, *) {
+            self.mainTableView.sectionHeaderTopPadding = 0
+        }
         self.addSubview(mainTableView)
         self.refreshHeaderView()
         
@@ -228,9 +243,9 @@ open class GKPageScrollView: UIView {
     
     // MARK: - Public Methods
     public func refreshHeaderView() {
-        let headerView = self.delegate?.headerView(in: self)
+        let headerView = self.delegate.headerView(in: self)
         self.mainTableView.tableHeaderView = headerView
-        self.headerHeight = headerView?.frame.size.height ?? 0
+        self.headerHeight = headerView.frame.size.height
         
         self.criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
         self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
@@ -238,7 +253,7 @@ open class GKPageScrollView: UIView {
     
     public func refreshSegmentedView() {
         if self.shouldLazyLoadListView() {
-            let segmentedView = self.delegate?.segmentedView?(in: self)
+            let segmentedView = self.delegate.segmentedView?(in: self)
             
             var frame = self.listContainerView.frame
             frame.origin.y = segmentedView!.frame.size.height
@@ -443,8 +458,8 @@ open class GKPageScrollView: UIView {
     
     // MARK: - Private Methods
     fileprivate func configListViewScroll() {
-        if (self.delegate!.listView?(in: self).count) ?? 0 > 0 {
-            for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
+        if (self.delegate.listView?(in: self).count) ?? 0 > 0 {
+            for (_, value) in (self.delegate.listView?(in: self).enumerated())! {
                 value.listViewDidScroll { (scrollView) in
                     self.listScrollViewDidScroll(scrollView: scrollView)
                 }
@@ -462,8 +477,8 @@ open class GKPageScrollView: UIView {
                 }
             }
         }else {
-            if self.delegate!.listView?(in: self).count ?? 0 > 0 {
-                for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
+            if self.delegate.listView?(in: self).count ?? 0 > 0 {
+                for (_, value) in (self.delegate.listView?(in: self).enumerated())! {
                     let listScrollView = value.listScrollView()
                     
                     if listScrollView.contentOffset.y != 0 {
@@ -484,8 +499,8 @@ open class GKPageScrollView: UIView {
                 }
             }
         }else {
-            if self.delegate!.listView?(in: self).count ?? 0 > 0 {
-                for (_, value) in (self.delegate!.listView?(in: self).enumerated())! {
+            if self.delegate.listView?(in: self).count ?? 0 > 0 {
+                for (_, value) in (self.delegate.listView?(in: self).enumerated())! {
                     let listScrollView = value.listScrollView()
                     self.set(scrollView: listScrollView, offset: .zero)
                     if self.isControlVerticalIndicator {
@@ -497,12 +512,12 @@ open class GKPageScrollView: UIView {
     }
     
     fileprivate func mainTableViewCanScrollUpdate() {
-        self.delegate!.mainTableViewDidScroll?(self.mainTableView, isMainCanScroll: self.isMainCanScroll)
+        self.delegate.mainTableViewDidScroll?(self.mainTableView, isMainCanScroll: self.isMainCanScroll)
     }
     
     fileprivate func shouldLazyLoadListView() -> Bool {
-        if self.delegate?.shouldLazyLoadList?(in: self) ?? false {
-            return self.delegate!.shouldLazyLoadList!(in: self)
+        if self.delegate.shouldLazyLoadList?(in: self) ?? false {
+            return self.delegate.shouldLazyLoadList!(in: self)
         }else {
             return self.isLazyLoadList
         }
@@ -523,6 +538,7 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.selectionStyle = .none
+        self.delegate.pageScrollViewUpdateCell?(self, cell: cell)
         for view in cell.contentView.subviews {
             view.removeFromSuperview()
         }
@@ -533,7 +549,7 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
         if self.shouldLazyLoadListView() {
             pageView = UIView()
             
-            let segmentedView = self.delegate!.segmentedView?(in: self)
+            let segmentedView = self.delegate.segmentedView?(in: self)
             
             let x: CGFloat = 0
             let y: CGFloat = segmentedView!.frame.size.height
@@ -545,11 +561,12 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
             pageView.addSubview(segmentedView!)
             pageView.addSubview(self.listContainerView)
         }else {
-            pageView = (self.delegate!.pageView?(in: self))!
+            pageView = (self.delegate.pageView?(in: self))!
         }
         height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
         pageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         cell.contentView.addSubview(pageView)
+        self.delegate.pageScrollViewReloadCell?(self)
         return cell
     }
     
@@ -575,23 +592,23 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
             self.isCeilPoint = true
         }
         
-        self.delegate!.mainTableViewWillBeginDragging?(scrollView)
+        self.delegate.mainTableViewWillBeginDragging?(scrollView)
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             self.isBeginDragging = false
         }
-        self.delegate!.mainTableViewDidEndDragging?(scrollView, willDecelerate: decelerate)
+        self.delegate.mainTableViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.isBeginDragging = false
-        self.delegate!.mainTableViewDidEndDecelerating?(scrollView)
+        self.delegate.mainTableViewDidEndDecelerating?(scrollView)
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        self.delegate!.mainTableViewDidEndScrollingAnimation?(scrollView)
+        self.delegate.mainTableViewDidEndScrollingAnimation?(scrollView)
         if self.isScrollToOriginal {
             self.isScrollToOriginal = false
             self.isCeilPoint = false
@@ -611,13 +628,13 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
 
 extension GKPageScrollView: GKPageListContainerViewDelegate {
     public func numberOfRows(in listContainerView: GKPageListContainerView) -> Int {
-        return (self.delegate!.numberOfLists?(in: self))!
+        return (self.delegate.numberOfLists?(in: self))!
     }
     
     public func listContainerView(_ listContainerView: GKPageListContainerView, viewForListInRow row: Int) -> UIView {
         var list = self.validListDict[row]
         if list == nil {
-            list = self.delegate!.pageScrollView?(self, initListAtIndex: row)
+            list = self.delegate.pageScrollView?(self, initListAtIndex: row)
             list?.listViewDidScroll(callBack: {[weak self] (scrollView) in
                 self?.listScrollViewDidScroll(scrollView: scrollView)
             })

@@ -9,6 +9,8 @@
 #import "GKDBViewController.h"
 #import "GKPageSmoothView.h"
 #import "GKDBListView.h"
+#import "GKBaseListViewController.h"
+#import "GKSmoothListViewController.h"
 
 @interface GKDBViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, JXCategoryViewDelegate>
 
@@ -65,8 +67,11 @@
 }
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
-    GKDBListView *listView = [GKDBListView new];
-    return listView;
+//    GKDBListView *listView = [GKDBListView new];
+//    return listView;
+    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
+    listVC.shouldLoadData = YES;
+    return listVC;
 }
 
 #pragma mark - GKPageSmoothViewDelegate
@@ -148,6 +153,7 @@
         _smoothView.allowDragScroll = YES;
         // 解决与返回手势滑动冲突
         _smoothView.listCollectionView.gk_openGestureHandle = YES;
+        _smoothView.holdUpScrollView = YES;
     }
     return _smoothView;
 }

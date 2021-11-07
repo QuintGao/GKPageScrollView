@@ -10,7 +10,7 @@ target 'ObjcExample' do
   pod 'Masonry'
   pod 'WMPageController'
   pod 'MJRefresh'
-  pod 'JXCategoryViewExt/SubTitle'
+  pod 'JXCategoryViewExt/SubTitleImage'
   pod 'JXCategoryViewExt/Indicator/AlignmentLine'
   pod 'VTMagic'
 end
@@ -28,6 +28,8 @@ target 'SwiftExample' do
   pod 'MJRefresh'
   pod 'WMPageController'
   pod 'JXSegmentedView'
+  pod 'JXCategoryViewExt/SubTitleImage'
+  pod 'JXCategoryViewExt/Indicator/AlignmentLine'
   pod 'VTMagic'
 end
 

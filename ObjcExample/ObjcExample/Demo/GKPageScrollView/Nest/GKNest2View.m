@@ -32,6 +32,12 @@
     return self;
 }
 
+- (void)setMainScrollView:(UIScrollView *)mainScrollView {
+    _mainScrollView = mainScrollView;
+    
+    self.pageScrollView.horizontalScrollViewList = @[mainScrollView];
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
@@ -58,14 +64,21 @@
 #pragma mark - GKPageTableViewGestureDelegate
 - (BOOL)pageTableView:(GKPageTableView *)tableView gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
 
-    if ((UIScrollView *)gestureRecognizer.view == self.mainScrollView || (UIScrollView *)otherGestureRecognizer.view == self.mainScrollView) {
+    UIScrollView *horScrollView = self.mainScrollView;
+    
+    if (gestureRecognizer.view == horScrollView || otherGestureRecognizer.view == horScrollView) {
+        return NO;
+    }
+    
+    horScrollView = self.pageScrollView.listContainerView.collectionView;
+    if (gestureRecognizer.view == horScrollView || otherGestureRecognizer.view == horScrollView) {
         return NO;
     }
 
-    // 特殊处理，解决返回手势与GKPageTableView手势的冲突
-    NSArray *internalTargets = [otherGestureRecognizer valueForKey:@"targets"];
-    id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
-    if ([internalTarget isKindOfClass:NSClassFromString(@"_UINavigationInteractiveTransition")]) return NO;
+//    // 特殊处理，解决返回手势与GKPageTableView手势的冲突
+//    NSArray *internalTargets = [otherGestureRecognizer valueForKey:@"targets"];
+//    id internalTarget = [internalTargets.firstObject valueForKey:@"target"];
+//    if ([internalTarget isKindOfClass:NSClassFromString(@"_UINavigationInteractiveTransition")]) return NO;
     
     return YES;
 }
@@ -77,7 +90,7 @@
         _pageScrollView.lazyLoadList = YES;
         _pageScrollView.ceilPointHeight = 0;
         _pageScrollView.listContainerView.collectionView.nestEnabled = YES;
-        _pageScrollView.mainTableView.gestureDelegate = self;
+//        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
 }

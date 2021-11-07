@@ -29,21 +29,8 @@
                 frame.size.height = self.frame.size.height;
                 obj.frame = frame;
             }else {
-                CGFloat width = [UIScreen mainScreen].bounds.size.width;
-                CGFloat height = [UIScreen mainScreen].bounds.size.height;
-                
-                CGFloat y = 0;
-                if (width > height) {
-                    if (GK_NOTCHED_SCREEN) {
-                        y = 0;
-                    }else {
-                        y = self.gk_statusBarHidden ? 0 : GK_STATUSBAR_HEIGHT;
-                    }
-                }else {
-                    y = self.gk_statusBarHidden ? GK_SAFEAREA_TOP : GK_STATUSBAR_HEIGHT;
-                }
                 CGRect frame = obj.frame;
-                frame.origin.y = y;
+                frame.origin.y = self.frame.size.height - (self.gk_nonFullScreen ? GK_NAVBAR_HEIGHT_NFS : GK_NAVBAR_HEIGHT);
                 obj.frame = frame;
             }
         }];

@@ -70,6 +70,10 @@ extension GKWBListViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension GKWBListViewController: GKPageListViewDelegate {
+    func listView() -> UIView {
+        return self.view
+    }
+    
     func listScrollView() -> UIScrollView {
         return self.tableView
     }

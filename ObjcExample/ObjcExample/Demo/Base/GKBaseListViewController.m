@@ -32,6 +32,16 @@
 - (instancetype)initWithListType:(GKBaseListType)listType {
     if (self = [super init]) {
         self.listType = listType;
+        
+        if (self.listType == GKBaseListType_UITableView) {
+            self.currentScrollView = self.tableView;
+        }else if (self.listType == GKBaseListType_UICollectionView) {
+            self.currentScrollView = self.collectionView;
+        }else if (self.listType == GKBaseListType_UIScrollView) {
+            self.currentScrollView = self.scrollView;
+        }else if (self.listType == GKBaseListType_WKWebView) {
+            self.currentScrollView = self.webView.scrollView;
+        }
     }
     return self;
 }
@@ -100,6 +110,12 @@
     }else {
         [self loadData];
     }
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    self.view.frame = self.view.superview.bounds;
 }
 
 - (void)loadData {

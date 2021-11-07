@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) UIView                        *segmentedView;
 @property (nonatomic, strong) UIButton                      *backBtn;
-@property (nonatomic, strong) JXCategorySubTitleView        *categoryView;
+@property (nonatomic, strong) JXCategorySubTitleImageView   *categoryView;
 @property (nonatomic, strong) JXCategoryIndicatorLineView   *lineView;
 
 @property (nonatomic, strong) NSArray                       *titles;
@@ -66,6 +66,13 @@
     }];
     
     [self.pageScrollView reloadData];
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.left.right.top.equalTo(self.view);
+//            make.bottom.equalTo(self.view).offset(-ADAPTATIONRATIO * 100);
+//        }];
+//    });
 }
 
 - (void)backAction {
@@ -100,6 +107,10 @@
     return listVC;
 }
 
+- (void)pageScrollViewReloadCell:(GKPageScrollView *)pageScrollView {
+    [self.categoryView reloadData];
+}
+
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {
     self.isMainCanScroll = isMainCanScroll;
     
@@ -131,7 +142,7 @@
         self.categoryView.titleFont = [UIFont boldSystemFontOfSize:15];
         self.categoryView.titleSelectedFont = [UIFont boldSystemFontOfSize:15];
         self.lineView.indicatorHeight = 16;
-        self.lineView.verticalMargin = 8.5;
+        self.lineView.verticalMargin = 10;
         self.lineView.indicatorWidthIncrement = 0;
         self.categoryView.indicators = @[self.lineView];
         [self reloadCategoryWithHeight:54];
@@ -182,6 +193,22 @@
 #pragma mark - GKGesturePopHandlerProtocol
 - (BOOL)navigationShouldPopOnGesture {
     return self.shouldPop;
+}
+
+#pragma mark - Private
+- (UIImage *)changeImageWithImage:(UIImage *)image color:(UIColor *)color {
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0, image.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+    CGContextClipToMask(context, rect, image.CGImage);
+    [color setFill];
+    CGContextFillRect(context, rect);
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 #pragma mark - 懒加载
@@ -236,9 +263,9 @@
     return _segmentedView;
 }
 
-- (JXCategorySubTitleView *)categoryView {
+- (JXCategorySubTitleImageView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategorySubTitleView alloc] initWithFrame:CGRectMake(ADAPTATIONRATIO * 60.0f, 0, kScreenW - ADAPTATIONRATIO * 120.0f, 54.0f)];
+        _categoryView = [[JXCategorySubTitleImageView alloc] initWithFrame:CGRectMake(ADAPTATIONRATIO * 60.0f, 0, kScreenW - ADAPTATIONRATIO * 80.0f, 54.0f)];
         _categoryView.titles = self.titles;
         _categoryView.subTitles = self.subtitles;
         _categoryView.titleFont = [UIFont boldSystemFontOfSize:15];
@@ -250,9 +277,46 @@
         _categoryView.subTitleSelectedFont = [UIFont systemFontOfSize:11];
         _categoryView.subTitleColor = [UIColor grayColor];
         _categoryView.subTitleSelectedColor = [UIColor whiteColor];
-        _categoryView.subTitleWithTitlePositionMargin = 5;
+        _categoryView.subTitleWithTitlePositionMargin = 3;
         _categoryView.cellSpacing = 0;
         _categoryView.cellWidthIncrement = 16;
+        _categoryView.imageSize = CGSizeMake(12, 12);
+        _categoryView.imageTypes = @[@(JXCategorySubTitleImageType_None), @(JXCategorySubTitleImageType_Left), @(JXCategorySubTitleImageType_None), @(JXCategorySubTitleImageType_Left), @(JXCategorySubTitleImageType_Left)];
+        _categoryView.imageInfoArray = @[@"", @"zhongcao", @"", @"fangying", @"gif"];
+        _categoryView.selectedImageInfoArray = @[@"", @"zhongcao", @"", @"fangying", @"gif"];
+        _categoryView.ignoreImageWidth = YES;
+        __weak __typeof(self) weakSelf = self;
+        _categoryView.loadImageBlock = ^(UIImageView *imageView, id info) {
+            __strong __typeof(weakSelf) self = weakSelf;
+            NSString *name = (NSString *)info;
+            if (name.length > 0) {
+                if ([name isEqualToString:@"gif"]) {
+//                    [imageView sd_setImageWithURL:[NSURL URLWithString:@"https://upload-images.jianshu.io/upload_images/1598505-b6817cad3c9fa37c.gif?imageMogr2/auto-orient/strip"]];
+                    NSMutableArray *images = [NSMutableArray new];
+                    for (NSInteger i = 0; i < 4; i++) {
+                        NSString *imageName = [NSString stringWithFormat:@"cm2_list_icn_loading%zd", i + 1];
+
+                        UIImage *img = [self changeImageWithImage:[UIImage imageNamed:imageName] color:UIColor.redColor];
+
+                        [images addObject:img];
+                    }
+
+                    for (NSInteger i = 4; i > 0; i--) {
+                        NSString *imageName = [NSString stringWithFormat:@"cm2_list_icn_loading%zd", i];
+
+                        UIImage *img = [self changeImageWithImage:[UIImage imageNamed:imageName] color:UIColor.redColor];
+
+                        [images addObject:img];
+                    }
+
+                    imageView.animationImages = images;
+                    imageView.animationDuration = 0.75;
+                    [imageView startAnimating];
+                }else {
+                    imageView.image = [UIImage imageNamed:name];
+                }
+            }
+        };
         _categoryView.indicators = @[self.lineView];
         _categoryView.contentScrollView = self.pageScrollView.listContainerView.collectionView;
     }
@@ -263,7 +327,7 @@
     if (!_lineView) {
         _lineView = [[JXCategoryIndicatorLineView alloc] init];
         _lineView.indicatorHeight = 16;
-        _lineView.verticalMargin = 8.5;
+        _lineView.verticalMargin = 10;
         _lineView.indicatorWidthIncrement = 0;
         _lineView.lineScrollOffsetX = 0;
         _lineView.indicatorColor = kThemeColor;
@@ -285,14 +349,14 @@
 
 - (NSArray *)titles {
     if (!_titles) {
-        _titles = @[@"热点", @"潮流", @"话题", @"本地", @"直播"];
+        _titles = @[@"热点", @"种草", @"本地", @"放映厅", @"直播"];
     }
     return _titles;
 }
 
 - (NSArray *)subtitles {
     if (!_subtitles) {
-        _subtitles = @[@"热门资讯", @"潮人好物", @"深度讨论", @"同城关注", @"大V在线"];
+        _subtitles = @[@"热门资讯", @"潮流好物", @"同城关注", @"宅家必看", @"大V在线"];
     }
     return _subtitles;
 }

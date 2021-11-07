@@ -66,7 +66,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+    if (CGRectEqualToRect(self.mainTableView.frame, self.bounds)) return;
     self.mainTableView.frame = self.bounds;
+    if (!self.isLoaded) return;
+    [self.mainTableView reloadData];
 }
 
 - (void)initSubviews {
@@ -83,6 +86,9 @@
     [self.mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     if (@available(iOS 11.0, *)) {
         self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    if (@available(iOS 15.0, *)) {
+        self.mainTableView.sectionHeaderTopPadding = 0;
     }
     [self addSubview:self.mainTableView];
     [self refreshHeaderView];
@@ -414,6 +420,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if ([self.delegate respondsToSelector:@selector(pageScrollView:updateCell:)]) {
+        [self.delegate pageScrollView:self updateCell:cell];
+    }
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     CGFloat width  = self.frame.size.width == 0 ? GKPAGE_SCREEN_WIDTH : self.frame.size.width;
     CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
@@ -437,6 +446,9 @@
     height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
     pageView.frame = CGRectMake(0, 0, width, height);
     [cell.contentView addSubview:pageView];
+    if ([self.delegate respondsToSelector:@selector(pageScrollViewReloadCell:)]) {
+        [self.delegate pageScrollViewReloadCell:self];
+    }
     return cell;
 }
 
@@ -444,6 +456,10 @@
     CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
     height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
     return height;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
 #pragma mark - GKPageListContainerViewDelegate

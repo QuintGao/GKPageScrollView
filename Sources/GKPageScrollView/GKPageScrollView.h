@@ -108,6 +108,12 @@
  */
 - (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index;
 
+#pragma mark - pageScrollView刷新回调
+- (void)pageScrollViewReloadCell:(GKPageScrollView *)pageScrollView;
+
+// 更新cell属性，可自定义cell的背景色等
+- (void)pageScrollView:(GKPageScrollView *)pageScrollView updateCell:(UITableViewCell *)cell;
+
 #pragma mark - mainTableView滚动相关方法
 
 /// mainTableView开始滑动

@@ -13,6 +13,7 @@
 #import "GKBaseListViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import "GKSmoothListViewController.h"
+#import "GKBaseListViewController.h"
 
 @interface GKSmoothViewController ()<GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, GKSmoothListViewDelegate, GKSmoothListViewControllerDelegate>
 
@@ -76,13 +77,16 @@
 }
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
-    GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:GKSmoothListType_TableView deleagte:self index:index];
-    [listView requestData];
-    return listView;
+//    GKSmoothListView *listView = [[GKSmoothListView alloc] initWithListType:GKSmoothListType_TableView deleagte:self index:index];
+//    [listView requestData];
+//    return listView;
 //    GKSmoothListViewController *listVC = [GKSmoothListViewController new];
 //    listVC.delegate = self;
 //    listVC.index = index;
 //    return listVC;
+    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:0];
+    listVC.shouldLoadData = YES;
+    return listVC;
 }
 
 #pragma mark - GKPageSmoothViewDelegate
@@ -117,7 +121,7 @@
         _smoothView.delegate = self;
         _smoothView.listCollectionView.gk_openGestureHandle = YES;
 //        _smoothView.mainScrollDisabled = YES;
-//        _smoothView.holdUpScrollView = YES;
+        _smoothView.holdUpScrollView = YES;
     }
     return _smoothView;
 }

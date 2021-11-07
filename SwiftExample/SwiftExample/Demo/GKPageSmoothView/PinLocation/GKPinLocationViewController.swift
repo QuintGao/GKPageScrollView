@@ -42,6 +42,8 @@ class GKPinLocationViewController: GKDemoBaseViewController {
         return titleView
     }()
     
+    var isAnimation = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,9 +53,9 @@ class GKPinLocationViewController: GKDemoBaseViewController {
         self.gk_navTitleFont = UIFont.boldSystemFont(ofSize: 18)
         self.gk_navBackgroundColor = .clear
         self.gk_statusBarStyle = .lightContent
-//        let oriItem = UIBarButtonItem.gk_item(title:"原点", target: self, action: #selector(criAction))
-//        let criItem = UIBarButtonItem.gk_item(title: "临界点", target: self, action: #selector(oriAction))
-//        self.gk_navRightBarButtonItems = [oriItem, criItem]
+        let oriItem = UIBarButtonItem.gk_item(title:"原点", target: self, action: #selector(oriAction))
+        let criItem = UIBarButtonItem.gk_item(title: "临界点", target: self, action: #selector(criAction))
+        self.gk_navRightBarButtonItems = [oriItem, criItem]
         
         view.addSubview(smoothView)
         smoothView.snp.makeConstraints { (make) in
@@ -64,10 +66,12 @@ class GKPinLocationViewController: GKDemoBaseViewController {
     
     @objc func oriAction() {
         self.smoothView.scrollToOriginalPoint()
+        self.isAnimation = true
     }
     
     @objc func criAction() {
         self.smoothView.scrollToCriticalPoint()
+        self.isAnimation = true
     }
     
     func changeImage(image: UIImage, color: UIColor) -> UIImage {
@@ -101,6 +105,7 @@ extension GKPinLocationViewController: GKPageSmoothViewDataSource, GKPageSmoothV
     
     func smoothView(_ smoothView: GKPageSmoothView, initListAtIndex index: Int) -> GKPageSmoothListViewDelegate {
         let listView = GKPinLocationView()
+        listView.delegate = self
         var data = [[String: String]]()
         let counts = [6, 8 ,9, 5, 7, 10, 13, 6, 8]
         for i in 0..<counts.count {
@@ -114,7 +119,9 @@ extension GKPinLocationViewController: GKPageSmoothViewDataSource, GKPageSmoothV
     }
     
     func smoothViewListScrollViewDidScroll(_ smoothView: GKPageSmoothView, scrollView: UIScrollView, contentOffset: CGPoint) {
-        if !(scrollView.isTracking || scrollView.isDecelerating) { return }
+        if !self.isAnimation {
+            if !(scrollView.isTracking || scrollView.isDecelerating) {return}
+        }
         // 用户滚动的才处理
         // 获取categoryView下面一点的所有部件信息，用于指定，当前最上方显示的那个section
         let categoryH = self.titleView.frame.size.height
@@ -134,6 +141,22 @@ extension GKPinLocationViewController: JXSegmentedViewDelegate {
     func segmentedView(_ segmentedView: JXSegmentedView, didClickSelectedItemAt index: Int) {
         let tableView = self.smoothView.currentListScrollView as! UITableView
         let frame = tableView.rectForHeader(inSection: index)
-        tableView.setContentOffset(CGPoint(x: 0, y: frame.origin.y - kBaseHeaderHeight + kBaseSegmentHeight + 40), animated: true)
+        
+        var offsetY = frame.origin.y - kBaseHeaderHeight + kBaseSegmentHeight + 40;
+        
+        let maxOffsetY = tableView.contentSize.height - tableView.frame.size.height
+        
+        if offsetY > maxOffsetY {
+            offsetY = maxOffsetY
+        }
+        
+        tableView.setContentOffset(CGPoint(x: 0, y: offsetY), animated: true)
+    }
+}
+
+
+extension GKPinLocationViewController: GKPinLoactionViewDelegate {
+    func locationViewDidEndAnimation(scrollView: UIScrollView) {
+        self.isAnimation = false
     }
 }

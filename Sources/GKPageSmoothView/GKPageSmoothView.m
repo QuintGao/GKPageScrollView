@@ -67,6 +67,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 @property (nonatomic, assign) BOOL       originBounces;
 @property (nonatomic, assign) BOOL       originShowsVerticalScrollIndicator;
 
+@property (nonatomic, assign) BOOL       isScroll;
+
 @end
 
 @implementation GKPageSmoothView
@@ -106,15 +108,29 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         CGRect frame = self.frame;
         frame.origin.y = self.headerContainerHeight;
         frame.size.height -= self.headerContainerHeight;
+        [self refreshListFrame:frame];
         self.listCollectionView.frame = frame;
     }else {
         if (self.listCollectionView.superview == self) {
+            [self refreshListFrame:self.bounds];
             self.listCollectionView.frame = self.bounds;
         }else {
             CGRect frame = self.listCollectionView.frame;
             frame.origin.y = self.segmentedHeight;
             frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight;
+            [self refreshListFrame:frame];
             self.listCollectionView.frame = frame;
+        }
+    }
+}
+
+- (void)refreshListFrame:(CGRect)frame {
+    for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
+        CGRect f = list.listView.frame;
+        if (f.size.height != frame.size.height) {
+            f.size.height = frame.size.height;
+            list.listView.frame = f;
+            [self.listCollectionView reloadData];
         }
     }
 }
@@ -291,6 +307,9 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
+        list.listView.frame = (CGRect){{0, 0}, self.listCollectionView.bounds.size};
+    }
     return self.listCollectionView.bounds.size;
 }
 
@@ -311,14 +330,14 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         [self.delegate smoothView:self scrollViewDidScroll:scrollView];
     }
     
-    NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    
-    NSInteger ratio = (int)scrollView.contentOffset.x % (int)scrollView.bounds.size.width;
+    CGFloat indexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width;
+    NSInteger index = floor(indexPercent);
+    self.isScroll = YES;
     
     if (!self.isMainScrollDisabled) {
         if (!self.isOnTop) {
             UIScrollView *listScrollView = self.listDict[@(index)].listScrollView;
-            if (index != self.currentIndex && ratio == 0 && !(scrollView.isDragging || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
+            if (index != self.currentIndex && indexPercent - index == 0 && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
                 [self horizontalScrollDidEndAtIndex:index];
             }else {
                 // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
@@ -332,7 +351,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
     }
     
-    if (index != self.currentIndex && ratio == 0) {
+    if (index != self.currentIndex) {
         self.currentIndex = index;
     }
 }
@@ -355,8 +374,15 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     // 修复快速闪烁问题
-    self.currentIndex = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    self.currentListScrollView = self.listDict[@(self.currentIndex)].listScrollView;
+    NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
+    self.currentIndex = index;
+    self.currentListScrollView = self.listDict[@(index)].listScrollView;
+    self.isScroll = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (!self.isScroll && self.headerContainerView.superview == self) {
+            [self horizontalScrollDidEndAtIndex:index];
+        }
+    });
 }
 
 #pragma mark - KVO
@@ -370,28 +396,24 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         UIScrollView *scrollView = (UIScrollView *)object;
         if (scrollView != nil) {
             CGFloat minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight;
-            if (minContentSizeHeight > scrollView.contentSize.height && self.isHoldUpScrollView) {
+            CGFloat contentH = scrollView.contentSize.height;
+            if (minContentSizeHeight > contentH && self.isHoldUpScrollView) {
                 scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, minContentSizeHeight);
                 // 新的scrollView第一次加载的时候重置contentOffset
                 if (self.currentListScrollView != nil && scrollView != self.currentListScrollView) {
                     scrollView.contentOffset = CGPointMake(0, self.currentListInitializeContentOffsetY);
                 }
             }else {
-                CGFloat contentH = scrollView.contentSize.height;
-                if (contentH == 0) {
-                    scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, self.bounds.size.height);
-                }else {
-                    BOOL shouldReset = YES;
-                    for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
-                        if (list.listScrollView == scrollView && [list respondsToSelector:@selector(listScrollViewShouldReset)]) {
-                            shouldReset = [list listScrollViewShouldReset];
-                        }
+                BOOL shouldReset = YES;
+                for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
+                    if (list.listScrollView == scrollView && [list respondsToSelector:@selector(listScrollViewShouldReset)]) {
+                        shouldReset = [list listScrollViewShouldReset];
                     }
-                    
-                    if (minContentSizeHeight > contentH && shouldReset) {
-                        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -self.headerContainerHeight) animated:NO];
-                        [self listScrollViewDidScroll:scrollView];
-                    }
+                }
+                
+                if (minContentSizeHeight > contentH && shouldReset) {
+                    [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -self.headerContainerHeight) animated:NO];
+                    [self listScrollViewDidScroll:scrollView];
                 }
             }
         }

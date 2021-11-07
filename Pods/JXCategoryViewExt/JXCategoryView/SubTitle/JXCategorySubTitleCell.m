@@ -85,7 +85,8 @@
             break;
         }
         default:
-            [self.subTitleLabel.centerXAnchor constraintEqualToAnchor:self.titleLabel.centerXAnchor constant:alignMargin].active = YES;
+            self.subTitleLabelCenterX = [self.subTitleLabel.centerXAnchor constraintEqualToAnchor:self.titleLabel.centerXAnchor constant:alignMargin];
+            self.subTitleLabelCenterX.active = YES;
             break;
     }
 }

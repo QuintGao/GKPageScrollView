@@ -165,6 +165,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var originBounces = false
     var originShowsVerticalScrollIndicator = false
     
+    var isScroll = false
+    
     public init(dataSource: GKPageSmoothViewDataSource) {
         self.dataSource = dataSource
         
@@ -448,7 +450,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         } else if keyPath == "contentSize" {
             let minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight
             if let scrollView = object as? UIScrollView {
-                if minContentSizeHeight > scrollView.contentSize.height && self.isHoldUpScrollView {
+                let contentH = scrollView.contentSize.height
+                if minContentSizeHeight > contentH && self.isHoldUpScrollView {
                     scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: minContentSizeHeight)
                     //新的scrollView第一次加载的时候重置contentOffset
                     if let listScrollView = self.currentListScrollView {
@@ -457,22 +460,16 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                         }
                     }
                 }else {
-                    let contentH = scrollView.contentSize.height
+                    var shoudReset = true
+                    for list in listDict.values {
+                        if list.listScrollView() == scrollView && list.listScrollViewShouldReset?() != nil {
+                            shoudReset = list.listScrollViewShouldReset!()
+                        }
+                    }
                     
-                    if contentH == 0 {
-                        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: self.bounds.size.height)
-                    }else {
-                        var shoudReset = true
-                        for list in listDict.values {
-                            if list.listScrollView() == scrollView && list.listScrollViewShouldReset?() != nil {
-                                shoudReset = list.listScrollViewShouldReset!()
-                            }
-                        }
-                        
-                        if minContentSizeHeight > contentH && shoudReset {
-                            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
-                            listDidScroll(scrollView: scrollView)
-                        }
+                    if minContentSizeHeight > contentH && shoudReset {
+                        scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
+                        listDidScroll(scrollView: scrollView)
                     }
                 }
             }
@@ -800,6 +797,9 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        listDict.values.forEach {
+            $0.listView().frame = CGRect.init(origin: .zero, size: self.listCollectionView.bounds.size)
+        }
         return self.listCollectionView.bounds.size
     }
     
@@ -817,15 +817,16 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.smoothViewDidScroll?(self, scrollView: scrollView)
+        let indexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width
         let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
-        let ratio = Int(scrollView.contentOffset.x)%Int(scrollView.bounds.size.width)
         
         if !self.isMainScrollDisabled {
             if !self.isOnTop {
                 let listScrollView = self.listDict[index]?.listScrollView()
-                if index != currentIndex && ratio == 0 && !(scrollView.isDragging || scrollView.isDecelerating) && listScrollView?.contentOffset.y ?? 0 <= -(segmentedHeight + ceilPointHeight) {
+                if index != currentIndex && (indexPercent - CGFloat(index) == 0) && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView?.contentOffset.y ?? 0 <= -(segmentedHeight + ceilPointHeight) {
                     horizontalScrollDidEnd(at: index)
                 }else {
+                    // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
                     if headerContainerView.superview != self {
                         headerContainerView.frame.origin.y = currentHeaderContainerViewY
                         addSubview(headerContainerView)
@@ -833,7 +834,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
                 }
             }
         }
-        if currentIndex != index && ratio == 0 {
+        if currentIndex != index {
             currentIndex = index
         }
     }
@@ -855,7 +856,14 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        currentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
-        currentListScrollView = self.listDict[currentIndex]?.listScrollView()
+        let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
+        self.currentIndex = index
+        self.currentListScrollView = self.listDict[index]?.listScrollView()
+        self.isScroll = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            if !self.isScroll && self.headerContainerView.superview == self {
+                self.horizontalScrollDidEnd(at: index)
+            }
+        }
     }
 }

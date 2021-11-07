@@ -31,6 +31,7 @@ class GKDBViewController: GKDemoBaseViewController {
         smoothView.isAllowDragBottom = true
         smoothView.isAllowDragScroll = true
         smoothView.listCollectionView.gk_openGestureHandle = true
+        smoothView.isHoldUpScrollView = true
         return smoothView
     }()
     
@@ -157,7 +158,11 @@ extension GKDBViewController: GKPageSmoothViewDataSource {
     }
     
     func smoothView(_ smoothView: GKPageSmoothView, initListAtIndex index: Int) -> GKPageSmoothListViewDelegate {
-        return GKDBListView()
+//        return GKDBListView()
+        
+        let listVC = GKBaseListViewController(listType: GKBaseListType(rawValue: 0) ?? .UITableView)
+        listVC.shouldLoadData = true
+        return listVC
     }
 }
 

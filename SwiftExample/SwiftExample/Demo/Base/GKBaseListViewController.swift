@@ -193,6 +193,13 @@ class GKBaseListViewController: UIViewController {
         }
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.view.frame = self.view.superview!.bounds;
+//        print(self.view.frame)
+    }
+    
     func loadData() {
         self.count = 30
         
@@ -344,7 +351,7 @@ extension GKBaseListViewController: GKPageListViewDelegate, GKPageSmoothListView
     }
     
     func listScrollView() -> UIScrollView {
-        return self.tableView
+        return self.currentScrollView!
     }
     
     func listViewDidScroll(callBack: @escaping (UIScrollView) -> ()) {

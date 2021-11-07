@@ -113,6 +113,7 @@ install_dsym() {
       rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --links --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${DERIVED_FILES_DIR}/${basename}.dSYM" "${DWARF_DSYM_FOLDER_PATH}"
     else
       # The dSYM was not stripped at all, in this case touch a fake folder so the input/output paths from Xcode do not reexecute this script because the file is missing.
+      mkdir -p "${DWARF_DSYM_FOLDER_PATH}"
       touch "${DWARF_DSYM_FOLDER_PATH}/${basename}.dSYM"
     fi
   fi
@@ -177,6 +178,7 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GKPageScrollView-Swift/GKPageScrollView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GKPageSmoothView-Swift/GKPageSmoothView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JXCategoryViewExt-framework/JXCategoryViewExt.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework"
@@ -187,6 +189,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GKPageScrollView-Swift/GKPageScrollView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GKPageSmoothView-Swift/GKPageSmoothView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JXCategoryViewExt-framework/JXCategoryViewExt.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework"
