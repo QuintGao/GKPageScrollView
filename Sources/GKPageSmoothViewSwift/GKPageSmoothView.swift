@@ -204,6 +204,12 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             $0.listScrollView().removeObserver(self, forKeyPath: "contentOffset")
             $0.listScrollView().removeObserver(self, forKeyPath: "contentSize")
         }
+        self.headerView?.removeFromSuperview()
+        self.segmentedView?.removeFromSuperview()
+        self.listDict = nil
+        self.listHeaderDict = nil
+        self.listCollectionView.dataSource = nil
+        self.listCollectionView.delegate = nil
     }
     
     open override func layoutSubviews() {

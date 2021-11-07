@@ -54,6 +54,14 @@
     });
 }
 
+- (void)dealloc {
+    [self.smoothView.listDict enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, id<GKPageSmoothListViewDelegate>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:GKSmoothListView.class]) {
+            [(GKSmoothListView *)obj stopLoading];
+        }
+    }];
+}
+
 #pragma mark - GKPageSmoothViewDataSource
 - (UIView *)headerViewInSmoothView:(GKPageSmoothView *)smoothView {
     return self.headerView;

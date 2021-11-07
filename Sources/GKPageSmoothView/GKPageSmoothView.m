@@ -90,6 +90,13 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         [listItem.listScrollView removeObserver:self forKeyPath:@"contentOffset"];
         [listItem.listScrollView removeObserver:self forKeyPath:@"contentSize"];
     }
+    
+    [self.headerView removeFromSuperview];
+    [self.segmentedView removeFromSuperview];
+    self.listDict = nil;
+    self.listHeaderDict = nil;
+    self.listCollectionView.dataSource = nil;
+    self.listCollectionView.delegate = nil;
 }
 
 - (void)layoutSubviews {

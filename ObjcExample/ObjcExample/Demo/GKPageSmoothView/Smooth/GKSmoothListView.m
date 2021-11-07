@@ -49,6 +49,8 @@
 
 @property (nonatomic, assign) NSInteger index;
 
+@property (nonatomic, weak) GKBallLoadingView *loadingView;
+
 @end
 
 @implementation GKSmoothListView
@@ -71,7 +73,9 @@
             make.edges.equalTo(self);
         }];
         
+        __weak typeof(self) weakSelf = self;
         self.smoothScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            __strong typeof(weakSelf) self = weakSelf;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.count = 30;
                 [self reloadData];
@@ -81,13 +85,14 @@
         self.smoothScrollView.mj_header.ignoredScrollViewContentInsetTop = [self.delegate smoothViewHeaderContainerHeight];
         
         self.smoothScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            __strong typeof(weakSelf) self = weakSelf;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.count+= 10;
                 [self reloadData];
                 if (self.count >= 100) {
                     [self.smoothScrollView.mj_footer endRefreshingWithNoMoreData];
                 }else {
-                    [self.smoothScrollView.mj_footer endRefreshing];                    
+                    [self.smoothScrollView.mj_footer endRefreshing];
                 }
             });
         }];
@@ -129,7 +134,9 @@
 //        }];
         self.smoothScrollView.mj_header.ignoredScrollViewContentInsetTop = [self.delegate smoothViewHeaderContainerHeight];
         
+        __weak typeof(self) weakSelf = self;
         self.smoothScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            __strong typeof(weakSelf) self = weakSelf;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.count+= 10;
                 [self reloadData];
@@ -150,11 +157,18 @@
     return self;
 }
 
+- (void)stopLoading {
+    [self.loadingView stopLoading];
+    [self.loadingView removeFromSuperview];
+    self.loadingView = nil;
+}
+
 - (void)requestData {
     if (self.isRequest) return;
     
     GKBallLoadingView *loadingView = [GKBallLoadingView loadingViewInView:self.loadingBgView];
     [loadingView startLoading];
+    self.loadingView = loadingView;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [loadingView stopLoading];

@@ -34,6 +34,8 @@ typedef NS_ENUM(NSUInteger, GKSmoothListType) {
 
 - (void)requestData;
 
+- (void)stopLoading;
+
 @end
 
 NS_ASSUME_NONNULL_END
