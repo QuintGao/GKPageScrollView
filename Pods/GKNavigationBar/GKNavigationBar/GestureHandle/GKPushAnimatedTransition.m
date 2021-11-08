@@ -21,7 +21,7 @@
     __block UIView *fromView = nil;
     if (self.isHideTabBar) {
         // 获取fromViewController的截图
-        UIImage *captureImage = [self getCaptureWithView:self.fromViewController.view.window];
+        UIImage *captureImage = [GKGestureConfigure getCaptureWithView:self.fromViewController.view.window];
         UIImageView *captureView = [[UIImageView alloc] initWithImage:captureImage];
         captureView.frame = CGRectMake(0, 0, screenW, screenH);
         [self.containerView addSubview:captureView];

@@ -41,11 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 动画完成
 - (void)completeTransition;
 
-
-/// 获取某个view的截图
-/// @param view 截图
-- (UIImage *)getCaptureWithView:(UIView *)view;
-
 @end
 
 @interface UIViewController (GKCapture)

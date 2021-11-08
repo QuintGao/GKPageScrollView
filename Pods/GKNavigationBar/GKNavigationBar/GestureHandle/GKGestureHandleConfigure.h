@@ -42,6 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 如果设置为YES，可在单个UIScrollView中通过设置gk_openGestureHandle关闭
 @property (nonatomic, assign) BOOL gk_openScrollViewGestureHandle;
 
+// 设置push时是否隐藏tabbar，默认NO
+@property (nonatomic, assign) BOOL gk_hidesBottomBarWhenPushed;
+
 /// 设置默认配置
 - (void)setupDefaultConfigure;
 
@@ -55,6 +58,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 内部方法
 - (BOOL)isVelocityInSensitivity:(CGFloat)velocity;
+
+/// 获取某个view的截图
+/// @param view view
+- (UIImage *)getCaptureWithView:(UIView *)view;
 
 @end
 

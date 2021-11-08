@@ -208,8 +208,6 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         }
         self.headerView?.removeFromSuperview()
         self.segmentedView?.removeFromSuperview()
-        self.listDict = nil
-        self.listHeaderDict = nil
         self.listCollectionView.dataSource = nil
         self.listCollectionView.delegate = nil
     }
@@ -757,11 +755,6 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             list?.listView().setNeedsLayout()
             
             let listScrollView = list?.listScrollView()
-            if listScrollView?.isKind(of: UITableView.self) == true {
-                (listScrollView as? UITableView)?.estimatedRowHeight = 0
-                (listScrollView as? UITableView)?.estimatedSectionHeaderHeight = 0
-                (listScrollView as? UITableView)?.estimatedSectionFooterHeight = 0
-            }
             if #available(iOS 11.0, *) {
                 list?.listScrollView().contentInsetAdjustmentBehavior = .never
             }

@@ -84,7 +84,7 @@
 //    listVC.delegate = self;
 //    listVC.index = index;
 //    return listVC;
-    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:0];
+    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
     listVC.shouldLoadData = YES;
     return listVC;
 }

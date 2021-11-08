@@ -74,7 +74,9 @@
     }
     
     if (self.listType != GKBaseListType_WKWebView) {
+        __weak __typeof(self) weakSelf = self;
         self.currentScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            __strong __typeof(weakSelf) self = weakSelf;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kRefreshDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self loadMoreData];
             });
@@ -147,7 +149,11 @@
 }
 
 - (void)addCellToScrollView {
-    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:UILabel.class]) {
+            [obj removeFromSuperview];
+        }
+    }];
     
     UIView *lastView = nil;
     for (NSInteger i = 0; i < self.count; i++) {
@@ -186,7 +192,9 @@
 }
 
 - (void)addHeaderRefresh {
+    __weak __typeof(self) weakSelf = self;
     self.currentScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        __strong __typeof(weakSelf) self = weakSelf;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kRefreshDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.currentScrollView.mj_header endRefreshing];
             

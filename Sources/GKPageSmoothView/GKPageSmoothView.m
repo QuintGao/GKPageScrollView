@@ -95,8 +95,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     
     [self.headerView removeFromSuperview];
     [self.segmentedView removeFromSuperview];
-    self.listDict = nil;
-    self.listHeaderDict = nil;
     self.listCollectionView.dataSource = nil;
     self.listCollectionView.delegate = nil;
 }
@@ -337,7 +335,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     if (!self.isMainScrollDisabled) {
         if (!self.isOnTop) {
             UIScrollView *listScrollView = self.listDict[@(index)].listScrollView;
-            if (index != self.currentIndex && indexPercent - index == 0 && !(scrollView.isTracking || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
+            if (index != self.currentIndex && indexPercent - index == 0 && !(scrollView.isDragging || scrollView.isDecelerating) && listScrollView.contentOffset.y <= -(self.segmentedHeight + self.ceilPointHeight)) {
                 [self horizontalScrollDidEndAtIndex:index];
             }else {
                 // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果

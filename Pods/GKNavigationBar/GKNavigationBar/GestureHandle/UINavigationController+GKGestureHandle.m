@@ -64,15 +64,16 @@ static char kAssociatedObjectKey_openGestureHandle;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSArray <NSString *> *oriSels = @[@"viewDidLoad",
+                                          @"pushViewController:animated:",
                                           @"navigationBar:shouldPopItem:",
                                           @"dealloc"];
         [oriSels enumerateObjectsUsingBlock:^(NSString * _Nonnull oriSel, NSUInteger idx, BOOL * _Nonnull stop) {
-            gk_gestureHandle_swizzled_instanceMethod(@"gkNav", self, oriSel, self);
+            gk_gestureHandle_swizzled_instanceMethod(@"gkGesture", self, oriSel, self);
         }];
     });
 }
 
-- (void)gkNav_viewDidLoad {
+- (void)gkGesture_viewDidLoad {
     if (self.gk_openGestureHandle) {
         // 处理特殊控制器
         if ([self isKindOfClass:[UIImagePickerController class]]) return;
@@ -88,11 +89,26 @@ static char kAssociatedObjectKey_openGestureHandle;
         // 注册控制器属性改变通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(propertyChangeNotification:) name:GKViewControllerPropertyChangedNotification object:nil];
     }
-    [self gkNav_viewDidLoad];
+    [self gkGesture_viewDidLoad];
+}
+
+- (void)gkGesture_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (self.childViewControllers.count > 0) {
+        UIViewController *rootVC = self.childViewControllers.firstObject;
+        // 获取tabbar截图
+        if (viewController.gk_systemGestureHandleDisabled && !rootVC.gk_captureImage) {
+            rootVC.gk_captureImage = [GKGestureConfigure getCaptureWithView:rootVC.view.window];
+        }
+        // 设置push时是否隐藏tabbar
+        if (GKGestureConfigure.gk_hidesBottomBarWhenPushed && rootVC != viewController) {
+            viewController.hidesBottomBarWhenPushed = YES;
+        }
+    }
+    [self gkGesture_pushViewController:viewController animated:animated];
 }
 
 // source：https://github.com/onegray/UIViewController-BackButtonHandler
-- (BOOL)gkNav_navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item {
+- (BOOL)gkGesture_navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item {
     if ([self.viewControllers count] < [navigationBar.items count]) {
         return YES;
     }
@@ -119,11 +135,11 @@ static char kAssociatedObjectKey_openGestureHandle;
     return NO;
 }
 
-- (void)gkNav_dealloc {
+- (void)gkGesture_dealloc {
     if (self.gk_openGestureHandle) {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:GKViewControllerPropertyChangedNotification object:nil];
     }
-    [self gkNav_dealloc];
+    [self gkGesture_dealloc];
 }
 
 - (UIViewController *)childViewControllerForStatusBarHidden {

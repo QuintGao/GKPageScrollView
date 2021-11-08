@@ -206,6 +206,8 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.6.1 - 2021.11.08 1、修复设置gk_systemGestureHandleDisabled后TabBar偏移问题 #90
+                   2、新增gk_hidesBottomBarWhenPushed，可全局配置push时是否隐藏TabBar
 1.6.0 - 2021.09.09 修复visibleViewController方法返回错误问题
 1.5.9 - 2021.06.25 配置类增加backgroundImage，可设置全局导航图片
 1.5.8 - 2021.06.09 增加恢复系统导航栏显示的逻辑及方法 #86

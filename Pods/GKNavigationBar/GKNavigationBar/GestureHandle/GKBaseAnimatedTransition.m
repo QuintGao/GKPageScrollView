@@ -53,14 +53,6 @@
     [self.transitionContext completeTransition:!self.transitionContext.transitionWasCancelled];
 }
 
-- (UIImage *)getCaptureWithView:(UIView *)view {
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0);
-    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
 @end
 
 @implementation UIViewController (GKCapture)

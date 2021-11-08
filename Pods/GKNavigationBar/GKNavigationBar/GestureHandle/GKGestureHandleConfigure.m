@@ -56,4 +56,12 @@
     return (fabs(velocity) - (1000.0f * (1 - self.gk_snapMovementSensitivity))) > 0;
 }
 
+- (UIImage *)getCaptureWithView:(UIView *)view {
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

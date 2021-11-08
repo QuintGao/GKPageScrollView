@@ -67,11 +67,11 @@
 }
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
-//    GKDBListView *listView = [GKDBListView new];
-//    return listView;
-    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
-    listVC.shouldLoadData = YES;
-    return listVC;
+    GKDBListView *listView = [GKDBListView new];
+    return listView;
+//    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
+//    listVC.shouldLoadData = YES;
+//    return listVC;
 }
 
 #pragma mark - GKPageSmoothViewDelegate
@@ -213,7 +213,7 @@
         lineView.indicatorColor = UIColor.blackColor;
         _categoryView.indicators = @[self.lineView];
         
-        _categoryView.contentScrollView = self.smoothView.listCollectionView;
+//        _categoryView.contentScrollView = self.smoothView.listCollectionView;
     }
     return _categoryView;
 }
