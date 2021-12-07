@@ -87,7 +87,14 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 // 当前已经加载过的可用的列表字典，key是index值，value是对应列表
 @property (nonatomic, strong, readonly) NSDictionary <NSNumber *, id<GKPageSmoothListViewDelegate>> *listDict;
 @property (nonatomic, strong, readonly) UICollectionView *listCollectionView;
+
+/// 默认索引
 @property (nonatomic, assign) NSInteger defaultSelectedIndex;
+
+/// 当前索引
+@property (nonatomic, assign) NSInteger currentIndex;
+
+/// 当前列表
 @property (nonatomic, weak, readonly) UIScrollView *currentListScrollView;
 
 /// 是否禁止主页滑动，默认NO

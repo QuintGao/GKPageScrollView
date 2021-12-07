@@ -19,6 +19,9 @@
 // 列表存储
 @property (nonatomic, strong) NSMutableDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
 
+// 包裹segmentedView和列表容器的view
+@property (nonatomic, weak) UIView  *pageView;
+
 // 当前滑动的listView
 @property (nonatomic, weak) UIScrollView                *currentListScrollView;
 
@@ -69,7 +72,27 @@
     if (CGRectEqualToRect(self.mainTableView.frame, self.bounds)) return;
     self.mainTableView.frame = self.bounds;
     if (!self.isLoaded) return;
-    [self.mainTableView reloadData];
+    if (self.isShowInFooter) {
+        CGFloat width = self.bounds.size.width;
+        CGFloat height = self.bounds.size.height;
+        
+        if ([self shouldLazyLoadListView]) {
+            UIView *segmentedView = [self.delegate segmentedViewInPageScrollView:self];
+            
+            CGFloat x = 0;
+            CGFloat y = segmentedView.frame.size.height;
+            CGFloat w = width;
+            CGFloat h = height - y;
+            h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
+            self.listContainerView.frame = CGRectMake(x, y, w, h);
+            [self.listContainerView reloadData];
+        }
+        
+        height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
+        self.pageView.frame = CGRectMake(0, 0, width, height);
+    }else {
+        [self.mainTableView reloadData];
+    }
 }
 
 - (void)initSubviews {
@@ -123,6 +146,9 @@
     _mainScrollDisabled = mainScrollDisabled;
     
     self.mainTableView.scrollEnabled = !self.mainScrollDisabled;
+    if (self.mainScrollDisabled) {
+        self.mainTableView.scrollsToTop = NO;
+    }
 }
 
 #pragma mark - Public Methods
@@ -160,7 +186,11 @@
         [self configListViewScroll];
     }
     
-    [self.mainTableView reloadData];
+    if (self.isShowInFooter) {
+        self.mainTableView.tableFooterView = [self getPageView];
+    }else {
+        [self.mainTableView reloadData];
+    }
     
     self.criticalPoint = [self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight;
     self.criticalOffset = CGPointMake(0, self.criticalPoint);
@@ -412,18 +442,8 @@
     }
 }
 
-#pragma mark - UITableViewDataSource & UITableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.isLoaded ? 1 : 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if ([self.delegate respondsToSelector:@selector(pageScrollView:updateCell:)]) {
-        [self.delegate pageScrollView:self updateCell:cell];
-    }
-    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+- (UIView *)getPageView {
+    if (self.pageView) return self.pageView;
     CGFloat width  = self.frame.size.width == 0 ? GKPAGE_SCREEN_WIDTH : self.frame.size.width;
     CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
     UIView *pageView = nil;
@@ -445,7 +465,24 @@
     }
     height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
     pageView.frame = CGRectMake(0, 0, width, height);
-    [cell.contentView addSubview:pageView];
+    self.pageView = pageView;
+    return pageView;
+}
+
+#pragma mark - UITableViewDataSource & UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.isShowInFooter) return 0;
+    return self.isLoaded ? 1 : 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if ([self.delegate respondsToSelector:@selector(pageScrollView:updateCell:)]) {
+        [self.delegate pageScrollView:self updateCell:cell];
+    }
+    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [cell.contentView addSubview:[self getPageView]];
     if ([self.delegate respondsToSelector:@selector(pageScrollViewReloadCell:)]) {
         [self.delegate pageScrollViewReloadCell:self];
     }
@@ -453,6 +490,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.showInFooter) return 0;
     CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
     height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
     return height;

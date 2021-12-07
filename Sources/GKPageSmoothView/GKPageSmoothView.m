@@ -52,8 +52,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 @property (nonatomic, assign) CGFloat segmentedHeight;
 @property (nonatomic, assign) CGFloat currentListInitializeContentOffsetY;
 
-@property (nonatomic, assign) NSInteger currentIndex;
-
 @property (nonatomic, assign) BOOL      isLoaded;
 
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;

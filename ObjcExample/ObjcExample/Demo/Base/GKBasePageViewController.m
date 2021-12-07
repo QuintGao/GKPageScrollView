@@ -62,6 +62,7 @@
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
+        _pageScrollView.showInFooter = YES;
     }
     return _pageScrollView;
 }

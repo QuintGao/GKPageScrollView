@@ -111,6 +111,7 @@ class GKBasePageViewController: GKDemoBaseViewController {
         self.gk_statusBarStyle = .lightContent
         
         pageScrollView = GKPageScrollView(delegate: self)
+        pageScrollView.isShowInFooter = true
         
         self.view.addSubview(pageScrollView)
         

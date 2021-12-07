@@ -122,6 +122,8 @@ open class GKPageScrollView: UIView {
     open weak var delegate: GKPageScrollViewDelegate!
     // 主列表
     open var mainTableView: GKPageTableView!
+    // 包裹segmentedView和列表容器的view
+    open var pageView = UIView()
     // 当前滑动的子列表
     open var currentListScrollView = UIScrollView()
     // 懒加载时使用的容器
@@ -152,6 +154,9 @@ open class GKPageScrollView: UIView {
     // 是否禁止mainScrollView在到达临界点后继续滑动，默认为NO
     public var isDisableMainScrollInCeil: Bool = false
     
+    // 列表容器在UITableViewFooter中显示（默认NO）
+    public var isShowInFooter: Bool = false
+    
     // 是否懒加载列表
     public var isLazyLoadList: Bool = false {
         didSet {
@@ -168,6 +173,9 @@ open class GKPageScrollView: UIView {
     public var isMainScrollDisabled: Bool = false {
         didSet {
             self.mainTableView.isScrollEnabled = !isMainScrollDisabled
+            if isMainScrollDisabled {
+                self.mainTableView.scrollsToTop = false
+            }
         }
     }
     
@@ -216,7 +224,27 @@ open class GKPageScrollView: UIView {
         if self.mainTableView.frame.equalTo(self.bounds) { return }
         self.mainTableView.frame = self.bounds
         if !self.isLoaded { return }
-        self.mainTableView.reloadData()
+        
+        if self.isShowInFooter {
+            let width = self.bounds.size.width
+            var height = self.bounds.size.height
+            
+            if self.shouldLazyLoadListView() {
+                let segmentedView = self.delegate.segmentedView?(in: self)
+                
+                let x: CGFloat = 0
+                let y: CGFloat = segmentedView!.frame.size.height
+                let w: CGFloat = width
+                var h: CGFloat = height - y
+                h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
+                self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
+                self.listContainerView.reloadData()
+            }
+            height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
+            self.pageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        }else {
+            self.mainTableView.reloadData()
+        }
     }
     
     fileprivate func initSubviews() {
@@ -276,7 +304,12 @@ open class GKPageScrollView: UIView {
             self.configListViewScroll()
         }
         
-        self.mainTableView.reloadData()
+        if self.isShowInFooter {
+            self.mainTableView.tableFooterView = self.getPageView()
+        }else {
+            self.mainTableView.reloadData()
+        }
+        
         self.criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
         self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
     }
@@ -528,20 +561,8 @@ open class GKPageScrollView: UIView {
             scrollView.contentOffset = offset
         }
     }
-}
-
-extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.isLoaded ? 1 : 0
-    }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.selectionStyle = .none
-        self.delegate.pageScrollViewUpdateCell?(self, cell: cell)
-        for view in cell.contentView.subviews {
-            view.removeFromSuperview()
-        }
+    fileprivate func getPageView() -> UIView {
         let width = self.frame.size.width == 0 ? GKPage_Screen_Width : self.frame.size.width
         var height = self.frame.size.height == 0 ? GKPage_Screen_Height : self.frame.size.height
         
@@ -565,12 +586,35 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
         }
         height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
         pageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        cell.contentView.addSubview(pageView)
+        self.pageView = pageView
+        return pageView
+    }
+}
+
+extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.isShowInFooter {
+            return 0
+        }
+        return self.isLoaded ? 1 : 0
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.selectionStyle = .none
+        self.delegate.pageScrollViewUpdateCell?(self, cell: cell)
+        for view in cell.contentView.subviews {
+            view.removeFromSuperview()
+        }
+        cell.contentView.addSubview(self.getPageView())
         self.delegate.pageScrollViewReloadCell?(self)
         return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.isShowInFooter {
+            return 0
+        }
         var height = self.frame.size.height == 0 ? GKPage_Screen_Height : self.frame.size.height
         height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
         return height

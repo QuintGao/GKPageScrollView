@@ -146,6 +146,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var headerView: UIView?
     var segmentedView: UIView?
     
+    public private(set) var currentIndex: Int = 0
     public private(set) var currentListScrollView: UIScrollView?
     var isSyncListContentOffsetEnabled: Bool = false
     var currentHeaderContainerViewY: CGFloat = 0
@@ -155,7 +156,6 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var segmentedHeight: CGFloat = 0
     var currentListInitailzeContentOffsetY: CGFloat = 0
     
-    var currentIndex: Int = 0
     var isLoaded: Bool = false
     
     var scrollView: UIScrollView?

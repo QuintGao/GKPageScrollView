@@ -243,7 +243,7 @@
 - (UIView *)pageView {
     if (!_pageView) {
         _pageView = [UIView new];
-        _pageView.backgroundColor = [UIColor clearColor];
+        _pageView.backgroundColor = [UIColor whiteColor];
         
         [_pageView addSubview:self.categoryView];
         [_pageView addSubview:self.scrollView];

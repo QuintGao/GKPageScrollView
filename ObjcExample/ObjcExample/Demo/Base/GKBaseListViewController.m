@@ -117,7 +117,9 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    self.view.frame = self.view.superview.bounds;
+    CGRect frame = self.view.frame;
+    frame.size = self.view.superview.bounds.size;
+    self.view.frame = frame;
 }
 
 - (void)loadData {

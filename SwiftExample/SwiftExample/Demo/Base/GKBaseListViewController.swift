@@ -196,8 +196,9 @@ class GKBaseListViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        self.view.frame = self.view.superview!.bounds;
-//        print(self.view.frame)
+        var frame = self.view.frame
+        frame.size = (self.view.superview?.bounds.size)!
+        self.view.frame = frame
     }
     
     func loadData() {

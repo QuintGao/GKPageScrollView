@@ -145,6 +145,9 @@
 /// 主列表
 @property (nonatomic, strong, readonly) GKPageTableView *mainTableView;
 
+/// 包裹segmentedView和列表容器的view
+@property (nonatomic, weak, readonly) UIView *pageView;
+
 /// 当前滑动的子列表
 @property (nonatomic, weak, readonly) UIScrollView *currentListScrollView;
 
@@ -173,6 +176,9 @@
 
 // 是否内部控制指示器的显示与隐藏（默认为NO）
 @property (nonatomic, assign, getter=isControlVerticalIndicator) BOOL controlVerticalIndicator;
+
+// 列表容器在UITableViewFooter中显示（默认NO）
+@property (nonatomic, assign, getter=isShowInFooter) BOOL showInFooter;
 
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
