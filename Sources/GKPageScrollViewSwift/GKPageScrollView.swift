@@ -275,7 +275,7 @@ open class GKPageScrollView: UIView {
         self.mainTableView.tableHeaderView = headerView
         self.headerHeight = headerView.frame.size.height
         
-        self.criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
+        self.criticalPoint = abs(self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight)
         self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
     }
     
@@ -310,7 +310,7 @@ open class GKPageScrollView: UIView {
             self.mainTableView.reloadData()
         }
         
-        self.criticalPoint = self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight
+        self.criticalPoint = abs(self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight)
         self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
     }
     
