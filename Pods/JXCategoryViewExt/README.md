@@ -102,6 +102,7 @@ pod 'JXCategoryViewExt/RTL'
 ```
 
 ## 更新记录
+* 1.1.6 2021.12.03 删除多余属性
 * 1.1.4 2021.10.18 JXCategorySubTitleImageView优化，修复bug
 * 1.1.2 2021.08.20 新增JXCategorySubTitleImageView类型
 * 1.1.0 2021.08.19 JXCategoryTitleImageView支持忽略image宽度

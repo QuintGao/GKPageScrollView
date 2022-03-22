@@ -26,7 +26,7 @@ class GKDBViewController: GKDemoBaseViewController {
     lazy var smoothView: GKPageSmoothView = {
         let smoothView = GKPageSmoothView(dataSource: self)
         smoothView.delegate = self
-        smoothView.ceilPointHeight = GK_STATUSBAR_NAVBAR_HEIGHT
+        smoothView.ceilPointHeight = GKDevice.statusBarNavBarHeight()
         smoothView.isBottomHover = true
         smoothView.isAllowDragBottom = true
         smoothView.isAllowDragScroll = true

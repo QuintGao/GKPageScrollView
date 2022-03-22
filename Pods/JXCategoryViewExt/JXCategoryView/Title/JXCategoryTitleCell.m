@@ -55,14 +55,6 @@
     [super layoutSubviews];
 
     JXCategoryTitleCellModel *myCellModel = (JXCategoryTitleCellModel *)self.cellModel;
-    if (myCellModel.isTitleLabelZoomEndUseSelectedFontEnabled) {
-        if (myCellModel.isSelected) {
-            self.titleLabel.font = myCellModel.titleSelectedFont;
-        }else {
-            UIFont *maxScaleFont = [UIFont fontWithDescriptor:myCellModel.titleFont.fontDescriptor size:myCellModel.titleFont.pointSize*myCellModel.titleLabelSelectedZoomScale];
-            self.titleLabel.font = maxScaleFont;
-        }
-    }
     switch (myCellModel.titleLabelAnchorPointStyle) {
         case JXCategoryTitleLabelAnchorPointStyleCenter: {
             self.titleLabel.layer.anchorPoint = CGPointMake(0.5, 0.5);

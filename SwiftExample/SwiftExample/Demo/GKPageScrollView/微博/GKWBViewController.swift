@@ -114,7 +114,7 @@ class GKWBViewController: GKDemoBaseViewController {
         self.headerView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: kWBHeaderHeight);
         
         if (kScreenH > kScreenW) {
-            self.pageScrollView.ceilPointHeight = GK_STATUSBAR_NAVBAR_HEIGHT;
+            self.pageScrollView.ceilPointHeight = GKDevice.statusBarNavBarHeight();
         }else {
             self.pageScrollView.ceilPointHeight = 44.0
         }

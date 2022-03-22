@@ -22,8 +22,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// 导航栏背景色，默认nil，优先级高于backgroundColor
 @property (nonatomic, strong) UIImage   *backgroundImage;
 
+/// 暗黑模式下的背景图，优先级高于backgroundColor
+@property (nonatomic, strong) UIImage   *darkBackgroundImage;
+
 /// 导航栏分割线背景色，默认nil，使用系统颜色
 @property (nonatomic, strong) UIColor   *lineColor;
+
+/// 导航栏分割线图片，默认nil，优先级高于lineColor
+@property (nonatomic, strong) UIImage   *lineImage;
+
+/// 暗黑模式下的分割线图片，优先级高于lineColor
+@property (nonatomic, strong) UIImage   *darkLineImage;
 
 /// 导航栏分割线是否隐藏，默认NO
 @property (nonatomic, assign) BOOL      lineHidden;
@@ -37,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 返回按钮图片(默认nil，优先级高于backStyle)
 @property (nonatomic, strong) UIImage   *backImage;
 
+/// 暗黑模式下的返回图片，优先级高于backStyle
+@property (nonatomic, strong) UIImage   *darkBackImage;
+
 /// backStyle为GKNavigationBarBackStyleBlack时对应的图片，默认btn_back_black
 @property (nonatomic, strong) UIImage   *blackBackImage;
 
@@ -47,7 +59,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GKNavigationBarBackStyle backStyle;
 
 /// 是否禁止导航栏左右item间距调整，默认是NO
+/// 1.7.0版本之后 只对带有GKCustomNavigationBar的控制器有效
 @property (nonatomic, assign) BOOL      gk_disableFixSpace;
+
+/// 开启普通控制器的导航栏item间距调整，只能在对应的控制器中开启
+@property (nonatomic, assign) BOOL      openSystemFixSpace;
 
 /// 导航栏左侧按钮距屏幕左边间距，默认是0，可自行调整
 @property (nonatomic, assign) CGFloat   gk_navItemLeftSpace;
@@ -61,10 +77,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 状态栏类型，默认UIStatusBarStyleDefault
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
-// 调整导航栏间距时需要屏蔽的VC（默认nil），支持Class或NSString，NSString支持部分匹配如前缀
-@property (nonatomic, strong) NSArray *shiledItemSpaceVCs;
-
 /// 导航栏左右间距，内部使用
+@property (nonatomic, assign, readonly) BOOL    disableFixSpace;
 @property (nonatomic, assign, readonly) CGFloat navItemLeftSpace;
 @property (nonatomic, assign, readonly) CGFloat navItemRightSpace;
 
@@ -96,6 +110,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取bundle
 - (NSBundle *)gk_libraryBundle;
 
+/// 是否禁止调整导航栏item间距
+- (BOOL)fixNavItemSpaceDisabled;
+
 @end
 
 // from QMUI
@@ -120,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) BOOL is65InchScreen;
 
 /// iPhone 12 / 12 Pro
-@property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone12;
+@property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone12Later;
 
 /// iPhone XR / 11
 @property (class, nonatomic, readonly) BOOL is61InchScreen;
@@ -145,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, nonatomic, readonly) CGSize screenSizeFor67Inch;
 @property (class, nonatomic, readonly) CGSize screenSizeFor65Inch;
-@property (class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone12;
+@property (class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone12Later;
 @property (class, nonatomic, readonly) CGSize screenSizeFor61Inch;
 @property (class, nonatomic, readonly) CGSize screenSizeFor58Inch;
 @property (class, nonatomic, readonly) CGSize screenSizeFor55Inch;
@@ -173,7 +190,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) CGRect       statusBarFrame;
 @property (class, nonatomic, readonly) UIWindow     *keyWindow;
 
-// 用于获取 isNotchedScreen 设备的 insets，注意对于 iPad Pro 11-inch 这种无刘海凹槽但却有使用 Home Indicator 的设备，它的 top 返回0，bottom 返回 safeAreaInsets.bottom 的值
+/// 用于获取 isNotchedScreen 设备的 insets，注意对于无 Home 键的新款 iPad 而言，它不一定有物理凹槽，但因为使用了 Home Indicator，所以它的 safeAreaInsets 也是非0。
 + (UIEdgeInsets)safeAreaInsetsForDeviceWithNotch;
 
 @end

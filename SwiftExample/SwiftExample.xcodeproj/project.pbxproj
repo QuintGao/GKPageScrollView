@@ -428,7 +428,7 @@
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Latest;
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					609B8DA4259AFC5B000F1EB9 = {
 						CreatedOnToolsVersion = 12.3;

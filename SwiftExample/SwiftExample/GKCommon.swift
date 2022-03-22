@@ -9,12 +9,12 @@
 import UIKit
 import GKNavigationBarSwift
 
-let isIPhoneX: Bool = GKConfigure.gk_isNotchedScreen()
+let isIPhoneX: Bool = GKDevice.isNotchedScreen()
 
 let kScreenW = UIScreen.main.bounds.size.width
 let kScreenH = UIScreen.main.bounds.size.height
 
-let kStatusBar_Height: CGFloat = GKConfigure.gk_statusBarFrame().size.height
+let kStatusBar_Height: CGFloat = GKDevice.statusBarFrame().size.height
 let kNavBar_Height: CGFloat = kStatusBar_Height + 44.0
 
 let ADAPTATIONRATIO = kScreenW / 750.0

@@ -55,16 +55,7 @@ open class GKBaseAnimatedTransition: NSObject, UIViewControllerAnimatedTransitio
     
     open func completeTransition() {
         guard let transitionContext = self.transitionContext else { return }
-        
         transitionContext .completeTransition(!transitionContext.transitionWasCancelled)
-    }
-    
-    open func getCapture(with view: UIView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
     }
 }
 

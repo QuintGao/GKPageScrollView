@@ -38,9 +38,9 @@ class GKWBFindViewController: GKDemoBaseViewController {
     lazy var headerView: UIView = {
         let headerImg = UIImage(named: "wb_find")
         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: (kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!) + GK_STATUSBAR_HEIGHT))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: (kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!) + GKDevice.statusBarFrame().size.height))
         
-        let imgView = UIImageView(frame: CGRect(x: 0, y: GK_STATUSBAR_HEIGHT, width: kScreenW, height: kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!))
+        let imgView = UIImageView(frame: CGRect(x: 0, y: GKDevice.statusBarFrame().size.height, width: kScreenW, height: kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!))
         imgView.image = headerImg
         headerView.addSubview(imgView)
         return headerView
@@ -340,7 +340,7 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
         
         var alpha: CGFloat = 0;
         
-        let statusBarH = GK_STATUSBAR_HEIGHT
+        let statusBarH = GKDevice.statusBarFrame().size.height
         
         if (offsetY <= statusBarH) { // alpha: 0
             alpha = 0;
@@ -386,7 +386,7 @@ extension GKWBFindViewController: GKViewControllerPopDelegate {
         }
     }
     
-    override func navigationShouldPopOnGesture() -> Bool {
+    func navigationShouldPopOnGesture() -> Bool {
         return self.shouldPop
     }
 }

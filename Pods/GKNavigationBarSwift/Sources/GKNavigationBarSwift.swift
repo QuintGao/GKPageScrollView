@@ -46,6 +46,9 @@ open class GKNavigationBar: UINavigationBar {
     
     /// 导航栏分割线是否隐藏
     public var gk_navLineHidden: Bool = false
+    
+    /// 是否是非全屏控制器
+    public var gk_nonFullScreen: Bool = false
 
     public override init(frame: CGRect) {
         super.init(frame:frame)
@@ -68,22 +71,12 @@ open class GKNavigationBar: UINavigationBar {
                         frame.size.height = self.frame.size.height
                         obj.frame = frame
                     }else {
-                        let screenW = UIScreen.main.bounds.size.width
-                        let screenH = UIScreen.main.bounds.size.height
+                        let navBarHNFS = GKDevice.navBarHeightNonFullScreen()
+                        let navBarH = GKDevice.navBarHeight()
                         
-                        var y: CGFloat = 0
-                        if screenW > screenH {
-                            if GK_NOTCHED_SCREEN {
-                                y = 0
-                            }else {
-                                y = self.gk_statusBarHidden ? 0 : GK_STATUSBAR_HEIGHT
-                            }
-                        }else {
-                            y = self.gk_statusBarHidden ? GK_SAFEAREA_TOP : GK_STATUSBAR_HEIGHT
-                        }
-
+                        
                         var frame = obj.frame
-                        frame.origin.y = y
+                        frame.origin.y = self.frame.size.height - (self.gk_nonFullScreen ? navBarHNFS : navBarH)
                         obj.frame = frame
                     }
                 }

@@ -41,7 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat               gk_navBarAlpha;
 
 /// 设置返回按钮图片（优先级高于gk_backStyle）
-@property (nonatomic, strong) UIImage               *gk_backImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_backImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_darkBackImage;
 
 /// gk_backStyle为GKNavigationBarBackStyleBlack时的图片
 @property (nonatomic, strong) UIImage               *gk_blackBackImage;
@@ -53,12 +54,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GKNavigationBarBackStyle gk_backStyle;
 
 /// 导航栏背景，gk_navBackgroundImage优先级较高
-@property (nonatomic, strong) UIImage               *gk_navBackgroundImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_navBackgroundImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_darkNavBackgroundImage;
 @property (nonatomic, strong) UIColor               *gk_navBackgroundColor;
 
 /// 导航栏分割线
 @property (nonatomic, strong) UIColor               *gk_navShadowColor;
-@property (nonatomic, strong) UIImage               *gk_navShadowImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_navShadowImage;
+@property (nonatomic, strong, nullable) UIImage     *gk_darkNavShadowImage;
 @property (nonatomic, assign) BOOL                  gk_navLineHidden;
 
 /// 导航栏标题
@@ -74,7 +77,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong) NSArray<UIBarButtonItem *> *gk_navRightBarButtonItems;
 
 /// 是否禁止调整当前控制器导航栏间距，默认GKConfigure.gk_disableFixSpace
+/// 对带有GKCustomNavigationBar的控制器有效
 @property (nonatomic, assign) BOOL                  gk_disableFixNavItemSpace;
+
+/// 是否开启当前控制器的导航栏item间距调整，默认NO
+/// 对没有GKCustomNavigationBar的控制器有效
+@property (nonatomic, assign) BOOL                  gk_openFixNavItemSpace;
 
 /// 导航栏左右按钮距离屏幕边缘的距离，需在设置左右item之前设置此属性
 @property (nonatomic, assign) CGFloat               gk_navItemLeftSpace;

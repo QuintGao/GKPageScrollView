@@ -57,7 +57,17 @@ class GKNavigationInteractiveTransition: NSObject {
                 }else {
                     if let visibleVC = self.visibleVC {
                         if visibleVC.gk_systemGestureHandleDisabled {
-                            let shouldPop = visibleVC.navigationShouldPopOnGesture()
+                            var shouldPop = visibleVC.navigationShouldPop()
+                            let selector = NSSelectorFromString("navigationShouldPopOnGesture")
+                            
+                            if visibleVC.responds(to: selector) {
+                                if visibleVC.perform(selector) != nil {
+                                    shouldPop = true
+                                }else {
+                                    shouldPop = false
+                                }
+                            }
+            
                             if shouldPop {
                                 self.popTransition = UIPercentDrivenInteractiveTransition()
                                 self.navigationController.popViewController(animated: true)
@@ -225,7 +235,15 @@ extension GKNavigationInteractiveTransition: UIGestureRecognizerDelegate {
             }
         }else if (transition.x > 0) { // 右滑
             if !visibleVC.gk_systemGestureHandleDisabled {
-                let shouldPop = visibleVC.navigationShouldPopOnGesture()
+                var shouldPop = visibleVC.navigationShouldPop()
+                let selector = NSSelectorFromString("navigationShouldPopOnGesture")
+                if visibleVC.responds(to: selector) {
+                    if visibleVC.perform(selector) != nil {
+                        shouldPop = true
+                    }else {
+                        shouldPop = false
+                    }
+                }
                 if shouldPop == false { return false }
             }
             

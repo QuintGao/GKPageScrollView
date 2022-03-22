@@ -8,72 +8,26 @@
 
 import UIKit
 
-// 左滑push代理
-@objc
-public protocol GKViewControllerPushDelegate: NSObjectProtocol {
-    /// 左滑push，在这里创建将要push的控制器
-    @objc optional func pushToNextViewController()
-    
-    /// push手势滑动开始
-    @objc optional func viewControllerPushScrollBegan()
-    
-    /// push手势滑动进度更新
-    /// - Parameter progress: 进度（0-1）
-    @objc optional func viewControllerPushScrollUpdate(progress: CGFloat)
-    
-    /// push手势滑动结束
-    /// - Parameter finished: 是否完成push操作（true：push成功 false：push取消）
-    @objc optional func viewControllerPushScrollEnded(finished: Bool)
-}
-
-// 右滑pop代理
-@objc
-public protocol GKViewControllerPopDelegate: NSObjectProtocol {
-    
-    /// pop手势滑动开始
-    @objc optional func viewControllerPopScrollBegan()
-    
-    /// pop手势滑动进度更新
-    /// - Parameter progress: 进度（0-1）
-    @objc optional func viewControllerPopScrollUpdate(progress: CGFloat)
-    
-    /// pop手势滑动结束
-    /// - Parameter finished: 是否完成pop操作（true：pop成功 false：pop取消）
-    @objc optional func viewControllerPopScrollEnded(finished: Bool)
-}
-
-// 返回拦截
-@objc
-public protocol GKGesturePopHandlerProtocol: NSObjectProtocol {
-    // 是否可以通过手势pop返回
-    @objc optional func navigationShouldPopOnGesture() -> Bool
-}
-
-public let GKViewControllerPropertyChanged = NSNotification.Name(rawValue: "GKViewControllerPropertyChanged")
-
 extension UIViewController: GKAwakeProtocol {
    
     fileprivate struct AssociatedKeys {
-        static var gkInteractivePopDisabled: Bool = false
-        static var gkFullScreenPopDisabled: Bool = false
-        static var gkSystemGestureHandleDisabled: Bool = false
-        static var gkMaxPopDistance: CGFloat = 0
         static var gkNavBarAlpha: CGFloat = 1
-        static var gkPushDelegate: GKViewControllerPushDelegate?
-        static var gkPopDelegate: GKViewControllerPopDelegate?
-        static var gkPushTransition: UIViewControllerAnimatedTransitioning?
-        static var gkPopTransition: UIViewControllerAnimatedTransitioning?
         static var gkNavBarInit: Bool = false
         static var gkNavigationBar: GKNavigationBar = GKNavigationBar()
         static var gkNavigationItem: UINavigationItem = UINavigationItem()
         static var gkStatusBarHidden: Bool = GKConfigure.statusBarHidden
         static var gkStatusBarStyle: UIStatusBarStyle = GKConfigure.statusBarStyle
         static var gkBackImage: UIImage?
+        static var gkDarkBackImage: UIImage?
+        static var gkBlackBackImage: UIImage?
+        static var gkWhiteBackImage: UIImage?
         static var gkBackStyle: GKNavigationBarBackStyle = .none
         static var gkNavBackgroundColor: UIColor?
         static var gkNavBackgroundImage: UIImage?
+        static var gkDarkNavBackgroundImage: UIImage?
         static var gkNavShadowColor: UIColor?
         static var gkNavShadowImage: UIImage?
+        static var gkDarkNavShadowImage: UIImage?
         static var gkNavLineHidden: Bool = false
         static var gkNavTitle: String?
         static var gkNavTitleView: UIView?
@@ -83,55 +37,10 @@ extension UIViewController: GKAwakeProtocol {
         static var gkNavLeftBarButtonItems: [UIBarButtonItem]?
         static var gkNavRightBarButtonItem: UIBarButtonItem?
         static var gkNavRightBarButtonItems: [UIBarButtonItem]?
+        static var gkDisableFixNavItemSpace: Bool = false
+        static var gkOpenFixNavItemSpace: Bool = false
         static var gkNavItemLeftSpace: CGFloat = GKConfigure.gk_navItemLeftSpace
         static var gkNavItemRightSpace: CGFloat = GKConfigure.gk_navItemRightSpace
-        static var hasPushDelegate: Bool = false
-        static var hasPopDelegate: Bool = false
-    }
-    
-    public var gk_interactivePopDisabled: Bool {
-        get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkInteractivePopDisabled) as? Bool else { return false }
-            return obj
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkInteractivePopDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            postPropertyChangeNotification()
-        }
-    }
-    
-    public var gk_fullScreenPopDisabled: Bool {
-        get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkFullScreenPopDisabled) as? Bool else { return false }
-            return obj
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkFullScreenPopDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            postPropertyChangeNotification()
-        }
-    }
-    
-    public var gk_systemGestureHandleDisabled: Bool {
-        get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkSystemGestureHandleDisabled) as? Bool else { return false }
-            return obj
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkSystemGestureHandleDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            postPropertyChangeNotification()
-        }
-    }
-    
-    public var gk_maxPopDistance: CGFloat {
-        get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkMaxPopDistance) as? CGFloat else { return 0 }
-            return obj
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkMaxPopDistance, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            postPropertyChangeNotification()
-        }
     }
     
     public var gk_navBarAlpha: CGFloat {
@@ -143,42 +52,6 @@ extension UIViewController: GKAwakeProtocol {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavBarAlpha, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             self.gk_navigationBar.gk_navBarBackgroundAlpha = newValue
-        }
-    }
-    
-    public var gk_pushDelegate: GKViewControllerPushDelegate? {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkPushDelegate) as? GKViewControllerPushDelegate
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkPushDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
-    public var gk_popDelegate: GKViewControllerPopDelegate? {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkPopDelegate) as? GKViewControllerPopDelegate
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkPopDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
-    public var gk_pushTransition: UIViewControllerAnimatedTransitioning? {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkPushTransition) as? UIViewControllerAnimatedTransitioning
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkPushTransition, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
-    public var gk_popTransition: UIViewControllerAnimatedTransitioning? {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkPopTransition) as? UIViewControllerAnimatedTransitioning
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkPopTransition, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -262,6 +135,43 @@ extension UIViewController: GKAwakeProtocol {
         }
     }
     
+    public var gk_darkBackImage: UIImage? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.gkDarkBackImage) as? UIImage
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkDarkBackImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            
+            if #available(iOS 12.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    setBackItemImage(image: newValue)
+                }
+            }
+        }
+    }
+    
+    public var gk_blackBackImage: UIImage? {
+        get {
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkBlackBackImage) else { return GKConfigure.blackBackImage }
+            return obj as? UIImage
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkBlackBackImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            setBackItemImage(image: newValue)
+        }
+    }
+    
+    public var gk_whiteBackImage: UIImage? {
+        get {
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkWhiteBackImage) else { return GKConfigure.whiteBackImage }
+            return obj as? UIImage
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkWhiteBackImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            setBackItemImage(image: newValue)
+        }
+    }
+    
     public var gk_backStyle: GKNavigationBarBackStyle {
         get {
             guard let style = objc_getAssociatedObject(self, &AssociatedKeys.gkBackStyle) as? GKNavigationBarBackStyle else { return .none }
@@ -269,44 +179,7 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkBackStyle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
             setBackItemImage(image: self.gk_backImage)
-        }
-    }
-    
-    public var gk_navItemLeftSpace: CGFloat {
-        get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkNavItemLeftSpace) as? CGFloat else { return GKNavigationBarItemSpace }
-            return obj
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavItemLeftSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            if newValue == GKNavigationBarItemSpace {
-                return
-            }
-            
-            GKConfigure.update { (configure) in
-                configure.gk_navItemLeftSpace = newValue
-            }
-        }
-    }
-    
-    public var gk_navItemRightSpace: CGFloat {
-        get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkNavItemRightSpace) as? CGFloat else { return GKNavigationBarItemSpace }
-            return obj
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavItemRightSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            if newValue == GKNavigationBarItemSpace {
-                return
-            }
-            
-            GKConfigure.update { (configure) in
-                configure.gk_navItemRightSpace = newValue
-            }
         }
     }
     
@@ -316,10 +189,7 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavBackgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            if newValue != nil {
-                self.gk_navigationBar.setBackgroundImage(UIImage.gk_image(with: newValue!), for: .default)
-            }
+            setNavBackground(newValue)
         }
     }
     
@@ -329,8 +199,21 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavBackgroundImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            self.gk_navigationBar.setBackgroundImage(newValue, for: .default)
+            setNavBackground(newValue)
+        }
+    }
+    
+    public var gk_darkNavBackgroundImage: UIImage? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.gkDarkNavBackgroundImage) as? UIImage
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkDarkNavBackgroundImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            if #available(iOS 12.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    setNavBackground(newValue)
+                }
+            }
         }
     }
     
@@ -340,10 +223,7 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavShadowColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            guard let shadowColor = newValue else { return }
-            
-            self.gk_navigationBar.shadowImage = UIImage.gk_change(with: UIImage.gk_image(with: "nav_line"), color: shadowColor)
+            setNavShadow(newValue)
         }
     }
     
@@ -353,8 +233,21 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavShadowImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            self.gk_navigationBar.shadowImage = newValue
+            setNavShadow(newValue)
+        }
+    }
+    
+    public var gk_darkNavShadowImage: UIImage? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.gkDarkNavShadowImage) as? UIImage
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkDarkNavShadowImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            if #available(iOS 12.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    setNavShadow(newValue)
+                }
+            }
         }
     }
     
@@ -390,7 +283,6 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavTitle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
             self.gk_navigationItem.title = newValue
         }
     }
@@ -401,7 +293,6 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavTitleView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
             self.gk_navigationItem.titleView = newValue
         }
     }
@@ -412,10 +303,7 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavTitleColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            if newValue != nil && self.gk_navTitleFont != nil {
-                self.gk_navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: newValue!, NSAttributedString.Key.font: self.gk_navTitleFont!]
-            }
+            setNavTitle(newValue)
         }
     }
     
@@ -425,10 +313,7 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavTitleFont, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            if newValue != nil && self.gk_navTitleColor != nil {
-                self.gk_navigationBar.titleTextAttributes = [NSAttributedString.Key.font: newValue!, NSAttributedString.Key.foregroundColor: self.gk_navTitleColor!]
-            }
+            setNavTitle(newValue)
         }
     }
     
@@ -438,7 +323,6 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItem, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
             self.gk_navigationItem.leftBarButtonItem = newValue
         }
     }
@@ -449,7 +333,6 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItems, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
             self.gk_navigationItem.leftBarButtonItems = newValue
         }
     }
@@ -460,7 +343,6 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItem, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
             self.gk_navigationItem.rightBarButtonItem = newValue
         }
     }
@@ -471,28 +353,63 @@ extension UIViewController: GKAwakeProtocol {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItems, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
             self.gk_navigationItem.rightBarButtonItems = newValue
         }
     }
     
-    var hasPushDelegate: Bool {
+    public var gk_disableFixNavItemSpace: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.hasPushDelegate) as? Bool else { return false }
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkDisableFixNavItemSpace) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.hasPushDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.gkDisableFixNavItemSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            if GKConfigure.gk_disableFixSpace == newValue { return }
+            GKConfigure.update { configure in
+                configure.gk_disableFixSpace = newValue
+            }
         }
     }
     
-    var hasPopDelegate: Bool {
+    public var gk_openFixNavItemSpace: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.hasPopDelegate) as? Bool else { return false }
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkOpenFixNavItemSpace) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.hasPopDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.gkOpenFixNavItemSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            if GKConfigure.gk_openSystemFixSpace == newValue { return }
+            GKConfigure.update { configure in
+                configure.gk_openSystemFixSpace = newValue
+            }
+        }
+    }
+    
+    public var gk_navItemLeftSpace: CGFloat {
+        get {
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkNavItemLeftSpace) as? CGFloat else { return GKNavigationBarItemSpace }
+            return obj
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkNavItemLeftSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            if newValue == GKNavigationBarItemSpace { return }
+            GKConfigure.update { (configure) in
+                configure.gk_navItemLeftSpace = newValue
+            }
+        }
+    }
+    
+    public var gk_navItemRightSpace: CGFloat {
+        get {
+            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkNavItemRightSpace) as? CGFloat else { return GKNavigationBarItemSpace }
+            return obj
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.gkNavItemRightSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            if newValue == GKNavigationBarItemSpace { return }
+            GKConfigure.update { (configure) in
+                configure.gk_navItemRightSpace = newValue
+            }
         }
     }
     
@@ -503,7 +420,10 @@ extension UIViewController: GKAwakeProtocol {
             let oriSels = ["viewDidLoad",
                            "viewWillAppear:",
                            "viewDidAppear:",
-                           "viewWillLayoutSubviews"]
+                           "viewWillLayoutSubviews",
+//                           "prefersStatusBarHidden",
+//                           "preferredStatusBarStyle",
+                           "traitCollectionDidChange:"]
             
             for oriSel in oriSels {
                 gk_swizzled_instanceMethod("gk", oldClass: self, oldSelector: oriSel, newClass: self)
@@ -518,34 +438,23 @@ extension UIViewController: GKAwakeProtocol {
     }
     
     @objc func gk_viewDidLoad() {
-        // 初始化导航栏间距
-        self.gk_navItemLeftSpace  = GKNavigationBarItemSpace
-        self.gk_navItemRightSpace = GKNavigationBarItemSpace
+        // 设置默认状态
+        self.gk_disableFixNavItemSpace = true
+        self.gk_openFixNavItemSpace = false
         
-        // 判断是否需要屏蔽导航栏间距调整
-        var exist = false
-        if let shiledVCs = GKConfigure.shiledItemSpaceVCs {
-            for obj in shiledVCs {
-                if obj is UIViewController.Type {
-                    if self.isKind(of: obj as! UIViewController.Type) {
-                        exist = true
-                    }
-                }else if obj is String {
-                    if let cls = NSStringFromClass(self.classForCoder).components(separatedBy: ".").last, let str = obj as? String {
-                        if cls == str {
-                            exist = true
-                        }else if cls.contains(str) {
-                            exist = true
-                        }
-                    }
-                }
+        if shouldHandleNavBar() {
+            // 设置默认导航栏间距
+            self.gk_navItemLeftSpace  = GKNavigationBarItemSpace
+            self.gk_navItemRightSpace = GKNavigationBarItemSpace
+        }
+        
+        // 如果是根控制器，取消返回按钮
+        if let nav = self.navigationController, nav.children.count <= 1 {
+            if !self.gk_navBarInit {
+                return
             }
+            self.gk_navLeftBarButtonItem = nil
         }
-        
-        GKConfigure.update { (configure) in
-            configure.gk_disableFixSpace = exist
-        }
-        
         gk_viewDidLoad()
     }
     
@@ -559,34 +468,42 @@ extension UIViewController: GKAwakeProtocol {
         if self.navigationController == nil { return }
         
         if self.gk_navBarInit {
+            self.gk_disableFixNavItemSpace = self.gk_disableFixNavItemSpace
+            self.gk_openFixNavItemSpace = self.gk_openFixNavItemSpace
             // 隐藏系统导航栏
             if self.navigationController?.gk_openSystemNavHandle == false {
-                self.navigationController?.isNavigationBarHidden = true
+                hiddenSystemNavBar()
             }
             
             // 将自定义的导航栏放置顶层
             if !self.gk_navigationBar.isHidden {
                 self.view.bringSubviewToFront(self.gk_navigationBar)
             }
-            
-            // 状态栏
-            self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden
+        }else {
+            if let nav = navigationController, !nav.isNavigationBarHidden, !isNonFullScreen() {
+                self.gk_disableFixNavItemSpace = self.gk_disableFixNavItemSpace
+                self.gk_openFixNavItemSpace = self.gk_openFixNavItemSpace
+            }
+            restoreSystemNavBar()
         }
         
-        // 允许调整导航栏间距
-        if !GKConfigure.gk_disableFixSpace {
+        // 当创建了gk_navigationBar或者福控制器是导航控制器的时候才去调整导航栏间距
+        if self.gk_openFixNavItemSpace {
+            // 每次控制器出现的时候重置导航栏间距
             if self.gk_navItemLeftSpace == GKNavigationBarItemSpace {
                 self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace
+            }else {
+                GKConfigure.update { configure in
+                    configure.gk_navItemLeftSpace = self.gk_navItemLeftSpace
+                }
             }
             
             if self.gk_navItemRightSpace == GKNavigationBarItemSpace {
                 self.gk_navItemRightSpace = GKConfigure.navItemRightSpace
-            }
-            
-            // 重置navItem_space
-            GKConfigure.update { (configure) in
-                configure.gk_navItemLeftSpace = self.gk_navItemLeftSpace
-                configure.gk_navItemRightSpace = self.gk_navItemRightSpace
+            }else {
+                GKConfigure.update { configure in
+                    configure.gk_navItemRightSpace = self.gk_navItemRightSpace
+                }
             }
         }
         
@@ -594,13 +511,11 @@ extension UIViewController: GKAwakeProtocol {
     }
     
     @objc func gk_viewDidAppear(_ animated: Bool) {
-        // 每次视图出现时重新设置当前控制器的手势
-        postPropertyChangeNotification()
-        
-        if self.gk_navBarInit && self.navigationController?.isNavigationBarHidden == false {
-            self.navigationController?.isNavigationBarHidden = true
+        if self.gk_navBarInit {
+            hiddenSystemNavBar()
+        }else {
+            restoreSystemNavBar()
         }
-        
         gk_viewDidAppear(animated)
     }
     
@@ -611,42 +526,178 @@ extension UIViewController: GKAwakeProtocol {
         gk_viewWillLayoutSubviews()
     }
     
-    @objc func gkGesture_viewWillAppear(_ animated: Bool) {
-        if self.hasPushDelegate {
-            self.gk_pushDelegate = self as? GKViewControllerPushDelegate
-            self.hasPushDelegate = false
+    @objc func gk_traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *) {
+            if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+                if self.isKind(of: UINavigationController.classForCoder()) { return }
+                if self.isKind(of: UITabBarController.classForCoder()) { return }
+                if !self.gk_navBarInit { return }
+                
+                // 非根控制器重新设置返回按钮
+                var isRootVC = false
+                if let nav = self.navigationController, nav.children.first == self {
+                    isRootVC = true
+                }
+                if !isRootVC && self.gk_backImage != nil {
+                    setBackItemImage(image: self.gk_backImage)
+                }
+                
+                // 重新设置导航栏背景颜色
+                if self.gk_navBackgroundImage != nil {
+                    setNavBackground(self.gk_navBackgroundImage)
+                }else {
+                    setNavBackground(self.gk_navBackgroundColor)
+                }
+                
+                // 重新设置分割线颜色
+                if self.gk_navShadowImage != nil {
+                    setNavShadow(self.gk_navShadowImage)
+                }else {
+                    setNavShadow(self.gk_navShadowColor)
+                }
+            }
         }
-        if self.hasPopDelegate {
-            self.gk_popDelegate = self as? GKViewControllerPopDelegate
-            self.hasPopDelegate = false
-        }
-        gkGesture_viewWillAppear(animated)
+        gk_traitCollectionDidChange(previousTraitCollection)
     }
     
-    @objc func gkGesture_viewDidDisappear(_ animated: Bool) {
-        if let delegate = self.gk_pushDelegate {
-            if delegate as! NSObject == self {
-                self.hasPushDelegate = true
+    // MARK: - Public Funtions
+    public func showNavLine() {
+        self.gk_navLineHidden = false
+    }
+    
+    public func hideNavLine() {
+        self.gk_navLineHidden = true
+    }
+    
+    public func refreshNavBarFrame() {
+        self.setupNavBarFrame()
+    }
+    
+    @objc open func backItemClick(_ sender: Any) {
+        var shouldPop = navigationShouldPop()
+        let selector = NSSelectorFromString("navigationShouldPopOnClick")
+        if self.responds(to: selector) {
+            if self.perform(selector) != nil {
+                shouldPop = true
+            }else {
+                shouldPop = false
             }
         }
         
-        if let delegate = self.gk_popDelegate {
-            if delegate as! NSObject == self {
-                self.hasPopDelegate = true
+        if shouldPop {
+            self.navigationController?.popViewController(animated: true)            
+        }
+    }
+    
+    public func gk_findCurrentViewController(_ isRoot: Bool) -> UIViewController? {
+        if canFindPresented(self.presentedViewController) {
+            return self.presentedViewController?.gk_findCurrentViewController(false)
+        }
+        if self.isKind(of: UITabBarController.classForCoder()) {
+            let tabbarVC = self as! UITabBarController
+            return tabbarVC.selectedViewController?.gk_findCurrentViewController(false)
+        }
+        if self.isKind(of: UINavigationController.classForCoder()) {
+            let navVC = self as! UINavigationController
+            return navVC.topViewController?.gk_findCurrentViewController(false)
+        }
+        if self.children.count > 0 {
+            if self.children.count == 1 && isRoot {
+                return self.children.first?.gk_findCurrentViewController(false)
+            }else {
+                var currentVC: UIViewController? = nil
+                for obj in self.children {
+                    if obj.isViewLoaded {
+                        let point = obj.view.convert(CGPoint.zero, to: nil)
+                        let windowSize = obj.view.window?.bounds.size ?? .zero
+                        // 是否全屏显示
+                        let isFullScreenShow = !obj.view.isHidden && obj.view.alpha > 0.01 && __CGPointEqualToPoint(point, .zero) && __CGSizeEqualToSize(obj.view.bounds.size, windowSize)
+                        // 判断类型
+                        let isStopFindController = obj.isKind(of: UINavigationController.classForCoder()) || obj.isKind(of: UITabBarController.classForCoder())
+                        if isFullScreenShow && isStopFindController {
+                            currentVC = obj.gk_findCurrentViewController(false)
+                            break
+                        }
+                    }
+                }
+                return currentVC
+            }
+        }else if self.responds(to: NSSelectorFromString("contentViewController")) {
+            let tempVC = self.perform(NSSelectorFromString("contentViewController")).retain().takeRetainedValue() as? UIViewController
+            if tempVC != nil {
+                return tempVC?.gk_findCurrentViewController(false)
             }
         }
-        
-        // 这两个代理系统不会自动回收，所以要做下处理
-        self.gk_pushDelegate = nil;
-        self.gk_popDelegate = nil;
-
-        gkGesture_viewDidDisappear(animated)
+        return self
+    }
+    
+    fileprivate func canFindPresented(_ viewController: UIViewController?) -> Bool {
+        guard let vc = viewController else { return false }
+        if vc.isKind(of: UIAlertController.classForCoder()) {
+            return false
+        }
+        if NSStringFromClass(self.classForCoder) == "_UIContextMenuActionsOnlyViewController" {
+            return false
+        }
+        return true
+    }
+    
+    // MARK: - Private Functions
+    fileprivate func shouldHandleNavBar() -> Bool {
+        if self.gk_navBarInit {
+            return true
+        }
+        if let vc = self.parent, vc.isKind(of: UINavigationController.classForCoder()) {
+            return true
+        }
+        return false
+    }
+    
+    fileprivate func hiddenSystemNavBar() {
+        if let nav = self.navigationController, nav.isNavigationBarHidden == false {
+            nav.gk_hideNavigationBar = true
+            nav.isNavigationBarHidden = true
+        }
+    }
+    
+    fileprivate func restoreSystemNavBar() {
+        if GKConfigure.gk_restoreSystemNavBar && self.shouldHandleNavBar() {
+            if let nav = self.navigationController, nav.isNavigationBarHidden, nav.gk_hideNavigationBar {
+                nav.isNavigationBarHidden = false
+            }
+        }
     }
     
     fileprivate func setupNavBarAppearance() {
-        // 设置默认背景色
-        if self.gk_navBackgroundColor == nil {
+        // 设置默认背景
+        if self.gk_navBackgroundImage == nil {
+            self.gk_navBackgroundImage = GKConfigure.backgroundImage
+        }
+        
+        if self.gk_darkNavBackgroundImage == nil {
+            self.gk_darkNavBackgroundImage = GKConfigure.darkBackgroundImage
+        }
+        
+        if self.gk_navBackgroundColor == nil && self.gk_navBackgroundImage == nil {
             self.gk_navBackgroundColor = GKConfigure.backgroundColor
+        }
+        
+        // 设置分割线
+        if self.gk_navShadowImage == nil {
+            self.gk_navShadowImage = GKConfigure.lineImage
+        }
+        
+        if self.gk_darkNavShadowImage == nil {
+            self.gk_darkNavShadowImage = GKConfigure.darkLineImage
+        }
+        
+        if self.gk_navShadowColor == nil && self.gk_navShadowImage == nil {
+            self.gk_navShadowColor = GKConfigure.lineColor
+        }
+        
+        // 设置分割线是否隐藏
+        if self.gk_navLineHidden == false && GKConfigure.lineHidden == true {
+            self.gk_navLineHidden = GKConfigure.lineHidden
         }
         
         // 设置默认标题字体
@@ -664,56 +715,100 @@ extension UIViewController: GKAwakeProtocol {
             self.gk_backImage = GKConfigure.backImage
         }
         
+        if self.gk_darkBackImage == nil {
+            self.gk_darkBackImage = GKConfigure.darkBackImage
+        }
+        
         // 设置默认返回样式
         if self.gk_backStyle == .none {
             self.gk_backStyle = GKConfigure.backStyle
         }
+        
+        self.gk_navTitle = nil
     }
     
     fileprivate func setupNavBarFrame() {
-        let width  = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height
-        
+        let isNonFullScreen = isNonFullScreen()
         var navBarH: CGFloat = 0.0
-        if width > height { // 横屏
-            if GK_IS_IPAD {
-                let statusBarH = UIApplication.shared.statusBarFrame.size.height
-                let navigaBarH = self.navigationController?.navigationBar.frame.size.height ?? 44
-                navBarH = statusBarH + navigaBarH
-            }else if GK_NOTCHED_SCREEN {
-                navBarH = GK_NAVBAR_HEIGHT
+        
+        let width  = UIScreen.main.bounds.size.width
+        
+        let gkNavBarHNFS = GKDevice.navBarHeightNonFullScreen()
+        let gkNavBarH = GKDevice.navBarHeight()
+        let gkStatusBarH = GKDevice.statusBarFrame().size.height
+        let gkStatusBarNavBarH = gkStatusBarH + gkNavBarH
+        
+        if GKDevice.isIPad() { // iPad
+            if isNonFullScreen {
+                navBarH = gkNavBarHNFS
+                self.gk_navigationBar.gk_nonFullScreen = true
             }else {
-                if width == 736.0 && height == 414.0 { // plus横屏
-                    navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT
-                }else { // 其他机型横屏
-                    navBarH = self.gk_statusBarHidden ? 32.0 : 52.0
+                navBarH = self.gk_statusBarHidden ? gkNavBarH : gkStatusBarNavBarH
+            }
+        }else if GKDevice.isLandScape() { // 横屏不显示状态栏，没有非全屏模式
+            navBarH = gkNavBarH
+        }else {
+            if isNonFullScreen {
+                navBarH = gkNavBarHNFS
+                self.gk_navigationBar.gk_nonFullScreen = true
+            }else {
+                if GKDevice.isNotchedScreen() { // 刘海屏手机
+                    navBarH = GKDevice.safeAreaInsets().top + gkNavBarH
+                }else {
+                    navBarH = self.gk_statusBarHidden ? gkNavBarH : gkStatusBarNavBarH
                 }
             }
-        }else { // 竖屏
-            navBarH = self.gk_statusBarHidden ? (GK_SAFEAREA_TOP + GK_NAVBAR_HEIGHT) : GK_STATUSBAR_NAVBAR_HEIGHT
         }
         self.gk_navigationBar.frame = CGRect(x: 0, y: 0, width: width, height: navBarH)
         self.gk_navigationBar.gk_statusBarHidden = self.gk_statusBarHidden
         self.gk_navigationBar.layoutSubviews()
     }
     
-    fileprivate func postPropertyChangeNotification() {
-        NotificationCenter.default.post(name: GKViewControllerPropertyChanged, object: ["viewController": self])
+    fileprivate func isNonFullScreen() -> Bool {
+        var isNonFullScreen = false
+        var viewW = UIScreen.main.bounds.size.width
+        var viewH = UIScreen.main.bounds.size.height
+        if self.isViewLoaded {
+            var parentVC = self
+            // 找到最上层的父控制器
+            while (parentVC.parent != nil) {
+                parentVC = parentVC.parent!
+            }
+            viewW = parentVC.view.frame.size.width
+            viewH = parentVC.view.frame.size.height
+            if viewW == 0 || viewH == 0 {
+                return false
+            }
+            
+            // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
+            isNonFullScreen = (self.presentingViewController != nil) && viewH < UIScreen.main.bounds.size.height
+        }
+        return isNonFullScreen
     }
     
     fileprivate func setBackItemImage(image: UIImage?) {
         if self.gk_navBarInit == false { return }
-        
-        var backImage = image
-        
         // 根控制器不作处理
         guard let count = self.navigationController?.children.count else { return }
-        if (count<=1) { return }
+        if (count <= 1) {
+            self.gk_navLeftBarButtonItem = nil
+            return
+        }
+        
+        var backImage = image
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark, self.gk_darkBackImage != nil {
+                backImage = self.gk_darkBackImage
+            }
+        }
         
         if backImage == nil {
             if self.gk_backStyle != .none {
-                let imageName = self.gk_backStyle == .black ? "btn_back_black" : "btn_back_white"
-                backImage = UIImage.gk_image(with: imageName)
+                backImage = self.gk_backStyle == .black ? self.gk_blackBackImage : self.gk_whiteBackImage
+            }
+        }else {
+            if self.gk_backStyle == .none {
+                backImage = nil
             }
         }
         
@@ -722,43 +817,53 @@ extension UIViewController: GKAwakeProtocol {
         self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(image: backImage, target: self, action: #selector(backItemClick(_:)))
     }
     
-    @objc open func backItemClick(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    fileprivate func setNavBackground(_ image: UIImage?) {
+        guard var image = image else { return }
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark, gk_darkNavBackgroundImage != nil {
+                image = gk_darkNavBackgroundImage!
+            }
+        }
+        gk_navigationBar.setBackgroundImage(image, for: .default)
     }
     
-    // MARK: - Public Methods
-    public func refreshNavBarFrame() {
-        self.setupNavBarFrame()
+    fileprivate func setNavBackground(_ color: UIColor?) {
+        guard let color = color else { return }
+        gk_navigationBar.setBackgroundImage(UIImage.gk_image(with: color), for: .default)
     }
     
-    public func gk_visibleViewControllerIfExist() -> UIViewController? {
-        if self.presentedViewController != nil {
-            return self.presentedViewController?.gk_visibleViewControllerIfExist()
+    fileprivate func setNavShadow(_ image: UIImage?) {
+        guard var image = image else { return }
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark, gk_darkNavShadowImage != nil {
+                image = gk_darkNavShadowImage!
+            }
         }
-        
-        if self.isKind(of: UINavigationController.classForCoder()) {
-            let navVC = self as? UINavigationController
-            
-            return navVC?.visibleViewController?.gk_visibleViewControllerIfExist()
+        gk_navigationBar.shadowImage = image
+    }
+    
+    fileprivate func setNavShadow(_ color: UIColor?) {
+        guard let color = color else { return }
+        gk_navigationBar.shadowImage = UIImage.gk_change(with: UIImage.gk_image(with: "nav_line"), color: color)
+    }
+    
+    fileprivate func setNavTitle(_ color: UIColor?) {
+        guard let color = color else { return }
+        var attr = [NSAttributedString.Key: AnyObject]()
+        attr[.foregroundColor] = color
+        if gk_navTitleFont != nil {
+            attr[.font] = gk_navTitleFont
         }
-        
-        if self.isKind(of: UITabBarController.classForCoder()) {
-            let tabbarVC = self as? UITabBarController
-            return tabbarVC?.selectedViewController?.gk_visibleViewControllerIfExist()
+        gk_navigationBar.titleTextAttributes = attr
+    }
+    
+    fileprivate func setNavTitle(_ font: UIFont?) {
+        guard let font = font else { return }
+        var attr = [NSAttributedString.Key: AnyObject]()
+        if gk_navTitleColor != nil {
+            attr[.foregroundColor] = gk_navTitleColor
         }
-        
-        if self.isViewLoaded && self.view.window != nil {
-            return self
-        }else {
-            print("找不到可见的控制器，viewController.self=\(self)，self.view.window=\(String(describing: self.view.window))")
-            return nil
-        }
+        attr[.font] = font
+        gk_navigationBar.titleTextAttributes = attr
     }
 }
-
-extension UIViewController: GKGesturePopHandlerProtocol {
-    open func navigationShouldPopOnGesture() -> Bool {
-        return true
-    }
-}
-

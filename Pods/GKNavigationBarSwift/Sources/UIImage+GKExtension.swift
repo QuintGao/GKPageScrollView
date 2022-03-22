@@ -11,17 +11,13 @@ import UIKit
 extension UIImage {
     
     public class func gk_image(with name: String) -> UIImage {
-        let bundleName = NSString("GKNavigationBarSwift.bundle").appendingPathComponent(name)
-        let frameworkName = NSString("Frameworks/GKNavigationBarSwift.framework/GKNavigationBarSwift.bundle").appendingPathComponent(name)
-        
-        var image = UIImage(named: bundleName)
-        if image == nil {
-            image = UIImage(named: frameworkName)
-        }
+        guard let bundle = GKConfigure.gk_libraryBundle() else { return UIImage(named: name)! }
+        var image = UIImage(named: name, in: bundle, compatibleWith: nil)
+        if image == nil { image = UIImage(named: name) }
         return image!
     }
     
-    public class func gk_image(with color: UIColor) -> UIImage{
+    public class func gk_image(with color: UIColor) -> UIImage {
         return self.gk_image(with: color, size: CGSize(width: 1, height: 1))
     }
     

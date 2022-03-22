@@ -49,9 +49,6 @@
 //----------------------titleLabelZoomEnabled-----------------------//
 @property (nonatomic, assign, getter=isTitleLabelZoomEnabled) BOOL titleLabelZoomEnabled;     //默认为NO。为YES时titleSelectedFont失效，以titleFont为准。
 
-// 当缩放结束的时候，是否直接使用selectedFont，默认NO
-@property (nonatomic, assign, getter=isTitleLabelZoomEndUseSelectedFontEnabled) BOOL titleLabelZoomEndUseSelectedFontEnabled;
-
 @property (nonatomic, assign, getter=isTitleLabelZoomScrollGradientEnabled) BOOL titleLabelZoomScrollGradientEnabled;     //手势滚动中，是否需要更新状态。默认为YES
 
 @property (nonatomic, assign) CGFloat titleLabelZoomScale;    //默认1.2，titleLabelZoomEnabled为YES才生效。是对字号的缩放，比如titleFont的pointSize为10，放大之后字号就是10*1.2=12。

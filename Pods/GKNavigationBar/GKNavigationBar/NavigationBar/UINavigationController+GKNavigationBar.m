@@ -38,4 +38,13 @@ static char kAssociatedObjectKey_openSystemNavHandle;
     return [objc_getAssociatedObject(self, &kAssociatedObjectKey_openSystemNavHandle) boolValue];
 }
 
+static char kAssociatedObjectKey_hideNavigationBar;
+- (void)setGk_hideNavigationBar:(BOOL)gk_hideNavigationBar {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_hideNavigationBar, @(gk_hideNavigationBar), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)gk_hideNavigationBar {
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_hideNavigationBar) boolValue];
+}
+
 @end

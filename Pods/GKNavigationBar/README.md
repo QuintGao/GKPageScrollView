@@ -23,6 +23,12 @@ Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/G
 * 可实现push，pop时控制器缩放效果（如：今日头条）
 * 可实现左滑push一个控制器的效果（如：网易新闻）
 
+## 1.7.0版本升级指南
+1.7.0版本重写了导航栏item间距调整的逻辑，1.7.0版本之后导航栏item间距调整只对使用GKCustomNavigationBar的控制器默认开启，其他控制器不会调整导航栏item间距，所以需要注意下面几点：  
+1、对于使用GKCustomNavigationBar的控制器，无需修改，如果想关闭导航栏间距调整设置gk_disableFixNavItemSpace即可        
+2、对于使用系统导航栏的控制器，如果想要调整导航栏间距，需要在viewDidLoad中设置gk_openFixNavItemSpace为YES 全局配置是无效的。       
+3、去掉了shiledItemSpaceVCs属性，可在单独控制器中处理。
+
 ## 使用
 ### 1、在AppDelegate中添加导航配置
 
@@ -206,6 +212,12 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.7.1 - 2022.03.09 根控制器左侧item处理优化，暗黑模式适配优化
+1.7.0 - 2022.02.25 导航栏item间距优化处理
+1.6.6 - 2022.01.26 新机型适配优化
+1.6.5 - 2022.01.20 修复设置gk_disableFixNavItemSpace后gk_disableFixSpace无效的bug#93
+1.6.4 - 2022.01.04 新增darkBackgroundImage、darkLineImage等适配暗黑模式导航图片
+1.6.2 - 2021.12.29 修复设置gk_disableFixSpace为YES无效的bug #16
 1.6.1 - 2021.11.08 1、修复设置gk_systemGestureHandleDisabled后TabBar偏移问题 #90
                    2、新增gk_hidesBottomBarWhenPushed，可全局配置push时是否隐藏TabBar
 1.6.0 - 2021.09.09 修复visibleViewController方法返回错误问题

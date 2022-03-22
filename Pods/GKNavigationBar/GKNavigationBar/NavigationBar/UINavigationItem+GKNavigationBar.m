@@ -38,7 +38,7 @@
 }
 
 - (void)gk_setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem animated:(BOOL)animated {
-    if (!GKConfigure.gk_disableFixSpace && leftBarButtonItem) {//存在按钮且需要调节
+    if (!GKConfigure.fixNavItemSpaceDisabled && leftBarButtonItem) {//存在按钮且需要调节
         [self setLeftBarButtonItems:@[leftBarButtonItem] animated:animated];
     } else {//不存在按钮,或者不需要调节
         [self setLeftBarButtonItems:nil];
@@ -51,7 +51,7 @@
 }
 
 - (void)gk_setLeftBarButtonItems:(NSArray<UIBarButtonItem *> *)leftBarButtonItems animated:(BOOL)animated {
-    if (!GKConfigure.gk_disableFixSpace && leftBarButtonItems.count) {//存在按钮且需要调节
+    if (!GKConfigure.fixNavItemSpaceDisabled && leftBarButtonItems.count) {//存在按钮且需要调节
         UIBarButtonItem *firstItem = leftBarButtonItems.firstObject;
         CGFloat width = GKConfigure.gk_navItemLeftSpace - GKConfigure.gk_fixedSpace;
         if (firstItem.width == width) {//已经存在space
@@ -71,7 +71,7 @@
 }
 
 - (void)gk_setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem animated:(BOOL)animated {
-    if (!GKConfigure.gk_disableFixSpace && rightBarButtonItem) {//存在按钮且需要调节
+    if (!GKConfigure.fixNavItemSpaceDisabled && rightBarButtonItem) {//存在按钮且需要调节
         [self setRightBarButtonItems:@[rightBarButtonItem] animated:animated];
     } else {//不存在按钮,或者不需要调节
         [self setRightBarButtonItems:nil];
@@ -84,7 +84,7 @@
 }
 
 - (void)gk_setRightBarButtonItems:(NSArray<UIBarButtonItem *> *)rightBarButtonItems animated:(BOOL)animated {
-    if (!GKConfigure.gk_disableFixSpace && rightBarButtonItems.count) {//存在按钮且需要调节
+    if (!GKConfigure.fixNavItemSpaceDisabled && rightBarButtonItems.count) {//存在按钮且需要调节
         UIBarButtonItem *firstItem = rightBarButtonItems.firstObject;
         CGFloat width = GKConfigure.gk_navItemRightSpace - GKConfigure.gk_fixedSpace;
         if (firstItem.width == width) {//已经存在space
@@ -125,7 +125,7 @@
 
 - (void)gk_layoutSubviews {
     [self gk_layoutSubviews];
-    if (GKConfigure.gk_disableFixSpace) return;
+    if (GKConfigure.fixNavItemSpaceDisabled) return;
     if (![self isMemberOfClass:NSClassFromString(@"_UINavigationBarContentView")]) return;
     id layout = [self valueForKey:@"_layout"];
     if (!layout) return;
@@ -137,14 +137,14 @@
 
 - (void)gk__updateMarginConstraints {
     [self gk__updateMarginConstraints];
-    if (GKConfigure.gk_disableFixSpace) return;
+    if (GKConfigure.fixNavItemSpaceDisabled) return;
     if (![self isMemberOfClass:NSClassFromString(@"_UINavigationBarContentViewLayout")]) return;
     [self gk_adjustLeadingBarConstraints];
     [self gk_adjustTrailingBarConstraints];
 }
 
 - (void)gk_adjustLeadingBarConstraints {
-    if (GKConfigure.gk_disableFixSpace) return;
+    if (GKConfigure.fixNavItemSpaceDisabled) return;
     NSArray<NSLayoutConstraint *> *leadingBarConstraints = [self valueForKey:@"_leadingBarConstraints"];
     if (!leadingBarConstraints) return;
     CGFloat constant = GKConfigure.gk_navItemLeftSpace - GKConfigure.gk_fixedSpace;
@@ -156,7 +156,7 @@
 }
 
 - (void)gk_adjustTrailingBarConstraints {
-    if (GKConfigure.gk_disableFixSpace) return;
+    if (GKConfigure.fixNavItemSpaceDisabled) return;
     NSArray<NSLayoutConstraint *> *trailingBarConstraints = [self valueForKey:@"_trailingBarConstraints"];
     if (!trailingBarConstraints) return;
     CGFloat constant = GKConfigure.gk_fixedSpace - GKConfigure.gk_navItemRightSpace;

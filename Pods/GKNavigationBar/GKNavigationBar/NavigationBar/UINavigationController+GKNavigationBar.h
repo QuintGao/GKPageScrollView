@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 开启系统导航与GKNavigationBar过渡处理，需要在显示系统导航栏的控制器中调用显示导航栏方法
 @property (nonatomic, assign) BOOL gk_openSystemNavHandle;
 
+/// 该导航栏是由内部隐藏的
+@property (nonatomic, assign) BOOL gk_hideNavigationBar;
+
 @end
 
 NS_ASSUME_NONNULL_END

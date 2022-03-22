@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIScrollView {
+extension UIScrollView: GKAwakeProtocol {
     fileprivate struct AssociatedKeys {
         static var gkOpenGestureHandle: Bool = false
     }
@@ -22,6 +22,25 @@ extension UIScrollView {
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
+    }
+    
+    // MARK: - 重新系统方法
+    private static let onceToken = UUID().uuidString
+    @objc public static func gkAwake() {
+        DispatchQueue.once(token: onceToken) {
+            let oriSels = ["willMoveToSuperview:"]
+            
+            for oriSel in oriSels {
+                gk_swizzled_instanceMethod("gkGesture", oldClass: self, oldSelector: oriSel, newClass: self)
+            }
+        }
+    }
+    
+    @objc func gkGesture_willMove(toSuperview newSuperview: UIView?) {
+        if (newSuperview != nil), GKConfigure.gk_openScrollViewGestureHandle {
+            self.gk_openGestureHandle = true
+        }
+        gkGesture_willMove(toSuperview: newSuperview)
     }
 }
 

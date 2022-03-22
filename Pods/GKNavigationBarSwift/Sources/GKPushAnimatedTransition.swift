@@ -27,7 +27,7 @@ open class GKPushAnimatedTransition: GKBaseAnimatedTransition {
             }
             
             if view != nil {
-                let captureImage = getCapture(with: view!)
+                let captureImage = GKConfigure.getCapture(with: view!)
                 let captureView = UIImageView(image: captureImage)
                 captureView.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
                 containerView.addSubview(captureView)

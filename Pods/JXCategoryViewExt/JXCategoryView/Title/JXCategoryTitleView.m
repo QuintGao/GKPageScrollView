@@ -142,9 +142,6 @@
         myUnselectedCellModel.titleLabelCurrentZoomScale = myUnselectedCellModel.titleLabelNormalZoomScale;
         myUnselectedCellModel.titleLabelCurrentStrokeWidth = myUnselectedCellModel.titleLabelNormalStrokeWidth;
     }
-    if (self.isTitleLabelZoomEndUseSelectedFontEnabled) {
-        [self.collectionView reloadData];
-    }
 }
 
 - (void)refreshLeftCellModel:(JXCategoryBaseCellModel *)leftCellModel rightCellModel:(JXCategoryBaseCellModel *)rightCellModel ratio:(CGFloat)ratio {
@@ -193,7 +190,6 @@
     model.titleSelectedColor = self.titleSelectedColor;
     model.titleLabelMaskEnabled = self.isTitleLabelMaskEnabled;
     model.titleLabelZoomEnabled = self.isTitleLabelZoomEnabled;
-    model.titleLabelZoomEndUseSelectedFontEnabled = self.isTitleLabelZoomEndUseSelectedFontEnabled;
     model.titleLabelNormalZoomScale = 1;
     model.titleLabelZoomSelectedVerticalOffset = self.titleLabelZoomSelectedVerticalOffset;
     model.titleLabelSelectedZoomScale = self.titleLabelZoomScale;

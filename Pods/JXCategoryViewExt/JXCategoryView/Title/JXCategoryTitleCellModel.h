@@ -28,7 +28,6 @@
 
 @property (nonatomic, assign, getter=isTitleLabelMaskEnabled) BOOL titleLabelMaskEnabled;
 @property (nonatomic, assign, getter=isTitleLabelZoomEnabled) BOOL titleLabelZoomEnabled;
-@property (nonatomic, assign, getter=isTitleLabelZoomEndUseSelectedFontEnabled) BOOL titleLabelZoomEndUseSelectedFontEnabled;
 
 @property (nonatomic, assign) CGFloat titleLabelNormalZoomScale;
 @property (nonatomic, assign) CGFloat titleLabelCurrentZoomScale;
