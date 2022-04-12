@@ -219,14 +219,29 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             var frame = self.frame
             frame.origin.y = self.headerContainerHeight
             frame.size.height -= self.headerContainerHeight
+            refreshList(frame: frame)
             self.listCollectionView.frame = frame
         }else {
             if self.listCollectionView.superview == self {
+                refreshList(frame: self.bounds)
                 self.listCollectionView.frame = self.bounds
             }else {
                 var frame = self.listCollectionView.frame
                 frame.origin.y = self.segmentedHeight
+                frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight;
+                refreshList(frame: frame)
                 self.listCollectionView.frame = frame
+            }
+        }
+    }
+    
+    func refreshList(frame: CGRect) {
+        listDict.values.forEach {
+            let f = $0.listView().frame
+            if (f.size.width != 0 && f.size.height != 0 && f.size.height != frame.size.height) {
+                f.size.height = frame.size.height
+                $0.listView().frame = f
+                listCollectionView.reloadData()
             }
         }
     }

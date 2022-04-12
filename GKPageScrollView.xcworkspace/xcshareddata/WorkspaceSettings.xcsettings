@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>BuildSystemType</key>
-	<string>Latest</string>
+	<string>Original</string>
+	<key>DisableBuildSystemDeprecationDiagnostic</key>
+	<true/>
 	<key>PreviewsEnabled</key>
 	<false/>
 </dict>

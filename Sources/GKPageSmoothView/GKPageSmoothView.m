@@ -123,7 +123,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 - (void)refreshListFrame:(CGRect)frame {
     for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
         CGRect f = list.listView.frame;
-        if (f.size.height != frame.size.height) {
+        if (f.size.width != 0 && f.size.height != 0 && f.size.height != frame.size.height) {
             f.size.height = frame.size.height;
             list.listView.frame = f;
             [self.listCollectionView reloadData];

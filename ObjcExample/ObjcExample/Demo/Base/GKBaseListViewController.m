@@ -117,6 +117,9 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
+    if (!self.view.superview) return;
+    if (CGSizeEqualToSize(self.view.superview.frame.size, CGSizeZero)) return;
+    
     CGRect frame = self.view.frame;
     frame.size = self.view.superview.bounds.size;
     self.view.frame = frame;
