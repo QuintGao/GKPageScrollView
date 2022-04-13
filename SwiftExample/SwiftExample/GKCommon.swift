@@ -9,7 +9,7 @@
 import UIKit
 import GKNavigationBarSwift
 
-let isIPhoneX: Bool = GKDevice.isNotchedScreen()
+let isIPhoneX: Bool = GKDevice.isNotchedScreen
 
 let kScreenW = UIScreen.main.bounds.size.width
 let kScreenH = UIScreen.main.bounds.size.height

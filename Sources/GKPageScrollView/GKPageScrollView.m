@@ -91,7 +91,11 @@
         height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
         self.pageView.frame = CGRectMake(0, 0, width, height);
     }else {
-        [self.mainTableView reloadData];
+        if (self.isShowInFooter) {
+            self.mainTableView.tableFooterView = [self getPageView];
+        }else {
+            [self.mainTableView reloadData];
+        }
     }
 }
 
@@ -443,12 +447,12 @@
 }
 
 - (UIView *)getPageView {
-    if (self.pageView) return self.pageView;
     CGFloat width  = self.frame.size.width == 0 ? GKPAGE_SCREEN_WIDTH : self.frame.size.width;
     CGFloat height = self.frame.size.height == 0 ? GKPAGE_SCREEN_HEIGHT : self.frame.size.height;
-    UIView *pageView = nil;
+    
+    UIView *pageView = self.pageView ? self.pageView : nil;
     if ([self shouldLazyLoadListView]) {
-        pageView = [UIView new];
+        if (!pageView) pageView = [UIView new];
         
         UIView *segmentedView = [self.delegate segmentedViewInPageScrollView:self];
         
