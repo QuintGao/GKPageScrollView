@@ -659,7 +659,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
         self.gk_navBackgroundImage = GKConfigure.backgroundImage;
     }
     
-    if (self.gk_darkNavShadowImage == nil) {
+    if (self.gk_darkNavBackgroundImage == nil) {
         self.gk_darkNavBackgroundImage = GKConfigure.darkBackgroundImage;
     }
     
@@ -777,7 +777,10 @@ static char kAssociatedObjectKey_navItemRightSpace;
 }
 
 - (BOOL)shouldHandleNavBar {
-    return self.gk_NavBarInit || [self.parentViewController isKindOfClass:[UINavigationController class]];
+    if (self.gk_NavBarInit) return YES;
+    if ([self isKindOfClass:UITabBarController.class]) return NO;
+    if ([self.parentViewController isKindOfClass:UINavigationController.class]) return YES;
+    return NO;
 }
 
 - (void)setBackItemImage:(UIImage *)image {

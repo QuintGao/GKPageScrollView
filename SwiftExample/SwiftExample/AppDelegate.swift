@@ -15,14 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        GKConfigure.setupCustom { (configure) in
-            configure.titleColor = .black
-            configure.titleFont = UIFont.systemFont(ofSize: 18.0)
-            configure.gk_navItemLeftSpace = 4.0
-            configure.gk_navItemRightSpace = 4.0
-            configure.backStyle = .white
-        }
         GKConfigure.awake()
+        GKConfigure.setupCustom {
+            $0.titleColor = .black
+            $0.titleFont = UIFont.systemFont(ofSize: 18.0)
+            $0.gk_navItemLeftSpace = 4.0
+            $0.gk_navItemRightSpace = 4.0
+            $0.backStyle = .white
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white

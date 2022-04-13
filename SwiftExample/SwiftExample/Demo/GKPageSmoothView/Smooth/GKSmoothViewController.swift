@@ -57,11 +57,13 @@ class GKSmoothViewController: GKDemoBaseViewController {
         self.gk_statusBarStyle = .lightContent
         self.gk_navTitleColor = .white
         self.gk_navTitle = "滑动延续"
+        gk_navRightBarButtonItem = UIBarButtonItem.gk_item(image: UIImage(named: "wb_more"), target: self, action: #selector(moreAction))
         
         self.view.addSubview(self.smoothView)
         self.smoothView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
+//        smoothView.clipsToBounds = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             var frame = self.headerView.frame
@@ -71,6 +73,13 @@ class GKSmoothViewController: GKDemoBaseViewController {
             self.categoryView.contentScrollView = self.smoothView.listCollectionView
             self.smoothView.refreshHeaderView()
             self.smoothView.reloadData()
+        }
+    }
+    
+    @objc func moreAction() {
+        smoothView.snp.remakeConstraints { make in
+            make.left.right.bottom.equalTo(0)
+            make.top.equalTo(100)
         }
     }
 }

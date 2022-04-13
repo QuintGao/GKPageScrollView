@@ -139,6 +139,11 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 - (void)refreshHeaderView;
 
 /**
+ 刷新segmentedView，segmentedView高度改变时调用
+ */
+- (void)refreshSegmentedView;
+
+/**
  刷新数据，刷新后pageView才能显示出来
  注意：如果需要动态改变headerView的高度，请在refreshHeaderView后在调用reloadData方法
  */

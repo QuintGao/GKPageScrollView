@@ -132,7 +132,14 @@ class GKWBViewController: GKDemoBaseViewController {
     }
     
     @objc func moreAction() {
-        
+//        pageScrollView.snp.remakeConstraints { make in
+//            make.left.equalTo(0)
+//            make.right.equalTo(0)
+//            make.bottom.equalTo(0)
+//            make.top.equalTo(100)
+//        }
+        pageScrollView.ceilPointHeight += 100
+        pageScrollView.reloadData()
     }
 }
 
@@ -188,6 +195,10 @@ extension GKWBViewController: GKPageScrollViewDelegate {
         // 头图下拉
         self.headerView.scrollViewDidScroll(offsetY: scrollView.contentOffset.y)
     }
+    
+    func pageScrollViewReloadCell(_ pageScrollView: GKPageScrollView) {
+        pageVC.reloadData()
+    }
 }
 
 extension GKWBViewController: WMPageControllerDataSource, WMPageControllerDelegate {
@@ -207,9 +218,13 @@ extension GKWBViewController: WMPageControllerDataSource, WMPageControllerDelega
         guard let menuView = pageController.menuView ?? nil else {
             return .zero
         }
-        
         let maxY = self.pageController(pageController, preferredFrameFor: menuView).maxY
-        return CGRect(x: 0, y: maxY, width: kScreenW, height: kScreenH - maxY - kNavBar_Height)
+        
+        if pageScrollView.pageView != nil {
+            return CGRect(x: 0, y: maxY, width: kScreenW, height: pageScrollView.pageView!.frame.size.height - maxY)
+        }else {
+            return CGRect(x: 0, y: maxY, width: kScreenW, height: kScreenH - maxY - kNavBar_Height)
+        }
     }
     
     func pageController(_ pageController: WMPageController, preferredFrameFor menuView: WMMenuView) -> CGRect {

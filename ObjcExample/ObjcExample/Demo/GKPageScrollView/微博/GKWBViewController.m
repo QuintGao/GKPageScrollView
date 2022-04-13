@@ -57,7 +57,17 @@
 }
 
 - (void)more {
+    // 动态修改pageScrollView frame
+    [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(100);
+    }];
     
+//    // 动态修改临界点
+//    self.pageScrollView.ceilPointHeight += 100;
+//    [self.pageScrollView reloadData];
 }
 
 - (UIImage *)changeImageWithColor:(UIColor *)color image:(UIImage *)image {
@@ -144,6 +154,10 @@
     [self.headerView scrollViewDidScroll:scrollView.contentOffset.y];
 }
 
+- (void)pageScrollViewReloadCell:(GKPageScrollView *)pageScrollView {
+    [self.pageVC reloadData];
+}
+
 #pragma mark - WMPageControllerDataSource
 - (NSInteger)numbersOfChildControllersInPageController:(WMPageController *)pageController {
     return self.childVCs.count;
@@ -163,7 +177,11 @@
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
     CGFloat maxY = CGRectGetMaxY([self pageController:pageController preferredFrameForMenuView:pageController.menuView]);
-    return CGRectMake(0, maxY, kScreenW, kScreenH - maxY - self.pageScrollView.ceilPointHeight);
+    if (self.pageScrollView.pageView) {
+        return CGRectMake(0, maxY, kScreenW, self.pageScrollView.pageView.frame.size.height - maxY);
+    }else {
+        return CGRectMake(0, maxY, kScreenW, kScreenH - maxY - self.pageScrollView.ceilPointHeight);
+    }
 }
 
 #pragma mark - WMPageControllerDelegate

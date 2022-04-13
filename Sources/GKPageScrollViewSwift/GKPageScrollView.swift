@@ -123,7 +123,7 @@ open class GKPageScrollView: UIView {
     // 主列表
     open var mainTableView: GKPageTableView!
     // 包裹segmentedView和列表容器的view
-    open var pageView = UIView()
+    open var pageView: UIView?
     // 当前滑动的子列表
     open var currentListScrollView = UIScrollView()
     // 懒加载时使用的容器
@@ -241,9 +241,13 @@ open class GKPageScrollView: UIView {
                 self.listContainerView.reloadData()
             }
             height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
-            self.pageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+            self.pageView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
         }else {
-            self.mainTableView.reloadData()
+            if self.isShowInFooter {
+                self.mainTableView.tableFooterView = self.getPageView()
+            }else {
+                self.mainTableView.reloadData()
+            }
         }
     }
     
@@ -566,9 +570,11 @@ open class GKPageScrollView: UIView {
         let width = self.frame.size.width == 0 ? GKPage_Screen_Width : self.frame.size.width
         var height = self.frame.size.height == 0 ? GKPage_Screen_Height : self.frame.size.height
         
-        let pageView: UIView
+        var pageView = self.pageView
         if self.shouldLazyLoadListView() {
-            pageView = UIView()
+            if (pageView == nil) {
+                pageView = UIView()
+            }
             
             let segmentedView = self.delegate.segmentedView?(in: self)
             
@@ -579,15 +585,15 @@ open class GKPageScrollView: UIView {
             h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
             
             self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
-            pageView.addSubview(segmentedView!)
-            pageView.addSubview(self.listContainerView)
+            pageView?.addSubview(segmentedView!)
+            pageView?.addSubview(self.listContainerView)
         }else {
             pageView = (self.delegate.pageView?(in: self))!
         }
         height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
-        pageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        pageView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
         self.pageView = pageView
-        return pageView
+        return pageView!
     }
 }
 

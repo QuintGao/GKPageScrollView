@@ -88,7 +88,6 @@
 }
 
 - (BOOL)fixNavItemSpaceDisabled {
-//    NSLog(@"%d---%d", self.gk_disableFixSpace, self.openSystemFixSpace);
     return self.gk_disableFixSpace && !self.openSystemFixSpace;
 }
 

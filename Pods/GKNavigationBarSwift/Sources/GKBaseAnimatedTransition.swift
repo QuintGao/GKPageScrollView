@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class GKBaseAnimatedTransition: NSObject, UIViewControllerAnimatedTransitioning {
+open class GKBaseAnimatedTransition: NSObject {
     open var isScale = false
     open var shadowView: UIView!
     open var transitionContext: UIViewControllerContextTransitioning!
@@ -18,6 +18,16 @@ open class GKBaseAnimatedTransition: NSObject, UIViewControllerAnimatedTransitio
     open var isHideTabBar = false
     open var contentView: UIView?
     
+    open class func transition(with scale: Bool) -> GKBaseAnimatedTransition {
+        return self.init(scale: scale)
+    }
+    
+    required public init(scale: Bool) {
+        self.isScale = scale
+    }
+}
+
+extension GKBaseAnimatedTransition: UIViewControllerAnimatedTransitioning {
     // MARK - UIViewControllerAnimatedTransitioning
     open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return TimeInterval(UINavigationController.hideShowBarDuration)
@@ -37,19 +47,11 @@ open class GKBaseAnimatedTransition: NSObject, UIViewControllerAnimatedTransitio
         animateTransition()
     }
     
-    open class func transition(with scale: Bool) -> GKBaseAnimatedTransition {
-        return self.init(scale: scale)
-    }
-    
-    required public init(scale: Bool) {
-        self.isScale = scale
-    }
-    
     open func animationDuration() -> TimeInterval {
         return self.transitionDuration(using: self.transitionContext)
     }
     
-    open func animateTransition() {
+    @objc open func animateTransition() {
         // SubClass Implementation
     }
     
