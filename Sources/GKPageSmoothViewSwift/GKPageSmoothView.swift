@@ -234,7 +234,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             }
         }
     }
-    
+        
     func refreshList(frame: CGRect) {
         listDict.values.forEach {
             var f = $0.listView().frame

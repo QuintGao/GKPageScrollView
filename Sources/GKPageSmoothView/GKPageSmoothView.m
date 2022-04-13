@@ -139,7 +139,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 - (void)refreshSegmentedView {
     self.segmentedView = [self.dataSource segmentedViewInSmoothView:self];
     [self.headerContainerView addSubview:self.segmentedView];
-    
+
     self.segmentedHeight = self.segmentedView.bounds.size.height;
     self.headerContainerHeight = self.headerHeight + self.segmentedHeight;
     
