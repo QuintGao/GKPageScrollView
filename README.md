@@ -94,6 +94,8 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 
 ## 版本更新
 
+* 2022.04.14   1.7.2 - 1、GKPageScrollView支持动态设置frame和ceilPointHeight #104
+                       2、GKPageSmoothView新增refreshSegmentedView方法，bug修复 #103
 * 2022.03.15   1.7.1 - 修复headerView设置高度较低的问题 #100
 * 2021.12.07   1.7.0 - 1、GKPageScrollView增加showInFooter属性，解决header超过一屏时的卡顿问题 #94
                        2、GKPageSmoothView放开currentIndex属性
@@ -112,7 +114,8 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 * 2021.04.19   1.5.6 - 修复GKPageSmoothView加载UICollectionView时的bug，去掉打印
 * 2021.04.16   1.5.5 - GKPageSmoothView增加返回header容器高度，demo增加下拉刷新和上拉加载
 * 2021.03.19   1.5.4 - 代码优化，GKPageSmoothView新增快速滑动到原点、临界点的方法
-* 2021.01.25   1.5.3 - 修复GKPageSmoothView swift版本可能出现的错乱问题#65，GKPageScrollView增加刷新segmentedView方法
+* 2021.01.25   1.5.3 - 1、修复GKPageSmoothView swift版本可能出现的错乱问题 #65，
+                       2、GKPageScrollView增加刷新segmentedView方法
 * 2021.01.07   1.5.2 - 修复某些情况下出现页面错乱问题#64
 * 2021.01.02   1.5.0 - pod and spm update
 * 2020.12.10   1.4.2 - 拆分GKPageScrollView和GKPageSmoothView，GKPageSmoothView支持底部悬浮、底部拖拽

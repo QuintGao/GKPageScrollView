@@ -660,6 +660,10 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         self.headerView.frame = CGRectMake(0, 0, size.width, self.headerHeight);
         self.segmentedView.frame =  CGRectMake(0, self.headerHeight, size.width, self.segmentedHeight);
         
+        if (self.segmentedView.superview != self.headerContainerView) { // 修复headerHeight < size.height, headerContainerHeight > size.height时segmentedView.superView为bottomContainerView
+            [self.headerContainerView addSubview:self.segmentedView];
+        }
+        
         if (!self.isMainScrollDisabled) {
             for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
                 list.listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
@@ -670,6 +674,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
             self.bottomContainerView.frame = CGRectMake(0, size.height - self.segmentedHeight, size.width, size.height - self.ceilPointHeight);
             
             if (self.headerHeight > size.height) {
+                self.bottomContainerView.hidden = NO; // 修复滑动到非悬浮状态后执行刷新导致bottomContainerView未显示的问题
                 self.segmentedView.frame = CGRectMake(0, 0, size.width, self.segmentedHeight);
                 [self.bottomContainerView addSubview:self.segmentedView];
             }
