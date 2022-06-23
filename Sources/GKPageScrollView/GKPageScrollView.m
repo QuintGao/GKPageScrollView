@@ -73,29 +73,9 @@
     self.mainTableView.frame = self.bounds;
     if (!self.isLoaded) return;
     if (self.isShowInFooter) {
-        CGFloat width = self.bounds.size.width;
-        CGFloat height = self.bounds.size.height;
-        
-        if ([self shouldLazyLoadListView]) {
-            UIView *segmentedView = [self.delegate segmentedViewInPageScrollView:self];
-            
-            CGFloat x = 0;
-            CGFloat y = segmentedView.frame.size.height;
-            CGFloat w = width;
-            CGFloat h = height - y;
-            h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
-            self.listContainerView.frame = CGRectMake(x, y, w, h);
-            [self.listContainerView reloadData];
-        }
-        
-        height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
-        self.pageView.frame = CGRectMake(0, 0, width, height);
+        self.mainTableView.tableFooterView = [self getPageView];
     }else {
-        if (self.isShowInFooter) {
-            self.mainTableView.tableFooterView = [self getPageView];
-        }else {
-            [self.mainTableView reloadData];
-        }
+        [self.mainTableView reloadData];
     }
 }
 
@@ -279,7 +259,6 @@
                 self.isMainCanScroll = YES;
                 self.isListCanScroll = NO;
 
-                if (scrollView.isDecelerating) return;
                 [self setScrollView:scrollView offset:CGPointZero];
                 if (self.isControlVerticalIndicator) {
                     scrollView.showsVerticalScrollIndicator = NO;
@@ -302,7 +281,6 @@
                     self.isMainCanScroll = YES;
                     self.isListCanScroll = NO;
 
-                    if (scrollView.isDecelerating) return;
                     [self setScrollView:scrollView offset:CGPointZero];
                     if (self.isControlVerticalIndicator) {
                         scrollView.showsVerticalScrollIndicator = NO;
@@ -312,7 +290,6 @@
                 }
             }
         }else {
-            if (scrollView.isDecelerating) return;
             [self setScrollView:scrollView offset:CGPointZero];
         }
     }

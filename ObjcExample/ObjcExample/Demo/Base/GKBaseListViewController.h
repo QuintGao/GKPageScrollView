@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, GKBaseListType) {
 
 @property (nonatomic, assign) BOOL  shouldLoadData;
 
-@property (nonatomic, copy) void(^scrollToTop)(GKBaseListViewController *listVC,NSIndexPath *indexPath);
+@property (nonatomic, copy) void(^listItemClick)(GKBaseListViewController *listVC, NSIndexPath *indexPath);
 
 - (void)addHeaderRefresh;
 

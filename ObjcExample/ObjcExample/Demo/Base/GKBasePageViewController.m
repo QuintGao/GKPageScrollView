@@ -133,7 +133,7 @@
             vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
             
             __weak __typeof(self) weakSelf = self;
-            vc.scrollToTop = ^(GKBaseListViewController * _Nonnull listVC, NSIndexPath * _Nonnull indexPath) {
+            vc.listItemClick = ^(GKBaseListViewController * _Nonnull listVC, NSIndexPath * _Nonnull indexPath) {
                 __strong __typeof(weakSelf) self = weakSelf;
                 [self.pageScrollView scrollToCriticalPoint];
             };

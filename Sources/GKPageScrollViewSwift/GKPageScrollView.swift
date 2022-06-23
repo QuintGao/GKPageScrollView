@@ -224,30 +224,10 @@ open class GKPageScrollView: UIView {
         if self.mainTableView.frame.equalTo(self.bounds) { return }
         self.mainTableView.frame = self.bounds
         if !self.isLoaded { return }
-        
         if self.isShowInFooter {
-            let width = self.bounds.size.width
-            var height = self.bounds.size.height
-            
-            if self.shouldLazyLoadListView() {
-                let segmentedView = self.delegate.segmentedView?(in: self)
-                
-                let x: CGFloat = 0
-                let y: CGFloat = segmentedView!.frame.size.height
-                let w: CGFloat = width
-                var h: CGFloat = height - y
-                h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
-                self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
-                self.listContainerView.reloadData()
-            }
-            height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
-            self.pageView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
+            self.mainTableView.tableFooterView = self.getPageView()
         }else {
-            if self.isShowInFooter {
-                self.mainTableView.tableFooterView = self.getPageView()
-            }else {
-                self.mainTableView.reloadData()
-            }
+            self.mainTableView.reloadData()
         }
     }
     
@@ -386,7 +366,6 @@ open class GKPageScrollView: UIView {
                     self.isMainCanScroll = true
                     self.isListCanScroll = false
 
-                    if (scrollView.isDecelerating) { return }
                     self.set(scrollView: scrollView, offset: .zero)
                     if self.isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
@@ -409,7 +388,6 @@ open class GKPageScrollView: UIView {
                         self.isMainCanScroll = true
                         self.isListCanScroll = false
 
-                        if (scrollView.isDecelerating) { return }
                         self.set(scrollView: scrollView, offset: .zero)
                         if self.isControlVerticalIndicator {
                             scrollView.showsVerticalScrollIndicator = false
@@ -419,7 +397,6 @@ open class GKPageScrollView: UIView {
                     }
                 }
             }else {
-                if (scrollView.isDecelerating) { return }
                 self.set(scrollView: scrollView, offset: .zero)
             }
         }

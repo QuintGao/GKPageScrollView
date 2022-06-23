@@ -230,8 +230,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-    !self.scrollToTop ? : self.scrollToTop(self, indexPath);
+    !self.listItemClick ?: self.listItemClick(self, indexPath);
 }
 
 #pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
