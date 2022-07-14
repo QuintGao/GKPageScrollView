@@ -1,5 +1,6 @@
 ## GKNavigationBar
-GKNavigationBarViewController的分类实现方式，耦合度底，使用更加便捷
+
+iOS自定义导航栏 - 导航栏联动效果
 
 [![Build Status](http://img.shields.io/travis/QuintGao/GKNavigationBar/master.svg?style=flat)](https://travis-ci.org/QuintGao/GKNavigationBar)
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/QuintGao/GKNavigationBar/master/LICENSE)
@@ -9,6 +10,7 @@ GKNavigationBarViewController的分类实现方式，耦合度底，使用更加
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/QuintGao/GKNavigationBar)
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
+GKNavigationBarViewController的分类实现方式，耦合度底，使用更加便捷
 
 Swift版本请看这里 → [GKNavigationBarSwift](https://github.com/QuintGao/GKNavigationBarSwift)
 
@@ -212,6 +214,9 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>最近更新</font></summary>
 
 ```
+1.7.5 - 2022.06.22 优化backImage的显示
+1.7.4 - 2022.04.20 修复设置背景色为[UIColor clearColor]无效的bug #100，#101
+1.7.3 - 2022.04.15 导航栏设置适配iOS13及以后
 1.7.2 - 2022.03.21 细节优化，修复push UITabBarController时的问题
 1.7.1 - 2022.03.09 根控制器左侧item处理优化，暗黑模式适配优化
 1.7.0 - 2022.02.25 导航栏item间距优化处理

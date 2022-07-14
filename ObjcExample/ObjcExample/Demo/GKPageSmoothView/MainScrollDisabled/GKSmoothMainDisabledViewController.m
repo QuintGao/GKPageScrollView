@@ -40,6 +40,13 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.smoothView reloadData];
     });
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        CGRect frame = self.headerView.frame;
+//        frame.size.height = ADAPTATIONRATIO * 400 + 100;
+//        self.headerView.frame = frame;
+//        [self.smoothView refreshHeaderView];
+//    });
 }
 
 #pragma mark - GKPageSmoothViewDataSource

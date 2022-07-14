@@ -584,7 +584,16 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             
             if (!self.isMainScrollDisabled) {
                 self.listDict.values.forEach {
-                    $0.listScrollView().contentInset = UIEdgeInsets(top: self.headerContainerHeight, left: 0, bottom: 0, right: 0)
+                    var insets = $0.listScrollView().contentInset
+                    insets.top = headerContainerHeight
+                    $0.listScrollView().contentInset = insets
+                    $0.listScrollView().contentOffset = CGPoint(x: 0, y: -headerContainerHeight)
+                }
+                self.listHeaderDict.values.forEach {
+                    var frame = $0.frame
+                    frame.origin.y = -headerContainerHeight
+                    frame.size.height = headerContainerHeight
+                    $0.frame = frame
                 }
             }
             
@@ -794,7 +803,9 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             
             if !self.isMainScrollDisabled {
                 if !self.isOnTop {
-                    list?.listScrollView().contentInset = UIEdgeInsets(top: headerContainerHeight, left: 0, bottom: 0, right: 0)
+                    var insets = list?.listScrollView().contentInset
+                    insets?.top = headerContainerHeight
+                    list?.listScrollView().contentInset = insets ?? .zero
                     currentListInitailzeContentOffsetY = -headerContainerHeight + min(-currentHeaderContainerViewY, (headerHeight - ceilPointHeight))
                     self.set(scrollView: list?.listScrollView(), offset: CGPoint(x: 0, y: currentListInitailzeContentOffsetY))
                 }

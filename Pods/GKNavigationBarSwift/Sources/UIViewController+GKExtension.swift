@@ -86,6 +86,11 @@ extension UIViewController: GKAwakeProtocol {
                 self.gk_navigationBar = navigationBar!
             }
             
+            if self.isViewLoaded && !self.gk_navBarAdded {
+                self.view.addSubview(navigationBar!)
+                self.gk_navBarAdded = true
+            }
+            
             return navigationBar!
         }
         set {
@@ -95,11 +100,6 @@ extension UIViewController: GKAwakeProtocol {
             self.gk_openFixNavItemSpace = true
             setupNavBarAppearance()
             setupNavBarFrame()
-            
-            if self.isViewLoaded && !self.gk_navBarAdded {
-                self.view.addSubview(newValue)
-                self.gk_navBarAdded = true
-            }
         }
     }
     
@@ -287,8 +287,7 @@ extension UIViewController: GKAwakeProtocol {
                 }else if self.gk_navShadowColor != nil {
                     shadowImage = UIImage.gk_change(with: UIImage.gk_image(with: "nav_line"), color: self.gk_navShadowColor!)
                 }
-                
-                self.gk_navigationBar.shadowImage = shadowImage
+                setNavShadow(shadowImage, color: nil)
             }
             self.gk_navigationBar.layoutSubviews()
         }
@@ -483,8 +482,10 @@ extension UIViewController: GKAwakeProtocol {
         if self.navigationController == nil { return }
         
         if self.gk_navBarInit {
-            self.gk_disableFixNavItemSpace = self.gk_disableFixNavItemSpace
-            self.gk_openFixNavItemSpace = self.gk_openFixNavItemSpace
+            let disableFixNavItemSpace = self.gk_disableFixNavItemSpace
+            let openFixNavItemSpace = self.gk_openFixNavItemSpace
+            self.gk_disableFixNavItemSpace = disableFixNavItemSpace
+            self.gk_openFixNavItemSpace = openFixNavItemSpace
             // 隐藏系统导航栏
             if self.navigationController?.gk_openSystemNavHandle == false {
                 hiddenSystemNavBar()
@@ -620,7 +621,7 @@ extension UIViewController: GKAwakeProtocol {
             if self.children.count == 1 && isRoot {
                 return self.children.first?.gk_findCurrentViewController(false)
             }else {
-                var currentVC: UIViewController? = nil
+                var currentVC: UIViewController? = self
                 for obj in self.children {
                     if obj.isViewLoaded {
                         let point = obj.view.convert(CGPoint.zero, to: nil)
@@ -844,12 +845,12 @@ extension UIViewController: GKAwakeProtocol {
                 image = gk_darkNavBackgroundImage!
             }
         }
-        gk_navigationBar.setBackgroundImage(image, for: .default)
+        setNavBackground(image, color: nil)
     }
     
     fileprivate func setNavBackground(_ color: UIColor?) {
         guard let color = color else { return }
-        gk_navigationBar.setBackgroundImage(UIImage.gk_image(with: color), for: .default)
+        setNavBackground(nil, color: color)
     }
     
     fileprivate func setNavShadow(_ image: UIImage?) {
@@ -859,12 +860,12 @@ extension UIViewController: GKAwakeProtocol {
                 image = gk_darkNavShadowImage!
             }
         }
-        gk_navigationBar.shadowImage = image
+        setNavShadow(image, color: nil)
     }
     
     fileprivate func setNavShadow(_ color: UIColor?) {
         guard let color = color else { return }
-        gk_navigationBar.shadowImage = UIImage.gk_change(with: UIImage.gk_image(with: "nav_line"), color: color)
+        setNavShadow(nil, color: color)
     }
     
     fileprivate func setNavTitle(_ color: UIColor?) {
@@ -874,16 +875,65 @@ extension UIViewController: GKAwakeProtocol {
         if gk_navTitleFont != nil {
             attr[.font] = gk_navTitleFont
         }
-        gk_navigationBar.titleTextAttributes = attr
+        setNavTitle(attr)
     }
     
     fileprivate func setNavTitle(_ font: UIFont?) {
         guard let font = font else { return }
-        var attr = [NSAttributedString.Key: AnyObject]()
+        var attr = [NSAttributedString.Key: Any]()
         if gk_navTitleColor != nil {
             attr[.foregroundColor] = gk_navTitleColor
         }
         attr[.font] = font
-        gk_navigationBar.titleTextAttributes = attr
+        setNavTitle(attr)
+    }
+    
+    fileprivate func setNavBackground(_ image: UIImage?, color: UIColor?) {
+        if #available(iOS 13.0, *) {
+            let appearance = gk_navigationBar.standardAppearance
+            let shadowColor = appearance.shadowColor
+            let shadowImage = appearance.shadowImage
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundImage = image
+            appearance.backgroundColor = color
+            appearance.shadowColor = shadowColor
+            appearance.shadowImage = shadowImage
+            gk_navigationBar.standardAppearance = appearance
+            gk_navigationBar.scrollEdgeAppearance = appearance
+        }else {
+            guard image == nil, let color = color else { return }
+            let image = UIImage.gk_image(with: color)
+            gk_navigationBar.setBackgroundImage(image, for: .default)
+        }
+    }
+    
+    fileprivate func setNavShadow(_ image: UIImage?, color: UIColor?) {
+        if #available(iOS 13.0, *) {
+            let appearance = gk_navigationBar.standardAppearance
+            let backgroundColor = appearance.backgroundColor
+            let backgroundImage = appearance.backgroundImage
+            appearance.configureWithTransparentBackground()
+            appearance.shadowImage = image
+            appearance.shadowColor = color
+            appearance.backgroundColor = backgroundColor
+            appearance.backgroundImage = backgroundImage
+            gk_navigationBar.standardAppearance = appearance
+            gk_navigationBar.scrollEdgeAppearance = appearance
+        }else {
+            guard image == nil, let color = color else { return }
+            let image = UIImage.gk_change(with: UIImage.gk_image(with: "nav_line"), color: color)
+            gk_navigationBar.shadowImage = image
+        }
+    }
+    
+    fileprivate func setNavTitle(_ attr: [NSAttributedString.Key: Any]) {
+        if #available(iOS 13, *) {
+            let appearance = gk_navigationBar.standardAppearance
+            appearance.titleTextAttributes = attr
+            gk_navigationBar.standardAppearance = appearance
+            gk_navigationBar.scrollEdgeAppearance = appearance
+        }else {
+            gk_navigationBar.titleTextAttributes = attr
+        }
     }
 }

@@ -7,7 +7,7 @@
 <a href=""><img src="https://img.shields.io/badge/support-ios%208%2B-orange.svg"></a>
 </p>
 
-该库是对[JXCategoryView](https://github.com/pujiaxin33/JXCategoryView/)的扩展及优化，目前的JXCategoryView版本1.5.9，JXCategoryViewExt版本1.0.5
+该库是对[JXCategoryView](https://github.com/pujiaxin33/JXCategoryView/)的扩展及优化，目前的JXCategoryView版本1.5.9，JXCategoryViewExt版本1.1.7
 
 ## 优化及bug修改
 
@@ -65,6 +65,9 @@ pod 'JXCategoryViewExt/DotZoom'
 // title+数字
 pod 'JXCategoryViewExt/Number'
 
+// title+(文字、数字、红点混合)
+pod 'JXCategoryViewExt/Badge'
+
 // title垂直滚动缩放
 pod 'JXCategoryViewExt/VerticalZoomTitle'
 ```
@@ -102,6 +105,7 @@ pod 'JXCategoryViewExt/RTL'
 ```
 
 ## 更新记录
+* 1.1.7 2022.04.19 新增JXCategoryBadgeView，支持文字、数字、红点混合显示
 * 1.1.6 2021.12.03 删除多余属性
 * 1.1.4 2021.10.18 JXCategorySubTitleImageView优化，修复bug
 * 1.1.2 2021.08.20 新增JXCategorySubTitleImageView类型

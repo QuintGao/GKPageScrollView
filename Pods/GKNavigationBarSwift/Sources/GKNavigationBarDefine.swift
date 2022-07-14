@@ -59,30 +59,6 @@ public protocol GKGestureChildAwakeProtocol: AnyObject {
     static func gkGestureChildAwake()
 }
 
-class NothingToSeeHere {
-    static func harmlessFunction() {
-        UIViewController.gkAwake()
-        UINavigationController.gkChildAwake()
-        UINavigationItem.gkAwake()
-        NSObject.gkObjectAwake()
-        UIScrollView.gkAwake()
-        UIViewController.gkGestureAwake()
-        UINavigationController.gkGestureAwake()
-    }
-}
-
-// 让APP启动时只执行一次harmlessFunction 方法
-extension UIApplication {
-    private static let runOnce: Void = { // 使用静态属性以保证只调用一次(该属性是个方法)
-        NothingToSeeHere.harmlessFunction()
-    }()
-
-    open override var next: UIResponder? { // 重新next属性
-        UIApplication.runOnce
-        return super.next
-    }
-}
-
 // MARK: - Swizzling会改变全局状态，所以用DispatchQueue.once来确保无论多少线程都只会被执行一次
 extension DispatchQueue {
     private static var onceTracker = [String]()

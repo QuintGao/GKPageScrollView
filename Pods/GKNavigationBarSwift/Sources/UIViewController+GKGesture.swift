@@ -9,8 +9,7 @@
 import UIKit
 
 // 左滑push代理
-@objc
-public protocol GKViewControllerPushDelegate: NSObjectProtocol {
+@objc public protocol GKViewControllerPushDelegate: NSObjectProtocol {
     /// 左滑push，在这里创建将要push的控制器
     @objc optional func pushToNextViewController()
     
@@ -27,8 +26,7 @@ public protocol GKViewControllerPushDelegate: NSObjectProtocol {
 }
 
 // 右滑pop代理
-@objc
-public protocol GKViewControllerPopDelegate: NSObjectProtocol {
+@objc public protocol GKViewControllerPopDelegate: NSObjectProtocol {
     
     /// pop手势滑动开始
     @objc optional func viewControllerPopScrollBegan()
@@ -43,8 +41,7 @@ public protocol GKViewControllerPopDelegate: NSObjectProtocol {
 }
 
 // 返回拦截
-@objc
-public protocol GKGesturePopHandlerProtocol: NSObjectProtocol {
+@objc public protocol GKGesturePopHandlerProtocol: NSObjectProtocol {
     /// 是否可以返回，包括点击返回和手势返回，默认YES
     @objc func navigationShouldPop() -> Bool
     

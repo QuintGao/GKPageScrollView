@@ -10,6 +10,23 @@
 #import <MJRefresh/MJRefresh.h>
 #import <WebKit/WebKit.h>
 
+@interface GKBaseCollectionViewLayout : UICollectionViewFlowLayout
+
+@end
+
+@implementation GKBaseCollectionViewLayout
+
+- (CGSize)collectionViewContentSize {
+    CGFloat minContentSizeHeight = self.collectionView.bounds.size.height;
+    CGSize size = [super collectionViewContentSize];
+    if (size.height < minContentSizeHeight) {
+        return CGSizeMake(size.width, minContentSizeHeight);
+    }
+    return size;
+}
+
+@end
+
 @interface GKBaseListViewController()<UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, WKNavigationDelegate>
 
 @property (nonatomic, strong) UIImageView   *loadingView;
@@ -315,7 +332,7 @@
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+        GKBaseCollectionViewLayout *layout = [GKBaseCollectionViewLayout new];
         layout.minimumLineSpacing = 20;
         layout.minimumInteritemSpacing = 20;
         layout.itemSize = CGSizeMake((kScreenW - 60)/2, (kScreenW - 60)/2);

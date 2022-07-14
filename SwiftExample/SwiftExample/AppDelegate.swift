@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        GKConfigure.awake()
         GKConfigure.setupCustom {
             $0.titleColor = .black
             $0.titleFont = UIFont.systemFont(ofSize: 18.0)

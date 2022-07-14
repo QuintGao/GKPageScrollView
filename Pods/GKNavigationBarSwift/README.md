@@ -47,7 +47,7 @@ override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 }
 ```
 3、Xcode 11.4 在调试的时候会出现不自动调用awake方法
-解决办法：APP启动的时候调用GKConfigure.awake()方法
+解决办法：APP启动的时候调用GKConfigure.awake()方法，1.4.6版本修改了加载时机可不用手动调用此方法了
 ```
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
@@ -83,6 +83,12 @@ self.gk_navBackgroundColor = [UIColor red]
 
 ## 版本记录
 
+* 1.5.0 - 2022.06.22 修复编译报错问题 #20
+* 1.4.7 - 2022.06.14 1、awake方法修改为配置时加载，可不用手动调用
+                     2、获取当前控制器方法优化
+                     3、导航栏添加时机优化
+* 1.4.5 - 2022.04.20 修复导航栏设置透明的bug
+* 1.4.4 - 2022.04.15 导航栏设置适配iOS13之后
 * 1.4.3 - 2022.03.30 修复最新版xcode编译报错问题
 * 1.4.2 - 2022.03.27 模拟器获取设备型号优化，内部代码优化
 * 1.4.0 - 2022.03.23 优化代码，同步oc版本，修复已知问题

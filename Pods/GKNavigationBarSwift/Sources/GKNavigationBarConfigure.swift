@@ -117,8 +117,19 @@ open class GKNavigationBarConfigure : NSObject {
         return instance
     }()
     
+    private static let awake: Void = {
+        UIViewController.gkAwake()
+        UINavigationController.gkChildAwake()
+        UINavigationItem.gkAwake()
+        NSObject.gkObjectAwake()
+        UIScrollView.gkAwake()
+        UIViewController.gkGestureAwake()
+        UINavigationController.gkGestureChildAwake()
+    }()
+    
     /// 设置默认配置
     open func setupDefault() {
+        GKNavigationBarConfigure.awake
         backgroundColor = .white
         titleColor = .black
         titleFont = UIFont.boldSystemFont(ofSize: 17.0)
@@ -142,13 +153,7 @@ open class GKNavigationBarConfigure : NSObject {
     }
     
     open func awake() {
-        UIViewController.gkAwake()
-        UINavigationController.gkChildAwake()
-        UINavigationItem.gkAwake()
-        NSObject.gkObjectAwake()
-        UIScrollView.gkAwake()
-        UIViewController.gkGestureAwake()
-        UINavigationController.gkGestureChildAwake()
+        GKNavigationBarConfigure.awake
     }
 
     /// 设置自定义配置，此方法只需调用一次

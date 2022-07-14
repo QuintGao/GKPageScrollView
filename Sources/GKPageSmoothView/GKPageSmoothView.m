@@ -250,7 +250,9 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         
         if (!self.isMainScrollDisabled) {
             if (!self.isOnTop) {
-                listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
+                UIEdgeInsets insets = listScrollView.contentInset;
+                insets.top = self.headerContainerHeight;
+                listScrollView.contentInset = insets;
                 self.currentListInitializeContentOffsetY = -listScrollView.contentInset.top + MIN(-self.currentHeaderContainerViewY, (self.headerHeight - self.ceilPointHeight));
                 [self setScrollView:listScrollView offset:CGPointMake(0, self.currentListInitializeContentOffsetY)];
             }
@@ -666,7 +668,16 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         
         if (!self.isMainScrollDisabled) {
             for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
-                list.listScrollView.contentInset = UIEdgeInsetsMake(self.headerContainerHeight, 0, 0, 0);
+                UIEdgeInsets insets = list.listScrollView.contentInset;
+                insets.top = self.headerContainerHeight;
+                list.listScrollView.contentInset = insets;
+                list.listScrollView.contentOffset = CGPointMake(0, -self.headerContainerHeight);
+            }
+            for (UIView *listHeader in self.listHeaderDict.allValues) {
+                CGRect frame = listHeader.frame;
+                frame.origin.y = -self.headerContainerHeight;
+                frame.size.height = self.headerContainerHeight;
+                listHeader.frame = frame;
             }
         }
         
