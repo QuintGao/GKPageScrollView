@@ -87,7 +87,6 @@ class GKHeaderScrollViewController: GKDemoBaseViewController {
         self.gk_navTitleColor = .black
         self.gk_navTitleFont = UIFont.boldSystemFont(ofSize: 18);
         self.gk_navBackgroundColor = .white
-        self.gk_statusBarStyle = .default;
         self.gk_backStyle = .black;
         self.gk_navLineHidden = true
         

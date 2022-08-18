@@ -140,9 +140,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     self.segmentedView = [self.dataSource segmentedViewInSmoothView:self];
     [self.headerContainerView addSubview:self.segmentedView];
 
-    self.segmentedHeight = self.segmentedView.bounds.size.height;
-    self.headerContainerHeight = self.headerHeight + self.segmentedHeight;
-    
+    [self refreshHeaderContainerHeight];
     [self refreshHeaderContainerView];
 }
 
@@ -642,15 +640,16 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     [self.headerContainerView addSubview:self.headerView];
     [self.headerContainerView addSubview:self.segmentedView];
     
-    self.headerHeight = self.headerView.bounds.size.height;
-    self.segmentedHeight = self.segmentedView.bounds.size.height;
-    self.headerContainerHeight = self.headerHeight + self.segmentedHeight;
+    // 刷新高度
+    [self refreshHeaderContainerHeight];
 }
 
 - (void)refreshHeaderContainerView {
     __weak __typeof(self) weakSelf = self;
     [self refreshWidthCompletion:^(CGSize size) {
         __strong __typeof(weakSelf) self = weakSelf;
+        [self refreshHeaderContainerHeight];
+        
         CGRect frame = self.headerContainerView.frame;
         if (CGRectEqualToRect(frame, CGRectZero)) {
             frame = CGRectMake(0, 0, size.width, self.headerContainerHeight);
@@ -691,6 +690,12 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
             }
         }
     }];
+}
+
+- (void)refreshHeaderContainerHeight {
+    self.headerHeight = self.headerView.bounds.size.height;
+    self.segmentedHeight = self.segmentedView.bounds.size.height;
+    self.headerContainerHeight = self.headerHeight + self.segmentedHeight;
 }
 
 - (void)refreshWidthCompletion:(void(^)(CGSize size))completion {

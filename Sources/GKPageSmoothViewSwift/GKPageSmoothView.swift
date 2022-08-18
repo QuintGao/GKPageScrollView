@@ -257,9 +257,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         segmentedView = dataSource?.segmentedView(in: self)
         headerContainerView.addSubview(segmentedView!)
         
-        segmentedHeight = segmentedView!.bounds.height
-        headerContainerHeight = headerHeight + segmentedHeight
-        
+        refreshHeaderContainerHeight()
         refreshHeaderContainerView()
     }
     
@@ -561,13 +559,13 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         self.headerContainerView.addSubview(self.headerView!)
         self.headerContainerView.addSubview(self.segmentedView!)
         
-        self.headerHeight = self.headerView!.bounds.size.height
-        self.segmentedHeight = self.segmentedView!.bounds.size.height
-        self.headerContainerHeight = self.headerHeight + self.segmentedHeight
+        refreshHeaderContainerHeight()
     }
     
     func refreshHeaderContainerView() {
         self.refreshWidth { [self] (size) in
+            self.refreshHeaderContainerHeight()
+            
             var frame = self.headerContainerView.frame;
             if __CGSizeEqualToSize(frame.size, .zero) {
                 frame = CGRect(x: 0, y: 0, width: size.width, height: self.headerContainerHeight)
@@ -607,6 +605,12 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                 }
             }
         }
+    }
+    
+    func refreshHeaderContainerHeight() {
+        self.headerHeight = self.headerView?.bounds.size.height ?? 0
+        self.segmentedHeight = self.segmentedView?.bounds.size.height ?? 0
+        self.headerContainerHeight = self.headerHeight + self.segmentedHeight
     }
     
     func refreshWidth(completion: @escaping (_ size: CGSize)->()) {

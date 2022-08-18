@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.gk_navItemLeftSpace = 4.0
             $0.gk_navItemRightSpace = 4.0
             $0.backStyle = .white
+            if #available(iOS 13.0, *) {
+                $0.statusBarStyle = .darkContent
+            }else {
+                $0.statusBarStyle = .default
+            }
         }
         
         window = UIWindow(frame: UIScreen.main.bounds)
