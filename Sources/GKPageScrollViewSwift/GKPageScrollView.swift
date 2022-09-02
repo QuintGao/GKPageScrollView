@@ -321,11 +321,20 @@ open class GKPageScrollView: UIView {
     }
     
     public func scrollToOriginalPoint(_ animated: Bool? = true) {
-        // 这里做了0.01秒的延时，是为了解决一个坑：当通过手势滑动结束调用此方法时，会有可能出现动画结束后UITableView没有回到原点的bug
+        // 这里做了0.01秒的延时，是为了解决一个坑：
+        // 当通过手势滑动结束调用此方法时，会有可能出现动画结束后UITableView没有回到原点的bug
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            if self.isScrollToOriginal {return}
-            self.isScrollToOriginal = true
+            if self.mainTableView.contentOffset == .zero { return }
+            if self.isScrollToOriginal { return }
+            
+            if animated == true {
+                self.isScrollToOriginal = true
+            }
             self.isCeilPoint = false
+            
+            if self.isScrollToCritical {
+                self.isScrollToCritical = false;
+            }
             
             self.isMainCanScroll = true
             self.isListCanScroll = false
@@ -335,9 +344,18 @@ open class GKPageScrollView: UIView {
     }
     
     public func scrollToCriticalPoint(_ animated: Bool? = true) {
-        if self.isScrollToCritical {return}
+        if (self.mainTableView.contentOffset == self.criticalOffset) { return }
+        if self.isScrollToCritical { return }
         
-        self.isScrollToCritical = true
+        if animated == true {
+            self.isScrollToCritical = true;
+        }else {
+            self.isCeilPoint = true;
+        }
+        
+        if self.isScrollToOriginal {
+            self.isScrollToOriginal = false;
+        }
         
         self.mainTableView.setContentOffset(self.criticalOffset, animated: animated ?? true)
         

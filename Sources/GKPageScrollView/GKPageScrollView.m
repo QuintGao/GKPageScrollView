@@ -195,12 +195,23 @@
 }
 
 - (void)scrollToOriginalPointAnimated:(BOOL)animated {
-    // 这里做了0.01秒的延时，是为了解决一个坑：当通过手势滑动结束调用此方法时，会有可能出现动画结束后UITableView没有回到原点的bug
+    // 这里做了0.01秒的延时，是为了解决一个坑：
+    // 当通过手势滑动结束调用此方法时，会有可能出现动画结束后UITableView没有回到原点的bug
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (CGPointEqualToPoint(self.mainTableView.contentOffset, CGPointZero)) {
+            return;
+        }
         if (self.isScrollToOriginal) return;
         
-        self.isScrollToOriginal  = YES;
+        if (animated) {
+            self.isScrollToOriginal  = YES;
+        }
+        
         self.isCeilPoint         = NO;
+        
+        if (self.isScrollToCritical) {
+            self.isScrollToCritical = NO;
+        }
         
         self.isMainCanScroll     = YES;
         self.isListCanScroll     = NO;
@@ -214,9 +225,20 @@
 }
 
 - (void)scrollToCriticalPointAnimated:(BOOL)animated {
+    if (CGPointEqualToPoint(self.mainTableView.contentOffset, self.criticalOffset)) {
+        return;
+    }
     if (self.isScrollToCritical) return;
     
-    self.isScrollToCritical = YES;
+    if (animated) {
+        self.isScrollToCritical = YES;
+    }else {
+        self.isCeilPoint = YES;
+    }
+    
+    if (self.isScrollToOriginal) {
+        self.isScrollToOriginal = NO;
+    }
     
     [self.mainTableView setContentOffset:self.criticalOffset animated:animated];
     

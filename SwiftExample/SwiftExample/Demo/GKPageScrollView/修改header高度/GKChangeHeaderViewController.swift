@@ -54,6 +54,9 @@ class GKChangeHeaderViewController: GKDemoBaseViewController {
         self.gk_navTitle = "修改header高度"
         self.gk_navTitleColor = .white
         self.gk_statusBarStyle = .lightContent;
+        let oriItem = UIBarButtonItem.gk_item(title:"原点", target: self, action: #selector(oriAction))
+        let criItem = UIBarButtonItem.gk_item(title: "临界点", target: self, action: #selector(criAction))
+        self.gk_navRightBarButtonItems = [oriItem, criItem]
         
         self.view.addSubview(self.pageScrollView)
         self.pageScrollView.snp.makeConstraints { (make) in
@@ -66,6 +69,14 @@ class GKChangeHeaderViewController: GKDemoBaseViewController {
             self.headerView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: ADAPTATIONRATIO * 600)
             self.pageScrollView.refreshHeaderView()
         }
+    }
+    
+    @objc func oriAction() {
+        self.pageScrollView.scrollToOriginalPoint(false)
+    }
+    
+    @objc func criAction() {
+        self.pageScrollView.scrollToCriticalPoint(false)
     }
 }
 

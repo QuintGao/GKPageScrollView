@@ -29,6 +29,9 @@
     self.gk_navTitle = @"修改header高度";
     self.gk_navTitleColor = UIColor.whiteColor;
     self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    UIBarButtonItem *oriItem = [UIBarButtonItem gk_itemWithTitle:@"原点" target:self action:@selector(oriAction)];
+    UIBarButtonItem *criItem = [UIBarButtonItem gk_itemWithTitle:@"临界点" target:self action:@selector(criAction)];
+    self.gk_navRightBarButtonItems = @[oriItem, criItem];
     
     [self.view addSubview:self.pageScrollView];
     [self.pageScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -42,6 +45,16 @@
         self.headerView.frame = CGRectMake(0, 0, kScreenW, ADAPTATIONRATIO * 600);
         [self.pageScrollView refreshHeaderView];
     });
+}
+
+- (void)oriAction {
+    [self.pageScrollView scrollToOriginalPointAnimated:NO];
+//    self.isAnimation = YES;
+}
+
+- (void)criAction {
+    [self.pageScrollView scrollToCriticalPointAnimated:NO];
+//    self.isAnimation = YES;
 }
 
 #pragma mark - GKPageScrollViewDelegate
