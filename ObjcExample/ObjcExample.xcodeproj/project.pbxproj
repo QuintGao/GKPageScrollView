@@ -60,6 +60,7 @@
 		609B8EB8259AFD81000F1EB9 /* GKDYHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */; };
 		609E45EA268D563A004FC127 /* GKSmoothMainDisabledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */; };
 		60A14E6A262D19A500279CC1 /* GKSmoothListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */; };
+		79A1906328C0870400578979 /* GKChangeHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A1906228C0870400578979 /* GKChangeHeaderViewController.m */; };
 		B927B5B5BAC834684BC6753C /* libPods-ObjcExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +185,8 @@
 		609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSmoothMainDisabledViewController.m; sourceTree = "<group>"; };
 		60A14E68262D19A500279CC1 /* GKSmoothListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSmoothListViewController.h; sourceTree = "<group>"; };
 		60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSmoothListViewController.m; sourceTree = "<group>"; };
+		79A1906128C0870400578979 /* GKChangeHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKChangeHeaderViewController.h; sourceTree = "<group>"; };
+		79A1906228C0870400578979 /* GKChangeHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKChangeHeaderViewController.m; sourceTree = "<group>"; };
 		7F61CAFA991F0A136AA42888 /* Pods-ObjcExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.release.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.release.xcconfig"; sourceTree = "<group>"; };
 		B75B8F2B490CE810F2D7F56D /* Pods-ObjcExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.debug.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -493,6 +496,7 @@
 				609B8E55259AFD80000F1EB9 /* VTMagic */,
 				609B8E71259AFD81000F1EB9 /* Nest */,
 				600408A526A5105D001788E5 /* MainScrollDisabled */,
+				79A1906028C0869D00578979 /* 修改header高度 */,
 			);
 			path = GKPageScrollView;
 			sourceTree = "<group>";
@@ -504,6 +508,15 @@
 				609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */,
 			);
 			path = MainScrollDisabled;
+			sourceTree = "<group>";
+		};
+		79A1906028C0869D00578979 /* 修改header高度 */ = {
+			isa = PBXGroup;
+			children = (
+				79A1906128C0870400578979 /* GKChangeHeaderViewController.h */,
+				79A1906228C0870400578979 /* GKChangeHeaderViewController.m */,
+			);
+			path = "修改header高度";
 			sourceTree = "<group>";
 		};
 		C690DA035B9A8F444744CEE3 /* Pods */ = {
@@ -639,6 +652,7 @@
 				609B8E8F259AFD81000F1EB9 /* GKTestListViewController.m in Sources */,
 				609E45EA268D563A004FC127 /* GKSmoothMainDisabledViewController.m in Sources */,
 				609B8EAE259AFD81000F1EB9 /* GKNest1ViewController.m in Sources */,
+				79A1906328C0870400578979 /* GKChangeHeaderViewController.m in Sources */,
 				609B8E96259AFD81000F1EB9 /* GKDBViewController.m in Sources */,
 				609B8E9B259AFD81000F1EB9 /* GKSmoothListView.m in Sources */,
 				609B8E9F259AFD81000F1EB9 /* GKWYHeaderView.m in Sources */,

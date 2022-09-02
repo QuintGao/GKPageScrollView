@@ -182,14 +182,18 @@ open class GKPageScrollView: UIView {
     // 是否内部控制指示器的显示与隐藏（默认为NO）
     public var isControlVerticalIndicator: Bool = false
     
+    // 刷新headerView后是否恢复到原始状态
+    public var isRestoreWhenRefreshHeader: Bool = false
+    
+    // MARK: - 内部属性，尽量不要修改
     // 是否滑动到临界点，可以有偏差
-    var isCriticalPoint: Bool = false
+    public var isCriticalPoint: Bool = false
     // 是否达到临界点，无偏差
-    var isCeilPoint: Bool = false
+    public var isCeilPoint: Bool = false
     // mainTableView是否可以滑动
-    var isMainCanScroll: Bool = true
+    public var isMainCanScroll: Bool = true
     // listScrollView是否可以滑动
-    var isListCanScroll: Bool = false
+    public var isListCanScroll: Bool = false
     
     // 是否开始拖拽，只有在拖拽中才去处理滑动，解决使用mj_header可能出现的bug
     var isBeginDragging: Bool = false
@@ -203,6 +207,7 @@ open class GKPageScrollView: UIView {
     
     // headerView的高度
     var headerHeight: CGFloat = 0
+    var isRefreshHeader = false
     
     // 临界点
     var criticalPoint: CGFloat = 0
@@ -261,6 +266,15 @@ open class GKPageScrollView: UIView {
         
         self.criticalPoint = abs(self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight)
         self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
+        
+        if isRestoreWhenRefreshHeader {
+            scrollToOriginalPoint(false)
+        }else {
+            if isCriticalPoint {
+                isRefreshHeader = true
+                scrollToCriticalPoint(false)
+            }
+        }
     }
     
     public func refreshSegmentedView() {
@@ -306,7 +320,7 @@ open class GKPageScrollView: UIView {
         self.mainTableView.isScrollEnabled = true
     }
     
-    public func scrollToOriginalPoint() {
+    public func scrollToOriginalPoint(_ animated: Bool? = true) {
         // 这里做了0.01秒的延时，是为了解决一个坑：当通过手势滑动结束调用此方法时，会有可能出现动画结束后UITableView没有回到原点的bug
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             if self.isScrollToOriginal {return}
@@ -316,16 +330,16 @@ open class GKPageScrollView: UIView {
             self.isMainCanScroll = true
             self.isListCanScroll = false
             
-            self.mainTableView.setContentOffset(.zero, animated: true)
+            self.mainTableView.setContentOffset(.zero, animated: animated ?? true)
         }
     }
     
-    public func scrollToCriticalPoint() {
+    public func scrollToCriticalPoint(_ animated: Bool? = true) {
         if self.isScrollToCritical {return}
         
         self.isScrollToCritical = true
         
-        self.mainTableView.setContentOffset(self.criticalOffset, animated: true)
+        self.mainTableView.setContentOffset(self.criticalOffset, animated: animated ?? true)
         
         self.isMainCanScroll = false
         self.isListCanScroll = true
@@ -352,7 +366,7 @@ open class GKPageScrollView: UIView {
                 }else {
                     self.isMainCanScroll = true
                     self.isListCanScroll = false
-
+                    
                     self.set(scrollView: scrollView, offset: .zero)
                     if self.isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
@@ -365,7 +379,7 @@ open class GKPageScrollView: UIView {
                 }else {
                     self.isMainCanScroll = true
                     self.isListCanScroll = false
-
+                    
                     self.set(scrollView: scrollView, offset: .zero)
                     if self.isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
@@ -387,7 +401,7 @@ open class GKPageScrollView: UIView {
                     if self.mainTableView.contentOffset.y == 0 && floor(headerHeight) != 0 {
                         self.isMainCanScroll = true
                         self.isListCanScroll = false
-
+                        
                         self.set(scrollView: scrollView, offset: .zero)
                         if self.isControlVerticalIndicator {
                             scrollView.showsVerticalScrollIndicator = false
@@ -404,8 +418,11 @@ open class GKPageScrollView: UIView {
     
     public func mainScrollViewDidScroll(scrollView: UIScrollView) {
         if !self.isBeginDragging {
-            // 点击状态栏滑动
-            self.listScrollViewOffsetFixed()
+            if isRefreshHeader {
+                isRefreshHeader = false
+            }else {
+                self.listScrollViewOffsetFixed()                
+            }
             
             self.mainTableViewCanScrollUpdate();
             
@@ -483,42 +500,25 @@ open class GKPageScrollView: UIView {
     
     // 修正mainTableView的位置
     fileprivate func mainScrollViewOffsetFixed() {
-        if self.shouldLazyLoadListView() {
-            for listItem in self.validListDict.values {
-                let listScrollView = listItem.listScrollView()
-                if listScrollView.contentOffset.y != 0 {
-                    self.set(scrollView: self.mainTableView, offset: self.criticalOffset)
-                }
-            }
-        }else {
-            if self.delegate.listView?(in: self).count ?? 0 > 0 {
-                for (_, value) in (self.delegate.listView?(in: self).enumerated())! {
-                    let listScrollView = value.listScrollView()
-                    
-                    if listScrollView.contentOffset.y != 0 {
-                        self.set(scrollView: self.mainTableView, offset: self.criticalOffset)
-                    }
-                }
-            }
-        }
+        set(scrollView: mainTableView, offset: criticalOffset)
     }
     
     fileprivate func listScrollViewOffsetFixed() {
         if self.shouldLazyLoadListView() {
-            for listItem in self.validListDict.values {
-                let listScrollView = listItem.listScrollView()
-                self.set(scrollView: listScrollView, offset: .zero)
-                if self.isControlVerticalIndicator {
-                    listScrollView.showsVerticalScrollIndicator = false
+            self.validListDict.forEach {
+                let scrollView = $0.value.listScrollView()
+                set(scrollView: scrollView, offset: .zero)
+                if isControlVerticalIndicator {
+                    scrollView.showsVerticalScrollIndicator = false
                 }
             }
         }else {
-            if self.delegate.listView?(in: self).count ?? 0 > 0 {
-                for (_, value) in (self.delegate.listView?(in: self).enumerated())! {
-                    let listScrollView = value.listScrollView()
-                    self.set(scrollView: listScrollView, offset: .zero)
-                    if self.isControlVerticalIndicator {
-                        listScrollView.showsVerticalScrollIndicator = false
+            if let count = self.delegate.listView?(in: self).count, count > 0 {
+                self.delegate.listView?(in: self).forEach {
+                    let scrollView = $0.listScrollView()
+                    set(scrollView: scrollView, offset: .zero)
+                    if isControlVerticalIndicator {
+                        scrollView.showsVerticalScrollIndicator = false
                     }
                 }
             }

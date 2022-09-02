@@ -180,6 +180,19 @@
 // 列表容器在UITableViewFooter中显示（默认NO）
 @property (nonatomic, assign, getter=isShowInFooter) BOOL showInFooter;
 
+// 当调用refreshHeaderView刷新headerView的后，是否恢复到初始位置，默认NO
+@property (nonatomic, assign, getter=isRestoreWhenRefreshHeader) BOOL restoreWhenRefreshHeader;
+
+// 内部属性，尽量不要修改
+// 是否滑动到临界点，可有偏差
+@property (nonatomic, assign) BOOL isCriticalPoint;
+// 是否到达临界点，无偏差
+@property (nonatomic, assign) BOOL isCeilPoint;
+// mainTableView是否可滑动
+@property (nonatomic, assign) BOOL isMainCanScroll;
+// listScrollView是否可滑动
+@property (nonatomic, assign) BOOL isListCanScroll;
+
 - (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
@@ -200,9 +213,11 @@
 
 // 滑动到原点，可用于在吸顶状态下，点击返回按钮，回到原始状态
 - (void)scrollToOriginalPoint;
+- (void)scrollToOriginalPointAnimated:(BOOL)animated;
 
 // 滑动到临界点，可用于当headerView较长情况下，直接跳到临界点状态
 - (void)scrollToCriticalPoint;
+- (void)scrollToCriticalPointAnimated:(BOOL)animated;
 
 // 用于自行处理滑动
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView;

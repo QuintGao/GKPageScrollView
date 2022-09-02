@@ -65,19 +65,6 @@ static NSInteger isNotchedScreen = -1;
     }
 }
 
-static NSInteger is58InchScreen = -1;
-+ (BOOL)is58InchScreen {
-    if (is58InchScreen < 0) {
-        // iPhone XS 和 iPhone X 的物理尺寸是一致的，因此无需比较机器的Identifier
-        is58InchScreen = (DEVICE_WIDTH == self.screenSizeFor58Inch.width && DEVICE_HEIGHT == self.screenSizeFor58Inch.height) ? 1 : 0;
-    }
-    return is58InchScreen > 0;
-}
-
-+ (CGSize)screenSizeFor58Inch {
-    return CGSizeMake(375, 812);
-}
-
 + (CGRect)gk_statusBarFrame {
     CGRect statusBarFrame = CGRectZero;
     if (@available(iOS 13.0, *)) {

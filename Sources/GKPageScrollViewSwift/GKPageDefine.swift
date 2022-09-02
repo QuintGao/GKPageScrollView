@@ -22,23 +22,46 @@ public let GKPage_Screen_Width = UIScreen.main.bounds.size.width
 public let GKPage_Screen_Height = UIScreen.main.bounds.size.height
 
 open class GKPageDefine {
+    
+    
+//    public static let isNotchedScreen: Bool = {
+//        if #available(iOS 11.0, *) {
+//            var window = keyWindow()
+//            if window == nil {
+//                // keyWindow还没有创建时，通过创建临时window获取安全区域
+//                window = UIWindow(frame: UIScreen.main.bounds)
+//                if window!.safeAreaInsets.bottom <= 0 {
+//                    let viewController = UIViewController()
+//                    window?.rootViewController = viewController
+//                }
+//            }
+//
+//            if window!.safeAreaInsets.bottom > 0 {
+//                return true
+//            }
+//        } else {
+//            return false
+//        }
+//        return false
+//    }()
+    
     open class func gk_isNotchedScreen() -> Bool {
         if #available(iOS 11.0, *) {
-            let keyWinwow = self.getKeyWindow()
-            if keyWinwow != nil {
-                return (keyWinwow?.safeAreaInsets.bottom ?? UIEdgeInsets.zero.bottom) > 0 ? true : false
+            var window = getKeyWindow()
+            if window == nil {
+                // keyWindow还没有创建，通过创建临时window获取安全区域
+                window = UIWindow(frame: UIScreen.main.bounds)
+                if window!.safeAreaInsets.bottom <= 0 {
+                    let viewController = UIViewController()
+                    window?.rootViewController = viewController
+                }
+            }
+            
+            if window!.safeAreaInsets.bottom > 0 {
+                return true
             }
         }
-        // 当iOS11以下或获取不到keyWindow时用以下方案
-        let screenSize = UIScreen.main.bounds.size
-        return ((UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 375, height:812), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 812, height:375), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 414, height:896), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 896, height:414), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 390, height:844), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 844, height:390), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 428, height:926), screenSize) : false) ||
-                    (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 926, height:428), screenSize) : false))
+        return false
     }
     
     open class func gk_statusBarFrame() -> CGRect {

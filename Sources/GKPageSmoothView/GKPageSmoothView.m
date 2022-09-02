@@ -169,11 +169,19 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (void)scrollToOriginalPoint {
-    [self.currentListScrollView setContentOffset:CGPointMake(0, -self.headerContainerHeight) animated:YES];
+    [self scrollToOriginalPointAnimated:YES];
+}
+
+- (void)scrollToOriginalPointAnimated:(BOOL)animated {
+    [self.currentListScrollView setContentOffset:CGPointMake(0, -self.headerContainerHeight) animated:animated];
 }
 
 - (void)scrollToCriticalPoint {
-    [self.currentListScrollView setContentOffset:CGPointMake(0, -(self.segmentedHeight+self.ceilPointHeight)) animated:YES];
+    [self scrollToCriticalPointAnimated:YES];
+}
+
+- (void)scrollToCriticalPointAnimated:(BOOL)animated {
+    [self.currentListScrollView setContentOffset:CGPointMake(0, -(self.segmentedHeight+self.ceilPointHeight)) animated:animated];
 }
 
 - (void)showingOnTop {

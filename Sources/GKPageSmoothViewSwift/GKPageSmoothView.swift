@@ -284,13 +284,13 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     }
     
     /// 滑动到原点
-    public func scrollToOriginalPoint() {
-        self.currentListScrollView?.setContentOffset(CGPoint(x: 0, y: -self.headerContainerHeight), animated: true)
+    public func scrollToOriginalPoint(_ animated: Bool? = true) {
+        self.currentListScrollView?.setContentOffset(CGPoint(x: 0, y: -self.headerContainerHeight), animated: animated ?? true)
     }
     
     /// 滑动到悬停点
-    public func scrollToCriticalPoint() {
-        self.currentListScrollView?.setContentOffset(CGPoint(x: 0, y: -(self.segmentedHeight + self.ceilPointHeight)), animated: true)
+    public func scrollToCriticalPoint(_ animated: Bool? = true) {
+        self.currentListScrollView?.setContentOffset(CGPoint(x: 0, y: -(self.segmentedHeight + self.ceilPointHeight)), animated: animated ?? true)
     }
     
     /// 显示在顶部，允许底部拖拽时生效
