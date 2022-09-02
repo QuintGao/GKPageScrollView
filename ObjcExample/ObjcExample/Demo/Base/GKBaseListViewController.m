@@ -49,16 +49,6 @@
 - (instancetype)initWithListType:(GKBaseListType)listType {
     if (self = [super init]) {
         self.listType = listType;
-        
-        if (self.listType == GKBaseListType_UITableView) {
-            self.currentScrollView = self.tableView;
-        }else if (self.listType == GKBaseListType_UICollectionView) {
-            self.currentScrollView = self.collectionView;
-        }else if (self.listType == GKBaseListType_UIScrollView) {
-            self.currentScrollView = self.scrollView;
-        }else if (self.listType == GKBaseListType_WKWebView) {
-            self.currentScrollView = self.webView.scrollView;
-        }
     }
     return self;
 }
@@ -90,7 +80,7 @@
         }];
     }
     
-    if (self.listType != GKBaseListType_WKWebView) {
+    if (self.listType != GKBaseListType_WKWebView && !self.disableLoadMore) {
         __weak __typeof(self) weakSelf = self;
         self.currentScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             __strong __typeof(weakSelf) self = weakSelf;
@@ -143,7 +133,9 @@
 }
 
 - (void)loadData {
-    self.count = 30;
+    if (self.count == 0) {
+        self.count = 30;
+    }
     
     if (self.listType == GKBaseListType_UIScrollView) {
         [self addCellToScrollView];
@@ -359,6 +351,7 @@
             _scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
         _scrollView.backgroundColor = [UIColor whiteColor];
+        _scrollView.alwaysBounceVertical = YES;
     }
     return _scrollView;
 }

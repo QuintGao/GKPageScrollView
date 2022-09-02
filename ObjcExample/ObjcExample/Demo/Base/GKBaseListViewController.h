@@ -25,7 +25,9 @@ typedef NS_ENUM(NSUInteger, GKBaseListType) {
 
 @property (nonatomic, assign) NSInteger count;
 
-@property (nonatomic, assign) BOOL  shouldLoadData;
+@property (nonatomic, assign) BOOL shouldLoadData;
+
+@property (nonatomic, assign) BOOL disableLoadMore;
 
 @property (nonatomic, copy) void(^listItemClick)(GKBaseListViewController *listVC, NSIndexPath *indexPath);
 
