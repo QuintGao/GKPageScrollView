@@ -185,6 +185,9 @@ open class GKPageScrollView: UIView {
     // 刷新headerView后是否恢复到原始状态
     public var isRestoreWhenRefreshHeader: Bool = false
     
+    // 刷新headerView后是否保持临界状态
+    public var isKeepCriticalWhenRefreshHeader: Bool = false
+    
     // MARK: - 内部属性，尽量不要修改
     // 是否滑动到临界点，可以有偏差
     public var isCriticalPoint: Bool = false
@@ -270,7 +273,7 @@ open class GKPageScrollView: UIView {
         if isRestoreWhenRefreshHeader {
             scrollToOriginalPoint(false)
         }else {
-            if isCriticalPoint {
+            if isKeepCriticalWhenRefreshHeader && isCeilPoint {
                 isRefreshHeader = true
                 scrollToCriticalPoint(false)
             }
@@ -330,12 +333,13 @@ open class GKPageScrollView: UIView {
             if animated == true {
                 self.isScrollToOriginal = true
             }
-            self.isCeilPoint = false
             
             if self.isScrollToCritical {
                 self.isScrollToCritical = false;
             }
             
+            self.isCeilPoint     = false
+            self.isCriticalPoint = false
             self.isMainCanScroll = true
             self.isListCanScroll = false
             
@@ -351,6 +355,7 @@ open class GKPageScrollView: UIView {
             self.isScrollToCritical = true;
         }else {
             self.isCeilPoint = true;
+            self.isCriticalPoint = true
         }
         
         if self.isScrollToOriginal {

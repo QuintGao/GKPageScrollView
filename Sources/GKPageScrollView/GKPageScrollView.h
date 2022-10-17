@@ -180,8 +180,11 @@
 // 列表容器在UITableViewFooter中显示（默认NO）
 @property (nonatomic, assign, getter=isShowInFooter) BOOL showInFooter;
 
-// 当调用refreshHeaderView刷新headerView的后，是否恢复到初始位置，默认NO
+// 当调用refreshHeaderView方法后，是否恢复到初始位置，默认NO
 @property (nonatomic, assign, getter=isRestoreWhenRefreshHeader) BOOL restoreWhenRefreshHeader;
+
+// 当调用refreshHeaderView方法后，是否保持临界状态，默认NO
+@property (nonatomic, assign, getter=isKeepCriticalWhenRefreshHeader) BOOL keepCriticalWhenRefreshHeader;
 
 // 内部属性，尽量不要修改
 // 是否滑动到临界点，可有偏差

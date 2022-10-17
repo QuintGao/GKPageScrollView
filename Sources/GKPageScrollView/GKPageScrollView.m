@@ -140,7 +140,7 @@
         // 恢复到初始位置
         [self scrollToOriginalPointAnimated:NO];
     }else {
-        if (self.isCriticalPoint) { // 如果已到达临界点，刷新后则还是临界点状态
+        if (self.isKeepCriticalWhenRefreshHeader && self.isCeilPoint) {
             self.isRefreshHeader = YES;
             [self scrollToCriticalPointAnimated:NO];
         }
@@ -207,14 +207,14 @@
             self.isScrollToOriginal  = YES;
         }
         
-        self.isCeilPoint         = NO;
-        
         if (self.isScrollToCritical) {
             self.isScrollToCritical = NO;
         }
         
-        self.isMainCanScroll     = YES;
-        self.isListCanScroll     = NO;
+        self.isCeilPoint     = NO;
+        self.isCriticalPoint = NO;
+        self.isMainCanScroll = YES;
+        self.isListCanScroll = NO;
         
         [self.mainTableView setContentOffset:CGPointZero animated:animated];
     });
@@ -234,6 +234,7 @@
         self.isScrollToCritical = YES;
     }else {
         self.isCeilPoint = YES;
+        self.isCriticalPoint = YES;
     }
     
     if (self.isScrollToOriginal) {

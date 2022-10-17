@@ -83,6 +83,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.lazyLoadList = YES;
+        _pageScrollView.keepCriticalWhenRefreshHeader = YES;
     }
     return _pageScrollView;
 }

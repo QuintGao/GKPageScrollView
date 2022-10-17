@@ -15,7 +15,7 @@ let kScreenW = UIScreen.main.bounds.size.width
 let kScreenH = UIScreen.main.bounds.size.height
 
 let kStatusBar_Height: CGFloat = GKDevice.statusBarFrame().size.height
-let kNavBar_Height: CGFloat = kStatusBar_Height + 44.0
+let kNavBar_Height: CGFloat = GKDevice.statusBarNavBarHeight()
 
 let ADAPTATIONRATIO = kScreenW / 750.0
 

@@ -22,29 +22,6 @@ public let GKPage_Screen_Width = UIScreen.main.bounds.size.width
 public let GKPage_Screen_Height = UIScreen.main.bounds.size.height
 
 open class GKPageDefine {
-    
-    
-//    public static let isNotchedScreen: Bool = {
-//        if #available(iOS 11.0, *) {
-//            var window = keyWindow()
-//            if window == nil {
-//                // keyWindow还没有创建时，通过创建临时window获取安全区域
-//                window = UIWindow(frame: UIScreen.main.bounds)
-//                if window!.safeAreaInsets.bottom <= 0 {
-//                    let viewController = UIViewController()
-//                    window?.rootViewController = viewController
-//                }
-//            }
-//
-//            if window!.safeAreaInsets.bottom > 0 {
-//                return true
-//            }
-//        } else {
-//            return false
-//        }
-//        return false
-//    }()
-    
     open class func gk_isNotchedScreen() -> Bool {
         if #available(iOS 11.0, *) {
             var window = getKeyWindow()
