@@ -145,7 +145,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
     lazy var lineView: JXCategoryIndicatorLineView = {
         let line = JXCategoryIndicatorLineView()
         line.indicatorHeight = 16
-        line.verticalMargin = 0
+        line.verticalMargin = 10
         line.indicatorWidthIncrement = 0
         line.lineScrollOffsetX = 0
         line.indicatorColor = kThemeColor
@@ -328,7 +328,7 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
             self.categoryView.titleFont = UIFont.systemFont(ofSize: 15)
             self.categoryView.titleSelectedFont = UIFont.systemFont(ofSize: 15)
             self.lineView.indicatorHeight = 16
-            self.lineView.verticalMargin = 0
+            self.lineView.verticalMargin = 10
             self.lineView.indicatorWidthIncrement = 0
             self.categoryView.indicators = [self.lineView]
             self.reloadCategory(height: 54)

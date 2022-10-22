@@ -145,12 +145,11 @@ extension GKPageListContainerView: UICollectionViewDataSource, UICollectionViewD
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        for view in cell.contentView.subviews {
-            view.removeFromSuperview()
+        cell.contentView.subviews.forEach { $0.removeFromSuperview() }
+        if let listView = self.delegate?.listContainerView(self, viewForListInRow: indexPath.item) {
+            listView.frame = cell.bounds
+            cell.contentView.addSubview(listView)
         }
-        let listView = self.delegate!.listContainerView(self, viewForListInRow: indexPath.item)
-        listView.frame = cell.bounds
-        cell.contentView.addSubview(listView)
         return cell
     }
     

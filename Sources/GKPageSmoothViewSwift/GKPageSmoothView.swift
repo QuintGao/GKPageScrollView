@@ -98,7 +98,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     public var isBottomHover: Bool = false {
         didSet {
             if (isBottomHover) {
-                self.refreshWidth { [self] (size) in
+                self.refreshWidth { [weak self] (size) in
+                    guard let self = self else { return }
                     self.bottomContainerView.frame = CGRect(x: 0, y: size.height - self.segmentedHeight, width: size.width, height: size.height - self.ceilPointHeight)
                     self.addSubview(self.bottomContainerView)
                     
@@ -275,7 +276,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         }
         listDict.removeAll()
         
-        self.refreshWidth { [self] (size) in
+        self.refreshWidth { [weak self] (size) in
+            guard let self = self else { return }
             self.listCollectionView.setContentOffset(CGPoint(x: size.width * CGFloat(self.currentIndex), y: 0), animated: false)
             self.listCollectionView.reloadData()
         }
@@ -561,7 +563,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     }
     
     func refreshHeaderContainerView() {
-        self.refreshWidth { [self] (size) in
+        self.refreshWidth { [weak self] (size) in
+            guard let self = self else { return }
             self.refreshHeaderContainerHeight()
             
             var frame = self.headerContainerView.frame;
@@ -574,21 +577,21 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             
             self.headerView?.frame = CGRect(x: 0, y: 0, width: size.width, height: self.headerHeight)
             self.segmentedView?.frame = CGRect(x: 0, y: self.headerHeight, width: size.width, height: self.segmentedHeight)
-            if segmentedView?.superview != self.headerContainerView { // 修复headerHeight < size.height, headerContainerHeight > size.height时segmentedView.superView为bottomContainerView
+            if self.segmentedView?.superview != self.headerContainerView { // 修复headerHeight < size.height, headerContainerHeight > size.height时segmentedView.superView为bottomContainerView
                 self.headerContainerView.addSubview(self.segmentedView!)
             }
             
             if (!self.isMainScrollDisabled) {
                 self.listDict.values.forEach {
                     var insets = $0.listScrollView().contentInset
-                    insets.top = headerContainerHeight
+                    insets.top = self.headerContainerHeight
                     $0.listScrollView().contentInset = insets
-                    $0.listScrollView().contentOffset = CGPoint(x: 0, y: -headerContainerHeight)
+                    $0.listScrollView().contentOffset = CGPoint(x: 0, y: -self.headerContainerHeight)
                 }
                 self.listHeaderDict.values.forEach {
                     var frame = $0.frame
-                    frame.origin.y = -headerContainerHeight
-                    frame.size.height = headerContainerHeight
+                    frame.origin.y = -self.headerContainerHeight
+                    frame.size.height = self.headerContainerHeight
                     $0.frame = frame
                 }
             }
@@ -736,7 +739,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             // 记录当前列表的滑动位置
             self.currentListPanBeganContentOffsetY = self.currentListScrollView?.contentOffset.y ?? 0
             
-            self.listDict.values.forEach {
+            self.listDict.values.forEach { [weak self] in
+                guard let self = self else { return }
                 $0.listScrollView().contentInset = .zero
                 self.set(scrollView: $0.listScrollView(), offset: .zero)
                 
@@ -762,7 +766,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             self.insertSubview(self.listCollectionView, belowSubview: self.bottomContainerView)
             self.listCollectionView.headerContainerView = self.headerContainerView
             
-            self.listDict.values.forEach {
+            self.listDict.values.forEach { [weak self] in
+                guard let self = self else { return }
                 $0.listScrollView().contentInset = UIEdgeInsets(top: self.headerContainerHeight, left: 0, bottom: 0, right: 0)
                 self.set(scrollView: $0.listScrollView(), offset: .zero)
                 
@@ -836,7 +841,8 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        listDict.values.forEach {
+        listDict.values.forEach { [weak self] in
+            guard let self = self else { return }
             $0.listView().frame = CGRect.init(origin: .zero, size: self.listCollectionView.bounds.size)
         }
         return self.listCollectionView.bounds.size
