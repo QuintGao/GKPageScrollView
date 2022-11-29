@@ -272,7 +272,7 @@
     // listScrollView下滑至offsetY小于0，禁止其滑动，让mainTableView可下滑
     if (offsetY <= 0) {
         if (self.isDisableMainScrollInCeil) {
-            if (self.isAllowListRefresh && offsetY < 0 && self.isCeilPoint) {
+            if (self.isAllowListRefresh && offsetY <= 0 && self.isCeilPoint) {
                 self.isMainCanScroll = NO;
                 self.isListCanScroll = YES;
             }else {
