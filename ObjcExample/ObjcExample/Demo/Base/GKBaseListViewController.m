@@ -42,6 +42,8 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) WKWebView *webView;
 
+@property (nonatomic, copy) void(^refreshCompletion)(void);
+
 @end
 
 @implementation GKBaseListViewController
@@ -210,10 +212,14 @@
     self.currentScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         __strong __typeof(weakSelf) self = weakSelf;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kRefreshDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.currentScrollView.mj_header endRefreshing];
-            
             self.count = 30;
             [self reloadData];
+            
+            [self.currentScrollView.mj_header endRefreshing];
+            if (self.refreshCompletion)
+            {
+                self.refreshCompletion();
+            }
         });
     }];
 }
@@ -223,6 +229,16 @@
         [self.tableView reloadData];
     }else if (self.listType == GKBaseListType_UICollectionView) {
         [self.collectionView reloadData];
+    }
+}
+
+- (void)refreshWithCompletion:(nullable void(^)(void))completion {
+    
+    self.refreshCompletion = completion;
+    if (self.listType == GKBaseListType_UITableView) {
+        [self.tableView.mj_header beginRefreshing];
+    }else if (self.listType == GKBaseListType_UICollectionView) {
+        [self.collectionView.mj_header beginRefreshing];
     }
 }
 

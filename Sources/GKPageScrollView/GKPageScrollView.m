@@ -285,7 +285,7 @@
                 }
             }
         }else {
-            if (self.isAllowListRefresh && offsetY < 0 && self.mainTableView.contentOffset.y == 0) {
+            if (self.isAllowListRefresh && offsetY <= 0 && self.mainTableView.contentOffset.y == 0) {
                 self.isMainCanScroll = NO;
                 self.isListCanScroll = YES;
             }else {
