@@ -82,7 +82,7 @@
         _pageView = [UIView new];
         
         [_pageView addSubview:self.segmentView];
-        [_pageView addSubview:self.contentScrollView];
+        [_pageView addSubview:self.scrollView];
     }
     return _pageView;
 }
@@ -102,7 +102,7 @@
         lineView.verticalMargin = ADAPTATIONRATIO * 2.0f;
         _segmentView.indicators = @[lineView];
         
-        _segmentView.contentScrollView = self.contentScrollView;
+        _segmentView.contentScrollView = self.scrollView;
         
         UIView  *btmLineView = [UIView new];
         btmLineView.backgroundColor = GKColorRGB(110, 110, 110);
@@ -115,20 +115,20 @@
     return _segmentView;
 }
 
-- (UIScrollView *)contentScrollView {
-    if (!_contentScrollView) {
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
         CGFloat scrollW = kScreenW;
         CGFloat scrollH = kScreenH - kNavBarHeight - kBaseSegmentHeight;
         
-        _contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kBaseSegmentHeight, scrollW, scrollH)];
-        _contentScrollView.pagingEnabled = YES;
-        _contentScrollView.bounces = NO;
-        _contentScrollView.delegate = self;
-        _contentScrollView.gk_openGestureHandle = YES;
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kBaseSegmentHeight, scrollW, scrollH)];
+        _scrollView.pagingEnabled = YES;
+        _scrollView.bounces = NO;
+        _scrollView.delegate = self;
+        _scrollView.gk_openGestureHandle = YES;
         
         [self.childVCs enumerateObjectsUsingBlock:^(GKBaseListViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
             [self addChildViewController:vc];
-            [self->_contentScrollView addSubview:vc.view];
+            [self->_scrollView addSubview:vc.view];
             
             vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
             
@@ -138,9 +138,9 @@
                 [self.pageScrollView scrollToCriticalPoint];
             };
         }];
-        _contentScrollView.contentSize = CGSizeMake(scrollW * self.childVCs.count, 0);
+        _scrollView.contentSize = CGSizeMake(scrollW * self.childVCs.count, 0);
     }
-    return _contentScrollView;
+    return _scrollView;
 }
 
 - (NSArray *)childVCs {

@@ -102,3 +102,22 @@ open class GKNavigationBar: UINavigationBar {
     }
 }
 
+// 实现touches方法，防止其实现父试图的touches方法
+extension GKNavigationBar {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+    
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+    
+    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+    
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+}
+

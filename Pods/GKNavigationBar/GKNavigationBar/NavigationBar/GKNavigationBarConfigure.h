@@ -130,13 +130,19 @@ NS_ASSUME_NONNULL_BEGIN
 // 将屏幕分为普通和紧凑两种，这个方法用于判断普通屏幕（也即大屏幕）
 @property (class, nonatomic, readonly) BOOL isRegularScreen;
 
-/// iPhone 12 Pro Max
+/// iPhone 14 Pro Max
+@property (class, nonatomic, readonly) BOOL is67InchScreenAndiPhone14ProMax;
+
+/// iPhone 12,13 Pro Max / iPhone 14 Plus
 @property (class, nonatomic, readonly) BOOL is67InchScreen;
 
 /// iPhone XS Max / 11 Pro Max
 @property (class, nonatomic, readonly) BOOL is65InchScreen;
 
-/// iPhone 12 / 12 Pro
+/// iPhone 14 Pro
+@property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone14Pro;
+
+/// iPhone 12,13 / 12,13 Pro
 @property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone12Later;
 
 /// iPhone XR / 11
@@ -160,8 +166,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// iPhone 4
 @property (class, nonatomic, readonly) BOOL is35InchScreen;
 
+@property (class, nonatomic, readonly) CGSize screenSizeFor67InchAndiPhone14ProMax;
 @property (class, nonatomic, readonly) CGSize screenSizeFor67Inch;
 @property (class, nonatomic, readonly) CGSize screenSizeFor65Inch;
+@property (class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone14Pro;
 @property (class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone12Later;
 @property (class, nonatomic, readonly) CGSize screenSizeFor61Inch;
 @property (class, nonatomic, readonly) CGSize screenSizeFor58Inch;
@@ -181,7 +189,8 @@ NS_ASSUME_NONNULL_BEGIN
 // XS MAX,11Pro Max 6.5        44        44          32         56
 // 12mini           5.4        44        32          32         56
 // 12,12Pro         6.1        44        32          32         56
-// 12Pro Max        6.7        44        44          32         56
+// 12,13 Pro Max    6.7        44        44          32         56
+// 14 Pro Max       6.7        44        44          32         56
 // iPad iOS12之前是44，之后是50                                    56
 @property (class, nonatomic, readonly) CGFloat      navBarHeight;
 @property (class, nonatomic, readonly) CGFloat      navBarHeight_nonFullScreen;

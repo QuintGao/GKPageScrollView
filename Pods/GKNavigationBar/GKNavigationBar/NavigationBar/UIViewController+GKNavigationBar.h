@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置导航栏透明度
 @property (nonatomic, assign) CGFloat               gk_navBarAlpha;
 
-/// 设置返回按钮图片（优先级高于gk_backStyle）
+/// 设置返回按钮图片（优先级高于gk_backStyle，低于gk_navLeftBarButtonItem）
 @property (nonatomic, strong, nullable) UIImage     *gk_backImage;
 @property (nonatomic, strong, nullable) UIImage     *gk_darkBackImage;
 

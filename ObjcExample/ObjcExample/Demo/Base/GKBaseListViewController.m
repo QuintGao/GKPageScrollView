@@ -216,10 +216,8 @@
             [self reloadData];
             
             [self.currentScrollView.mj_header endRefreshing];
-            if (self.refreshCompletion)
-            {
-                self.refreshCompletion();
-            }
+            
+            !self.refreshCompletion ?: self.refreshCompletion();
         });
     }];
 }
@@ -235,11 +233,7 @@
 - (void)refreshWithCompletion:(nullable void(^)(void))completion {
     
     self.refreshCompletion = completion;
-    if (self.listType == GKBaseListType_UITableView) {
-        [self.tableView.mj_header beginRefreshing];
-    }else if (self.listType == GKBaseListType_UICollectionView) {
-        [self.collectionView.mj_header beginRefreshing];
-    }
+    [self.currentScrollView.mj_header beginRefreshing];
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate

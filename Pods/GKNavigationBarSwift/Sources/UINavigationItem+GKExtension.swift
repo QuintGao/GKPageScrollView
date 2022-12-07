@@ -92,7 +92,7 @@ extension NSObject: GKObjectAwakeProtocol {
             if #available(iOS 11.0, *) {
                 let oriSels = ["_UINavigationBarContentView": "layoutSubviews", "_UINavigationBarContentViewLayout": "_updateMarginConstraints"]
                 for (cls, sel) in oriSels {
-                    gk_swizzled_instanceMethod("gk", oldClass: NSClassFromString(cls), oldSelector: sel, newClass: NSObject.classForCoder())
+                    gk_swizzled_instanceMethod("gk", oldClass: NSClassFromString(cls), oldSelector: sel, newClass: NSObject.self)
                 }
             }
         }

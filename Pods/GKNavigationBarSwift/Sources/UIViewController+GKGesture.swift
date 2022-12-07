@@ -50,6 +50,9 @@ import UIKit
     
     /// 是否可以点击返回
     @objc optional func navigationShouldPopOnClick() -> Bool
+    
+    /// 返回手势冲突处理，当返回手势与其他手势冲突如：WKWebView中的手势，可实现以下方法返回YES，让返回手势与其他手势共存来解决手势冲突
+    @objc optional func popGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
 }
 
 public let GKViewControllerPropertyChanged = NSNotification.Name(rawValue: "GKViewControllerPropertyChanged")

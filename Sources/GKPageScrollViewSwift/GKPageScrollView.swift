@@ -383,7 +383,7 @@ open class GKPageScrollView: UIView {
         // listScrollView下滑至offsetY小于0，禁止其滑动，让mainTableView可下滑
         if offsetY <= 0 {
             if self.isDisableMainScrollInCeil {
-                if self.isAllowListRefresh && offsetY < 0 && self.isCeilPoint {
+                if self.isAllowListRefresh && offsetY <= 0 && self.isCeilPoint {
                     self.isMainCanScroll = false
                     self.isListCanScroll = true
                 }else {
@@ -466,7 +466,7 @@ open class GKPageScrollView: UIView {
         
         // 无偏差临界点，对float值取整判断
         if !self.isCeilPoint {
-            if floor(offsetY) == floor(self.criticalPoint) {
+            if round(offsetY) == round(self.criticalPoint) {
                 self.isCeilPoint = true
             }
         }
@@ -535,6 +535,7 @@ open class GKPageScrollView: UIView {
                 }
             }
         }else {
+            if (!self.isLoaded) { return }
             guard let list = self.delegate.listView?(in: self) else { return }
             list.forEach {
                 let scrollView = $0.listScrollView()

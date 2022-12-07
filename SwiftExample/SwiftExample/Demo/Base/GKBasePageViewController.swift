@@ -28,7 +28,7 @@ class GKBasePageViewController: GKDemoBaseViewController {
     lazy var pageView: UIView! = {
         let pageView = UIView()
         pageView.addSubview(self.segmentedView)
-        pageView.addSubview(self.contentScrollView)
+        pageView.addSubview(self.scrollView)
         
         return pageView
     }()
@@ -65,7 +65,7 @@ class GKBasePageViewController: GKDemoBaseViewController {
         lineView.verticalOffset = ADAPTATIONRATIO * 2.0
         segmentedView.indicators = [lineView]
         
-        segmentedView.contentScrollView = self.contentScrollView
+        segmentedView.contentScrollView = self.scrollView
         
         let btmLineView = UIView()
         btmLineView.backgroundColor = UIColor.grayColor(g: 110)
@@ -78,7 +78,7 @@ class GKBasePageViewController: GKDemoBaseViewController {
         return segmentedView
     }()
    
-    lazy var contentScrollView: UIScrollView = {
+    lazy var scrollView: UIScrollView = {
         let scrollW = kScreenW
         let scrollH = kScreenH - kNavBar_Height - kBaseSegmentHeight
         

@@ -428,7 +428,9 @@ extension UIViewController: GKAwakeProtocol {
             }
         }
     }
-    
+}
+
+extension UIViewController {
     // MARK: - 重新系统方法
     private static let onceToken = UUID().uuidString
     @objc public static func gkAwake() {
@@ -454,8 +456,7 @@ extension UIViewController: GKAwakeProtocol {
     @objc func gk_viewDidLoad() {
         // 设置默认状态
         self.gk_disableFixNavItemSpace = true
-        self.gk_openFixNavItemSpace = false
-        
+
         if shouldHandleNavBar() {
             // 设置默认导航栏间距
             self.gk_navItemLeftSpace  = GKNavigationBarItemSpace
@@ -464,20 +465,18 @@ extension UIViewController: GKAwakeProtocol {
         
         // 如果是根控制器，取消返回按钮
         if let nav = self.navigationController, nav.children.count <= 1 {
-            if !self.gk_navBarInit {
-                return
-            }
+            if !self.gk_navBarInit { return }
             self.gk_navLeftBarButtonItem = nil
         }
         gk_viewDidLoad()
     }
     
     @objc func gk_viewWillAppear(_ animated: Bool) {
-        if self.isKind(of: UINavigationController.classForCoder()) { return }
-        if self.isKind(of: UITabBarController.classForCoder()) { return }
-        if self.isKind(of: UIImagePickerController.classForCoder()) { return }
-        if self.isKind(of: UIVideoEditorController.classForCoder()) { return }
-        if self.isKind(of: UIAlertController.classForCoder()) { return }
+        if self.isKind(of: UINavigationController.self) { return }
+        if self.isKind(of: UITabBarController.self) { return }
+        if self.isKind(of: UIImagePickerController.self) { return }
+        if self.isKind(of: UIVideoEditorController.self) { return }
+        if self.isKind(of: UIAlertController.self) { return }
         if NSStringFromClass(self.classForCoder).components(separatedBy: ".").last == "PUPhotoPickerHostViewController" { return }
         if self.navigationController == nil { return }
         
@@ -504,7 +503,7 @@ extension UIViewController: GKAwakeProtocol {
         }
         
         // 当创建了gk_navigationBar或者福控制器是导航控制器的时候才去调整导航栏间距
-        if self.gk_openFixNavItemSpace {
+        if self.shouldFixItemSpace() {
             // 每次控制器出现的时候重置导航栏间距
             if self.gk_navItemLeftSpace == GKNavigationBarItemSpace {
                 self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace
@@ -545,8 +544,8 @@ extension UIViewController: GKAwakeProtocol {
     @objc func gk_traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if #available(iOS 13.0, *) {
             if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-                if self.isKind(of: UINavigationController.classForCoder()) { return }
-                if self.isKind(of: UITabBarController.classForCoder()) { return }
+                if self.isKind(of: UINavigationController.self) { return }
+                if self.isKind(of: UITabBarController.self) { return }
                 if !self.gk_navBarInit { return }
                 
                 // 非根控制器重新设置返回按钮
@@ -554,7 +553,7 @@ extension UIViewController: GKAwakeProtocol {
                 if let nav = self.navigationController, nav.children.first == self {
                     isRootVC = true
                 }
-                if !isRootVC && self.gk_backImage != nil {
+                if !isRootVC && self.gk_backImage != nil && self.gk_navLeftBarButtonItem == nil && self.gk_navLeftBarButtonItems == nil {
                     setBackItemImage(image: self.gk_backImage)
                 }
                 
@@ -601,7 +600,7 @@ extension UIViewController: GKAwakeProtocol {
         }
         
         if shouldPop {
-            self.navigationController?.popViewController(animated: true)            
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -609,11 +608,11 @@ extension UIViewController: GKAwakeProtocol {
         if canFindPresented(self.presentedViewController) {
             return self.presentedViewController?.gk_findCurrentViewController(false)
         }
-        if self.isKind(of: UITabBarController.classForCoder()) {
+        if self.isKind(of: UITabBarController.self) {
             let tabbarVC = self as! UITabBarController
             return tabbarVC.selectedViewController?.gk_findCurrentViewController(false)
         }
-        if self.isKind(of: UINavigationController.classForCoder()) {
+        if self.isKind(of: UINavigationController.self) {
             let navVC = self as! UINavigationController
             return navVC.topViewController?.gk_findCurrentViewController(false)
         }
@@ -629,7 +628,7 @@ extension UIViewController: GKAwakeProtocol {
                         // 是否全屏显示
                         let isFullScreenShow = !obj.view.isHidden && obj.view.alpha > 0.01 && __CGPointEqualToPoint(point, .zero) && __CGSizeEqualToSize(obj.view.bounds.size, windowSize)
                         // 判断类型
-                        let isStopFindController = obj.isKind(of: UINavigationController.classForCoder()) || obj.isKind(of: UITabBarController.classForCoder())
+                        let isStopFindController = obj.isKind(of: UINavigationController.self) || obj.isKind(of: UITabBarController.self)
                         if isFullScreenShow && isStopFindController {
                             currentVC = obj.gk_findCurrentViewController(false)
                             break
@@ -649,7 +648,7 @@ extension UIViewController: GKAwakeProtocol {
     
     fileprivate func canFindPresented(_ viewController: UIViewController?) -> Bool {
         guard let vc = viewController else { return false }
-        if vc.isKind(of: UIAlertController.classForCoder()) {
+        if vc.isKind(of: UIAlertController.self) {
             return false
         }
         if NSStringFromClass(self.classForCoder) == "_UIContextMenuActionsOnlyViewController" {
@@ -664,14 +663,33 @@ extension UIViewController: GKAwakeProtocol {
             return true
         }
         
-        if self.isKind(of: UITabBarController.classForCoder()) {
+        if self.isKind(of: UITabBarController.self) {
             return false
         }
         
-        if let vc = self.parent, vc.isKind(of: UINavigationController.classForCoder()) {
+        if let vc = self.parent, vc.isKind(of: UINavigationController.self) {
             return true
         }
         return false
+    }
+    
+    fileprivate func shouldFixItemSpace() -> Bool {
+        if self.gk_navBarInit {
+            if self.isKind(of: UINavigationController.self) {
+                return false
+            }
+            if self.isKind(of: UITabBarController.self) {
+                return false
+            }
+            if self.navigationController == nil {
+                return false
+            }
+            if let parent = self.parent, !parent.isKind(of: UINavigationController.self) {
+                return false
+            }
+            return true
+        }
+        return self.gk_openFixNavItemSpace
     }
     
     fileprivate func hiddenSystemNavBar() {
@@ -774,7 +792,10 @@ extension UIViewController: GKAwakeProtocol {
                 self.gk_navigationBar.gk_nonFullScreen = true
             }else {
                 if GKDevice.isNotchedScreen { // 刘海屏手机
-                    navBarH = GKDevice.safeAreaInsets().top + gkNavBarH
+                    // iPhone 14 Pro 状态栏高度与安全区域高度不一致，这里改为使用状态栏高度
+                    var topH = GKDevice.statusBarFrame().height
+                    if topH == 0 { topH = GKDevice.safeAreaInsets().top }
+                    navBarH = topH + gkNavBarH
                 }else {
                     navBarH = self.gk_statusBarHidden ? gkNavBarH : gkStatusBarNavBarH
                 }
@@ -835,7 +856,7 @@ extension UIViewController: GKAwakeProtocol {
         
         if backImage == nil { return }
         
-        self.gk_navLeftBarButtonItem = UIBarButtonItem.gk_item(image: backImage, target: self, action: #selector(backItemClick(_:)))
+        self.gk_navigationItem.leftBarButtonItem = UIBarButtonItem.gk_item(image: backImage, target: self, action: #selector(backItemClick(_:)))
     }
     
     fileprivate func setNavBackground(_ image: UIImage?) {
@@ -901,9 +922,11 @@ extension UIViewController: GKAwakeProtocol {
             gk_navigationBar.standardAppearance = appearance
             gk_navigationBar.scrollEdgeAppearance = appearance
         }else {
-            guard image == nil, let color = color else { return }
-            let image = UIImage.gk_image(with: color)
-            gk_navigationBar.setBackgroundImage(image, for: .default)
+            var bgImage = image
+            if bgImage == nil, let color = color {
+                bgImage = UIImage.gk_image(with: color)
+            }
+            gk_navigationBar.setBackgroundImage(bgImage, for: .default)
         }
     }
     
@@ -920,9 +943,11 @@ extension UIViewController: GKAwakeProtocol {
             gk_navigationBar.standardAppearance = appearance
             gk_navigationBar.scrollEdgeAppearance = appearance
         }else {
-            guard image == nil, let color = color else { return }
-            let image = UIImage.gk_change(with: UIImage.gk_image(with: "nav_line"), color: color)
-            gk_navigationBar.shadowImage = image
+            var shadowImage = image
+            if shadowImage == nil, let color = color {
+                shadowImage = UIImage.gk_change(with: UIImage.gk_image(with: "nav_line"), color: color)
+            }
+            gk_navigationBar.shadowImage = shadowImage
         }
     }
     

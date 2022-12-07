@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) GKPageScrollView  *pageScrollView;
 
 @property (nonatomic, strong) JXCategoryTitleView   *segmentView;
-@property (nonatomic, strong) UIScrollView          *contentScrollView;
+@property (nonatomic, strong) UIScrollView          *scrollView;
 
 @property (nonatomic, strong) NSArray           *childVCs;
 

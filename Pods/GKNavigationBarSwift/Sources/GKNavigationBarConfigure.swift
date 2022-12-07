@@ -180,8 +180,8 @@ open class GKNavigationBarConfigure : NSObject {
     
     /// 获取当前item修复间距
     open func gk_fixedSpace() -> CGFloat {
-        // 经测试发现iPhone 12，iPhone 12，默认导航栏间距是16，需要单独处理
-        if GKDevice.is61InchScreenAndiPhone12Later { return 16 }
+        // 经测试发现iPhone 12，iPhone 12 Pro，iPhone 14 Pro默认导航栏间距是16，需要单独处理
+        if GKDevice.is61InchScreenAndiPhone12Later || GKDevice.is61InchScreenAndiPhone14Pro { return 16 }
         return GKDevice.width > 375.0 ? 20 : 16
     }
     
@@ -298,7 +298,7 @@ open class GKDevice {
     
     /// 将屏幕分为普通和紧凑两种，这个方法用于判断普通屏幕（也即大屏幕）
     public static func isRegularScreen() -> Bool {
-        return isIPad || (!isZoomedMode() && (is67InchScreen || is65InchScreen || is61InchScreen || is55InchScreen))
+        return isIPad || (!isZoomedMode() && (is67InchScreenAndiPhone14ProMax || is67InchScreen || is65InchScreen || is61InchScreen || is55InchScreen))
     }
     
     /// 是否是横屏
@@ -524,6 +524,11 @@ extension GKDevice {
     }()
     
     // MARK - Screen
+    /// iPhone 14 Pro Max
+    public static let is67InchScreenAndiPhone14ProMax: Bool = {
+        return width == _67InchAndiPhone14ProMax.width && height == _67InchAndiPhone14ProMax.height
+    }()
+    
     /// iPhone 12 Pro Max
     public static let is67InchScreen: Bool = {
         return width == _67Inch.width && height == _67Inch.height
@@ -533,6 +538,11 @@ extension GKDevice {
     public static let is65InchScreen: Bool = {
         // 由于 iPhone XS Max、iPhone 11 Pro Max 这两款机型和 iPhone XR 的屏幕宽高是一致的，我们通过机器的 Identifier 加以区别
         return (width == _65Inch.width && height == _65Inch.height && (deviceModel == "iPhone11,4" || deviceModel == "iPhone11,6" || deviceModel == "iPhone12,5"))
+    }()
+    
+    /// iPhone 14 Pro
+    public static let is61InchScreenAndiPhone14Pro: Bool = {
+        return width == _61InchAndiPhone14Pro.width && height == _61InchAndiPhone14Pro.height
     }()
     
     /// iPhone 12 / 12 Pro
@@ -576,12 +586,20 @@ extension GKDevice {
         return width == _35Inch.width && height == _35Inch.height
     }()
     
+    public static let _67InchAndiPhone14ProMax: CGSize = {
+       return CGSize(width: 430, height: 932)
+    }()
+    
     public static let _67Inch: CGSize = {
         return CGSize(width: 428, height: 926)
     }()
     
     public static let _65Inch: CGSize = {
         return CGSize(width: 414, height: 896)
+    }()
+    
+    public static let _61InchAndiPhone14Pro: CGSize = {
+        return CGSize(width: 393, height: 852)
     }()
     
     public static let _61InchAndiPhone12Later: CGSize = {

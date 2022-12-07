@@ -196,50 +196,24 @@ github "QuintGao/GKNavigationBar"
 ```
 </details>
 
-<details>
-  <summary><font size=3>7、如何屏蔽某些控制器？</font></summary>
-
-```
-// 屏蔽导航栏间距处理
-configure.shiledItemSpaceVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
-
-// 屏蔽手势处理
-configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @"TZAlbumPickerController", @"TZ"];
-```
-</details>
-
 ## 版本记录
 
 <details open>
   <summary><font size=4>最近更新</font></summary>
 
 ```
-1.7.5 - 2022.06.22 优化backImage的显示
-1.7.4 - 2022.04.20 修复设置背景色为[UIColor clearColor]无效的bug #100，#101
-1.7.3 - 2022.04.15 导航栏设置适配iOS13及以后
-1.7.2 - 2022.03.21 细节优化，修复push UITabBarController时的问题
-1.7.1 - 2022.03.09 根控制器左侧item处理优化，暗黑模式适配优化
-1.7.0 - 2022.02.25 导航栏item间距优化处理
-1.6.6 - 2022.01.26 新机型适配优化
-1.6.5 - 2022.01.20 修复设置gk_disableFixNavItemSpace后gk_disableFixSpace无效的bug#93
-1.6.4 - 2022.01.04 新增darkBackgroundImage、darkLineImage等适配暗黑模式导航图片
-1.6.2 - 2021.12.29 修复设置gk_disableFixSpace为YES无效的bug #16
-1.6.1 - 2021.11.08 1、修复设置gk_systemGestureHandleDisabled后TabBar偏移问题 #90
-                   2、新增gk_hidesBottomBarWhenPushed，可全局配置push时是否隐藏TabBar
-1.6.0 - 2021.09.09 修复visibleViewController方法返回错误问题
-1.5.9 - 2021.06.25 配置类增加backgroundImage，可设置全局导航图片
-1.5.8 - 2021.06.09 增加恢复系统导航栏显示的逻辑及方法 #86
-1.5.7 - 2021.05.20 修复bug #78，创建导航栏item方法优化
-1.5.6 - 2021.05.18 优化导航栏返回按钮及高度处理#77，手势处理优化
-1.5.5 - 2021.05.14 修复导航栏间距失效的问题#76
-1.5.4 - 2021.05.12 修复可能提前触发viewDidLoad方法的问题
-1.5.3 - 2021.05.07 修复直接设置背景色无效的问题#71，#74，增加对非全屏的支持
-1.5.2 - 2021.04.06 增加协议方法，解决返回手势与WKWebView中的手势冲突问题
-1.5.1 - 2021.03.09 返回手势优化，新增backStyle对应的image，可全局配置
-1.5.0 - 2021.03.05  
-----1、优化状态栏样式修改及显隐方法，可以不用在基类实现相关方法  
-----2、导航栏添加机制优化，修复某些情况下可能出现两个导航栏的bug  
-----3、增加全局开启UIScrollView手势处理方法
+* 1.8.1 - 2022.09.29 移除导航栏上的点击事件
+* 1.8.0 - 2022.09.16 导航栏高度适配iPhone 14系列新设备
+* 1.7.9 - 2022.08.18 修复侧滑返回可能出现导航栏间距不准确问题
+* 1.7.8 - 2022.08.16 屏蔽导航栏的touches事件和点击事件
+* 1.7.7 - 2022.07.29 修复当子控制器有GKNavigationBar时，导航栏item间距失效的问题 #103
+* 1.7.6 - 2022.07.22 修复只设置backImage后，返回按钮显示错误的问题
+* 1.7.5 - 2022.06.22 优化backImage的显示
+* 1.7.4 - 2022.04.20 修复设置背景色为[UIColor clearColor]无效的bug #100，#101
+* 1.7.3 - 2022.04.15 导航栏设置适配iOS13及以后
+* 1.7.2 - 2022.03.21 细节优化，修复push UITabBarController时的问题
+* 1.7.1 - 2022.03.09 根控制器左侧item处理优化，暗黑模式适配优化
+* 1.7.0 - 2022.02.25 导航栏item间距优化处理
 ```
 </details>
 
@@ -247,6 +221,26 @@ configure.shiledGuestureVCs = @[NSClassFromString(@"TZPhotoPickerController"), @
   <summary><font size=4>历史更新</font></summary>
 
 ```
+* 1.6.6 - 2022.01.26 新机型适配优化
+* 1.6.5 - 2022.01.20 修复设置gk_disableFixNavItemSpace后gk_disableFixSpace无效的bug#93
+* 1.6.4 - 2022.01.04 新增darkBackgroundImage、darkLineImage等适配暗黑模式导航图片
+* 1.6.2 - 2021.12.29 修复设置gk_disableFixSpace为YES无效的bug #16
+* 1.6.1 - 2021.11.08 1、修复设置gk_systemGestureHandleDisabled后TabBar偏移问题 #90
+                   2、新增gk_hidesBottomBarWhenPushed，可全局配置push时是否隐藏TabBar
+* 1.6.0 - 2021.09.09 修复visibleViewController方法返回错误问题
+* 1.5.9 - 2021.06.25 配置类增加backgroundImage，可设置全局导航图片
+* 1.5.8 - 2021.06.09 增加恢复系统导航栏显示的逻辑及方法 #86
+* 1.5.7 - 2021.05.20 修复bug #78，创建导航栏item方法优化
+* 1.5.6 - 2021.05.18 优化导航栏返回按钮及高度处理#77，手势处理优化
+* 1.5.5 - 2021.05.14 修复导航栏间距失效的问题#76
+* 1.5.4 - 2021.05.12 修复可能提前触发viewDidLoad方法的问题
+* 1.5.3 - 2021.05.07 修复直接设置背景色无效的问题#71，#74，增加对非全屏的支持
+* 1.5.2 - 2021.04.06 增加协议方法，解决返回手势与WKWebView中的手势冲突问题
+* 1.5.1 - 2021.03.09 返回手势优化，新增backStyle对应的image，可全局配置
+* 1.5.0 - 2021.03.05  
+----1、优化状态栏样式修改及显隐方法，可以不用在基类实现相关方法  
+----2、导航栏添加机制优化，修复某些情况下可能出现两个导航栏的bug  
+----3、增加全局开启UIScrollView手势处理方法
 * 1.4.3 - 2021.02.23 导航栏高度适配优化，导航栏间距调整优化，控制器增加禁止导航栏间距调整属性#62 #67
 * 1.4.2 - 2021.02.20 返回拦截优化，增加同时处理点击返回和手势返回的方法
 * 1.4.1 - 2021.02.07 暗黑模式适配优化，导航栏背景色和分割线颜色支持设置动态颜色

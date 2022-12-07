@@ -44,10 +44,10 @@ extension UINavigationController: GKGestureChildAwakeProtocol {
     
     @objc func gkNavGesture_viewDidLoad() {
         if self.gk_openGestureHandle {
-            if self.isKind(of: UIImagePickerController.classForCoder()) {
+            if self.isKind(of: UIImagePickerController.self) {
                 return
             }
-            if self.isKind(of: UIVideoEditorController.classForCoder()) {
+            if self.isKind(of: UIVideoEditorController.self) {
                 return
             }
             
@@ -118,7 +118,6 @@ extension UINavigationController: GKGestureChildAwakeProtocol {
         if self.gk_openGestureHandle {
             NotificationCenter.default.removeObserver(self, name: GKViewControllerPropertyChanged, object: nil)
         }
-        gkNavGesture_dealloc()
     }
     
     @objc func propertyChangeNotification(_ notify: Notification) {
@@ -127,8 +126,8 @@ extension UINavigationController: GKGestureChildAwakeProtocol {
         let vc: UIViewController = obj["viewController"] as! UIViewController
         
         // 不处理导航控制器和tabbar控制器
-        if vc.isKind(of: UINavigationController.classForCoder()) { return }
-        if vc.isKind(of: UITabBarController.classForCoder()) { return }
+        if vc.isKind(of: UINavigationController.self) { return }
+        if vc.isKind(of: UITabBarController.self) { return }
         if vc.navigationController == nil { return }
         if vc.navigationController != self { return }
         // 修复非导航控制器子类时出现的问题

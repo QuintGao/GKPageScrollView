@@ -46,12 +46,11 @@
 - (void)gk_viewDidLoad {
     // 设置默认状态
     self.gk_disableFixNavItemSpace = YES;
-    self.gk_openFixNavItemSpace = NO;
     
     if ([self shouldHandleNavBar]) {
         // 设置默认导航栏间距
-        self.gk_navItemLeftSpace    = GKNavigationBarItemSpace;
-        self.gk_navItemRightSpace   = GKNavigationBarItemSpace;
+        self.gk_navItemLeftSpace  = GKNavigationBarItemSpace;
+        self.gk_navItemRightSpace = GKNavigationBarItemSpace;
     }
     
     // 如果是根控制器，取消返回按钮
@@ -92,7 +91,7 @@
     
     // bug fix #76，修改添加了子控制器后调整导航栏间距无效的bug
     // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
-    if (self.gk_openFixNavItemSpace) {
+    if ([self shouldFixItemSpace]) {
         // 每次控制器出现的时候重置导航栏间距
         if (self.gk_navItemLeftSpace == GKNavigationBarItemSpace) {
             self.gk_navItemLeftSpace = GKConfigure.navItemLeftSpace;
@@ -120,7 +119,6 @@
     }else {
         [self restoreSystemNavBar];
     }
-    
     [self gk_viewDidAppear:animated];
 }
 
@@ -148,7 +146,7 @@
             
             // 非根控制器重新设置返回按钮
             BOOL isRootVC = self == self.navigationController.childViewControllers.firstObject;
-            if (!isRootVC && self.gk_backImage) {
+            if (!isRootVC && self.gk_backImage && !self.gk_navLeftBarButtonItem && !self.gk_navLeftBarButtonItems) {
                 [self setBackItemImage:self.gk_backImage];
             }
             
@@ -468,7 +466,6 @@ static char kAssociatedObjectKey_navLeftBarButtonItem;
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navLeftBarButtonItem, gk_navLeftBarButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     self.gk_navigationItem.leftBarButtonItem = gk_navLeftBarButtonItem;
-    if (self.gk_backImage) self.gk_backImage = nil;
 }
 
 - (UIBarButtonItem *)gk_navLeftBarButtonItem {
@@ -480,7 +477,6 @@ static char kAssociatedObjectKey_navLeftBarButtonItems;
     objc_setAssociatedObject(self, &kAssociatedObjectKey_navLeftBarButtonItems, gk_navLeftBarButtonItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     self.gk_navigationItem.leftBarButtonItems = gk_navLeftBarButtonItems;
-    if (self.gk_backImage) self.gk_backImage = nil;
 }
 
 - (NSArray<UIBarButtonItem *> *)gk_navLeftBarButtonItems {
@@ -752,7 +748,10 @@ static char kAssociatedObjectKey_navItemRightSpace;
             self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
             if (GK_NOTCHED_SCREEN) { // 刘海屏手机
-                navBarH = GK_SAFEAREA_TOP + GK_NAVBAR_HEIGHT;
+                // iOS 14 pro 状态栏高度与安全区域高度不一致，这里改为使用状态栏高度
+                CGFloat topH = GK_STATUSBAR_HEIGHT;
+                if (topH == 20) topH = GK_SAFEAREA_TOP;
+                navBarH = topH + GK_NAVBAR_HEIGHT;
             }else {
                 navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
             }
@@ -784,6 +783,17 @@ static char kAssociatedObjectKey_navItemRightSpace;
     return NO;
 }
 
+- (BOOL)shouldFixItemSpace {
+    if (self.gk_NavBarInit) {
+        if ([self isKindOfClass:UINavigationController.class]) return NO;
+        if ([self isKindOfClass:UITabBarController.class]) return NO;
+        if (!self.navigationController) return NO;
+        if (![self.parentViewController isKindOfClass:UINavigationController.class]) return NO;
+        return YES;
+    }
+    return self.gk_openFixNavItemSpace;
+}
+
 - (void)setBackItemImage:(UIImage *)image {
     if (!self.gk_NavBarInit) return;
     // 根控制器不作处理
@@ -811,7 +821,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
     // 没有image
     if (!image) return;
     
-    self.gk_navLeftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
+    self.gk_navigationItem.leftBarButtonItem = [UIBarButtonItem gk_itemWithImage:image target:self action:@selector(backItemClick:)];
 }
 
 - (void)setNavBackgroundImage:(UIImage *)image {

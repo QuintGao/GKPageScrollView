@@ -285,7 +285,7 @@
                 }
             }
         }else {
-            if (self.isAllowListRefresh && offsetY <= 0 && self.mainTableView.contentOffset.y == 0) {
+            if (self.isAllowListRefresh && offsetY < 0 && self.mainTableView.contentOffset.y == 0) {
                 self.isMainCanScroll = NO;
                 self.isListCanScroll = YES;
             }else {
@@ -354,7 +354,7 @@
     
     // 无偏差临界点，对float值取整判断
     if (!self.isCeilPoint ) {
-        if (floor(offsetY) == floor(self.criticalPoint)) {
+        if (round(offsetY) == round(self.criticalPoint)) {
             self.isCeilPoint = YES;
         }
     }
@@ -416,6 +416,7 @@
             }
         }
     }else {
+        if (!self.isLoaded) return;
         [[self.delegate listViewsInPageScrollView:self] enumerateObjectsUsingBlock:^(id<GKPageListViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIScrollView *listScrollView = [obj listScrollView];
             [self setScrollView:listScrollView offset:CGPointZero];

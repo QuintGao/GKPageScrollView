@@ -28,6 +28,7 @@ class ViewController: GKDemoBaseViewController {
                                                              ["title": "抖音个人主页", "class": "GKDYViewController"],
                                                              ["title": "主页刷新", "class": "GKMainRefreshViewController"],
                                                              ["title": "列表刷新", "class": "GKListRefreshViewController"],
+                                                             ["title": "主页和列表同时支持刷新", "class": "GKAllRefreshViewController"],
                                                              ["title": "列表懒加载", "class": "GKListLoadViewController"],
                                                              ["title": "item加载", "class": "GKItemLoadViewController"],
                                                              ["title": "Header左右滑动", "class": "GKHeaderScrollViewController"],

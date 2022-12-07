@@ -188,10 +188,10 @@ extension GKNavigationInteractiveTransition: UINavigationControllerDelegate {
     }
     
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if self.pushTransition != nil && animationController.isKind(of: GKPushAnimatedTransition.classForCoder()) {
+        if self.pushTransition != nil && animationController.isKind(of: GKPushAnimatedTransition.self) {
             return self.pushTransition
         }
-        if self.popTransition != nil && animationController.isKind(of: GKPopAnimatedTransition.classForCoder()) {
+        if self.popTransition != nil && animationController.isKind(of: GKPopAnimatedTransition.self) {
             return self.popTransition
         }
         return nil
@@ -201,7 +201,7 @@ extension GKNavigationInteractiveTransition: UINavigationControllerDelegate {
 extension GKNavigationInteractiveTransition: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         // 不是UIPanGestureRecognizer，不作处理
-        if gestureRecognizer.isKind(of: UIPanGestureRecognizer.classForCoder()) == false {
+        if gestureRecognizer.isKind(of: UIPanGestureRecognizer.self) == false {
             return true
         }
         
@@ -271,5 +271,21 @@ extension GKNavigationInteractiveTransition: UIGestureRecognizerDelegate {
         if self.navigationController.value(forKey: "_isTransitioning") as? Bool == true { return false }
         
         return true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // 获取当前显示的VC
+        guard let visibleVC = navigationController.visibleViewController else { return false }
+        
+        let selector = NSSelectorFromString("popGestureRecognizer:shouldRecognizeSimultaneouslyWith:")
+        if visibleVC.responds(to: selector) {
+            if visibleVC.perform(selector, with: gestureRecognizer, with: otherGestureRecognizer) != nil {
+                return true
+            }else {
+                return false
+            }
+        }
+        
+        return false
     }
 }

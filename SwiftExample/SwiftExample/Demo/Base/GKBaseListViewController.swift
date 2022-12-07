@@ -39,6 +39,8 @@ class GKBaseListViewController: UIViewController {
     
     var scrollCallBack: ((UIScrollView) -> ())?
     
+    var refreshBlock: (() -> ())?
+    
     public lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.dataSource = self
@@ -277,14 +279,21 @@ class GKBaseListViewController: UIViewController {
     }
     
     public func addHeaderRefresh() {
-        self.currentScrollView!.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+        self.currentScrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             DispatchQueue.main.asyncAfter(deadline: .now() + kRefreshDuration, execute: {
                 self.currentScrollView!.mj_header?.endRefreshing()
                 
                 self.count = 30
                 self.reloadData()
+                
+                self.refreshBlock?()
             })
         })
+    }
+    
+    public func refresh(_ block: (() -> ())?) {
+        refreshBlock = block
+        self.currentScrollView?.mj_header?.beginRefreshing()
     }
 }
 
