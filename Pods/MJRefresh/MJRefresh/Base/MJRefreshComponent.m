@@ -182,7 +182,8 @@
 #pragma mark 结束刷新状态
 - (void)endRefreshing
 {
-    MJRefreshDispatchAsyncOnMainQueue(self.state = MJRefreshStateIdle;)
+//    MJRefreshDispatchAsyncOnMainQueue(self.state = MJRefreshStateIdle;)
+    self.state = MJRefreshStateIdle;
 }
 
 - (void)endRefreshingWithCompletionBlock:(void (^)(void))completionBlock

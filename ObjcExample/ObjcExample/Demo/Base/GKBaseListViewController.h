@@ -34,6 +34,7 @@ typedef NS_ENUM(NSUInteger, GKBaseListType) {
 - (void)addHeaderRefresh;
 
 - (void)reloadData;
+- (void)refreshWithCompletion:(nullable void(^)(void))completion;
 
 @end
 

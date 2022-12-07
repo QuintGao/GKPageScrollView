@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43F1A7542936F4880052BD91 /* GKAllRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F1A7532936F4880052BD91 /* GKAllRefreshViewController.m */; };
 		600408A826A51086001788E5 /* GKPageMainDisabledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600408A726A51086001788E5 /* GKPageMainDisabledViewController.m */; };
 		60225D3025CD1A0800B77B1F /* JXCategoryPinTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D2F25CD1A0800B77B1F /* JXCategoryPinTitleCell.m */; };
 		60225D3325CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60225D3225CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m */; };
@@ -79,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43F1A7522936F4880052BD91 /* GKAllRefreshViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKAllRefreshViewController.h; sourceTree = "<group>"; };
+		43F1A7532936F4880052BD91 /* GKAllRefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKAllRefreshViewController.m; sourceTree = "<group>"; };
 		600408A626A51086001788E5 /* GKPageMainDisabledViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKPageMainDisabledViewController.h; sourceTree = "<group>"; };
 		600408A726A51086001788E5 /* GKPageMainDisabledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKPageMainDisabledViewController.m; sourceTree = "<group>"; };
 		60225D2E25CD1A0800B77B1F /* JXCategoryPinTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPinTitleCell.h; sourceTree = "<group>"; };
@@ -209,6 +212,15 @@
 				070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43F1A7512936F44C0052BD91 /* AllRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				43F1A7522936F4880052BD91 /* GKAllRefreshViewController.h */,
+				43F1A7532936F4880052BD91 /* GKAllRefreshViewController.m */,
+			);
+			path = AllRefresh;
 			sourceTree = "<group>";
 		};
 		600408A526A5105D001788E5 /* MainScrollDisabled */ = {
@@ -485,6 +497,7 @@
 		609E45E6268C4E5F004FC127 /* GKPageScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				43F1A7512936F44C0052BD91 /* AllRefresh */,
 				609B8E58259AFD80000F1EB9 /* 微博 */,
 				609B8E4E259AFD80000F1EB9 /* 网易云音乐 */,
 				609B8E87259AFD81000F1EB9 /* 抖音 */,
@@ -688,6 +701,7 @@
 				609B8E94259AFD81000F1EB9 /* GKTestListCollectionView.m in Sources */,
 				609B8EB0259AFD81000F1EB9 /* GKNestListView.m in Sources */,
 				609B8EA6259AFD81000F1EB9 /* GKWBFindViewController.m in Sources */,
+				43F1A7542936F4880052BD91 /* GKAllRefreshViewController.m in Sources */,
 				609B8EB3259AFD81000F1EB9 /* GKDemoBaseViewController.m in Sources */,
 				609B8DFA259AFC71000F1EB9 /* main.m in Sources */,
 				609B8E91259AFD81000F1EB9 /* GKTestScrollView.m in Sources */,
@@ -832,7 +846,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P756K496H9;
+				DEVELOPMENT_TEAM = JRJ69X9H3J;
 				GCC_PREFIX_HEADER = ObjcExample/PrefixHeader.pch;
 				INFOPLIST_FILE = ObjcExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -840,7 +854,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.ObjcExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lichenguang.ObjcExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -855,7 +869,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P756K496H9;
+				DEVELOPMENT_TEAM = JRJ69X9H3J;
 				GCC_PREFIX_HEADER = ObjcExample/PrefixHeader.pch;
 				INFOPLIST_FILE = ObjcExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -863,7 +877,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.ObjcExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lichenguang.ObjcExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
