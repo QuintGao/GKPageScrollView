@@ -64,8 +64,8 @@ class GKDBViewController: GKDemoBaseViewController {
     var dataSource = JXSegmentedNumberDataSource()
     
     lazy var titleSegmentedView: JXSegmentedView = {
-        dataSource.titles = ["影评", "讨论"]
-        dataSource.numbers = [342, 200]
+        dataSource.titles = ["影评", "讨论", "精选"]
+        dataSource.numbers = [342, 200, 50]
         dataSource.isItemSpacingAverageEnabled = false
         dataSource.numberBackgroundColor = UIColor.clear
         dataSource.numberTextColor = UIColor.gray
@@ -158,9 +158,14 @@ extension GKDBViewController: GKPageSmoothViewDataSource {
     }
     
     func smoothView(_ smoothView: GKPageSmoothView, initListAtIndex index: Int) -> GKPageSmoothListViewDelegate {
-//        return GKDBListView()
+//        var type: GKDBListType = .tableView
+//        if index == 1 {
+//            type = .collectionView
+//        }
+//
+//        return GKDBListView(type: type)
         
-        let listVC = GKBaseListViewController(listType: GKBaseListType(rawValue: 0) ?? .UITableView)
+        let listVC = GKBaseListViewController(listType: GKBaseListType(rawValue: index)!)
         listVC.shouldLoadData = true
         return listVC
     }

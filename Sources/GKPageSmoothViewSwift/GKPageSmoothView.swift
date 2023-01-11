@@ -450,7 +450,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                     scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: minContentSizeHeight)
                     //新的scrollView第一次加载的时候重置contentOffset
                     if let listScrollView = self.currentListScrollView {
-                        if scrollView != listScrollView {
+                        if scrollView != listScrollView && scrollView.contentSize != .zero && !isOnTop {
                             scrollView.contentOffset = CGPoint(x: 0, y: self.currentListInitailzeContentOffsetY)
                         }
                     }
@@ -462,7 +462,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                         }
                     }
                     
-                    if minContentSizeHeight > contentH && shoudReset {
+                    if minContentSizeHeight > contentH && shoudReset && !isMainScrollDisabled {
                         scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
                         listDidScroll(scrollView: scrollView)
                     }
@@ -769,7 +769,9 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             self.listDict.values.forEach { [weak self] in
                 guard let self = self else { return }
                 $0.listScrollView().contentInset = UIEdgeInsets(top: self.headerContainerHeight, left: 0, bottom: 0, right: 0)
-                self.set(scrollView: $0.listScrollView(), offset: .zero)
+                if $0.listScrollView() != self.currentListScrollView {
+                    self.set(scrollView: $0.listScrollView(), offset: .zero)
+                }
                 
                 var frame = $0.listView().frame
                 frame.size = self.listCollectionView.bounds.size
@@ -781,7 +783,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     
     fileprivate func set(scrollView: UIScrollView?, offset: CGPoint) {
         if !__CGPointEqualToPoint(scrollView?.contentOffset ?? .zero, offset) {
-            scrollView?.contentOffset = offset
+            scrollView?.setContentOffset(offset, animated: false)
         }
     }
 }
@@ -806,6 +808,13 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             let listScrollView = list?.listScrollView()
             if #available(iOS 11.0, *) {
                 list?.listScrollView().contentInsetAdjustmentBehavior = .never
+            }
+            
+            if let scrollView = list?.listScrollView() {
+                let minContentSizeHeight = self.bounds.size.height - segmentedHeight - ceilPointHeight
+                if scrollView.contentSize.height < minContentSizeHeight && isHoldUpScrollView {
+                    scrollView.contentSize = CGSize(width: bounds.size.width, height: minContentSizeHeight)
+                }
             }
             
             if !self.isMainScrollDisabled {

@@ -19,6 +19,17 @@ enum GKBaseListType: Int {
     case WKWebView
 }
 
+class GKBaseCollectionViewLayout : UICollectionViewFlowLayout {
+//    override var collectionViewContentSize: CGSize {
+//        let minContentSizeHeight = collectionView!.bounds.size.height - 60
+//        let size = super.collectionViewContentSize
+//        if size.height < minContentSizeHeight {
+//            return CGSize(width: size.width, height: minContentSizeHeight)
+//        }
+//        return size
+//    }
+}
+
 class GKBaseListViewController: UIViewController {
 
     init(listType: GKBaseListType) {
@@ -54,7 +65,7 @@ class GKBaseListViewController: UIViewController {
     }()
     
     public lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = GKBaseCollectionViewLayout()
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 20
         layout.itemSize = CGSize(width: (kScreenW - 60)/2, height: (kScreenW - 60)/2)
@@ -232,7 +243,9 @@ class GKBaseListViewController: UIViewController {
     
     func addCellToScrollView() {
         for subView in self.scrollView.subviews {
-            subView.removeFromSuperview()
+            if subView.isKind(of: UILabel.self) {
+                subView.removeFromSuperview()
+            }
         }
         
         var lastView: UIView?

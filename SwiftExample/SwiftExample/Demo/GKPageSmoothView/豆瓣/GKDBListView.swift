@@ -9,7 +9,23 @@
 import UIKit
 import GKPageSmoothView
 
+enum GKDBListType {
+    case scrollView
+    case tableView
+    case collectionView
+}
+
 class GKDBListView: UIView {
+    
+    var type: GKDBListType = .tableView
+    
+//    var listScrollView: UIScrollView?
+    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.dataSource = self;
@@ -18,16 +34,37 @@ class GKDBListView: UIView {
         return tableView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.addSubview(self.tableView)
-        self.tableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self)
-        }
+    lazy var collectionView: UICollectionView = {
+        let layout = GKBaseCollectionViewLayout()
+        layout.itemSize = CGSizeMake((kScreenW  - 30)/2, (kScreenW  - 30) / 2)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.alwaysBounceVertical = true
+        return collectionView
+    }()
+    
+    convenience init(type: GKDBListType) {
+        self.init()
+        self.type = type
+        initUI()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func initUI() {
+        if type == .tableView {
+            scrollView = tableView
+        }else {
+            scrollView = collectionView
+        }
+        addSubview(scrollView)
+        scrollView.snp.makeConstraints {
+            $0.edges.equalTo(self)
+        }
     }
 }
 
@@ -43,12 +80,24 @@ extension GKDBListView: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension GKDBListView: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .red
+        return cell
+    }
+}
+
 extension GKDBListView: GKPageSmoothListViewDelegate {
     func listView() -> UIView {
         return self
     }
     
     func listScrollView() -> UIScrollView {
-        return self.tableView
+        return self.scrollView
     }
 }

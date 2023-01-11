@@ -67,11 +67,11 @@
 }
 
 - (id<GKPageSmoothListViewDelegate>)smoothView:(GKPageSmoothView *)smoothView initListAtIndex:(NSInteger)index {
-    GKDBListView *listView = [GKDBListView new];
-    return listView;
-//    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
-//    listVC.shouldLoadData = YES;
-//    return listVC;
+//    GKDBListView *listView = [GKDBListView new];
+//    return listView;
+    GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
+    listVC.shouldLoadData = YES;
+    return listVC;
 }
 
 #pragma mark - GKPageSmoothViewDelegate
@@ -195,11 +195,11 @@
         _categoryView.averageCellSpacingEnabled = NO;
         _categoryView.contentEdgeInsetLeft = 16;
         _categoryView.delegate = self;
-        _categoryView.titles = @[@"影评", @"讨论"];
+        _categoryView.titles = @[@"影评", @"讨论", @"精选"];
         _categoryView.titleFont = [UIFont systemFontOfSize:16];
         _categoryView.titleColor = UIColor.grayColor;
         _categoryView.titleSelectedColor = UIColor.blackColor;
-        _categoryView.subTitles = @[@"342", @"2004"];
+        _categoryView.subTitles = @[@"342", @"2004", @"50"];
         _categoryView.subTitleFont = [UIFont systemFontOfSize:11];
         _categoryView.subTitleColor = UIColor.grayColor;
         _categoryView.subTitleSelectedColor = UIColor.grayColor;
