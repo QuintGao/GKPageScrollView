@@ -157,6 +157,7 @@
 // 当前已经加载过的可用的列表字典，key是index值，value是对应列表
 @property (nonatomic, strong, readonly) NSDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
 
+// 横向滑动的scrollView列表，用于解决左右滑动与上下滑动手势冲突
 @property (nonatomic, strong) NSArray *horizontalScrollViewList;
 
 // 吸顶临界点高度（默认值：状态栏+导航栏）
@@ -185,6 +186,9 @@
 
 // 当调用refreshHeaderView方法后，是否保持临界状态，默认NO
 @property (nonatomic, assign, getter=isKeepCriticalWhenRefreshHeader) BOOL keepCriticalWhenRefreshHeader;
+
+// 自动查找横向scrollView，设置为YES则不用传入horizontalScrollViewList，默认NO
+@property (nonatomic, assign, getter=isAutoFindHorizontalScrollView) BOOL autoFindHorizontalScrollView;
 
 // 内部属性，尽量不要修改
 // 是否滑动到临界点，可有偏差

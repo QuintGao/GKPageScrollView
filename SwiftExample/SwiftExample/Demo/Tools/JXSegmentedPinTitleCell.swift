@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import JXSegmentedView
+import JXSegmentedViewExt
 
 class JXSegmentedPinTitleCell: JXSegmentedTitleCell {
     public let pinImgView = UIImageView()

@@ -7,7 +7,7 @@
 
 import UIKit
 import GKPageSmoothView
-import JXSegmentedView
+import JXSegmentedViewExt
 
 class GKSmoothMainDisabledViewController: GKDemoBaseViewController {
 

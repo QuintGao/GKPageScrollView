@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import JXSegmentedView
+import JXSegmentedViewExt
 
 class JXSegmentedPinTitleItemModel: JXSegmentedTitleItemModel {
     open var pinImage: UIImage?

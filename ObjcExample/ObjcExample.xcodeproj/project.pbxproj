@@ -61,6 +61,7 @@
 		609B8EB8259AFD81000F1EB9 /* GKDYHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B8E8D259AFD81000F1EB9 /* GKDYHeaderView.m */; };
 		609E45EA268D563A004FC127 /* GKSmoothMainDisabledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */; };
 		60A14E6A262D19A500279CC1 /* GKSmoothListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */; };
+		7991D49029F60A17002AADCD /* 手势处理.md in Resources */ = {isa = PBXBuildFile; fileRef = 7991D48F29F60A17002AADCD /* 手势处理.md */; };
 		79A1906328C0870400578979 /* GKChangeHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A1906228C0870400578979 /* GKChangeHeaderViewController.m */; };
 		B927B5B5BAC834684BC6753C /* libPods-ObjcExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */; };
 /* End PBXBuildFile section */
@@ -188,6 +189,7 @@
 		609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSmoothMainDisabledViewController.m; sourceTree = "<group>"; };
 		60A14E68262D19A500279CC1 /* GKSmoothListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSmoothListViewController.h; sourceTree = "<group>"; };
 		60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSmoothListViewController.m; sourceTree = "<group>"; };
+		7991D48F29F60A17002AADCD /* 手势处理.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "手势处理.md"; path = "../../Document/手势处理.md"; sourceTree = "<group>"; };
 		79A1906128C0870400578979 /* GKChangeHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKChangeHeaderViewController.h; sourceTree = "<group>"; };
 		79A1906228C0870400578979 /* GKChangeHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKChangeHeaderViewController.m; sourceTree = "<group>"; };
 		7F61CAFA991F0A136AA42888 /* Pods-ObjcExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.release.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				609B8DF8259AFC71000F1EB9 /* Info.plist */,
 				609B8DF9259AFC71000F1EB9 /* main.m */,
 				609B8EBA259AFD96000F1EB9 /* PrefixHeader.pch */,
+				7991D48F29F60A17002AADCD /* 手势处理.md */,
 			);
 			path = ObjcExample;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7991D49029F60A17002AADCD /* 手势处理.md in Resources */,
 				609B8DF7259AFC71000F1EB9 /* LaunchScreen.storyboard in Resources */,
 				609B8DF4259AFC71000F1EB9 /* Assets.xcassets in Resources */,
 			);

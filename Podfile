@@ -27,9 +27,11 @@ target 'SwiftExample' do
   pod 'SnapKit'
   pod 'MJRefresh'
   pod 'WMPageController'
-  pod 'JXSegmentedView'
-  pod 'JXCategoryViewExt/SubTitleImage'
-  pod 'JXCategoryViewExt/Indicator/AlignmentLine'
+  pod 'JXSegmentedViewExt/Number'
+  pod 'JXSegmentedViewExt/SubTitleImage'
+  pod 'JXSegmentedViewExt/Indicator/AlignmentLine'
+#  pod 'JXCategoryViewExt/SubTitleImage'
+#  pod 'JXCategoryViewExt/Indicator/AlignmentLine'
   pod 'VTMagic'
 end
 

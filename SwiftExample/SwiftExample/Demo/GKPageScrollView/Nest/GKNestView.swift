@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JXSegmentedView
+import JXSegmentedViewExt
 import GKNavigationBarSwift
 import GKPageScrollView
 

@@ -8,16 +8,15 @@
 
 import UIKit
 import MJRefresh
-import JXSegmentedView
+import JXSegmentedViewExt
 import GKNavigationBarSwift
 import GKPageScrollView
-import JXCategoryViewExt
 
 let kThemeColor = UIColor.rgbColor(r: 243, g: 136, b: 68)
 
 class GKWBFindViewController: GKDemoBaseViewController {
 
-    var titleDataSource = JXSegmentedTitleDataSource()
+    var titleDataSource = JXSegmentedSubTitleImageDataSource()
     
     lazy var topView: UIView = {
         let topView = UIView()
@@ -88,106 +87,69 @@ class GKWBFindViewController: GKDemoBaseViewController {
         return view
     }()
     
-    lazy var categoryView: JXCategorySubTitleImageView = {
-        let categoryView = JXCategorySubTitleImageView(frame: CGRect(x: ADAPTATIONRATIO * 60.0, y: 0, width: kScreenW - ADAPTATIONRATIO * 80.0, height: 54.0))
-        categoryView.titles = self.titles
-        categoryView.subTitles = self.subTitles
-        categoryView.titleFont = UIFont.boldSystemFont(ofSize: 15)
-        categoryView.titleSelectedFont = UIFont.boldSystemFont(ofSize: 15)
-        categoryView.titleColor = UIColor.black
-        categoryView.titleSelectedColor = kThemeColor
-        categoryView.titleLabelVerticalOffset = -10
-        categoryView.subTitleFont = UIFont.systemFont(ofSize: 11)
-        categoryView.subTitleSelectedFont = UIFont.systemFont(ofSize: 11)
-        categoryView.subTitleColor = UIColor.gray
-        categoryView.subTitleSelectedColor = UIColor.white
-        categoryView.subTitleWithTitlePositionMargin = 3
-        categoryView.cellSpacing = 0
-        categoryView.cellWidthIncrement = 16
-        categoryView.imageSize = CGSize(width: 12, height: 12)
-        categoryView.imageTypes = [0, 1, 0, 1, 1]
-        categoryView.imageInfoArray = ["", "zhongcao", "", "fangying", "gif"]
-        categoryView.selectedImageInfoArray = ["", "zhongcao", "", "fangying", "gif"]
-        categoryView.isIgnoreImageWidth = true
-        categoryView.loadImageBlock = { (imageView, info)in
-            if let name = info as? String {
-                if name == "gif" {
-                    var images = [UIImage]()
-                    for i in 0..<4 {
-                        let imgName = "cm2_list_icn_loading" + "\(i+1)"
-                        
-                        let img = changeColor(image: UIImage(named: imgName)!, color: UIColor.rgbColor(r: 200, g: 38, b: 39))
-                        images.append(img)
-                    }
+    lazy var categoryView: JXSegmentedView = {
+        titleDataSource.titles = self.titles
+        titleDataSource.subTitles = self.subTitles
+        titleDataSource.titleNormalFont = UIFont.boldSystemFont(ofSize: 15)
+        titleDataSource.titleSelectedFont = UIFont.boldSystemFont(ofSize: 15)
+        titleDataSource.titleNormalColor = UIColor.black
+        titleDataSource.titleSelectedColor = kThemeColor
+        titleDataSource.titleLabelVerticalOffset = -10
+        titleDataSource.subTitleNormalFont = UIFont.systemFont(ofSize: 11)
+        titleDataSource.subTitleSelectedFont = UIFont.systemFont(ofSize: 11)
+        titleDataSource.subTitleNormalColor = UIColor.gray
+        titleDataSource.subTitleSelectedColor = UIColor.white
+        titleDataSource.subTitleWithTitlePositionMargin = 3
+        titleDataSource.itemSpacing = 0
+        titleDataSource.itemWidthIncrement = 16
+        titleDataSource.imageSize = CGSize(width: 12, height: 12)
+        titleDataSource.imageTypes = [.none, .left, .none, .left, .left]
+        titleDataSource.normalImageInfos = ["", "zhongcao", "", "fangying", "gif"]
+        titleDataSource.selectedImageInfos = ["", "zhongcao", "", "fangying", "gif"]
+        titleDataSource.isIgnoreImageWidth = true
+        titleDataSource.loadImageClosure = { imageView, info in
+            if info == "gif" {
+                var images = [UIImage]()
+                for i in 0..<4 {
+                    let imgName = "cm2_list_icn_loading" + "\(i+1)"
                     
-                    for i in (0..<4).reversed() {
-                        let imgName = "cm2_list_icn_loading" + "\(i+1)"
-                        
-                        let img = changeColor(image: UIImage(named: imgName)!, color: UIColor.rgbColor(r: 200, g: 38, b: 39))
-                        images.append(img)
-                    }
-                    imageView?.animationImages = images
-                    imageView?.animationDuration = 0.75
-                    imageView?.startAnimating()
-                }else {
-                    if name != "" {
-                        imageView?.image = UIImage(named: name)
-                    }
+                    let img = changeColor(image: UIImage(named: imgName)!, color: UIColor.rgbColor(r: 200, g: 38, b: 39))
+                    images.append(img)
+                }
+                
+                for i in (0..<4).reversed() {
+                    let imgName = "cm2_list_icn_loading" + "\(i+1)"
+                    
+                    let img = changeColor(image: UIImage(named: imgName)!, color: UIColor.rgbColor(r: 200, g: 38, b: 39))
+                    images.append(img)
+                }
+                imageView.animationImages = images
+                imageView.animationDuration = 0.75
+                imageView.startAnimating()
+            }else {
+                if info != "" {
+                    imageView.image = UIImage(named: info)
                 }
             }
         }
-
+        
+        let categoryView = JXSegmentedView(frame: CGRect(x: ADAPTATIONRATIO * 60.0, y: 0, width: kScreenW - ADAPTATIONRATIO * 80.0, height: 54.0))
+        categoryView.dataSource = self.titleDataSource
         categoryView.indicators = [self.lineView]
         categoryView.contentScrollView = self.pageScrollView.listContainerView.collectionView
         return categoryView
     }()
     
-    lazy var lineView: JXCategoryIndicatorLineView = {
-        let line = JXCategoryIndicatorLineView()
-        line.indicatorHeight = 16
-        line.verticalMargin = 10
-        line.indicatorWidthIncrement = 0
-        line.lineScrollOffsetX = 0
-        line.indicatorColor = kThemeColor
-        line.lineStyle = .lengthen
-        return line
+    lazy var lineView: JXSegmentedIndicatorLineView = {
+        let lineView = JXSegmentedIndicatorLineView()
+        lineView.indicatorHeight = 16
+        lineView.verticalOffset = 10
+        lineView.indicatorWidthIncrement = 8
+        lineView.lineScrollOffsetX = 0
+        lineView.indicatorColor = kThemeColor
+        lineView.lineStyle = .lengthen
+        return lineView
     }()
-    
-//    lazy var segmentedView: UIView = {
-//        titleDataSource.titles = self.titles
-//        titleDataSource.titleNormalColor = UIColor.grayColor(g: 157)
-//        titleDataSource.titleSelectedColor = UIColor.black
-//        titleDataSource.titleNormalFont = UIFont.systemFont(ofSize: 17.0)
-//        titleDataSource.titleSelectedFont = UIFont.boldSystemFont(ofSize: 18.0)
-//        titleDataSource.reloadData(selectedIndex: 0)
-//
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 44.0))
-//
-//        let segmentedView = JXSegmentedView(frame: CGRect(x: ADAPTATIONRATIO * 100.0, y: 0, width: kScreenW - ADAPTATIONRATIO * 200.0, height: 44.0))
-//        segmentedView.dataSource = titleDataSource
-//        view.addSubview(segmentedView)
-//
-//        let lineView = JXSegmentedIndicatorLineView()
-//        lineView.indicatorWidth = ADAPTATIONRATIO * 60.0
-//        lineView.indicatorHeight = ADAPTATIONRATIO * 6.0
-//        lineView.verticalOffset = ADAPTATIONRATIO * 4
-//        lineView.lineStyle = .lengthenOffset
-//        segmentedView.indicators = [lineView]
-//
-//        segmentedView.contentScrollView = self.contentScrollView;
-//
-//        view.addSubview(self.backBtn)
-//
-//        let btmLineView = UIView()
-//        btmLineView.backgroundColor = UIColor.grayColor(g: 226.0)
-//        segmentedView.addSubview(btmLineView)
-//        btmLineView.snp.makeConstraints({ (make) in
-//            make.left.right.bottom.equalTo(segmentedView)
-//            make.height.equalTo(0.5)
-//        })
-//
-//        return view
-//    }()
     
     lazy var backBtn: UIButton = {
         let btn = UIButton()
@@ -227,6 +189,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
     
     var isMainCanScroll = false
     var shouldPop = true
+    var isScrollTop = false
     
     var backItem: UIBarButtonItem? = nil
     
@@ -254,6 +217,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
             })
         })
         
+        self.categoryView.reloadData()
         self.pageScrollView.reloadData()
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
@@ -307,13 +271,14 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
             self.gk_systemGestureHandleDisabled = true
             
             // 到达顶部
-            if self.categoryView.subTitles == nil { return }
-            self.categoryView.subTitles = nil
-            self.categoryView.titleLabelVerticalOffset = 0
-            self.categoryView.titleFont = UIFont.boldSystemFont(ofSize: 16)
-            self.categoryView.titleSelectedFont = UIFont.boldSystemFont(ofSize: 18)
+            if (self.isScrollTop) { return }
+            self.isScrollTop = true
+            titleDataSource.subTitles = ["", "", "", "", ""]
+            titleDataSource.titleLabelVerticalOffset = 0
+            titleDataSource.titleNormalFont = UIFont.boldSystemFont(ofSize: 16)
+            titleDataSource.titleSelectedFont = UIFont.boldSystemFont(ofSize: 18)
             self.lineView.indicatorHeight = 3
-            self.lineView.verticalMargin = 4
+            self.lineView.verticalOffset = 4
             self.lineView.indicatorWidthIncrement = -8
             self.categoryView.indicators = [self.lineView]
             self.reloadCategory(height: 44)
@@ -322,14 +287,15 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
             self.backBtn.isHidden = true
             self.gk_systemGestureHandleDisabled = false
             
-            if self.categoryView.subTitles != nil { return }
-            self.categoryView.subTitles = self.subTitles
-            self.categoryView.titleLabelVerticalOffset = -10
-            self.categoryView.titleFont = UIFont.systemFont(ofSize: 15)
-            self.categoryView.titleSelectedFont = UIFont.systemFont(ofSize: 15)
+            if !self.isScrollTop { return }
+            self.isScrollTop = false
+            titleDataSource.subTitles = self.subTitles
+            titleDataSource.titleLabelVerticalOffset = -10
+            titleDataSource.titleNormalFont = UIFont.systemFont(ofSize: 15)
+            titleDataSource.titleSelectedFont = UIFont.systemFont(ofSize: 15)
             self.lineView.indicatorHeight = 16
-            self.lineView.verticalMargin = 10
-            self.lineView.indicatorWidthIncrement = 0
+            self.lineView.verticalOffset = 10
+            self.lineView.indicatorWidthIncrement = 8
             self.categoryView.indicators = [self.lineView]
             self.reloadCategory(height: 54)
         }

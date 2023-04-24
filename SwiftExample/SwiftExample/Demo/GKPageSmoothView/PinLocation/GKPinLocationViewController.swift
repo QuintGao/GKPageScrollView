@@ -7,7 +7,7 @@
 
 import UIKit
 import GKNavigationBarSwift
-import JXSegmentedView
+import JXSegmentedViewExt
 import GKPageSmoothView
 
 class GKPinLocationViewController: GKDemoBaseViewController {

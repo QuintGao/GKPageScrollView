@@ -419,7 +419,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         return true
     }
     
-    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let panGesture = gestureRecognizer as? UIPanGestureRecognizer {
             let transition = panGesture.translation(in: gestureRecognizer.view)
             if transition.x != 0 { return false }

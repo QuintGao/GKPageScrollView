@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JXSegmentedView
+import JXSegmentedViewExt
 import GKPageScrollView
 
 class GKNest2View: UIView {

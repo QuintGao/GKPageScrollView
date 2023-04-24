@@ -132,7 +132,7 @@ open class GKPageScrollView: UIView {
         return containerView
     }()
     
-    // 需要处理滑动冲突的UIScrollView列表
+    // 横向滑动的scrollView列表，用于解决左右滑动与上下滑动手势冲突
     open var horizontalScrollViewList: [UIScrollView]? {
         didSet {
             var list = horizontalScrollViewList
@@ -142,6 +142,7 @@ open class GKPageScrollView: UIView {
             mainTableView.horizontalScrollViewList = list
         }
     }
+    
     // 当前已经加载过可用的列表字典，key是index值，value是对应的列表
     public var validListDict = [Int: GKPageListViewDelegate]()
     
@@ -188,6 +189,9 @@ open class GKPageScrollView: UIView {
     // 刷新headerView后是否保持临界状态
     public var isKeepCriticalWhenRefreshHeader: Bool = false
     
+    // 自动查找横向scrollView，设置为YES则不用传入horizontalScrollViewList，默认false
+    public var isAutoFindHorizontalScrollView: Bool = false
+    
     // MARK: - 内部属性，尽量不要修改
     // 是否滑动到临界点，可以有偏差
     public var isCriticalPoint: Bool = false
@@ -215,6 +219,8 @@ open class GKPageScrollView: UIView {
     // 临界点
     var criticalPoint: CGFloat = 0
     var criticalOffset: CGPoint = .zero
+    
+    var allScrollViews = [UIScrollView]()
     
     public init(delegate: GKPageScrollViewDelegate) {
         self.delegate = delegate
@@ -313,6 +319,11 @@ open class GKPageScrollView: UIView {
         
         self.criticalPoint = abs(self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight)
         self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
+        
+        if (!self.isAutoFindHorizontalScrollView) { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.findHorizontalScrollViews()
+        }
     }
     
     public func horizonScrollViewWillBeginScroll() {
@@ -592,6 +603,26 @@ open class GKPageScrollView: UIView {
         pageView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
         self.pageView = pageView
         return pageView
+    }
+    
+    fileprivate func findHorizontalScrollViews() {
+        allScrollViews.removeAll()
+        findHorizontalScrollViews(mainTableView)
+        mainTableView.horizontalScrollViewList = allScrollViews
+    }
+    
+    fileprivate func findHorizontalScrollViews(_ view: UIView) {
+        view.subviews.forEach {
+            if ($0.isKind(of: UIScrollView.self)) {
+                let scrollView = $0 as! UIScrollView
+                if (scrollView.contentSize.width > scrollView.frame.size.width) {
+                    allScrollViews.append(scrollView)
+                }
+            }
+            if ($0.subviews.count > 0) {
+                findHorizontalScrollViews($0)
+            }
+        }
     }
 }
 

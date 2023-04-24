@@ -7,7 +7,7 @@
 
 import UIKit
 import GKPageScrollView
-import JXSegmentedView
+import JXSegmentedViewExt
 
 class GKPageMainDisabledViewController: GKDemoBaseViewController {
     var titleDataSource = JXSegmentedTitleDataSource()

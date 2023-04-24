@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JXSegmentedView
+import JXSegmentedViewExt
 import GKPageScrollView
 
 let kCriticalPoint = -ADAPTATIONRATIO * 50.0

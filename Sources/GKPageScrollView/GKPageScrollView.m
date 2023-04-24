@@ -19,6 +19,8 @@
 // 列表存储
 @property (nonatomic, strong) NSMutableDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
 
+@property (nonatomic, strong) NSMutableArray *allScrollViews;
+
 // 包裹segmentedView和列表容器的view
 @property (nonatomic, weak) UIView *pageView;
 
@@ -51,7 +53,8 @@
     if (self = [super initWithFrame:CGRectZero]) {
         self.delegate = delegate;
         self.ceilPointHeight = GKPAGE_NAVBAR_HEIGHT;
-        self.validListDict = [NSMutableDictionary new];
+        self.validListDict = [NSMutableDictionary dictionary];
+        self.allScrollViews = [NSMutableArray array];
         
         [self initSubviews];
     }
@@ -180,6 +183,11 @@
     
     self.criticalPoint = fabs([self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight);
     self.criticalOffset = CGPointMake(0, self.criticalPoint);
+    
+    if (!self.isAutoFindHorizontalScrollView) return;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self findHorizontalScrollViews];
+    });
 }
 
 - (void)horizonScrollViewWillBeginScroll {
@@ -472,6 +480,26 @@
     pageView.frame = CGRectMake(0, 0, width, height);
     self.pageView = pageView;
     return pageView;
+}
+
+- (void)findHorizontalScrollViews {
+    [self.allScrollViews removeAllObjects];
+    [self findHorizontalScrollViews:self.mainTableView];
+    self.mainTableView.horizontalScrollViewList = self.allScrollViews;
+}
+
+- (void)findHorizontalScrollViews:(UIView *)view {
+    for (UIView *subview in view.subviews) {
+        if ([subview isKindOfClass:UIScrollView.class]) {
+            UIScrollView *scrollView = (UIScrollView *)subview;
+            if (scrollView.contentSize.width > scrollView.frame.size.width) {
+                [self.allScrollViews addObject:subview];
+            }
+        }
+        if (subview.subviews.count) {
+            [self findHorizontalScrollViews:subview];
+        }
+    }
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate

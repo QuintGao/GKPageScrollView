@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JXSegmentedView
+import JXSegmentedViewExt
 
 class GKNest2ViewController: GKDemoBaseViewController {
 

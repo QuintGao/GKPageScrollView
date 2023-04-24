@@ -1,0 +1,6 @@
+framework module JXSegmentedViewExt {
+  umbrella header "JXSegmentedViewExt-umbrella.h"
+
+  export *
+  module * { export * }
+}
