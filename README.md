@@ -68,9 +68,9 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 选择需要使用的库，GKPageScrollView/GKPageScrollViewSwift/GKPageSmoothView/GKPageSmoothViewSwift
 
 ## 常见问题
-1、headerView出现多个，不要在headerView代理方法中做视图创建、添加等操作  
-2、[手势处理](https://github.com/QuintGao/GKPageScrollView/blob/master/Document/%E6%89%8B%E5%8A%BF%E5%A4%84%E7%90%86.md)
-3、listView使用UICollectionView崩溃，参考demo中的GKBaseCollectionViewLayout，重写collectionViewContentSize
+* 1、headerView出现多个，不要在headerView代理方法中做视图创建、添加等操作  
+* 2、[手势处理](https://github.com/QuintGao/GKPageScrollView/blob/master/Document/%E6%89%8B%E5%8A%BF%E5%A4%84%E7%90%86.md)
+* 3、listView使用UICollectionView崩溃，参考demo中的GKBaseCollectionViewLayout，重写collectionViewContentSize
 
 ## 效果图
 
