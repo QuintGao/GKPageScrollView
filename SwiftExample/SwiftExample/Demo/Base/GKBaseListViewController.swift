@@ -20,14 +20,14 @@ enum GKBaseListType: Int {
 }
 
 class GKBaseCollectionViewLayout : UICollectionViewFlowLayout {
-//    override var collectionViewContentSize: CGSize {
-//        let minContentSizeHeight = collectionView!.bounds.size.height - 60
-//        let size = super.collectionViewContentSize
-//        if size.height < minContentSizeHeight {
-//            return CGSize(width: size.width, height: minContentSizeHeight)
-//        }
-//        return size
-//    }
+    override var collectionViewContentSize: CGSize {
+        let minContentSizeHeight = collectionView!.bounds.size.height - 60
+        let size = super.collectionViewContentSize
+        if size.height < minContentSizeHeight {
+            return CGSize(width: size.width, height: minContentSizeHeight)
+        }
+        return size
+    }
 }
 
 class GKBaseListViewController: UIViewController {

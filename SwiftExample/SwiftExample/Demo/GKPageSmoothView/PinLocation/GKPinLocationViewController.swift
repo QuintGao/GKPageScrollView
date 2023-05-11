@@ -126,7 +126,7 @@ extension GKPinLocationViewController: GKPageSmoothViewDataSource, GKPageSmoothV
         // 获取categoryView下面一点的所有部件信息，用于指定，当前最上方显示的那个section
         let categoryH = self.titleView.frame.size.height
         let tableView = scrollView as! UITableView
-        let topIndexPaths = tableView.indexPathsForRows(in: CGRect(x: 0, y: contentOffset.y + categoryH - self.headerView.frame.size.height + 40 + 10, width: tableView.frame.size.width, height: 200))
+        let topIndexPaths = tableView.indexPathsForRows(in: CGRect(x: 0, y: contentOffset.y + categoryH - self.headerView.frame.size.height + 40, width: tableView.frame.size.width, height: 200))
         let topIndexPath = topIndexPaths?.first
         if let indexPath = topIndexPath {
             let topSection = indexPath.section

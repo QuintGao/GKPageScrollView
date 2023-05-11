@@ -16,14 +16,14 @@
 
 @implementation GKBaseCollectionViewLayout
 
-//- (CGSize)collectionViewContentSize {
-//    CGFloat minContentSizeHeight = self.collectionView.bounds.size.height;
-//    CGSize size = [super collectionViewContentSize];
-//    if (size.height < minContentSizeHeight) {
-//        return CGSizeMake(size.width, minContentSizeHeight);
-//    }
-//    return size;
-//}
+- (CGSize)collectionViewContentSize {
+    CGFloat minContentSizeHeight = self.collectionView.bounds.size.height;
+    CGSize size = [super collectionViewContentSize];
+    if (size.height < minContentSizeHeight) {
+        return CGSizeMake(size.width, minContentSizeHeight);
+    }
+    return size;
+}
 
 @end
 

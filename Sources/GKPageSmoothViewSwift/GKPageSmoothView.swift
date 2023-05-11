@@ -278,7 +278,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         
         self.refreshWidth { [weak self] (size) in
             guard let self = self else { return }
-            self.listCollectionView.setContentOffset(CGPoint(x: size.width * CGFloat(self.currentIndex), y: 0), animated: false)
+            self.set(scrollView: self.listCollectionView, offset: CGPoint(x: size.width * CGFloat(self.currentIndex), y: 0));
             self.listCollectionView.reloadData()
         }
     }
@@ -451,7 +451,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                     //新的scrollView第一次加载的时候重置contentOffset
                     if let listScrollView = self.currentListScrollView {
                         if scrollView != listScrollView && scrollView.contentSize != .zero && !isOnTop {
-                            scrollView.contentOffset = CGPoint(x: 0, y: self.currentListInitailzeContentOffsetY)
+                            set(scrollView: scrollView, offset: CGPoint(x: 0, y: self.currentListInitailzeContentOffsetY))
                         }
                     }
                 }else {
@@ -463,7 +463,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                     }
                     
                     if minContentSizeHeight > contentH && shoudReset && !isMainScrollDisabled {
-                        scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
+                        set(scrollView: scrollView, offset: CGPoint(x: scrollView.contentOffset.x, y: -headerContainerHeight))
                         listDidScroll(scrollView: scrollView)
                     }
                 }
@@ -496,9 +496,9 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                 self.hoverType = .none
                 isSyncListContentOffsetEnabled = true
                 currentHeaderContainerViewY = -contentOffsetY
-                for list in listDict.values {
-                    if list.listScrollView() != scrollView {
-                        list.listScrollView().setContentOffset(scrollView.contentOffset, animated: false)
+                listDict.values.forEach {
+                    if $0.listScrollView() != scrollView {
+                        set(scrollView: $0.listScrollView(), offset: scrollView.contentOffset)
                     }
                 }
                 let header = listHeader(for: scrollView)
@@ -541,9 +541,9 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                 if isSyncListContentOffsetEnabled {
                     isSyncListContentOffsetEnabled = false
                     currentHeaderContainerViewY = -(headerHeight - ceilPointHeight)
-                    for list in listDict.values {
-                        if list.listScrollView() != currentListScrollView {
-                            list.listScrollView().setContentOffset(CGPoint(x: 0, y: -(segmentedHeight + ceilPointHeight)), animated: false)
+                    listDict.values.forEach {
+                        if ($0.listScrollView() != currentListScrollView) {
+                            set(scrollView: $0.listScrollView(), offset: CGPoint(x: 0, y: -(segmentedHeight + ceilPointHeight)))
                         }
                     }
                 }
@@ -586,7 +586,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                     var insets = $0.listScrollView().contentInset
                     insets.top = self.headerContainerHeight
                     $0.listScrollView().contentInset = insets
-                    $0.listScrollView().contentOffset = CGPoint(x: 0, y: -self.headerContainerHeight)
+                    self.set(scrollView: $0.listScrollView(), offset: CGPoint(x: 0, y: -self.headerContainerHeight))
                 }
                 self.listHeaderDict.values.forEach {
                     var frame = $0.frame
@@ -639,7 +639,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         
         let minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight
         if (minContentSizeHeight > listScrollView.contentSize.height && !self.isHoldUpScrollView) {
-            listScrollView.setContentOffset(CGPoint(x: listScrollView.contentOffset.x, y: -self.headerContainerHeight), animated: false)
+            set(scrollView: listScrollView, offset: CGPoint(x: listScrollView.contentOffset.x, y: -headerContainerHeight))
             listDidScroll(scrollView: listScrollView)
         }
     }
@@ -782,8 +782,9 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     }
     
     fileprivate func set(scrollView: UIScrollView?, offset: CGPoint) {
-        if !__CGPointEqualToPoint(scrollView?.contentOffset ?? .zero, offset) {
-            scrollView?.setContentOffset(offset, animated: false)
+        guard let scrollView = scrollView else { return }
+        if !__CGPointEqualToPoint(scrollView.contentOffset, offset) {
+            scrollView.contentOffset = offset;
         }
     }
 }

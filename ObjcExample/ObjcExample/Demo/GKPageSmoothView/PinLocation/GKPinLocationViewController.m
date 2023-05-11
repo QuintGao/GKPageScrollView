@@ -95,7 +95,7 @@
     CGFloat categoryH = self.titleView.frame.size.height;
     
     UITableView *tableView = (UITableView *)scrollView;
-    NSArray <NSIndexPath *> *topIndexPaths = [tableView indexPathsForRowsInRect:CGRectMake(0, contentOffset.y + categoryH - self.headerView.frame.size.height + 40 + 10, tableView.frame.size.width, 200)];
+    NSArray <NSIndexPath *> *topIndexPaths = [tableView indexPathsForRowsInRect:CGRectMake(0, contentOffset.y + categoryH - self.headerView.frame.size.height + 40, tableView.frame.size.width, 200)];
     
     NSIndexPath *topIndexPath = topIndexPaths.firstObject;
     NSUInteger topSection = topIndexPath.section;

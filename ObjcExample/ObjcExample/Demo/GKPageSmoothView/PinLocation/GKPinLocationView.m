@@ -100,6 +100,9 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+        if (@available(iOS 15.0, *)) {
+            _tableView.sectionHeaderTopPadding = 0;
+        }
     }
     return _tableView;
 }
