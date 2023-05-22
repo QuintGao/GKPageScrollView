@@ -125,8 +125,9 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.lazyLoadList = YES;
-        _pageScrollView.mainTableView.gestureDelegate = self;
-        _pageScrollView.listContainerView.collectionView.gk_openGestureHandle = YES;
+//        _pageScrollView.mainTableView.gestureDelegate = self;
+        _pageScrollView.autoFindHorizontalScrollView = YES;
+        _pageScrollView.listContainerView.scrollView.gk_openGestureHandle = YES;
     }
     return _pageScrollView;
 }
@@ -154,7 +155,7 @@
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
         _categoryView.indicators = @[lineView];
         
-        _categoryView.contentScrollView = self.pageScrollView.listContainerView.collectionView;
+        _categoryView.contentScrollView = self.pageScrollView.listContainerView.scrollView;
         
         UIView *bottomLineView = [UIView new];
         bottomLineView.backgroundColor = [UIColor grayColor];

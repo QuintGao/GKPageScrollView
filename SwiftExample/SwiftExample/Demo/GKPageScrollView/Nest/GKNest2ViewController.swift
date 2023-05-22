@@ -95,7 +95,7 @@ extension GKNest2ViewController: GKNestScrollViewDelegate {
             return false
         }
         
-        if let listScrollView = self.currentNestView.pageScrollView.listContainerView.collectionView {
+        if let listScrollView = self.currentNestView.pageScrollView.listContainerView.scrollView {
             if listScrollView.isTracking || listScrollView.isDragging {
                 if gestureRecognizer.isMember(of: NSClassFromString("UIScrollViewPanGestureRecognizer")!) {
                     let panGestureRecognizer = gestureRecognizer as! UIPanGestureRecognizer

@@ -57,15 +57,13 @@
 }
 
 - (void)more {
-    // 动态修改pageScrollView frame
-    [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.top.mas_equalTo(100);
-    }];
+//    // 动态修改pageScrollView frame
+//    [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.left.bottom.right.equalTo(self.view);
+//        make.top.equalTo(self.view).offset(100);
+//    }];
     
-//    // 动态修改临界点
+    // 动态修改临界点
 //    self.pageScrollView.ceilPointHeight += 100;
 //    [self.pageScrollView reloadData];
 }
@@ -238,6 +236,7 @@
         _pageVC.dataSource = self;
         _pageVC.delegate = self;
         _pageVC.scrollDelegate = self;
+        _pageVC.scrollView.gk_openGestureHandle = YES;
         
         // 菜单属性
         _pageVC.menuItemWidth = kScreenW / 4.0f - 20;

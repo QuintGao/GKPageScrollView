@@ -22,7 +22,9 @@ public enum GKPageSmoothHoverType {
     /// 返回vc或view内部持有的UIScrollView或UITableView或UICollectionView
     func listScrollView() -> UIScrollView
     
+    @objc optional func listViewWillAppear()
     @objc optional func listViewDidAppear()
+    @objc optional func listViewWillDisappear()
     @objc optional func listViewDidDisappear()
     
     /// 当contentSize改变且不足一屏时，是否重置scrollView的位置，默认YES
@@ -167,6 +169,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var originShowsVerticalScrollIndicator = false
     
     var isScroll = false
+    var willAppearIndex = -1
+    var willDisappearIndex = -1
     
     public init(dataSource: GKPageSmoothViewDataSource) {
         self.dataSource = dataSource
@@ -280,6 +284,12 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             guard let self = self else { return }
             self.set(scrollView: self.listCollectionView, offset: CGPoint(x: size.width * CGFloat(self.currentIndex), y: 0));
             self.listCollectionView.reloadData()
+            
+            // 首次加载
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                self.listWillAppear(at: self.currentIndex)
+                self.listDidAppear(at: self.currentIndex)
+            }
         }
     }
     
@@ -662,22 +672,63 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         return 0
     }
     
+    func listWillAppear(at index: Int) {
+        guard checkIndexValid(index) else { return }
+        let list = listDict[index]
+        list?.listViewWillAppear?()
+    }
+    
     func listDidAppear(at index: Int) {
-        guard let dataSource = dataSource else { return }
-        let count = dataSource.numberOfLists(in: self)
-        if count <= 0 || index >= count {
-            return
-        }
-        listDict[index]?.listViewDidAppear?()
+        guard checkIndexValid(index) else { return }
+        currentIndex = index
+        let list = listDict[index]
+        list?.listViewDidAppear?()
+    }
+    
+    func listWillDisappear(at index: Int) {
+        guard checkIndexValid(index) else { return }
+        let list = listDict[index]
+        list?.listViewWillDisappear?()
     }
     
     func listDidDisappear(at index: Int) {
-        guard let dataSource = dataSource else { return }
+        guard checkIndexValid(index) else { return }
+        let list = listDict[index]
+        list?.listViewDidDisappear?()
+    }
+    
+    func checkIndexValid(_ index: Int) -> Bool {
+        guard let dataSource = dataSource else { return false }
         let count = dataSource.numberOfLists(in: self)
         if count <= 0 || index >= count {
-            return
+            return false
         }
-        listDict[index]?.listViewDidDisappear?()
+        return true
+    }
+    
+    func listDidAppearOrDisappear(scrollView: UIScrollView) {
+        let currentIndexPercent = scrollView.contentOffset.x / scrollView.bounds.size.width
+        if willAppearIndex != -1 && willDisappearIndex != -1 {
+            let appearIndex = willAppearIndex
+            let disappearIndex = willDisappearIndex
+            if willAppearIndex > willDisappearIndex {
+                // 将要出现的列表在右边
+                if currentIndexPercent >= CGFloat(willAppearIndex) {
+                    willDisappearIndex = -1
+                    willAppearIndex = -1
+                    listDidDisappear(at: disappearIndex)
+                    listDidAppear(at: appearIndex)
+                }
+            }else {
+                // 将要出现的列表在左边
+                if currentIndexPercent <= CGFloat(willAppearIndex) {
+                    willDisappearIndex = -1
+                    willAppearIndex = -1
+                    listDidDisappear(at: disappearIndex)
+                    listDidAppear(at: appearIndex)
+                }
+            }
+        }
     }
     
     func allowScrolling(scrollView: UIScrollView?) {
@@ -858,14 +909,6 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
         return self.listCollectionView.bounds.size
     }
     
-    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        listDidAppear(at: indexPath.item)
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        listDidDisappear(at: indexPath.item)
-    }
-    
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.panGesture.isEnabled = false
     }
@@ -889,12 +932,57 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
                 }
             }
         }
-        if currentIndex != index {
-            currentIndex = index
+        
+        guard scrollView.isDragging || scrollView.isTracking || scrollView.isDecelerating else { return }
+        let percent = scrollView.contentOffset.x / scrollView.bounds.size.width
+        let maxCount = Int(round(scrollView.contentSize.width / scrollView.bounds.size.width))
+        var leftIndex = Int(floor(Double(percent)))
+        leftIndex = max(0, min(maxCount - 1, leftIndex))
+        let rightIndex = leftIndex + 1
+        if (percent < 0 || rightIndex >= maxCount) {
+            listDidAppearOrDisappear(scrollView: scrollView)
+            return
         }
+        if rightIndex == currentIndex {
+            // 当前选中的在右边，用户正在从右往左滑动
+            if listDict[leftIndex] != nil {
+                if willAppearIndex == -1 {
+                    willAppearIndex = leftIndex
+                    listWillAppear(at: willAppearIndex)
+                }
+            }
+            if willDisappearIndex == -1 {
+                willDisappearIndex = rightIndex
+                listWillDisappear(at: willDisappearIndex)
+            }
+        }else {
+            // 当前选中的在左边，用户正在从左往右滑动
+            if listDict[rightIndex] != nil {
+                if willAppearIndex == -1 {
+                    willAppearIndex = rightIndex
+                    listWillAppear(at: willAppearIndex)
+                }
+            }
+            if willDisappearIndex == -1 {
+                willDisappearIndex = leftIndex
+                listWillDisappear(at: leftIndex)
+            }
+        }
+        listDidAppearOrDisappear(scrollView: scrollView)
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            // 滑动到一半又取消滑动处理
+            if (willDisappearIndex != -1) {
+                listWillAppear(at: willDisappearIndex)
+                listWillDisappear(at:willAppearIndex)
+                listDidAppear(at:willDisappearIndex)
+                listDidDisappear(at:willAppearIndex)
+                willDisappearIndex = -1;
+                willAppearIndex = -1;
+            }
+        }
         if (self.isMainScrollDisabled) { return }
         if !decelerate {
             let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
@@ -904,6 +992,15 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // 滑动到一半又取消滑动处理
+        if (willDisappearIndex != -1) {
+            listWillAppear(at: willDisappearIndex)
+            listWillDisappear(at:willAppearIndex)
+            listDidAppear(at:willDisappearIndex)
+            listDidDisappear(at:willAppearIndex)
+            willDisappearIndex = -1;
+            willAppearIndex = -1;
+        }
         if (self.isMainScrollDisabled) { return }
         let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
         horizontalScrollDidEnd(at: index)

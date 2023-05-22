@@ -73,7 +73,7 @@
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.lazyLoadList = YES;
-        _pageScrollView.listContainerView.collectionView.gk_openGestureHandle = YES;
+        _pageScrollView.listContainerView.scrollView.gk_openGestureHandle = YES;
     }
     return _pageScrollView;
 }
@@ -111,7 +111,8 @@
         _categoryView.indicators = @[lineView];
         
         // 设置关联的scrollView
-        _categoryView.contentScrollView = self.pageScrollView.listContainerView.collectionView;
+//        _categoryView.contentScrollView = self.pageScrollView.listContainerView.scrollView;
+        _categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;
         
         UIView  *btmLineView = [UIView new];
         btmLineView.backgroundColor = GKColorRGB(110, 110, 110);

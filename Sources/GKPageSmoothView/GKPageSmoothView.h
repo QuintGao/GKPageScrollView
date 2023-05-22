@@ -25,7 +25,9 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 - (UIScrollView *)listScrollView;
 
 @optional
+- (void)listViewWillAppear;
 - (void)listViewDidAppear;
+- (void)listViewWillDisappear;
 - (void)listViewDidDisappear;
 
 /// 当contentSize改变且不足一屏时，是否重置scrollView的位置，默认YES
@@ -92,7 +94,7 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 @property (nonatomic, assign) NSInteger defaultSelectedIndex;
 
 /// 当前索引
-@property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, assign, readonly) NSInteger currentIndex;
 
 /// 当前列表
 @property (nonatomic, weak, readonly) UIScrollView *currentListScrollView;

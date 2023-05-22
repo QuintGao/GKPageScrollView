@@ -40,6 +40,12 @@
  */
 - (UIView *)listView;
 
+// 列表生命周期，懒加载方式时有效
+- (void)listWillAppear;
+- (void)listDidAppear;
+- (void)listWillDisappear;
+- (void)listDidDisappear;
+
 @end
 
 @protocol GKPageScrollViewDelegate <NSObject>
@@ -138,6 +144,13 @@
 /// @param scrollView mainTableView
 - (void)mainTableViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
 
+
+// 返回自定义UIScrollView或UICollectionView的class
+- (Class)scrollViewClassInListContainerViewInPageScrollView:(GKPageScrollView *)pageScrollView;
+
+// 控制能否初始化index对应的列表。有些业务需求，需要在某些情况下才允许初始化列表
+- (BOOL)pageScrollViewListContainerView:(GKPageListContainerView *)containerView canInitListAtIndex:(NSInteger)index;
+
 @end
 
 @interface GKPageScrollView : UIView
@@ -153,6 +166,9 @@
 
 /// 懒加载形式的容器
 @property (nonatomic, strong, readonly) GKPageListContainerView *listContainerView;
+
+/// 懒加载容器的类型，默认UICollectionView
+@property (nonatomic, assign) GKPageListContainerType listContainerType;
 
 // 当前已经加载过的可用的列表字典，key是index值，value是对应列表
 @property (nonatomic, strong, readonly) NSDictionary <NSNumber *, id<GKPageListViewDelegate>> *validListDict;
@@ -200,7 +216,7 @@
 // listScrollView是否可滑动
 @property (nonatomic, assign) BOOL isListCanScroll;
 
-- (instancetype)initWithDelegate:(id <GKPageScrollViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDelegate:(id<GKPageScrollViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;

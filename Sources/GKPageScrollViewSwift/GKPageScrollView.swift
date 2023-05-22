@@ -26,6 +26,12 @@ import UIKit
     ///
     /// - Returns: UIView
     @objc optional func listView() -> UIView
+    
+    // 列表生命周期，懒加载方式有效
+    @objc optional func listWillAppear()
+    @objc optional func listDidAppear()
+    @objc optional func listWillDisappear()
+    @objc optional func listDidDisappear()
 }
 
 @objc public protocol GKPageScrollViewDelegate : NSObjectProtocol {
@@ -116,6 +122,12 @@ import UIKit
     /// 更新pageScrollView的cell属性
     /// 可需要cell的背景色等
     @objc optional func pageScrollViewUpdateCell(_ pageScrollView: GKPageScrollView, cell: UITableViewCell)
+    
+    /// 返回自定义UIScrollView或UICollectionView的class
+    @objc optional func scrollViewClassInListContainerView(in pangeScrollView: GKPageScrollView) -> AnyClass?
+    
+    /// 控制能否初始化index对应的列表。有些业务需求，需要在某些情况下才允许初始化列表
+    @objc optional func pageScrollViewListContainerView(_ containerView: GKPageListContainerView, canInitAt index: Int) -> Bool
 }
 
 open class GKPageScrollView: UIView {
@@ -126,9 +138,11 @@ open class GKPageScrollView: UIView {
     open var pageView: UIView?
     // 当前滑动的子列表
     open var currentListScrollView = UIScrollView()
+    // 容器样式
+    open var listContainerType: GKPageListContainerType = .collectionView
     // 懒加载时使用的容器
     open lazy var listContainerView: GKPageListContainerView = {
-        let containerView = GKPageListContainerView(delegate: self)
+        let containerView = GKPageListContainerView(delegate: self, type: self.listContainerType)
         return containerView
     }()
     
@@ -137,7 +151,7 @@ open class GKPageScrollView: UIView {
         didSet {
             var list = horizontalScrollViewList
             if self.shouldLazyLoadListView() {
-                list?.append(self.listContainerView.collectionView)
+                list?.append(self.listContainerView.scrollView)
             }
             mainTableView.horizontalScrollViewList = list
         }
@@ -162,7 +176,7 @@ open class GKPageScrollView: UIView {
     public var isLazyLoadList: Bool = false {
         didSet {
             if self.shouldLazyLoadListView() {
-                self.mainTableView.horizontalScrollViewList = [self.listContainerView.collectionView]
+                self.mainTableView.horizontalScrollViewList = [self.listContainerView.scrollView]
             }else {
                 // 处理listView滑动
                 self.configListViewScroll()
@@ -263,7 +277,7 @@ open class GKPageScrollView: UIView {
         self.refreshHeaderView()
         
         if self.shouldLazyLoadListView() {
-            self.mainTableView.horizontalScrollViewList = [self.listContainerView.collectionView]
+            self.mainTableView.horizontalScrollViewList = [self.listContainerView.scrollView]
         }
     }
     
@@ -706,19 +720,25 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension GKPageScrollView: GKPageListContainerViewDelegate {
-    public func numberOfRows(in listContainerView: GKPageListContainerView) -> Int {
-        return (self.delegate.numberOfLists?(in: self))!
+    public func numberOfLists(in listContainerView: GKPageListContainerView) -> Int {
+        return self.delegate.numberOfLists?(in: self) ?? 0
     }
     
-    public func listContainerView(_ listContainerView: GKPageListContainerView, viewForListInRow row: Int) -> UIView {
-        var list = self.validListDict[row]
+    public func listContainerView(_ listContainerView: GKPageListContainerView, initListAt index: Int) -> GKPageListViewDelegate {
+        var list = validListDict[index]
         if list == nil {
-            list = self.delegate.pageScrollView?(self, initListAtIndex: row)
-            list?.listViewDidScroll(callBack: { [weak self] (scrollView) in
+            list = self.delegate.pageScrollView?(self, initListAtIndex: index)
+            list?.listViewDidScroll(callBack: { [weak self ] scrollView in
                 self?.listScrollViewDidScroll(scrollView: scrollView)
             })
-            validListDict[row] = list!
+            validListDict[index] = list
         }
-        return list!.listView!()
+        return list!
     }
+    
+    public func listContainerView(_ containerView: GKPageListContainerView, listDidAppearAt index: Int) {
+        guard let list = validListDict[index] else { return }
+        currentListScrollView = list.listScrollView()
+    }
+    
 }

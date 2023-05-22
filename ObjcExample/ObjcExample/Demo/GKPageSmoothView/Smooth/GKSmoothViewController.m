@@ -94,6 +94,7 @@
 //    return listVC;
     GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
     listVC.shouldLoadData = YES;
+    listVC.index = index;
     return listVC;
 }
 
@@ -130,6 +131,7 @@
         _smoothView.listCollectionView.gk_openGestureHandle = YES;
 //        _smoothView.mainScrollDisabled = YES;
         _smoothView.holdUpScrollView = YES;
+//        _smoothView.listCollectionView.bounces = YES;
     }
     return _smoothView;
 }

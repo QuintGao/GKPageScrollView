@@ -15,7 +15,7 @@ class GKChangeHeaderViewController: GKDemoBaseViewController {
     lazy var pageScrollView: GKPageScrollView! = {
         let pageScrollView = GKPageScrollView(delegate: self)
         pageScrollView.isLazyLoadList = true
-        pageScrollView.listContainerView.collectionView.gk_openGestureHandle = true
+        pageScrollView.listContainerView.scrollView.gk_openGestureHandle = true
 //        pageScrollView.isMainScrollDisabled = true
         return pageScrollView
     }()
@@ -41,7 +41,7 @@ class GKChangeHeaderViewController: GKDemoBaseViewController {
         var segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kBaseSegmentHeight))
         segmentedView.dataSource = titleDataSource
         
-        segmentedView.contentScrollView = self.pageScrollView.listContainerView.collectionView
+        segmentedView.contentScrollView = self.pageScrollView.listContainerView.scrollView
         
         return segmentedView
     }()

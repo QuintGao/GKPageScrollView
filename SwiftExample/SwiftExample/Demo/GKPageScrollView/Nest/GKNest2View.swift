@@ -9,6 +9,7 @@
 import UIKit
 import JXSegmentedViewExt
 import GKPageScrollView
+import GKNavigationBarSwift
 
 class GKNest2View: UIView {
 
@@ -51,7 +52,7 @@ class GKNest2View: UIView {
         lineView.lineStyle = .lengthen
         segmentedView.indicators = [lineView]
         
-        segmentedView.contentScrollView = self.pageScrollView.listContainerView.collectionView
+        segmentedView.contentScrollView = self.pageScrollView.listContainerView.scrollView
         
         return segmentedView
     }()
@@ -66,7 +67,7 @@ class GKNest2View: UIView {
         }
         
         self.pageScrollView.reloadData()
-        self.pageScrollView.listContainerView.collectionView.isNestEnabled = true;
+        self.pageScrollView.listContainerView.isNestEnabled = true;
     }
     
     required init?(coder: NSCoder) {

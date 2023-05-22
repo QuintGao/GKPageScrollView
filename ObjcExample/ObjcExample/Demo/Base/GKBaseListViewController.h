@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, GKBaseListType) {
 
 - (instancetype)initWithListType:(GKBaseListType)listType;
 
+@property (nonatomic, assign) NSInteger index;
+
 @property (nonatomic, assign) NSInteger count;
 
 @property (nonatomic, assign) BOOL shouldLoadData;

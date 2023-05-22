@@ -35,7 +35,7 @@
         make.edges.equalTo(self.view);
     }];
 
-    self.titleView.contentScrollView = self.pageScrollView.listContainerView.collectionView;
+    self.titleView.contentScrollView = self.pageScrollView.listContainerView.scrollView;
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.pageScrollView reloadData];

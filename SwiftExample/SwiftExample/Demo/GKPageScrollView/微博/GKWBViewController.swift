@@ -132,14 +132,14 @@ class GKWBViewController: GKDemoBaseViewController {
     }
     
     @objc func moreAction() {
-//        pageScrollView.snp.remakeConstraints { make in
-//            make.left.equalTo(0)
-//            make.right.equalTo(0)
-//            make.bottom.equalTo(0)
-//            make.top.equalTo(100)
-//        }
-        pageScrollView.ceilPointHeight += 100
-        pageScrollView.reloadData()
+        pageScrollView.snp.remakeConstraints { make in
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.bottom.equalTo(0)
+            make.top.equalTo(100)
+        }
+//        pageScrollView.ceilPointHeight += 100
+//        pageScrollView.reloadData()
     }
 }
 

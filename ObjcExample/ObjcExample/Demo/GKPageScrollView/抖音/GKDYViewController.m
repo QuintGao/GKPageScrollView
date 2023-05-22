@@ -52,13 +52,27 @@
     return self.headerView;
 }
 
-- (UIView *)pageViewInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return self.pageView;
+- (UIView *)segmentedViewInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.categoryView;
 }
 
-- (NSArray<id<GKPageListViewDelegate>> *)listViewsInPageScrollView:(GKPageScrollView *)pageScrollView {
-    return self.childVCs;
+- (NSInteger)numberOfListsInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.titles.count;
 }
+
+- (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index {
+    GKDYListViewController *listVC = [[GKDYListViewController alloc] init];
+    listVC.index = index;
+    return listVC;
+}
+
+//- (UIView *)pageViewInPageScrollView:(GKPageScrollView *)pageScrollView {
+//    return self.pageView;
+//}
+//
+//- (NSArray<id<GKPageListViewDelegate>> *)listViewsInPageScrollView:(GKPageScrollView *)pageScrollView {
+//    return self.childVCs;
+//}
 
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll {
     NSLog(@"%d", isMainCanScroll);
@@ -103,6 +117,8 @@
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
+//        _pageScrollView.listContainerType = GKPageListContainerType_ScrollView;
+        _pageScrollView.lazyLoadList = YES;
     }
     return _pageScrollView;
 }
@@ -143,7 +159,8 @@
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
         _categoryView.indicators = @[lineView];
         
-        _categoryView.contentScrollView = self.scrollView;
+//        _categoryView.contentScrollView = self.scrollView;
+        _categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;
         
         // 添加分割线
         UIView *btmLineView = [UIView new];

@@ -50,4 +50,24 @@
     self.listScrollViewScrollBlock = callback;
 }
 
+- (UIView *)listView {
+    return self.view;
+}
+
+- (void)listWillAppear {
+    NSLog(@"%zd--%s", self.index, __func__);
+}
+
+- (void)listDidAppear {
+    NSLog(@"%zd--%s", self.index, __func__);
+}
+
+- (void)listWillDisappear {
+    NSLog(@"%zd--%s", self.index, __func__);
+}
+
+- (void)listDidDisappear {
+    NSLog(@"%zd--%s", self.index, __func__);
+}
+
 @end

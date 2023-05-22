@@ -123,6 +123,30 @@
     }
 }
 
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    
+//    NSLog(@"%zd--%s", self.index, __func__);
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    
+//    NSLog(@"%zd--%s", self.index, __func__);
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    
+//    NSLog(@"%zd--%s", self.index, __func__);
+//}
+//
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [super viewDidDisappear:animated];
+//    
+//    NSLog(@"%zd--%s", self.index, __func__);
+//}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
@@ -316,6 +340,22 @@
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
+}
+
+- (void)listViewWillAppear {
+    NSLog(@"%zd--%s", self.index, __func__);
+}
+
+- (void)listViewDidAppear {
+    NSLog(@"%zd--%s", self.index, __func__);
+}
+
+- (void)listViewWillDisappear {
+    NSLog(@"%zd--%s", self.index, __func__);
+}
+
+- (void)listViewDidDisappear {
+    NSLog(@"%zd--%s", self.index, __func__);
 }
 
 #pragma mark - 懒加载

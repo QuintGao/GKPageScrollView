@@ -70,7 +70,7 @@
         return NO;
     }
     
-    horScrollView = self.pageScrollView.listContainerView.collectionView;
+    horScrollView = self.pageScrollView.listContainerView.scrollView;
     if (gestureRecognizer.view == horScrollView || otherGestureRecognizer.view == horScrollView) {
         return NO;
     }
@@ -89,7 +89,7 @@
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.lazyLoadList = YES;
         _pageScrollView.ceilPointHeight = 0;
-        _pageScrollView.listContainerView.collectionView.nestEnabled = YES;
+        _pageScrollView.listContainerView.nestEnabled = YES;
 //        _pageScrollView.mainTableView.gestureDelegate = self;
     }
     return _pageScrollView;
@@ -116,7 +116,7 @@
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
         _categoryView.indicators = @[lineView];
         
-        _categoryView.contentScrollView = self.pageScrollView.listContainerView.collectionView;
+        _categoryView.contentScrollView = self.pageScrollView.listContainerView.scrollView;
     }
     return _categoryView;
 }

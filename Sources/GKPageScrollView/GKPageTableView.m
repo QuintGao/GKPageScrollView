@@ -14,7 +14,6 @@
     if ([self.gestureDelegate respondsToSelector:@selector(pageTableView:gestureRecognizerShouldBegin:)]) {
         return [self.gestureDelegate pageTableView:self gestureRecognizerShouldBegin:gestureRecognizer];
     }
-    
     return YES;
 }
 

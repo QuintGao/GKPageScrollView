@@ -71,11 +71,11 @@
     
     [self.pageScrollView reloadData];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
 //            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(GK_STATUSBAR_NAVBAR_HEIGHT, 0, ADAPTATIONRATIO * 100, 0));
 //        }];
-//        
+//
 //        CGFloat scrollW = kScreenW;
 //        CGFloat scrollH = kScreenH - kNavBarHeight - 40.0f - ADAPTATIONRATIO * 100.0f;
 //        self.scrollView.frame = CGRectMake(0, 40, scrollW, scrollH);
@@ -83,7 +83,11 @@
 //        [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
 //            vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
 //        }];
-//    });
+        
+        // 动态修改临界点
+        self.pageScrollView.ceilPointHeight += 100;
+        [self.pageScrollView reloadData];
+    });
 }
 
 #pragma mark - GKPageScrollViewDelegate
@@ -190,25 +194,13 @@
     NSLog(@"刷新数据");
 }
 
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.pageScrollView horizonScrollViewWillBeginScroll];
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self.pageScrollView horizonScrollViewDidEndedScroll];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [self.pageScrollView horizonScrollViewDidEndedScroll];
-}
-
 #pragma mark - 懒加载
 - (GKPageScrollView *)pageScrollView {
     if (!_pageScrollView) {
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = [UIColor clearColor];
         _pageScrollView.ceilPointHeight = 0;
+        _pageScrollView.horizontalScrollViewList = @[self.scrollView];
     }
     return _pageScrollView;
 }

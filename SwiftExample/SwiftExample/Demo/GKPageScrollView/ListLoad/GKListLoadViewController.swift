@@ -16,7 +16,7 @@ class GKListLoadViewController: GKDemoBaseViewController {
     lazy var pageScrollView: GKPageScrollView! = {
         let pageScrollView = GKPageScrollView(delegate: self)
         pageScrollView.isLazyLoadList = true
-        pageScrollView.listContainerView.collectionView.gk_openGestureHandle = true
+        pageScrollView.listContainerView.scrollView.gk_openGestureHandle = true
         return pageScrollView
     }()
     
@@ -48,7 +48,7 @@ class GKListLoadViewController: GKDemoBaseViewController {
         lineView.verticalOffset = ADAPTATIONRATIO * 2.0
         segmentedView.indicators = [lineView]
         
-        segmentedView.contentScrollView = self.pageScrollView.listContainerView.collectionView
+        segmentedView.contentScrollView = self.pageScrollView.listContainerView.scrollView
         
         let btmLineView = UIView()
         btmLineView.backgroundColor = UIColor.grayColor(g: 110)

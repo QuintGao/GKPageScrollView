@@ -19,7 +19,7 @@ class GKNest1ViewController: GKDemoBaseViewController {
     lazy var pageScrollView: GKPageScrollView = {
         let pageScrollView = GKPageScrollView(delegate: self)
         pageScrollView.isLazyLoadList = true
-        pageScrollView.listContainerView.collectionView.gk_openGestureHandle = true
+        pageScrollView.listContainerView.scrollView.gk_openGestureHandle = true
         return pageScrollView
     }()
     
@@ -46,7 +46,7 @@ class GKNest1ViewController: GKDemoBaseViewController {
         lineView.verticalOffset = ADAPTATIONRATIO * 2.0
         segmentedView.indicators = [lineView]
         
-        segmentedView.contentScrollView = self.pageScrollView.listContainerView.collectionView
+        segmentedView.contentScrollView = self.pageScrollView.listContainerView.scrollView
         
         let bottomLineView = UIView()
         bottomLineView.backgroundColor = UIColor.gray
@@ -75,7 +75,7 @@ class GKNest1ViewController: GKDemoBaseViewController {
         }
         
         self.pageScrollView.reloadData()
-        self.pageScrollView.listContainerView.collectionView.gestureDelegate = self
+        self.pageScrollView.listContainerView.gestureDelegate = self
     }
 }
 
@@ -116,10 +116,9 @@ extension GKNest1ViewController: GKNestViewDelegate {
     }
 }
 
-extension GKNest1ViewController: GKPageListContainerViewGestureDelegate {
-    func pageListContainerCollectionView(_ collectionView: GKPageListContainerCollectionView, gestureRecognizerShouldBegin gestureRecognizer: UIGestureRecognizer) -> Bool {
-        
-        if self.panBack(scrollView: collectionView, gestureRecognizer: gestureRecognizer) {
+extension GKNest1ViewController: GKPageListContainerScrollViewGestureDelegate {
+    func pageListContainerScrollView(_ scrollView: UIScrollView, gestureRecognizerShouldBegin gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if self.panBack(scrollView: scrollView, gestureRecognizer: gestureRecognizer) {
             return false
         }
         
@@ -146,7 +145,7 @@ extension GKNest1ViewController: GKPageListContainerViewGestureDelegate {
         return true
     }
     
-    func pageListContainerCollectionView(_ collectionView: GKPageListContainerCollectionView, gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func pageListContainerScrollView(_ scrollView: UIScrollView, gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return false
     }
     

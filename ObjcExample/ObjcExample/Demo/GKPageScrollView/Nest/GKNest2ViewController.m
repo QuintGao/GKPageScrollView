@@ -49,7 +49,7 @@
         return NO;
     }
     
-    UIScrollView *listScrollView = self.nestView.pageScrollView.listContainerView.collectionView;
+    UIScrollView *listScrollView = self.nestView.pageScrollView.listContainerView.scrollView;
     
     if (listScrollView.isTracking || listScrollView.isDragging) {
         if ([gestureRecognizer isMemberOfClass:NSClassFromString(@"UIScrollViewPanGestureRecognizer")]) {

@@ -35,6 +35,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 @property (nonatomic, strong) NSMutableDictionary <NSNumber *, id<GKPageSmoothListViewDelegate>> *listDict;
 @property (nonatomic, strong) NSMutableDictionary <NSNumber *, UIView *> *listHeaderDict;
 
+@property (nonatomic, assign) NSInteger currentIndex;
+
 @property (nonatomic, assign) GKPageSmoothHoverType hoverType;
 
 @property (nonatomic, strong) UIView *headerContainerView;
@@ -66,6 +68,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 @property (nonatomic, assign) BOOL       originShowsVerticalScrollIndicator;
 
 @property (nonatomic, assign) BOOL       isScroll;
+@property (nonatomic, assign) NSInteger  willAppearIndex;
+@property (nonatomic, assign) NSInteger  willDisappearIndex;
 
 @end
 
@@ -77,6 +81,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         _listDict = [NSMutableDictionary dictionary];
         _listHeaderDict = [NSMutableDictionary dictionary];
         _ceilPointHeight = 0;
+        _willAppearIndex = -1;
+        _willDisappearIndex = -1;
         
         [self addSubview:self.listCollectionView];
         [self addSubview:self.headerContainerView];
@@ -165,6 +171,12 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         __strong __typeof(weakSelf) self = weakSelf;
         [self setScrollView:self.listCollectionView offset:CGPointMake(size.width * self.currentIndex, 0)];
         [self.listCollectionView reloadData];
+        
+        // 首次加载
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self listWillAppear:self.currentIndex];
+            [self listDidAppear:self.currentIndex];
+        });
     }];
 }
 
@@ -241,6 +253,16 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     id<GKPageSmoothListViewDelegate> list = self.listDict[@(indexPath.item)];
     if (list == nil) {
         list = [self.dataSource smoothView:self initListAtIndex:indexPath.item];
+        if ([list isKindOfClass:UIViewController.class]) {
+            UIResponder *next = self.superview;
+            while (next != nil) {
+                if ([next isKindOfClass:UIViewController.class]) {
+                    [((UIViewController *)next) addChildViewController:(UIViewController *)list];
+                    break;
+                }
+                next = next.nextResponder;
+            }
+        }
         _listDict[@(indexPath.item)] = list;
         [list.listView setNeedsLayout];
         
@@ -305,14 +327,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     return self.listCollectionView.bounds.size;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self listDidAppear:indexPath.item];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self listDidDisappear:indexPath.item];
-}
-
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.panGesture.enabled = NO;
 }
@@ -343,12 +357,58 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
     }
     
-    if (index != self.currentIndex) {
-        self.currentIndex = index;
+    if (!scrollView.isDragging && !scrollView.isTracking && !scrollView.isDecelerating) {
+        return;
     }
+    CGFloat ratio = scrollView.contentOffset.x/scrollView.bounds.size.width;
+    NSInteger maxCount = round(scrollView.contentSize.width/scrollView.bounds.size.width);
+    NSInteger leftIndex = floorf(ratio);
+    leftIndex = MAX(0, MIN(maxCount - 1, leftIndex));
+    NSInteger rightIndex = leftIndex + 1;
+    if (ratio < 0 || rightIndex >= maxCount) {
+        [self listDidAppearOrDisappear:scrollView];
+        return;
+    }
+    if (rightIndex == self.currentIndex) {
+        //当前选中的在右边，用户正在从右边往左边滑动
+        if (self.listDict[@(leftIndex)] != nil) {
+            if (self.willAppearIndex == -1) {
+                self.willAppearIndex = leftIndex;
+                [self listWillAppear:self.willAppearIndex];
+            }
+        }
+        if (self.willDisappearIndex == -1) {
+            self.willDisappearIndex = rightIndex;
+            [self listWillDisappear:self.willDisappearIndex];
+        }
+    }else {
+        //当前选中的在左边，用户正在从左边往右边滑动
+        if (self.listDict[@(rightIndex)] != nil) {
+            if (self.willAppearIndex == -1) {
+                self.willAppearIndex = rightIndex;
+                [self listWillAppear:self.willAppearIndex];
+            }
+        }
+        if (self.willDisappearIndex == -1) {
+            self.willDisappearIndex = leftIndex;
+            [self listWillDisappear:self.willDisappearIndex];
+        }
+    }
+    [self listDidAppearOrDisappear:scrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        // 滑动到一半又取消滑动处理
+        if (self.willDisappearIndex != -1) {
+            [self listWillAppear:self.willDisappearIndex];
+            [self listWillDisappear:self.willAppearIndex];
+            [self listDidAppear:self.willDisappearIndex];
+            [self listDidDisappear:self.willAppearIndex];
+            self.willDisappearIndex = -1;
+            self.willAppearIndex = -1;
+        }
+    }
     if (self.isMainScrollDisabled) return;
     if (!decelerate) {
         NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
@@ -358,6 +418,15 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    // 滑动到一半又取消滑动处理
+    if (self.willDisappearIndex != -1) {
+        [self listWillAppear:self.willDisappearIndex];
+        [self listWillDisappear:self.willAppearIndex];
+        [self listDidAppear:self.willDisappearIndex];
+        [self listDidDisappear:self.willAppearIndex];
+        self.willDisappearIndex = -1;
+        self.willAppearIndex = -1;
+    }
     if (self.isMainScrollDisabled) return;
     NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
     [self horizontalScrollDidEndAtIndex:index];
@@ -552,6 +621,80 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 #pragma mark - Private Methods
+- (void)listWillAppear:(NSInteger)index {
+    if (![self checkIndexValid:index]) return;
+    id<GKPageSmoothListViewDelegate> list = _listDict[@(index)];
+    
+    if (list && [list respondsToSelector:@selector(listViewWillAppear)]) {
+        [list listViewWillAppear];
+    }
+}
+
+- (void)listDidAppear:(NSInteger)index {
+    if (![self checkIndexValid:index]) {
+        return;
+    }
+    self.currentIndex = index;
+    id<GKPageSmoothListViewDelegate> list = _listDict[@(index)];
+    if (list && [list respondsToSelector:@selector(listViewDidAppear)]) {
+        [list listViewDidAppear];
+    }
+}
+
+- (void)listWillDisappear:(NSInteger)index {
+    if (![self checkIndexValid:index]) {
+        return;
+    }
+    id<GKPageSmoothListViewDelegate> list = _listDict[@(index)];
+    if (list && [list respondsToSelector:@selector(listViewWillDisappear)]) {
+        [list listViewWillDisappear];
+    }
+}
+
+- (void)listDidDisappear:(NSInteger)index {
+    if (![self checkIndexValid:index]) {
+        return;
+    }
+    id<GKPageSmoothListViewDelegate> list = _listDict[@(index)];
+    if (list && [list respondsToSelector:@selector(listViewDidDisappear)]) {
+        [list listViewDidDisappear];
+    }
+}
+
+- (BOOL)checkIndexValid:(NSInteger)index {
+    NSUInteger count = [self.dataSource numberOfListsInSmoothView:self];
+    if (count <= 0 || index >= count) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)listDidAppearOrDisappear:(UIScrollView *)scrollView {
+    CGFloat currentIndexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width;
+    if (self.willAppearIndex != -1 || self.willDisappearIndex != -1) {
+        NSInteger disappearIndex = self.willDisappearIndex;
+        NSInteger appearIndex = self.willAppearIndex;
+        if (self.willAppearIndex > self.willDisappearIndex) {
+            //将要出现的列表在右边
+            if (currentIndexPercent >= self.willAppearIndex) {
+                self.willDisappearIndex = -1;
+                self.willAppearIndex = -1;
+                [self listDidDisappear:disappearIndex];
+                [self listDidAppear:appearIndex];
+            }
+        }else {
+            //将要出现的列表在左边
+            if (currentIndexPercent <= self.willAppearIndex) {
+                self.willDisappearIndex = -1;
+                self.willAppearIndex = -1;
+                [self listDidDisappear:disappearIndex];
+                [self listDidAppear:appearIndex];
+            }
+        }
+    }
+}
+
+
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
     if (self.isMainScrollDisabled) {
         if ([self.delegate respondsToSelector:@selector(smoothView:listScrollViewDidScroll:contentOffset:)]) {
@@ -766,26 +909,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
     }
     return 0;
-}
-
-- (void)listDidAppear:(NSInteger)index {
-    NSUInteger count = [self.dataSource numberOfListsInSmoothView:self];
-    if (count <= 0 || index >= count) return;
-    
-    id<GKPageSmoothListViewDelegate> list = self.listDict[@(index)];
-    if (list && [list respondsToSelector:@selector(listViewDidAppear)]) {
-        [list listViewDidAppear];
-    }
-}
-
-- (void)listDidDisappear:(NSInteger)index {
-    NSUInteger count = [self.dataSource numberOfListsInSmoothView:self];
-    if (count <= 0 || index >= count) return;
-    
-    id<GKPageSmoothListViewDelegate> list = self.listDict[@(index)];
-    if (list && [list respondsToSelector:@selector(listViewDidDisappear)]) {
-        [list listViewDidDisappear];
-    }
 }
 
 - (void)allowScrolling:(UIScrollView *)scrollView {

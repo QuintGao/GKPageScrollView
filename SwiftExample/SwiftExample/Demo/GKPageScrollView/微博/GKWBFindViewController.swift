@@ -136,7 +136,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
         let categoryView = JXSegmentedView(frame: CGRect(x: ADAPTATIONRATIO * 60.0, y: 0, width: kScreenW - ADAPTATIONRATIO * 80.0, height: 54.0))
         categoryView.dataSource = self.titleDataSource
         categoryView.indicators = [self.lineView]
-        categoryView.contentScrollView = self.pageScrollView.listContainerView.collectionView
+        categoryView.contentScrollView = self.pageScrollView.listContainerView.scrollView
         return categoryView
     }()
     

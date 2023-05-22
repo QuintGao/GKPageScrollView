@@ -251,6 +251,22 @@ extension GKSmoothListView: GKPageSmoothListViewDelegate {
     func listScrollView() -> UIScrollView {
         return self.smoothScrollView!
     }
+    
+    func listViewWillAppear() {
+        print("listViewWillAppear")
+    }
+    
+    func listViewDidAppear() {
+        print("listViewDidAppear")
+    }
+    
+    func listViewWillDisappear() {
+        print("listViewWillDisappear")
+    }
+    
+    func listViewDidDisappear() {
+        print("listViewDidDisappear")
+    }
 }
 
 extension GKSmoothListView: UITableViewDataSource, UITableViewDelegate {

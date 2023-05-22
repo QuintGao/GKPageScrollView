@@ -318,7 +318,7 @@
             }
         };
         _categoryView.indicators = @[self.lineView];
-        _categoryView.contentScrollView = self.pageScrollView.listContainerView.collectionView;
+        _categoryView.contentScrollView = self.pageScrollView.listContainerView.scrollView;
     }
     return _categoryView;
 }
