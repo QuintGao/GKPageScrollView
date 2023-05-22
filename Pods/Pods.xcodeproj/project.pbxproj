@@ -573,7 +573,7 @@
 		1A4E1BD1C71D0001F1D058F8AAABEB1C /* JXCategorySubTitleCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategorySubTitleCell.m; path = JXCategoryView/SubTitle/JXCategorySubTitleCell.m; sourceTree = "<group>"; };
 		1B2CAA8D828F5140EACBB783E62EFF84 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		1C4EE081FB3C16EC1E135B027E92FD07 /* VTContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTContentView.h; path = VTMagic/VTContentView.h; sourceTree = "<group>"; };
-		1E8E466D611DE007A99FA8D8593AC2A7 /* GKPageSmoothView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = GKPageSmoothView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1E8E466D611DE007A99FA8D8593AC2A7 /* GKPageSmoothView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKPageSmoothView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1F4AE0ECFE09ECF92F92FFEEAA0D04AA /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		1F7EEC8064E13BE3466C1DAB1925B3D4 /* Pods-ObjcExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ObjcExample.debug.xcconfig"; sourceTree = "<group>"; };
 		1FFED36A657123030ABB700256D73F15 /* Masonry */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = Masonry; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -648,7 +648,7 @@
 		46A29641CC61D32C1431499FD7925B17 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
 		4762C16BEC58863A4BB3FF2366F52246 /* UIColor+JXAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+JXAdd.h"; path = "JXCategoryView/Core/Common/UIColor+JXAdd.h"; sourceTree = "<group>"; };
 		477E7AE0A67CF3A451A7E078CDF40467 /* GKPushAnimatedTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKPushAnimatedTransition.h; path = GKNavigationBar/GestureHandle/GKPushAnimatedTransition.h; sourceTree = "<group>"; };
-		47927728ACE2D73D6369A3B2F5F666E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		47927728ACE2D73D6369A3B2F5F666E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		480DA2F33A3C318197CD10BA383E1B40 /* MJRefreshTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshTrailer.m; path = MJRefresh/Base/MJRefreshTrailer.m; sourceTree = "<group>"; };
 		484E0D08AA8ABC6E9998212AC2F77941 /* Pods-ObjcExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ObjcExample-resources.sh"; sourceTree = "<group>"; };
 		495BFFD2588B7BAEABB26C778ABC03E0 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Source/Typealiases.swift; sourceTree = "<group>"; };
@@ -770,7 +770,7 @@
 		9D221C27208DF1D59EB9DC54A9F9D834 /* GKPageSmoothView-Swift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "GKPageSmoothView-Swift"; path = GKPageSmoothView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D2C8B2DDAD5FDF7FB4B8BBBF233884C /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		9D7C21FDC3E6C93B570AADBDC4741D4F /* GKPageTableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPageTableView.m; path = Sources/GKPageScrollView/GKPageTableView.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E3E0BD74D16B52BE5E6D0263F2DF0A1 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Source/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
 		9EA02F4EA1FBE46083E3A43C6CA36DE8 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
 		9EB8ABA9D4D5895C8796AF855C64DEE0 /* JXCategorySubTitleImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategorySubTitleImageView.h; path = JXCategoryView/SubTitleImage/JXCategorySubTitleImageView.h; sourceTree = "<group>"; };
@@ -914,7 +914,7 @@
 		F4C4BDF66C48B50982DE8FAC7CA9187A /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Source/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
 		F586A9EFF4089F092941B9CA9CB506DF /* GKPageScrollView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageScrollView.release.xcconfig; sourceTree = "<group>"; };
 		F5DD18D5732E9B7C9B7A79D41245F8D0 /* Masonry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.debug.xcconfig; sourceTree = "<group>"; };
-		F5FCCF2EC1E3E71A3D3D3B8FA1440CB9 /* GKPageScrollView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = GKPageScrollView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F5FCCF2EC1E3E71A3D3D3B8FA1440CB9 /* GKPageScrollView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKPageScrollView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F6CE7154BF4D5D2449AFA1BED55DCCDF /* GKNavigationBarSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKNavigationBarSwift-umbrella.h"; sourceTree = "<group>"; };
 		F6ED18F409DB0987F7053FAC0A67FEAB /* WMPageController-library.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "WMPageController-library.debug.xcconfig"; path = "../WMPageController-library/WMPageController-library.debug.xcconfig"; sourceTree = "<group>"; };
 		F76824D2954B0EAE2757BD8BC3B71FEE /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
@@ -1231,7 +1231,6 @@
 				CB1C68E1EAF7B374E9BB5EAC2C7C1299 /* Support Files */,
 				5A9CBB799FA908E4B48C5A9C02CA7649 /* Title */,
 			);
-			name = JXSegmentedViewExt;
 			path = JXSegmentedViewExt;
 			sourceTree = "<group>";
 		};
@@ -1293,7 +1292,6 @@
 				CDE2FFD4F2C7E2965C30228E2D660D81 /* Support Files */,
 				68613825A0E789B99C75F21BC6022D54 /* Title */,
 			);
-			name = JXCategoryViewExt;
 			path = JXCategoryViewExt;
 			sourceTree = "<group>";
 		};
@@ -1543,7 +1541,6 @@
 				95517D36516578B5F35374E37EB42D0A /* Resources */,
 				CBE7AAD98E82E9314C73065EF3330373 /* Support Files */,
 			);
-			name = GKNavigationBarSwift;
 			path = GKNavigationBarSwift;
 			sourceTree = "<group>";
 		};
@@ -1555,7 +1552,6 @@
 				29E670AB0204751538D9F48618B6B19E /* NavigationBar */,
 				2076D55FC9332DD3EE3CCBEB8035862C /* Support Files */,
 			);
-			name = GKNavigationBar;
 			path = GKNavigationBar;
 			sourceTree = "<group>";
 		};
@@ -1646,7 +1642,6 @@
 				63C4FDB8B329AE9FE7AF5770393EB9DF /* Core */,
 				181776123F6DDFEBD7260A8925EF79DE /* Support Files */,
 			);
-			name = VTMagic;
 			path = VTMagic;
 			sourceTree = "<group>";
 		};
@@ -1729,7 +1724,6 @@
 				BCF27B9C3691CCB9293220CE608214F2 /* WMScrollView.m */,
 				F43B3C59AB2FEF13B6088B6A17C221F7 /* Support Files */,
 			);
-			name = WMPageController;
 			path = WMPageController;
 			sourceTree = "<group>";
 		};
@@ -1772,7 +1766,6 @@
 				579F4D4F5EED7DB402037DA8698A814F /* UILayoutSupport+Extensions.swift */,
 				DCC4761D05C7919AD724A876D8EA80E1 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -1806,7 +1799,6 @@
 				1B2CAA8D828F5140EACBB783E62EFF84 /* ViewController+MASAdditions.m */,
 				686E11535E0DBA91551BB6D6CEE0E0DF /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -1948,7 +1940,6 @@
 				94D33DD942986AB0139BBAEB1135128C /* Resources */,
 				A34DCAD5EEF5675ED891BA467C7C4834 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -2600,6 +2591,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					19622742EBA51E823D6DAE3F8CDBFAD4 = {
+						LastSwiftMigration = "";
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
