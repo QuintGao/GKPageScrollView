@@ -19,6 +19,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
         smoothView.ceilPointHeight = GKDevice.statusBarNavBarHeight()
         smoothView.isControlVerticalIndicator = true
         smoothView.listCollectionView.gk_openGestureHandle = true
+        smoothView.defaultSelectedIndex = 1
         return smoothView
     }()
     
@@ -41,6 +42,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
         titleDataSource.isTitleZoomEnabled = true
         titleDataSource.reloadData(selectedIndex: 0)
         categoryView.dataSource = titleDataSource
+        categoryView.defaultSelectedIndex = 1
         
         let lineView = JXSegmentedIndicatorLineView()
         lineView.lineStyle = .lengthen

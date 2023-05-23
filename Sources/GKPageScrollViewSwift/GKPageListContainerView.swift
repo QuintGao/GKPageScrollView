@@ -275,6 +275,21 @@ open class GKPageListContainerView: UIView {
         return scrollView
     }
     
+    public func scrolling(from leftIndex: Int, to rightIndex: Int, percent: CGFloat, selectedIndex: Int) {
+    }
+    
+    public func didClickSelectedItem(at index: Int) {
+        if !checkIndexValid(index) { return }
+        willAppearIndex = -1
+        willDisappearIndex = -1
+        if currentIndex != index {
+            listWillDisappear(at: currentIndex)
+            listDidDisappear(at: currentIndex)
+            listWillAppear(at: index)
+            listDidAppear(at: index)
+        }
+    }
+    
     public func reloadData() {
         guard let delegate = delegate else { return }
         if currentIndex < 0 || currentIndex >= delegate.numberOfLists(in: self) {
@@ -337,6 +352,7 @@ open class GKPageListContainerView: UIView {
             initListIfNeeded(at: index)
             listWillAppear(at: index)
         }else {
+            list?.listWillAppear?()
             if let vc = list as? UIViewController {
                 vc.beginAppearanceTransition(true, animated: false)
             }
@@ -366,6 +382,7 @@ open class GKPageListContainerView: UIView {
     private func listDidDisappear(at index: Int) {
         guard checkIndexValid(index) else { return }
         let list = validListDict[index]
+        list?.listDidDisappear?()
         if let vc = list as? UIViewController {
             vc.endAppearanceTransition()
         }

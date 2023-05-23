@@ -109,6 +109,7 @@
         lineView.indicatorHeight = ADAPTATIONRATIO * 4.0f;
         lineView.verticalMargin = ADAPTATIONRATIO * 2.0f;
         _categoryView.indicators = @[lineView];
+        _categoryView.defaultSelectedIndex = 1;
         
         // 设置关联的scrollView
 //        _categoryView.contentScrollView = self.pageScrollView.listContainerView.scrollView;

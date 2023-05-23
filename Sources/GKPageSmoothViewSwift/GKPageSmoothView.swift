@@ -92,7 +92,11 @@ let GKPageSmoothViewCellID = "smoothViewCell"
 open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     public private(set) var listDict = [Int: GKPageSmoothListViewDelegate]()
     public let listCollectionView: GKPageSmoothCollectionView
-    public var defaultSelectedIndex: Int = 0
+    public var defaultSelectedIndex: Int = 0 {
+        didSet {
+            currentIndex = defaultSelectedIndex
+        }
+    }
     public var ceilPointHeight: CGFloat = 0
     public var isControlVerticalIndicator: Bool = false
     public var isMainScrollDisabled: Bool = false
@@ -231,7 +235,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             }else {
                 var frame = self.listCollectionView.frame
                 frame.origin.y = self.segmentedHeight
-                frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight;
+                frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight
                 refreshList(frame: frame)
                 self.listCollectionView.frame = frame
             }
@@ -267,7 +271,6 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     /// 刷新列表
     public func reloadData() {
         currentListScrollView = nil
-        currentIndex = defaultSelectedIndex
         currentHeaderContainerViewY = 0
         isSyncListContentOffsetEnabled = false
         isLoaded = true
@@ -282,7 +285,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         
         self.refreshWidth { [weak self] (size) in
             guard let self = self else { return }
-            self.set(scrollView: self.listCollectionView, offset: CGPoint(x: size.width * CGFloat(self.currentIndex), y: 0));
+            self.set(scrollView: self.listCollectionView, offset: CGPoint(x: size.width * CGFloat(self.currentIndex), y: 0))
             self.listCollectionView.reloadData()
             
             // 首次加载
@@ -577,7 +580,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             guard let self = self else { return }
             self.refreshHeaderContainerHeight()
             
-            var frame = self.headerContainerView.frame;
+            var frame = self.headerContainerView.frame
             if __CGSizeEqualToSize(frame.size, .zero) {
                 frame = CGRect(x: 0, y: 0, width: size.width, height: self.headerContainerHeight)
             }else {
@@ -835,7 +838,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     fileprivate func set(scrollView: UIScrollView?, offset: CGPoint) {
         guard let scrollView = scrollView else { return }
         if !__CGPointEqualToPoint(scrollView.contentOffset, offset) {
-            scrollView.contentOffset = offset;
+            scrollView.setContentOffset(offset, animated: false)
         }
     }
 }
@@ -854,6 +857,16 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
         var list = listDict[indexPath.item]
         if list == nil {
             list = dataSource.smoothView(self, initListAtIndex: indexPath.item)
+            if let listVC = list as? UIViewController {
+                var next: UIResponder? = self.superview
+                while next != nil {
+                    if let vc = next as? UIViewController {
+                        vc.addChild(listVC)
+                        break
+                    }
+                    next = next?.next
+                }
+            }
             listDict[indexPath.item] = list!
             list?.listView().setNeedsLayout()
             
@@ -979,8 +992,8 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
                 listWillDisappear(at:willAppearIndex)
                 listDidAppear(at:willDisappearIndex)
                 listDidDisappear(at:willAppearIndex)
-                willDisappearIndex = -1;
-                willAppearIndex = -1;
+                willDisappearIndex = -1
+                willAppearIndex = -1
             }
         }
         if (self.isMainScrollDisabled) { return }
@@ -998,8 +1011,8 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             listWillDisappear(at:willAppearIndex)
             listDidAppear(at:willDisappearIndex)
             listDidDisappear(at:willAppearIndex)
-            willDisappearIndex = -1;
-            willAppearIndex = -1;
+            willDisappearIndex = -1
+            willAppearIndex = -1
         }
         if (self.isMainScrollDisabled) { return }
         let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)

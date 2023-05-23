@@ -152,7 +152,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 
 - (void)reloadData {
     self.currentListScrollView = nil;
-    self.currentIndex = self.defaultSelectedIndex;
     self.syncListContentOffsetEnabled = NO;
     self.currentHeaderContainerViewY = 0;
     self.isLoaded = YES;
@@ -205,6 +204,11 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 - (void)showingOnBottom {
     if (self.bottomContainerView.isHidden) return;
     [self dragDismiss];
+}
+
+- (void)setDefaultSelectedIndex:(NSInteger)defaultSelectedIndex {
+    _defaultSelectedIndex = defaultSelectedIndex;
+    self.currentIndex = defaultSelectedIndex;
 }
 
 - (void)setBottomHover:(BOOL)bottomHover {
@@ -311,9 +315,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     
     UIView *listView = list.listView;
     if (listView != nil && listView.superview != cell.contentView) {
-        for (UIView *view in cell.contentView.subviews) {
-            [view removeFromSuperview];
-        }
+        [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         listView.frame = cell.contentView.bounds;
         [cell.contentView addSubview:listView];
     }
@@ -1016,7 +1018,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 
 - (void)setScrollView:(UIScrollView *)scrollView offset:(CGPoint)offset {
     if (!CGPointEqualToPoint(scrollView.contentOffset, offset)) {
-        scrollView.contentOffset = offset;
+        [scrollView setContentOffset:offset animated:NO];
     }
 }
 

@@ -71,6 +71,7 @@
 //    return listView;
     GKBaseListViewController *listVC = [[GKBaseListViewController alloc] initWithListType:index];
     listVC.shouldLoadData = YES;
+    listVC.index = index;
     return listVC;
 }
 

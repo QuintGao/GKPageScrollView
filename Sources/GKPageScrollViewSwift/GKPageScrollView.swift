@@ -306,7 +306,7 @@ open class GKPageScrollView: UIView {
             
             var frame = self.listContainerView.frame
             frame.origin.y = segmentedView!.frame.size.height
-            self.listContainerView.frame = frame;
+            self.listContainerView.frame = frame
         }
     }
     
@@ -360,7 +360,7 @@ open class GKPageScrollView: UIView {
             }
             
             if self.isScrollToCritical {
-                self.isScrollToCritical = false;
+                self.isScrollToCritical = false
             }
             
             self.isCeilPoint     = false
@@ -377,14 +377,14 @@ open class GKPageScrollView: UIView {
         if self.isScrollToCritical { return }
         
         if animated == true {
-            self.isScrollToCritical = true;
+            self.isScrollToCritical = true
         }else {
-            self.isCeilPoint = true;
+            self.isCeilPoint = true
             self.isCriticalPoint = true
         }
         
         if self.isScrollToOriginal {
-            self.isScrollToOriginal = false;
+            self.isScrollToOriginal = false
         }
         
         self.mainTableView.setContentOffset(self.criticalOffset, animated: animated ?? true)
@@ -472,9 +472,9 @@ open class GKPageScrollView: UIView {
                 self.listScrollViewOffsetFixed()                
             }
             
-            self.mainTableViewCanScrollUpdate();
+            self.mainTableViewCanScrollUpdate()
             
-            return;
+            return
         }
         
         // 获取mainScrollView偏移量
@@ -605,7 +605,7 @@ open class GKPageScrollView: UIView {
                 let y: CGFloat = segmentedView.frame.size.height
                 let w: CGFloat = width
                 var h: CGFloat = height - y
-                h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
+                h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
                 self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
                 pageView?.addSubview(segmentedView)
                 pageView?.addSubview(listContainerView)

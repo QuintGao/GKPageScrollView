@@ -95,6 +95,7 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 
 ## 版本更新
 
+* 2023.05.23   1.8.8 - 修复oc项目pod引入后启动崩溃的问题 #127，GKPageSmoothView设置defaultSelectedIndex优化
 * 2023.05.22   1.8.7 - 列表生命周期完善
 * 2023.05.11   1.8.6 - 1、修复xcode14 image not found #115
                        2、尝试修复设置contentOffset导致的死循环 #113

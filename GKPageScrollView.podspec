@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'GKPageScrollView'
-  s.version             = '1.8.7'
+  s.version             = '1.8.8'
   s.summary             = 'iOS UIScrollView嵌套滑动分页视图'
   s.homepage            = 'https://github.com/QuintGao/GKPageScrollView'
   s.license             = { :type => "MIT", :file => "LICENSE" }
@@ -11,17 +11,15 @@ Pod::Spec.new do |s|
   s.swift_version       = '5.0'
   s.default_subspec     = 'Objc'
   
-  s.libraries = 'swiftCoreGraphics'
-  
-  s.xcconfig = {
-    'LIBRARY_SEARCH_PATHS' => '$(SDKROOT)/usr/lib/swift',
-  }
-  
   s.subspec 'Objc' do |ss|
     ss.source_files = 'Sources/GKPageScrollView/*.{h,m}'
   end
   
   s.subspec 'Swift' do |ss|
     ss.source_files = 'Sources/GKPageScrollViewSwift/*.swift'
+    ss.libraries = 'swiftCoreGraphics'
+    ss.xcconfig = {
+      'LIBRARY_SEARCH_PATHS' => '$(SDKROOT)/usr/lib/swift',
+    }
   end
 end

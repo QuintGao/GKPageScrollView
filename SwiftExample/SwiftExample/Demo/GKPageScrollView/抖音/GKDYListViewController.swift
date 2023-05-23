@@ -12,6 +12,7 @@ import GKPageScrollView
 class GKDYListViewController: GKBaseTableViewController {
 
     var scrollCallBack: ((UIScrollView) -> ())?
+    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +42,30 @@ extension GKDYListViewController {
 
 extension GKDYListViewController: GKPageListViewDelegate {
     func listScrollView() -> UIScrollView {
-        return self.tableView
+        self.tableView
     }
     
     func listViewDidScroll(callBack: @escaping (UIScrollView) -> ()) {
         self.scrollCallBack = callBack
+    }
+    
+    func listView() -> UIView {
+        self.view
+    }
+    
+    func listWillAppear() {
+        print("\(index)===listWillAppear")
+    }
+    
+    func listDidAppear() {
+        print("\(index)===listDidAppear")
+    }
+    
+    func listWillDisappear() {
+        print("\(index)===listWillDisappear")
+    }
+    
+    func listDidDisappear() {
+        print("\(index)===listDidDisappear")
     }
 }

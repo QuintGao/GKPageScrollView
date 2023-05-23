@@ -132,6 +132,7 @@
 //        _smoothView.mainScrollDisabled = YES;
         _smoothView.holdUpScrollView = YES;
 //        _smoothView.listCollectionView.bounces = YES;
+        _smoothView.defaultSelectedIndex = 1;
     }
     return _smoothView;
 }
@@ -168,6 +169,7 @@
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
         _categoryView.indicators = @[lineView];
+        _categoryView.defaultSelectedIndex = 1;
         
 //        _categoryView.contentScrollView = self.smoothView.listCollectionView;
     }

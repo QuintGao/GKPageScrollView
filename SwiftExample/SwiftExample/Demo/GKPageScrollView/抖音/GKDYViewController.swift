@@ -10,27 +10,20 @@ import UIKit
 import JXSegmentedViewExt
 import GKPageScrollView
 
+extension GKPageListContainerView: JXSegmentedViewListContainer { }
+
 class GKDYViewController: GKDemoBaseViewController {
 
     var titleDataSource = JXSegmentedTitleDataSource()
     
     lazy var pageScrollView: GKPageScrollView = {
         let pageScrollView = GKPageScrollView(delegate: self)
+        pageScrollView.isLazyLoadList = true
         return pageScrollView
     }()
     
     lazy var headerView: GKDYHeaderView = {
         return GKDYHeaderView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kDYHeaderHeight))
-    }()
-    
-    lazy var pageView: UIView = {
-        var pageView = UIView()
-        pageView.backgroundColor = UIColor.clear
-        
-        pageView.addSubview(self.segmentedView)
-        pageView.addSubview(self.scrollView)
-        
-        return pageView
     }()
     
     lazy var segmentedView: JXSegmentedView = {
@@ -53,7 +46,8 @@ class GKDYViewController: GKDemoBaseViewController {
         lineView.lineStyle = .normal
         segmentedView.indicators = [lineView]
         
-        segmentedView.contentScrollView = self.scrollView
+        segmentedView.defaultSelectedIndex = 1;
+        segmentedView.listContainer = self.pageScrollView.listContainerView
         
         // 添加分割线
         let btmLineView = UIView()
@@ -64,42 +58,7 @@ class GKDYViewController: GKDemoBaseViewController {
         return segmentedView
     }()
     
-    lazy var scrollView: UIScrollView = {
-        let scrollW = kScreenW
-        let scrollH = kScreenH - kNavBar_Height - 40.0
-        
-        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 40, width: scrollW, height: scrollH))
-        scrollView.isPagingEnabled = true
-        scrollView.bounces = false
-        scrollView.delegate = self
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.gk_openGestureHandle = true
-        
-        for (idx, vc) in self.childVCs.enumerated() {
-            self.addChild(vc)
-            scrollView.addSubview(vc.view)
-            
-            vc.view.frame = CGRect(x: CGFloat(idx) * scrollW, y: 0, width: scrollW, height: scrollH)
-        }
-        scrollView.contentSize = CGSize(width: CGFloat(self.childVCs.count) * scrollW, height: 0)
-        return scrollView
-    }()
-    
     let titles = ["作品 129", "动态 129", "喜欢591"]
-    
-    lazy var childVCs: [GKDYListViewController] = {
-        var childVCs = [GKDYListViewController]()
-        
-        let publishVC = GKDYListViewController()
-        let dynamicVC = GKDYListViewController()
-        let lovedVC   = GKDYListViewController()
-        
-        childVCs.append(publishVC)
-        childVCs.append(dynamicVC)
-        childVCs.append(lovedVC)
-        
-        return childVCs
-    }()
     
     lazy var titleView: UILabel = {
         var titleView = UILabel(frame: CGRect(x: 0, y: 0, width: 160, height: 44))
@@ -123,6 +82,7 @@ class GKDYViewController: GKDemoBaseViewController {
         self.pageScrollView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
+//        self.segmentedView.reloadData()
         self.pageScrollView.reloadData()
     }
 }
@@ -132,12 +92,18 @@ extension GKDYViewController: GKPageScrollViewDelegate {
         return headerView
     }
     
-    func pageView(in pageScrollView: GKPageScrollView) -> UIView {
-        return pageView
+    func segmentedView(in pageScrollView: GKPageScrollView) -> UIView {
+        return segmentedView
     }
     
-    func listView(in pageScrollView: GKPageScrollView) -> [GKPageListViewDelegate] {
-        return self.childVCs
+    func numberOfLists(in pageScrollView: GKPageScrollView) -> Int {
+        return self.titles.count
+    }
+    
+    func pageScrollView(_ pageScrollView: GKPageScrollView, initListAtIndex index: Int) -> GKPageListViewDelegate {
+        let listVC = GKDYListViewController()
+        listVC.index = index
+        return listVC
     }
     
     func mainTableViewDidScroll(_ scrollView: UIScrollView, isMainCanScroll: Bool) {

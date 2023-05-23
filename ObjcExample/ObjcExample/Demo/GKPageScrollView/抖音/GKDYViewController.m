@@ -158,6 +158,7 @@
         lineView.indicatorCornerRadius = 0;
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
         _categoryView.indicators = @[lineView];
+        _categoryView.defaultSelectedIndex = 1;
         
 //        _categoryView.contentScrollView = self.scrollView;
         _categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;

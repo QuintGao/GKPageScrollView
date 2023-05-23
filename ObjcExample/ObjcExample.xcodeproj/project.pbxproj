@@ -857,7 +857,6 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					/usr/lib/swift,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.ObjcExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -881,7 +880,6 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					/usr/lib/swift,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.ObjcExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

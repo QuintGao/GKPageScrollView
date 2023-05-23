@@ -1,6 +1,6 @@
 {
   "name": "GKPageSmoothView",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "summary": "iOS UIScrollView嵌套滑动分页视图",
   "homepage": "https://github.com/QuintGao/GKPageScrollView",
   "license": {
@@ -16,14 +16,10 @@
   },
   "source": {
     "git": "https://github.com/QuintGao/GKPageScrollView.git",
-    "tag": "1.8.7"
+    "tag": "1.8.8"
   },
   "swift_versions": "5.0",
   "default_subspecs": "Objc",
-  "libraries": "swiftCoreGraphics",
-  "xcconfig": {
-    "LIBRARY_SEARCH_PATHS": "$(SDKROOT)/usr/lib/swift"
-  },
   "subspecs": [
     {
       "name": "Objc",
@@ -31,7 +27,11 @@
     },
     {
       "name": "Swift",
-      "source_files": "Sources/GKPageSmoothViewSwift/*.swift"
+      "source_files": "Sources/GKPageSmoothViewSwift/*.swift",
+      "libraries": "swiftCoreGraphics",
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "$(SDKROOT)/usr/lib/swift"
+      }
     }
   ],
   "swift_version": "5.0"
