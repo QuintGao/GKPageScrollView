@@ -38,7 +38,7 @@
         make.edges.equalTo(self.view);
     }];
 
-    self.titleView.contentScrollView = self.pageScrollView.listContainerView.scrollView;
+    self.titleView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;
     [self.pageScrollView reloadData];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

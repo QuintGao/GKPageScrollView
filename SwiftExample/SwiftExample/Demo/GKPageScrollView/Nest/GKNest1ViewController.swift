@@ -46,7 +46,7 @@ class GKNest1ViewController: GKDemoBaseViewController {
         lineView.verticalOffset = ADAPTATIONRATIO * 2.0
         segmentedView.indicators = [lineView]
         
-        segmentedView.contentScrollView = self.pageScrollView.listContainerView.scrollView
+        segmentedView.listContainer = self.pageScrollView.listContainerView
         
         let bottomLineView = UIView()
         bottomLineView.backgroundColor = UIColor.gray

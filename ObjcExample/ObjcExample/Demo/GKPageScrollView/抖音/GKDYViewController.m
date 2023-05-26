@@ -17,12 +17,9 @@
 
 @property (nonatomic, strong) GKDYHeaderView        *headerView;
 
-@property (nonatomic, strong) UIView                *pageView;
 @property (nonatomic, strong) JXCategoryTitleView   *categoryView;
-@property (nonatomic, strong) UIScrollView          *scrollView;
 
 @property (nonatomic, strong) NSArray               *titles;
-@property (nonatomic, strong) NSArray               *childVCs;
 
 @property (nonatomic, strong) UILabel               *titleView;
 
@@ -130,17 +127,6 @@
     return _headerView;
 }
 
-- (UIView *)pageView {
-    if (!_pageView) {
-        _pageView = [UIView new];
-        _pageView.backgroundColor = [UIColor clearColor];
-        
-        [_pageView addSubview:self.categoryView];
-        [_pageView addSubview:self.scrollView];
-    }
-    return _pageView;
-}
-
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {
         _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 40.0f)];
@@ -160,7 +146,6 @@
         _categoryView.indicators = @[lineView];
         _categoryView.defaultSelectedIndex = 1;
         
-//        _categoryView.contentScrollView = self.scrollView;
         _categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;
         
         // 添加分割线
@@ -172,47 +157,11 @@
     return _categoryView;
 }
 
-- (UIScrollView *)scrollView {
-    if (!_scrollView) {
-        CGFloat scrollW = kScreenW;
-        CGFloat scrollH = kScreenH - kNavBarHeight - 40.0f;
-        
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 40, scrollW, scrollH)];
-        _scrollView.pagingEnabled = YES;
-        _scrollView.bounces = NO;
-        _scrollView.delegate = self;
-        _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.gk_openGestureHandle = YES;
-        
-        [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
-            [self addChildViewController:vc];
-            [self->_scrollView addSubview:vc.view];
-            
-            vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
-        }];
-        _scrollView.contentSize = CGSizeMake(self.childVCs.count * scrollW, 0);
-    }
-    return _scrollView;
-}
-
 - (NSArray *)titles {
     if (!_titles) {
         _titles = @[@"作品 129", @"动态 129", @"喜欢 591"];
     }
     return _titles;
-}
-
-- (NSArray *)childVCs {
-    if (!_childVCs) {
-        GKDYListViewController *publishVC = [GKDYListViewController new];
-        
-        GKDYListViewController *dynamicVC = [GKDYListViewController new];
-        
-        GKDYListViewController *lovedVC = [GKDYListViewController new];
-        
-        _childVCs = @[publishVC, dynamicVC, lovedVC];
-    }
-    return _childVCs;
 }
 
 - (UILabel *)titleView {

@@ -52,7 +52,7 @@ class GKNest2View: UIView {
         lineView.lineStyle = .lengthen
         segmentedView.indicators = [lineView]
         
-        segmentedView.contentScrollView = self.pageScrollView.listContainerView.scrollView
+        segmentedView.listContainer = self.pageScrollView.listContainerView
         
         return segmentedView
     }()

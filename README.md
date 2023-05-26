@@ -71,6 +71,20 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 * 1、headerView出现多个，不要在headerView代理方法中做视图创建、添加等操作  
 * 2、[手势处理](https://github.com/QuintGao/GKPageScrollView/blob/master/Document/%E6%89%8B%E5%8A%BF%E5%A4%84%E7%90%86.md)
 * 3、listView使用UICollectionView崩溃，参考demo中的GKBaseCollectionViewLayout，重写collectionViewContentSize
+* 4、1.8.7版本之后，GKPageScrollView的懒加载方式
+     - OC版本需要设置
+  ```
+        _categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;
+   ```
+
+     - Swift版本需要设置
+     ```
+        // 实现JXSegmentedViewListContainer协议
+        extension GKPageListContainerView: JXSegmentedViewListContainer { }
+
+        // 设置listContainer
+        segmentedView.listContainer = self.pageScrollView.listContainerView
+     ```
 
 ## 效果图
 

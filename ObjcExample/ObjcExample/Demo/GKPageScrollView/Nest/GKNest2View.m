@@ -116,7 +116,7 @@
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Lengthen;
         _categoryView.indicators = @[lineView];
         
-        _categoryView.contentScrollView = self.pageScrollView.listContainerView.scrollView;
+        _categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;
     }
     return _categoryView;
 }

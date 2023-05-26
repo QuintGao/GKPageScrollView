@@ -218,7 +218,6 @@
         _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
         _pageScrollView.mainTableView.backgroundColor = GKColorGray(232);
         _pageScrollView.controlVerticalIndicator = YES;
-//        _pageScrollView.contentScrollView = self.pageVC.scrollView;
     }
     return _pageScrollView;
 }

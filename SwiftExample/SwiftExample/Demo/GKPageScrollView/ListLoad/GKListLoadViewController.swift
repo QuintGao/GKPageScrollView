@@ -48,7 +48,7 @@ class GKListLoadViewController: GKDemoBaseViewController {
         lineView.verticalOffset = ADAPTATIONRATIO * 2.0
         segmentedView.indicators = [lineView]
         
-        segmentedView.contentScrollView = self.pageScrollView.listContainerView.scrollView
+        segmentedView.listContainer = self.pageScrollView.listContainerView;
         
         let btmLineView = UIView()
         btmLineView.backgroundColor = UIColor.grayColor(g: 110)

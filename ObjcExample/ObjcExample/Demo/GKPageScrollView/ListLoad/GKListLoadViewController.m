@@ -112,7 +112,6 @@
         _categoryView.defaultSelectedIndex = 1;
         
         // 设置关联的scrollView
-//        _categoryView.contentScrollView = self.pageScrollView.listContainerView.scrollView;
         _categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;
         
         UIView  *btmLineView = [UIView new];

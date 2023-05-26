@@ -41,7 +41,7 @@ class GKChangeHeaderViewController: GKDemoBaseViewController {
         var segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kBaseSegmentHeight))
         segmentedView.dataSource = titleDataSource
         
-        segmentedView.contentScrollView = self.pageScrollView.listContainerView.scrollView
+        segmentedView.listContainer = self.pageScrollView.listContainerView
         
         return segmentedView
     }()
