@@ -109,6 +109,9 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 
 ## 版本更新
 
+<details open>
+    <summary><font size=4>最近更新</font></summary>
+        
 * 2023.05.23   1.8.8 - 修复oc项目pod引入后启动崩溃的问题 #127，GKPageSmoothView设置defaultSelectedIndex优化
 * 2023.05.22   1.8.7 - 列表生命周期完善
 * 2023.05.11   1.8.6 - 1、修复xcode14 image not found #115
@@ -131,6 +134,11 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 * 2022.03.15   1.7.1 - 修复headerView设置高度较低的问题 #100
 * 2021.12.07   1.7.0 - 1、GKPageScrollView增加showInFooter属性，解决header超过一屏时的卡顿问题 #94
                        2、GKPageSmoothView放开currentIndex属性
+</details>
+
+<details>
+     <summary><font size=4>历史更新</font></summary>
+
 * 2021.11.08   1.6.9 - 1、修复低版本xcode报错问题 #87
                        2、修复内存泄漏问题 #88
                        3、修复cell高度无法自适应问题 #89
@@ -172,3 +180,20 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 * 2019.02.25   1.0.7 - 优化切换临界点和原点的方法，增加仿微博发现页demo
 * 2019.02.20   1.0.6 - 增加快速切换临界点和原点的方法
 * 2018.12.11   1.0.3 - 支持下拉刷新、上拉加载
+</details>
+
+
+## 作者
+
+- QQ： [1094887059](http://wpa.qq.com/msgrd?v=3&uin=1094887059&site=qq&menu=yes)  
+- QQ群：[1047100313](https://qm.qq.com/cgi-bin/qm/qr?k=Aj_f4C5-R3X1_KEdeb_Ttg8pxK_41ZJu&jump_from=webapi)
+
+- [简书](https://www.jianshu.com/u/ba61bbfc87e8)
+
+- 支持作者
+
+<img src="https://upload-images.jianshu.io/upload_images/1598505-1637d63e4e18e103.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="200" height="200">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<img src="https://upload-images.jianshu.io/upload_images/1598505-0be88fd4943d1994.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="200" height="200">
+
+[回到顶部](#readme)
