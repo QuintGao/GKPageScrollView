@@ -55,8 +55,10 @@ DEPENDENCIES:
   - JXCategoryViewExt/Indicator/AlignmentLine
   - JXCategoryViewExt/SubTitleImage
   - JXSegmentedViewExt/Indicator/AlignmentLine
+  - JXSegmentedViewExt/Indicator/Line
   - JXSegmentedViewExt/Number
   - JXSegmentedViewExt/SubTitleImage
+  - JXSegmentedViewExt/Title
   - Masonry
   - MJRefresh
   - SnapKit
@@ -94,6 +96,6 @@ SPEC CHECKSUMS:
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: 6c6dbfcc1343d39e2b0e289cdc6a4483d6cdd4e1
+PODFILE CHECKSUM: 0a74e3449f872e5e5fd83edd62efa27151269ae2
 
 COCOAPODS: 1.12.1

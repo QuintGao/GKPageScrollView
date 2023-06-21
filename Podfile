@@ -35,6 +35,19 @@ target 'SwiftExample' do
   pod 'VTMagic'
 end
 
+target 'SwiftUIExample' do
+  platform :ios, '9.0'
+  project 'SwiftUIExample/SwiftUIExample.xcodeproj'
+  
+  use_frameworks!
+  
+  pod 'GKPageScrollView/Swift', :path => '../GKPageScrollView'
+  pod 'SnapKit'
+  pod 'JXSegmentedViewExt/Title'
+  pod 'JXSegmentedViewExt/Indicator/Line'
+  
+end
+
 post_install do |installer|
   # 消除版本警告
   installer.pods_project.targets.each do |target|

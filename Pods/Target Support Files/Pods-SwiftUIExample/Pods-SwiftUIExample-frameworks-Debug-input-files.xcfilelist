@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-SwiftUIExample/Pods-SwiftUIExample-frameworks.sh
+${BUILT_PRODUCTS_DIR}/GKPageScrollView-Swift/GKPageScrollView.framework
+${BUILT_PRODUCTS_DIR}/JXSegmentedViewExt-Core-Indicator_Line-Title/JXSegmentedViewExt.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

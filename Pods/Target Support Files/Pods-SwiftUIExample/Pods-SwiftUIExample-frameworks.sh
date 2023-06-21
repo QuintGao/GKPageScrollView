@@ -177,22 +177,12 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GKPageScrollView-Swift/GKPageScrollView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/GKPageSmoothView-Swift/GKPageSmoothView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/GKNavigationBarSwift/GKNavigationBarSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/JXSegmentedViewExt-054e1543/JXSegmentedViewExt.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JXSegmentedViewExt-Core-Indicator_Line-Title/JXSegmentedViewExt.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GKPageScrollView-Swift/GKPageScrollView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/GKPageSmoothView-Swift/GKPageSmoothView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/GKNavigationBarSwift/GKNavigationBarSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/JXSegmentedViewExt-054e1543/JXSegmentedViewExt.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JXSegmentedViewExt-Core-Indicator_Line-Title/JXSegmentedViewExt.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

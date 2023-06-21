@@ -1,5 +1,5 @@
 framework module JXSegmentedViewExt {
-  umbrella header "JXSegmentedViewExt-umbrella.h"
+  umbrella header "JXSegmentedViewExt-Core-Indicator_Line-Title-umbrella.h"
 
   export *
   module * { export * }

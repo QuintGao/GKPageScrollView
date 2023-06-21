@@ -5,5 +5,5 @@ ${BUILT_PRODUCTS_DIR}/MJRefresh-framework/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/VTMagic-framework/VTMagic.framework
 ${BUILT_PRODUCTS_DIR}/WMPageController-framework/WMPageController.framework
 ${BUILT_PRODUCTS_DIR}/GKNavigationBarSwift/GKNavigationBarSwift.framework
-${BUILT_PRODUCTS_DIR}/JXSegmentedViewExt/JXSegmentedViewExt.framework
+${BUILT_PRODUCTS_DIR}/JXSegmentedViewExt-054e1543/JXSegmentedViewExt.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
