@@ -36,8 +36,6 @@
     self.gk_pushTransitionCriticalValue = 0.3f;
     self.gk_popTransitionCriticalValue = 0.5f;
     
-    self.gk_translationX = 5.0f;
-    self.gk_translationY = 5.0f;
     self.gk_scaleX = 0.95f;
     self.gk_scaleY = 0.97f;
 }
@@ -57,7 +55,7 @@
 }
 
 - (UIImage *)getCaptureWithView:(UIView *)view {
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0);
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, UIScreen.mainScreen.scale);
     [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

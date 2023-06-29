@@ -74,7 +74,6 @@ open class GKNavigationBar: UINavigationBar {
                         let navBarHNFS = GKDevice.navBarHeightNonFullScreen()
                         let navBarH = GKDevice.navBarHeight()
                         
-                        
                         var frame = obj.frame
                         frame.origin.y = self.frame.size.height - (self.gk_nonFullScreen ? navBarHNFS : navBarH)
                         obj.frame = frame

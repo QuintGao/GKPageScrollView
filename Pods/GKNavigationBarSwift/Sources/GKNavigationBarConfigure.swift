@@ -85,13 +85,8 @@ open class GKNavigationBarConfigure : NSObject {
     
     /// 右滑pop过渡临界值，默认0.5，大于此值完成pop操作
     open var gk_popTransitionCriticalValue: CGFloat = 0.5
-    
-    // 以下属性需要设置导航栏转场缩放为YES
-    /// 手机系统大于11.0，使用下面的值控制x、y轴的位移距离，默认（5，5）
-    open var gk_translationX: CGFloat = 5.0
-    open var gk_translationY: CGFloat = 5.0
 
-    /// 手机系统小于11.0，使用下面的值控制x、y周的缩放程度，默认（0.95，0.97）
+    /// 控制x、y轴的缩放程度，默认（0.95，0.97）
     open var gk_scaleX: CGFloat = 0.95
     open var gk_scaleY: CGFloat = 0.97
     
@@ -146,8 +141,6 @@ open class GKNavigationBarConfigure : NSObject {
         gk_snapMovementSensitivity = 0.7
         gk_pushTransitionCriticalValue = 0.3
         gk_popTransitionCriticalValue = 0.5
-        gk_translationX = 5.0
-        gk_translationY = 5.0
         gk_scaleX = 0.95
         gk_scaleY = 0.97
     }
@@ -204,7 +197,7 @@ open class GKNavigationBarConfigure : NSObject {
     
     /// 获取某个view的截图
     open func getCapture(with view: UIView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0)
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, UIScreen.main.scale)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -411,7 +404,7 @@ open class GKDevice {
         }
         
         if window == nil {
-            window = (UIApplication.shared.delegate?.window)!
+            window = UIApplication.shared.delegate?.window ?? nil
         }
         
         return window
@@ -427,6 +420,26 @@ open class GKDevice {
         }
         
         let dict = [
+            // iPhone 14
+            "iPhone14,7": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)],
+            "iPhone14,7-Zoom": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 48, left: 0, bottom: 28, right: 0),
+                                UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 48, bottom: 21, right: 48)],
+            // iPhone 14 Plus
+            "iPhone14,8": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)],
+            "iPhone14,8-Zoom": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 41, left: 0, bottom: 30, right: 0),
+                                UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 41, bottom: 21, right: 41)],
+            // iPhone 14 Pro
+            "iPhone15,2": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)],
+            "iPhone15,2-Zoom": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 48, left: 0, bottom: 28, right: 0),
+                                UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 48, bottom: 21, right: 48)],
+            // iPhone 14 Pro Max
+            "iPhone15,3": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)],
+            "iPhone15,3-Zoom": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 51, left: 0, bottom: 31, right: 0),
+                                UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 51, bottom: 21, right: 51)],
             // iPhone 13 mini
             "iPhone14,4": [UIInterfaceOrientation.portrait : UIEdgeInsets(top: 50, left: 0, bottom: 34, right: 0),
                            UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 50, bottom: 21, right: 50)],
@@ -480,7 +493,7 @@ open class GKDevice {
         ]
         var deviceKey = deviceModel
         if dict[deviceKey] == nil {
-            deviceKey = "iPhone14,2" // 默认按最新的 iPhone 13 Pro处理，因为新出的设备肯定更大概率与上一代设备相似
+            deviceKey = "iPhone15,2" // 默认按最新的机型处理，因为新出的设备肯定更大概率与上一代设备相似
         }
         if isZoomedMode() {
             deviceKey = deviceKey + "-Zoom"

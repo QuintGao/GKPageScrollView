@@ -84,6 +84,18 @@
     }
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    frame = self.segmentedView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.segmentedView.frame = frame;
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView {
     return YES;
@@ -236,18 +248,23 @@
     if (!_headerView) {
         UIImage *headerImg = [UIImage imageNamed:@"wb_find"];
     
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width + GK_STATUSBAR_HEIGHT)];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width * headerImg.size.height / headerImg.size.width + GK_STATUSBAR_HEIGHT)];
         
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, GK_STATUSBAR_HEIGHT, kScreenW, kScreenW * headerImg.size.height / headerImg.size.width)];
+        UIImageView *imgView = [[UIImageView alloc] init];
         imgView.image = headerImg;
         [_headerView addSubview:imgView];
+        
+        [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self->_headerView);
+            make.top.equalTo(self->_headerView).offset(GK_STATUSBAR_HEIGHT);
+        }];
     }
     return _headerView;
 }
 
 - (UIView *)segmentedView {
     if (!_segmentedView) {
-        _segmentedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 54.0f)];
+        _segmentedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 54.0f)];
         
         [_segmentedView addSubview:self.categoryView];
         [_segmentedView addSubview:self.backBtn];
@@ -265,7 +282,7 @@
 
 - (JXCategorySubTitleImageView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategorySubTitleImageView alloc] initWithFrame:CGRectMake(ADAPTATIONRATIO * 60.0f, 0, kScreenW - ADAPTATIONRATIO * 80.0f, 54.0f)];
+        _categoryView = [[JXCategorySubTitleImageView alloc] initWithFrame:CGRectMake(ADAPTATIONRATIO * 60.0f, 0, self.view.frame.size.width - ADAPTATIONRATIO * 80.0f, 54.0f)];
         _categoryView.titles = self.titles;
         _categoryView.subTitles = self.subtitles;
         _categoryView.titleFont = [UIFont boldSystemFontOfSize:15];

@@ -26,8 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL isHideTabBar;
 
-@property (nonatomic, strong, nullable) UIView *contentView;
-
 /// 初始化
 /// @param isScale 是否需要缩放
 - (instancetype)initWithScale:(BOOL)isScale;
@@ -46,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIViewController (GKCapture)
 
 /// 当前控制器的view的截图
-@property (nonatomic, strong) UIImage *gk_captureImage;
+@property (nonatomic, strong, nullable) UIImage *gk_captureImage;
 
 @end
 

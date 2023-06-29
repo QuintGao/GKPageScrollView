@@ -12,44 +12,42 @@
 @implementation GKPopAnimatedTransition
 
 - (void)animateTransition {
-    [self.containerView insertSubview:self.toViewController.view belowSubview:self.fromViewController.view];
-    
     // 是否隐藏tabBar
     self.isHideTabBar = self.toViewController.tabBarController && self.fromViewController.hidesBottomBarWhenPushed && self.toViewController.gk_captureImage;
+    if (self.toViewController.navigationController.childViewControllers.firstObject != self.toViewController) {
+        self.isHideTabBar = NO;
+    }
+    UITabBar *tabBar = self.toViewController.tabBarController.tabBar;
     
     CGFloat screenW = self.containerView.bounds.size.width;
     CGFloat screenH = self.containerView.bounds.size.height;
     
-    __block UIView *toView = nil;
+    __block UIView *toView = [[UIView alloc] initWithFrame:self.containerView.bounds];
+    __block UIView *captureView = nil;
+    
+    [toView addSubview:self.toViewController.view];
+    
     if (self.isHideTabBar) {
-        UIImageView *captureView = [[UIImageView alloc] initWithImage:self.toViewController.gk_captureImage];
-        captureView.frame = CGRectMake(0, 0, screenW, screenH);
-        [self.containerView insertSubview:captureView belowSubview:self.fromViewController.view];
-        toView = captureView;
-        self.toViewController.view.hidden = YES;
-        self.toViewController.tabBarController.tabBar.hidden = YES;
-    }else {
-        toView = self.toViewController.view;
+        captureView = [[UIImageView alloc] initWithImage:self.toViewController.gk_captureImage];
+        CGRect frame = tabBar.frame;
+        frame.origin.x = 0;
+        captureView.frame = frame;
+        [toView addSubview:captureView];
+        tabBar.hidden = YES;
     }
-    self.contentView = toView;
     
     if (self.isScale) {
         self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenW, screenH)];
         self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
         [toView addSubview:self.shadowView];
-        
-        if (@available(iOS 11.0, *)) {
-            CGRect frame = toView.frame;
-            frame.origin.x = GKGestureConfigure.gk_translationX;
-            frame.origin.y = GKGestureConfigure.gk_translationY;
-            frame.size.height -= 2 * GKGestureConfigure.gk_translationY;
-            toView.frame = frame;
-        }else {
-            toView.transform = CGAffineTransformMakeScale(GKGestureConfigure.gk_scaleX, GKGestureConfigure.gk_scaleY);
-        }
+        toView.transform = CGAffineTransformMakeScale(GKGestureConfigure.gk_scaleX, GKGestureConfigure.gk_scaleY);
     }else {
-        toView.frame = CGRectMake(- (0.3 * screenW), 0, screenW, screenH);
+        CGRect frame = toView.frame;
+        frame.origin.x = -0.3 * frame.size.width;
+        toView.frame = frame;
     }
+    
+    [self.containerView insertSubview:toView belowSubview:self.fromViewController.view];
     
     self.fromViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
     self.fromViewController.view.layer.shadowOpacity = 0.15f;
@@ -59,28 +57,39 @@
         self.fromViewController.view.frame = CGRectMake(screenW, 0, screenW, screenH);
         if (self.isScale) {
             self.shadowView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
-            if (@available(iOS 11.0, *)) {
-                toView.frame = CGRectMake(0, 0, screenW, screenH);
-            }else {
-                toView.transform = CGAffineTransformIdentity;
-            }
+            toView.transform = CGAffineTransformIdentity;
         }else {
-            toView.frame = CGRectMake(0, 0, screenW, screenH);
+            CGRect frame = toView.frame;
+            frame.origin.x = 0;
+            toView.frame = frame;
         }
     } completion:^(BOOL finished) {
-        [self completeTransition];
         if (self.isHideTabBar) {
-            [self.contentView removeFromSuperview];
-            self.contentView = nil;
+            self.toViewController.gk_captureImage = nil;
+            if (self.transitionContext.transitionWasCancelled) {
+                [self.toViewController.view removeFromSuperview];
+            }else {
+                [self.containerView addSubview:self.toViewController.view];
+            }
             
-            self.toViewController.view.hidden = NO;
+            toView.transform = CGAffineTransformIdentity;
+            if (toView) {
+                [toView removeFromSuperview];
+                toView = nil;
+            }
+            if (captureView) {
+                [captureView removeFromSuperview];
+                captureView = nil;
+            }
+            
             if (self.toViewController.navigationController.childViewControllers.count == 1) {
-                self.toViewController.tabBarController.tabBar.hidden = NO;
+                tabBar.hidden = NO;
             }
         }
         if (self.isScale) {
             [self.shadowView removeFromSuperview];
         }
+        [self completeTransition];
     }];
 }
 

@@ -27,11 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 右滑pop过渡临界值，默认0.5，大于此值完成pop操作
 @property (nonatomic, assign) CGFloat gk_popTransitionCriticalValue;
 
-// 以下属性需要设置导航栏转场缩放为YES
-/// 手机系统大于11.0，使用下面的值控制x、y轴的位移距离，默认（5，5）
-@property (nonatomic, assign) CGFloat gk_translationX;
-@property (nonatomic, assign) CGFloat gk_translationY;
-/// 手机系统小于11.0，使用下面的值控制x、y周的缩放程度，默认（0.95，0.97）
+/// 控制x、y轴的缩放程度，默认（0.95，0.97）
 @property (nonatomic, assign) CGFloat gk_scaleX;
 @property (nonatomic, assign) CGFloat gk_scaleY;
 

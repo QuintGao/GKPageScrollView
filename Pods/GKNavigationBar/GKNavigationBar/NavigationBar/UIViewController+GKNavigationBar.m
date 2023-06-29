@@ -46,6 +46,7 @@
 - (void)gk_viewDidLoad {
     // 设置默认状态
     self.gk_disableFixNavItemSpace = YES;
+    self.gk_openFixNavItemSpace = NO;
     
     if ([self shouldHandleNavBar]) {
         // 设置默认导航栏间距
@@ -711,8 +712,8 @@ static char kAssociatedObjectKey_navItemRightSpace;
 
 - (BOOL)isNonFullScreen {
     BOOL isNonFullScreen = NO;
-    CGFloat viewW = GK_SCREEN_WIDTH;
-    CGFloat viewH = GK_SCREEN_HEIGHT;
+    CGFloat viewW = self.view.frame.size.width;
+    CGFloat viewH = self.view.frame.size.height;
     if (self.isViewLoaded) {
         UIViewController *parentVC = self;
         // 找到最上层的父控制器
@@ -724,7 +725,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
         if (viewW == 0 || viewH == 0) return NO;
         
         // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
-        isNonFullScreen = self.presentingViewController && viewH < GK_SCREEN_HEIGHT;
+        isNonFullScreen = self.presentingViewController && viewH < self.view.bounds.size.height;
     }
     return isNonFullScreen;
 }
@@ -757,7 +758,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
             }
         }
     }
-    self.gk_navigationBar.frame = CGRectMake(0, 0, GK_SCREEN_WIDTH, navBarH);
+    self.gk_navigationBar.frame = CGRectMake(0, 0, self.view.frame.size.width, navBarH);
     [self.gk_navigationBar layoutSubviews];
 }
 

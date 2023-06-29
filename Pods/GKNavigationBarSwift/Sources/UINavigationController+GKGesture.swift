@@ -32,8 +32,7 @@ extension UINavigationController: GKGestureChildAwakeProtocol {
         DispatchQueue.once(token: onceToken) {
             let oriSels = ["viewDidLoad",
                            "pushViewController:animated:",
-                           "navigationBar:shouldPopItem:",
-                           "dealloc"
+                           "navigationBar:shouldPopItem:"
             ]
             
             for oriSel in oriSels {
@@ -112,12 +111,6 @@ extension UINavigationController: GKGestureChildAwakeProtocol {
         }
         
         return false
-    }
-    
-    @objc func gkNavGesture_dealloc() {
-        if self.gk_openGestureHandle {
-            NotificationCenter.default.removeObserver(self, name: GKViewControllerPropertyChanged, object: nil)
-        }
     }
     
     @objc func propertyChangeNotification(_ notify: Notification) {

@@ -10,44 +10,44 @@ import UIKit
 
 open class GKPopAnimatedTransition: GKBaseAnimatedTransition {
     public override func animateTransition() {
-        self.containerView.insertSubview(self.toViewController.view, belowSubview: self.fromViewController.view)
-        
         // 是否隐藏tabBar
         self.isHideTabBar = (self.toViewController.tabBarController != nil) && (self.fromViewController.hidesBottomBarWhenPushed == true) && (self.toViewController.gk_captureImage != nil)
+        if (self.toViewController.navigationController?.children.first != self.toViewController) {
+            self.isHideTabBar = false
+        }
+        let tabBar = self.toViewController.tabBarController?.tabBar
+        if (tabBar == nil) {
+            self.isHideTabBar = false
+        }
         
         let screenW = self.containerView.bounds.size.width
         let screenH = self.containerView.bounds.size.height
         
-        var toView = self.toViewController.view
+        let toView = UIView(frame: self.containerView.bounds)
+        var captureView: UIView? = nil
+        
+        toView.addSubview(self.toViewController.view)
         
         if self.isHideTabBar {
-            let captureView = UIImageView(image: self.toViewController.gk_captureImage!)
-            captureView.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
-            self.containerView.insertSubview(captureView, belowSubview: self.fromViewController.view)
-            toView = captureView
-            self.toViewController.view.isHidden = true
-            self.toViewController.tabBarController?.tabBar.isHidden = true
+            captureView = UIImageView(image: self.toViewController.gk_captureImage!)
+            var frame = tabBar!.frame
+            frame.origin.x = 0
+            captureView?.frame = frame
+            toView.addSubview(captureView!)
+            tabBar?.isHidden = true
         }
-        self.contentView = toView
         
-        let toRect = CGRect(x: -(0.3 * screenW), y: 0, width: screenW, height: screenH)
         if self.isScale {
             self.shadowView = UIView(frame: CGRect(x: 0, y: 0, width: screenW, height: screenH))
             self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-            toView?.addSubview(self.shadowView)
-            
-            if #available(iOS 11.0, *) {
-                var frame = toView?.frame
-                frame?.origin.x = GKConfigure.gk_translationX
-                frame?.origin.y = GKConfigure.gk_translationY
-                frame?.size.height -= 2 * GKConfigure.gk_translationY
-                toView?.frame = frame ?? toRect
-            }else {
-                toView?.transform = CGAffineTransform(scaleX: GKConfigure.gk_scaleX, y: GKConfigure.gk_scaleY)
-            }
+            toView.addSubview(self.shadowView)
+            toView.transform = CGAffineTransform(scaleX: GKConfigure.gk_scaleX, y: GKConfigure.gk_scaleY)
         }else {
-            toView!.frame = toRect
+            var frame = toView.frame
+            frame.origin.x = -0.3 * frame.size.width
+            toView.frame = frame
         }
+        self.containerView.insertSubview(toView, belowSubview: self.fromViewController.view)
         
         self.fromViewController.view.layer.shadowColor = UIColor.black.cgColor
         self.fromViewController.view.layer.shadowOpacity = 0.15
@@ -57,30 +57,36 @@ open class GKPopAnimatedTransition: GKBaseAnimatedTransition {
             self.fromViewController.view.frame = CGRect(x: screenW, y: 0, width: screenW, height: screenH)
             if self.isScale {
                 self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0)
-            }
-            
-            if #available(iOS 11.0, *) {
-                toView?.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
+                toView.transform = .identity
             }else {
-                toView?.transform = .identity
+                var frame = toView.frame
+                frame.origin.x = 0
+                toView.frame = frame
             }
-            
         }) { (finished) in
-            self.completeTransition()
             if self.isHideTabBar {
-                if self.contentView != nil {
-                    self.contentView!.removeFromSuperview()
-                    self.contentView = nil
+                self.toViewController.gk_captureImage = nil
+                if (self.transitionContext.transitionWasCancelled) {
+                    self.toViewController.view.removeFromSuperview()
+                }else {
+                    self.containerView.addSubview(self.toViewController.view)
                 }
-                self.toViewController.view.isHidden = false
-                if self.toViewController.navigationController?.children.count == 1 {
-                    self.toViewController.tabBarController?.tabBar.isHidden = false
+                toView.transform = .identity
+                toView.removeFromSuperview()
+                
+                if (captureView != nil) {
+                    captureView?.removeFromSuperview()
+                    captureView = nil
+                }
+                if (self.toViewController.navigationController?.children.count == 1) {
+                    tabBar?.isHidden = false
                 }
             }
             
             if self.isScale {
                 self.shadowView.removeFromSuperview()
             }
+            self.completeTransition()
         }
     }
 }

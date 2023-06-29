@@ -22,10 +22,6 @@
 /// 用户界面横屏了才会返回YES
 #define GK_IS_LANDSCAPE             UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation)
 
-// 屏幕相关
-#define GK_SCREEN_WIDTH             [UIScreen mainScreen].bounds.size.width
-#define GK_SCREEN_HEIGHT            [UIScreen mainScreen].bounds.size.height
-
 // 判断是否是刘海屏
 #define GK_NOTCHED_SCREEN           [GKNavigationBarConfigure isNotchedScreen]
 

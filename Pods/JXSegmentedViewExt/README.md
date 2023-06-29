@@ -106,5 +106,6 @@ pod 'JXSegmentedViewExt/Indicator/DoubleLine'
 
 ## 更新记录
 
+* 1.0.3 2023.06.06 支持SPM
 * 1.0.2 2022.07.12 JXSegmentedTitleImage支持多种组合方式
 * 1.0.1 2022.04.25 优化及bug修改，将pod拆分为多个

@@ -8,9 +8,6 @@
 
 import UIKit
 
-public let GK_SCREEN_WIDTH = UIScreen.main.bounds.size.width
-public let GK_SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-
 /// 导航栏间距，用于不同控制器之间的间距
 public let GKNavigationBarItemSpace: CGFloat = -1.0
 

@@ -90,6 +90,18 @@
     });
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.view.frame = CGRectMake(idx * self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    }];
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView {
     return NO;
@@ -207,7 +219,7 @@
 
 - (GKWYHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[GKWYHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kWYHeaderHeight)];
+        _headerView = [[GKWYHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kWYHeaderHeight)];
     }
     return _headerView;
 }
@@ -239,13 +251,23 @@
         
         [_pageView addSubview:self.categoryView];
         [_pageView addSubview:self.scrollView];
+        
+        [self.categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.right.equalTo(self->_pageView);
+            make.height.mas_equalTo(40);
+        }];
+        
+        [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self->_pageView);
+            make.top.equalTo(self.categoryView.mas_bottom);
+        }];
     }
     return _pageView;
 }
 
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 40.0f)];
+        _categoryView = [[JXCategoryTitleView alloc] init];
         _categoryView.titles = self.titles;
         _categoryView.delegate = self;
         _categoryView.titleColor = [UIColor blackColor];
@@ -264,9 +286,13 @@
         
         // 添加分割线
         UIView *btmLineView = [UIView new];
-        btmLineView.frame = CGRectMake(0, 40 - 0.5, kScreenW, 0.5);
         btmLineView.backgroundColor = GKColorGray(200);
         [_categoryView addSubview:btmLineView];
+        
+        [btmLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self->_categoryView);
+            make.height.mas_equalTo(0.5);
+        }];
     }
     return _categoryView;
 }

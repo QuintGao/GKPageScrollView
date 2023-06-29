@@ -13,37 +13,47 @@ open class GKPushAnimatedTransition: GKBaseAnimatedTransition {
         // 解决UITabBarController左滑push时的显示问题
         self.isHideTabBar = (self.fromViewController.tabBarController != nil) && (self.toViewController.hidesBottomBarWhenPushed == true)
         
+        let tabBar = self.fromViewController.tabBarController?.tabBar
+        if (tabBar == nil) {
+            self.isHideTabBar = false
+        }
+        
+        // tabBar位置不对或隐藏
+        if (tabBar?.frame.origin.x != 0 || tabBar?.isHidden == true) {
+            self.isHideTabBar = false
+        }
+        // 非根控制器
+        if (self.fromViewController.navigationController?.children.first != self.fromViewController) {
+            self.isHideTabBar = false
+        }
+        
         let screenW = self.containerView.bounds.size.width
         let screenH = self.containerView.bounds.size.height
         
-        var fromView = self.fromViewController.view
+        let fromView = UIView(frame: self.containerView.bounds)
+        fromView.addSubview(fromViewController.view)
+        
+        var captureView: UIView? = nil
+        
         if self.isHideTabBar {
-            // 获取fromViewController的截图
-            let view: UIView?
-            if self.fromViewController.view.window != nil {
-                view = self.fromViewController.view.window
-            }else {
-                view = self.fromViewController.view
-            }
-            
-            if view != nil {
-                let captureImage = GKConfigure.getCapture(with: view!)
-                let captureView = UIImageView(image: captureImage)
-                captureView.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
-                containerView.addSubview(captureView)
-                fromView = captureView
-                self.fromViewController.gk_captureImage = captureImage
-                self.fromViewController.view.isHidden = true
-                self.fromViewController.tabBarController?.tabBar.isHidden = true
-            }
+            // 截取tabBar
+            let captureImage = GKConfigure.getCapture(with: tabBar!)
+            self.fromViewController.gk_captureImage = captureImage
+            captureView = UIImageView(image: captureImage)
+            var frame = tabBar!.frame;
+            frame.origin.x = 0
+            captureView?.frame = frame
+            fromView.addSubview(captureView!)
+            tabBar?.isHidden = true
         }
-        self.contentView = fromView
         
         if self.isScale {
             self.shadowView = UIView(frame: CGRect(x: 0, y: 0, width: screenW, height: screenH))
             self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0)
-            fromView?.addSubview(self.shadowView)
+            fromView.addSubview(self.shadowView)
+            fromView.transform = .identity
         }
+        self.containerView.addSubview(fromView)
         
         // 设置toViewController
         self.toViewController.view.frame = CGRect(x: screenW, y: 0, width: screenW, height: screenH)
@@ -53,39 +63,35 @@ open class GKPushAnimatedTransition: GKBaseAnimatedTransition {
         self.containerView.addSubview(self.toViewController.view)
         
         UIView.animate(withDuration: animationDuration(), animations: {
-            let fromRect = CGRect(x: -(0.3 * screenW), y: 0, width: screenW, height: screenH)
             if self.isScale {
                 self.shadowView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-                if #available(iOS 11.0, *) {
-                    var frame = fromView?.frame
-                    frame?.origin.x = GKConfigure.gk_translationX
-                    frame?.origin.y = GKConfigure.gk_translationY
-                    frame?.size.height -= 2 * GKConfigure.gk_translationY
-                    fromView?.frame = frame ?? fromRect
-                } else {
-                    fromView?.transform = CGAffineTransform(scaleX: GKConfigure.gk_scaleX, y: GKConfigure.gk_scaleY)
-                }
+                fromView.transform = CGAffineTransform(scaleX: GKConfigure.gk_scaleX, y: GKConfigure.gk_scaleY)
             }else {
-                fromView?.frame = fromRect
+                var frame = fromView.frame
+                frame.origin.x = -0.3 * frame.size.width
+                fromView.frame = frame
             }
             
             self.toViewController.view.frame = CGRect(x: 0, y: 0, width: screenW, height: screenH)
         }) { (finished) in
-            self.completeTransition()
             if self.isHideTabBar {
-                if self.contentView != nil {
-                    self.contentView!.removeFromSuperview()
-                    self.contentView = nil
+                if (self.transitionContext.transitionWasCancelled) {
+                    self.containerView.addSubview(self.fromViewController.view)
+                }else {
+                    self.fromViewController.view.removeFromSuperview()
                 }
-                self.fromViewController.view.isHidden = false
+                fromView.transform = .identity
+                fromView.removeFromSuperview()
                 
-                if self.fromViewController.navigationController?.children.count == 1 {
-                    self.fromViewController.tabBarController?.tabBar.isHidden = false
+                if (captureView != nil) {
+                    captureView?.removeFromSuperview()
+                    captureView = nil
                 }
             }
             if self.isScale {
                 self.shadowView.removeFromSuperview()
             }
+            self.completeTransition()
         }
     }
 }

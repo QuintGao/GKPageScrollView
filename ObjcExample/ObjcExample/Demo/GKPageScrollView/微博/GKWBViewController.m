@@ -170,15 +170,15 @@
 }
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
-    return CGRectMake(0, 0, kScreenW, 40.0f);
+    return CGRectMake(0, 0, self.view.frame.size.width, 40.0f);
 }
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
     CGFloat maxY = CGRectGetMaxY([self pageController:pageController preferredFrameForMenuView:pageController.menuView]);
     if (self.pageScrollView.pageView) {
-        return CGRectMake(0, maxY, kScreenW, self.pageScrollView.pageView.frame.size.height - maxY);
+        return CGRectMake(0, maxY, self.view.frame.size.width, self.pageScrollView.pageView.frame.size.height - maxY);
     }else {
-        return CGRectMake(0, maxY, kScreenW, kScreenH - maxY - self.pageScrollView.ceilPointHeight);
+        return CGRectMake(0, maxY, self.view.frame.size.width, self.view.frame.size.height - maxY - self.pageScrollView.ceilPointHeight);
     }
 }
 
@@ -200,7 +200,7 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    self.headerView.frame = CGRectMake(0, 0, kScreenW, kWBHeaderHeight);
+    self.headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, kWBHeaderHeight);
     
     if (kScreenH > kScreenW) {
         self.pageScrollView.ceilPointHeight = GK_STATUSBAR_NAVBAR_HEIGHT;
@@ -210,6 +210,7 @@
     [self.pageVC reloadData];
     self.pageVC.scrollView.gk_openGestureHandle = YES;
     self.pageScrollView.horizontalScrollViewList = @[self.pageVC.scrollView];
+    self.pageVC.menuItemWidth = self.view.frame.size.width / 4.0f - 20;
 }
 
 #pragma mark - 懒加载
@@ -238,7 +239,7 @@
         _pageVC.scrollView.gk_openGestureHandle = YES;
         
         // 菜单属性
-        _pageVC.menuItemWidth = kScreenW / 4.0f - 20;
+        _pageVC.menuItemWidth = self.view.frame.size.width / 4.0f - 20;
         _pageVC.menuViewStyle = WMMenuViewStyleLine;
         
         _pageVC.titleSizeNormal     = 16.0f;

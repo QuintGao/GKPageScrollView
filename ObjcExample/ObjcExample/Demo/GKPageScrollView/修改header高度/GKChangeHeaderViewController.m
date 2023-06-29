@@ -57,6 +57,18 @@
 //    self.isAnimation = YES;
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    frame = self.titleView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.titleView.frame = frame;
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
@@ -90,7 +102,7 @@
 
 - (UIImageView *)headerView {
     if (!_headerView) {
-        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, ADAPTATIONRATIO * 400)];
+        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, ADAPTATIONRATIO * 400)];
         _headerView.image = [UIImage imageNamed:@"test"];
     }
     return _headerView;
@@ -98,7 +110,7 @@
 
 - (JXCategoryTitleView *)titleView {
     if (!_titleView) {
-        _titleView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseSegmentHeight)];
+        _titleView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kBaseSegmentHeight)];
         _titleView.titles = @[@"UITableView", @"UICollectionView", @"UIScrollView"];
     }
     return _titleView;

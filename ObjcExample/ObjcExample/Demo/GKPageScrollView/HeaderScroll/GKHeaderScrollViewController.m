@@ -54,12 +54,24 @@
         [self.childVCs addObject:vc];
         
         [self.scrollView addSubview:vc.view];
-        vc.view.frame = CGRectMake(idx * kScreenW, 0, kScreenW, kScreenH - kBaseSegmentHeight - kNavBarHeight);
+        vc.view.frame = CGRectMake(idx * self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height - kBaseSegmentHeight - kNavBarHeight);
     }];
-    self.scrollView.contentSize = CGSizeMake(self.titles.count * kScreenW, 0);
+    self.scrollView.contentSize = CGSizeMake(self.titles.count * self.view.frame.size.width, 0);
     
     // 刷新
     [self.pageScrollView reloadData];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.view.frame = CGRectMake(idx * self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    }];
 }
 
 #pragma mark - GKPageScrollViewDelegate
@@ -103,9 +115,9 @@
 
 - (GKHeaderScrollView *)headerView {
     if (!_headerView) {
-        CGFloat headerH = (kScreenW - 40) / 4 + 20;
+        CGFloat headerH = (self.view.frame.size.width - 40) / 4 + 20;
         
-        _headerView = [[GKHeaderScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, headerH)];
+        _headerView = [[GKHeaderScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, headerH)];
     }
     return _headerView;
 }
@@ -123,13 +135,23 @@
         
         [_pageView addSubview:self.categoryView];
         [_pageView addSubview:self.scrollView];
+        
+        [self.categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.equalTo(self->_pageView);
+            make.height.mas_equalTo(kBaseSegmentHeight);
+        }];
+        
+        [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self->_pageView);
+            make.top.equalTo(self.categoryView.mas_bottom);
+        }];
     }
     return _pageView;
 }
 
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseSegmentHeight)];
+        _categoryView = [[JXCategoryTitleView alloc] init];
         _categoryView.titleFont = [UIFont systemFontOfSize:15.0f];
         _categoryView.titleSelectedFont = [UIFont systemFontOfSize:15.0f];
         _categoryView.titleColor = [UIColor grayColor];
@@ -157,10 +179,7 @@
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        CGFloat w = kScreenW;
-        CGFloat h = kScreenH - kBaseSegmentHeight - kNavBarHeight;
-        
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kBaseSegmentHeight, w, h)];
+        _scrollView = [[UIScrollView alloc] init];
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = NO;
         _scrollView.gk_openGestureHandle = YES;

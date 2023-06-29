@@ -42,6 +42,18 @@
     [self.pageScrollView reloadData];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    frame = self.categoryView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.categoryView.frame = frame;
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView {
     return YES;
@@ -80,7 +92,7 @@
 
 - (UIImageView *)headerView {
     if (!_headerView) {
-        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseHeaderHeight)];
+        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kBaseHeaderHeight)];
         _headerView.contentMode = UIViewContentModeScaleAspectFill;
         _headerView.clipsToBounds = YES;
         _headerView.image = [UIImage imageNamed:@"test"];
@@ -97,7 +109,7 @@
 
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseSegmentHeight)];
+        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kBaseSegmentHeight)];
         _categoryView.titles = self.titles;
         _categoryView.titleFont = [UIFont systemFontOfSize:15.0f];
         _categoryView.titleSelectedFont = [UIFont systemFontOfSize:15.0f];

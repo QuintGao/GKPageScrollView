@@ -16,7 +16,6 @@ open class GKBaseAnimatedTransition: NSObject {
     open var fromViewController: UIViewController!
     open var toViewController: UIViewController!
     open var isHideTabBar = false
-    open var contentView: UIView?
     
     open class func transition(with scale: Bool) -> GKBaseAnimatedTransition {
         return self.init(scale: scale)
@@ -47,7 +46,7 @@ extension GKBaseAnimatedTransition: UIViewControllerAnimatedTransitioning {
         animateTransition()
     }
     
-    open func animationDuration() -> TimeInterval {
+    public func animationDuration() -> TimeInterval {
         return self.transitionDuration(using: self.transitionContext)
     }
     
@@ -55,7 +54,7 @@ extension GKBaseAnimatedTransition: UIViewControllerAnimatedTransitioning {
         // SubClass Implementation
     }
     
-    open func completeTransition() {
+    public func completeTransition() {
         guard let transitionContext = self.transitionContext else { return }
         transitionContext .completeTransition(!transitionContext.transitionWasCancelled)
     }
@@ -66,7 +65,7 @@ extension UIViewController {
         static var defCaptureImage: UIImage?
     }
     
-    open var gk_captureImage: UIImage? {
+    public var gk_captureImage: UIImage? {
         get {
             guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.defCaptureImage) else { return nil }
             return obj as? UIImage

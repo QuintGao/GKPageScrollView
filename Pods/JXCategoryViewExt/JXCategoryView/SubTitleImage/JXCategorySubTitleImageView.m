@@ -49,6 +49,7 @@
     [super refreshCellModel:cellModel index:index];
     
     JXCategorySubTitleImageCellModel *myCellModel = (JXCategorySubTitleImageCellModel *)cellModel;
+    myCellModel.imageViewClass = self.imageViewClass;
     myCellModel.loadImageBlock = self.loadImageBlock;
     myCellModel.imageType = [self.imageTypes[index] integerValue];
     myCellModel.imageSize = self.imageSize;

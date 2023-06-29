@@ -73,6 +73,18 @@
     [self.pageScrollView.mainTableView.mj_header beginRefreshing];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.view.frame = CGRectMake(idx * self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    }];
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
@@ -97,7 +109,7 @@
 
 - (UIImageView *)headerView {
     if (!_headerView) {
-        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseHeaderHeight)];
+        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kBaseHeaderHeight)];
         _headerView.contentMode = UIViewContentModeScaleAspectFill;
         _headerView.clipsToBounds = YES;
         _headerView.image = [UIImage imageNamed:@"test"];
@@ -118,13 +130,23 @@
         
         [_pageView addSubview:self.categoryView];
         [_pageView addSubview:self.scrollView];
+        
+        [self.categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.equalTo(self->_pageView);
+            make.height.mas_equalTo(kBaseSegmentHeight);
+        }];
+        
+        [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self->_pageView);
+            make.top.equalTo(self.categoryView.mas_bottom);
+        }];
     }
     return _pageView;
 }
 
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseSegmentHeight)];
+        _categoryView = [[JXCategoryTitleView alloc] init];
         _categoryView.titleFont = [UIFont systemFontOfSize:15.0f];
         _categoryView.titleSelectedFont = [UIFont systemFontOfSize:15.0f];
         _categoryView.titleColor = [UIColor grayColor];
@@ -152,10 +174,7 @@
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        CGFloat w = kScreenW;
-        CGFloat h = kScreenH - kBaseSegmentHeight - kNavBarHeight;
-        
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kBaseSegmentHeight, w, h)];
+        _scrollView = [[UIScrollView alloc] init];
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = NO;
         _scrollView.gk_openGestureHandle = YES;

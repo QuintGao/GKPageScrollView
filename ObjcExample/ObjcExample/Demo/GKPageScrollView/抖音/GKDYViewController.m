@@ -44,6 +44,18 @@
     [self.pageScrollView reloadData];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    frame = self.categoryView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.categoryView.frame = frame;
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
@@ -122,14 +134,14 @@
 
 - (GKDYHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[GKDYHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kDYHeaderHeight)];
+        _headerView = [[GKDYHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kDYHeaderHeight)];
     }
     return _headerView;
 }
 
 - (JXCategoryTitleView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 40.0f)];
+        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40.0f)];
         _categoryView.backgroundColor = GKColorRGB(34, 33, 37);
         _categoryView.titles = self.titles;
         _categoryView.delegate = self;
@@ -150,9 +162,13 @@
         
         // 添加分割线
         UIView *btmLineView = [UIView new];
-        btmLineView.frame = CGRectMake(0, 40 - 0.5, kScreenW, 0.5);
         btmLineView.backgroundColor = GKColorGray(200);
         [_categoryView addSubview:btmLineView];
+        
+        [btmLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self->_categoryView);
+            make.height.mas_equalTo(0.5);
+        }];
     }
     return _categoryView;
 }

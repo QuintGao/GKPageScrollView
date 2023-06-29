@@ -32,6 +32,18 @@
     }];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.view.frame = CGRectMake(self.scrollView.frame.size.width * idx, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    }];
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;
@@ -69,7 +81,7 @@
 
 - (UIImageView *)headerView {
     if (!_headerView) {
-        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseHeaderHeight)];
+        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kBaseHeaderHeight)];
         _headerView.contentMode = UIViewContentModeScaleAspectFill;
         _headerView.clipsToBounds = YES;
         _headerView.image = [UIImage imageNamed:@"test"];
@@ -83,13 +95,23 @@
         
         [_pageView addSubview:self.segmentView];
         [_pageView addSubview:self.scrollView];
+        
+        [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.right.equalTo(self->_pageView);
+            make.height.mas_equalTo(kBaseSegmentHeight);
+        }];
+        
+        [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self->_pageView);
+            make.top.equalTo(self.segmentView.mas_bottom);
+        }];
     }
     return _pageView;
 }
 
 - (JXCategoryTitleView *)segmentView {
     if (!_segmentView) {
-        _segmentView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kBaseSegmentHeight)];
+        _segmentView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kBaseSegmentHeight)];
         _segmentView.titles = @[@"TableView", @"CollectionView", @"ScrollView", @"WebView"];
         _segmentView.titleFont = [UIFont systemFontOfSize:15.0f];
         _segmentView.titleSelectedFont = [UIFont systemFontOfSize:15.0f];
@@ -98,8 +120,8 @@
         
         JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
         lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
-        lineView.indicatorHeight = ADAPTATIONRATIO * 4.0f;
-        lineView.verticalMargin = ADAPTATIONRATIO * 2.0f;
+        lineView.indicatorHeight = 4.0f;
+        lineView.verticalMargin = 2;
         _segmentView.indicators = @[lineView];
         
         _segmentView.contentScrollView = self.scrollView;
@@ -109,7 +131,7 @@
         [_segmentView addSubview:btmLineView];
         [btmLineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(self->_segmentView);
-            make.height.mas_equalTo(ADAPTATIONRATIO * 2.0f);
+            make.height.mas_equalTo(1);
         }];
     }
     return _segmentView;
@@ -117,8 +139,8 @@
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        CGFloat scrollW = kScreenW;
-        CGFloat scrollH = kScreenH - kNavBarHeight - kBaseSegmentHeight;
+        CGFloat scrollW = self.view.frame.size.width;
+        CGFloat scrollH = self.view.frame.size.height - kNavBarHeight - kBaseSegmentHeight;
         
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kBaseSegmentHeight, scrollW, scrollH)];
         _scrollView.pagingEnabled = YES;
