@@ -2,7 +2,7 @@
 //  GKSmoothMainDisabledViewController.swift
 //  SwiftExample
 //
-//  Created by gaokun on 2021/7/16.
+//  Created by QuintGao on 2021/7/16.
 //
 
 import UIKit

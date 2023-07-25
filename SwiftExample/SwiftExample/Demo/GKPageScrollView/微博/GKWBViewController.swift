@@ -2,8 +2,8 @@
 //  GKWBViewController.swift
 //  GKPageScrollViewSwift
 //
-//  Created by gaokun on 2019/2/21.
-//  Copyright © 2019 gaokun. All rights reserved.
+//  Created by QuintGao on 2019/2/21.
+//  Copyright © 2019 QuintGao. All rights reserved.
 //
 
 import UIKit

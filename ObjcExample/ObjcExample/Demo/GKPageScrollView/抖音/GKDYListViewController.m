@@ -36,6 +36,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = UIColor.whiteColor;
+    vc.gk_navTitle = @"testVC";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - UIScrollViewDelgate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     !self.listScrollViewScrollBlock ? : self.listScrollViewScrollBlock(scrollView);

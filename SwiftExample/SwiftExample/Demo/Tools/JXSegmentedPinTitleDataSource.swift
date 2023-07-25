@@ -2,7 +2,7 @@
 //  JXSegmentedPinTitleDataSource.swift
 //  SwiftExample
 //
-//  Created by gaokun on 2021/3/18.
+//  Created by QuintGao on 2021/3/18.
 //
 
 import UIKit

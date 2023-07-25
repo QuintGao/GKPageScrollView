@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  ObjcExample
 //
-//  Created by gaokun on 2020/12/29.
+//  Created by QuintGao on 2020/12/29.
 //
 
 #import <UIKit/UIKit.h>

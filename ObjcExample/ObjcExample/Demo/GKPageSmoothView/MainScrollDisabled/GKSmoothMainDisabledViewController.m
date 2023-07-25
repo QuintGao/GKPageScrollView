@@ -2,7 +2,7 @@
 //  GKSmoothMainDisabledViewController.m
 //  ObjcExample
 //
-//  Created by gaokun on 2021/7/1.
+//  Created by QuintGao on 2021/7/1.
 //
 
 #import "GKSmoothMainDisabledViewController.h"

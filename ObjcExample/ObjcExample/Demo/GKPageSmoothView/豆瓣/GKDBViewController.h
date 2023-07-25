@@ -2,8 +2,8 @@
 //  GKDBViewController.h
 //  GKPageScrollViewObjc
 //
-//  Created by gaokun on 2020/12/17.
-//  Copyright © 2020 gaokun. All rights reserved.
+//  Created by QuintGao on 2020/12/17.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
 #import "GKDemoBaseViewController.h"

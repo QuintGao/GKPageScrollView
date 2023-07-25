@@ -2,7 +2,7 @@
 //  GKWBFindViewController.h
 //  GKPageScrollViewDemo
 //
-//  Created by gaokun on 2019/2/22.
+//  Created by QuintGao on 2019/2/22.
 //  Copyright © 2019 QuintGao. All rights reserved.
 //
 

@@ -2,8 +2,8 @@
 //  GKNest1ViewController.h
 //  GKPageScrollViewObjc
 //
-//  Created by gaokun on 2019/9/30.
-//  Copyright © 2019 gaokun. All rights reserved.
+//  Created by QuintGao on 2019/9/30.
+//  Copyright © 2019 QuintGao. All rights reserved.
 //
 
 #import "GKDemoBaseViewController.h"

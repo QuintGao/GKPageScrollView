@@ -2,8 +2,8 @@
 //  GKTestListViewController.m
 //  GKPageScrollViewObjc
 //
-//  Created by gaokun on 2020/1/15.
-//  Copyright © 2020 gaokun. All rights reserved.
+//  Created by QuintGao on 2020/1/15.
+//  Copyright © 2020 QuintGao. All rights reserved.
 //
 
 #import "GKTestListViewController.h"

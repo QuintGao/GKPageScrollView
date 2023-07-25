@@ -2,7 +2,7 @@
 //  GKWBFindViewController.m
 //  GKPageScrollViewDemo
 //
-//  Created by gaokun on 2019/2/22.
+//  Created by QuintGao on 2019/2/22.
 //  Copyright © 2019 QuintGao. All rights reserved.
 //
 
@@ -65,6 +65,7 @@
         });
     }];
     
+    [self.categoryView reloadData];
     [self.pageScrollView reloadData];
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

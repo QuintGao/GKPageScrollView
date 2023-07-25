@@ -2,7 +2,7 @@
 //  GKPageMainDisabledViewController.h
 //  ObjcExample
 //
-//  Created by gaokun on 2021/7/19.
+//  Created by QuintGao on 2021/7/19.
 //
 
 #import "GKDemoBaseViewController.h"

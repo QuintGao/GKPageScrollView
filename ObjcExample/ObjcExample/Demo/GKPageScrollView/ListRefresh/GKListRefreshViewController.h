@@ -2,7 +2,7 @@
 //  GKListRefreshViewController.h
 //  GKPageScrollViewDemo
 //
-//  Created by gaokun on 2018/12/11.
+//  Created by QuintGao on 2018/12/11.
 //  Copyright © 2018 QuintGao. All rights reserved.
 //
 

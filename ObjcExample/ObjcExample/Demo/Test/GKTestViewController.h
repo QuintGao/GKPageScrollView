@@ -2,7 +2,7 @@
 //  GKTestViewController.h
 //  GKPageScrollViewDemo
 //
-//  Created by gaokun on 2018/12/6.
+//  Created by QuintGao on 2018/12/6.
 //  Copyright © 2018 QuintGao. All rights reserved.
 //
 

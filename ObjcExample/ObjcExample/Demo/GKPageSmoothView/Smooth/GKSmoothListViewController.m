@@ -2,7 +2,7 @@
 //  GKSmoothListViewController.m
 //  ObjcExample
 //
-//  Created by gaokun on 2021/4/19.
+//  Created by QuintGao on 2021/4/19.
 //
 
 #import "GKSmoothListViewController.h"

@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  ObjcExample
 //
-//  Created by gaokun on 2020/12/29.
+//  Created by QuintGao on 2020/12/29.
 //
 
 #import "AppDelegate.h"

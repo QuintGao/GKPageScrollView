@@ -2,7 +2,7 @@
 //  JXCategoryPinTitleView.m
 //  ObjcExample
 //
-//  Created by gaokun on 2021/2/5.
+//  Created by QuintGao on 2021/2/5.
 //
 
 #import "JXCategoryPinTitleView.h"
