@@ -263,7 +263,6 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     public func refreshSegmentedView() {
         segmentedView = dataSource?.segmentedView(in: self)
         headerContainerView.addSubview(segmentedView!)
-        
         refreshHeaderContainerHeight()
         refreshHeaderContainerView()
     }
@@ -571,7 +570,6 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         self.segmentedView = self.dataSource?.segmentedView(in: self)
         self.headerContainerView.addSubview(self.headerView!)
         self.headerContainerView.addSubview(self.segmentedView!)
-        
         refreshHeaderContainerHeight()
     }
     
@@ -846,7 +844,6 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
 extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let dataSource = self.dataSource else { return 0 }
-        
         let count = dataSource.numberOfLists(in: self)
         return self.isLoaded ? count : 0
     }

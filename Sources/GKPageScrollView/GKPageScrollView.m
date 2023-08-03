@@ -267,6 +267,7 @@
         [obj listViewDidScrollCallback:^(UIScrollView * _Nonnull scrollView) {
             [weakSelf listScrollViewDidScroll:scrollView];
         }];
+        self->_validListDict[@(idx)] = obj;
     }];
 }
 

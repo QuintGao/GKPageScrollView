@@ -696,7 +696,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     }
 }
 
-
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
     if (self.isMainScrollDisabled) {
         if ([self.delegate respondsToSelector:@selector(smoothView:listScrollViewDidScroll:contentOffset:)]) {

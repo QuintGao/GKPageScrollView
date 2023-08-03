@@ -545,10 +545,11 @@ open class GKPageScrollView: UIView {
     // MARK: - Private Methods
     fileprivate func configListViewScroll() {
         guard let list = delegate.listView?(in: self) else { return }
-        list.forEach {
-            $0.listViewDidScroll { [weak self] scrollView in
+        for (index, item) in list.enumerated() {
+            item.listViewDidScroll { [weak self] scrollView in
                 self?.listScrollViewDidScroll(scrollView: scrollView)
             }
+            validListDict[index] = item
         }
     }
     
