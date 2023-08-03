@@ -46,6 +46,9 @@
 - (void)listWillDisappear;
 - (void)listDidDisappear;
 
+/// 当子列表的scrollView需要改变位置时返回YES
+- (BOOL)isListScrollViewNeedScroll;
+
 @end
 
 @protocol GKPageScrollViewDelegate <NSObject>

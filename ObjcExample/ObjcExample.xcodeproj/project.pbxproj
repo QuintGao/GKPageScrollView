@@ -62,6 +62,8 @@
 		609E45EA268D563A004FC127 /* GKSmoothMainDisabledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */; };
 		60A14E6A262D19A500279CC1 /* GKSmoothListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */; };
 		7991D49029F60A17002AADCD /* 手势处理.md in Resources */ = {isa = PBXBuildFile; fileRef = 7991D48F29F60A17002AADCD /* 手势处理.md */; };
+		7992A9A62A7B533E00A50A89 /* GKListIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7992A9A52A7B533E00A50A89 /* GKListIndexViewController.m */; };
+		7992A9A92A7B53B400A50A89 /* GKIndexListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7992A9A82A7B53B400A50A89 /* GKIndexListViewController.m */; };
 		79A1906328C0870400578979 /* GKChangeHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A1906228C0870400578979 /* GKChangeHeaderViewController.m */; };
 		B927B5B5BAC834684BC6753C /* libPods-ObjcExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 070C2CDB4EB7110A5186C147 /* libPods-ObjcExample.a */; };
 /* End PBXBuildFile section */
@@ -190,6 +192,10 @@
 		60A14E68262D19A500279CC1 /* GKSmoothListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSmoothListViewController.h; sourceTree = "<group>"; };
 		60A14E69262D19A500279CC1 /* GKSmoothListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSmoothListViewController.m; sourceTree = "<group>"; };
 		7991D48F29F60A17002AADCD /* 手势处理.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "手势处理.md"; path = "../../Document/手势处理.md"; sourceTree = "<group>"; };
+		7992A9A42A7B533E00A50A89 /* GKListIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKListIndexViewController.h; sourceTree = "<group>"; };
+		7992A9A52A7B533E00A50A89 /* GKListIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKListIndexViewController.m; sourceTree = "<group>"; };
+		7992A9A72A7B53B400A50A89 /* GKIndexListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKIndexListViewController.h; path = "ObjcExample/Demo/GKPageScrollView/子列表索引/GKIndexListViewController.h"; sourceTree = SOURCE_ROOT; };
+		7992A9A82A7B53B400A50A89 /* GKIndexListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKIndexListViewController.m; path = "ObjcExample/Demo/GKPageScrollView/子列表索引/GKIndexListViewController.m"; sourceTree = SOURCE_ROOT; };
 		79A1906128C0870400578979 /* GKChangeHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKChangeHeaderViewController.h; sourceTree = "<group>"; };
 		79A1906228C0870400578979 /* GKChangeHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKChangeHeaderViewController.m; sourceTree = "<group>"; };
 		7F61CAFA991F0A136AA42888 /* Pods-ObjcExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcExample.release.xcconfig"; path = "Target Support Files/Pods-ObjcExample/Pods-ObjcExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -513,6 +519,7 @@
 				609B8E71259AFD81000F1EB9 /* Nest */,
 				600408A526A5105D001788E5 /* MainScrollDisabled */,
 				79A1906028C0869D00578979 /* 修改header高度 */,
+				7992A9A32A7B4CC300A50A89 /* 子列表索引 */,
 			);
 			path = GKPageScrollView;
 			sourceTree = "<group>";
@@ -524,6 +531,17 @@
 				609E45E9268D563A004FC127 /* GKSmoothMainDisabledViewController.m */,
 			);
 			path = MainScrollDisabled;
+			sourceTree = "<group>";
+		};
+		7992A9A32A7B4CC300A50A89 /* 子列表索引 */ = {
+			isa = PBXGroup;
+			children = (
+				7992A9A42A7B533E00A50A89 /* GKListIndexViewController.h */,
+				7992A9A52A7B533E00A50A89 /* GKListIndexViewController.m */,
+				7992A9A72A7B53B400A50A89 /* GKIndexListViewController.h */,
+				7992A9A82A7B53B400A50A89 /* GKIndexListViewController.m */,
+			);
+			path = "子列表索引";
 			sourceTree = "<group>";
 		};
 		79A1906028C0869D00578979 /* 修改header高度 */ = {
@@ -667,6 +685,7 @@
 				609B8EA4259AFD81000F1EB9 /* GKWBPageViewController.m in Sources */,
 				609B8E8E259AFD81000F1EB9 /* GKBallLoadingView.m in Sources */,
 				609B8E8F259AFD81000F1EB9 /* GKTestListViewController.m in Sources */,
+				7992A9A92A7B53B400A50A89 /* GKIndexListViewController.m in Sources */,
 				609E45EA268D563A004FC127 /* GKSmoothMainDisabledViewController.m in Sources */,
 				609B8EAE259AFD81000F1EB9 /* GKNest1ViewController.m in Sources */,
 				79A1906328C0870400578979 /* GKChangeHeaderViewController.m in Sources */,
@@ -682,6 +701,7 @@
 				609B8EB7259AFD81000F1EB9 /* GKDYListViewController.m in Sources */,
 				60225D3625CD1A2C00B77B1F /* JXCategoryPinTitleView.m in Sources */,
 				60A14E6A262D19A500279CC1 /* GKSmoothListViewController.m in Sources */,
+				7992A9A62A7B533E00A50A89 /* GKListIndexViewController.m in Sources */,
 				600408A826A51086001788E5 /* GKPageMainDisabledViewController.m in Sources */,
 				609B8EA1259AFD81000F1EB9 /* GKVTMagicViewController.m in Sources */,
 				60225D3325CD1A1B00B77B1F /* JXCategoryPinTitleCellModel.m in Sources */,

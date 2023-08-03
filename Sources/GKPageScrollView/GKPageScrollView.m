@@ -45,6 +45,8 @@
 @property (nonatomic, assign) CGFloat criticalPoint;
 @property (nonatomic, assign) CGPoint criticalOffset;
 
+@property (nonatomic, assign) BOOL isListNeedScroll;
+
 @end
 
 @implementation GKPageScrollView
@@ -271,6 +273,8 @@
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
     self.currentListScrollView = scrollView;
     
+    if ([self isListScrollViewNeedScroll]) return;
+    
     if (self.isMainScrollDisabled) return;
     
     if (self.isScrollToOriginal || self.isScrollToCritical) return;
@@ -339,8 +343,9 @@
 
 - (void)mainScrollViewDidScroll:(UIScrollView *)scrollView {
     if (!self.isBeginDragging) {
-        if (self.isRefreshHeader) {
+        if (self.isRefreshHeader || self.isListNeedScroll) {
             self.isRefreshHeader = NO;
+            self.isListNeedScroll = NO;
         }else {
             [self listScrollViewOffsetFixed];
         }
@@ -501,6 +506,22 @@
             [self findHorizontalScrollViews:subview];
         }
     }
+}
+
+- (BOOL)isListScrollViewNeedScroll {
+    __block BOOL needScroll = NO;
+    [self.validListDict enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, id<GKPageListViewDelegate>  _Nonnull obj, BOOL * _Nonnull stop) {
+        if (obj.listScrollView == self.currentListScrollView && [obj respondsToSelector:@selector(isListScrollViewNeedScroll)]) {
+            needScroll = [obj isListScrollViewNeedScroll];
+            *stop = YES;
+        }
+    }];
+    
+    if (needScroll) {
+        self.isListNeedScroll = YES;
+        [self scrollToCriticalPointAnimated:NO];
+    }
+    return needScroll;
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate

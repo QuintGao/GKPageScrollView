@@ -1,0 +1,134 @@
+//
+//  GKListIndexViewController.m
+//  GKPageScrollViewObjc
+//
+//  Created by QuintGao on 2019/3/13.
+//  Copyright © 2019 QuintGao. All rights reserved.
+//
+
+#import "GKListIndexViewController.h"
+#import <GKPageScrollView/GKPageScrollView.h>
+#import "GKIndexListViewController.h"
+
+@interface GKListIndexViewController ()<GKPageScrollViewDelegate>
+
+@property (nonatomic, strong) GKPageScrollView      *pageScrollView;
+
+@property (nonatomic, strong) UIImageView           *headerView;
+
+@property (nonatomic, strong) JXCategoryTitleView   *categoryView;
+
+@property (nonatomic, strong) NSArray               *titles;
+
+@end
+
+@implementation GKListIndexViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.gk_navTitleColor = [UIColor whiteColor];
+    self.gk_navTitleFont = [UIFont boldSystemFontOfSize:18.0f];
+    self.gk_navBackgroundColor = [UIColor clearColor];
+    self.gk_navLineHidden = YES;
+    self.gk_statusBarStyle = UIStatusBarStyleLightContent;
+    self.gk_navTitle = @"子列表索引";
+    
+    [self.view addSubview:self.pageScrollView];
+    [self.pageScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [self.pageScrollView reloadData];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    frame = self.categoryView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.categoryView.frame = frame;
+}
+
+#pragma mark - GKPageScrollViewDelegate
+- (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return YES;
+}
+
+- (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.headerView;
+}
+
+- (UIView *)segmentedViewInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.categoryView;
+}
+
+- (NSInteger)numberOfListsInPageScrollView:(GKPageScrollView *)pageScrollView {
+    return self.titles.count;
+}
+
+- (id<GKPageListViewDelegate>)pageScrollView:(GKPageScrollView *)pageScrollView initListAtIndex:(NSInteger)index {
+    return GKIndexListViewController.new;
+}
+
+#pragma mark - 懒加载
+- (GKPageScrollView *)pageScrollView {
+    if (!_pageScrollView) {
+        _pageScrollView = [[GKPageScrollView alloc] initWithDelegate:self];
+        _pageScrollView.lazyLoadList = YES;
+        _pageScrollView.listContainerView.scrollView.gk_openGestureHandle = YES;
+    }
+    return _pageScrollView;
+}
+
+- (UIImageView *)headerView {
+    if (!_headerView) {
+        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kBaseHeaderHeight)];
+        _headerView.contentMode = UIViewContentModeScaleAspectFill;
+        _headerView.clipsToBounds = YES;
+        _headerView.image = [UIImage imageNamed:@"test"];
+    }
+    return _headerView;
+}
+
+- (NSArray *)titles {
+    if (!_titles) {
+        _titles = @[@"item1", @"item2", @"item3"];
+    }
+    return _titles;
+}
+
+- (JXCategoryTitleView *)categoryView {
+    if (!_categoryView) {
+        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kBaseSegmentHeight)];
+        _categoryView.titles = self.titles;
+        _categoryView.titleFont = [UIFont systemFontOfSize:15.0f];
+        _categoryView.titleSelectedFont = [UIFont systemFontOfSize:15.0f];
+        _categoryView.titleColor = [UIColor grayColor];
+        _categoryView.titleSelectedColor = [UIColor redColor];
+        
+        JXCategoryIndicatorLineView *lineView = [JXCategoryIndicatorLineView new];
+        lineView.lineStyle = JXCategoryIndicatorLineStyle_Normal;
+        lineView.indicatorHeight = ADAPTATIONRATIO * 4.0f;
+        lineView.verticalMargin = ADAPTATIONRATIO * 2.0f;
+        _categoryView.indicators = @[lineView];
+        
+        // 设置关联的scrollView
+        _categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pageScrollView.listContainerView;
+        
+        UIView  *btmLineView = [UIView new];
+        btmLineView.backgroundColor = GKColorRGB(110, 110, 110);
+        [_categoryView addSubview:btmLineView];
+        [btmLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self->_categoryView);
+            make.height.mas_equalTo(ADAPTATIONRATIO * 2.0f);
+        }];
+    }
+    return _categoryView;
+}
+
+@end

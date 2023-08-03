@@ -32,6 +32,9 @@ import UIKit
     @objc optional func listDidAppear()
     @objc optional func listWillDisappear()
     @objc optional func listDidDisappear()
+    
+    /// 当子列表的scrollView需要改变位置时返回YES
+    @objc optional func isListScrollViewNeedScroll() -> Bool
 }
 
 @objc public protocol GKPageScrollViewDelegate : NSObjectProtocol {
@@ -236,6 +239,8 @@ open class GKPageScrollView: UIView {
     
     var allScrollViews = [UIScrollView]()
     
+    var isListNeedScroll: Bool = false
+    
     public init(delegate: GKPageScrollViewDelegate) {
         self.delegate = delegate
         super.init(frame: .zero)
@@ -398,9 +403,11 @@ open class GKPageScrollView: UIView {
     public func listScrollViewDidScroll(scrollView: UIScrollView) {
         self.currentListScrollView = scrollView
         
-        if (self.isMainScrollDisabled) { return }
+        if self.isListScrollViewNeedScroll() { return }
         
-        if self.isScrollToOriginal || self.isScrollToCritical {return}
+        if self.isMainScrollDisabled { return }
+        
+        if self.isScrollToOriginal || self.isScrollToCritical { return }
         
         // 获取listScrollView偏移量
         let offsetY = scrollView.contentOffset.y
@@ -466,14 +473,14 @@ open class GKPageScrollView: UIView {
     
     public func mainScrollViewDidScroll(scrollView: UIScrollView) {
         if !self.isBeginDragging {
-            if isRefreshHeader {
+            if isRefreshHeader || isListNeedScroll {
                 isRefreshHeader = false
+                isListNeedScroll = false
             }else {
                 self.listScrollViewOffsetFixed()                
             }
             
             self.mainTableViewCanScrollUpdate()
-            
             return
         }
         
@@ -638,6 +645,20 @@ open class GKPageScrollView: UIView {
             }
         }
     }
+    
+    fileprivate func isListScrollViewNeedScroll() -> Bool {
+        var isNeedScroll = false
+        self.validListDict.values.forEach {
+            if $0.listScrollView() == self.currentListScrollView {
+                isNeedScroll = $0.isListScrollViewNeedScroll?() ?? false
+            }
+        }
+        if isNeedScroll {
+            self.isListNeedScroll = true
+            scrollToCriticalPoint(false)
+        }
+        return isNeedScroll
+    }
 }
 
 extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
@@ -740,5 +761,4 @@ extension GKPageScrollView: GKPageListContainerViewDelegate {
         guard let list = validListDict[index] else { return }
         currentListScrollView = list.listScrollView()
     }
-    
 }
