@@ -247,8 +247,9 @@ open class GKPageScrollView: UIView {
         self.initSubviews()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initSubviews()
     }
     
     open override func layoutSubviews() {
@@ -258,7 +259,8 @@ open class GKPageScrollView: UIView {
         self.mainTableView.frame = self.bounds
         if !self.isLoaded { return }
         if self.isShowInFooter {
-            self.mainTableView.tableFooterView = self.getPageView()
+            self.mainTableView.tableFooterView = getPageView()
+            configPageView()
         }else {
             self.mainTableView.reloadData()
         }
@@ -271,7 +273,7 @@ open class GKPageScrollView: UIView {
         self.mainTableView.separatorStyle = .none
         self.mainTableView.showsVerticalScrollIndicator = false
         self.mainTableView.showsHorizontalScrollIndicator = false
-        self.mainTableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
+        self.mainTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         if #available(iOS 11.0, *) {
             self.mainTableView.contentInsetAdjustmentBehavior = .never
         }
@@ -319,7 +321,9 @@ open class GKPageScrollView: UIView {
         self.isLoaded = true
         
         for list in self.validListDict.values {
-            list.listView!().removeFromSuperview()
+            if shouldLazyLoadListView() {
+                list.listView?().removeFromSuperview()
+            }
         }
         validListDict.removeAll()
         
@@ -331,7 +335,8 @@ open class GKPageScrollView: UIView {
         }
         
         if self.isShowInFooter {
-            self.mainTableView.tableFooterView = self.getPageView()
+            self.mainTableView.tableFooterView = getPageView()
+            configPageView()
         }else {
             self.mainTableView.reloadData()
         }
@@ -547,7 +552,8 @@ open class GKPageScrollView: UIView {
         guard let list = delegate.listView?(in: self) else { return }
         for (index, item) in list.enumerated() {
             item.listViewDidScroll { [weak self] scrollView in
-                self?.listScrollViewDidScroll(scrollView: scrollView)
+                guard let self = self else { return }
+                self.listScrollViewDidScroll(scrollView: scrollView)
             }
             validListDict[index] = item
         }
@@ -607,17 +613,6 @@ open class GKPageScrollView: UIView {
             if (pageView == nil) {
                 pageView = UIView()
             }
-            
-            if let segmentedView = delegate.segmentedView?(in: self) {
-                let x: CGFloat = 0
-                let y: CGFloat = segmentedView.frame.size.height
-                let w: CGFloat = width
-                var h: CGFloat = height - y
-                h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
-                self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
-                pageView?.addSubview(segmentedView)
-                pageView?.addSubview(listContainerView)
-            }
         }else {
             pageView = (self.delegate.pageView?(in: self))!
         }
@@ -625,6 +620,24 @@ open class GKPageScrollView: UIView {
         pageView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
         self.pageView = pageView
         return pageView
+    }
+    
+    fileprivate func configPageView() {
+        if shouldLazyLoadListView() {
+            guard let pageView = getPageView() else { return }
+            let width: CGFloat = pageView.frame.width
+            let height: CGFloat = pageView.frame.height
+            if let segmentedView = delegate.segmentedView?(in: self) {
+                let x: CGFloat = 0
+                let y: CGFloat = segmentedView.frame.size.height
+                let w: CGFloat = width
+                var h: CGFloat = height - y
+                h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
+                self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
+                pageView.addSubview(segmentedView)
+                pageView.addSubview(listContainerView)
+            }
+        }
     }
     
     fileprivate func findHorizontalScrollViews() {
@@ -664,9 +677,7 @@ open class GKPageScrollView: UIView {
 
 extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.isShowInFooter {
-            return 0
-        }
+        if isShowInFooter { return 0 }
         return self.isLoaded ? 1 : 0
     }
     
@@ -677,15 +688,14 @@ extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         if let pageView = getPageView() {
             cell.contentView.addSubview(pageView)
+            configPageView()
         }
         self.delegate.pageScrollViewReloadCell?(self)
         return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.isShowInFooter {
-            return 0
-        }
+        if isShowInFooter { return 0 }
         var height = self.frame.size.height == 0 ? GKPage_Screen_Height : self.frame.size.height
         height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
         return height
@@ -751,7 +761,8 @@ extension GKPageScrollView: GKPageListContainerViewDelegate {
         if list == nil {
             list = self.delegate.pageScrollView?(self, initListAtIndex: index)
             list?.listViewDidScroll(callBack: { [weak self ] scrollView in
-                self?.listScrollViewDidScroll(scrollView: scrollView)
+                guard let self = self else { return }
+                self.listScrollViewDidScroll(scrollView: scrollView)
             })
             validListDict[index] = list
         }

@@ -2,7 +2,7 @@
 //  UINavigationController+GKGesture.swift
 //  GKNavigationBarSwift
 //
-//  Created by gaokun on 2022/3/18.
+//  Created by QuintGao on 2022/3/18.
 //  Copyright © 2022 QuintGao. All rights reserved.
 //
 
@@ -173,53 +173,53 @@ extension UINavigationController: GKGestureChildAwakeProtocol {
 
 extension UINavigationController {
     fileprivate struct AssociatedKeys {
-        static var gkTransitionScale: Bool = false
-        static var gkOpenScrollLeftPush: Bool = false
-        static var gkOpenGestureHandle: Bool = false
-        static var screenPanGesture: UIScreenEdgePanGestureRecognizer = UIScreenEdgePanGestureRecognizer()
-        static var panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
-        static var transition: GKNavigationInteractiveTransition = GKNavigationInteractiveTransition()
+        static var gkTransitionScale: Void?
+        static var gkOpenScrollLeftPush: Void?
+        static var gkOpenGestureHandle: Void?
+        static var screenPanGesture: Void?
+        static var panGesture: Void?
+        static var transition: Void?
     }
     
     public var gk_transitionScale: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkTransitionScale) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkTransitionScale) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkTransitionScale, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkTransitionScale, newValue)
         }
     }
     
     public var gk_openScrollLeftPush: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkOpenScrollLeftPush) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkOpenScrollLeftPush) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkOpenScrollLeftPush, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkOpenScrollLeftPush, newValue)
         }
     }
     
     fileprivate var gk_openGestureHandle: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle, newValue)
         }
     }
     
     var screenPanGesture: UIScreenEdgePanGestureRecognizer {
         get {
-            var panGesture = objc_getAssociatedObject(self, &AssociatedKeys.screenPanGesture) as? UIScreenEdgePanGestureRecognizer
+            var panGesture = gk_getAssociatedObject(self, &AssociatedKeys.screenPanGesture) as? UIScreenEdgePanGestureRecognizer
             if panGesture == nil {
                 panGesture = UIScreenEdgePanGestureRecognizer(target: self.interactiveTransition, action:#selector(self.interactiveTransition.panGestureAction(_:)))
                 panGesture?.edges = .left
                 panGesture?.delegate = self.interactiveTransition
                 
-                objc_setAssociatedObject(self, &AssociatedKeys.screenPanGesture, panGesture, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                gk_setAssociatedObject(self, &AssociatedKeys.screenPanGesture, panGesture)
             }
             return panGesture!
         }
@@ -227,13 +227,13 @@ extension UINavigationController {
     
     var panGesture: UIPanGestureRecognizer {
         get {
-            var panGesture = objc_getAssociatedObject(self, &AssociatedKeys.panGesture) as? UIPanGestureRecognizer
+            var panGesture = gk_getAssociatedObject(self, &AssociatedKeys.panGesture) as? UIPanGestureRecognizer
             if panGesture == nil {
                 panGesture = UIPanGestureRecognizer(target: self.interactiveTransition, action: #selector(self.interactiveTransition.panGestureAction(_:)))
                 panGesture?.maximumNumberOfTouches = 1
                 panGesture?.delegate = self.interactiveTransition
                 
-                objc_setAssociatedObject(self, &AssociatedKeys.panGesture, panGesture, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                gk_setAssociatedObject(self, &AssociatedKeys.panGesture, panGesture)
             }
             return panGesture!
         }
@@ -241,14 +241,14 @@ extension UINavigationController {
     
     var interactiveTransition: GKNavigationInteractiveTransition {
         get {
-            var transition = objc_getAssociatedObject(self, &AssociatedKeys.transition) as? GKNavigationInteractiveTransition
+            var transition = gk_getAssociatedObject(self, &AssociatedKeys.transition) as? GKNavigationInteractiveTransition
             if transition == nil {
                 transition = GKNavigationInteractiveTransition()
                 transition?.navigationController = self
                 transition?.systemTarget = self.systemTarget
                 transition?.systemAction = self.systemAction
                 
-                objc_setAssociatedObject(self, &AssociatedKeys.transition, transition, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                gk_setAssociatedObject(self, &AssociatedKeys.transition, transition)
             }
             return transition!
         }

@@ -226,6 +226,7 @@
         }
     }else if (transition.x > 0) { // 右滑
         if (!visibleVC.gk_systemGestureHandleDisabled) {
+            [gestureRecognizer addTarget:self.systemTarget action:self.systemAction];
             BOOL shouldPop = [visibleVC navigationShouldPop];
             if ([visibleVC respondsToSelector:@selector(navigationShouldPopOnGesture)]) {
                 shouldPop = [visibleVC navigationShouldPopOnGesture];

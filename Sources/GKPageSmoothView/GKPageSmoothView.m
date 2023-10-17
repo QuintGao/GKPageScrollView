@@ -1034,6 +1034,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         _listCollectionView.pagingEnabled = YES;
         _listCollectionView.bounces = NO;
         _listCollectionView.showsHorizontalScrollIndicator = NO;
+        _listCollectionView.showsVerticalScrollIndicator = NO;
         _listCollectionView.scrollsToTop = NO;
         [_listCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:GKPageSmoothViewCellID];
         if (@available(iOS 11.0, *)) {

@@ -10,17 +10,17 @@ import UIKit
 
 extension UIScrollView: GKAwakeProtocol {
     fileprivate struct AssociatedKeys {
-        static var gkOpenGestureHandle: Bool = false
+        static var gkOpenGestureHandle: Void?
     }
     
     /// 是否开启UIScrollView左滑返回手势处理，默认NO
     public var gk_openGestureHandle: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkOpenGestureHandle, newValue)
         }
     }
     

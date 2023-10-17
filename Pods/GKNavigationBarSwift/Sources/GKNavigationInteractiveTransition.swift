@@ -2,7 +2,7 @@
 //  GKNavigationInteractiveTransition.swift
 //  GKNavigationBarSwift
 //
-//  Created by gaokun on 2020/11/27.
+//  Created by QuintGao on 2020/11/27.
 //  Copyright © 2020 QuintGao. All rights reserved.
 //
 

@@ -110,7 +110,7 @@ extension GKListLoadViewController: GKPageScrollViewDelegate {
         listVC.count = 0;
         listVC.reloadData()
         listVC.shouldLoadData = true
-        self.addChild(listVC)
+        
         return listVC
     }
 }

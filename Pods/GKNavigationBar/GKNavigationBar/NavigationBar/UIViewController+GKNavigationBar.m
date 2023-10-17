@@ -45,8 +45,10 @@
 
 - (void)gk_viewDidLoad {
     // 设置默认状态
-    self.gk_disableFixNavItemSpace = YES;
-    self.gk_openFixNavItemSpace = NO;
+    if (self.navigationController && self.navigationController == self.parentViewController) {
+        self.gk_disableFixNavItemSpace = YES;
+        self.gk_openFixNavItemSpace = NO;
+    }
     
     if ([self shouldHandleNavBar]) {
         // 设置默认导航栏间距
@@ -83,7 +85,7 @@
             [self.view bringSubviewToFront:self.gk_navigationBar];
         }
     }else {
-        if (self.navigationController && !self.navigationController.isNavigationBarHidden && ![self isNonFullScreen]) {
+        if (self.navigationController && self.navigationController == self.parentViewController && !self.navigationController.isNavigationBarHidden && ![self isNonFullScreen]) {
             self.gk_disableFixNavItemSpace = self.gk_disableFixNavItemSpace;
             self.gk_openFixNavItemSpace = self.gk_openFixNavItemSpace;
         }
@@ -725,7 +727,11 @@ static char kAssociatedObjectKey_navItemRightSpace;
         if (viewW == 0 || viewH == 0) return NO;
         
         // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
-        isNonFullScreen = self.presentingViewController && viewH < self.view.bounds.size.height;
+        UIWindow *window = self.view.window;
+        if (!window) {
+            window = GKNavigationBarConfigure.keyWindow;
+        }
+        isNonFullScreen = self.presentingViewController && viewH < window.bounds.size.height;
     }
     return isNonFullScreen;
 }

@@ -321,6 +321,11 @@ extension GKBaseListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = "第\(indexPath.row+1)行"
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = GKTestViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension GKBaseListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -345,6 +350,11 @@ extension GKBaseListViewController: UICollectionViewDataSource, UICollectionView
             make.center.equalTo(cell.contentView)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = GKTestViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

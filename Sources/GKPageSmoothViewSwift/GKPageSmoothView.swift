@@ -90,17 +90,37 @@ public class GKPageSmoothCollectionView: UICollectionView, UIGestureRecognizerDe
 let GKPageSmoothViewCellID = "smoothViewCell"
 
 open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
+    
+    // 代理
+    public weak var delegate: GKPageSmoothViewDelegate?
+    
+    // 当前已经加载过的可用的列表字典，key是index值，value是对应列表
     public private(set) var listDict = [Int: GKPageSmoothListViewDelegate]()
     public let listCollectionView: GKPageSmoothCollectionView
+    
+    // 默认索引
     public var defaultSelectedIndex: Int = 0 {
         didSet {
             currentIndex = defaultSelectedIndex
         }
     }
-    public var ceilPointHeight: CGFloat = 0
-    public var isControlVerticalIndicator: Bool = false
+    
+    // 当前索引
+    public private(set) var currentIndex: Int = 0
+    
+    // 当前列表
+    public private(set) var currentListScrollView: UIScrollView?
+    
+    // 是否禁止主页滑动，默认false
     public var isMainScrollDisabled: Bool = false
-    public weak var delegate: GKPageSmoothViewDelegate?
+    
+    // 吸顶临界高度，默认0
+    public var ceilPointHeight: CGFloat = 0
+    
+    // 是否内部控制指示器的显示与隐藏（默认为false）
+    public var isControlVerticalIndicator: Bool = false
+
+    // 是否支持底部悬停，默认false，只有当前headerView高度大于pageSmoothView高度时才生效
     public var isBottomHover: Bool = false {
         didSet {
             if (isBottomHover) {
@@ -119,6 +139,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             }
         }
     }
+    
+    // 是否允许底部拖拽，默认false，当bottomHover为YES时才生效
     public var isAllowDragBottom: Bool = false {
         didSet {
             if self.isBottomHover {
@@ -130,14 +152,21 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             }
         }
     }
-    public var isAllowDragScroll: Bool = false
-    public private(set) var hoverType: GKPageSmoothHoverType = .none
-    public private(set) var isOnTop: Bool = false
     
-    /// 是否撑起scrollView，默认false
-    /// 如果设置为YES则当scrollView的contentSize不足时会修改scrollView的contentSize使其能够滑动到悬浮状态
+    // 是否允许底部拖拽到临界位置时可滑动scrollView，默认false
+    public var isAllowDragScroll: Bool = false
+    
+    // 是否撑起scrollView，默认false
+    // 如果设置为YES则当scrollView的contentSize不足时会修改scrollView的contentSize使其能够滑动到悬浮状态
     public var isHoldUpScrollView: Bool = false
     
+    // smoothView悬停类型
+    public private(set) var hoverType: GKPageSmoothHoverType = .none
+    
+    // 是否通过拖拽滑动到顶部
+    public private(set) var isOnTop: Bool = false
+    
+    // 数据源
     weak var dataSource: GKPageSmoothViewDataSource?
     var listHeaderDict = [Int: UIView]()
     
@@ -153,11 +182,10 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var headerView: UIView?
     var segmentedView: UIView?
     
-    public private(set) var currentIndex: Int = 0
-    public private(set) var currentListScrollView: UIScrollView?
     var isSyncListContentOffsetEnabled: Bool = false
     var currentHeaderContainerViewY: CGFloat = 0
     
+    /// header容器的高度
     public private(set) var headerContainerHeight: CGFloat = 0
     var headerHeight: CGFloat = 0
     var segmentedHeight: CGFloat = 0
@@ -178,19 +206,32 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     
     public init(dataSource: GKPageSmoothViewDataSource) {
         self.dataSource = dataSource
-        
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
         listCollectionView = GKPageSmoothCollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(frame: .zero)
-        
+        initSubviews()
+    }
+    
+    public required init?(coder: NSCoder) {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        listCollectionView = GKPageSmoothCollectionView(frame: .zero, collectionViewLayout: layout)
+        super.init(coder: coder)
+        initSubviews()
+    }
+    
+    private func initSubviews() {
         listCollectionView.dataSource = self
         listCollectionView.delegate = self
         listCollectionView.isPagingEnabled = true
         listCollectionView.bounces = false
         listCollectionView.showsHorizontalScrollIndicator = false
+        listCollectionView.showsVerticalScrollIndicator = false
         listCollectionView.scrollsToTop = false
         listCollectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: GKPageSmoothViewCellID)
         if #available(iOS 10.0, *) {
@@ -204,10 +245,6 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         
         self.addSubview(self.headerContainerView)
         self.refreshHeaderView()
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     deinit {

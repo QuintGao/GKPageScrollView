@@ -35,6 +35,14 @@ public func gk_swizzled_instanceMethod(_ prefix: String, oldClass: Swift.AnyClas
     }
 }
 
+public func gk_getAssociatedObject(_ object: Any, _ key: UnsafeRawPointer) -> Any? {
+    return objc_getAssociatedObject(object, key)
+}
+
+public func gk_setAssociatedObject(_ object: Any, _ key: UnsafeRawPointer, _ value: Any?) {
+    objc_setAssociatedObject(object, key, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+}
+
 // 定义Awake协议，让需要重新系统方法的类实现该协议
 public protocol GKObjectAwakeProtocol: AnyObject {
     static func gkObjectAwake()

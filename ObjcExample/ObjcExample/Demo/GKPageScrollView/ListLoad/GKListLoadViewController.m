@@ -76,7 +76,6 @@
     listVC.count = 0;
     [listVC reloadData];
     listVC.shouldLoadData = YES;
-    [self addChildViewController:listVC];
     return listVC;
 }
 

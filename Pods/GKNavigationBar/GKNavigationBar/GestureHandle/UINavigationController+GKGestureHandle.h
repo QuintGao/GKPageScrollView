@@ -22,14 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)rootVC:(UIViewController *)rootVC transitionScale:(BOOL)transitionScale;
 
 /// 导航栏转场时是否缩放，此属性只能在初始化导航栏时有效
-@property (nonatomic, assign, readonly) BOOL gk_transitionScale;
+@property (nonatomic, assign, readonly) IBInspectable BOOL gk_transitionScale;
 
 /// 是否开启左滑push操作，默认是NO，此时不可禁用控制器的滑动返回手势
-@property (nonatomic, assign) BOOL gk_openScrollLeftPush;
+@property (nonatomic, assign) IBInspectable BOOL gk_openScrollLeftPush;
 
 /// 是否开启GKNavigationBar的手势处理，默认为NO
 /// 只能通过上面的两个初始化方法开启
-@property (nonatomic, assign, readonly) BOOL gk_openGestureHandle;
+@property (nonatomic, assign, readonly) IBInspectable BOOL gk_openGestureHandle;
 
 @end
 

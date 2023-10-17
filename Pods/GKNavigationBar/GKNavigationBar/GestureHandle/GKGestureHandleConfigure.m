@@ -55,6 +55,8 @@
 }
 
 - (UIImage *)getCaptureWithView:(UIView *)view {
+    if (!view) return nil;
+    if (view.bounds.size.width <= 0 || view.bounds.size.height <= 0) return nil;
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, UIScreen.mainScreen.scale);
     [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

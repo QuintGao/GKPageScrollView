@@ -64,7 +64,7 @@ class GKListIndexViewController: GKDemoBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.gk_navTitle = "列表懒加载"
+        self.gk_navTitle = "子列表索引"
         self.gk_navTitleColor = UIColor.white
         self.gk_navTitleFont = UIFont.boldSystemFont(ofSize: 18)
         self.gk_navBackgroundColor = UIColor.clear

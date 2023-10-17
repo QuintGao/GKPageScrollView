@@ -11,46 +11,46 @@ import UIKit
 extension UIViewController: GKAwakeProtocol {
    
     fileprivate struct AssociatedKeys {
-        static var gkNavBarAlpha: CGFloat = 1
-        static var gkNavBarInit: Bool = false
-        static var gkNavBarAdded: Bool = false
-        static var gkNavigationBar: GKNavigationBar = GKNavigationBar()
-        static var gkNavigationItem: UINavigationItem = UINavigationItem()
-        static var gkStatusBarHidden: Bool = GKConfigure.statusBarHidden
-        static var gkStatusBarStyle: UIStatusBarStyle = GKConfigure.statusBarStyle
-        static var gkBackImage: UIImage?
-        static var gkDarkBackImage: UIImage?
-        static var gkBlackBackImage: UIImage?
-        static var gkWhiteBackImage: UIImage?
-        static var gkBackStyle: GKNavigationBarBackStyle = .none
-        static var gkNavBackgroundColor: UIColor?
-        static var gkNavBackgroundImage: UIImage?
-        static var gkDarkNavBackgroundImage: UIImage?
-        static var gkNavShadowColor: UIColor?
-        static var gkNavShadowImage: UIImage?
-        static var gkDarkNavShadowImage: UIImage?
-        static var gkNavLineHidden: Bool = false
-        static var gkNavTitle: String?
-        static var gkNavTitleView: UIView?
-        static var gkNavTitleColor: UIColor?
-        static var gkNavTitleFont: UIFont?
-        static var gkNavLeftBarButtonItem: UIBarButtonItem?
-        static var gkNavLeftBarButtonItems: [UIBarButtonItem]?
-        static var gkNavRightBarButtonItem: UIBarButtonItem?
-        static var gkNavRightBarButtonItems: [UIBarButtonItem]?
-        static var gkDisableFixNavItemSpace: Bool = false
-        static var gkOpenFixNavItemSpace: Bool = false
-        static var gkNavItemLeftSpace: CGFloat = GKConfigure.gk_navItemLeftSpace
-        static var gkNavItemRightSpace: CGFloat = GKConfigure.gk_navItemRightSpace
+        static var gkNavBarAlpha: Void?
+        static var gkNavBarInit: Void?
+        static var gkNavBarAdded: Void?
+        static var gkNavigationBar: Void?
+        static var gkNavigationItem: Void?
+        static var gkStatusBarHidden: Void?
+        static var gkStatusBarStyle: Void?
+        static var gkBackImage: Void?
+        static var gkDarkBackImage: Void?
+        static var gkBlackBackImage: Void?
+        static var gkWhiteBackImage: Void?
+        static var gkBackStyle: Void?
+        static var gkNavBackgroundColor: Void?
+        static var gkNavBackgroundImage: Void?
+        static var gkDarkNavBackgroundImage: Void?
+        static var gkNavShadowColor: Void?
+        static var gkNavShadowImage: Void?
+        static var gkDarkNavShadowImage: Void?
+        static var gkNavLineHidden: Void?
+        static var gkNavTitle: Void?
+        static var gkNavTitleView: Void?
+        static var gkNavTitleColor: Void?
+        static var gkNavTitleFont: Void?
+        static var gkNavLeftBarButtonItem: Void?
+        static var gkNavLeftBarButtonItems: Void?
+        static var gkNavRightBarButtonItem: Void?
+        static var gkNavRightBarButtonItems: Void?
+        static var gkDisableFixNavItemSpace: Void?
+        static var gkOpenFixNavItemSpace: Void?
+        static var gkNavItemLeftSpace: Void?
+        static var gkNavItemRightSpace: Void?
     }
     
     public var gk_navBarAlpha: CGFloat {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkNavBarAlpha) as? CGFloat else { return 1 }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkNavBarAlpha) as? CGFloat else { return 1 }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavBarAlpha, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavBarAlpha, newValue)
             
             self.gk_navigationBar.gk_navBarBackgroundAlpha = newValue
         }
@@ -58,27 +58,27 @@ extension UIViewController: GKAwakeProtocol {
     
     fileprivate var gk_navBarInit: Bool {
         get {
-            guard let isInit = objc_getAssociatedObject(self, &AssociatedKeys.gkNavBarInit) as? Bool else { return false }
+            guard let isInit = gk_getAssociatedObject(self, &AssociatedKeys.gkNavBarInit) as? Bool else { return false }
             return isInit
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavBarInit, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavBarInit, newValue)
         }
     }
     
     fileprivate var gk_navBarAdded: Bool {
         get {
-            guard let added = objc_getAssociatedObject(self, &AssociatedKeys.gkNavBarAdded) as? Bool else { return false }
+            guard let added = gk_getAssociatedObject(self, &AssociatedKeys.gkNavBarAdded) as? Bool else { return false }
             return added
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavBarAdded, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavBarAdded, newValue)
         }
     }
     
     public var gk_navigationBar: GKNavigationBar {
         get {
-            var navigationBar = objc_getAssociatedObject(self, &AssociatedKeys.gkNavigationBar) as? GKNavigationBar
+            var navigationBar = gk_getAssociatedObject(self, &AssociatedKeys.gkNavigationBar) as? GKNavigationBar
             if navigationBar == nil {
                 navigationBar = GKNavigationBar()
                 
@@ -94,7 +94,7 @@ extension UIViewController: GKAwakeProtocol {
             return navigationBar!
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavigationBar, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavigationBar, newValue)
             
             self.gk_disableFixNavItemSpace = GKConfigure.disableFixSpace
             self.gk_openFixNavItemSpace = true
@@ -105,7 +105,7 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_navigationItem: UINavigationItem {
         get {
-            var item = objc_getAssociatedObject(self, &AssociatedKeys.gkNavigationItem) as? UINavigationItem
+            var item = gk_getAssociatedObject(self, &AssociatedKeys.gkNavigationItem) as? UINavigationItem
             if item == nil {
                 item = UINavigationItem()
                 self.gk_navigationItem = item!
@@ -113,7 +113,7 @@ extension UIViewController: GKAwakeProtocol {
             return item!
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavigationItem, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavigationItem, newValue)
             
             self.gk_navigationBar.items = [newValue]
         }
@@ -121,32 +121,32 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_statusBarHidden: Bool {
         get {
-            guard let isHidden = objc_getAssociatedObject(self, &AssociatedKeys.gkStatusBarHidden) as? Bool else { return false }
+            guard let isHidden = gk_getAssociatedObject(self, &AssociatedKeys.gkStatusBarHidden) as? Bool else { return false }
             return isHidden
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkStatusBarHidden, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkStatusBarHidden, newValue)
             setNeedsStatusBarAppearanceUpdate()
         }
     }
     
     public var gk_statusBarStyle: UIStatusBarStyle {
         get {
-            guard let style = objc_getAssociatedObject(self, &AssociatedKeys.gkStatusBarStyle) as? UIStatusBarStyle else { return GKConfigure.statusBarStyle }
+            guard let style = gk_getAssociatedObject(self, &AssociatedKeys.gkStatusBarStyle) as? UIStatusBarStyle else { return GKConfigure.statusBarStyle }
             return style
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkStatusBarStyle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkStatusBarStyle, newValue)
             setNeedsStatusBarAppearanceUpdate()
         }
     }
     
     public var gk_backImage: UIImage? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkBackImage) as? UIImage
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkBackImage) as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkBackImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkBackImage, newValue)
             
             setBackItemImage(image: newValue)
         }
@@ -154,10 +154,10 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_darkBackImage: UIImage? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkDarkBackImage) as? UIImage
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkDarkBackImage) as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkDarkBackImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkDarkBackImage, newValue)
             
             if #available(iOS 12.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
@@ -169,63 +169,63 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_blackBackImage: UIImage? {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkBlackBackImage) else { return GKConfigure.blackBackImage }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkBlackBackImage) else { return GKConfigure.blackBackImage }
             return obj as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkBlackBackImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkBlackBackImage, newValue)
             setBackItemImage(image: newValue)
         }
     }
     
     public var gk_whiteBackImage: UIImage? {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkWhiteBackImage) else { return GKConfigure.whiteBackImage }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkWhiteBackImage) else { return GKConfigure.whiteBackImage }
             return obj as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkWhiteBackImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkWhiteBackImage, newValue)
             setBackItemImage(image: newValue)
         }
     }
     
     public var gk_backStyle: GKNavigationBarBackStyle {
         get {
-            guard let style = objc_getAssociatedObject(self, &AssociatedKeys.gkBackStyle) as? GKNavigationBarBackStyle else { return .none }
+            guard let style = gk_getAssociatedObject(self, &AssociatedKeys.gkBackStyle) as? GKNavigationBarBackStyle else { return .none }
             return style
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkBackStyle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkBackStyle, newValue)
             setBackItemImage(image: self.gk_backImage)
         }
     }
     
     public var gk_navBackgroundColor: UIColor? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavBackgroundColor) as? UIColor
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavBackgroundColor) as? UIColor
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavBackgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavBackgroundColor, newValue)
             setNavBackground(newValue)
         }
     }
     
     public var gk_navBackgroundImage: UIImage? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavBackgroundImage) as? UIImage
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavBackgroundImage) as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavBackgroundImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavBackgroundImage, newValue)
             setNavBackground(newValue)
         }
     }
     
     public var gk_darkNavBackgroundImage: UIImage? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkDarkNavBackgroundImage) as? UIImage
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkDarkNavBackgroundImage) as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkDarkNavBackgroundImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkDarkNavBackgroundImage, newValue)
             if #available(iOS 12.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
                     setNavBackground(newValue)
@@ -236,30 +236,30 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_navShadowColor: UIColor? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavShadowColor) as? UIColor
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavShadowColor) as? UIColor
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavShadowColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavShadowColor, newValue)
             setNavShadow(newValue)
         }
     }
     
     public var gk_navShadowImage: UIImage? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavShadowImage) as? UIImage
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavShadowImage) as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavShadowImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavShadowImage, newValue)
             setNavShadow(newValue)
         }
     }
     
     public var gk_darkNavShadowImage: UIImage? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkDarkNavShadowImage) as? UIImage
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkDarkNavShadowImage) as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkDarkNavShadowImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkDarkNavShadowImage, newValue)
             if #available(iOS 12.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
                     setNavShadow(newValue)
@@ -270,11 +270,11 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_navLineHidden: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkNavLineHidden) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkNavLineHidden) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavLineHidden, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavLineHidden, newValue)
             
             self.gk_navigationBar.gk_navLineHidden = newValue
             
@@ -295,91 +295,91 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_navTitle: String? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavTitle) as? String
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavTitle) as? String
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavTitle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavTitle, newValue)
             self.gk_navigationItem.title = newValue
         }
     }
     
     public var gk_navTitleView: UIView? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavTitleView) as? UIView
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavTitleView) as? UIView
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavTitleView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavTitleView, newValue)
             self.gk_navigationItem.titleView = newValue
         }
     }
     
     public var gk_navTitleColor: UIColor? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavTitleColor) as? UIColor
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavTitleColor) as? UIColor
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavTitleColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavTitleColor, newValue)
             setNavTitle(newValue)
         }
     }
     
     public var gk_navTitleFont: UIFont? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavTitleFont) as? UIFont
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavTitleFont) as? UIFont
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavTitleFont, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavTitleFont, newValue)
             setNavTitle(newValue)
         }
     }
     
     public var gk_navLeftBarButtonItem: UIBarButtonItem? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItem) as? UIBarButtonItem
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItem) as? UIBarButtonItem
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItem, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItem, newValue)
             self.gk_navigationItem.leftBarButtonItem = newValue
         }
     }
     
     public var gk_navLeftBarButtonItems: [UIBarButtonItem]? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItems) as? [UIBarButtonItem]
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItems) as? [UIBarButtonItem]
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItems, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavLeftBarButtonItems, newValue)
             self.gk_navigationItem.leftBarButtonItems = newValue
         }
     }
     
     public var gk_navRightBarButtonItem: UIBarButtonItem? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItem) as? UIBarButtonItem
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItem) as? UIBarButtonItem
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItem, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItem, newValue)
             self.gk_navigationItem.rightBarButtonItem = newValue
         }
     }
     
     public var gk_navRightBarButtonItems: [UIBarButtonItem]? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItems) as? [UIBarButtonItem]
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItems) as? [UIBarButtonItem]
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItems, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavRightBarButtonItems, newValue)
             self.gk_navigationItem.rightBarButtonItems = newValue
         }
     }
     
     public var gk_disableFixNavItemSpace: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkDisableFixNavItemSpace) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkDisableFixNavItemSpace) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkDisableFixNavItemSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkDisableFixNavItemSpace, newValue)
             if GKConfigure.gk_disableFixSpace == newValue { return }
             GKConfigure.update { configure in
                 configure.gk_disableFixSpace = newValue
@@ -389,11 +389,11 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_openFixNavItemSpace: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkOpenFixNavItemSpace) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkOpenFixNavItemSpace) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkOpenFixNavItemSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkOpenFixNavItemSpace, newValue)
             if GKConfigure.gk_openSystemFixSpace == newValue { return }
             GKConfigure.update { configure in
                 configure.gk_openSystemFixSpace = newValue
@@ -403,11 +403,11 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_navItemLeftSpace: CGFloat {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkNavItemLeftSpace) as? CGFloat else { return GKNavigationBarItemSpace }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkNavItemLeftSpace) as? CGFloat else { return GKNavigationBarItemSpace }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavItemLeftSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavItemLeftSpace, newValue)
             if newValue == GKNavigationBarItemSpace { return }
             GKConfigure.update { (configure) in
                 configure.gk_navItemLeftSpace = newValue
@@ -417,11 +417,11 @@ extension UIViewController: GKAwakeProtocol {
     
     public var gk_navItemRightSpace: CGFloat {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkNavItemRightSpace) as? CGFloat else { return GKNavigationBarItemSpace }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkNavItemRightSpace) as? CGFloat else { return GKNavigationBarItemSpace }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkNavItemRightSpace, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkNavItemRightSpace, newValue)
             if newValue == GKNavigationBarItemSpace { return }
             GKConfigure.update { (configure) in
                 configure.gk_navItemRightSpace = newValue
@@ -449,8 +449,10 @@ extension UIViewController {
     
     @objc func gk_viewDidLoad() {
         // 设置默认状态
-        self.gk_disableFixNavItemSpace = true
-        self.gk_openFixNavItemSpace = false
+        if let nav = self.navigationController, nav == self.parent {
+            self.gk_disableFixNavItemSpace = true
+            self.gk_openFixNavItemSpace = false
+        }
 
         if shouldHandleNavBar() {
             // 设置默认导航栏间距
@@ -490,14 +492,14 @@ extension UIViewController {
                 self.view.bringSubviewToFront(self.gk_navigationBar)
             }
         }else {
-            if let nav = navigationController, !nav.isNavigationBarHidden, !isNonFullScreen() {
+            if let nav = self.navigationController, nav == self.parent, !nav.isNavigationBarHidden, !isNonFullScreen() {
                 self.gk_disableFixNavItemSpace = self.gk_disableFixNavItemSpace
                 self.gk_openFixNavItemSpace = self.gk_openFixNavItemSpace
             }
             restoreSystemNavBar()
         }
         
-        // 当创建了gk_navigationBar或者福控制器是导航控制器的时候才去调整导航栏间距
+        // 当创建了gk_navigationBar或者父控制器是导航控制器的时候才去调整导航栏间距
         if self.shouldFixItemSpace() {
             // 每次控制器出现的时候重置导航栏间距
             if self.gk_navItemLeftSpace == GKNavigationBarItemSpace {
@@ -816,7 +818,12 @@ extension UIViewController {
             }
             
             // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
-            isNonFullScreen = (self.presentingViewController != nil) && viewH < self.view.bounds.height
+            var window = view.window
+            if window == nil {
+                window = GKDevice.keyWindow()
+            }
+            
+            isNonFullScreen = (self.presentingViewController != nil) && viewH < window?.bounds.height ?? 0
         }
         return isNonFullScreen
     }

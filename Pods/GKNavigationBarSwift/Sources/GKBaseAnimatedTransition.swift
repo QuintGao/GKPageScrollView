@@ -62,16 +62,16 @@ extension GKBaseAnimatedTransition: UIViewControllerAnimatedTransitioning {
 
 extension UIViewController {
     fileprivate struct AssociatedKeys {
-        static var defCaptureImage: UIImage?
+        static var defCaptureImage: Void?
     }
     
     public var gk_captureImage: UIImage? {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.defCaptureImage) else { return nil }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.defCaptureImage) else { return nil }
             return obj as? UIImage
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.defCaptureImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.defCaptureImage, newValue)
         }
     }
 }

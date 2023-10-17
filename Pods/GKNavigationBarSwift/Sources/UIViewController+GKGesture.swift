@@ -2,7 +2,7 @@
 //  UIViewController+GKGesture.swift
 //  GKNavigationBarSwift
 //
-//  Created by gaokun on 2022/3/18.
+//  Created by QuintGao on 2022/3/18.
 //  Copyright © 2022 QuintGao. All rights reserved.
 //
 
@@ -112,115 +112,115 @@ extension UIViewController: GKGestureAwakeProtocol {
 
 extension UIViewController {
     fileprivate struct AssociatedKeys {
-        static var gkInteractivePopDisabled: Bool = false
-        static var gkFullScreenPopDisabled: Bool = false
-        static var gkSystemGestureHandleDisabled: Bool = false
-        static var gkMaxPopDistance: CGFloat = 0
-        static var gkPushDelegate: GKViewControllerPushDelegate?
-        static var gkPopDelegate: GKViewControllerPopDelegate?
-        static var gkPushTransition: UIViewControllerAnimatedTransitioning?
-        static var gkPopTransition: UIViewControllerAnimatedTransitioning?
-        static var hasPushDelegate: Bool = false
-        static var hasPopDelegate: Bool = false
+        static var gkInteractivePopDisabled: Void?
+        static var gkFullScreenPopDisabled: Void?
+        static var gkSystemGestureHandleDisabled: Void?
+        static var gkMaxPopDistance: Void?
+        static var gkPushDelegate: Void?
+        static var gkPopDelegate: Void?
+        static var gkPushTransition: Void?
+        static var gkPopTransition: Void?
+        static var hasPushDelegate: Void?
+        static var hasPopDelegate: Void?
     }
     
     public var gk_interactivePopDisabled: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkInteractivePopDisabled) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkInteractivePopDisabled) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkInteractivePopDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkInteractivePopDisabled, newValue)
             postPropertyChangeNotification()
         }
     }
     
     public var gk_fullScreenPopDisabled: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkFullScreenPopDisabled) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkFullScreenPopDisabled) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkFullScreenPopDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkFullScreenPopDisabled, newValue)
             postPropertyChangeNotification()
         }
     }
     
     public var gk_systemGestureHandleDisabled: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkSystemGestureHandleDisabled) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkSystemGestureHandleDisabled) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkSystemGestureHandleDisabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkSystemGestureHandleDisabled, newValue)
             postPropertyChangeNotification()
         }
     }
     
     public var gk_maxPopDistance: CGFloat {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkMaxPopDistance) as? CGFloat else { return 0 }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkMaxPopDistance) as? CGFloat else { return 0 }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkMaxPopDistance, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkMaxPopDistance, newValue)
             postPropertyChangeNotification()
         }
     }
     
     public var gk_pushDelegate: GKViewControllerPushDelegate? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkPushDelegate) as? GKViewControllerPushDelegate
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkPushDelegate) as? GKViewControllerPushDelegate
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkPushDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkPushDelegate, newValue)
         }
     }
     
     public var gk_popDelegate: GKViewControllerPopDelegate? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkPopDelegate) as? GKViewControllerPopDelegate
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkPopDelegate) as? GKViewControllerPopDelegate
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkPopDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkPopDelegate, newValue)
         }
     }
     
     public var gk_pushTransition: UIViewControllerAnimatedTransitioning? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkPushTransition) as? UIViewControllerAnimatedTransitioning
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkPushTransition) as? UIViewControllerAnimatedTransitioning
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkPushTransition, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkPushTransition, newValue)
         }
     }
     
     public var gk_popTransition: UIViewControllerAnimatedTransitioning? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.gkPopTransition) as? UIViewControllerAnimatedTransitioning
+            return gk_getAssociatedObject(self, &AssociatedKeys.gkPopTransition) as? UIViewControllerAnimatedTransitioning
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkPopTransition, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkPopTransition, newValue)
         }
     }
     
     fileprivate var hasPushDelegate: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.hasPushDelegate) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.hasPushDelegate) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.hasPushDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.hasPushDelegate, newValue)
         }
     }
     
     fileprivate var hasPopDelegate: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.hasPopDelegate) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.hasPopDelegate) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.hasPopDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.hasPopDelegate, newValue)
         }
     }
 }

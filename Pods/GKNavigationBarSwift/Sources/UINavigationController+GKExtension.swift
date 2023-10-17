@@ -27,27 +27,27 @@ extension UINavigationController: GKChildAwakeProtocol {
 
 extension UINavigationController {
     fileprivate struct AssociatedKeys {
-        static var gkOpenSystemNavHandle: Bool = false
-        static var gkHideNavigationBar: Bool = false
+        static var gkOpenSystemNavHandle: Void?
+        static var gkHideNavigationBar: Void?
     }
     
     public var gk_openSystemNavHandle: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkOpenSystemNavHandle) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkOpenSystemNavHandle) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkOpenSystemNavHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkOpenSystemNavHandle, newValue)
         }
     }
     
     public var gk_hideNavigationBar: Bool {
         get {
-            guard let obj = objc_getAssociatedObject(self, &AssociatedKeys.gkHideNavigationBar) as? Bool else { return false }
+            guard let obj = gk_getAssociatedObject(self, &AssociatedKeys.gkHideNavigationBar) as? Bool else { return false }
             return obj
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.gkHideNavigationBar, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            gk_setAssociatedObject(self, &AssociatedKeys.gkHideNavigationBar, newValue)
         }
     }
 }

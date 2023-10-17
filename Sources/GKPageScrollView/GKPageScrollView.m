@@ -71,6 +71,7 @@
     if (!self.isLoaded) return;
     if (self.isShowInFooter) {
         self.mainTableView.tableFooterView = [self getPageView];
+        [self configPageView];
     }else {
         [self.mainTableView reloadData];
     }
@@ -97,10 +98,6 @@
     }
     [self addSubview:self.mainTableView];
     [self refreshHeaderView];
-    
-    if ([self shouldLazyLoadListView]) {
-        self.mainTableView.horizontalScrollViewList = @[self.listContainerView.scrollView];
-    }
 }
 
 - (void)setHorizontalScrollViewList:(NSArray *)horizontalScrollViewList {
@@ -167,7 +164,9 @@
     self.isLoaded = YES;
     
     for (id<GKPageListViewDelegate> list in self.validListDict.allValues) {
-        [list.listView removeFromSuperview];
+        if ([self shouldLazyLoadListView]) {
+            [list.listView removeFromSuperview];            
+        }
     }
     [_validListDict removeAllObjects];
     
@@ -180,6 +179,7 @@
     
     if (self.isShowInFooter) {
         self.mainTableView.tableFooterView = [self getPageView];
+        [self configPageView];
     }else {
         [self.mainTableView reloadData];
     }
@@ -187,6 +187,9 @@
     self.criticalPoint = fabs([self.mainTableView rectForSection:0].origin.y - self.ceilPointHeight);
     self.criticalOffset = CGPointMake(0, self.criticalPoint);
     
+    if ([self shouldLazyLoadListView]) {
+        self.mainTableView.horizontalScrollViewList = @[self.listContainerView.scrollView];
+    }
     if (!self.isAutoFindHorizontalScrollView) return;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self findHorizontalScrollViews];
@@ -469,7 +472,21 @@
     UIView *pageView = self.pageView ? self.pageView : nil;
     if ([self shouldLazyLoadListView]) {
         if (!pageView) pageView = [UIView new];
+    }else {
+        pageView = [self.delegate pageViewInPageScrollView:self];
+    }
+    height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
+    pageView.frame = CGRectMake(0, 0, width, height);
+    self.pageView = pageView;
+    return pageView;
+}
+
+- (void)configPageView {
+    if ([self shouldLazyLoadListView]) {
+        UIView *pageView = [self getPageView];
         
+        CGFloat width = pageView.frame.size.width;
+        CGFloat height = pageView.frame.size.height;
         UIView *segmentedView = [self.delegate segmentedViewInPageScrollView:self];
         
         CGFloat x = 0;
@@ -480,13 +497,7 @@
         self.listContainerView.frame = CGRectMake(x, y, w, h);
         [pageView addSubview:segmentedView];
         [pageView addSubview:self.listContainerView];
-    }else {
-        pageView = [self.delegate pageViewInPageScrollView:self];
     }
-    height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
-    pageView.frame = CGRectMake(0, 0, width, height);
-    self.pageView = pageView;
-    return pageView;
 }
 
 - (void)findHorizontalScrollViews {
@@ -539,6 +550,7 @@
     }
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [cell.contentView addSubview:[self getPageView]];
+    [self configPageView];
     if ([self.delegate respondsToSelector:@selector(pageScrollViewReloadCell:)]) {
         [self.delegate pageScrollViewReloadCell:self];
     }
