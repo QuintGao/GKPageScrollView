@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UIView                *pageView;
 
+@property (nonatomic, strong) JXCategoryTitleView   *segmentedView;
+
 @end
 
 @implementation GKBasePageViewController
@@ -39,9 +41,16 @@
     frame.size.width = self.view.frame.size.width;
     self.headerView.frame = frame;
     
+    frame = self.segmentView.frame;
+    if (frame.size.width != self.view.frame.size.width) {
+        frame.size.width = self.view.frame.size.width;
+        [self.segmentView reloadData];
+    }
+    
     [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.view.frame = CGRectMake(self.scrollView.frame.size.width * idx, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        obj.view.frame = CGRectMake(self.view.frame.size.width * idx, 0, self.view.frame.size.width, self.view.frame.size.height);
     }];
+    self.scrollView.contentSize = CGSizeMake(self.childVCs.count * self.view.frame.size.width, 0);
 }
 
 #pragma mark - GKPageScrollViewDelegate

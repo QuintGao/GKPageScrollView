@@ -61,6 +61,17 @@
     self.bgImgView.frame = self.bgImgFrame;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    if (self.bgImgFrame.size.width != self.bounds.size.width) {
+        self.bgImgFrame = CGRectMake(0, 0, self.bounds.size.width, self.bgImgFrame.size.height);
+        self.bgImgView.frame = self.bgImgFrame;
+        UIImage *image = self.bgImgView.image;
+        self.bgImgH = self.bounds.size.width * (image.size.height / image.size.width);
+    }
+}
+
 - (void)scrollViewDidScroll:(CGFloat)offsetY {
     // headerView下拉放大
     CGRect frame = self.bgImgFrame;

@@ -30,10 +30,10 @@ class GKVTMagicViewController: GKDemoBaseViewController {
         return pageScrollView
     }()
     
-    lazy var headerView: UIView! = {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 200.0))
-        headerView.backgroundColor = UIColor(patternImage: UIImage(named: "test")!)
-        return headerView
+    lazy var headerView: UIView = {
+        let imgView = UIImageView(image: UIImage(named: "test"))
+        imgView.contentMode = .scaleAspectFill
+        return imgView
     }()
     
     lazy var magicVC: VTMagicController = {
@@ -95,6 +95,12 @@ class GKVTMagicViewController: GKDemoBaseViewController {
         
         self.pageScrollView.reloadData()
         self.magicVC.magicView.reloadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRectMake(0, 0, view.bounds.width, 200)
     }
 }
 

@@ -80,9 +80,17 @@
     frame.size.width = self.view.frame.size.width;
     self.headerView.frame = frame;
     
+    frame = self.categoryView.frame;
+    if (frame.size.width != self.view.frame.size.width) {
+        frame.size.width = self.view.frame.size.width;
+        self.categoryView.frame = frame;
+        [self.categoryView reloadData];
+    }
+    
     [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.view.frame = CGRectMake(idx * self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        obj.view.frame = CGRectMake(idx * self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height);
     }];
+    self.scrollView.contentSize = CGSizeMake(self.childVCs.count * self.view.frame.size.width, 0);
 }
 
 #pragma mark - GKPageScrollViewDelegate

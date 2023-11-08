@@ -493,7 +493,6 @@
         CGFloat y = segmentedView.frame.size.height;
         CGFloat w = width;
         CGFloat h = height - y;
-        h -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight);
         self.listContainerView.frame = CGRectMake(x, y, w, h);
         [pageView addSubview:segmentedView];
         [pageView addSubview:self.listContainerView];

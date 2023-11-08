@@ -46,6 +46,16 @@
     [self categoryView:self.categoryView didSelectedItemAtIndex:0];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    if (self.categoryView.frame.size.width != self.view.frame.size.width) {
+        CGRect frame = self.categoryView.frame;
+        frame.size.width = self.view.frame.size.width;
+        self.categoryView.frame = frame;
+    }
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;

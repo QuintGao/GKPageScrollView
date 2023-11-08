@@ -49,12 +49,6 @@
         make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(GK_STATUSBAR_NAVBAR_HEIGHT, 0, 0, 0));
     }];
     
-    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(@0);
-        make.width.mas_equalTo(kScreenW);
-        make.height.mas_equalTo(kWYHeaderHeight);
-    }];
-    
     [self.headerBgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(kCriticalPoint);
         make.left.right.equalTo(self.view);
@@ -71,23 +65,23 @@
     
     [self.pageScrollView reloadData];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(GK_STATUSBAR_NAVBAR_HEIGHT, 0, ADAPTATIONRATIO * 100, 0));
-//        }];
-//
-//        CGFloat scrollW = kScreenW;
-//        CGFloat scrollH = kScreenH - kNavBarHeight - 40.0f - ADAPTATIONRATIO * 100.0f;
-//        self.scrollView.frame = CGRectMake(0, 40, scrollW, scrollH);
-//
-//        [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
-//            vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
-//        }];
-        
-        // 动态修改临界点
-        self.pageScrollView.ceilPointHeight += 100;
-        [self.pageScrollView reloadData];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////        [self.pageScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+////            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(GK_STATUSBAR_NAVBAR_HEIGHT, 0, ADAPTATIONRATIO * 100, 0));
+////        }];
+////
+////        CGFloat scrollW = kScreenW;
+////        CGFloat scrollH = kScreenH - kNavBarHeight - 40.0f - ADAPTATIONRATIO * 100.0f;
+////        self.scrollView.frame = CGRectMake(0, 40, scrollW, scrollH);
+////
+////        [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL * _Nonnull stop) {
+////            vc.view.frame = CGRectMake(idx * scrollW, 0, scrollW, scrollH);
+////        }];
+//        
+//        // 动态修改临界点
+//        self.pageScrollView.ceilPointHeight += 100;
+//        [self.pageScrollView reloadData];
+//    });
 }
 
 - (void)viewWillLayoutSubviews {
@@ -97,9 +91,17 @@
     frame.size.width = self.view.frame.size.width;
     self.headerView.frame = frame;
     
+    frame = self.categoryView.frame;
+    if (frame.size.width != self.view.bounds.size.width) {
+        frame.size.width = self.view.bounds.size.width;
+        self.categoryView.frame = frame;
+        [self.categoryView reloadData];
+    }
+    
     [self.childVCs enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.view.frame = CGRectMake(idx * self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        obj.view.frame = CGRectMake(idx * self.view.frame.size.width, 0, self.scrollView.frame.size.width, self.view.frame.size.height);
     }];
+    self.scrollView.contentSize = CGSizeMake(self.childVCs.count * self.view.frame.size.width, 0);
 }
 
 #pragma mark - GKPageScrollViewDelegate

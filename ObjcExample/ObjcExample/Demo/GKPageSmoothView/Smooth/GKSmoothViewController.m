@@ -47,20 +47,13 @@
     // 模拟网络请求
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         CGRect frame = self.headerView.frame;
-        frame.size.height = kDYHeaderHeight;
+        frame.size.height = 800;
         self.headerView.frame = frame;
+        
+        self.categoryView.contentScrollView = self.smoothView.listCollectionView;
         [self.smoothView refreshHeaderView];
-    
         [self.smoothView reloadData];
     });
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        CGRect frame = self.headerView.frame;
-//        frame.size.height = kDYHeaderHeight + 100;
-//        self.headerView.frame = frame;
-//        
-//        [self.smoothView refreshHeaderView];
-//    });
 }
 
 - (void)dealloc {
@@ -69,6 +62,21 @@
             [(GKSmoothListView *)obj stopLoading];
         }
     }];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    frame = self.categoryView.frame;
+    if (frame.size.width != self.view.frame.size.width) {
+        frame.size.width = self.view.frame.size.width;
+        self.categoryView.frame = frame;
+        [self.categoryView reloadData];
+    }
 }
 
 #pragma mark - GKPageSmoothViewDataSource
@@ -130,7 +138,7 @@
         _smoothView.delegate = self;
         _smoothView.listCollectionView.gk_openGestureHandle = YES;
 //        _smoothView.mainScrollDisabled = YES;
-        _smoothView.holdUpScrollView = YES;
+//        _smoothView.holdUpScrollView = YES;
 //        _smoothView.listCollectionView.bounces = YES;
         _smoothView.defaultSelectedIndex = 1;
     }
@@ -139,7 +147,7 @@
 
 - (GKDYHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[GKDYHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 400)];
+        _headerView = [[GKDYHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 500)];
     }
     return _headerView;
 }

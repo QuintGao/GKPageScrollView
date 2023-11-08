@@ -55,7 +55,7 @@ class GKListIndexViewController: GKDemoBaseViewController {
         segmentedView.addSubview(btmLineView)
         btmLineView.snp.makeConstraints({ (make) in
             make.left.right.bottom.equalTo(segmentedView)
-            make.height.equalTo(ADAPTATIONRATIO * 2.0)
+            make.height.equalTo(0.5)
         })
         
         return segmentedView
@@ -78,6 +78,17 @@ class GKListIndexViewController: GKDemoBaseViewController {
         }
         
         pageScrollView.reloadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRectMake(0, 0, view.bounds.width, kBaseHeaderHeight)
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            segmentedView.reloadData()
+        }
     }
 }
 

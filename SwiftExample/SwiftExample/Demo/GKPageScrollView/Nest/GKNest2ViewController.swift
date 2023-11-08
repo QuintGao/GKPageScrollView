@@ -56,6 +56,7 @@ class GKNest2ViewController: GKDemoBaseViewController {
             nestView.frame = CGRect(x: CGFloat(i) * width, y: 0, width: width, height: height)
             nestView.mainScrollView = scrollView
             nestView.mainScrollView?.gk_openGestureHandle = true
+            nestView.tag = 9999 + i
             scrollView.addSubview(nestView)
         }
         scrollView.contentSize = CGSize(width: CGFloat(self.titleDataSource.titles.count) * width, height: 0)
@@ -78,7 +79,23 @@ class GKNest2ViewController: GKDemoBaseViewController {
             make.top.equalTo(self.gk_navigationBar.snp_bottom)
         }
         
-        self .segmentedView(self.segmentedView, didSelectedItemAt: 0)
+        self.segmentedView(self.segmentedView, didSelectedItemAt: 0)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        segmentedView.frame = CGRectMake(0, 0, view.bounds.width, 44.0)
+        
+        let width = view.bounds.width
+        let height = view.bounds.height - kStatusBar_Height - 50
+        
+        titleDataSource.titles.enumerated().forEach {
+            let view = contentScrollView.viewWithTag(9999 + $0.offset)
+            view?.frame = CGRectMake(CGFloat($0.offset) * width, 0, width, height)
+        }
+        contentScrollView.contentSize = CGSizeMake(CGFloat(titleDataSource.titles.count) * width, 0)
+        contentScrollView.contentOffset = CGPointMake(CGFloat(segmentedView.selectedIndex) * width, 0)
     }
 }
 

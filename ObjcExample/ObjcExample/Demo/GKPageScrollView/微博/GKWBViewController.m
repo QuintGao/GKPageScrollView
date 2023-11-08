@@ -190,27 +190,33 @@
 
 #pragma mark - GKWBPageViewControllDelegate
 - (void)pageScrollViewWillBeginScroll {
-//    [self.pageScrollView horizonScrollViewWillBeginScroll];
+    [self.pageScrollView horizonScrollViewWillBeginScroll];
 }
 
 - (void)pageScrollViewDidEndedScroll {
-//    [self.pageScrollView horizonScrollViewDidEndedScroll];
+    [self.pageScrollView horizonScrollViewDidEndedScroll];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    self.headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, kWBHeaderHeight);
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.bounds.size.width;
+    self.headerView.frame = frame;
     
     if (kScreenH > kScreenW) {
         self.pageScrollView.ceilPointHeight = GK_STATUSBAR_NAVBAR_HEIGHT;
     }else {
         self.pageScrollView.ceilPointHeight = 44.0f;
     }
+    self.pageVC.menuItemWidth = self.view.frame.size.width / 4.0 - 20;
     [self.pageVC reloadData];
     self.pageVC.scrollView.gk_openGestureHandle = YES;
-    self.pageScrollView.horizontalScrollViewList = @[self.pageVC.scrollView];
-    self.pageVC.menuItemWidth = self.view.frame.size.width / 4.0f - 20;
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        self.pageScrollView.horizontalScrollViewList = @[self.pageVC.scrollView];
+//    });
 }
 
 #pragma mark - 懒加载

@@ -49,6 +49,21 @@
 //    });
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    if (self.titleView.frame.size.width != self.view.frame.size.width) {
+        frame = self.titleView.frame;
+        frame.size.width = self.view.frame.size.width;
+        self.titleView.frame = frame;
+        [self.titleView reloadData];
+    }
+}
+
 #pragma mark - GKPageSmoothViewDataSource
 - (UIView *)headerViewInSmoothView:(GKPageSmoothView *)smoothView {
     return self.headerView;

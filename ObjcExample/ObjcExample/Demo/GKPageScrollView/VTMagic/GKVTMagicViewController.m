@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) GKPageScrollView  *pageScrollView;
 
-@property (nonatomic, strong) UIView            *headerView;
+@property (nonatomic, strong) UIImageView       *headerView;
 
 @property (nonatomic, strong) UIView            *pageView;
 
@@ -45,6 +45,12 @@
     [self.pageScrollView reloadData];
     
     [self.magicController.magicView reloadData];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    self.headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
 }
 
 #pragma mark - GKPageScrollViewDelegate
@@ -106,10 +112,10 @@
     return _pageScrollView;
 }
 
-- (UIView *)headerView {
+- (UIImageView *)headerView {
     if (!_headerView) {
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200.0f)];
-        _headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test"]];
+        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200.0f)];
+        _headerView.image = [UIImage imageNamed:@"test"];
     }
     return _headerView;
 }

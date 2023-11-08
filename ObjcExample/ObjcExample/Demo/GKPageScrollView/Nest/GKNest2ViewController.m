@@ -38,6 +38,23 @@
     [self categoryView:self.categoryView didSelectedItemAtIndex:0];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    if (self.categoryView.frame.size.width != self.view.frame.size.width) {
+        CGRect frame = self.categoryView.frame;
+        frame.size.width = self.view.frame.size.width;
+        self.categoryView.frame = frame;
+    }
+    
+    [self.categoryView.titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIView *view = [self.contentScrollView viewWithTag:9999+idx];
+        view.frame = CGRectMake(idx * self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-self.gk_navigationBar.frame.size.height);
+    }];
+    self.contentScrollView.contentSize = CGSizeMake(self.categoryView.titles.count * self.view.frame.size.width, 0);
+    self.contentScrollView.contentOffset = CGPointMake(self.categoryView.selectedIndex * self.view.frame.size.width, 0);
+}
+
 #pragma mark - JXCateogryViewDelegate
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
     self.nestView = (GKNest2View *)self.contentScrollView.subviews[index];
@@ -150,6 +167,7 @@
             nestView.frame = CGRectMake(idx * width, 0, width, height);
             nestView.mainScrollView = self->_contentScrollView;
             nestView.mainScrollView.gk_openGestureHandle = YES;
+            nestView.tag = 9999 + idx;
             [self->_contentScrollView addSubview:nestView];
         }];
 

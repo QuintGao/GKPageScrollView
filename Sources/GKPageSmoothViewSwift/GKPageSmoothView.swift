@@ -204,6 +204,8 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     var willAppearIndex = -1
     var willDisappearIndex = -1
     
+    var isChangeOffset: Bool = false
+    
     public init(dataSource: GKPageSmoothViewDataSource) {
         self.dataSource = dataSource
         let layout = UICollectionViewFlowLayout()
@@ -258,7 +260,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        
+                
         if (self.isMainScrollDisabled) {
             var frame = self.frame
             frame.origin.y = self.headerContainerHeight
@@ -270,22 +272,41 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                 refreshList(frame: self.bounds)
                 self.listCollectionView.frame = self.bounds
             }else {
-                var frame = self.listCollectionView.frame
+                var frame = bottomContainerView.frame
+                frame.size.width = self.bounds.width
+                frame.size.height = self.bounds.size.height - self.ceilPointHeight
+                bottomContainerView.frame = frame
+                
+                frame = self.listCollectionView.frame
                 frame.origin.y = self.segmentedHeight
+                frame.size.width = self.frame.width
                 frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight
                 refreshList(frame: frame)
                 self.listCollectionView.frame = frame
             }
         }
-    }
         
+        self.listHeaderDict.values.forEach {
+            var frame = $0.frame
+            frame.origin.y = -self.headerContainerHeight
+            frame.size.height = self.headerContainerHeight
+            $0.frame = frame
+        }
+    }
+    
     func refreshList(frame: CGRect) {
         listDict.values.forEach {
             var f = $0.listView().frame
-            if (f.size.width != 0 && f.size.height != 0 && f.size.height != frame.size.height) {
-                f.size.height = frame.size.height
+            if ((f.width != 0 && f.width != frame.width) || (f.height != 0 && f.height != frame.height)) {
+                f.size.width = frame.width
+                f.size.height = frame.height
                 $0.listView().frame = f
                 listCollectionView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) { [weak self] in
+                    guard let self = self else { return }
+                    self.isChangeOffset = true
+                    self.set(scrollView: self.listCollectionView, offset: CGPointMake(CGFloat(self.currentIndex) * frame.width, 0))
+                }
             }
         }
     }
@@ -527,6 +548,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         if listCollectionView.isDragging || listCollectionView.isDecelerating { return }
         
         if self.isOnTop { // 在顶部时无需处理headerView
+            self.hoverType = .top
             // 取消scrollView下滑时的弹性效果
             // buf fix #47，iOS12及以下系统isDragging会出现不准确的情况，所以这里改为用isTracking判断
             if self.isAllowDragScroll && (scrollView.isTracking || scrollView.isDecelerating) {
@@ -625,6 +647,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             
             self.headerView?.frame = CGRect(x: 0, y: 0, width: size.width, height: self.headerHeight)
             self.segmentedView?.frame = CGRect(x: 0, y: self.headerHeight, width: size.width, height: self.segmentedHeight)
+            
             if self.segmentedView?.superview != self.headerContainerView { // 修复headerHeight < size.height, headerContainerHeight > size.height时segmentedView.superView为bottomContainerView
                 self.headerContainerView.addSubview(self.segmentedView!)
             }
@@ -645,12 +668,27 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             }
             
             if self.isBottomHover {
-                self.bottomContainerView.frame = CGRect(x: 0, y: size.height - self.segmentedHeight, width: size.width, height: size.height - self.ceilPointHeight)
-                
                 if self.headerHeight > size.height {
                     self.bottomContainerView.isHidden = false // 修复滑动到非悬浮状态后执行刷新导致bottomContainerView未显示的问题
                     self.segmentedView?.frame = CGRect(x: 0, y: 0, width: size.width, height: self.segmentedHeight)
                     self.bottomContainerView.addSubview(self.segmentedView!)
+                }
+                if hoverType == .bottom {
+                    self.bottomContainerView.frame = CGRect(x: 0, y: size.height - self.segmentedHeight, width: size.width, height: size.height - self.ceilPointHeight)
+                    setupDismissLayout()
+                }else if hoverType == .top {
+                    // 记录当前列表的滑动位置
+                    self.currentListPanBeganContentOffsetY = self.currentListScrollView?.contentOffset.y ?? 0
+                    
+                    self.listDict.values.forEach { [weak self] in
+                        guard let self = self else { return }
+                        $0.listScrollView().contentInset = .zero
+                        self.set(scrollView: $0.listScrollView(), offset: .zero)
+                        
+                        var frame = $0.listView().frame
+                        frame.size = self.listCollectionView.bounds.size
+                        $0.listView().frame = frame
+                    }
                 }
             }
         }
@@ -942,7 +980,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
         }
         if let listView = list?.listView(), listView.superview != cell.contentView {
             cell.contentView.subviews.forEach { $0.removeFromSuperview() }
-            listView.frame = cell.contentView.bounds
+            listView.frame = cell.bounds
             cell.contentView.addSubview(listView)
         }
         return cell
@@ -961,6 +999,10 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if isChangeOffset {
+            isChangeOffset = false
+            return
+        }
         delegate?.smoothViewDidScroll?(self, scrollView: scrollView)
         let indexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width
         let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
@@ -1055,6 +1097,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        if !self.isLoaded { return }
         let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
         self.currentIndex = index
         self.currentListScrollView = self.listDict[index]?.listScrollView()

@@ -49,16 +49,16 @@
         
         [self.collectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.tagLabel.mas_bottom);
-            make.right.equalTo(self).offset(-ADAPTATIONRATIO * 20.0f);
-            make.width.mas_equalTo(ADAPTATIONRATIO * 150.0f);
-            make.height.mas_equalTo(ADAPTATIONRATIO * 50.0f);
+            make.right.equalTo(self).offset(-20);
+            make.width.mas_equalTo(150);
+            make.height.mas_equalTo(50.0f);
         }];
         
         [self.personalBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.tagLabel.mas_bottom);
-            make.right.equalTo(self.collectBtn.mas_left).offset(-ADAPTATIONRATIO * 20.0f);
-            make.width.mas_equalTo(ADAPTATIONRATIO * 150.0f);
-            make.height.mas_equalTo(ADAPTATIONRATIO * 50.0f);
+            make.right.equalTo(self.collectBtn.mas_left).offset(-20.0f);
+            make.width.mas_equalTo(150.0f);
+            make.height.mas_equalTo(50.0f);
         }];
     }
     return self;
@@ -101,7 +101,7 @@
         _personalBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [_personalBtn setTitle:@"个人主页" forState:UIControlStateNormal];
         [_personalBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _personalBtn.layer.cornerRadius = ADAPTATIONRATIO * 25.0f;
+        _personalBtn.layer.cornerRadius = 25.0f;
         _personalBtn.layer.masksToBounds = YES;
         _personalBtn.layer.borderColor = [UIColor whiteColor].CGColor;
         _personalBtn.layer.borderWidth = 0.5f;
@@ -116,7 +116,7 @@
         _collectBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [_collectBtn setTitle:@"收藏" forState:UIControlStateNormal];
         [_collectBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _collectBtn.layer.cornerRadius = ADAPTATIONRATIO * 22.0f;
+        _collectBtn.layer.cornerRadius = 25.0f;
         _collectBtn.layer.masksToBounds = YES;
     }
     return _collectBtn;

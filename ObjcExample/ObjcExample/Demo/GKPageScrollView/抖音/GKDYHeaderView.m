@@ -50,6 +50,14 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CGRect frame = self.bgImgFrame;
+    frame.size.width = self.bounds.size.width;
+    self.bgImgFrame = frame;
+}
+
 - (void)scrollViewDidScroll:(CGFloat)offsetY {
     CGRect frame = self.bgImgFrame;
     

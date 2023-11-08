@@ -434,7 +434,7 @@ extension GKPageListContainerView: UICollectionViewDataSource, UICollectionViewD
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         let list = validListDict[indexPath.item]
         if let listView = list?.listView?() {
-            listView.frame = cell.contentView.bounds
+            listView.frame = cell.bounds
             cell.contentView.addSubview(listView)
         }
         return cell

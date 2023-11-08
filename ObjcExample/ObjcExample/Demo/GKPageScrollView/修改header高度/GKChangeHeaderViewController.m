@@ -65,8 +65,11 @@
     self.headerView.frame = frame;
     
     frame = self.titleView.frame;
-    frame.size.width = self.view.frame.size.width;
-    self.titleView.frame = frame;
+    if (frame.size.width != self.view.frame.size.width) {
+        frame.size.width = self.view.frame.size.width;
+        self.titleView.frame = frame;
+        [self.titleView reloadData];
+    }
 }
 
 #pragma mark - GKPageScrollViewDelegate

@@ -64,6 +64,17 @@ class GKPageMainDisabledViewController: GKDemoBaseViewController {
             self.pageScrollView.reloadData()
         }
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: kBaseHeaderHeight)
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            segmentedView.reloadData()
+        }
+    }
 }
 
 extension GKPageMainDisabledViewController: GKPageScrollViewDelegate {

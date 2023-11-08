@@ -51,9 +51,12 @@ class GKDYViewController: GKDemoBaseViewController {
         
         // 添加分割线
         let btmLineView = UIView()
-        btmLineView.frame = CGRect(x: 0, y: 40 - 0.5, width: kScreenW, height: 0.5)
         btmLineView.backgroundColor = UIColor.grayColor(g: 200)
         segmentedView.addSubview(btmLineView)
+        btmLineView.snp.makeConstraints {
+            $0.left.right.bottom.equalTo(segmentedView)
+            $0.height.equalTo(0.5)
+        }
         
         return segmentedView
     }()
@@ -84,6 +87,17 @@ class GKDYViewController: GKDemoBaseViewController {
         }
 //        self.segmentedView.reloadData()
         self.pageScrollView.reloadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: kDYHeaderHeight)
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 40.0)
+            segmentedView.reloadData()
+        }
     }
 }
 

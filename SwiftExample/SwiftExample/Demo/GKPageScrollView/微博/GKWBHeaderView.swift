@@ -76,6 +76,17 @@ class GKWBHeaderView: UIView {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if bgImgFrame.size.width != bounds.width {
+            bgImgFrame.size.width = bounds.width
+            bgImgView.frame = bgImgFrame
+            guard let bgImg = bgImgView.image else { return }
+            bgImgH = bounds.width * (bgImg.size.height / bgImg.size.width)
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

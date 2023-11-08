@@ -347,7 +347,7 @@
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     id<GKPageListViewDelegate> list = _validListDict[@(indexPath.row)];
     if (list != nil) {
-        [list listView].frame = cell.contentView.bounds;
+        [list listView].frame = cell.bounds;
         [cell.contentView addSubview:[list listView]];
     }
     return cell;

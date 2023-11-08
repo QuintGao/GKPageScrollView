@@ -109,6 +109,22 @@ class GKDBViewController: GKDemoBaseViewController {
         self.smoothView.reloadData()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if headerView.bounds.width != view.bounds.width {
+            let image = UIImage(named: "douban")!
+            headerView.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.width * image.size.height / image.size.width)
+            smoothView.refreshHeaderView()
+        }
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            titleSegmentedView.frame.size.width = view.bounds.width
+            titleSegmentedView.reloadData()
+        }
+    }
+    
     func changeTitle(isShow: Bool) {
         if isShow {
             if (self.gk_navTitle == nil) {return}

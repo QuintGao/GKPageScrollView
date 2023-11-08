@@ -109,6 +109,8 @@ class GKNestView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        segmentedView.reloadData()
+        
         let listW = self.contentScrollView.frame.size.width
         let listH = self.contentScrollView.frame.size.height
         

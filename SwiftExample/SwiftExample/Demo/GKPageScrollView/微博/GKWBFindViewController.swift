@@ -39,9 +39,12 @@ class GKWBFindViewController: GKDemoBaseViewController {
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: (kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!) + GKDevice.statusBarFrame().size.height))
         
-        let imgView = UIImageView(frame: CGRect(x: 0, y: GKDevice.statusBarFrame().size.height, width: kScreenW, height: kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!))
+        let imgView = UIImageView()
         imgView.image = headerImg
         headerView.addSubview(imgView)
+        imgView.snp.makeConstraints {
+            $0.edges.equalTo(headerView)
+        }
         return headerView
     }()
     
@@ -226,6 +229,27 @@ class GKWBFindViewController: GKDemoBaseViewController {
 //                make.bottom.equalTo(self.view).offset(-ADAPTATIONRATIO * 100)
 //            }
 //        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if headerView.bounds.width == view.bounds.width { return }
+        
+        let headerImg = UIImage(named: "wb_find")
+        headerView.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.width * (headerImg?.size.height)! / (headerImg?.size.width)! + GKDevice.statusBarFrame().size.height)
+        segmentedView.frame = CGRectMake(0, 0, view.bounds.width, 54.0)
+        categoryView.reloadData()
+        pageScrollView.reloadData()
+        
+        let scrollW = view.bounds.width
+        let scrollH = view.bounds.height - kNavBar_Height
+        contentScrollView.frame = CGRectMake(0, 44.0, scrollW, scrollH)
+        contentScrollView.contentSize = CGSize(width: CGFloat(self.childVCs.count) * scrollW, height: 0)
+        
+        for (idx, vc) in childVCs.enumerated() {
+            vc.view.frame = CGRectMake(CGFloat(idx) * scrollW, 0, scrollW, scrollH)
+        }
     }
     
     @objc func backAction() {

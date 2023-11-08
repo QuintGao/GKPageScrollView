@@ -55,6 +55,21 @@
     self.isAnimation = YES;
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.headerView.frame = frame;
+    
+    frame = self.titleView.frame;
+    if (frame.size.width != self.view.frame.size.width) {
+        frame.size.width = self.view.frame.size.width;
+        self.titleView.frame = frame;
+        [self.titleView reloadData];
+    }
+}
+
 #pragma mark - GKPageSmoothViewDataSource
 - (UIView *)headerViewInSmoothView:(GKPageSmoothView *)smoothView {
     return self.headerView;

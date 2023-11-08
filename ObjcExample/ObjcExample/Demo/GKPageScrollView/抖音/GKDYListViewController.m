@@ -24,6 +24,12 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"listCell"];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    self.view.frame = self.view.superview.bounds;
+}
+
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 30;

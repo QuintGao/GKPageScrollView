@@ -79,6 +79,17 @@ class GKListLoadViewController: GKDemoBaseViewController {
         
         pageScrollView.reloadData()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRectMake(0, 0, view.bounds.width, kBaseHeaderHeight)
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            segmentedView.reloadData()
+        }
+    }
 }
 
 extension GKListLoadViewController: GKPageScrollViewDelegate {

@@ -38,6 +38,17 @@
     self.pageScrollView.horizontalScrollViewList = @[mainScrollView];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CGRect frame = self.categoryView.frame;
+    if (frame.size.width != self.frame.size.width) {
+        frame.size.width = self.frame.size.width;
+        self.categoryView.frame = frame;
+        [self.categoryView reloadData];
+    }
+}
+
 #pragma mark - GKPageScrollViewDelegate
 - (UIView *)headerViewInPageScrollView:(GKPageScrollView *)pageScrollView {
     return self.headerView;

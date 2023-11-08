@@ -53,6 +53,30 @@
     [self.smoothView reloadData];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGRect frame = self.headerView.frame;
+    if (frame.size.width != self.view.frame.size.width) {
+        UIImage *image = [UIImage imageNamed:@"douban"];
+        frame.size.width = self.view.frame.size.width;
+        frame.size.height = frame.size.width * image.size.height / image.size.width;
+        self.headerView.frame = frame;
+        [self.smoothView refreshHeaderView];
+    }
+    
+    frame = self.segmentedView.frame;
+    if (frame.size.width != self.view.frame.size.width) {
+        frame.size.width = self.view.frame.size.width;
+        self.segmentedView.frame = frame;
+        
+        frame = self.categoryView.frame;
+        frame.size.width = self.view.frame.size.width;
+        self.categoryView.frame = frame;
+        [self.categoryView reloadData];
+    }
+}
+
 #pragma mark - GKPageSmoothViewDataSource
 - (UIView *)headerViewInSmoothView:(GKPageSmoothView *)smoothView {
     return self.headerView;

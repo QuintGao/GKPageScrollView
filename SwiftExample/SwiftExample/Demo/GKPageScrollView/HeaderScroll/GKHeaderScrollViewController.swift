@@ -63,7 +63,7 @@ class GKHeaderScrollViewController: GKDemoBaseViewController {
         segmentedView.addSubview(btmLineView)
         btmLineView.snp.makeConstraints({ (make) in
             make.left.right.bottom.equalTo(segmentedView)
-            make.height.equalTo(ADAPTATIONRATIO * 2.0)
+            make.height.equalTo(0.5)
         })
         
         return segmentedView
@@ -112,6 +112,27 @@ class GKHeaderScrollViewController: GKDemoBaseViewController {
         
         // 刷新
         self.pageScrollView.reloadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        let headerH = (kScreenW - 40)/4 + 20;
+        headerView.frame = CGRectMake(0, 0, view.bounds.width, headerH)
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            segmentedView.reloadData()
+        }
+        
+        let width: CGFloat = view.bounds.width
+        let height: CGFloat = view.bounds.height - kBaseSegmentHeight - kNavBar_Height
+        scrollView.frame = CGRectMake(0, kBaseSegmentHeight, width, height)
+        
+        childVCs.enumerated().forEach {
+            $0.element.view.frame = CGRectMake(CGFloat($0.offset) * width, 0, width, height)
+        }
+        scrollView.contentSize = CGSizeMake(CGFloat(childVCs.count) * width, height)
     }
 }
 

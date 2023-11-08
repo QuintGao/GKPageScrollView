@@ -71,6 +71,8 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 @property (nonatomic, assign) NSInteger  willAppearIndex;
 @property (nonatomic, assign) NSInteger  willDisappearIndex;
 
+@property (nonatomic, assign) BOOL       isChangeOffset;
+
 @end
 
 @implementation GKPageSmoothView
@@ -117,22 +119,40 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
             [self refreshListFrame:self.bounds];
             self.listCollectionView.frame = self.bounds;
         }else {
-            CGRect frame = self.listCollectionView.frame;
+            CGRect frame = self.bottomContainerView.frame;
+            frame.size.width = self.frame.size.width;
+            frame.size.height = self.frame.size.height - self.ceilPointHeight;
+            self.bottomContainerView.frame = frame;
+            
+            frame = self.listCollectionView.frame;
             frame.origin.y = self.segmentedHeight;
+            frame.size.width = self.frame.size.width;
             frame.size.height = self.bottomContainerView.frame.size.height - self.segmentedHeight;
             [self refreshListFrame:frame];
             self.listCollectionView.frame = frame;
         }
     }
+    
+    [self.listHeaderDict enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, UIView * _Nonnull obj, BOOL * _Nonnull stop) {
+        CGRect frame = obj.frame;
+        frame.origin.y = -self.headerContainerHeight;
+        frame.size.height = self.headerContainerHeight;
+        obj.frame = frame;
+    }];
 }
 
 - (void)refreshListFrame:(CGRect)frame {
     for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
         CGRect f = list.listView.frame;
-        if (f.size.width != 0 && f.size.height != 0 && f.size.height != frame.size.height) {
+        if ((f.size.width != 0 && f.size.width != frame.size.width) || (f.size.height != 0 && f.size.height != frame.size.height)) {
+            f.size.width = frame.size.width;
             f.size.height = frame.size.height;
             list.listView.frame = f;
             [self.listCollectionView reloadData];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.08 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.isChangeOffset = YES;
+                [self setScrollView:self.listCollectionView offset:CGPointMake(self.currentIndex * frame.size.width, 0)];
+            });
         }
     }
 }
@@ -316,7 +336,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     UIView *listView = list.listView;
     if (listView != nil && listView.superview != cell.contentView) {
         [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        listView.frame = cell.contentView.bounds;
+        listView.frame = cell.bounds;
         [cell.contentView addSubview:listView];
     }
     return cell;
@@ -334,6 +354,10 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.isChangeOffset) {
+        self.isChangeOffset = NO;
+        return;
+    }
     if ([self.delegate respondsToSelector:@selector(smoothView:scrollViewDidScroll:)]) {
         [self.delegate smoothView:self scrollViewDidScroll:scrollView];
     }
@@ -349,7 +373,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
                 [self horizontalScrollDidEndAtIndex:index];
             }else {
                 // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
-                if (self.headerContainerView.superview != self) {
+                if (self.headerContainerView.superview != self && scrollView.isDragging) {
                     CGRect frame = self.headerContainerView.frame;
                     frame.origin.y = self.currentHeaderContainerViewY;
                     self.headerContainerView.frame = frame;
@@ -436,6 +460,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if (!self.isLoaded) return;
     // 修复快速闪烁问题
     NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
     self.currentIndex = index;
@@ -707,6 +732,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     if (self.listCollectionView.isDragging || self.listCollectionView.isDecelerating) return;
     
     if (self.isOnTop) { // 在顶部时无需处理headerView
+        self.hoverType = GKPageSmoothHoverTypeTop;
         // 取消scrollView下滑时的弹性效果
         // buf fix #47，iOS12及以下系统isDragging会出现不准确的情况，所以这里改为用isTracking判断
         if (self.isAllowDragScroll && (scrollView.isTracking || scrollView.isDecelerating)) {
@@ -842,12 +868,25 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
         
         if (self.isBottomHover) {
-            self.bottomContainerView.frame = CGRectMake(0, size.height - self.segmentedHeight, size.width, size.height - self.ceilPointHeight);
-            
             if (self.headerHeight > size.height) {
                 self.bottomContainerView.hidden = NO; // 修复滑动到非悬浮状态后执行刷新导致bottomContainerView未显示的问题
                 self.segmentedView.frame = CGRectMake(0, 0, size.width, self.segmentedHeight);
                 [self.bottomContainerView addSubview:self.segmentedView];
+            }
+            if (self.hoverType == GKPageSmoothHoverTypeBottom) {
+                self.bottomContainerView.frame = CGRectMake(0, size.height - self.segmentedHeight, size.width, size.height - self.ceilPointHeight);
+                [self setupDismissLayout];
+            }else if (self.hoverType == GKPageSmoothHoverTypeTop) {
+                // 记录当前列表的滑动位置
+                self.currentListPanBeganContentOffsetY = self.currentListScrollView.contentOffset.y;
+                [self.listDict enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, id<GKPageSmoothListViewDelegate>  _Nonnull obj, BOOL * _Nonnull stop) {
+                    obj.listScrollView.contentInset = UIEdgeInsetsZero;
+                    [self setScrollView:obj.listScrollView offset:CGPointZero];
+                    
+                    CGRect frame = obj.listView.frame;
+                    frame.size = self.listCollectionView.bounds.size;
+                    obj.listView.frame = frame;
+                }];
             }
         }
     }];

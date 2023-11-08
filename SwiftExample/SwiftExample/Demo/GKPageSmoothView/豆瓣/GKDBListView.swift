@@ -66,6 +66,16 @@ class GKDBListView: UIView {
             $0.edges.equalTo(self)
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if type == .tableView {
+            tableView.reloadData()
+        }else if type == .collectionView {
+            collectionView.reloadData()
+        }
+    }
 }
 
 extension GKDBListView: UITableViewDataSource, UITableViewDelegate {

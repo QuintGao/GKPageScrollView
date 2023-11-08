@@ -24,7 +24,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
     }()
     
     lazy var headerView: GKDYHeaderView = {
-        let headerView = GKDYHeaderView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 400))
+        let headerView = GKDYHeaderView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 500))
         return headerView
     }()
     
@@ -68,7 +68,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             var frame = self.headerView.frame
-            frame.size.height = kDYHeaderHeight
+            frame.size.height = 800
             self.headerView.frame = frame
             
             self.categoryView.contentScrollView = self.smoothView.listCollectionView
@@ -89,6 +89,21 @@ class GKSmoothViewController: GKDemoBaseViewController {
         smoothView.snp.remakeConstraints { make in
             make.left.right.bottom.equalTo(0)
             make.top.equalTo(100)
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if headerView.frame.width != view.bounds.width {
+            headerView.frame.size.width = view.bounds.width
+//            smoothView.refreshHeaderView()
+//            smoothView.reloadData()
+        }
+        
+        if categoryView.frame.width != view.bounds.width {
+            categoryView.frame.size.width = view.bounds.width
+            categoryView.reloadData()
         }
     }
 }

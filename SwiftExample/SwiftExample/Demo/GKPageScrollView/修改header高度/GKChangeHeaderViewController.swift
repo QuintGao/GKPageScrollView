@@ -78,6 +78,16 @@ class GKChangeHeaderViewController: GKDemoBaseViewController {
     @objc func criAction() {
         self.pageScrollView.scrollToCriticalPoint(false)
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: kBaseHeaderHeight)
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            segmentedView.reloadData()
+        }
+    }
 }
 
 extension GKChangeHeaderViewController: GKPageScrollViewDelegate {

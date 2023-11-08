@@ -111,14 +111,14 @@ class GKWBViewController: GKDemoBaseViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        self.headerView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: kWBHeaderHeight);
+        self.headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: kWBHeaderHeight);
         
         if (kScreenH > kScreenW) {
             self.pageScrollView.ceilPointHeight = GKDevice.statusBarNavBarHeight();
         }else {
             self.pageScrollView.ceilPointHeight = 44.0
         }
-        
+        self.pageVC.menuItemWidth = view.bounds.width / 4.0 - 20
         self.pageVC.reloadData()
         self.pageVC.scrollView?.gk_openGestureHandle = true
         
@@ -221,14 +221,14 @@ extension GKWBViewController: WMPageControllerDataSource, WMPageControllerDelega
         let maxY = self.pageController(pageController, preferredFrameFor: menuView).maxY
         
         if pageScrollView.pageView != nil {
-            return CGRect(x: 0, y: maxY, width: kScreenW, height: pageScrollView.pageView!.frame.size.height - maxY)
+            return CGRect(x: 0, y: maxY, width: view.bounds.width, height: pageScrollView.pageView!.frame.size.height - maxY)
         }else {
-            return CGRect(x: 0, y: maxY, width: kScreenW, height: kScreenH - maxY - kNavBar_Height)
+            return CGRect(x: 0, y: maxY, width: view.bounds.width, height: view.bounds.height - maxY - kNavBar_Height)
         }
     }
     
     func pageController(_ pageController: WMPageController, preferredFrameFor menuView: WMMenuView) -> CGRect {
-        return CGRect(x: 0, y: 0, width: kScreenW, height: 40.0)
+        return CGRect(x: 0, y: 0, width: view.bounds.width, height: 40.0)
     }
     
     func pageController(_ pageController: WMPageController, didEnter viewController: UIViewController, withInfo info: [AnyHashable : Any]) {

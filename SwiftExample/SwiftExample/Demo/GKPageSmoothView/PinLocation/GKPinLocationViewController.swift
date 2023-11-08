@@ -88,6 +88,19 @@ class GKPinLocationViewController: GKDemoBaseViewController {
         UIGraphicsEndImageContext()
         return newImage!
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if headerView.bounds.size.width != view.bounds.width {
+            headerView.frame.size.width = view.bounds.width
+        }
+        
+        if titleView.bounds.size.width != view.bounds.width {
+            titleView.frame.size.width = view.bounds.width
+            titleView.reloadData()
+        }
+    }
 }
 
 extension GKPinLocationViewController: GKPageSmoothViewDataSource, GKPageSmoothViewDelegate {

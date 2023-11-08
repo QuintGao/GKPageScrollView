@@ -50,8 +50,11 @@
     self.headerView.frame = frame;
     
     frame = self.categoryView.frame;
-    frame.size.width = self.view.frame.size.width;
-    self.categoryView.frame = frame;
+    if (frame.size.width != self.view.frame.size.width) {
+        frame.size.width = self.view.frame.size.width;
+        self.categoryView.frame = frame;
+        [self.categoryView reloadData];
+    }
 }
 
 #pragma mark - GKPageScrollViewDelegate

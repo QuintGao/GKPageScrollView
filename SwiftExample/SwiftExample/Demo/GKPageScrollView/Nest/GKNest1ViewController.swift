@@ -77,6 +77,17 @@ class GKNest1ViewController: GKDemoBaseViewController {
         self.pageScrollView.reloadData()
         self.pageScrollView.listContainerView.gestureDelegate = self
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: ADAPTATIONRATIO * 400.0)
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            segmentedView.reloadData()
+        }
+    }
 }
 
 extension GKNest1ViewController: GKPageScrollViewDelegate {

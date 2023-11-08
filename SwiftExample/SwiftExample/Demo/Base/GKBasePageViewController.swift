@@ -119,6 +119,27 @@ class GKBasePageViewController: GKDemoBaseViewController {
             make.edges.equalTo(self.view)
         }
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: kBaseHeaderHeight)
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            segmentedView.reloadData()
+        }
+        
+        let scrollW = view.bounds.width
+        let scrollH = view.bounds.height - kNavBar_Height - kBaseSegmentHeight
+            
+        scrollView.frame = CGRect(x: 0, y: kBaseSegmentHeight, width: scrollW, height: scrollH)
+            
+        for (index, vc) in self.childVCs.enumerated() {
+            vc.view.frame = CGRect(x: CGFloat(index) * scrollW, y: 0, width: scrollW, height: scrollH)
+        }
+        scrollView.contentSize = CGSize(width: CGFloat(self.childVCs.count) * scrollW, height: 0)
+    }
 }
 
 extension GKBasePageViewController: JXSegmentedViewDelegate {

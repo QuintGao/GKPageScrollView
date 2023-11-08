@@ -150,11 +150,14 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    GKBaseCollectionViewLayout *layout = (GKBaseCollectionViewLayout *)self.collectionView.collectionViewLayout;
-    layout.itemSize = CGSizeMake((self.view.frame.size.width - 60) / 2, (self.view.frame.size.width - 60) / 2);
-    
     if (!self.view.superview) return;
     if (CGSizeEqualToSize(self.view.superview.frame.size, CGSizeZero)) return;
+    
+    
+    GKBaseCollectionViewLayout *layout = (GKBaseCollectionViewLayout *)self.collectionView.collectionViewLayout;
+    CGFloat minW = MIN(self.view.superview.frame.size.width, self.view.superview.frame.size.width);
+    
+    layout.itemSize = CGSizeMake((minW - 60) / 2, (minW - 60) / 2);
     
     CGRect frame = self.view.frame;
     frame.size = self.view.superview.bounds.size;
@@ -380,7 +383,10 @@
         GKBaseCollectionViewLayout *layout = [GKBaseCollectionViewLayout new];
         layout.minimumLineSpacing = 20;
         layout.minimumInteritemSpacing = 20;
-        layout.itemSize = CGSizeMake((self.view.frame.size.width - 60)/2, (self.view.frame.size.width - 60)/2);
+        
+        CGFloat minW = MIN(self.view.frame.size.width, self.view.frame.size.height);
+        
+        layout.itemSize = CGSizeMake((minW - 60)/2, (minW - 60)/2);
         layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];

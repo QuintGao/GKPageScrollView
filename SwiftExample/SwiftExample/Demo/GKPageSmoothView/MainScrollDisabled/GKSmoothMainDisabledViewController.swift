@@ -66,6 +66,19 @@ class GKSmoothMainDisabledViewController: GKDemoBaseViewController {
             self.smoothView.reloadData()
         }
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if headerView.bounds.width != view.bounds.width {
+            headerView.frame.size.width = view.bounds.width
+        }
+        
+        if categoryView.bounds.width != view.bounds.width {
+            categoryView.frame.size.width = view.bounds.width
+            categoryView.reloadData()
+        }
+    }
 }
 
 extension GKSmoothMainDisabledViewController: GKPageSmoothViewDataSource, GKPageSmoothViewDelegate, GKSmoothListViewDelegate {

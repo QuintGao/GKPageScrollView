@@ -209,8 +209,14 @@ class GKBaseListViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
+        guard let superview = view.superview else { return }
+        if let layout = collectionView.collectionViewLayout as? GKBaseCollectionViewLayout {
+            let minW = min(superview.bounds.width, superview.bounds.height)
+            layout.itemSize = CGSizeMake((minW - 60)/2, (minW - 60)/2)
+        }
+        
         var frame = self.view.frame
-        frame.size = (self.view.superview?.bounds.size)!
+        frame.size = superview.bounds.size
         self.view.frame = frame
     }
     

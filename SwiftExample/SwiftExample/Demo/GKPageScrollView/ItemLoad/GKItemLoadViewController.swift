@@ -122,6 +122,16 @@ class GKItemLoadViewController: GKDemoBaseViewController {
         
         self.pageScrollView.mainTableView.mj_header?.beginRefreshing()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: kBaseHeaderHeight)
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame.size.width = view.bounds.width
+            segmentedView.reloadData()
+        }
+    }
 }
 
 extension GKItemLoadViewController: GKPageScrollViewDelegate {

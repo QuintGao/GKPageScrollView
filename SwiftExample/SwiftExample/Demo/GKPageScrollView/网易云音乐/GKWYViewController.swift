@@ -68,9 +68,12 @@ class GKWYViewController: GKDemoBaseViewController {
         
         // 添加分割线
         let btnLineView = UIView()
-        btnLineView.frame = CGRect(x: 0, y: 40 - 0.5, width: kScreenW, height: 0.5)
         btnLineView.backgroundColor = UIColor.grayColor(g: 200)
         segmentedView.addSubview(btnLineView)
+        btnLineView.snp.makeConstraints {
+            $0.left.right.bottom.equalTo(segmentedView)
+            $0.height.equalTo(0.5)
+        }
         
         segmentedView.reloadData()
         
@@ -133,12 +136,6 @@ class GKWYViewController: GKDemoBaseViewController {
             make.edges.equalTo(self.view).inset(UIEdgeInsets(top: kNavBar_Height, left: 0, bottom: 0, right: 0))
         }
         
-        self.headerView.snp.makeConstraints { (make) in
-            make.top.left.equalTo(0)
-            make.width.equalTo(kScreenW)
-            make.height.equalTo(kWYHeaderHeight)
-        }
-        
         self.headerBgImgView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view).offset(kCriticalPoint)
             make.left.right.equalTo(self.view)
@@ -154,6 +151,27 @@ class GKWYViewController: GKDemoBaseViewController {
         }
         
         self.pageScrollView.reloadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+     
+        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: kWYHeaderHeight)
+        
+        if segmentedView.bounds.width != view.bounds.width {
+            segmentedView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 40.0)
+            segmentedView.reloadData()
+        }
+        
+        let scrollW = view.bounds.width
+        let scrollH = view.bounds.height - kNavBar_Height - 40.0
+        scrollView.frame = CGRect(x: 0, y: 40, width: scrollW, height: scrollH)
+            
+        for (index, vc) in self.childVCs.enumerated() {
+            vc.view.frame = CGRect(x: CGFloat(index) * scrollW, y: 0, width: scrollW, height: scrollH)
+        }
+        
+        scrollView.contentSize = CGSize(width: CGFloat(self.childVCs.count) * scrollW, height: 0)
     }
 }
 

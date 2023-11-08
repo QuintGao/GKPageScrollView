@@ -73,6 +73,16 @@ class GKNest2View: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        headerView.frame = CGRectMake(0, 0, bounds.width,  ADAPTATIONRATIO * 400.0)
+        if segmentedView.bounds.width != bounds.width {
+            segmentedView.frame.size.width = bounds.width
+            segmentedView.reloadData()
+        }
+    }
 }
 
 extension GKNest2View: GKPageScrollViewDelegate {
