@@ -631,7 +631,7 @@ open class GKPageScrollView: UIView {
                 let x: CGFloat = 0
                 let y: CGFloat = segmentedView.frame.size.height
                 let w: CGFloat = width
-                var h: CGFloat = height - y
+                let h: CGFloat = height - y
                 self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
                 pageView.addSubview(segmentedView)
                 pageView.addSubview(listContainerView)
