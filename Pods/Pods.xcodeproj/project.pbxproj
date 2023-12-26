@@ -612,7 +612,7 @@
 		1CB9865D881DEF77D71A3A7660311F9A /* VTMagic-framework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "VTMagic-framework.release.xcconfig"; sourceTree = "<group>"; };
 		1CBB2461D4EF93AA78ABA05A50785312 /* VTMagic-library-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "VTMagic-library-prefix.pch"; path = "../VTMagic-library/VTMagic-library-prefix.pch"; sourceTree = "<group>"; };
 		1DCF36787A41E4C115E54C05E577A9BB /* MJRefresh.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
-		1E8E466D611DE007A99FA8D8593AC2A7 /* GKPageSmoothView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = GKPageSmoothView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1E8E466D611DE007A99FA8D8593AC2A7 /* GKPageSmoothView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKPageSmoothView.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		1F8B5371F4A32D06A38011BED06C5F3D /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
 		1FAD5F2DF7F2FE073D77385E95418502 /* GKGestureHandleConfigure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GKGestureHandleConfigure.h; path = GKNavigationBar/GestureHandle/GKGestureHandleConfigure.h; sourceTree = "<group>"; };
 		1FFED36A657123030ABB700256D73F15 /* Masonry */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = Masonry; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -680,7 +680,7 @@
 		4562EC3CC3257C606EF4298B65A3932A /* GKNavigationBarSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GKNavigationBarSwift.modulemap; sourceTree = "<group>"; };
 		45D4ED1452FB56389F31A48DBD25750F /* VTMagic-framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "VTMagic-framework"; path = VTMagic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4751337B27924FEE10E9BAA9316508DB /* JXSegmentedNumberDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedNumberDataSource.swift; path = Sources/Number/JXSegmentedNumberDataSource.swift; sourceTree = "<group>"; };
-		47927728ACE2D73D6369A3B2F5F666E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		47927728ACE2D73D6369A3B2F5F666E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		47DD19D66E4A92B8444CE962FE4518F3 /* Pods-ObjcExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ObjcExample-acknowledgements.plist"; sourceTree = "<group>"; };
 		48707B6FD3234FB7D6C93D6F37F4EF4D /* MJRefresh-library.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "MJRefresh-library.release.xcconfig"; path = "../MJRefresh-library/MJRefresh-library.release.xcconfig"; sourceTree = "<group>"; };
 		4A1D08B0A84B2527348B73E7D03C9F75 /* JXCategoryTitleCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXCategoryTitleCellModel.m; path = JXCategoryView/Title/JXCategoryTitleCellModel.m; sourceTree = "<group>"; };
@@ -818,7 +818,7 @@
 		9D221C27208DF1D59EB9DC54A9F9D834 /* GKPageSmoothView-Swift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "GKPageSmoothView-Swift"; path = GKPageSmoothView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7C21FDC3E6C93B570AADBDC4741D4F /* GKPageTableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKPageTableView.m; path = Sources/GKPageScrollView/GKPageTableView.m; sourceTree = "<group>"; };
 		9D7EFCB1B8F574F65EBEC61EEBF00A5C /* WMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMScrollView.h; path = WMPageController/WMMenuView/WMScrollView.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E495D66204D8B7D441EC661C02F40F3 /* JXCategorySubTitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategorySubTitleView.h; path = JXCategoryView/SubTitle/JXCategorySubTitleView.h; sourceTree = "<group>"; };
 		9E59806D17BF501EB44DFF54EB63458D /* JXCategoryListContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXCategoryListContainerView.h; path = JXCategoryView/Core/Common/JXCategoryListContainerView.h; sourceTree = "<group>"; };
 		9EFBC36B151A84A98173603B0F5DA587 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
@@ -974,7 +974,7 @@
 		F4A680CC6B477B4EEDB5EE68F5B5A74B /* GKNavigationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GKNavigationBar-dummy.m"; sourceTree = "<group>"; };
 		F4B4527A56004B79AFE2E925E7E965BF /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		F586A9EFF4089F092941B9CA9CB506DF /* GKPageScrollView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GKPageScrollView.release.xcconfig; sourceTree = "<group>"; };
-		F5FCCF2EC1E3E71A3D3D3B8FA1440CB9 /* GKPageScrollView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = GKPageScrollView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F5FCCF2EC1E3E71A3D3D3B8FA1440CB9 /* GKPageScrollView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = GKPageScrollView.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		F652F10A6FE687F57AA737A5C5E1F0EE /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		F6B1C818E2C138B3DFEF3C5A43D027C8 /* WMPageController-framework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "WMPageController-framework.modulemap"; sourceTree = "<group>"; };
 		F6D30BB3285347A1FB4157439AE2CE6D /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+WMPageController.h"; path = "WMPageController/UIViewController+WMPageController.h"; sourceTree = "<group>"; };
@@ -1315,7 +1315,6 @@
 				EDC350F18B32A650B445900E8F8D832D /* NavigationBar */,
 				EF3AA2BA44B5DE58B6AF671A71FBD5DD /* Support Files */,
 			);
-			name = GKNavigationBar;
 			path = GKNavigationBar;
 			sourceTree = "<group>";
 		};
@@ -1397,7 +1396,6 @@
 				DAADD4A718EABFCC7D5B510F8951D212 /* Resources */,
 				0A74F26D9A517798492410C4EABA5953 /* Support Files */,
 			);
-			name = GKNavigationBarSwift;
 			path = GKNavigationBarSwift;
 			sourceTree = "<group>";
 		};
@@ -1450,7 +1448,6 @@
 				E48D326A298C1BD3F81ADF5302D2F921 /* ViewController+MASAdditions.m */,
 				E24DDA44598C13448FC17BCBDB08BBB7 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -1562,7 +1559,6 @@
 				CB22E96A7D5556DB1906C5C892CD85E6 /* Support Files */,
 				7F16DBF395900D6393A709E361022AF2 /* Title */,
 			);
-			name = JXSegmentedViewExt;
 			path = JXSegmentedViewExt;
 			sourceTree = "<group>";
 		};
@@ -1621,7 +1617,6 @@
 				1A422D4A82B6F19D1119A5044A1FBFB4 /* Resources */,
 				3D80E00912B1B068D5C8E0D003A64714 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -1632,7 +1627,6 @@
 				5FAF104D709C3DA962A4F65645411FA6 /* Core */,
 				8564824654E0A039F4B691C8AD897AF8 /* Support Files */,
 			);
-			name = VTMagic;
 			path = VTMagic;
 			sourceTree = "<group>";
 		};
@@ -1811,7 +1805,6 @@
 				93870BA0D8D1CFEC6E4CBEF35BB34DCC /* UILayoutSupport+Extensions.swift */,
 				34838724E6A8D7A49909F71B6A65B2FA /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -1860,7 +1853,6 @@
 				43033B78EAEF9768FC83E96A9BF05D04 /* WMScrollView.m */,
 				BA16B6C6D8917429B3BB2AA9C0CA4043 /* Support Files */,
 			);
-			name = WMPageController;
 			path = WMPageController;
 			sourceTree = "<group>";
 		};
@@ -1907,7 +1899,6 @@
 				1E24689F7D8FCF17AE59ABA6208A9894 /* Support Files */,
 				5CFC943BF4DF8521B265D25FBC826809 /* Title */,
 			);
-			name = JXCategoryViewExt;
 			path = JXCategoryViewExt;
 			sourceTree = "<group>";
 		};

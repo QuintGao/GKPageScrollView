@@ -673,10 +673,10 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                     self.segmentedView?.frame = CGRect(x: 0, y: 0, width: size.width, height: self.segmentedHeight)
                     self.bottomContainerView.addSubview(self.segmentedView!)
                 }
-                if hoverType == .bottom {
+                if self.hoverType == .bottom {
                     self.bottomContainerView.frame = CGRect(x: 0, y: size.height - self.segmentedHeight, width: size.width, height: size.height - self.ceilPointHeight)
-                    setupDismissLayout()
-                }else if hoverType == .top {
+                    self.setupDismissLayout()
+                }else if self.hoverType == .top {
                     // 记录当前列表的滑动位置
                     self.currentListPanBeganContentOffsetY = self.currentListScrollView?.contentOffset.y ?? 0
                     
