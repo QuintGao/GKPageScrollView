@@ -147,7 +147,6 @@
 /// @param scrollView mainTableView
 - (void)mainTableViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
 
-
 // 返回自定义UIScrollView或UICollectionView的class
 - (Class)scrollViewClassInListContainerViewInPageScrollView:(GKPageScrollView *)pageScrollView;
 

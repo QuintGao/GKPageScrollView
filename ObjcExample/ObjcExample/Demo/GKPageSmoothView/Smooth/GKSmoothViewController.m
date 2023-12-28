@@ -47,7 +47,7 @@
     // 模拟网络请求
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         CGRect frame = self.headerView.frame;
-        frame.size.height = 800;
+        frame.size.height = 500;
         self.headerView.frame = frame;
         
         self.categoryView.contentScrollView = self.smoothView.listCollectionView;
@@ -147,7 +147,7 @@
 
 - (GKDYHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[GKDYHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 500)];
+        _headerView = [[GKDYHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 300)];
     }
     return _headerView;
 }

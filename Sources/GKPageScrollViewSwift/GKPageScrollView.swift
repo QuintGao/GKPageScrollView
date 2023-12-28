@@ -614,7 +614,7 @@ open class GKPageScrollView: UIView {
                 pageView = UIView()
             }
         }else {
-            pageView = (self.delegate.pageView?(in: self))!
+            pageView = self.delegate.pageView?(in: self) ?? nil
         }
         height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
         pageView?.frame = CGRect(x: 0, y: 0, width: width, height: height)

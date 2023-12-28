@@ -5,14 +5,14 @@ PODS:
   - GKNavigationBar/GestureHandle (1.8.8)
   - GKNavigationBar/NavigationBar (1.8.8)
   - GKNavigationBarSwift (1.6.5)
-  - GKPageScrollView (1.8.9):
-    - GKPageScrollView/Objc (= 1.8.9)
-  - GKPageScrollView/Objc (1.8.9)
-  - GKPageScrollView/Swift (1.8.9)
-  - GKPageSmoothView (1.8.9):
-    - GKPageSmoothView/Objc (= 1.8.9)
-  - GKPageSmoothView/Objc (1.8.9)
-  - GKPageSmoothView/Swift (1.8.9)
+  - GKPageScrollView (1.9.2):
+    - GKPageScrollView/Objc (= 1.9.2)
+  - GKPageScrollView/Objc (1.9.2)
+  - GKPageScrollView/Swift (1.9.2)
+  - GKPageSmoothView (1.9.2):
+    - GKPageSmoothView/Objc (= 1.9.2)
+  - GKPageSmoothView/Objc (1.9.2)
+  - GKPageSmoothView/Swift (1.9.2)
   - JXCategoryViewExt/Core (1.2.0)
   - JXCategoryViewExt/Indicator/AlignmentLine (1.2.0):
     - JXCategoryViewExt/Indicator/Line
@@ -38,7 +38,7 @@ PODS:
   - JXSegmentedViewExt/Title (1.0.3):
     - JXSegmentedViewExt/Core
   - Masonry (1.1.0)
-  - MJRefresh (3.7.5)
+  - MJRefresh (3.7.6)
   - SnapKit (4.2.0)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
@@ -86,16 +86,16 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GKNavigationBar: 14412eb28d4ad0dd1ad6757770b74565de063446
   GKNavigationBarSwift: c12f2123221855f88aaa4432a2cfee513fa0a42d
-  GKPageScrollView: a66e99140eb5d21cf6a9e7554995944b23ec9bdc
-  GKPageSmoothView: e0acf52da6fb753d5dd0b1324a5b3327278a68bb
+  GKPageScrollView: c8291ca875084b3555388d89550ff4da093ec056
+  GKPageSmoothView: fcb660bcb831cefa6ee9bd862a64eff4fd80551e
   JXCategoryViewExt: cf395acdac10524d20a9158eb487be7642c33cd7
   JXSegmentedViewExt: 094927667217a579187258b303e90c7d751c8361
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
+  MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
 PODFILE CHECKSUM: 0a74e3449f872e5e5fd83edd62efa27151269ae2
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.13.0
