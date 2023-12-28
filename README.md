@@ -116,6 +116,7 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 <details open>
     <summary><font size=4>最近更新</font></summary>
 
+* 2023.12.28   1.9.3 - 修复Swift报错 #140
 * 2023.11.08   1.9.2 - 横竖屏适配，代码优化
 * 2023.10.17   1.9.0 - 1、修复子列表无法获取到导航控制器的问题 2、其他逻辑及代码优化
 * 2023.08.03   1.8.9 - GKPageListViewDelegate增加新的方法，支持子列表切换索引 #132

@@ -5,14 +5,14 @@ PODS:
   - GKNavigationBar/GestureHandle (1.8.8)
   - GKNavigationBar/NavigationBar (1.8.8)
   - GKNavigationBarSwift (1.6.5)
-  - GKPageScrollView (1.9.2):
-    - GKPageScrollView/Objc (= 1.9.2)
-  - GKPageScrollView/Objc (1.9.2)
-  - GKPageScrollView/Swift (1.9.2)
-  - GKPageSmoothView (1.9.2):
-    - GKPageSmoothView/Objc (= 1.9.2)
-  - GKPageSmoothView/Objc (1.9.2)
-  - GKPageSmoothView/Swift (1.9.2)
+  - GKPageScrollView (1.9.3):
+    - GKPageScrollView/Objc (= 1.9.3)
+  - GKPageScrollView/Objc (1.9.3)
+  - GKPageScrollView/Swift (1.9.3)
+  - GKPageSmoothView (1.9.3):
+    - GKPageSmoothView/Objc (= 1.9.3)
+  - GKPageSmoothView/Objc (1.9.3)
+  - GKPageSmoothView/Swift (1.9.3)
   - JXCategoryViewExt/Core (1.2.0)
   - JXCategoryViewExt/Indicator/AlignmentLine (1.2.0):
     - JXCategoryViewExt/Indicator/Line
@@ -86,8 +86,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GKNavigationBar: 14412eb28d4ad0dd1ad6757770b74565de063446
   GKNavigationBarSwift: c12f2123221855f88aaa4432a2cfee513fa0a42d
-  GKPageScrollView: c8291ca875084b3555388d89550ff4da093ec056
-  GKPageSmoothView: fcb660bcb831cefa6ee9bd862a64eff4fd80551e
+  GKPageScrollView: 6f300e20d0e149e110612a6c2bdaa16307bf4b7c
+  GKPageSmoothView: 95afc4750a6d06548489dfec5121034d833797db
   JXCategoryViewExt: cf395acdac10524d20a9158eb487be7642c33cd7
   JXSegmentedViewExt: 094927667217a579187258b303e90c7d751c8361
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
