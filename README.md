@@ -89,6 +89,10 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
      // 2.设置listContainer
      segmentedView.listContainer = self.pageScrollView.listContainerView
   ```
+* 5、列表使用UICollectionView不能上下滑动？
+```
+把UICollectionView的alwaysBounceVertical属性设置为true
+```
 
 ## 效果图
 
