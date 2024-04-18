@@ -98,10 +98,14 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/GKNavigationBar/GKNavigationBar/NavigationBar/GKNavigationBar.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/GKPageScrollView/GKPageScrollView.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/GKPageSmoothView/GKPageSmoothView.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/GKNavigationBar/GKNavigationBar/NavigationBar/GKNavigationBar.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/GKPageScrollView/GKPageScrollView.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/GKPageSmoothView/GKPageSmoothView.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 

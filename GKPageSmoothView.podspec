@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'Objc' do |ss|
     ss.source_files = 'Sources/GKPageSmoothView/*.{h,m}'
+    ss.resource_bundles = {'GKPageSmoothView' => 'Sources/GKPageSmoothView/PrivacyInfo.xcprivacy'}
   end
   
   s.subspec 'Swift' do |ss|
@@ -21,5 +22,7 @@ Pod::Spec.new do |s|
     ss.xcconfig = {
       'LIBRARY_SEARCH_PATHS' => '$(SDKROOT)/usr/lib/swift',
     }
+    ss.resource_bundles = {'GKPageSmoothView' => 'Sources/GKPageSmoothViewSwift/PrivacyInfo.xcprivacy'}
   end
+  
 end

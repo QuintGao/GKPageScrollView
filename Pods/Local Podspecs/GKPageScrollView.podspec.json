@@ -23,7 +23,10 @@
   "subspecs": [
     {
       "name": "Objc",
-      "source_files": "Sources/GKPageScrollView/*.{h,m}"
+      "source_files": "Sources/GKPageScrollView/*.{h,m}",
+      "resource_bundles": {
+        "GKPageScrollView": "Sources/GKPageScrollView/PrivacyInfo.xcprivacy"
+      }
     },
     {
       "name": "Swift",
@@ -31,6 +34,9 @@
       "libraries": "swiftCoreGraphics",
       "xcconfig": {
         "LIBRARY_SEARCH_PATHS": "$(SDKROOT)/usr/lib/swift"
+      },
+      "resource_bundles": {
+        "GKPageScrollView": "Sources/GKPageScrollViewSwift/PrivacyInfo.xcprivacy"
       }
     }
   ],
