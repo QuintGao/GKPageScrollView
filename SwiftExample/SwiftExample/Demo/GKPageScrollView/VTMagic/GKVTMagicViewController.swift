@@ -31,8 +31,8 @@ class GKVTMagicViewController: GKDemoBaseViewController {
     }()
     
     lazy var headerView: UIView = {
-        let imgView = UIImageView(image: UIImage(named: "test"))
-        imgView.contentMode = .scaleAspectFill
+        let imgView = UIImageView(frame: CGRectMake(0, 0, view.frame.width, 200))
+        imgView.image = UIImage(named: "test")
         return imgView
     }()
     
@@ -58,25 +58,19 @@ class GKVTMagicViewController: GKDemoBaseViewController {
     
     let titles = ["详情", "热门", "相关", "聊天"]
     lazy var childVCs: [GKBaseListViewController] = {
-        var childVCs = [GKBaseListViewController]()
-        
         let detailVC = GKBaseListViewController(listType: .UITableView)
         detailVC.shouldLoadData = false
-        childVCs.append(detailVC)
         
         let hotVC = GKBaseListViewController(listType: .UITableView)
         hotVC.shouldLoadData = false
-        childVCs.append(hotVC)
         
         let aboutVC = GKBaseListViewController(listType: .UITableView)
         aboutVC.shouldLoadData = false
-        childVCs.append(aboutVC)
         
         let chatVC = GKBaseListViewController(listType: .UITableView)
         chatVC.shouldLoadData = false
-        childVCs.append(chatVC)
         
-        return childVCs
+        return [detailVC, hotVC, aboutVC, chatVC]
     }()
     
     override func viewDidLoad() {

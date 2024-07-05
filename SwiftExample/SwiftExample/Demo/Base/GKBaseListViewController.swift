@@ -343,9 +343,7 @@ extension GKBaseListViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath)
         cell.contentView.backgroundColor = .red
-        for subview in cell.contentView.subviews {
-            subview.removeFromSuperview()
-        }
+        cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         
         let textLabel = UILabel()
         textLabel.font = UIFont.systemFont(ofSize: 16)
@@ -366,9 +364,7 @@ extension GKBaseListViewController: UICollectionViewDataSource, UICollectionView
 
 extension GKBaseListViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let callBack = scrollCallBack {
-            callBack(scrollView)
-        }
+        scrollCallBack?(scrollView)
     }
 }
 

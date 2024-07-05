@@ -21,18 +21,18 @@ open class GKPageTableView: UITableView, UIGestureRecognizerDelegate {
     open var horizontalScrollViewList: [UIScrollView]?
 
     open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let result = self.gestureDelegate?.pageTableView?(self, gestureRecognizerShouldBegin: gestureRecognizer) {
+        if let result = gestureDelegate?.pageTableView?(self, gestureRecognizerShouldBegin: gestureRecognizer) {
             return result
         }
         return true
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let result = self.gestureDelegate?.pageTableView?(self, gestureRecognizer: gestureRecognizer, shouldRecognizeSimultaneouslyWith: otherGestureRecognizer) {
+        if let result = gestureDelegate?.pageTableView?(self, gestureRecognizer: gestureRecognizer, shouldRecognizeSimultaneouslyWith: otherGestureRecognizer) {
             return result
         }
         
-        if let list = self.horizontalScrollViewList {
+        if let list = horizontalScrollViewList {
             var exist = false
             for scrollView in list {
                 if gestureRecognizer.view?.isEqual(scrollView) == true {
@@ -45,6 +45,6 @@ open class GKPageTableView: UITableView, UIGestureRecognizerDelegate {
             if exist { return false }
         }
         
-        return gestureRecognizer.view?.isKind(of: UIScrollView.classForCoder()) ?? false && otherGestureRecognizer.view?.isKind(of: UIScrollView.classForCoder()) ?? false
+        return gestureRecognizer.view?.isKind(of: UIScrollView.self) ?? false && otherGestureRecognizer.view?.isKind(of: UIScrollView.self) ?? false
     }
 }

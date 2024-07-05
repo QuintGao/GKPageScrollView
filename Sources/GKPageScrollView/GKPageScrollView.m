@@ -57,7 +57,6 @@
         self.ceilPointHeight = GKPAGE_NAVBAR_HEIGHT;
         self.validListDict = [NSMutableDictionary dictionary];
         self.allScrollViews = [NSMutableArray array];
-        
         [self initSubviews];
     }
     return self;

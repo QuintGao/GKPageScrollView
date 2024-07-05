@@ -145,7 +145,7 @@ open class GKPageScrollView: UIView {
     open var listContainerType: GKPageListContainerType = .collectionView
     // 懒加载时使用的容器
     open lazy var listContainerView: GKPageListContainerView = {
-        let containerView = GKPageListContainerView(delegate: self, type: self.listContainerType)
+        let containerView = GKPageListContainerView(delegate: self, type: listContainerType)
         return containerView
     }()
     
@@ -153,8 +153,8 @@ open class GKPageScrollView: UIView {
     open var horizontalScrollViewList: [UIScrollView]? {
         didSet {
             var list = horizontalScrollViewList
-            if self.shouldLazyLoadListView() {
-                list?.append(self.listContainerView.scrollView)
+            if shouldLazyLoadListView() {
+                list?.append(listContainerView.scrollView)
             }
             mainTableView.horizontalScrollViewList = list
         }
@@ -178,11 +178,11 @@ open class GKPageScrollView: UIView {
     // 是否懒加载列表
     public var isLazyLoadList: Bool = false {
         didSet {
-            if self.shouldLazyLoadListView() {
-                self.mainTableView.horizontalScrollViewList = [self.listContainerView.scrollView]
+            if shouldLazyLoadListView() {
+                mainTableView.horizontalScrollViewList = [listContainerView.scrollView]
             }else {
                 // 处理listView滑动
-                self.configListViewScroll()
+                configListViewScroll()
             }
         }
     }
@@ -190,9 +190,9 @@ open class GKPageScrollView: UIView {
     // 是否禁止主页滑动，默认NO
     public var isMainScrollDisabled: Bool = false {
         didSet {
-            self.mainTableView.isScrollEnabled = !isMainScrollDisabled
+            mainTableView.isScrollEnabled = !isMainScrollDisabled
             if isMainScrollDisabled {
-                self.mainTableView.scrollsToTop = false
+                mainTableView.scrollsToTop = false
             }
         }
     }
@@ -244,7 +244,7 @@ open class GKPageScrollView: UIView {
     public init(delegate: GKPageScrollViewDelegate) {
         self.delegate = delegate
         super.init(frame: .zero)
-        self.initSubviews()
+        initSubviews()
     }
     
     public required init?(coder: NSCoder) {
@@ -255,47 +255,47 @@ open class GKPageScrollView: UIView {
     open override func layoutSubviews() {
         super.layoutSubviews()
         
-        if self.mainTableView.frame.equalTo(self.bounds) { return }
-        self.mainTableView.frame = self.bounds
-        if !self.isLoaded { return }
-        if self.isShowInFooter {
-            self.mainTableView.tableFooterView = getPageView()
+        if mainTableView.frame.equalTo(bounds) { return }
+        mainTableView.frame = bounds
+        if !isLoaded { return }
+        if isShowInFooter {
+            mainTableView.tableFooterView = getPageView()
             configPageView()
         }else {
-            self.mainTableView.reloadData()
+            mainTableView.reloadData()
         }
     }
     
     fileprivate func initSubviews() {
-        self.mainTableView = GKPageTableView(frame: .zero, style: .plain)
-        self.mainTableView.dataSource = self
-        self.mainTableView.delegate = self
-        self.mainTableView.separatorStyle = .none
-        self.mainTableView.showsVerticalScrollIndicator = false
-        self.mainTableView.showsHorizontalScrollIndicator = false
-        self.mainTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        mainTableView = GKPageTableView(frame: .zero, style: .plain)
+        mainTableView.dataSource = self
+        mainTableView.delegate = self
+        mainTableView.separatorStyle = .none
+        mainTableView.showsVerticalScrollIndicator = false
+        mainTableView.showsHorizontalScrollIndicator = false
+        mainTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         if #available(iOS 11.0, *) {
-            self.mainTableView.contentInsetAdjustmentBehavior = .never
+            mainTableView.contentInsetAdjustmentBehavior = .never
         }
         if #available(iOS 15.0, *) {
-            self.mainTableView.setValue(0, forKey: "sectionHeaderTopPadding")
+            mainTableView.setValue(0, forKey: "sectionHeaderTopPadding")
         }
-        self.addSubview(mainTableView)
-        self.refreshHeaderView()
+        addSubview(mainTableView)
+        refreshHeaderView()
         
-        if self.shouldLazyLoadListView() {
-            self.mainTableView.horizontalScrollViewList = [self.listContainerView.scrollView]
+        if shouldLazyLoadListView() {
+            mainTableView.horizontalScrollViewList = [listContainerView.scrollView]
         }
     }
     
     // MARK: - Public Methods
     public func refreshHeaderView() {
-        let headerView = self.delegate.headerView(in: self)
-        self.mainTableView.tableHeaderView = headerView
-        self.headerHeight = headerView.frame.size.height
+        let headerView = delegate.headerView(in: self)
+        mainTableView.tableHeaderView = headerView
+        headerHeight = headerView.frame.height
         
-        self.criticalPoint = abs(self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight)
-        self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
+        criticalPoint = abs(mainTableView.rect(forSection: 0).origin.y - ceilPointHeight)
+        criticalOffset = CGPoint(x: 0, y: criticalPoint)
         
         if isRestoreWhenRefreshHeader {
             scrollToOriginalPoint(false)
@@ -308,60 +308,60 @@ open class GKPageScrollView: UIView {
     }
     
     public func refreshSegmentedView() {
-        if self.shouldLazyLoadListView() {
-            let segmentedView = self.delegate.segmentedView?(in: self)
-            
-            var frame = self.listContainerView.frame
-            frame.origin.y = segmentedView!.frame.size.height
-            self.listContainerView.frame = frame
+        if shouldLazyLoadListView() {
+            if let segmentedView = delegate.segmentedView?(in: self) {
+                listContainerView.frame.origin.y = segmentedView.frame.height
+            }
         }
     }
     
     public func reloadData() {
-        self.isLoaded = true
+        isLoaded = true
         
-        for list in self.validListDict.values {
+        validListDict.values.forEach {
             if shouldLazyLoadListView() {
-                list.listView?().removeFromSuperview()
+                $0.listView?().removeFromSuperview()
             }
         }
         validListDict.removeAll()
         
         // 设置列表加载方式
-        if self.shouldLazyLoadListView() {
-            self.listContainerView.reloadData()
+        if shouldLazyLoadListView() {
+            listContainerView.reloadData()
         }else {
-            self.configListViewScroll()
+            configListViewScroll()
         }
         
-        if self.isShowInFooter {
-            self.mainTableView.tableFooterView = getPageView()
+        if isShowInFooter {
+            mainTableView.tableFooterView = getPageView()
             configPageView()
         }else {
-            self.mainTableView.reloadData()
+            mainTableView.reloadData()
         }
         
-        self.criticalPoint = abs(self.mainTableView.rect(forSection: 0).origin.y - self.ceilPointHeight)
-        self.criticalOffset = CGPoint(x: 0, y: self.criticalPoint)
+        criticalPoint = abs(mainTableView.rect(forSection: 0).origin.y - ceilPointHeight)
+        criticalOffset = CGPoint(x: 0, y: criticalPoint)
         
-        if (!self.isAutoFindHorizontalScrollView) { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        if (!isAutoFindHorizontalScrollView) { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            guard let self = self else { return }
             self.findHorizontalScrollViews()
         }
     }
     
     public func horizonScrollViewWillBeginScroll() {
-        self.mainTableView.isScrollEnabled = false
+        mainTableView.isScrollEnabled = false
     }
     
     public func horizonScrollViewDidEndedScroll() {
-        self.mainTableView.isScrollEnabled = true
+        mainTableView.isScrollEnabled = true
     }
     
     public func scrollToOriginalPoint(_ animated: Bool? = true) {
         // 这里做了0.01秒的延时，是为了解决一个坑：
         // 当通过手势滑动结束调用此方法时，会有可能出现动画结束后UITableView没有回到原点的bug
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
+            guard let self = self else { return }
             if self.mainTableView.contentOffset == .zero { return }
             if self.isScrollToOriginal { return }
             
@@ -383,168 +383,165 @@ open class GKPageScrollView: UIView {
     }
     
     public func scrollToCriticalPoint(_ animated: Bool? = true) {
-        if (self.mainTableView.contentOffset == self.criticalOffset) { return }
-        if self.isScrollToCritical { return }
+        if (mainTableView.contentOffset == criticalOffset) { return }
+        if isScrollToCritical { return }
         
         if animated == true {
-            self.isScrollToCritical = true
+            isScrollToCritical = true
         }else {
-            self.isCeilPoint = true
-            self.isCriticalPoint = true
+            isCeilPoint = true
+            isCriticalPoint = true
         }
         
-        if self.isScrollToOriginal {
-            self.isScrollToOriginal = false
+        if isScrollToOriginal {
+            isScrollToOriginal = false
         }
         
-        self.mainTableView.setContentOffset(self.criticalOffset, animated: animated ?? true)
+        mainTableView.setContentOffset(criticalOffset, animated: animated ?? true)
         
-        self.isMainCanScroll = false
-        self.isListCanScroll = true
+        isMainCanScroll = false
+        isListCanScroll = true
         
-        self.mainTableViewCanScrollUpdate()
+        mainTableViewCanScrollUpdate()
     }
     
     public func listScrollViewDidScroll(scrollView: UIScrollView) {
-        self.currentListScrollView = scrollView
+        currentListScrollView = scrollView
         
-        if self.isListScrollViewNeedScroll() { return }
-        
-        if self.isMainScrollDisabled { return }
-        
-        if self.isScrollToOriginal || self.isScrollToCritical { return }
+        if isListScrollViewNeedScroll() { return }
+        if isMainScrollDisabled { return }
+        if isScrollToOriginal || isScrollToCritical { return }
         
         // 获取listScrollView偏移量
         let offsetY = scrollView.contentOffset.y
         
         // listScrollView下滑至offsetY小于0，禁止其滑动，让mainTableView可下滑
         if offsetY <= 0 {
-            if self.isDisableMainScrollInCeil {
-                if self.isAllowListRefresh && offsetY <= 0 && self.isCeilPoint {
-                    self.isMainCanScroll = false
-                    self.isListCanScroll = true
+            if isDisableMainScrollInCeil {
+                if isAllowListRefresh && offsetY <= 0 && isCeilPoint {
+                    isMainCanScroll = false
+                    isListCanScroll = true
                 }else {
-                    self.isMainCanScroll = true
-                    self.isListCanScroll = false
+                    isMainCanScroll = true
+                    isListCanScroll = false
                     
-                    self.set(scrollView: scrollView, offset: .zero)
-                    if self.isControlVerticalIndicator {
+                    set(scrollView: scrollView, offset: .zero)
+                    if isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
                     }
                 }
             }else {
-                if self.isAllowListRefresh && offsetY < 0 && self.mainTableView.contentOffset.y == 0 {
-                    self.isMainCanScroll = false
-                    self.isListCanScroll = true
+                if isAllowListRefresh && offsetY < 0 && mainTableView.contentOffset.y == 0 {
+                    isMainCanScroll = false
+                    isListCanScroll = true
                 }else {
-                    self.isMainCanScroll = true
-                    self.isListCanScroll = false
+                    isMainCanScroll = true
+                    isListCanScroll = false
                     
-                    self.set(scrollView: scrollView, offset: .zero)
-                    if self.isControlVerticalIndicator {
+                    set(scrollView: scrollView, offset: .zero)
+                    if isControlVerticalIndicator {
                         scrollView.showsVerticalScrollIndicator = false
                     }
                 }
             }
         }else {
-            if self.isListCanScroll {
-                if self.isControlVerticalIndicator {
+            if isListCanScroll {
+                if isControlVerticalIndicator {
                     scrollView.showsVerticalScrollIndicator = true
                 }
                 
-                let headerHeight = self.headerHeight
+                let headerHeight = headerHeight
                 
                 if floor(headerHeight) == 0 {
-                    self.set(scrollView: self.mainTableView, offset: self.criticalOffset)
+                    set(scrollView: mainTableView, offset: criticalOffset)
                 }else {
                     // 如果此时mainTableView并没有滑动，则禁止listView滑动
-                    if self.mainTableView.contentOffset.y == 0 && floor(headerHeight) != 0 {
-                        self.isMainCanScroll = true
-                        self.isListCanScroll = false
+                    if mainTableView.contentOffset.y == 0 && floor(headerHeight) != 0 {
+                        isMainCanScroll = true
+                        isListCanScroll = false
                         
-                        self.set(scrollView: scrollView, offset: .zero)
-                        if self.isControlVerticalIndicator {
+                        set(scrollView: scrollView, offset: .zero)
+                        if isControlVerticalIndicator {
                             scrollView.showsVerticalScrollIndicator = false
                         }
                     }else { // 矫正mainTableView的位置
-                        self.set(scrollView: self.mainTableView, offset: self.criticalOffset)
+                        set(scrollView: mainTableView, offset: criticalOffset)
                     }
                 }
             }else {
-                self.set(scrollView: scrollView, offset: .zero)
+                set(scrollView: scrollView, offset: .zero)
             }
         }
     }
     
     public func mainScrollViewDidScroll(scrollView: UIScrollView) {
-        if !self.isBeginDragging {
+        if !isBeginDragging {
             if isRefreshHeader || isListNeedScroll {
                 isRefreshHeader = false
                 isListNeedScroll = false
             }else {
-                self.listScrollViewOffsetFixed()                
+                listScrollViewOffsetFixed()
             }
-            
-            self.mainTableViewCanScrollUpdate()
+            mainTableViewCanScrollUpdate()
             return
         }
         
         // 获取mainScrollView偏移量
         let offsetY = scrollView.contentOffset.y
         
-        if self.isScrollToOriginal || self.isScrollToCritical {return}
+        if isScrollToOriginal || isScrollToCritical {return}
         
         // 根据偏移量判断是否上滑到临界点
-        if offsetY >= self.criticalPoint {
-            self.isCriticalPoint = true
+        if offsetY >= criticalPoint {
+            isCriticalPoint = true
         }else {
-            self.isCriticalPoint = false
+            isCriticalPoint = false
         }
         
         // 无偏差临界点，对float值取整判断
-        if !self.isCeilPoint {
-            if round(offsetY) == round(self.criticalPoint) {
-                self.isCeilPoint = true
+        if !isCeilPoint {
+            if round(offsetY) == round(criticalPoint) {
+                isCeilPoint = true
             }
         }
         
-        if self.isCriticalPoint {
+        if isCriticalPoint {
             // 上滑到临界点后，固定其位置
-            self.set(scrollView: scrollView, offset: self.criticalOffset)
-            self.isMainCanScroll = false
-            self.isListCanScroll = true
+            set(scrollView: scrollView, offset: criticalOffset)
+            isMainCanScroll = false
+            isListCanScroll = true
         }else {
             // 当滑动到无偏差临界点且不允许mainScrollView滑动时做处理
-            if self.isCeilPoint && self.isDisableMainScrollInCeil {
-                self.isMainCanScroll = false
-                self.isListCanScroll = true
-                self.set(scrollView: scrollView, offset: self.criticalOffset)
+            if isCeilPoint && isDisableMainScrollInCeil {
+                isMainCanScroll = false
+                isListCanScroll = true
+                set(scrollView: scrollView, offset: criticalOffset)
             }else {
-                if self.isDisableMainScrollInCeil {
-                    if self.isMainCanScroll {
+                if isDisableMainScrollInCeil {
+                    if isMainCanScroll {
                         // 未达到临界点，mainTableView可滑动，需要重置所有listScrollView的位置
-                        self.listScrollViewOffsetFixed()
+                        listScrollViewOffsetFixed()
                     }else {
                         // 未到达临界点，mainScrollView不可滑动，固定mainScrollView的位置
-                        self.mainScrollViewOffsetFixed()
+                        mainScrollViewOffsetFixed()
                     }
                 }else {
                     // 如果允许列表刷新，且mainTableView的offsetY小于0 或者 当前列表的offsetY小于0，mainTableView不可滑动
-                    if self.isAllowListRefresh && ((offsetY <= 0 && self.isMainCanScroll) || (self.currentListScrollView.contentOffset.y < 0 && self.isListCanScroll)) {
-                        self.set(scrollView: scrollView, offset: .zero)
+                    if isAllowListRefresh && ((offsetY <= 0 && isMainCanScroll) || (currentListScrollView.contentOffset.y < 0 && isListCanScroll)) {
+                        set(scrollView: scrollView, offset: .zero)
                     }else {
-                        if self.isMainCanScroll {
+                        if isMainCanScroll {
                             // 未达到临界点，mainTableView可滑动，需要重置所有listScrollView的位置
-                            self.listScrollViewOffsetFixed()
+                            listScrollViewOffsetFixed()
                         }else {
                             // 未到达临界点，mainScrollView不可滑动，固定mainScrollView的位置
-                            self.mainScrollViewOffsetFixed()
+                            mainScrollViewOffsetFixed()
                         }
                     }
                 }
             }
         }
-        self.mainTableViewCanScrollUpdate()
+        mainTableViewCanScrollUpdate()
     }
     
     // MARK: - Private Methods
@@ -574,8 +571,8 @@ open class GKPageScrollView: UIView {
                 }
             }
         }else {
-            if (!self.isLoaded) { return }
-            guard let list = self.delegate.listView?(in: self) else { return }
+            if (!isLoaded) { return }
+            guard let list = delegate.listView?(in: self) else { return }
             list.forEach {
                 let scrollView = $0.listScrollView()
                 set(scrollView: scrollView, offset: .zero)
@@ -587,14 +584,14 @@ open class GKPageScrollView: UIView {
     }
     
     fileprivate func mainTableViewCanScrollUpdate() {
-        self.delegate.mainTableViewDidScroll?(self.mainTableView, isMainCanScroll: self.isMainCanScroll)
+        delegate.mainTableViewDidScroll?(mainTableView, isMainCanScroll: isMainCanScroll)
     }
     
     fileprivate func shouldLazyLoadListView() -> Bool {
-        if self.delegate.shouldLazyLoadList?(in: self) ?? false {
-            return self.delegate.shouldLazyLoadList!(in: self)
+        if delegate.shouldLazyLoadList?(in: self) ?? false {
+            return delegate.shouldLazyLoadList!(in: self)
         }else {
-            return self.isLazyLoadList
+            return isLazyLoadList
         }
     }
     
@@ -605,18 +602,18 @@ open class GKPageScrollView: UIView {
     }
     
     fileprivate func getPageView() -> UIView? {
-        let width = self.frame.size.width == 0 ? GKPage_Screen_Width : self.frame.size.width
-        var height = self.frame.size.height == 0 ? GKPage_Screen_Height : self.frame.size.height
+        let width = frame.width == 0 ? GKPage_Screen_Width : frame.width
+        var height = frame.height == 0 ? GKPage_Screen_Height : frame.height
         
-        var pageView = self.pageView
-        if self.shouldLazyLoadListView() {
+        var pageView = pageView
+        if shouldLazyLoadListView() {
             if (pageView == nil) {
                 pageView = UIView()
             }
         }else {
-            pageView = self.delegate.pageView?(in: self) ?? nil
+            pageView = delegate.pageView?(in: self) ?? nil
         }
-        height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
+        height -= (isMainScrollDisabled ? headerHeight : ceilPointHeight)
         pageView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
         self.pageView = pageView
         return pageView
@@ -629,10 +626,10 @@ open class GKPageScrollView: UIView {
             let height: CGFloat = pageView.frame.height
             if let segmentedView = delegate.segmentedView?(in: self) {
                 let x: CGFloat = 0
-                let y: CGFloat = segmentedView.frame.size.height
+                let y: CGFloat = segmentedView.frame.height
                 let w: CGFloat = width
                 let h: CGFloat = height - y
-                self.listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
+                listContainerView.frame = CGRect(x: x, y: y, width: w, height: h)
                 pageView.addSubview(segmentedView)
                 pageView.addSubview(listContainerView)
             }
@@ -647,9 +644,8 @@ open class GKPageScrollView: UIView {
     
     fileprivate func findHorizontalScrollViews(_ view: UIView) {
         view.subviews.forEach {
-            if ($0.isKind(of: UIScrollView.self)) {
-                let scrollView = $0 as! UIScrollView
-                if (scrollView.contentSize.width > scrollView.frame.size.width) {
+            if let scrollView = $0 as? UIScrollView {
+                if scrollView.contentSize.width > scrollView.frame.width {
                     allScrollViews.append(scrollView)
                 }
             }
@@ -661,13 +657,13 @@ open class GKPageScrollView: UIView {
     
     fileprivate func isListScrollViewNeedScroll() -> Bool {
         var isNeedScroll = false
-        self.validListDict.values.forEach {
-            if $0.listScrollView() == self.currentListScrollView {
+        validListDict.values.forEach {
+            if $0.listScrollView() == currentListScrollView {
                 isNeedScroll = $0.isListScrollViewNeedScroll?() ?? false
             }
         }
         if isNeedScroll {
-            self.isListNeedScroll = true
+            isListNeedScroll = true
             scrollToCriticalPoint(false)
         }
         return isNeedScroll
@@ -677,88 +673,88 @@ open class GKPageScrollView: UIView {
 extension GKPageScrollView: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isShowInFooter { return 0 }
-        return self.isLoaded ? 1 : 0
+        return isLoaded ? 1 : 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.selectionStyle = .none
-        self.delegate.pageScrollViewUpdateCell?(self, cell: cell)
+        delegate.pageScrollViewUpdateCell?(self, cell: cell)
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         if let pageView = getPageView() {
             cell.contentView.addSubview(pageView)
             configPageView()
         }
-        self.delegate.pageScrollViewReloadCell?(self)
+        delegate.pageScrollViewReloadCell?(self)
         return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isShowInFooter { return 0 }
-        var height = self.frame.size.height == 0 ? GKPage_Screen_Height : self.frame.size.height
-        height -= (self.isMainScrollDisabled ? self.headerHeight : self.ceilPointHeight)
+        var height = frame.height == 0 ? GKPage_Screen_Height : frame.height
+        height -= (isMainScrollDisabled ? headerHeight : ceilPointHeight)
         return height
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.mainScrollViewDidScroll(scrollView: scrollView)
+        mainScrollViewDidScroll(scrollView: scrollView)
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        self.isBeginDragging = true
-        if self.isScrollToOriginal {
-            self.isScrollToOriginal = false
-            self.isCeilPoint = false
+        isBeginDragging = true
+        if isScrollToOriginal {
+            isScrollToOriginal = false
+            isCeilPoint = false
         }
         
-        if self.isScrollToCritical {
-            self.isScrollToCritical = false
-            self.isCeilPoint = true
+        if isScrollToCritical {
+            isScrollToCritical = false
+            isCeilPoint = true
         }
         
-        self.delegate.mainTableViewWillBeginDragging?(scrollView)
+        delegate.mainTableViewWillBeginDragging?(scrollView)
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            self.isBeginDragging = false
+            isBeginDragging = false
         }
-        self.delegate.mainTableViewDidEndDragging?(scrollView, willDecelerate: decelerate)
+        delegate.mainTableViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.isBeginDragging = false
-        self.delegate.mainTableViewDidEndDecelerating?(scrollView)
+        isBeginDragging = false
+        delegate.mainTableViewDidEndDecelerating?(scrollView)
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        self.delegate.mainTableViewDidEndScrollingAnimation?(scrollView)
-        if self.isScrollToOriginal {
-            self.isScrollToOriginal = false
-            self.isCeilPoint = false
+        delegate.mainTableViewDidEndScrollingAnimation?(scrollView)
+        if isScrollToOriginal {
+            isScrollToOriginal = false
+            isCeilPoint = false
             
             // 修正listView偏移
-            self.listScrollViewOffsetFixed()
+            listScrollViewOffsetFixed()
         }
         
-        if self.isScrollToCritical {
-            self.isScrollToCritical = false
-            self.isCeilPoint = true
+        if isScrollToCritical {
+            isScrollToCritical = false
+            isCeilPoint = true
         }
         
-        self.mainTableViewCanScrollUpdate()
+        mainTableViewCanScrollUpdate()
     }
 }
 
 extension GKPageScrollView: GKPageListContainerViewDelegate {
     public func numberOfLists(in listContainerView: GKPageListContainerView) -> Int {
-        return self.delegate.numberOfLists?(in: self) ?? 0
+        return delegate.numberOfLists?(in: self) ?? 0
     }
     
     public func listContainerView(_ listContainerView: GKPageListContainerView, initListAt index: Int) -> GKPageListViewDelegate {
         var list = validListDict[index]
         if list == nil {
-            list = self.delegate.pageScrollView?(self, initListAtIndex: index)
+            list = delegate.pageScrollView?(self, initListAtIndex: index)
             list?.listViewDidScroll(callBack: { [weak self ] scrollView in
                 guard let self = self else { return }
                 self.listScrollViewDidScroll(scrollView: scrollView)

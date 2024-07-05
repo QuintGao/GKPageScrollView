@@ -30,7 +30,7 @@ open class GKPageListContainerCollectionView: UICollectionView, UIGestureRecogni
     open weak var gestureDelegate: GKPageListContainerScrollViewGestureDelegate?
     
     public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let result = self.gestureDelegate?.pageListContainerScrollView?(self, gestureRecognizerShouldBegin: gestureRecognizer) {
+        if let result = gestureDelegate?.pageListContainerScrollView?(self, gestureRecognizerShouldBegin: gestureRecognizer) {
             return result
         }else {
             if isNestEnabled {
@@ -39,11 +39,11 @@ open class GKPageListContainerCollectionView: UICollectionView, UIGestureRecogni
                     let panGesture = gestureRecognizer as! UIPanGestureRecognizer
                     let velocityX = panGesture.velocity(in: panGesture.view!).x
                     if velocityX > 0 { // 右滑
-                        if self.contentOffset.x == 0 {
+                        if contentOffset.x == 0 {
                             return false
                         }
                     }else if velocityX < 0 { // 左滑
-                        if self.contentOffset.x + self.bounds.size.width == self.contentSize.width {
+                        if contentOffset.x + bounds.width == contentSize.width {
                             return false
                         }
                     }
@@ -51,7 +51,7 @@ open class GKPageListContainerCollectionView: UICollectionView, UIGestureRecogni
             }
         }
         
-        if self.panBack(gestureRecognizer: gestureRecognizer) {
+        if panBack(gestureRecognizer: gestureRecognizer) {
             return false
         }
         
@@ -59,11 +59,11 @@ open class GKPageListContainerCollectionView: UICollectionView, UIGestureRecogni
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let result = self.gestureDelegate?.pageListContainerScrollView?(self, gestureRecognizer: gestureRecognizer, shouldRecognizeSimultaneouslyWith: otherGestureRecognizer) {
+        if let result = gestureDelegate?.pageListContainerScrollView?(self, gestureRecognizer: gestureRecognizer, shouldRecognizeSimultaneouslyWith: otherGestureRecognizer) {
             return result
         }
         
-        if self.panBack(gestureRecognizer: gestureRecognizer) {
+        if panBack(gestureRecognizer: gestureRecognizer) {
             return true
         }
         
@@ -71,15 +71,15 @@ open class GKPageListContainerCollectionView: UICollectionView, UIGestureRecogni
     }
     
     func panBack(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == self.panGestureRecognizer {
-            let point = self.panGestureRecognizer.translation(in: self)
+        if gestureRecognizer == panGestureRecognizer {
+            let point = panGestureRecognizer.translation(in: self)
             let state = gestureRecognizer.state
             
-            let locationDistance = UIScreen.main.bounds.size.width
+            let locationDistance = UIScreen.main.bounds.width
             
             if state == .began || state == .possible {
                 let location = gestureRecognizer.location(in: self)
-                if point.x > 0 && location.x < locationDistance && self.contentOffset.x <= 0 {
+                if point.x > 0 && location.x < locationDistance && contentOffset.x <= 0 {
                     return true
                 }
             }
@@ -150,7 +150,7 @@ open class GKPageListContainerView: UIView {
         self.delegate = delegate
         self.type = type
         super.init(frame: .zero)
-        self.initSubviews()
+        initSubviews()
     }
     
     @available(*, unavailable)
@@ -513,7 +513,7 @@ extension GKPageListContainerView: UICollectionViewDataSource, UICollectionViewD
 
 extension GKPageListContainerView: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return self.bounds.size
+        return bounds.size
     }
 }
 
@@ -522,7 +522,7 @@ open class GKPageListContainerScrollView: UIScrollView, UIGestureRecognizerDeleg
     open weak var gestureDelegate: GKPageListContainerScrollViewGestureDelegate?
     
     public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let result = self.gestureDelegate?.pageListContainerScrollView?(self, gestureRecognizerShouldBegin: gestureRecognizer) {
+        if let result = gestureDelegate?.pageListContainerScrollView?(self, gestureRecognizerShouldBegin: gestureRecognizer) {
             return result
         }else {
             if isNestEnabled {
@@ -531,11 +531,11 @@ open class GKPageListContainerScrollView: UIScrollView, UIGestureRecognizerDeleg
                     let panGesture = gestureRecognizer as! UIPanGestureRecognizer
                     let velocityX = panGesture.velocity(in: panGesture.view!).x
                     if velocityX > 0 { // 右滑
-                        if self.contentOffset.x == 0 {
+                        if contentOffset.x == 0 {
                             return false
                         }
                     }else if velocityX < 0 { // 左滑
-                        if self.contentOffset.x + self.bounds.size.width == self.contentSize.width {
+                        if contentOffset.x + bounds.width == contentSize.width {
                             return false
                         }
                     }
@@ -543,7 +543,7 @@ open class GKPageListContainerScrollView: UIScrollView, UIGestureRecognizerDeleg
             }
         }
         
-        if self.panBack(gestureRecognizer: gestureRecognizer) {
+        if panBack(gestureRecognizer: gestureRecognizer) {
             return false
         }
         
@@ -551,11 +551,11 @@ open class GKPageListContainerScrollView: UIScrollView, UIGestureRecognizerDeleg
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let result = self.gestureDelegate?.pageListContainerScrollView?(self, gestureRecognizer: gestureRecognizer, shouldRecognizeSimultaneouslyWith: otherGestureRecognizer) {
+        if let result = gestureDelegate?.pageListContainerScrollView?(self, gestureRecognizer: gestureRecognizer, shouldRecognizeSimultaneouslyWith: otherGestureRecognizer) {
             return result
         }
         
-        if self.panBack(gestureRecognizer: gestureRecognizer) {
+        if panBack(gestureRecognizer: gestureRecognizer) {
             return true
         }
         
@@ -563,15 +563,15 @@ open class GKPageListContainerScrollView: UIScrollView, UIGestureRecognizerDeleg
     }
     
     fileprivate func panBack(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == self.panGestureRecognizer {
-            let point = self.panGestureRecognizer.translation(in: self)
+        if gestureRecognizer == panGestureRecognizer {
+            let point = panGestureRecognizer.translation(in: self)
             let state = gestureRecognizer.state
             
             let locationDistance = UIScreen.main.bounds.size.width
             
             if state == .began || state == .possible {
                 let location = gestureRecognizer.location(in: self)
-                if point.x > 0 && location.x < locationDistance && self.contentOffset.x <= 0 {
+                if point.x > 0 && location.x < locationDistance && contentOffset.x <= 0 {
                     return true
                 }
             }

@@ -373,7 +373,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
                 [self horizontalScrollDidEndAtIndex:index];
             }else {
                 // 左右滚动的时候，把headerContainerView添加到self，达到悬浮的效果
-                if (self.headerContainerView.superview != self && scrollView.isDragging) {
+                if (self.headerContainerView.superview != self) {
                     CGRect frame = self.headerContainerView.frame;
                     frame.origin.y = self.currentHeaderContainerViewY;
                     self.headerContainerView.frame = frame;
