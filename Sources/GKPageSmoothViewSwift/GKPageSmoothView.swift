@@ -125,7 +125,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         didSet {
             if (isBottomHover) {
                 refreshWidth { [weak self] (size) in
-                    guard let self = self else { return }
+                    guard let self else { return }
                     self.bottomContainerView.frame = CGRect(x: 0, y: size.height - self.segmentedHeight, width: size.width, height: size.height - self.ceilPointHeight)
                     self.addSubview(self.bottomContainerView)
                     
@@ -302,7 +302,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                 $0.listView().frame = f
                 listCollectionView.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) { [weak self] in
-                    guard let self = self else { return }
+                    guard let self else { return }
                     self.isChangeOffset = true
                     self.set(scrollView: self.listCollectionView, offset: CGPointMake(CGFloat(self.currentIndex) * frame.width, 0))
                 }
@@ -331,6 +331,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         isSyncListContentOffsetEnabled = false
         isLoaded = true
         
+        listHeaderDict.values.forEach { $0.removeFromSuperview() }
         listHeaderDict.removeAll()
         listDict.values.forEach {
             $0.listScrollView().removeObserver(self, forKeyPath: "contentOffset")
@@ -340,7 +341,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         listDict.removeAll()
         
         refreshWidth { [weak self] (size) in
-            guard let self = self else { return }
+            guard let self else { return }
             self.set(scrollView: self.listCollectionView, offset: CGPoint(x: size.width * CGFloat(self.currentIndex), y: 0))
             self.listCollectionView.reloadData()
             
@@ -508,12 +509,12 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     // MARK: - KVO
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentOffset" {
-            if let scrollView = object as? UIScrollView {
+            if let scrollView = object as? UIScrollView, scrollView.window != nil {
                 listDidScroll(scrollView: scrollView)
             }
         } else if keyPath == "contentSize" {
-            let minContentSizeHeight = bounds.height - segmentedHeight - ceilPointHeight
-            if let scrollView = object as? UIScrollView {
+            if let scrollView = object as? UIScrollView, scrollView.window != nil {
+                let minContentSizeHeight = bounds.height - segmentedHeight - ceilPointHeight
                 let contentH = scrollView.contentSize.height
                 if minContentSizeHeight > contentH && isHoldUpScrollView {
                     scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: minContentSizeHeight)
@@ -638,7 +639,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     
     func refreshHeaderContainerView() {
         refreshWidth { [weak self] (size) in
-            guard let self = self else { return }
+            guard let self else { return }
             self.refreshHeaderContainerHeight()
             
             var frame = self.headerContainerView.frame
@@ -685,7 +686,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                     self.currentListPanBeganContentOffsetY = self.currentListScrollView?.contentOffset.y ?? 0
                     
                     self.listDict.values.forEach { [weak self] in
-                        guard let self = self else { return }
+                        guard let self else { return }
                         $0.listScrollView().contentInset = .zero
                         self.set(scrollView: $0.listScrollView(), offset: .zero)
                         
@@ -778,7 +779,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     }
     
     func checkIndexValid(_ index: Int) -> Bool {
-        guard let dataSource = dataSource else { return false }
+        guard let dataSource else { return false }
         let count = dataSource.numberOfLists(in: self)
         if count <= 0 || index >= count {
             return false
@@ -871,7 +872,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             currentListPanBeganContentOffsetY = currentListScrollView?.contentOffset.y ?? 0
             
             listDict.values.forEach { [weak self] in
-                guard let self = self else { return }
+                guard let self else { return }
                 $0.listScrollView().contentInset = .zero
                 self.set(scrollView: $0.listScrollView(), offset: .zero)
                 
@@ -898,7 +899,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
             listCollectionView.headerContainerView = headerContainerView
             
             listDict.values.forEach { [weak self] in
-                guard let self = self else { return }
+                guard let self else { return }
                 $0.listScrollView().contentInset = UIEdgeInsets(top: self.headerContainerHeight, left: 0, bottom: 0, right: 0)
                 if $0.listScrollView() != self.currentListScrollView {
                     self.set(scrollView: $0.listScrollView(), offset: .zero)
@@ -913,7 +914,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     }
     
     fileprivate func set(scrollView: UIScrollView?, offset: CGPoint) {
-        guard let scrollView = scrollView else { return }
+        guard let scrollView else { return }
         if !__CGPointEqualToPoint(scrollView.contentOffset, offset) {
             scrollView.setContentOffset(offset, animated: false)
         }
@@ -922,13 +923,13 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
 
 extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let dataSource = dataSource else { return 0 }
+        guard let dataSource else { return 0 }
         let count = dataSource.numberOfLists(in: self)
         return isLoaded ? count : 0
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let dataSource = dataSource else { return UICollectionViewCell() }
+        guard let dataSource else { return UICollectionViewCell() }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GKPageSmoothViewCellID, for: indexPath)
         var list = listDict[indexPath.item]
         if list == nil {
@@ -992,7 +993,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         listDict.values.forEach { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             $0.listView().frame = CGRect.init(origin: .zero, size: self.listCollectionView.bounds.size)
         }
         return listCollectionView.bounds.size
@@ -1108,7 +1109,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
         currentListScrollView = listDict[index]?.listScrollView()
         isScroll = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             if !self.isScroll && self.headerContainerView.superview == self {
                 self.horizontalScrollDidEnd(at: index)
             }

@@ -155,9 +155,9 @@ extension GKPinLocationViewController: JXSegmentedViewDelegate {
         let tableView = self.smoothView.currentListScrollView as! UITableView
         let frame = tableView.rectForHeader(inSection: index)
         
-        var offsetY = frame.origin.y - kBaseHeaderHeight + kBaseSegmentHeight + 40;
+        var offsetY = (frame.origin.y - kBaseHeaderHeight + kBaseSegmentHeight + 40);
         
-        let maxOffsetY = tableView.contentSize.height - tableView.frame.size.height
+        let maxOffsetY = (tableView.contentSize.height - tableView.frame.size.height)
         
         if offsetY > maxOffsetY {
             offsetY = maxOffsetY
@@ -166,7 +166,6 @@ extension GKPinLocationViewController: JXSegmentedViewDelegate {
         tableView.setContentOffset(CGPoint(x: 0, y: offsetY), animated: true)
     }
 }
-
 
 extension GKPinLocationViewController: GKPinLoactionViewDelegate {
     func locationViewDidEndAnimation(scrollView: UIScrollView) {

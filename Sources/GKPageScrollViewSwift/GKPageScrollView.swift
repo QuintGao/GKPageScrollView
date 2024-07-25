@@ -344,7 +344,7 @@ open class GKPageScrollView: UIView {
         
         if (!isAutoFindHorizontalScrollView) { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             self.findHorizontalScrollViews()
         }
     }
@@ -361,7 +361,7 @@ open class GKPageScrollView: UIView {
         // 这里做了0.01秒的延时，是为了解决一个坑：
         // 当通过手势滑动结束调用此方法时，会有可能出现动画结束后UITableView没有回到原点的bug
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             if self.mainTableView.contentOffset == .zero { return }
             if self.isScrollToOriginal { return }
             
@@ -406,6 +406,7 @@ open class GKPageScrollView: UIView {
     }
     
     public func listScrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.window == nil { return }
         currentListScrollView = scrollView
         
         if isListScrollViewNeedScroll() { return }
@@ -549,7 +550,7 @@ open class GKPageScrollView: UIView {
         guard let list = delegate.listView?(in: self) else { return }
         for (index, item) in list.enumerated() {
             item.listViewDidScroll { [weak self] scrollView in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.listScrollViewDidScroll(scrollView: scrollView)
             }
             validListDict[index] = item
@@ -756,7 +757,7 @@ extension GKPageScrollView: GKPageListContainerViewDelegate {
         if list == nil {
             list = delegate.pageScrollView?(self, initListAtIndex: index)
             list?.listViewDidScroll(callBack: { [weak self ] scrollView in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.listScrollViewDidScroll(scrollView: scrollView)
             })
             validListDict[index] = list

@@ -274,6 +274,7 @@
 }
 
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView {
+    if (!scrollView || !scrollView.window) return;
     self.currentListScrollView = scrollView;
     
     if ([self isListScrollViewNeedScroll]) return;

@@ -176,6 +176,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     self.currentHeaderContainerViewY = 0;
     self.isLoaded = YES;
     
+    [self.listHeaderDict.allValues makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.listHeaderDict removeAllObjects];
     
     for (id<GKPageSmoothListViewDelegate> list in self.listDict.allValues) {
@@ -477,12 +478,12 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"contentOffset"]) {
         UIScrollView *scrollView = (UIScrollView *)object;
-        if (scrollView != nil) {
+        if (scrollView && scrollView.window) {
             [self listScrollViewDidScroll:scrollView];
         }
     }else if ([keyPath isEqualToString:@"contentSize"]) {
         UIScrollView *scrollView = (UIScrollView *)object;
-        if (scrollView != nil) {
+        if (scrollView && scrollView.window) {
             CGFloat minContentSizeHeight = self.bounds.size.height - self.segmentedHeight - self.ceilPointHeight;
             CGFloat contentH = scrollView.contentSize.height;
             if (minContentSizeHeight > contentH && self.isHoldUpScrollView) {

@@ -20,6 +20,9 @@ class GKPinLocationView: UIView {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
@@ -28,7 +31,9 @@ class GKPinLocationView: UIView {
     
     var datas = [[String: String]]() {
         didSet {
-            self.tableView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.tableView.reloadData()                
+            }
         }
     }
     
@@ -73,7 +78,7 @@ extension GKPinLocationView: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
+        return 0.000001
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -87,6 +92,10 @@ extension GKPinLocationView: UITableViewDataSource, UITableViewDelegate {
         let dic = self.datas[section]
         titleLabel.text = dic["title"]!
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        nil
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {

@@ -11,7 +11,7 @@ import JXSegmentedViewExt
 import GKPageScrollView
 
 public let kRefreshDuration  = 0.5
-public let kBaseHeaderHeight = kScreenW * 385.0 / 704.0
+public let kBaseHeaderHeight: CGFloat = (kScreenW * 385.0 / 704.0)
 public let kBaseSegmentHeight: CGFloat = 40.0
 
 class GKBasePageViewController: GKDemoBaseViewController {
