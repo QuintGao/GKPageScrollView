@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'GKPageSmoothView'
-  s.version             = '1.9.5'
+  s.version             = '1.9.6'
   s.summary             = 'iOS UIScrollView嵌套滑动分页视图'
   s.homepage            = 'https://github.com/QuintGao/GKPageScrollView'
   s.license             = { :type => "MIT", :file => "LICENSE" }
@@ -24,5 +24,4 @@ Pod::Spec.new do |s|
     }
     ss.resource_bundles = {'GKPageSmoothView' => 'Sources/GKPageSmoothViewSwift/PrivacyInfo.xcprivacy'}
   end
-  
 end
