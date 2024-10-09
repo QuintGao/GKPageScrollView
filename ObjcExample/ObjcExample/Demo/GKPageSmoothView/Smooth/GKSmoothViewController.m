@@ -138,7 +138,7 @@
         _smoothView.delegate = self;
         _smoothView.listCollectionView.gk_openGestureHandle = YES;
 //        _smoothView.mainScrollDisabled = YES;
-//        _smoothView.holdUpScrollView = YES;
+        _smoothView.holdUpScrollView = YES;
 //        _smoothView.listCollectionView.bounces = YES;
         _smoothView.defaultSelectedIndex = 1;
     }

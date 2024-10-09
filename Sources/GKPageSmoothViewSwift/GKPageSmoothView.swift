@@ -946,6 +946,7 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             }
             listDict[indexPath.item] = list!
             list?.listView().setNeedsLayout()
+            list?.listView().layoutIfNeeded()
             
             let listScrollView = list?.listScrollView()
             if #available(iOS 11.0, *) {
@@ -970,15 +971,20 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
                 let listHeader = UIView(frame: CGRect(x: 0, y: -headerContainerHeight, width: bounds.width, height: headerContainerHeight))
                 listScrollView?.addSubview(listHeader)
                 
-                if !isOnTop && headerContainerView.superview == nil {
-                    listHeader.addSubview(headerContainerView)
+                if !isOnTop {
+                    if !collectionView.isDragging {
+                        let index = Int(collectionView.contentOffset.x/collectionView.bounds.width)
+                        horizontalScrollDidEnd(at: index)
+                    }else if headerContainerView.superview == nil {
+                        listHeader.addSubview(headerContainerView)
+                    }
                 }
                 listHeaderDict[indexPath.item] = listHeader
             }
             list?.listScrollView().addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
             list?.listScrollView().addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
             // bug fix #69 修复首次进入时可能出现的headerView无法下拉的问题
-            listScrollView?.contentOffset = listScrollView!.contentOffset
+            listScrollView?.contentOffset = listScrollView?.contentOffset ?? .zero
         }
         listDict.values.forEach {
             $0.listScrollView().scrollsToTop = ($0 === list)

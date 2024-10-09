@@ -333,6 +333,10 @@
     self.listScrollViewScrollCallback = callback;
 }
 
+- (BOOL)listScrollViewShouldReset {
+    return NO;
+}
+
 - (UIImage *)changeImageWithImage:(UIImage *)image color:(UIColor *)color {
     UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
     CGContextRef context = UIGraphicsGetCurrentContext();

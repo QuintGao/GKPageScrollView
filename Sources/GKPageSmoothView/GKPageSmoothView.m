@@ -290,6 +290,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
         _listDict[@(indexPath.item)] = list;
         [list.listView setNeedsLayout];
+        [list.listView layoutIfNeeded];
         
         UIScrollView *listScrollView = list.listScrollView;
         if ([listScrollView isKindOfClass:[UITableView class]]) {
@@ -319,8 +320,14 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
             UIView *listHeader = [[UIView alloc] initWithFrame:CGRectMake(0, -self.headerContainerHeight, self.bounds.size.width, self.headerContainerHeight)];
             [listScrollView addSubview:listHeader];
             
-            if (!self.isOnTop && self.headerContainerView.superview == nil) {
-                [listHeader addSubview:self.headerContainerView];
+            if (!self.isOnTop) {
+                if (!collectionView.isDragging) {
+                    CGFloat indexPercent = collectionView.contentOffset.x/collectionView.bounds.size.width;
+                    NSInteger index = floor(indexPercent);
+                    [self horizontalScrollDidEndAtIndex:index];
+                }else if (self.headerContainerView.superview == nil) {
+                    [listHeader addSubview:self.headerContainerView];
+                }
             }
             self.listHeaderDict[@(indexPath.item)] = listHeader;
         }

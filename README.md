@@ -120,6 +120,7 @@ GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
 <details open>
     <summary><font size=4>最近更新</font></summary>
 
+* 2024.10.09   1.9.7 - 修复GKPageSmoothView直接点击item时的异常问题
 * 2024.07.25   1.9.6 - 修复GKPageSmoothView切换闪动问题，优化demo
 * 2024.07.05   1.9.5 - 修复bug #143，代码优化
 * 2024.04.18   1.9.4 - 添加隐私清单文件
