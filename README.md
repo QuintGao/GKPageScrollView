@@ -12,6 +12,8 @@
 iOS类似微博、抖音、网易云等个人详情页滑动嵌套效果
 ==========
 
+[<img src="https://api.gitsponsors.com/api/badge/img?id=155068255" height="40">](https://api.gitsponsors.com/api/badge/link?p=rRwxnC1NMlM8kVxUZ02KyqLtk5e1RYk0M87AJAjoyWx+x2y6vhg9zH2GFodNlj7+dPVjGjLD6mJj4OlrZ4zwWpec9MOkqvezkrd0vkqaoQmdk4qlNpZor9/0W4r/tq46J2zfNKGk/hpc4VeDZcxBxA==)
+
 GKPageScrollView是一个UIScrollview嵌套滑动库，主要参考了[JXPagingView](https://github.com/pujiaxin33/JXPagingView)，在他的基础上做了修改，实现了自己想要的效果。  
 
 GKPageSmoothView是一个可延续滑动的UIScrollView嵌套滑动库
