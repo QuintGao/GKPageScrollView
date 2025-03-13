@@ -121,6 +121,9 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 /// 如果设置为YES则当scrollView的contentSize不足时会修改scrollView的contentSize使其能够滑动到悬浮状态
 @property (nonatomic, assign, getter=isHoldUpScrollView) BOOL holdUpScrollView;
 
+/// 刷新headerView或segmentedView时是否重置位置，默认YES
+@property (nonatomic, assign, getter=isResetPosition) BOOL resetPosition;
+
 /// smoothView悬停类型
 @property (nonatomic, assign, readonly) GKPageSmoothHoverType hoverType;
 

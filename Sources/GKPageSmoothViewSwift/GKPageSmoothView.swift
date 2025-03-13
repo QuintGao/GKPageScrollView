@@ -160,6 +160,9 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     // 如果设置为YES则当scrollView的contentSize不足时会修改scrollView的contentSize使其能够滑动到悬浮状态
     public var isHoldUpScrollView: Bool = false
     
+    // 刷新headerView或segmentView时是否重置位置
+    public var isResetPosition: Bool = true
+    
     // smoothView悬停类型
     public private(set) var hoverType: GKPageSmoothHoverType = .none
     
@@ -662,7 +665,9 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
                     var insets = $0.listScrollView().contentInset
                     insets.top = self.headerContainerHeight
                     $0.listScrollView().contentInset = insets
-                    self.set(scrollView: $0.listScrollView(), offset: CGPoint(x: 0, y: -self.headerContainerHeight))
+                    if (self.isResetPosition) {
+                        self.set(scrollView: $0.listScrollView(), offset: CGPoint(x: 0, y: -self.headerContainerHeight))
+                    }
                 }
                 self.listHeaderDict.values.forEach {
                     var frame = $0.frame

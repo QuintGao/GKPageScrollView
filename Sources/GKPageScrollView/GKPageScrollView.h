@@ -208,16 +208,6 @@
 // 自动查找横向scrollView，设置为YES则不用传入horizontalScrollViewList，默认NO
 @property (nonatomic, assign, getter=isAutoFindHorizontalScrollView) BOOL autoFindHorizontalScrollView;
 
-// 内部属性，尽量不要修改
-// 是否滑动到临界点，可有偏差
-@property (nonatomic, assign) BOOL isCriticalPoint;
-// 是否到达临界点，无偏差
-@property (nonatomic, assign) BOOL isCeilPoint;
-// mainTableView是否可滑动
-@property (nonatomic, assign) BOOL isMainCanScroll;
-// listScrollView是否可滑动
-@property (nonatomic, assign) BOOL isListCanScroll;
-
 - (instancetype)initWithDelegate:(id<GKPageScrollViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
@@ -247,5 +237,16 @@
 // 用于自行处理滑动
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView;
 - (void)mainScrollViewDidScroll:(UIScrollView *)scrollView;
+
+
+#pragma mark - 内部属性，尽量不要修改
+// 是否滑动到临界点，可有偏差
+@property (nonatomic, assign) BOOL isCriticalPoint;
+// 是否到达临界点，无偏差
+@property (nonatomic, assign) BOOL isCeilPoint;
+// mainTableView是否可滑动
+@property (nonatomic, assign) BOOL isMainCanScroll;
+// listScrollView是否可滑动
+@property (nonatomic, assign) BOOL isListCanScroll;
 
 @end

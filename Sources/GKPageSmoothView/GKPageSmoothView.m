@@ -85,6 +85,7 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         _ceilPointHeight = 0;
         _willAppearIndex = -1;
         _willDisappearIndex = -1;
+        _resetPosition = YES;
         
         [self addSubview:self.listCollectionView];
         [self addSubview:self.headerContainerView];
@@ -865,7 +866,9 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
                 UIEdgeInsets insets = list.listScrollView.contentInset;
                 insets.top = self.headerContainerHeight;
                 list.listScrollView.contentInset = insets;
-                [self setScrollView:list.listScrollView offset:CGPointMake(0, -self.headerContainerHeight)];
+                if (self.isResetPosition) {
+                    [self setScrollView:list.listScrollView offset:CGPointMake(0, -self.headerContainerHeight)];
+                }
             }
             for (UIView *listHeader in self.listHeaderDict.allValues) {
                 CGRect frame = listHeader.frame;
