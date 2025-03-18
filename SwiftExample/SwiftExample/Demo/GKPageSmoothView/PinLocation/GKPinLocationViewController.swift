@@ -13,7 +13,7 @@ import GKPageSmoothView
 class GKPinLocationViewController: GKDemoBaseViewController {
     lazy var smoothView: GKPageSmoothView = {
         let smoothView = GKPageSmoothView(dataSource: self)
-        smoothView.ceilPointHeight = GKDevice.statusBarNavBarHeight()
+        smoothView.ceilPointHeight = UIDevice.statusBarNavBarHeight()
         smoothView.delegate = self
         return smoothView
     }()

@@ -1,8 +1,8 @@
 //
 //  GKGestureHandleConfigure.h
-//  GKNavigationBarExample
+//  GKNavigationBar
 //
-//  Created by gaokun on 2020/10/29.
+//  Created by QuintGao on 2020/10/29.
 //  Copyright © 2020 QuintGao. All rights reserved.
 //
 

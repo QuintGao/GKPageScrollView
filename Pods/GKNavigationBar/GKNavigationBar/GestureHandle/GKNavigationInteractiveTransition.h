@@ -1,8 +1,8 @@
 //
 //  GKNavigationInteractiveTransition.h
-//  GKNavigationBarExample
+//  GKNavigationBar
 //
-//  Created by gaokun on 2020/11/24.
+//  Created by QuintGao on 2020/11/24.
 //  Copyright © 2020 QuintGao. All rights reserved.
 //
 

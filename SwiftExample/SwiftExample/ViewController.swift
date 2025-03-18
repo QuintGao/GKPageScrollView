@@ -37,11 +37,13 @@ class ViewController: GKDemoBaseViewController {
                                                              ["title": "嵌套使用2", "class": "GKNest2ViewController"],
                                                              ["title": "禁止主页滑动", "class": "GKPageMainDisabledViewController"],
                                                              ["title": "修改header高度", "class": "GKChangeHeaderViewController"],
-                                                             ["title": "子列表索引", "class": "GKListIndexViewController"]]],
+                                                             ["title": "子列表索引", "class": "GKListIndexViewController"],
+                                                             ["title": "自定义Segmented", "class": "GKCustomViewController"]]],
                       ["group": "GKPageSmoothView", "list": [["title": "豆瓣电影主页", "class": "GKDBViewController"],
                                                              ["title": "滑动延续", "class": "GKSmoothViewController"],
                                                              ["title": "上下滑动切换tab", "class": "GKPinLocationViewController"],
-                                                             ["title": "禁止主页滑动", "class": "GKSmoothMainDisabledViewController"]]]]
+                                                             ["title": "禁止主页滑动", "class": "GKSmoothMainDisabledViewController"],
+                                                             ["title": "自定义Segmented", "class": "GKSmoothCustomViewController"]]]]
     
     override func viewDidLoad() {
         super.viewDidLoad()

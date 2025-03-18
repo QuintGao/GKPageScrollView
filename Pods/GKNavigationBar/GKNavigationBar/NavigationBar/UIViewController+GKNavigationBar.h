@@ -1,8 +1,8 @@
 //
 //  UIViewController+GKNavigationBar.h
-//  GKNavigationBarExample
+//  GKNavigationBar
 //
-//  Created by gaokun on 2020/10/29.
+//  Created by QuintGao on 2020/10/29.
 //  Copyright © 2020 QuintGao. All rights reserved.
 //
 
@@ -104,6 +104,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 查找当前显示的控制器
 /// @param isRoot 是否是根控制器
 - (UIViewController *)gk_findCurrentViewControllerIsRoot:(BOOL)isRoot;
+
+/// 内部方法，慎用
+- (BOOL)gk_isLandscape;
 
 @end
 

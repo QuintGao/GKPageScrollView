@@ -16,7 +16,7 @@ class GKSmoothViewController: GKDemoBaseViewController {
     lazy var smoothView: GKPageSmoothView = {
         let smoothView = GKPageSmoothView(dataSource: self)
         smoothView.delegate = self
-        smoothView.ceilPointHeight = GKDevice.statusBarNavBarHeight()
+        smoothView.ceilPointHeight = UIDevice.statusBarNavBarHeight()
         smoothView.isControlVerticalIndicator = true
         smoothView.listCollectionView.gk_openGestureHandle = true
         smoothView.defaultSelectedIndex = 1

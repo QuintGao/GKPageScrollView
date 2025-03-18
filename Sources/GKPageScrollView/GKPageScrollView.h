@@ -151,7 +151,10 @@
 - (Class)scrollViewClassInListContainerViewInPageScrollView:(GKPageScrollView *)pageScrollView;
 
 // 控制能否初始化index对应的列表。有些业务需求，需要在某些情况下才允许初始化列表
-- (BOOL)pageScrollViewListContainerView:(GKPageListContainerView *)containerView canInitListAtIndex:(NSInteger)index;
+- (BOOL)pageScrollView:(GKPageScrollView *)pageScrollView listContainerView:(GKPageListContainerView *)containerView canInitListAtIndex:(NSInteger)index;
+
+// 列表出现回调
+- (void)pageScrollView:(GKPageScrollView *)pageScrollView listDidAppearAtIndex:(NSInteger)index;
 
 @end
 
@@ -234,10 +237,12 @@
 - (void)scrollToCriticalPoint;
 - (void)scrollToCriticalPointAnimated:(BOOL)animated;
 
+// 选中指定索引的列表，只有懒加载时有效
+- (void)selectListWithIndex:(NSInteger)index animated:(BOOL)animated;
+
 // 用于自行处理滑动
 - (void)listScrollViewDidScroll:(UIScrollView *)scrollView;
 - (void)mainScrollViewDidScroll:(UIScrollView *)scrollView;
-
 
 #pragma mark - 内部属性，尽量不要修改
 // 是否滑动到临界点，可有偏差

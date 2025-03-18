@@ -127,10 +127,13 @@ import UIKit
     @objc optional func pageScrollViewUpdateCell(_ pageScrollView: GKPageScrollView, cell: UITableViewCell)
     
     /// 返回自定义UIScrollView或UICollectionView的class
-    @objc optional func scrollViewClassInListContainerView(in pangeScrollView: GKPageScrollView) -> AnyClass?
+    @objc optional func scrollViewClassInListContainerView(in pageScrollView: GKPageScrollView) -> AnyClass?
     
     /// 控制能否初始化index对应的列表。有些业务需求，需要在某些情况下才允许初始化列表
-    @objc optional func pageScrollViewListContainerView(_ containerView: GKPageListContainerView, canInitAt index: Int) -> Bool
+    @objc optional func pageScrollViewListCanInit(_ pageScrollView: GKPageScrollView, containerView: GKPageListContainerView, at index: Int) -> Bool
+    
+    /// 列表出现回调
+    @objc optional func pageScrollViewListDidAppear(_ pageScrollView: GKPageScrollView, at index: Int)
 }
 
 open class GKPageScrollView: UIView {
@@ -403,6 +406,12 @@ open class GKPageScrollView: UIView {
         isListCanScroll = true
         
         mainTableViewCanScrollUpdate()
+    }
+    
+    public func selectList(with index: Int, animated: Bool) {
+        if shouldLazyLoadListView() {
+            listContainerView.selectItem(at: index, animated: animated)
+        }
     }
     
     public func listScrollViewDidScroll(scrollView: UIScrollView) {
@@ -768,5 +777,20 @@ extension GKPageScrollView: GKPageListContainerViewDelegate {
     public func listContainerView(_ containerView: GKPageListContainerView, listDidAppearAt index: Int) {
         guard let list = validListDict[index] else { return }
         currentListScrollView = list.listScrollView()
+        delegate.pageScrollViewListDidAppear?(self, at: index)
+    }
+    
+    public func scrollViewClass(in listContainerView: GKPageListContainerView) -> AnyClass? {
+        if let cls = delegate.scrollViewClassInListContainerView?(in: self) {
+            return cls
+        }
+        return nil
+    }
+    
+    public func listContainerView(_ listContainerView: GKPageListContainerView, canInitListAt index: Int) -> Bool {
+        if let canInit = delegate.pageScrollViewListCanInit?(self, containerView: listContainerView, at: index) {
+            return canInit
+        }
+        return true
     }
 }

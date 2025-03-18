@@ -2,7 +2,7 @@
 //  GKPushAnimatedTransition.m
 //  GKNavigationBar
 //
-//  Created by gaokun on 2019/10/30.
+//  Created by QuintGao on 2019/10/30.
 //  Copyright © 2019 QuintGao. All rights reserved.
 //
 
@@ -72,23 +72,20 @@
         }
         self.toViewController.view.frame = CGRectMake(0, 0, screenW, screenH);
     } completion:^(BOOL finished) {
-        if (self.isHideTabBar) {
-            if (self.transitionContext.transitionWasCancelled) {
-                [self.containerView addSubview:self.fromViewController.view];
-            }else {
-                [self.fromViewController.view removeFromSuperview];
-            }
-            
-            fromView.transform = CGAffineTransformIdentity;
-            if (fromView) {
-                [fromView removeFromSuperview];
-                fromView = nil;
-            }
-            
-            if (captureView) {
-                [captureView removeFromSuperview];
-                captureView = nil;
-            }
+        if (self.transitionContext.transitionWasCancelled) {
+            [self.containerView addSubview:self.fromViewController.view];
+        }else {
+            [self.fromViewController.view removeFromSuperview];
+        }
+        fromView.transform = CGAffineTransformIdentity;
+        if (fromView) {
+            [fromView removeFromSuperview];
+            fromView = nil;
+        }
+        
+        if (captureView) {
+            [captureView removeFromSuperview];
+            captureView = nil;
         }
         if (self.isScale) {
             [self.shadowView removeFromSuperview];

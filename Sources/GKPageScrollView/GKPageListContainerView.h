@@ -72,6 +72,8 @@ typedef NS_ENUM(NSUInteger, GKPageListContainerType) {
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
 
+- (void)selectItemAtIndex:(NSInteger)index animated:(BOOL)animated;
+
 @end
 
 @interface GKPageListContainerView (ListContainer)

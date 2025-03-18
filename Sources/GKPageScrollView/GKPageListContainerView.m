@@ -312,6 +312,15 @@
     }
 }
 
+- (void)selectItemAtIndex:(NSInteger)index animated:(BOOL)animated {
+    if (self.currentIndex == index) {
+        return;
+    }
+    CGPoint offset = CGPointMake(index * self.scrollView.bounds.size.width, 0);
+    [self.scrollView setContentOffset:offset animated:animated];
+    [self didClickSelectedItemAtIndex:index];
+}
+
 - (void)setInitListPercent:(CGFloat)initListPercent {
     _initListPercent = initListPercent;
     if (initListPercent <= 0 || initListPercent >= 1) {

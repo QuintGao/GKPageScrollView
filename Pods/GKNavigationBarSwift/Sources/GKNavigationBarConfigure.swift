@@ -124,7 +124,7 @@ open class GKNavigationBarConfigure : NSObject {
     
     /// 设置默认配置
     open func setupDefault() {
-        GKNavigationBarConfigure.awake
+        awake()
         backgroundColor = .white
         titleColor = .black
         titleFont = UIFont.boldSystemFont(ofSize: 17.0)
@@ -150,7 +150,7 @@ open class GKNavigationBarConfigure : NSObject {
     }
 
     /// 设置自定义配置，此方法只需调用一次
-    /// @param block 配置回调
+    /// param block 配置回调
     open func setupCustom(_ block: @escaping (GKNavigationBarConfigure) -> Void) {
         setupDefault()
         
@@ -162,20 +162,31 @@ open class GKNavigationBarConfigure : NSObject {
     }
 
     /// 更新配置
-    /// @param block 配置回调
+    /// param block 配置回调
     open func update(_ block: @escaping (GKNavigationBarConfigure) -> Void) {
         block(self)
     }
     
     open func visibleViewController() -> UIViewController? {
-        return GKDevice.keyWindow()?.rootViewController?.gk_findCurrentViewController(true)
+        return UIDevice.keyWindow()?.rootViewController?.gk_findCurrentViewController(true)
     }
     
     /// 获取当前item修复间距
     open func gk_fixedSpace() -> CGFloat {
-        // 经测试发现iPhone 12，iPhone 12 Pro，iPhone 14 Pro默认导航栏间距是16，需要单独处理
-        if GKDevice.is61InchScreenAndiPhone12Later || GKDevice.is61InchScreenAndiPhone14Pro { return 16 }
-        return GKDevice.width > 375.0 ? 20 : 16
+        // 经测试发现iPhone 12 和 12 Pro 到 16 和 16 Pro，默认导航栏间距都是16，所以做下处理
+        // 12 / 13 / 14 / 12 Pro / 13 Pro
+        if (UIDevice.is61InchScreenAndiPhone12Later) {
+            return 16;
+        }
+        // 14 Pro / 15 / 16 / 15 Pro
+        if (UIDevice.is61InchScreenAndiPhone14ProLater) {
+            return 16;
+        }
+        // 16 Pro
+        if (UIDevice.is63InchScreen) {
+            return 16;
+        }
+        return UIDevice.width > 375.0 ? 20 : 16
     }
     
     open func fixNavItemSpaceDisabled() -> Bool {
@@ -188,8 +199,8 @@ open class GKNavigationBarConfigure : NSObject {
     }
     
     /// 获取某个view的截图
-    open func getCapture(with view: UIView) -> UIImage? {
-        if view == nil { return nil }
+    open func getCapture(with view: UIView?) -> UIImage? {
+        guard let view else { return nil }
         if view.bounds.size.width <= 0 || view.bounds.size.height <= 0 { return nil }
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, UIScreen.main.scale)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
@@ -199,7 +210,7 @@ open class GKNavigationBarConfigure : NSObject {
     }
 }
 
-open class GKDevice {
+extension UIDevice {
     public static let deviceModel: String = {
         if isSimulator, let identifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
             return identifier
@@ -212,6 +223,233 @@ open class GKDevice {
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         return identifier
+    }()
+    
+    public static let deviceName: String = {
+        let model = deviceModel
+        var name: String?
+        let dict = [
+            // See https://gist.github.com/adamawolf/3048717
+            "iPhone1,1" : "iPhone 1G",
+            "iPhone1,2" : "iPhone 3G",
+            "iPhone2,1" : "iPhone 3GS",
+            "iPhone3,1" : "iPhone 4 (GSM)",
+            "iPhone3,2" : "iPhone 4",
+            "iPhone3,3" : "iPhone 4 (CDMA)",
+            "iPhone4,1" : "iPhone 4S",
+            "iPhone5,1" : "iPhone 5",
+            "iPhone5,2" : "iPhone 5",
+            "iPhone5,3" : "iPhone 5c",
+            "iPhone5,4" : "iPhone 5c",
+            "iPhone6,1" : "iPhone 5s",
+            "iPhone6,2" : "iPhone 5s",
+            "iPhone7,1" : "iPhone 6 Plus",
+            "iPhone7,2" : "iPhone 6",
+            "iPhone8,1" : "iPhone 6s",
+            "iPhone8,2" : "iPhone 6s Plus",
+            "iPhone8,4" : "iPhone SE",
+            "iPhone9,1" : "iPhone 7",
+            "iPhone9,2" : "iPhone 7 Plus",
+            "iPhone9,3" : "iPhone 7",
+            "iPhone9,4" : "iPhone 7 Plus",
+            "iPhone10,1" : "iPhone 8",
+            "iPhone10,2" : "iPhone 8 Plus",
+            "iPhone10,3" : "iPhone X",
+            "iPhone10,4" : "iPhone 8",
+            "iPhone10,5" : "iPhone 8 Plus",
+            "iPhone10,6" : "iPhone X",
+            "iPhone11,2" : "iPhone XS",
+            "iPhone11,4" : "iPhone XS Max",
+            "iPhone11,6" : "iPhone XS Max CN",
+            "iPhone11,8" : "iPhone XR",
+            "iPhone12,1" : "iPhone 11",
+            "iPhone12,3" : "iPhone 11 Pro",
+            "iPhone12,5" : "iPhone 11 Pro Max",
+            "iPhone12,8" : "iPhone SE (2nd generation)",
+            "iPhone13,1" : "iPhone 12 mini",
+            "iPhone13,2" : "iPhone 12",
+            "iPhone13,3" : "iPhone 12 Pro",
+            "iPhone13,4" : "iPhone 12 Pro Max",
+            "iPhone14,4" : "iPhone 13 mini",
+            "iPhone14,5" : "iPhone 13",
+            "iPhone14,2" : "iPhone 13 Pro",
+            "iPhone14,3" : "iPhone 13 Pro Max",
+            "iPhone14,7" : "iPhone 14",
+            "iPhone14,8" : "iPhone 14 Plus",
+            "iPhone15,2" : "iPhone 14 Pro",
+            "iPhone15,3" : "iPhone 14 Pro Max",
+            "iPhone15,4" : "iPhone 15",
+            "iPhone15,5" : "iPhone 15 Plus",
+            "iPhone16,1" : "iPhone 15 Pro",
+            "iPhone16,2" : "iPhone 15 Pro Max",
+            "iPhone17,1" : "iPhone 16 Pro",
+            "iPhone17,2" : "iPhone 16 Pro Max",
+            "iPhone17,3" : "iPhone 16",
+            "iPhone17,4" : "iPhone 16 Plus",
+            
+            "iPad1,1" : "iPad 1",
+            "iPad2,1" : "iPad 2 (WiFi)",
+            "iPad2,2" : "iPad 2 (GSM)",
+            "iPad2,3" : "iPad 2 (CDMA)",
+            "iPad2,4" : "iPad 2",
+            "iPad2,5" : "iPad mini 1",
+            "iPad2,6" : "iPad mini 1",
+            "iPad2,7" : "iPad mini 1",
+            "iPad3,1" : "iPad 3 (WiFi)",
+            "iPad3,2" : "iPad 3 (4G)",
+            "iPad3,3" : "iPad 3 (4G)",
+            "iPad3,4" : "iPad 4",
+            "iPad3,5" : "iPad 4",
+            "iPad3,6" : "iPad 4",
+            "iPad4,1" : "iPad Air",
+            "iPad4,2" : "iPad Air",
+            "iPad4,3" : "iPad Air",
+            "iPad4,4" : "iPad mini 2",
+            "iPad4,5" : "iPad mini 2",
+            "iPad4,6" : "iPad mini 2",
+            "iPad4,7" : "iPad mini 3",
+            "iPad4,8" : "iPad mini 3",
+            "iPad4,9" : "iPad mini 3",
+            "iPad5,1" : "iPad mini 4",
+            "iPad5,2" : "iPad mini 4",
+            "iPad5,3" : "iPad Air 2",
+            "iPad5,4" : "iPad Air 2",
+            "iPad6,3" : "iPad Pro (9.7 inch)",
+            "iPad6,4" : "iPad Pro (9.7 inch)",
+            "iPad6,7" : "iPad Pro (12.9 inch)",
+            "iPad6,8" : "iPad Pro (12.9 inch)",
+            "iPad6,11": "iPad 5 (WiFi)",
+            "iPad6,12": "iPad 5 (Cellular)",
+            "iPad7,1" : "iPad Pro (12.9 inch, 2nd generation)",
+            "iPad7,2" : "iPad Pro (12.9 inch, 2nd generation)",
+            "iPad7,3" : "iPad Pro (10.5 inch)",
+            "iPad7,4" : "iPad Pro (10.5 inch)",
+            "iPad7,5" : "iPad 6 (WiFi)",
+            "iPad7,6" : "iPad 6 (Cellular)",
+            "iPad7,11": "iPad 7 (WiFi)",
+            "iPad7,12": "iPad 7 (Cellular)",
+            "iPad8,1" : "iPad Pro (11 inch)",
+            "iPad8,2" : "iPad Pro (11 inch)",
+            "iPad8,3" : "iPad Pro (11 inch)",
+            "iPad8,4" : "iPad Pro (11 inch)",
+            "iPad8,5" : "iPad Pro (12.9 inch, 3rd generation)",
+            "iPad8,6" : "iPad Pro (12.9 inch, 3rd generation)",
+            "iPad8,7" : "iPad Pro (12.9 inch, 3rd generation)",
+            "iPad8,8" : "iPad Pro (12.9 inch, 3rd generation)",
+            "iPad8,9" : "iPad Pro (11 inch, 2nd generation)",
+            "iPad8,10" : "iPad Pro (11 inch, 2nd generation)",
+            "iPad8,11" : "iPad Pro (12.9 inch, 4th generation)",
+            "iPad8,12" : "iPad Pro (12.9 inch, 4th generation)",
+            "iPad11,1" : "iPad mini (5th generation)",
+            "iPad11,2" : "iPad mini (5th generation)",
+            "iPad11,3" : "iPad Air (3rd generation)",
+            "iPad11,4" : "iPad Air (3rd generation)",
+            "iPad11,6" : "iPad (WiFi)",
+            "iPad11,7" : "iPad (Cellular)",
+            "iPad13,1" : "iPad Air (4th generation)",
+            "iPad13,2" : "iPad Air (4th generation)",
+            "iPad13,4" : "iPad Pro (11 inch, 3rd generation)",
+            "iPad13,5" : "iPad Pro (11 inch, 3rd generation)",
+            "iPad13,6" : "iPad Pro (11 inch, 3rd generation)",
+            "iPad13,7" : "iPad Pro (11 inch, 3rd generation)",
+            "iPad13,8" : "iPad Pro (12.9 inch, 5th generation)",
+            "iPad13,9" : "iPad Pro (12.9 inch, 5th generation)",
+            "iPad13,10" : "iPad Pro (12.9 inch, 5th generation)",
+            "iPad13,11" : "iPad Pro (12.9 inch, 5th generation)",
+            "iPad14,1" : "iPad mini (6th generation)",
+            "iPad14,2" : "iPad mini (6th generation)",
+            "iPad14,3" : "iPad Pro 11 inch 4th Gen",
+            "iPad14,4" : "iPad Pro 11 inch 4th Gen",
+            "iPad14,5" : "iPad Pro 12.9 inch 6th Gen",
+            "iPad14,6" : "iPad Pro 12.9 inch 6th Gen",
+            "iPad14,8" : "iPad Air 6th Gen",
+            "iPad14,9" : "iPad Air 6th Gen",
+            "iPad14,10" : "iPad Air 7th Gen",
+            "iPad14,11" : "iPad Air 7th Gen",
+            "iPad16,3" : "iPad Pro 11 inch 5th Gen",
+            "iPad16,4" : "iPad Pro 11 inch 5th Gen",
+            "iPad16,5" : "iPad Pro 12.9 inch 7th Gen",
+            "iPad16,6" : "iPad Pro 12.9 inch 7th Gen",
+            
+            "iPod1,1" : "iPod touch 1",
+            "iPod2,1" : "iPod touch 2",
+            "iPod3,1" : "iPod touch 3",
+            "iPod4,1" : "iPod touch 4",
+            "iPod5,1" : "iPod touch 5",
+            "iPod7,1" : "iPod touch 6",
+            "iPod9,1" : "iPod touch 7",
+            
+            "i386" : "Simulator x86",
+            "x86_64" : "Simulator x64",
+            
+            "Watch1,1" : "Apple Watch 38mm",
+            "Watch1,2" : "Apple Watch 42mm",
+            "Watch2,3" : "Apple Watch Series 2 38mm",
+            "Watch2,4" : "Apple Watch Series 2 42mm",
+            "Watch2,6" : "Apple Watch Series 1 38mm",
+            "Watch2,7" : "Apple Watch Series 1 42mm",
+            "Watch3,1" : "Apple Watch Series 3 38mm",
+            "Watch3,2" : "Apple Watch Series 3 42mm",
+            "Watch3,3" : "Apple Watch Series 3 38mm (LTE)",
+            "Watch3,4" : "Apple Watch Series 3 42mm (LTE)",
+            "Watch4,1" : "Apple Watch Series 4 40mm",
+            "Watch4,2" : "Apple Watch Series 4 44mm",
+            "Watch4,3" : "Apple Watch Series 4 40mm (LTE)",
+            "Watch4,4" : "Apple Watch Series 4 44mm (LTE)",
+            "Watch5,1" : "Apple Watch Series 5 40mm",
+            "Watch5,2" : "Apple Watch Series 5 44mm",
+            "Watch5,3" : "Apple Watch Series 5 40mm (LTE)",
+            "Watch5,4" : "Apple Watch Series 5 44mm (LTE)",
+            "Watch5,9" : "Apple Watch SE 40mm",
+            "Watch5,10" : "Apple Watch SE 44mm",
+            "Watch5,11" : "Apple Watch SE 40mm",
+            "Watch5,12" : "Apple Watch SE 44mm",
+            "Watch6,1"  : "Apple Watch Series 6 40mm",
+            "Watch6,2"  : "Apple Watch Series 6 44mm",
+            "Watch6,3"  : "Apple Watch Series 6 40mm",
+            "Watch6,4"  : "Apple Watch Series 6 44mm",
+            "Watch6,6" : "Apple Watch Series 7 41mm case (GPS)",
+            "Watch6,7" : "Apple Watch Series 7 45mm case (GPS)",
+            "Watch6,8" : "Apple Watch Series 7 41mm case (GPS+Cellular)",
+            "Watch6,9" : "Apple Watch Series 7 45mm case (GPS+Cellular)",
+            "Watch6,10" : "Apple Watch SE 40mm case (GPS)",
+            "Watch6,11" : "Apple Watch SE 44mm case (GPS)",
+            "Watch6,12" : "Apple Watch SE 40mm case (GPS+Cellular)",
+            "Watch6,13" : "Apple Watch SE 44mm case (GPS+Cellular)",
+            "Watch6,14" : "Apple Watch Series 8 41mm case (GPS)",
+            "Watch6,15" : "Apple Watch Series 8 45mm case (GPS)",
+            "Watch6,16" : "Apple Watch Series 8 41mm case (GPS+Cellular)",
+            "Watch6,17" : "Apple Watch Series 8 45mm case (GPS+Cellular)",
+            "Watch6,18" : "Apple Watch Ultra",
+            "Watch7,1" : "Apple Watch Series 9 41mm case (GPS)",
+            "Watch7,2" : "Apple Watch Series 9 45mm case (GPS)",
+            "Watch7,3" : "Apple Watch Series 9 41mm case (GPS+Cellular)",
+            "Watch7,4" : "Apple Watch Series 9 45mm case (GPS+Cellular)",
+            "Watch7,5" : "Apple Watch Ultra 2",
+            
+            "AudioAccessory1,1" : "HomePod",
+            "AudioAccessory1,2" : "HomePod",
+            "AudioAccessory5,1" : "HomePod mini",
+            
+            "AirPods1,1" : "AirPods (1st generation)",
+            "AirPods2,1" : "AirPods (2nd generation)",
+            "iProd8,1"   : "AirPods Pro",
+            
+            "AppleTV2,1" : "Apple TV 2",
+            "AppleTV3,1" : "Apple TV 3",
+            "AppleTV3,2" : "Apple TV 3",
+            "AppleTV5,3" : "Apple TV 4",
+            "AppleTV6,2" : "Apple TV 4K",
+        ]
+        name = dict[model]
+        if name == nil || name == "" {
+            name = model
+        }
+        guard var name else { return "Unknown Device" }
+        if isSimulator {
+            name = name + " Simulator"
+        }
+        return name
     }()
     
     public static func isZoomedMode() -> Bool {
@@ -283,9 +521,27 @@ open class GKDevice {
         return false
     }()
     
+    // 是否是带灵动岛的屏幕
+    //"iPhone15,2" : "iPhone 14 Pro",
+    //"iPhone15,3" : "iPhone 14 Pro Max",
+    //"iPhone15,4" : "iPhone 15",
+    //"iPhone15,5" : "iPhone 15 Plus",
+    //"iPhone16,1" : "iPhone 15 Pro",
+    //"iPhone16,2" : "iPhone 15 Pro Max",
+    //"iPhone17,1" : "iPhone 16 Pro",
+    //"iPhone17,2" : "iPhone 16 Pro Max",
+    //"iPhone17,3" : "iPhone 16",
+    //"iPhone17,4" : "iPhone 16 Plus",
+    public static func isDynamicIslandScreen() -> Bool {
+        if !isIPhone { return false }
+        let models = ["iPhone 14 Pro", "iPhone 15", "iPhone 16"]
+        return models.contains { deviceName.hasPrefix($0) }
+    }
+    
     /// 将屏幕分为普通和紧凑两种，这个方法用于判断普通屏幕（也即大屏幕）
     public static func isRegularScreen() -> Bool {
-        return isIPad || (!isZoomedMode() && (is67InchScreenAndiPhone14ProMax || is67InchScreen || is65InchScreen || is61InchScreen || is55InchScreen))
+        if isDynamicIslandScreen() { return true }
+        return isIPad || (!isZoomedMode() && (is67InchScreenAndiPhone14Later || is67InchScreen || is65InchScreen || is61InchScreen || is55InchScreen))
     }
     
     /// 是否是横屏
@@ -294,16 +550,13 @@ open class GKDevice {
     }
     
     public static func statusBarNavBarHeight() -> CGFloat {
-        return statusBarFrame().size.height + navBarHeight()
+        return navBarFullHeight()
     }
     
+    /// 导航栏高度（无状态栏）
     public static func navBarHeight() -> CGFloat {
         if isIPad {
-            if let version = version, version >= 12.0 {
-                return 50
-            }else {
-                return 44
-            }
+            return version >= 12.0 ? 50 : 44
         }else {
             if isLandScape() {
                 return isRegularScreen() ? 44 : 32
@@ -313,8 +566,101 @@ open class GKDevice {
         }
     }
     
+    /// 导航栏竖屏高度（无状态栏）
+    public static func navBarHeightForPortrait() -> CGFloat {
+        if isIPad {
+            return version >= 12.0 ? 50 : 44
+        }else {
+            return 44
+        }
+    }
+    
+    /// 非全屏时的导航栏高度
     public static func navBarHeightNonFullScreen() -> CGFloat {
         return 56
+    }
+    
+    /// 导航栏完整高度（状态栏+导航栏），状态栏隐藏时只有导航栏高度
+    public static func navBarFullHeight() -> CGFloat {
+        let deviceModel = deviceModel
+        let pixelOne = 1.0 / UIScreen.main.scale
+        var result = statusBarFullHeight()
+        if isIPad {
+            result += 50
+        }else if isLandScape() {
+            result += isRegularScreen() ? 44 : 32
+        }else {
+            result += 44
+            if deviceModel == "iPhone17,1" || deviceModel == "iPhone17,2" { // 16 Pro / 16 Pro Max
+                result += (2 + pixelOne) // 56.333
+            }else if isDynamicIslandScreen() {
+                result -= pixelOne // 53.667
+            }
+        }
+        return result
+    }
+    
+    /// 竖屏导航栏完整高度（状态栏+导航栏）
+    public static func navBarFullHeightForPortrait() -> CGFloat {
+        let deviceModel = deviceModel
+        let pixelOne = 1.0 / UIScreen.main.scale
+        var result = statusBarHeightForPortrait()
+        if isIPad {
+            result += 50
+        }else {
+            result += 44
+            if deviceModel == "iPhone17,1" || deviceModel == "iPhone17,2" { // 16 Pro / 16 Pro Max
+                result += (2 + pixelOne) // 56.333
+            }else if isDynamicIslandScreen() {
+                result -= pixelOne // 53.667
+            }
+        }
+        return result
+    }
+    
+    /// 状态栏完整高度，隐藏时为0
+    public static func statusBarFullHeight() -> CGFloat {
+        if !UIApplication.shared.isStatusBarHidden {
+            return statusBarFrame().height
+        }
+        if isIPad {
+            return isNotchedScreen ? 24 : 20
+        }
+        if !isNotchedScreen {
+            return 20
+        }
+        if isLandScape() {
+            return 0
+        }
+        return statusBarHeightForPortrait()
+    }
+    
+    /// 竖屏状态栏高度
+    public static func statusBarHeightForPortrait() -> CGFloat {
+        if isIPad {
+            return isNotchedScreen ? 24 : 20
+        }
+        if !isNotchedScreen {
+            return 20
+        }
+        if deviceModel == "iPhone12,1" { // iPhone 13 Mini
+            return 48
+        }
+        if isDynamicIslandScreen() {
+            return 54
+        }
+        if is61InchScreenAndiPhone12Later || is67InchScreen {
+            return 47
+        }
+        // iPhone XR/11 在iOS14之后状态栏高度为48，之前为44
+        if is61InchScreen {
+            if #available(iOS 14.0, *) {
+                return 48
+            }else {
+                return 44
+            }
+        }
+        return (is54InchScreen && version >= 15.0) ? 50 : 44
     }
     
     public static func tabBarHeight() -> CGFloat {
@@ -323,7 +669,7 @@ open class GKDevice {
             if isNotchedScreen {
                 tabBarHeight = 65
             }else {
-                if let version = version, version >= 12.0 {
+                if version >= 12.0 {
                     tabBarHeight = 50
                 }else {
                     tabBarHeight = 49
@@ -414,6 +760,38 @@ open class GKDevice {
         }
         
         let dict = [
+            // iPhone 16 Pro
+            "iPhone17,1": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 62, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 62, bottom: 21, right: 62)],
+            // iPhone 16 Pro Max
+            "iPhone17,2": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 62, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 62, bottom: 21, right: 62)],
+            // iPhone 16
+            "iPhone17,3": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)],
+            // iPhone 16 Plus
+            "iPhone17,4": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)],
+            // iPhone 15
+            "iPhone15,4": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)],
+            "iPhone15,4-Zoom": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 48, left: 0, bottom: 28, right: 0),
+                                UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 48, bottom: 21, right: 48)],
+            // iPhone 15 Plus
+            "iPhone15,5": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)],
+            "iPhone15,5-Zoom": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 41, left: 0, bottom: 30, right: 0),
+                                UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 41, bottom: 21, right: 41)],
+            // iPhone 15 Pro
+            "iPhone16,1": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)],
+            "iPhone16,1-Zoom": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 48, left: 0, bottom: 28, right: 0),
+                                UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 48, bottom: 21, right: 48)],
+            // iPhone 15 Pro Max
+            "iPhone16,2": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                           UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)],
+            "iPhone16,2-Zoom": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 51, left: 0, bottom: 31, right: 0),
+                                UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 51, bottom: 21, right: 51)],
             // iPhone 14
             "iPhone14,7": [UIInterfaceOrientation.portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
                            UIInterfaceOrientation.landscapeLeft: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)],
@@ -517,9 +895,9 @@ open class GKDevice {
     }
 }
 
-extension GKDevice {
-    public static let version: Double? = {
-       return Double(UIDevice.current.systemVersion)
+extension UIDevice {
+    public static let version: Double = {
+       return Double(UIDevice.current.systemVersion) ?? 0
     }()
     
     public static let width: CGFloat = {
@@ -531,9 +909,14 @@ extension GKDevice {
     }()
     
     // MARK - Screen
+    /// iPhone 16 Pro Max
+    public static let is69InchScreen: Bool = {
+        return width == _69Inch.width && height == _69Inch.height
+    }()
+    
     /// iPhone 14 Pro Max
-    public static let is67InchScreenAndiPhone14ProMax: Bool = {
-        return width == _67InchAndiPhone14ProMax.width && height == _67InchAndiPhone14ProMax.height
+    public static let is67InchScreenAndiPhone14Later: Bool = {
+        return width == _67InchAndiPhone14Later.width && height == _67InchAndiPhone14Later.height
     }()
     
     /// iPhone 12 Pro Max
@@ -547,9 +930,14 @@ extension GKDevice {
         return (width == _65Inch.width && height == _65Inch.height && (deviceModel == "iPhone11,4" || deviceModel == "iPhone11,6" || deviceModel == "iPhone12,5"))
     }()
     
-    /// iPhone 14 Pro
-    public static let is61InchScreenAndiPhone14Pro: Bool = {
-        return width == _61InchAndiPhone14Pro.width && height == _61InchAndiPhone14Pro.height
+    /// iPhone 16 Pro
+    public static let is63InchScreen: Bool = {
+        return width == _63Inch.width && height == _63Inch.height
+    }()
+    
+    /// iPhone 14 Pro / 15 Pro
+    public static let is61InchScreenAndiPhone14ProLater: Bool = {
+        return width == _61InchAndiPhone14ProLater.width && height == _61InchAndiPhone14ProLater.height
     }()
     
     /// iPhone 12 / 12 Pro
@@ -593,7 +981,11 @@ extension GKDevice {
         return width == _35Inch.width && height == _35Inch.height
     }()
     
-    public static let _67InchAndiPhone14ProMax: CGSize = {
+    public static let _69Inch: CGSize = {
+        return CGSize(width: 440, height: 956)
+    }()
+    
+    public static let _67InchAndiPhone14Later: CGSize = {
        return CGSize(width: 430, height: 932)
     }()
     
@@ -605,7 +997,11 @@ extension GKDevice {
         return CGSize(width: 414, height: 896)
     }()
     
-    public static let _61InchAndiPhone14Pro: CGSize = {
+    public static let _63Inch: CGSize = {
+        return CGSize(width: 402, height: 874)
+    }()
+    
+    public static let _61InchAndiPhone14ProLater: CGSize = {
         return CGSize(width: 393, height: 852)
     }()
     

@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GKCustomNavigationBar : UINavigationBar
 
+// 导航栏所在的控制器
+@property (nonatomic, weak) UIViewController *viewController;
+
 // 导航栏透明度
 @property (nonatomic, assign) CGFloat gk_navBarBackgroundAlpha;
 

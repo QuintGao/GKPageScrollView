@@ -11,6 +11,8 @@ import UIKit
 open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
     /// title数组
     open var titles = [String]()
+    /// 根据index配置cell的不同属性
+    open weak var configuration: JXSegmentedTitleDynamicConfiguration?
     /// 如果将JXSegmentedView嵌套进UITableView的cell，每次重用的时候，JXSegmentedView进行reloadData时，会重新计算所有的title宽度。所以该应用场景，需要UITableView的cellModel缓存titles的文字宽度，再通过该闭包方法返回给JXSegmentedView。
     open var widthForTitleClosure: ((String)->(CGFloat))?
     /// label的numberOfLines
@@ -59,13 +61,17 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         }
 
         myItemModel.title = titles[index]
-        myItemModel.textWidth = widthForTitle(myItemModel.title ?? "")
-        myItemModel.titleNumberOfLines = titleNumberOfLines
+        myItemModel.textWidth = widthForTitle(myItemModel.title ?? "", index)
+        myItemModel.titleNumberOfLines = innerTitleNumberOfLines(at: index)
         myItemModel.isSelectedAnimable = isSelectedAnimable
-        myItemModel.titleNormalColor = titleNormalColor
-        myItemModel.titleSelectedColor = titleSelectedColor
-        myItemModel.titleNormalFont = titleNormalFont
-        myItemModel.titleSelectedFont = titleSelectedFont != nil ? titleSelectedFont! : titleNormalFont
+        myItemModel.titleNormalColor = innerTitleNormalColor(at: index)
+        myItemModel.titleSelectedColor = innerTitleSelectedColor(at: index)
+        myItemModel.titleNormalFont = innerTitleNormalFont(at: index)
+        if let selectedFont = innerTitleSelectedFont(at: index) {
+            myItemModel.titleSelectedFont = selectedFont
+        }else {
+            myItemModel.titleSelectedFont = innerTitleNormalFont(at: index)
+        }
         myItemModel.isTitleZoomEnabled = isTitleZoomEnabled
         myItemModel.isTitleStrokeWidthEnabled = isTitleStrokeWidthEnabled
         myItemModel.isTitleMaskEnabled = isTitleMaskEnabled
@@ -76,21 +82,21 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         myItemModel.titleLabelVerticalOffset = titleLabelVerticalOffset
         myItemModel.titleLabelAnchorPointStyle = titleLabelAnchorPointStyle
         if index == selectedIndex {
-            myItemModel.titleCurrentColor = titleSelectedColor
+            myItemModel.titleCurrentColor = innerTitleSelectedColor(at: index)
             myItemModel.titleCurrentZoomScale = titleSelectedZoomScale
             myItemModel.titleCurrentStrokeWidth = titleSelectedStrokeWidth
         }else {
-            myItemModel.titleCurrentColor = titleNormalColor
+            myItemModel.titleCurrentColor = innerTitleNormalColor(at: index)
             myItemModel.titleCurrentZoomScale = 1
             myItemModel.titleCurrentStrokeWidth = 0
         }
     }
 
-    open func widthForTitle(_ title: String) -> CGFloat {
+    open func widthForTitle(_ title: String, _ index: Int) -> CGFloat {
         if widthForTitleClosure != nil {
             return widthForTitleClosure!(title)
         }else {
-            let textWidth = NSString(string: title).boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : titleNormalFont], context: nil).size.width
+            let textWidth = NSString(string: title).boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : innerTitleNormalFont(at: index)], context: nil).size.width
             return CGFloat(ceilf(Float(textWidth)))
         }
     }
@@ -163,5 +169,42 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         myWillSelectedItemModel.titleCurrentColor = myWillSelectedItemModel.titleSelectedColor
         myWillSelectedItemModel.titleCurrentZoomScale = myWillSelectedItemModel.titleSelectedZoomScale
         myWillSelectedItemModel.titleCurrentStrokeWidth = myWillSelectedItemModel.titleSelectedStrokeWidth
+    }
+    
+    // MARK: - Configuration
+    private func innerTitleNumberOfLines(at index: Int) -> Int {
+        if let configuration {
+            return configuration.titleNumberOfLines(at: index)
+        }else {
+            return titleNumberOfLines
+        }
+    }
+    private func innerTitleNormalColor(at index: Int) -> UIColor {
+        if let configuration {
+            return configuration.titleNormalColor(at: index)
+        }else {
+            return titleNormalColor
+        }
+    }
+    private func innerTitleSelectedColor(at index: Int) -> UIColor {
+        if let configuration {
+            return configuration.titleSelectedColor(at: index)
+        } else {
+            return titleSelectedColor
+        }
+    }
+    private func innerTitleNormalFont(at index: Int) -> UIFont {
+        if let configuration {
+            return configuration.titleNormalFont(at: index)
+        } else {
+            return titleNormalFont
+        }
+    }
+    private func innerTitleSelectedFont(at index: Int) -> UIFont? {
+        if let configuration {
+            return configuration.titleSelectedFont(at: index)
+        } else {
+            return titleSelectedFont
+        }
     }
 }

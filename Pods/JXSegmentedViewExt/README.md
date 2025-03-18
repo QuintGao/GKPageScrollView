@@ -106,6 +106,7 @@ pod 'JXSegmentedViewExt/Indicator/DoubleLine'
 
 ## 更新记录
 
+* 1.0.4 2024.05.16 修复bug，更新JXSegmentedView，Badge类型支持图片，添加苹果隐私协议文件
 * 1.0.3 2023.06.06 支持SPM
 * 1.0.2 2022.07.12 JXSegmentedTitleImage支持多种组合方式
 * 1.0.1 2022.04.25 优化及bug修改，将pod拆分为多个

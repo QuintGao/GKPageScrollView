@@ -81,6 +81,7 @@ extension UIViewController: GKAwakeProtocol {
             var navigationBar = gk_getAssociatedObject(self, &AssociatedKeys.gkNavigationBar) as? GKNavigationBar
             if navigationBar == nil {
                 navigationBar = GKNavigationBar()
+                navigationBar?.viewController = self
                 
                 self.gk_navBarInit = true
                 self.gk_navigationBar = navigationBar!
@@ -767,33 +768,25 @@ extension UIViewController {
         let isNonFullScreen = isNonFullScreen()
         var navBarH: CGFloat = 0.0
         
-        let gkNavBarHNFS = GKDevice.navBarHeightNonFullScreen()
-        let gkNavBarH = GKDevice.navBarHeight()
-        let gkStatusBarH = GKDevice.statusBarFrame().size.height
-        let gkStatusBarNavBarH = gkStatusBarH + gkNavBarH
-        
-        if GKDevice.isIPad { // iPad
+        if UIDevice.isIPad { // iPad
             if isNonFullScreen {
-                navBarH = gkNavBarHNFS
+                navBarH = UIDevice.navBarHeightNonFullScreen()
                 self.gk_navigationBar.gk_nonFullScreen = true
             }else {
-                navBarH = self.gk_statusBarHidden ? gkNavBarH : gkStatusBarNavBarH
+                navBarH = UIDevice.navBarFullHeight()
             }
-        }else if GKDevice.isLandScape() { // 横屏不显示状态栏，没有非全屏模式
-            navBarH = gkNavBarH
+        }else if UIDevice.isLandScape() { // 横屏不显示状态栏，没有非全屏模式
+            if gk_isLandscape() {
+                navBarH = UIDevice.navBarFullHeight()
+            }else {
+                navBarH = UIDevice.navBarFullHeightForPortrait()
+            }
         }else {
             if isNonFullScreen {
-                navBarH = gkNavBarHNFS
+                navBarH = UIDevice.navBarHeightNonFullScreen()
                 self.gk_navigationBar.gk_nonFullScreen = true
             }else {
-                if GKDevice.isNotchedScreen { // 刘海屏手机
-                    // iPhone 14 Pro 状态栏高度与安全区域高度不一致，这里改为使用状态栏高度
-                    var topH = GKDevice.statusBarFrame().height
-                    if topH == 0 { topH = GKDevice.safeAreaInsets().top }
-                    navBarH = topH + gkNavBarH
-                }else {
-                    navBarH = self.gk_statusBarHidden ? gkNavBarH : gkStatusBarNavBarH
-                }
+                navBarH = UIDevice.navBarFullHeight()
             }
         }
         self.gk_navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: navBarH)
@@ -820,12 +813,21 @@ extension UIViewController {
             // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
             var window = view.window
             if window == nil {
-                window = GKDevice.keyWindow()
+                window = UIDevice.keyWindow()
             }
             
             isNonFullScreen = (self.presentingViewController != nil) && viewH < window?.bounds.height ?? 0
         }
         return isNonFullScreen
+    }
+    
+    public func gk_isLandscape() -> Bool {
+        // 当前控制器支持横屏
+        if supportedInterfaceOrientations.contains(.landscape) {
+            return true
+        }
+        // 当前控制器是横屏状态
+        return view.frame.width > view.frame.height
     }
     
     fileprivate func setBackItemImage(image: UIImage?) {

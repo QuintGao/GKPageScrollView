@@ -10,6 +10,9 @@ import UIKit
 
 open class GKNavigationBar: UINavigationBar {
 
+    /// 导航栏所在的控制器
+    public weak var viewController: UIViewController?
+    
     /// 当前所在的控制器是否隐藏状态栏
     public var gk_statusBarHidden: Bool = false
     
@@ -71,8 +74,18 @@ open class GKNavigationBar: UINavigationBar {
                         frame.size.height = self.frame.size.height
                         obj.frame = frame
                     }else {
-                        let navBarHNFS = GKDevice.navBarHeightNonFullScreen()
-                        let navBarH = GKDevice.navBarHeight()
+                        let navBarHNFS = UIDevice.navBarHeightNonFullScreen()
+                        var navBarH = UIDevice.navBarHeight()
+                        if UIDevice.isLandScape() {
+                            if let vc = viewController, vc.gk_isLandscape() {
+                                navBarH = UIDevice.navBarHeight()
+                            }else {
+                                navBarH = UIDevice.navBarHeightForPortrait()
+                            }
+                        }
+                        if let vc = viewController, vc.supportedInterfaceOrientations.contains(.landscape) {
+                            navBarH = UIDevice.navBarHeightForPortrait()
+                        }
                         
                         var frame = obj.frame
                         frame.origin.y = self.frame.size.height - (self.gk_nonFullScreen ? navBarHNFS : navBarH)

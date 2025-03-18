@@ -41,7 +41,7 @@ class GKWYHeaderView: UIView {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
         btn.setTitle("个人主页", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
-        btn.layer.cornerRadius = 25.0
+        btn.layer.cornerRadius = 12.5
         btn.layer.masksToBounds = true
         btn.layer.borderColor = UIColor.white.cgColor
         btn.layer.borderWidth = 0.5
@@ -54,7 +54,7 @@ class GKWYHeaderView: UIView {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
         btn.setTitle("收藏", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
-        btn.layer.cornerRadius = 25.0
+        btn.layer.cornerRadius = 12.5
         btn.layer.masksToBounds = true
         return btn
     }()
@@ -86,16 +86,16 @@ class GKWYHeaderView: UIView {
         
         collectBtn.snp.makeConstraints { (make) in
             make.bottom.equalTo(self.tagLabel.snp.bottom)
-            make.right.equalTo(self).offset(-20.0)
-            make.width.equalTo(150.0)
-            make.height.equalTo(50.0)
+            make.right.equalTo(self).offset(-10.0)
+            make.width.equalTo(75.0)
+            make.height.equalTo(25.0)
         }
         
         personalBtn.snp.makeConstraints { (make) in
             make.bottom.equalTo(self.tagLabel.snp.bottom)
-            make.right.equalTo(self.collectBtn.snp.left).offset(-20.0)
-            make.width.equalTo(150.0)
-            make.height.equalTo(50.0)
+            make.right.equalTo(self.collectBtn.snp.left).offset(-10.0)
+            make.width.equalTo(75.0)
+            make.height.equalTo(25.0)
         }
     }
     

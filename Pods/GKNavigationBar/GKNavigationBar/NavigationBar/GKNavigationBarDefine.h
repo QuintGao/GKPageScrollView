@@ -23,25 +23,28 @@
 #define GK_IS_LANDSCAPE             UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation)
 
 // 判断是否是刘海屏
-#define GK_NOTCHED_SCREEN           [GKNavigationBarConfigure isNotchedScreen]
+#define GK_NOTCHED_SCREEN           [UIDevice isNotchedScreen]
+
+// 判断是否是灵动岛屏幕
+#define GK_DYNAMICISLAND_SCREEN     [UIDevice isDynamicIslandScreen]
 
 // 判断是否是iPad
-#define GK_IS_iPad                  [GKNavigationBarConfigure isIPad]
+#define GK_IS_iPad                  [UIDevice isIPad]
 
 // 顶部安全区域高度
-#define GK_SAFEAREA_TOP             [GKNavigationBarConfigure safeAreaInsets].top
+#define GK_SAFEAREA_TOP             [UIDevice safeAreaInsets].top
 // 底部安全区域高度
-#define GK_SAFEAREA_BTM             [GKNavigationBarConfigure safeAreaInsets].bottom
+#define GK_SAFEAREA_BTM             [UIDevice safeAreaInsets].bottom
 // 状态栏高度
-#define GK_STATUSBAR_HEIGHT         [GKNavigationBarConfigure statusBarFrame].size.height
+#define GK_STATUSBAR_HEIGHT         [UIDevice statusBarFrame].size.height
 // 导航栏高度
-#define GK_NAVBAR_HEIGHT            [GKNavigationBarConfigure navBarHeight]
+#define GK_NAVBAR_HEIGHT            [UIDevice navBarHeight]
 // 非全屏导航栏高度
-#define GK_NAVBAR_HEIGHT_NFS        [GKNavigationBarConfigure navBarHeight_nonFullScreen]
-// 状态栏+导航栏高度
-#define GK_STATUSBAR_NAVBAR_HEIGHT  (GK_STATUSBAR_HEIGHT + GK_NAVBAR_HEIGHT)
+#define GK_NAVBAR_HEIGHT_NFS        [UIDevice navBarHeight_nonFullScreen]
+// 导航栏整体高度
+#define GK_STATUSBAR_NAVBAR_HEIGHT  [UIDevice navBarFullHeight]
 // tabbar高度
-#define GK_TABBAR_HEIGHT            [GKNavigationBarConfigure tabBarHeight]
+#define GK_TABBAR_HEIGHT            [UIDevice tabBarHeight]
 
 // 导航栏间距，用于不同控制器之间的间距
 static const CGFloat GKNavigationBarItemSpace = -1;

@@ -228,6 +228,19 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     [self dragDismiss];
 }
 
+- (void)selectListWithIndex:(NSInteger)index animated:(BOOL)animated {
+    if (self.currentIndex == index) {
+        return;
+    }
+    
+    CGPoint offset = CGPointMake(index * self.listCollectionView.bounds.size.width, 0);
+    [self.listCollectionView setContentOffset:offset animated:animated];
+    [self listWillDisappear:self.currentIndex];
+    [self listDidDisappear:self.currentIndex];
+    [self listWillAppear:index];
+    [self listDidAppear:index];
+}
+
 - (void)setDefaultSelectedIndex:(NSInteger)defaultSelectedIndex {
     _defaultSelectedIndex = defaultSelectedIndex;
     self.currentIndex = defaultSelectedIndex;
@@ -291,7 +304,6 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
         }
         _listDict[@(indexPath.item)] = list;
         [list.listView setNeedsLayout];
-        [list.listView layoutIfNeeded];
         
         UIScrollView *listScrollView = list.listScrollView;
         if ([listScrollView isKindOfClass:[UITableView class]]) {
@@ -674,6 +686,9 @@ static NSString *const GKPageSmoothViewCellID = @"smoothViewCell";
     id<GKPageSmoothListViewDelegate> list = _listDict[@(index)];
     if (list && [list respondsToSelector:@selector(listViewDidAppear)]) {
         [list listViewDidAppear];
+    }
+    if ([self.delegate respondsToSelector:@selector(smoothView:listDidAppearAtIndex:)]) {
+        [self.delegate smoothView:self listDidAppearAtIndex:index];
     }
 }
 

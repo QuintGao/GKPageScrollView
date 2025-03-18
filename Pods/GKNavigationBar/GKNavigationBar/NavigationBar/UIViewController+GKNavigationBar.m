@@ -1,8 +1,8 @@
 //
 //  UIViewController+GKNavigationBar.m
-//  GKNavigationBarExample
+//  GKNavigationBar
 //
-//  Created by gaokun on 2020/10/29.
+//  Created by QuintGao on 2020/10/29.
 //  Copyright © 2020 QuintGao. All rights reserved.
 //
 
@@ -17,10 +17,23 @@
 
 #define HasGestureHandle (__has_include(<GKNavigationBar/GKGestureHandleDefine.h>) || __has_include("GKGestureHandleDefine.h"))
 
-@interface UIViewController (GKNavigationBar)
+@interface UIViewController (GKNavigationBarPrivate)
 
 /// 导航栏是否添加过
 @property (nonatomic, assign) BOOL gk_navBarAdded;
+
+@end
+
+@implementation UIViewController (GKNavigationBarPrivate)
+
+static char kAssociatedObjectKey_navBarAdded;
+- (void)setGk_navBarAdded:(BOOL)gk_navBarAdded {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_navBarAdded, @(gk_navBarAdded), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)gk_navBarAdded {
+    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarAdded) boolValue];
+}
 
 @end
 
@@ -202,6 +215,7 @@ static char kAssociatedObjectKey_navigationBar;
     GKCustomNavigationBar *navigationBar = objc_getAssociatedObject(self, &kAssociatedObjectKey_navigationBar);
     if (!navigationBar) {
         navigationBar = [[GKCustomNavigationBar alloc] init];
+        navigationBar.viewController = self;
         objc_setAssociatedObject(self, &kAssociatedObjectKey_navigationBar, navigationBar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
         self.gk_NavBarInit = YES;
@@ -236,15 +250,6 @@ static char kAssociatedObjectKey_navBarInit;
 
 - (BOOL)gk_NavBarInit {
     return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarInit) boolValue];
-}
-
-static char kAssociatedObjectKey_navBarAdded;
-- (void)setGk_navBarAdded:(BOOL)gk_navBarAdded {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_navBarAdded, @(gk_navBarAdded), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)gk_navBarAdded {
-    return [objc_getAssociatedObject(self, &kAssociatedObjectKey_navBarAdded) boolValue];
 }
 
 #pragma mark - 常用属性快速设置
@@ -729,7 +734,7 @@ static char kAssociatedObjectKey_navItemRightSpace;
         // 如果是通过present方式弹出且高度小于屏幕高度，则认为是非全屏
         UIWindow *window = self.view.window;
         if (!window) {
-            window = GKNavigationBarConfigure.keyWindow;
+            window = UIDevice.keyWindow;
         }
         isNonFullScreen = self.presentingViewController && viewH < window.bounds.size.height;
     }
@@ -745,23 +750,20 @@ static char kAssociatedObjectKey_navItemRightSpace;
             navBarH = GK_NAVBAR_HEIGHT_NFS;
             self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
-            navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
+            navBarH = [UIDevice navBarFullHeight];
         }
     }else if (GK_IS_LANDSCAPE) { // 横屏不显示状态栏，没有非全屏模式
-        navBarH = GK_NAVBAR_HEIGHT;
+        if ([self gk_isLandscape]) {
+            navBarH = [UIDevice navBarFullHeight];
+        }else {
+            navBarH = [UIDevice navBarFullHeightForPortrait];
+        }
     }else {
         if (isNonFullScreen) {
             navBarH = GK_NAVBAR_HEIGHT_NFS;
             self.gk_navigationBar.gk_nonFullScreen = YES;
         }else {
-            if (GK_NOTCHED_SCREEN) { // 刘海屏手机
-                // iOS 14 pro 状态栏高度与安全区域高度不一致，这里改为使用状态栏高度
-                CGFloat topH = GK_STATUSBAR_HEIGHT;
-                if (topH == 20) topH = GK_SAFEAREA_TOP;
-                navBarH = topH + GK_NAVBAR_HEIGHT;
-            }else {
-                navBarH = self.gk_statusBarHidden ? GK_NAVBAR_HEIGHT : GK_STATUSBAR_NAVBAR_HEIGHT;
-            }
+            navBarH = [UIDevice navBarFullHeight];
         }
     }
     self.gk_navigationBar.frame = CGRectMake(0, 0, self.view.frame.size.width, navBarH);
@@ -799,6 +801,15 @@ static char kAssociatedObjectKey_navItemRightSpace;
         return YES;
     }
     return self.gk_openFixNavItemSpace;
+}
+
+- (BOOL)gk_isLandscape {
+    // 当前控制器支持横屏
+    if ([self supportedInterfaceOrientations] & UIInterfaceOrientationMaskLandscape) {
+        return YES;
+    }
+    // 当前控制器是横屏状态
+    return (self.view.frame.size.width > self.view.frame.size.height);
 }
 
 - (void)setBackItemImage:(UIImage *)image {

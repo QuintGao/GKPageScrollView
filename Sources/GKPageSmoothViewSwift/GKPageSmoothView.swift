@@ -74,6 +74,9 @@ public enum GKPageSmoothHoverType {
     ///   - smoothView: smoothView
     ///   - isOnTop: 是否通过拖拽滑动到顶部
     @objc optional func smoothViewDragEnded(_ smoothView: GKPageSmoothView, isOnTop: Bool)
+    
+    /// 列表选中回调
+    @objc optional func smoothViewListDidAppear(_ smoothView: GKPageSmoothView, at index: Int)
 }
 
 public class GKPageSmoothCollectionView: UICollectionView, UIGestureRecognizerDelegate {
@@ -377,6 +380,17 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
     public func showingOnBottom() {
         if (bottomContainerView.isHidden) { return }
         dragDismiss()
+    }
+    
+    /// 选中指定索引对应的列表
+    public func selectList(with index: Int, animated: Bool) {
+        if currentIndex == index { return }
+        let offset = CGPointMake(CGFloat(index) * listCollectionView.bounds.width, 0)
+        listCollectionView.setContentOffset(offset, animated: animated)
+        listWillDisappear(at: currentIndex)
+        listDidDisappear(at: currentIndex)
+        listWillAppear(at: index)
+        listDidAppear(at: index)
     }
     
     // MARK: - Gesture
@@ -769,6 +783,7 @@ open class GKPageSmoothView: UIView, UIGestureRecognizerDelegate {
         currentIndex = index
         let list = listDict[index]
         list?.listViewDidAppear?()
+        delegate?.smoothViewListDidAppear?(self, at: index)
     }
     
     func listWillDisappear(at index: Int) {
@@ -951,7 +966,6 @@ extension GKPageSmoothView: UICollectionViewDataSource, UICollectionViewDelegate
             }
             listDict[indexPath.item] = list!
             list?.listView().setNeedsLayout()
-            list?.listView().layoutIfNeeded()
             
             let listScrollView = list?.listScrollView()
             if #available(iOS 11.0, *) {

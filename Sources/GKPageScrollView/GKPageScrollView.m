@@ -262,6 +262,12 @@
     [self mainTableViewCanScrollUpdate];
 }
 
+- (void)selectListWithIndex:(NSInteger)index animated:(BOOL)animated {
+    if ([self shouldLazyLoadListView]) {
+        [self.listContainerView selectItemAtIndex:index animated:animated];
+    }
+}
+
 #pragma mark - Private Methods
 - (void)configListViewScroll {
     [[self.delegate listViewsInPageScrollView:self] enumerateObjectsUsingBlock:^(id<GKPageListViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -587,6 +593,9 @@
 
 - (void)listContainerView:(GKPageListContainerView *)listContainerView listDidAppearAtIndex:(NSInteger)index {
     self.currentListScrollView = [self.validListDict[@(index)] listScrollView];
+    if ([self.delegate respondsToSelector:@selector(pageScrollView:listDidAppearAtIndex:)]) {
+        [self.delegate pageScrollView:self listDidAppearAtIndex:index];
+    }
 }
 
 - (Class)scrollViewClassInListContainerView:(GKPageListContainerView *)listContainerView {
@@ -597,8 +606,8 @@
 }
 
 - (BOOL)listContainerView:(GKPageListContainerView *)listContainerView canInitListAtIndex:(NSInteger)index {
-    if ([self.delegate respondsToSelector:@selector(pageScrollViewListContainerView:canInitListAtIndex:)]) {
-        return [self.delegate pageScrollViewListContainerView:listContainerView canInitListAtIndex:index];
+    if ([self.delegate respondsToSelector:@selector(pageScrollView:listContainerView:canInitListAtIndex:)]) {
+        return [self.delegate pageScrollView:self listContainerView:listContainerView canInitListAtIndex:index];
     }
     return YES;
 }

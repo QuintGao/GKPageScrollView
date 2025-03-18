@@ -116,7 +116,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 // from QMUI
-@interface GKNavigationBarConfigure (UIDevice)
+@interface UIDevice (GKNavigationBar)
+
+@property (class, nonatomic, readonly) NSString *deviceModel;
+@property (class, nonatomic, readonly) NSString *deviceName;
 
 @property (class, nonatomic, readonly) BOOL isIPad;
 @property (class, nonatomic, readonly) BOOL isIPod;
@@ -124,14 +127,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) BOOL isSimulator;
 @property (class, nonatomic, readonly) BOOL isMac;
 
+// 是否带灵动岛
+@property (class, nonatomic, readonly) BOOL isDynamicIslandScreen;
+
 // 带物理凹槽的刘海屏或者使用 Home Indicator 类型的设备
 @property (class, nonatomic, readonly) BOOL isNotchedScreen;
 
 // 将屏幕分为普通和紧凑两种，这个方法用于判断普通屏幕（也即大屏幕）
 @property (class, nonatomic, readonly) BOOL isRegularScreen;
 
+/// iPhone 16 Pro Max
+@property (class, nonatomic, readonly) BOOL is69InchScreen;
+
 /// iPhone 14 Pro Max
-@property (class, nonatomic, readonly) BOOL is67InchScreenAndiPhone14ProMax;
+@property (class, nonatomic, readonly) BOOL is67InchScreenAndiPhone14Later;
 
 /// iPhone 12,13 Pro Max / iPhone 14 Plus
 @property (class, nonatomic, readonly) BOOL is67InchScreen;
@@ -139,10 +148,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// iPhone XS Max / 11 Pro Max
 @property (class, nonatomic, readonly) BOOL is65InchScreen;
 
-/// iPhone 14 Pro
-@property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone14Pro;
+/// iPhone 16 Pro
+@property (class, nonatomic, readonly) BOOL is63InchScreen;
 
-/// iPhone 12,13 / 12,13 Pro
+/// iPhone 14 Pro / 15 / 16 / 15 Pro
+@property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone14ProLater;
+
+/// iPhone 12 / 13 / 14 / 12 Pro / 13 Pro
 @property (class, nonatomic, readonly) BOOL is61InchScreenAndiPhone12Later;
 
 /// iPhone XR / 11
@@ -166,10 +178,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// iPhone 4
 @property (class, nonatomic, readonly) BOOL is35InchScreen;
 
-@property (class, nonatomic, readonly) CGSize screenSizeFor67InchAndiPhone14ProMax;
+@property (class, nonatomic, readonly) CGSize screenSizeFor69Inch;
+@property (class, nonatomic, readonly) CGSize screenSizeFor67InchAndiPhone14Later;
 @property (class, nonatomic, readonly) CGSize screenSizeFor67Inch;
 @property (class, nonatomic, readonly) CGSize screenSizeFor65Inch;
-@property (class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone14Pro;
+@property (class, nonatomic, readonly) CGSize screenSizeFor63Inch;
+@property (class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone14ProLater;
 @property (class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone12Later;
 @property (class, nonatomic, readonly) CGSize screenSizeFor61Inch;
 @property (class, nonatomic, readonly) CGSize screenSizeFor58Inch;
@@ -192,8 +206,20 @@ NS_ASSUME_NONNULL_BEGIN
 // 12,13 Pro Max    6.7        44        44          32         56
 // 14 Pro Max       6.7        44        44          32         56
 // iPad iOS12之前是44，之后是50                                    56
+// 导航栏高度（无状态栏）
 @property (class, nonatomic, readonly) CGFloat      navBarHeight;
+// 导航栏竖屏高度（无状态栏）
+@property (class, nonatomic, readonly) CGFloat      navBarHeightForPortrait;
+// 非全屏导航栏高度
 @property (class, nonatomic, readonly) CGFloat      navBarHeight_nonFullScreen;
+/// 导航栏完整高度（状态栏+导航栏），状态栏隐藏时只有导航栏高度
+@property (class, nonatomic, readonly) CGFloat      navBarFullHeight;
+/// 竖屏导航栏完整高度（状态栏+导航栏）
+@property (class, nonatomic, readonly) CGFloat      navBarFullHeightForPortrait;
+/// 状态栏完整高度
+@property (class, nonatomic, readonly) CGFloat      statusBarFullHeight;
+/// 竖屏状态栏高度
+@property (class, nonatomic, readonly) CGFloat      statusBarHeightForPortrait;
 @property (class, nonatomic, readonly) CGFloat      tabBarHeight;
 @property (class, nonatomic, readonly) UIEdgeInsets safeAreaInsets;
 @property (class, nonatomic, readonly) CGRect       statusBarFrame;

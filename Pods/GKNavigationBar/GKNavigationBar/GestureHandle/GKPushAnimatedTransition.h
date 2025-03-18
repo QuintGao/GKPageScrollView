@@ -2,7 +2,7 @@
 //  GKPushAnimatedTransition.h
 //  GKNavigationBar
 //
-//  Created by gaokun on 2019/10/30.
+//  Created by QuintGao on 2019/10/30.
 //  Copyright © 2019 QuintGao. All rights reserved.
 //
 

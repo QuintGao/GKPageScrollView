@@ -37,7 +37,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
     lazy var headerView: UIView = {
         let headerImg = UIImage(named: "wb_find")
         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: (kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!) + GKDevice.statusBarFrame().size.height))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: (kScreenW * (headerImg?.size.height)! / (headerImg?.size.width)!) + UIDevice.statusBarFrame().size.height))
         
         let imgView = UIImageView()
         imgView.image = headerImg
@@ -237,7 +237,7 @@ class GKWBFindViewController: GKDemoBaseViewController {
         if headerView.bounds.width == view.bounds.width { return }
         
         let headerImg = UIImage(named: "wb_find")
-        headerView.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.width * (headerImg?.size.height)! / (headerImg?.size.width)! + GKDevice.statusBarFrame().size.height)
+        headerView.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.width * (headerImg?.size.height)! / (headerImg?.size.width)! + UIDevice.statusBarFrame().size.height)
         segmentedView.frame = CGRectMake(0, 0, view.bounds.width, 54.0)
         categoryView.reloadData()
         pageScrollView.reloadData()
@@ -330,7 +330,7 @@ extension GKWBFindViewController: GKPageScrollViewDelegate {
         
         var alpha: CGFloat = 0;
         
-        let statusBarH = GKDevice.statusBarFrame().size.height
+        let statusBarH = UIDevice.statusBarFrame().size.height
         
         if (offsetY <= statusBarH) { // alpha: 0
             alpha = 0;

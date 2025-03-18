@@ -71,12 +71,23 @@
 }
 
 - (UIViewController *)visibleViewController {
-    return [[GKNavigationBarConfigure keyWindow].rootViewController gk_findCurrentViewControllerIsRoot:YES];
-}  
+    return [[UIDevice keyWindow].rootViewController gk_findCurrentViewControllerIsRoot:YES];
+}
 
 - (CGFloat)gk_fixedSpace {
-    // 经测试发现iPhone 12和iPhone 12 Pro，iPhone 14 Pro默认导航栏间距是16，需要单独处理
-    if ([GKNavigationBarConfigure is61InchScreenAndiPhone12Later] || [GKNavigationBarConfigure is61InchScreenAndiPhone14Pro]) return 16;
+    // 经测试发现iPhone 12 和 12 Pro 到 16 和 16 Pro，默认导航栏间距都是16，所以做下处理
+    // 12 / 13 / 14 / 12 Pro / 13 Pro
+    if ([UIDevice is61InchScreenAndiPhone12Later]) {
+        return 16;
+    }
+    // 14 Pro / 15 / 16 / 15 Pro
+    if ([UIDevice is61InchScreenAndiPhone14ProLater]) {
+        return 16;
+    }
+    // 16 Pro
+    if ([UIDevice is63InchScreen]) {
+        return 16;
+    }
     return GK_DEVICE_WIDTH > 375.0f ? 20 : 16;
 }
 
@@ -108,7 +119,7 @@
 
 @end
 
-@implementation GKNavigationBarConfigure (UIDevice)
+@implementation UIDevice (GKNavigationBar)
 
 + (NSString *)deviceModel {
     if ([self isSimulator]) {
@@ -121,6 +132,236 @@
     struct utsname systemInfo;
     uname(&systemInfo);
     return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+}
+
++ (NSString *)deviceName {
+    static dispatch_once_t onceToken;
+    static NSString *name;
+    dispatch_once(&onceToken, ^{
+        NSString *model = [self deviceModel];
+        if (!model) {
+            name = @"Unknown Device";
+            return;
+        }
+        
+        NSDictionary *dict = @{
+            // See https://gist.github.com/adamawolf/3048717
+            @"iPhone1,1" : @"iPhone 1G",
+            @"iPhone1,2" : @"iPhone 3G",
+            @"iPhone2,1" : @"iPhone 3GS",
+            @"iPhone3,1" : @"iPhone 4 (GSM)",
+            @"iPhone3,2" : @"iPhone 4",
+            @"iPhone3,3" : @"iPhone 4 (CDMA)",
+            @"iPhone4,1" : @"iPhone 4S",
+            @"iPhone5,1" : @"iPhone 5",
+            @"iPhone5,2" : @"iPhone 5",
+            @"iPhone5,3" : @"iPhone 5c",
+            @"iPhone5,4" : @"iPhone 5c",
+            @"iPhone6,1" : @"iPhone 5s",
+            @"iPhone6,2" : @"iPhone 5s",
+            @"iPhone7,1" : @"iPhone 6 Plus",
+            @"iPhone7,2" : @"iPhone 6",
+            @"iPhone8,1" : @"iPhone 6s",
+            @"iPhone8,2" : @"iPhone 6s Plus",
+            @"iPhone8,4" : @"iPhone SE",
+            @"iPhone9,1" : @"iPhone 7",
+            @"iPhone9,2" : @"iPhone 7 Plus",
+            @"iPhone9,3" : @"iPhone 7",
+            @"iPhone9,4" : @"iPhone 7 Plus",
+            @"iPhone10,1" : @"iPhone 8",
+            @"iPhone10,2" : @"iPhone 8 Plus",
+            @"iPhone10,3" : @"iPhone X",
+            @"iPhone10,4" : @"iPhone 8",
+            @"iPhone10,5" : @"iPhone 8 Plus",
+            @"iPhone10,6" : @"iPhone X",
+            @"iPhone11,2" : @"iPhone XS",
+            @"iPhone11,4" : @"iPhone XS Max",
+            @"iPhone11,6" : @"iPhone XS Max CN",
+            @"iPhone11,8" : @"iPhone XR",
+            @"iPhone12,1" : @"iPhone 11",
+            @"iPhone12,3" : @"iPhone 11 Pro",
+            @"iPhone12,5" : @"iPhone 11 Pro Max",
+            @"iPhone12,8" : @"iPhone SE (2nd generation)",
+            @"iPhone13,1" : @"iPhone 12 mini",
+            @"iPhone13,2" : @"iPhone 12",
+            @"iPhone13,3" : @"iPhone 12 Pro",
+            @"iPhone13,4" : @"iPhone 12 Pro Max",
+            @"iPhone14,4" : @"iPhone 13 mini",
+            @"iPhone14,5" : @"iPhone 13",
+            @"iPhone14,2" : @"iPhone 13 Pro",
+            @"iPhone14,3" : @"iPhone 13 Pro Max",
+            @"iPhone14,7" : @"iPhone 14",
+            @"iPhone14,8" : @"iPhone 14 Plus",
+            @"iPhone15,2" : @"iPhone 14 Pro",
+            @"iPhone15,3" : @"iPhone 14 Pro Max",
+            @"iPhone15,4" : @"iPhone 15",
+            @"iPhone15,5" : @"iPhone 15 Plus",
+            @"iPhone16,1" : @"iPhone 15 Pro",
+            @"iPhone16,2" : @"iPhone 15 Pro Max",
+            @"iPhone17,1" : @"iPhone 16 Pro",
+            @"iPhone17,2" : @"iPhone 16 Pro Max",
+            @"iPhone17,3" : @"iPhone 16",
+            @"iPhone17,4" : @"iPhone 16 Plus",
+            
+            @"iPad1,1" : @"iPad 1",
+            @"iPad2,1" : @"iPad 2 (WiFi)",
+            @"iPad2,2" : @"iPad 2 (GSM)",
+            @"iPad2,3" : @"iPad 2 (CDMA)",
+            @"iPad2,4" : @"iPad 2",
+            @"iPad2,5" : @"iPad mini 1",
+            @"iPad2,6" : @"iPad mini 1",
+            @"iPad2,7" : @"iPad mini 1",
+            @"iPad3,1" : @"iPad 3 (WiFi)",
+            @"iPad3,2" : @"iPad 3 (4G)",
+            @"iPad3,3" : @"iPad 3 (4G)",
+            @"iPad3,4" : @"iPad 4",
+            @"iPad3,5" : @"iPad 4",
+            @"iPad3,6" : @"iPad 4",
+            @"iPad4,1" : @"iPad Air",
+            @"iPad4,2" : @"iPad Air",
+            @"iPad4,3" : @"iPad Air",
+            @"iPad4,4" : @"iPad mini 2",
+            @"iPad4,5" : @"iPad mini 2",
+            @"iPad4,6" : @"iPad mini 2",
+            @"iPad4,7" : @"iPad mini 3",
+            @"iPad4,8" : @"iPad mini 3",
+            @"iPad4,9" : @"iPad mini 3",
+            @"iPad5,1" : @"iPad mini 4",
+            @"iPad5,2" : @"iPad mini 4",
+            @"iPad5,3" : @"iPad Air 2",
+            @"iPad5,4" : @"iPad Air 2",
+            @"iPad6,3" : @"iPad Pro (9.7 inch)",
+            @"iPad6,4" : @"iPad Pro (9.7 inch)",
+            @"iPad6,7" : @"iPad Pro (12.9 inch)",
+            @"iPad6,8" : @"iPad Pro (12.9 inch)",
+            @"iPad6,11": @"iPad 5 (WiFi)",
+            @"iPad6,12": @"iPad 5 (Cellular)",
+            @"iPad7,1" : @"iPad Pro (12.9 inch, 2nd generation)",
+            @"iPad7,2" : @"iPad Pro (12.9 inch, 2nd generation)",
+            @"iPad7,3" : @"iPad Pro (10.5 inch)",
+            @"iPad7,4" : @"iPad Pro (10.5 inch)",
+            @"iPad7,5" : @"iPad 6 (WiFi)",
+            @"iPad7,6" : @"iPad 6 (Cellular)",
+            @"iPad7,11": @"iPad 7 (WiFi)",
+            @"iPad7,12": @"iPad 7 (Cellular)",
+            @"iPad8,1" : @"iPad Pro (11 inch)",
+            @"iPad8,2" : @"iPad Pro (11 inch)",
+            @"iPad8,3" : @"iPad Pro (11 inch)",
+            @"iPad8,4" : @"iPad Pro (11 inch)",
+            @"iPad8,5" : @"iPad Pro (12.9 inch, 3rd generation)",
+            @"iPad8,6" : @"iPad Pro (12.9 inch, 3rd generation)",
+            @"iPad8,7" : @"iPad Pro (12.9 inch, 3rd generation)",
+            @"iPad8,8" : @"iPad Pro (12.9 inch, 3rd generation)",
+            @"iPad8,9" : @"iPad Pro (11 inch, 2nd generation)",
+            @"iPad8,10" : @"iPad Pro (11 inch, 2nd generation)",
+            @"iPad8,11" : @"iPad Pro (12.9 inch, 4th generation)",
+            @"iPad8,12" : @"iPad Pro (12.9 inch, 4th generation)",
+            @"iPad11,1" : @"iPad mini (5th generation)",
+            @"iPad11,2" : @"iPad mini (5th generation)",
+            @"iPad11,3" : @"iPad Air (3rd generation)",
+            @"iPad11,4" : @"iPad Air (3rd generation)",
+            @"iPad11,6" : @"iPad (WiFi)",
+            @"iPad11,7" : @"iPad (Cellular)",
+            @"iPad13,1" : @"iPad Air (4th generation)",
+            @"iPad13,2" : @"iPad Air (4th generation)",
+            @"iPad13,4" : @"iPad Pro (11 inch, 3rd generation)",
+            @"iPad13,5" : @"iPad Pro (11 inch, 3rd generation)",
+            @"iPad13,6" : @"iPad Pro (11 inch, 3rd generation)",
+            @"iPad13,7" : @"iPad Pro (11 inch, 3rd generation)",
+            @"iPad13,8" : @"iPad Pro (12.9 inch, 5th generation)",
+            @"iPad13,9" : @"iPad Pro (12.9 inch, 5th generation)",
+            @"iPad13,10" : @"iPad Pro (12.9 inch, 5th generation)",
+            @"iPad13,11" : @"iPad Pro (12.9 inch, 5th generation)",
+            @"iPad14,1" : @"iPad mini (6th generation)",
+            @"iPad14,2" : @"iPad mini (6th generation)",
+            @"iPad14,3" : @"iPad Pro 11 inch 4th Gen",
+            @"iPad14,4" : @"iPad Pro 11 inch 4th Gen",
+            @"iPad14,5" : @"iPad Pro 12.9 inch 6th Gen",
+            @"iPad14,6" : @"iPad Pro 12.9 inch 6th Gen",
+            @"iPad14,8" : @"iPad Air 6th Gen",
+            @"iPad14,9" : @"iPad Air 6th Gen",
+            @"iPad14,10" : @"iPad Air 7th Gen",
+            @"iPad14,11" : @"iPad Air 7th Gen",
+            @"iPad16,3" : @"iPad Pro 11 inch 5th Gen",
+            @"iPad16,4" : @"iPad Pro 11 inch 5th Gen",
+            @"iPad16,5" : @"iPad Pro 12.9 inch 7th Gen",
+            @"iPad16,6" : @"iPad Pro 12.9 inch 7th Gen",
+            
+            @"iPod1,1" : @"iPod touch 1",
+            @"iPod2,1" : @"iPod touch 2",
+            @"iPod3,1" : @"iPod touch 3",
+            @"iPod4,1" : @"iPod touch 4",
+            @"iPod5,1" : @"iPod touch 5",
+            @"iPod7,1" : @"iPod touch 6",
+            @"iPod9,1" : @"iPod touch 7",
+            
+            @"i386" : @"Simulator x86",
+            @"x86_64" : @"Simulator x64",
+            
+            @"Watch1,1" : @"Apple Watch 38mm",
+            @"Watch1,2" : @"Apple Watch 42mm",
+            @"Watch2,3" : @"Apple Watch Series 2 38mm",
+            @"Watch2,4" : @"Apple Watch Series 2 42mm",
+            @"Watch2,6" : @"Apple Watch Series 1 38mm",
+            @"Watch2,7" : @"Apple Watch Series 1 42mm",
+            @"Watch3,1" : @"Apple Watch Series 3 38mm",
+            @"Watch3,2" : @"Apple Watch Series 3 42mm",
+            @"Watch3,3" : @"Apple Watch Series 3 38mm (LTE)",
+            @"Watch3,4" : @"Apple Watch Series 3 42mm (LTE)",
+            @"Watch4,1" : @"Apple Watch Series 4 40mm",
+            @"Watch4,2" : @"Apple Watch Series 4 44mm",
+            @"Watch4,3" : @"Apple Watch Series 4 40mm (LTE)",
+            @"Watch4,4" : @"Apple Watch Series 4 44mm (LTE)",
+            @"Watch5,1" : @"Apple Watch Series 5 40mm",
+            @"Watch5,2" : @"Apple Watch Series 5 44mm",
+            @"Watch5,3" : @"Apple Watch Series 5 40mm (LTE)",
+            @"Watch5,4" : @"Apple Watch Series 5 44mm (LTE)",
+            @"Watch5,9" : @"Apple Watch SE 40mm",
+            @"Watch5,10" : @"Apple Watch SE 44mm",
+            @"Watch5,11" : @"Apple Watch SE 40mm",
+            @"Watch5,12" : @"Apple Watch SE 44mm",
+            @"Watch6,1"  : @"Apple Watch Series 6 40mm",
+            @"Watch6,2"  : @"Apple Watch Series 6 44mm",
+            @"Watch6,3"  : @"Apple Watch Series 6 40mm",
+            @"Watch6,4"  : @"Apple Watch Series 6 44mm",
+            @"Watch6,6" : @"Apple Watch Series 7 41mm case (GPS)",
+            @"Watch6,7" : @"Apple Watch Series 7 45mm case (GPS)",
+            @"Watch6,8" : @"Apple Watch Series 7 41mm case (GPS+Cellular)",
+            @"Watch6,9" : @"Apple Watch Series 7 45mm case (GPS+Cellular)",
+            @"Watch6,10" : @"Apple Watch SE 40mm case (GPS)",
+            @"Watch6,11" : @"Apple Watch SE 44mm case (GPS)",
+            @"Watch6,12" : @"Apple Watch SE 40mm case (GPS+Cellular)",
+            @"Watch6,13" : @"Apple Watch SE 44mm case (GPS+Cellular)",
+            @"Watch6,14" : @"Apple Watch Series 8 41mm case (GPS)",
+            @"Watch6,15" : @"Apple Watch Series 8 45mm case (GPS)",
+            @"Watch6,16" : @"Apple Watch Series 8 41mm case (GPS+Cellular)",
+            @"Watch6,17" : @"Apple Watch Series 8 45mm case (GPS+Cellular)",
+            @"Watch6,18" : @"Apple Watch Ultra",
+            @"Watch7,1" : @"Apple Watch Series 9 41mm case (GPS)",
+            @"Watch7,2" : @"Apple Watch Series 9 45mm case (GPS)",
+            @"Watch7,3" : @"Apple Watch Series 9 41mm case (GPS+Cellular)",
+            @"Watch7,4" : @"Apple Watch Series 9 45mm case (GPS+Cellular)",
+            @"Watch7,5" : @"Apple Watch Ultra 2",
+            
+            @"AudioAccessory1,1" : @"HomePod",
+            @"AudioAccessory1,2" : @"HomePod",
+            @"AudioAccessory5,1" : @"HomePod mini",
+            
+            @"AirPods1,1" : @"AirPods (1st generation)",
+            @"AirPods2,1" : @"AirPods (2nd generation)",
+            @"iProd8,1"   : @"AirPods Pro",
+            
+            @"AppleTV2,1" : @"Apple TV 2",
+            @"AppleTV3,1" : @"Apple TV 3",
+            @"AppleTV3,2" : @"Apple TV 3",
+            @"AppleTV5,3" : @"Apple TV 4",
+            @"AppleTV6,2" : @"Apple TV 4K",
+        };
+        name = dict[model];
+        if (!name) name = model;
+        if ([self isSimulator]) name = [name stringByAppendingString:@" Simulator"];
+    });
+    return name;
 }
 
 + (BOOL)isZoomedMode {
@@ -190,6 +431,30 @@ static NSInteger isSimulator = -1;
     return NO;
 }
 
+
+//@"iPhone15,2" : @"iPhone 14 Pro",
+//@"iPhone15,3" : @"iPhone 14 Pro Max",
+//@"iPhone15,4" : @"iPhone 15",
+//@"iPhone15,5" : @"iPhone 15 Plus",
+//@"iPhone16,1" : @"iPhone 15 Pro",
+//@"iPhone16,2" : @"iPhone 15 Pro Max",
+//@"iPhone17,1" : @"iPhone 16 Pro",
+//@"iPhone17,2" : @"iPhone 16 Pro Max",
+//@"iPhone17,3" : @"iPhone 16",
+//@"iPhone17,4" : @"iPhone 16 Plus",
+static NSInteger isDynamicIslandScreen = -1;
++ (BOOL)isDynamicIslandScreen {
+    if (![self isIPhone]) return NO;
+    if (isDynamicIslandScreen < 0) {
+        NSArray *models = @[@"iPhone 14 Pro", @"iPhone 15", @"iPhone 16"];
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return [evaluatedObject isKindOfClass:NSString.class] && [[self deviceName] hasPrefix:evaluatedObject];
+        }];
+        isDynamicIslandScreen = [models filteredArrayUsingPredicate:predicate].count > 0 ? 1 : 0;
+    }
+    return isDynamicIslandScreen > 0;
+}
+
 static NSInteger isNotchedScreen = -1;
 + (BOOL)isNotchedScreen {
     if (isNotchedScreen < 0) {
@@ -236,15 +501,26 @@ static NSInteger isNotchedScreen = -1;
 }
 
 + (BOOL)isRegularScreen {
-    return [self isIPad] || (![self isZoomedMode] && ([self is67InchScreenAndiPhone14ProMax] || [self is67InchScreen] || [self is65InchScreen] || [self is61InchScreen] || [self is55InchScreen]));
+    if ([self isDynamicIslandScreen]) {
+        return YES;
+    }
+    return [self isIPad] || (![self isZoomedMode] && ([self is67InchScreenAndiPhone14Later] || [self is67InchScreen] || [self is65InchScreen] || [self is61InchScreen] || [self is55InchScreen]));
 }
 
-static NSInteger is67InchScreenAndiPhone14ProMax = -1;
-+ (BOOL)is67InchScreenAndiPhone14ProMax {
-    if (is67InchScreenAndiPhone14ProMax < 0) {
-        is67InchScreenAndiPhone14ProMax = (GK_DEVICE_WIDTH == self.screenSizeFor67InchAndiPhone14ProMax.width && GK_DEVICE_HEIGHT == self.screenSizeFor67InchAndiPhone14ProMax.height) ? 1 : 0;
+static NSInteger is69InchScreen = -1;
++ (BOOL)is69InchScreen {
+    if (is69InchScreen < 0) {
+        is69InchScreen = (GK_DEVICE_WIDTH == self.screenSizeFor69Inch.width && GK_DEVICE_HEIGHT == self.screenSizeFor69Inch.height) ? 1 : 0;
     }
-    return is67InchScreenAndiPhone14ProMax > 0;
+    return is69InchScreen > 0;
+}
+
+static NSInteger is67InchScreenAndiPhone14Later = -1;
++ (BOOL)is67InchScreenAndiPhone14Later {
+    if (is67InchScreenAndiPhone14Later < 0) {
+        is67InchScreenAndiPhone14Later = (GK_DEVICE_WIDTH == self.screenSizeFor67InchAndiPhone14Later.width && GK_DEVICE_HEIGHT == self.screenSizeFor67InchAndiPhone14Later.height) ? 1 : 0;
+    }
+    return is67InchScreenAndiPhone14Later > 0;
 }
 
 static NSInteger is67InchScreen = -1;
@@ -265,12 +541,20 @@ static NSInteger is65InchScreen = -1;
     return is65InchScreen > 0;
 }
 
-static NSInteger is61InchScreenAndiPhone14Pro = -1;
-+ (BOOL)is61InchScreenAndiPhone14Pro {
-    if (is61InchScreenAndiPhone14Pro < 0) {
-        is61InchScreenAndiPhone14Pro = (GK_DEVICE_WIDTH == self.screenSizeFor61InchAndiPhone14Pro.width && GK_DEVICE_HEIGHT == self.screenSizeFor61InchAndiPhone14Pro.height) ? 1 : 0;
+static NSInteger is63InchScreen = -1;
++ (BOOL)is63InchScreen {
+    if (is63InchScreen < 0) {
+        is63InchScreen = (GK_DEVICE_WIDTH == self.screenSizeFor63Inch.width && GK_DEVICE_HEIGHT == self.screenSizeFor63Inch.height) ? 1 : 0;
     }
-    return is61InchScreenAndiPhone14Pro > 0;
+    return is63InchScreen > 0;
+}
+
+static NSInteger is61InchScreenAndiPhone14ProLater = -1;
++ (BOOL)is61InchScreenAndiPhone14ProLater {
+    if (is61InchScreenAndiPhone14ProLater < 0) {
+        is61InchScreenAndiPhone14ProLater = (GK_DEVICE_WIDTH == self.screenSizeFor61InchAndiPhone14ProLater.width && GK_DEVICE_HEIGHT == self.screenSizeFor61InchAndiPhone14ProLater.height) ? 1 : 0;
+    }
+    return is61InchScreenAndiPhone14ProLater > 0;
 }
 
 static NSInteger is61InchScreenAndiPhone12Later = -1;
@@ -340,7 +624,11 @@ static NSInteger is35InchScreen = -1;
     return is35InchScreen > 0;
 }
 
-+ (CGSize)screenSizeFor67InchAndiPhone14ProMax {
++ (CGSize)screenSizeFor69Inch {
+    return CGSizeMake(440, 956);
+}
+
++ (CGSize)screenSizeFor67InchAndiPhone14Later {
     return CGSizeMake(430, 932);
 }
 
@@ -352,7 +640,11 @@ static NSInteger is35InchScreen = -1;
     return CGSizeMake(414, 896);
 }
 
-+ (CGSize)screenSizeFor61InchAndiPhone14Pro {
++ (CGSize)screenSizeFor63Inch {
+    return CGSizeMake(402, 874);
+}
+
++ (CGSize)screenSizeFor61InchAndiPhone14ProLater {
     return CGSizeMake(393, 852);
 }
 
@@ -399,8 +691,98 @@ static NSInteger is35InchScreen = -1;
     }
 }
 
++ (CGFloat)navBarHeightForPortrait {
+    if ([self isIPad]) {
+        return GK_SYSTEM_VERSION >= 12.0 ? 50 : 44;
+    }
+    return 44;
+}
+
 + (CGFloat)navBarHeight_nonFullScreen {
     return 56;
+}
+
++ (CGFloat)navBarFullHeight {
+    NSString *deviceModel = [self deviceModel];
+    CGFloat pixelOne = 1.0 / UIScreen.mainScreen.scale;
+    CGFloat result = [self statusBarFullHeight];
+    if (isIPad) {
+        result += 50;
+    }else if (GK_IS_LANDSCAPE) {
+        result += ([self isRegularScreen] ? 44 : 32);
+    }else {
+        result += 44;
+        if ([deviceModel isEqualToString:@"iPhone17,1"] || [deviceModel isEqualToString:@"iPhone17,2"]) { // 16 Pro / 16 Pro Max
+            result += (2 + pixelOne); // 56.333
+        }else if ([self isDynamicIslandScreen]) {
+            result -= pixelOne;  //53.667
+        }
+    }
+    return result;
+}
+
++ (CGFloat)navBarFullHeightForPortrait {
+    NSString *deviceModel = [self deviceModel];
+    CGFloat pixelOne = 1.0 / UIScreen.mainScreen.scale;
+    CGFloat result = [self statusBarHeightForPortrait];
+    if (isIPad) {
+        result += 50;
+    }else {
+        result += 44;
+        if ([deviceModel isEqualToString:@"iPhone17,1"] || [deviceModel isEqualToString:@"iPhone17,2"]) { // 16 Pro / 16 Pro Max
+            result += (2 + pixelOne); // 56.333
+        }else if ([self isDynamicIslandScreen]) {
+            result -= pixelOne;  //53.667
+        }
+    }
+    return result;
+}
+
++ (CGFloat)statusBarFullHeight {
+    if (!UIApplication.sharedApplication.statusBarHidden) {
+        return UIApplication.sharedApplication.statusBarFrame.size.height;
+    }
+    if ([self isIPad]) {
+        return [self isNotchedScreen] ? 24 : 20;
+    }
+    if (![self isNotchedScreen]) {
+        return 20;
+    }
+    if (GK_IS_LANDSCAPE) {
+        return 0;
+    }
+    return [self statusBarHeightForPortrait];
+}
+
++ (CGFloat)statusBarHeightForPortrait {
+    if ([self isIPad]) {
+        return [self isNotchedScreen] ? 24 : 20;
+    }
+    if (![self isNotchedScreen]) {
+        return 20;
+    }
+    if ([[self deviceModel] isEqualToString:@"iPhone12,1"]) {
+        // iPhone 13 Mini
+        return 48;
+    }
+    if ([self isDynamicIslandScreen]) {
+        return 54;
+    }
+    if ([self is61InchScreenAndiPhone12Later] || [self is67InchScreen]) {
+        return 47;
+    }
+    
+    // iPhone XR/11 在iOS14之后状态栏高度为48，之前为44
+    if ([self is61InchScreen]) {
+        if (@available(iOS 14.0, *)) {
+            return 48;
+        }else {
+            return 44;
+        }
+    }
+    
+    double version = UIDevice.currentDevice.systemVersion.doubleValue;
+    return ([self is54InchScreen] && version >= 15.0) ? 50 : 44;
 }
 
 static CGFloat tabBarHeight = -1;
@@ -515,6 +897,62 @@ static CGFloat tabBarHeight = -1;
     static NSDictionary<NSString *, NSDictionary<NSNumber *, NSValue *> *> *dict;
     if (!dict) {
         dict = @{
+            // iPhone 16 Pro
+            @"iPhone17,1": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(62, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 62, 21, 62)],
+            },
+            // iPhone 16 Pro Max
+            @"iPhone17,2": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(62, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 62, 21, 62)],
+            },
+            // iPhone 16
+            @"iPhone17,3": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
+            },
+            // iPhone 16 Plus
+            @"iPhone17,4": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
+            },
+            // iPhone 15
+            @"iPhone15,4": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 47, 21, 47)],
+            },
+            @"iPhone15,4-Zoom": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(48, 0, 28, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 48, 21, 48)],
+            },
+            // iPhone 15 Plus
+            @"iPhone15,5": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 47, 21, 47)],
+            },
+            @"iPhone15,5-Zoom": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(41, 0, 30, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 41, 21, 41)],
+            },
+            // iPhone 15 Pro
+            @"iPhone16,1": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
+            },
+            @"iPhone16,1-Zoom": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(48, 0, 28, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 48, 21, 48)],
+            },
+            // iPhone 15 Pro Max
+            @"iPhone16,2": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
+            },
+            @"iPhone16,2-Zoom": @{
+                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(51, 0, 31, 0)],
+                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 51, 21, 51)],
+            },
             // iPhone 14
             @"iPhone14,7": @{
                 @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],

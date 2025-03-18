@@ -270,6 +270,13 @@ open class GKPageListContainerView: UIView {
         }
     }
     
+    public func selectItem(at index: Int, animated: Bool) {
+        if currentIndex == index { return }
+        let offset = CGPointMake(CGFloat(index) * scrollView.bounds.width, 0)
+        scrollView.setContentOffset(offset, animated: animated)
+        didClickSelectedItem(at: index)
+    }
+    
     // MARK: - ListContainer
     public func contentScrollView() -> UIScrollView {
         return scrollView

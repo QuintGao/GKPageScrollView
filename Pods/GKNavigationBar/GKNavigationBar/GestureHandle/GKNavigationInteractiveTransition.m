@@ -1,8 +1,8 @@
 //
 //  GKNavigationInteractiveTransition.m
-//  GKNavigationBarExample
+//  GKNavigationBar
 //
-//  Created by gaokun on 2020/11/24.
+//  Created by QuintGao on 2020/11/24.
 //  Copyright © 2020 QuintGao. All rights reserved.
 //
 
@@ -226,7 +226,9 @@
         }
     }else if (transition.x > 0) { // 右滑
         if (!visibleVC.gk_systemGestureHandleDisabled) {
-            [gestureRecognizer addTarget:self.systemTarget action:self.systemAction];
+            if (!self.navigationController.gk_transitionScale) {//没有开启缩放, 添加系统处理
+                [gestureRecognizer addTarget:self.systemTarget action:self.systemAction];
+            }
             BOOL shouldPop = [visibleVC navigationShouldPop];
             if ([visibleVC respondsToSelector:@selector(navigationShouldPopOnGesture)]) {
                 shouldPop = [visibleVC navigationShouldPopOnGesture];

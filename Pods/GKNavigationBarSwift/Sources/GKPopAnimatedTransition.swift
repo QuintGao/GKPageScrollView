@@ -65,22 +65,23 @@ open class GKPopAnimatedTransition: GKBaseAnimatedTransition {
             }
         }) { (finished) in
             if self.isHideTabBar {
-                self.toViewController.gk_captureImage = nil
-                if (self.transitionContext.transitionWasCancelled) {
-                    self.toViewController.view.removeFromSuperview()
-                }else {
-                    self.containerView.addSubview(self.toViewController.view)
-                }
-                toView.transform = .identity
-                toView.removeFromSuperview()
-                
-                if (captureView != nil) {
-                    captureView?.removeFromSuperview()
-                    captureView = nil
-                }
                 if (self.toViewController.navigationController?.children.count == 1) {
                     tabBar?.isHidden = false
                 }
+            }
+            
+            if (self.transitionContext.transitionWasCancelled) {
+                self.toViewController.view.removeFromSuperview()
+            }else {
+                self.toViewController.gk_captureImage = nil
+                self.containerView.addSubview(self.toViewController.view)
+            }
+            toView.transform = .identity
+            toView.removeFromSuperview()
+            
+            if (captureView != nil) {
+                captureView?.removeFromSuperview()
+                captureView = nil
             }
             
             if self.isScale {

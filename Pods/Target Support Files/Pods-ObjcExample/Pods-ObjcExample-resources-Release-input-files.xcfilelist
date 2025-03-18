@@ -1,5 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-ObjcExample/Pods-ObjcExample-resources.sh
-${PODS_ROOT}/GKNavigationBar/GKNavigationBar/NavigationBar/GKNavigationBar.bundle
+${PODS_ROOT}/GKNavigationBar/GKNavigationBar/GKNavigationBar.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/GKNavigationBar/GKNavigationBar.privacy.bundle
 ${PODS_CONFIGURATION_BUILD_DIR}/GKPageScrollView/GKPageScrollView.bundle
 ${PODS_CONFIGURATION_BUILD_DIR}/GKPageSmoothView/GKPageSmoothView.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/JXCategoryViewExt/JXCategoryViewExt.bundle
 ${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle

@@ -79,6 +79,9 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 /// @param isOnTop 是否通过拖拽滑动到顶部
 - (void)smoothViewDragEnded:(GKPageSmoothView *)smoothView isOnTop:(BOOL)isOnTop;
 
+/// 列表选中回调
+- (void)smoothView:(GKPageSmoothView *)smoothView listDidAppearAtIndex:(NSInteger)index;
+
 @end
 
 @interface GKPageSmoothView : UIView
@@ -171,5 +174,8 @@ typedef NS_ENUM(NSUInteger, GKPageSmoothHoverType) {
 
 /// 显示在底部
 - (void)showingOnBottom;
+
+/// 选中指定索引对应的列表
+- (void)selectListWithIndex:(NSInteger)index animated:(BOOL)animated;
 
 @end
